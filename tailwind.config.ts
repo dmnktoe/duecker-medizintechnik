@@ -10,7 +10,6 @@ export default {
       },
       colors: {
         primary: {
-          // Customize it on globals.css :root
           50: 'rgb(var(--tw-color-primary-50) / <alpha-value>)',
           100: 'rgb(var(--tw-color-primary-100) / <alpha-value>)',
           200: 'rgb(var(--tw-color-primary-200) / <alpha-value>)',
@@ -49,6 +48,12 @@ export default {
       animation: {
         flicker: 'flicker 3s linear infinite',
         shimmer: 'shimmer 1.3s linear infinite',
+      },
+      backgroundImage: {
+        'spotlight-hover':
+          'radial-gradient(800px circle at var(--cursor-x) var(--cursor-y), rgba(255, 255, 255, 0.06), transparent 40%)',
+        'spotlight-borders':
+          'radial-gradient(600px circle at var(--cursor-x) var(--cursor-y), rgba(255, 255, 255, 0.4), transparent 40%)',
       },
     },
   },
