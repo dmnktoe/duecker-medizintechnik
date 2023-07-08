@@ -1,7 +1,9 @@
 {
-  "name": "ts-nextjs-tailwind-starter",
+  "name": "duecker-medizintechnik",
   "version": "0.1.0",
   "private": true,
+  "author": "Domenik Toefflinger",
+  "description": "Website for Duecker Medizintechnik",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
