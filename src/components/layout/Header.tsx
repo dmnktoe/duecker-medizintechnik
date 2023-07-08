@@ -1,31 +1,101 @@
+import clsx from 'clsx';
 import * as React from 'react';
+import { useEffect, useState } from 'react';
 
+import { HamburgerIcon } from '@/components/icons/hamburger';
+import { Logo } from '@/components/icons/logo';
+import { Container } from '@/components/layout/Container';
+import ButtonLink from '@/components/links/ButtonLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
 
-const links = [
-  { href: '/', label: 'Route 1' },
-  { href: '/', label: 'Route 2' },
-];
+export const Header = () => {
+  const [hamburgerMenuIsOpen, setHamburgerMenuIsOpen] = useState(false);
 
-export default function Header() {
+  useEffect(() => {
+    const html = document.querySelector('html');
+    if (html) html.classList.toggle('overflow-hidden', hamburgerMenuIsOpen);
+  }, [hamburgerMenuIsOpen]);
+
+  useEffect(() => {
+    const closeHamburgerNavigation = () => setHamburgerMenuIsOpen(false);
+
+    window.addEventListener('orientationchange', closeHamburgerNavigation);
+    window.addEventListener('resize', closeHamburgerNavigation);
+
+    return () => {
+      window.removeEventListener('orientationchange', closeHamburgerNavigation);
+      window.removeEventListener('resize', closeHamburgerNavigation);
+    };
+  }, [setHamburgerMenuIsOpen]);
+
   return (
-    <header className='sticky top-0 z-50 bg-white'>
-      <div className='layout flex h-14 items-center justify-between'>
-        <UnstyledLink href='/' className='font-bold hover:text-gray-600'>
-          Home
+    <header className='border-transparent-white fixed left-0 top-0 z-30 w-full border-b backdrop-blur-[12px]'>
+      <Container className='h-navigation-height flex'>
+        <UnstyledLink className='text-md flex items-center' href='/'>
+          <Logo className='text-primary-500 mr-4 w-[10rem]' />
         </UnstyledLink>
-        <nav>
-          <ul className='flex items-center justify-between space-x-4'>
-            {links.map(({ href, label }) => (
-              <li key={`${href}${label}`}>
-                <UnstyledLink href={href} className='hover:text-gray-600'>
-                  {label}
-                </UnstyledLink>
+
+        <div
+          className={clsx(
+            'transition-[visibility] md:visible',
+            hamburgerMenuIsOpen ? 'visible' : 'invisible delay-500'
+          )}
+        >
+          <nav
+            className={clsx(
+              'top-navigation-height bg-background fixed left-0 h-[calc(100vh_-_var(--navigation-height))] w-full overflow-auto transition-opacity duration-500 md:relative md:top-0 md:block md:h-auto md:w-auto md:translate-x-0 md:overflow-hidden md:bg-transparent md:opacity-100 md:transition-none',
+              hamburgerMenuIsOpen
+                ? 'translate-x-0 opacity-100'
+                : 'translate-x-[-100vw] opacity-0'
+            )}
+          >
+            <ul
+              className={clsx(
+                '[&_li]:border-grey-dark flex h-full flex-col md:flex-row md:items-center [&_li]:ml-6 [&_li]:border-b md:[&_li]:border-none',
+                '[&_a:hover]:text-grey [&_a]:h-navigation-height ease-in [&_a]:flex [&_a]:w-full [&_a]:translate-y-8 [&_a]:items-center [&_a]:text-lg [&_a]:transition-[color,transform] [&_a]:duration-300 md:[&_a]:translate-y-0 md:[&_a]:text-sm [&_a]:md:transition-colors',
+                hamburgerMenuIsOpen && '[&_a]:translate-y-0'
+              )}
+            >
+              <li>
+                <UnstyledLink href='#'>Features</UnstyledLink>
               </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
+              <li>
+                <UnstyledLink href='#'>Method</UnstyledLink>
+              </li>
+              <li className='md:hidden lg:block'>
+                <UnstyledLink href='#'>Customers</UnstyledLink>
+              </li>
+              <li className='md:hidden lg:block'>
+                <UnstyledLink href='#'>Changelog</UnstyledLink>
+              </li>
+              <li className='md:hidden lg:block'>
+                <UnstyledLink href='#'>Integrations</UnstyledLink>
+              </li>
+              <li>
+                <UnstyledLink href='#'>Pricing</UnstyledLink>
+              </li>
+              <li>
+                <UnstyledLink href='#'>Company</UnstyledLink>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <div className='ml-auto flex h-full items-center'>
+          <UnstyledLink className='mr-6 text-sm' href='#'>
+            Log in
+          </UnstyledLink>
+          <ButtonLink href='#'>Sign up</ButtonLink>
+        </div>
+
+        <button
+          className='ml-6 md:hidden'
+          onClick={() => setHamburgerMenuIsOpen((open) => !open)}
+        >
+          <span className='sr-only'>Toggle menu</span>
+          <HamburgerIcon />
+        </button>
+      </Container>
     </header>
   );
-}
+};
