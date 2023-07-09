@@ -6,7 +6,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        primary: ['Inter', ...defaultTheme.fontFamily.sans],
+        primary: ['Manrope', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         primary: {
@@ -23,7 +23,6 @@ export default {
           950: 'rgb(var(--tw-color-primary-950) / <alpha-value>)',
         },
         dark: '#222222',
-        brand: '#F5A00B',
         transparent: 'transparent',
         white: '#fff',
         'off-white': '#f7f8f8',
