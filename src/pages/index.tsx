@@ -5,6 +5,7 @@ import ArrowLink from '@/components/links/ArrowLink';
 import ButtonLink from '@/components/links/ButtonLink';
 import UnderlineLink from '@/components/links/UnderlineLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
+import { Features } from '@/components/sections/Features';
 import { Intro } from '@/components/sections/Intro';
 import Seo from '@/components/Seo';
 import { SpotlightCards } from '@/components/SpotlightCards';
@@ -12,10 +13,12 @@ import { SpotlightCards } from '@/components/SpotlightCards';
 export default function HomePage() {
   return (
     <Layout>
-      <Seo templateTitle='Dücker Medizintechnik' />
-
+      <Seo templateTitle='Startseite' />
       <main>
-        <Intro />
+        <div className='pt-navigation-height relative isolate px-6 lg:px-8'>
+          <Intro />
+        </div>
+        <Features />
         <SpotlightCards />
 
         <section className='bg-white'>
