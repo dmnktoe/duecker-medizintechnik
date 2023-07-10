@@ -2,13 +2,13 @@ name: Housekeeping
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: '0 0 * * *'
   workflow_dispatch:
     inputs:
       issueLimit:
         description: Max. number of issues to create
         required: true
-        default: "5"
+        default: '5'
 
 permissions:
   issues: write
@@ -24,7 +24,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: '16'
 
       - uses: ory/closed-reference-notifier@v1
         with:
