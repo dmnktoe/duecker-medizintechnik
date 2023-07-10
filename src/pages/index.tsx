@@ -5,6 +5,7 @@ import ArrowLink from '@/components/links/ArrowLink';
 import ButtonLink from '@/components/links/ButtonLink';
 import UnderlineLink from '@/components/links/UnderlineLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
+import { Intro } from '@/components/sections/Intro';
 import Seo from '@/components/Seo';
 import { SpotlightCards } from '@/components/SpotlightCards';
 
@@ -14,6 +15,7 @@ export default function HomePage() {
       <Seo templateTitle='Dücker Medizintechnik' />
 
       <main>
+        <Intro />
         <SpotlightCards />
 
         <section className='bg-white'>

@@ -29,7 +29,7 @@ export const Header = () => {
   }, [setHamburgerMenuIsOpen]);
 
   return (
-    <header className='border-transparent-white fixed left-0 top-0 z-30 w-full border-b backdrop-blur-[12px]'>
+    <header className='border-transparent-white fixed left-0 top-0 z-30 w-full border-b bg-white/90 py-3 backdrop-blur-[12px]'>
       <Container className='h-navigation-height flex'>
         <UnstyledLink className='text-md flex items-center' href='/'>
           <Logo className='text-primary-500 mr-4 w-[10rem]' />
@@ -57,25 +57,22 @@ export const Header = () => {
               )}
             >
               <li>
-                <UnstyledLink href='#'>Features</UnstyledLink>
+                <UnstyledLink href='#'>Startseite</UnstyledLink>
               </li>
               <li>
-                <UnstyledLink href='#'>Method</UnstyledLink>
+                <UnstyledLink href='#'>Leistungen</UnstyledLink>
               </li>
               <li className='md:hidden lg:block'>
-                <UnstyledLink href='#'>Customers</UnstyledLink>
+                <UnstyledLink href='#'>Downloads</UnstyledLink>
               </li>
               <li className='md:hidden lg:block'>
-                <UnstyledLink href='#'>Changelog</UnstyledLink>
+                <UnstyledLink href='#'>Zertifikate</UnstyledLink>
               </li>
               <li className='md:hidden lg:block'>
-                <UnstyledLink href='#'>Integrations</UnstyledLink>
+                <UnstyledLink href='#'>Anfragen</UnstyledLink>
               </li>
               <li>
-                <UnstyledLink href='#'>Pricing</UnstyledLink>
-              </li>
-              <li>
-                <UnstyledLink href='#'>Company</UnstyledLink>
+                <UnstyledLink href='#'>Neugikeiten</UnstyledLink>
               </li>
             </ul>
           </nav>
@@ -85,7 +82,7 @@ export const Header = () => {
           <UnstyledLink className='mr-6 text-sm' href='#'>
             Log in
           </UnstyledLink>
-          <ButtonLink href='#'>Sign up</ButtonLink>
+          <ButtonLink href='#'>Kontakt</ButtonLink>
         </div>
 
         <button
