@@ -29,10 +29,10 @@ export const Header = () => {
   }, [setHamburgerMenuIsOpen]);
 
   return (
-    <header className='border-transparent-white fixed left-0 top-0 z-30 w-full border-b bg-white/90 py-3 backdrop-blur-[12px]'>
+    <header className='border-transparent-white fixed left-0 top-0 z-30 w-full border-b bg-white/90 backdrop-blur-[12px]'>
       <Container className='h-navigation-height flex'>
         <UnstyledLink className='text-md flex items-center' href='/'>
-          <Logo className='text-primary-500 mr-4 w-[10rem]' />
+          <Logo className='text-primary-500 mr-4 w-36' />
         </UnstyledLink>
 
         <div
@@ -57,7 +57,7 @@ export const Header = () => {
               )}
             >
               <li>
-                <UnstyledLink href='#'>Startseite</UnstyledLink>
+                <UnstyledLink href='/'>Startseite</UnstyledLink>
               </li>
               <li>
                 <UnstyledLink href='#'>Leistungen</UnstyledLink>
@@ -69,10 +69,10 @@ export const Header = () => {
                 <UnstyledLink href='#'>Zertifikate</UnstyledLink>
               </li>
               <li className='md:hidden lg:block'>
-                <UnstyledLink href='#'>Anfragen</UnstyledLink>
+                <UnstyledLink href='/components'>Components</UnstyledLink>
               </li>
               <li>
-                <UnstyledLink href='#'>Neugikeiten</UnstyledLink>
+                <UnstyledLink href='#'>Neuigkeiten</UnstyledLink>
               </li>
             </ul>
           </nav>
