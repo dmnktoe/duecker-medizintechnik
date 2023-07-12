@@ -1,3 +1,7 @@
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 
 import Layout from '@/components/layout/Layout';
@@ -10,7 +14,32 @@ import { Intro } from '@/components/sections/Intro';
 import Seo from '@/components/Seo';
 import { SpotlightCards } from '@/components/SpotlightCards';
 
-export default function HomePage() {
+type Props = {
+  // Add custom props here
+};
+
+const Homepage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const router = useRouter();
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  const { t, i18n } = useTranslation('common');
+
+  // eslint-disable-next-line unused-imports/no-unused-vars
+  const onToggleLanguageClick = (newLocale: string) => {
+    const { pathname, asPath, query } = router;
+    router.push({ pathname, query }, asPath, { locale: newLocale });
+  };
+
+  // eslint-disable-next-line unused-imports/no-unused-vars
+  const clientSideLanguageChange = (newLocale: string) => {
+    i18n.changeLanguage(newLocale);
+  };
+
+  // eslint-disable-next-line unused-imports/no-unused-vars
+  const changeTo = router.locale === 'en' ? 'de' : 'en';
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   return (
     <Layout>
       <Seo templateTitle='Startseite' />
@@ -23,7 +52,7 @@ export default function HomePage() {
 
         <section className='bg-white'>
           <div className='layout relative flex min-h-screen flex-col items-center justify-center py-12 text-center'>
-            <h1 className='mt-4'>Dücker Medizintechnik</h1>
+            <h1 className='mt-4'>{t('h1')}</h1>
             <p className='mt-2 text-sm text-gray-800'>
               Dücker Medizintechnik ist ein Familienunternehmen, das sich auf
               die Herstellung von medizinischen Produkten spezialisiert hat.
@@ -62,4 +91,11 @@ export default function HomePage() {
       </main>
     </Layout>
   );
-}
+};
+
+export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale ?? 'en', ['common', 'footer'])),
+  },
+});
+export default Homepage;

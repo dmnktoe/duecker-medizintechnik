@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { i18n } = require('./next-i18next.config');
+
 const nextConfig = {
   eslint: {
     dirs: ['src'],
@@ -6,6 +10,9 @@ const nextConfig = {
 
   reactStrictMode: true,
   swcMinify: true,
+
+  // i18n
+  i18n,
 
   // Uncoment to add domain whitelist
   // images: {
