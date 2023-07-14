@@ -7,7 +7,6 @@ import * as React from 'react';
 import Layout from '@/components/layout/Layout';
 import ArrowLink from '@/components/links/ArrowLink';
 import ButtonLink from '@/components/links/ButtonLink';
-import UnderlineLink from '@/components/links/UnderlineLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import { Features } from '@/components/sections/Features';
 import { Intro } from '@/components/sections/Intro';
@@ -81,10 +80,7 @@ const Homepage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
             </UnstyledLink>
 
             <footer className='absolute bottom-2 text-gray-700'>
-              © {new Date().getFullYear()} By{' '}
-              <UnderlineLink href='https://theodorusclarence.com?ref=tsnextstarter'>
-                Theodorus Clarence
-              </UnderlineLink>
+              © {new Date().getFullYear()} Dücker Medizintechnik
             </footer>
           </div>
         </section>
