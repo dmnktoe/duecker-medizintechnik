@@ -1,5 +1,7 @@
 import { Head, Html, Main, NextScript } from 'next/document';
 
+import { isLocal } from '@/constant/env';
+
 export default function Document() {
   return (
     <Html lang='en'>
@@ -12,7 +14,7 @@ export default function Document() {
           crossOrigin='anonymous'
         />
       </Head>
-      <body>
+      <body className={isLocal ? 'debug-screens' : ''}>
         <Main />
         <NextScript />
       </body>
