@@ -43,3 +43,6 @@ sitemap-*.xml
 
 # webstorm project files
 .idea
+
+# lighthouse
+.lighthouseci
