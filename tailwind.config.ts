@@ -62,9 +62,9 @@ export default {
       },
       backgroundImage: {
         'spotlight-hover':
-          'radial-gradient(800px circle at var(--cursor-x) var(--cursor-y), rgba(255, 255, 255, 0.06), transparent 40%)',
+          'radial-gradient(800px circle at var(--cursor-x) var(--cursor-y), rgba(255, 255, 255, 0.1), transparent 40%)',
         'spotlight-borders':
-          'radial-gradient(600px circle at var(--cursor-x) var(--cursor-y), rgba(255, 255, 255, 0.4), transparent 40%)',
+          'radial-gradient(600px circle at var(--cursor-x) var(--cursor-y), rgba(255, 255, 255, 0.6), transparent 40%)',
       },
     },
   },

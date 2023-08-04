@@ -1,64 +1,21 @@
 import * as React from 'react';
 
 import Layout from '@/components/layout/Layout';
-import ArrowLink from '@/components/links/ArrowLink';
-import ButtonLink from '@/components/links/ButtonLink';
-import UnderlineLink from '@/components/links/UnderlineLink';
-import UnstyledLink from '@/components/links/UnstyledLink';
-import { Features } from '@/components/sections/Features';
-import { Intro } from '@/components/sections/Intro';
 import Seo from '@/components/Seo';
-import { SpotlightCards } from '@/components/SpotlightCards';
+import { BlogPosts } from '@/components/templates/BlogPosts';
+import { Features } from '@/components/templates/Features';
+import { Intro } from '@/components/templates/Intro';
+import { StickyScroll } from '@/components/templates/StickyScroll/StickyScroll';
 
 export default function HomePage() {
   return (
     <Layout>
-      <Seo templateTitle='Startseite' />
+      <Seo templateTitle='Handel, Produktion, Reperatur für OP-Lösungen und Sterilisierungen' />
       <main>
-        <div className='pt-navigation-height relative isolate px-6 lg:px-8'>
-          <Intro />
-        </div>
+        <Intro />
+        <StickyScroll />
         <Features />
-        <SpotlightCards />
-
-        <section className='bg-white'>
-          <div className='layout relative flex min-h-screen flex-col items-center justify-center py-12 text-center'>
-            <h1 className='mt-4'>Dücker Medizintechnik</h1>
-            <p className='mt-2 text-sm text-gray-800'>
-              Dücker Medizintechnik ist ein Familienunternehmen, das sich auf
-              die Herstellung von medizinischen Produkten spezialisiert hat.
-            </p>
-            <p className='mt-2 text-sm text-gray-700'>
-              <ArrowLink href='https://github.com/theodorusclarence/ts-nextjs-tailwind-starter'>
-                See the repository
-              </ArrowLink>
-            </p>
-
-            <ButtonLink className='mt-6' href='/components' variant='light'>
-              See all components
-            </ButtonLink>
-
-            <UnstyledLink
-              href='https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Ftheodorusclarence%2Fts-nextjs-tailwind-starter'
-              className='mt-4'
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                width='92'
-                height='32'
-                src='https://vercel.com/button'
-                alt='Deploy with Vercel'
-              />
-            </UnstyledLink>
-
-            <footer className='absolute bottom-2 text-gray-700'>
-              © {new Date().getFullYear()} By{' '}
-              <UnderlineLink href='https://theodorusclarence.com?ref=tsnextstarter'>
-                Theodorus Clarence
-              </UnderlineLink>
-            </footer>
-          </div>
-        </section>
+        <BlogPosts />
       </main>
     </Layout>
   );

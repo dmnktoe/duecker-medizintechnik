@@ -1,108 +1,164 @@
+import * as React from 'react';
+
 import { Logo } from '@/components/icons/logo';
 import { Container } from '@/components/layout/Container';
+import UnstyledLink from '@/components/links/UnstyledLink';
 
 export const Footer = () => {
   return (
-    <section className='py-12 md:py-20'>
+    <footer className='bg-primary-50/50 py-12 md:py-32'>
       <Container>
         <div className='-mx-4 mb-24 flex flex-wrap'>
           <div className='mb-12 w-full px-4 xl:mb-0 xl:w-4/12'>
-            <a className='inline-block' href='#'>
-              <Logo className='w-40' />
-            </a>
-          </div>
-          <div className='mb-8 w-1/2 px-4 md:mb-0 md:w-1/4 xl:w-2/12'>
-            <h5 className='mb-4 text-sm font-medium text-gray-400'>About</h5>
-            <ul>
-              <li className='mb-2'>
-                <a className='inline-block text-lg text-black' href='#'>
-                  Contact
-                </a>
-              </li>
-              <li className='mb-2'>
-                <a className='inline-block text-lg text-black' href='#'>
-                  Blog
-                </a>
-              </li>
-              <li className='mb-2'>
-                <a className='inline-block text-lg text-black' href='#'>
-                  Our Storry
-                </a>
+            <UnstyledLink className='inline-block' href='#'>
+              <Logo className='mb-3 w-16' />
+            </UnstyledLink>
+            <ul className='mb-3'>
+              <li className='mb-1'>Elfershäuser Str. 18</li>
+              <li>34212 Melsungen</li>
+            </ul>
+            <ul className='mb-3'>
+              <li className='mb-1'>Tel: (05661) 52532</li>
+              <li>Fax: (05661) 52731</li>
+            </ul>
+            <ul className='mb-3'>
+              <li className='mb-1'>
+                Internet:{' '}
+                <UnstyledLink
+                  href='https://www.duecker-medizintechnik.de'
+                  className='inline-block text-black'
+                >
+                  duecker-medizintechnik.de
+                </UnstyledLink>
               </li>
               <li>
-                <a className='inline-block text-lg text-black' href='#'>
-                  <span className='mr-2'>Careers</span>
-                  <span className='inline-block rounded-full bg-blue-500 px-2 py-1 text-xs uppercase text-white'>
-                    Hiring
+                E-Mail:{' '}
+                <UnstyledLink
+                  href='mailto:info@duecker-medizintechnik.de'
+                  className='inline-block text-black'
+                >
+                  info@duecker-medizintechnik.de
+                </UnstyledLink>
+              </li>
+            </ul>
+          </div>
+          <div className='mb-8 w-1/2 px-4 md:mb-0 md:w-1/4 xl:w-2/12'>
+            <h5 className='mb-4 text-sm font-medium uppercase text-gray-400'>
+              Unternehmen
+            </h5>
+            <ul>
+              <li className='mb-3'>
+                <a className='inline-block  text-black' href='#'>
+                  Kontakt
+                </a>
+              </li>
+              <li className='mb-3'>
+                <a className='inline-block  text-black' href='#'>
+                  Neuigkeiten
+                </a>
+              </li>
+              <li className='mb-3'>
+                <a className='inline-block  text-black' href='#'>
+                  Unsere Geschichte
+                </a>
+              </li>
+              <li className='mb-3'>
+                <UnstyledLink href='/zertifikate'>Zertifikate</UnstyledLink>
+              </li>
+              <li>
+                <UnstyledLink href='/jobs' className='inline-block  text-black'>
+                  <span className='mr-2'>Jobs</span>
+                  <span className='bg-primary-500 inline-block rounded-full px-2 py-1 text-xs text-white'>
+                    Wir suchen
                   </span>
-                </a>
+                </UnstyledLink>
               </li>
             </ul>
           </div>
           <div className='mb-8 w-1/2 px-4 md:mb-0 md:w-1/4 xl:w-2/12'>
-            <h5 className='mb-4 text-sm font-medium text-gray-400'>Company</h5>
+            <h5 className='mb-4 text-sm font-medium uppercase text-gray-400'>
+              Leistungen
+            </h5>
             <ul>
-              <li className='mb-2'>
-                <a className='inline-block text-lg text-black' href='#'>
-                  Press
-                </a>
+              <li className='mb-3'>
+                <UnstyledLink
+                  href='/handel'
+                  className='inline-block text-black'
+                >
+                  Handel
+                </UnstyledLink>
               </li>
-              <li className='mb-2'>
-                <a className='inline-block text-lg text-black' href='#'>
-                  Brand Assets
-                </a>
+              <li className='mb-3'>
+                <UnstyledLink
+                  href='/reparatur'
+                  className='inline-block  text-black'
+                >
+                  Reparatur
+                </UnstyledLink>
               </li>
-              <li className='mb-2'>
-                <a className='inline-block text-lg text-black' href='#'>
-                  Changelog
-                </a>
+              <li className='mb-3'>
+                <UnstyledLink
+                  href='/produktion'
+                  className='inline-block  text-black'
+                >
+                  Produktion
+                </UnstyledLink>
+              </li>
+            </ul>
+          </div>
+          <div className='w-1/2 px-4 md:w-1/4 xl:w-2/12'>
+            <h5 className='mb-4 text-sm font-medium text-gray-400'>
+              Richtlinien
+            </h5>
+            <ul>
+              <li className='mb-3'>
+                <UnstyledLink
+                  href='/impressum'
+                  className='inline-block  text-black'
+                >
+                  Impressum
+                </UnstyledLink>
+              </li>
+              <li className='mb-3'>
+                <UnstyledLink
+                  href='/datenschutz'
+                  className='inline-block  text-black'
+                >
+                  Datenschutz
+                </UnstyledLink>
+              </li>
+              <li className='mb-3'>
+                <UnstyledLink
+                  href='/cookie-policy'
+                  className='font-primary inline-block  text-black'
+                >
+                  Cookie-Richtlinie
+                </UnstyledLink>
               </li>
               <li>
-                <a className='inline-block text-lg text-black' href='#'>
-                  Help centre
-                </a>
+                <UnstyledLink
+                  href='/cookie-policy'
+                  className='inline-block  text-black'
+                >
+                  Allgemeine Geschäftsbedingungen
+                </UnstyledLink>
               </li>
             </ul>
           </div>
           <div className='w-1/2 px-4 md:w-1/4 xl:w-2/12'>
             <h5 className='mb-4 text-sm font-medium text-gray-400'>Company</h5>
             <ul>
-              <li className='mb-2'>
+              <li className='mb-3'>
                 <a className='inline-block text-lg text-black' href='#'>
                   Press
                 </a>
               </li>
-              <li className='mb-2'>
+              <li className='mb-3'>
                 <a className='inline-block text-lg text-black' href='#'>
                   Brand Assets
                 </a>
               </li>
-              <li className='mb-2'>
-                <a className='inline-block text-lg text-black' href='#'>
-                  Changelog
-                </a>
-              </li>
-              <li>
-                <a className='inline-block text-lg text-black' href='#'>
-                  Help centre
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div className='w-1/2 px-4 md:w-1/4 xl:w-2/12'>
-            <h5 className='mb-4 text-sm font-medium text-gray-400'>Company</h5>
-            <ul>
-              <li className='mb-2'>
-                <a className='inline-block text-lg text-black' href='#'>
-                  Press
-                </a>
-              </li>
-              <li className='mb-2'>
-                <a className='inline-block text-lg text-black' href='#'>
-                  Brand Assets
-                </a>
-              </li>
-              <li className='mb-2'>
+              <li className='mb-3'>
                 <a className='inline-block text-lg text-black' href='#'>
                   Changelog
                 </a>
@@ -119,7 +175,7 @@ export const Footer = () => {
           <div className='mb-8 w-full px-4 xl:mb-0 xl:w-4/12'>
             <div className='items-center justify-between md:flex'>
               <div className='mb-6 flex items-center md:mb-0 md:mr-12'>
-                <span className='inline-block'>
+                <span className='mr-3 inline-block'>
                   <svg
                     width='18'
                     height='18'
@@ -172,7 +228,7 @@ export const Footer = () => {
                   </svg>
                 </span>
                 <select
-                  className='relative py-2 pl-2 pr-3 text-sm text-black outline-none'
+                  className='relative rounded-lg border-0 py-2 pl-2 pr-6 text-sm text-black outline-none'
                   name=''
                   id=''
                 >
@@ -198,10 +254,12 @@ export const Footer = () => {
             </div>
           </div>
           <div className='mb-8 hidden px-4 md:mb-0 md:block md:w-1/2 xl:w-4/12 xl:text-center'>
-            <span className='text-sm text-gray-400'>© 2023 Realestate.co</span>
+            <span className='text-sm text-gray-400'>
+              © {new Date().getFullYear()} Dücker Medizintechnik
+            </span>
           </div>
           <div className='w-full px-4 md:w-1/2 xl:w-4/12'>
-            <div className='xs:flex-row xs:items-center -mb-3 flex flex-col md:justify-end'>
+            <div className='xs:flex-row xs:items-center -mb-3 flex flex-row md:justify-end'>
               <a
                 className='mb-3 mr-8 inline-flex items-center text-black'
                 href='#'
@@ -273,6 +331,6 @@ export const Footer = () => {
           </div>
         </div>
       </Container>
-    </section>
+    </footer>
   );
 };

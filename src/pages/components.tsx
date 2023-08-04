@@ -10,6 +10,7 @@ import {
   HiPlus,
 } from 'react-icons/hi';
 
+import NextImage from '@/components/atoms/NextImage';
 import Button from '@/components/buttons/Button';
 import IconButton from '@/components/buttons/IconButton';
 import TextButton from '@/components/buttons/TextButton';
@@ -19,7 +20,6 @@ import ButtonLink from '@/components/links/ButtonLink';
 import PrimaryLink from '@/components/links/PrimaryLink';
 import UnderlineLink from '@/components/links/UnderlineLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
-import NextImage from '@/components/NextImage';
 import Seo from '@/components/Seo';
 import Skeleton from '@/components/Skeleton';
 

@@ -1,35 +1,37 @@
 import * as React from 'react';
 
+import NextImage from '@/components/atoms/NextImage';
 import { Container } from '@/components/layout/Container';
 import ButtonLink from '@/components/links/ButtonLink';
-import NextImage from '@/components/NextImage';
 
 export const Intro = () => {
   return (
     <>
-      <BackgroundBlurTop />
-      <Container>
-        <div className='my-auto flex h-[80vh] min-h-[60rem] items-center gap-x-48'>
-          <div className='w-full'>
-            <IntroText />
-          </div>
-          <div className='hidden w-full md:block'>
-            <div className='absolute right-0 top-0 h-full max-h-[60rem] w-1/2 overflow-y-hidden object-cover'>
-              <NextImage
-                alt='hero'
-                src='/images/hero_bg.jpg'
-                useSkeleton={true}
-                blurDataURL='/images/hero_bg.jpg'
-                width={1800}
-                height={1800}
-                className='h-full w-full overflow-hidden rounded-bl-[50vw]'
-              />
+      <section className='mb-6'>
+        <BackgroundBlurTop />
+        <Container>
+          <div className='my-auto flex h-[80vh] min-h-[60rem] items-center gap-x-48'>
+            <div className='w-full'>
+              <IntroText />
+            </div>
+            <div className='hidden w-full md:block'>
+              <div className='absolute right-0 top-0 h-full max-h-[60rem] w-1/2 overflow-y-hidden object-cover'>
+                <NextImage
+                  alt='hero'
+                  src='/images/hero_bg.jpg'
+                  useSkeleton={true}
+                  blurDataURL='/images/hero_bg.jpg'
+                  width={1800}
+                  height={1800}
+                  className='h-full w-full overflow-hidden rounded-bl-[50vw]'
+                />
+              </div>
             </div>
           </div>
-        </div>
-        <CustomerLogos />
-      </Container>
-      <BackgroundBlurBottom />
+          <CustomerLogos />
+        </Container>
+        <BackgroundBlurBottom />
+      </section>
     </>
   );
 };
@@ -48,7 +50,7 @@ const IntroText = () => {
           </div>
         </div>
         <div className='text-left'>
-          <h1 className='text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl'>
+          <h1 className='text-4xl font-bold tracking-tight text-black md:text-5xl lg:text-6xl'>
             OP-Lösungen und Sterilisierungen von Dücker Medizintechnik
           </h1>
           <p className='mt-6 text-lg leading-8 text-gray-600'>

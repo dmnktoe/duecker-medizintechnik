@@ -23,14 +23,14 @@ export const FeatureTitle = ({ children, id }: Props) => {
   }, [isInView, id, setInViewFeature, inViewFeature]);
 
   return (
-    <p
+    <h2
       ref={ref}
       className={clsx(
-        'feature-title font-heading py-16 text-3xl font-bold transition-colors sm:text-5xl',
+        'feature-title font-heading py-16 text-4xl transition-colors lg:text-6xl',
         isInView ? 'text-black' : 'text-gray-300'
       )}
     >
       {children}
-    </p>
+    </h2>
   );
 };

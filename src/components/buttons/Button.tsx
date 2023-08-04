@@ -5,7 +5,7 @@ import { ImSpinner2 } from 'react-icons/im';
 import clsxm from '@/lib/clsxm';
 
 const ButtonVariant = ['primary', 'outline', 'ghost', 'light', 'dark'] as const;
-const ButtonSize = ['sm', 'base'] as const;
+const ButtonSize = ['sm', 'base', 'lg'] as const;
 
 type ButtonProps = {
   isLoading?: boolean;
@@ -44,21 +44,20 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         type='button'
         disabled={disabled}
         className={clsxm(
-          'inline-flex items-center rounded font-medium',
+          'inline-flex items-center rounded-lg font-medium tracking-tight',
           'focus-visible:ring-primary-500 focus:outline-none focus-visible:ring',
-          'shadow-sm',
           'transition-colors duration-75',
           //#region  //*=========== Size ===========
           [
             size === 'base' && ['px-3 py-1.5', 'text-sm md:text-base'],
             size === 'sm' && ['px-2 py-1', 'text-xs md:text-sm'],
+            size === 'lg' && ['px-5 py-4', 'text-base'],
           ],
           //#endregion  //*======== Size ===========
           //#region  //*=========== Variants ===========
           [
             variant === 'primary' && [
               'bg-primary-500 text-white',
-              'border-primary-600 border',
               'hover:bg-primary-600 hover:text-white',
               'active:bg-primary-700',
               'disabled:bg-primary-700',
@@ -79,13 +78,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             ],
             variant === 'light' && [
               'bg-white text-gray-700',
-              'border border-gray-300',
               'hover:text-dark hover:bg-gray-100',
               'active:bg-white/80 disabled:bg-gray-200',
             ],
             variant === 'dark' && [
               'bg-gray-900 text-white',
-              'border border-gray-600',
               'hover:bg-gray-800 active:bg-gray-700 disabled:bg-gray-700',
             ],
           ],
