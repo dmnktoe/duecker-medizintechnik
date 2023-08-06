@@ -1,0 +1,20 @@
+{
+  "headline": "Benötigen Sie Hilfe bei der Aufbereitung?",
+  "subline": "Wir beraten Sie gerne!",
+  "buttonText": "Angebot anfordern",
+  "buttonLink": "/kontakt",
+  "bullets": [
+    {
+      "title": "24/7 Support"
+    },
+    {
+      "title": "Persönlicher Ansprechpartner"
+    },
+    {
+      "title": "Medizinische Expertise"
+    },
+    {
+      "title": "Kostenloses Angebot"
+    }
+  ]
+}

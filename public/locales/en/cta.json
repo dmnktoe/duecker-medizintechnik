@@ -1,0 +1,20 @@
+{
+  "headline": "Do you want to know more about our services?",
+  "subline": "We are happy to help you!",
+  "buttonText": "Request a free quote",
+  "buttonLink": "/contact",
+  "bullets": [
+    {
+      "title": "24/7 support"
+    },
+    {
+      "title": "Free consultation"
+    },
+    {
+      "title": "Medical expertise"
+    },
+    {
+      "title": "Free quote"
+    }
+  ]
+}
