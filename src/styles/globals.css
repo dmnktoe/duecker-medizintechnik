@@ -49,6 +49,10 @@
     cursor: url('/images/new-tab.png') 10 10, pointer;
   }
 
+  .swiper {
+    overflow: visible !important;
+  }
+
   /* #region  /**=========== Typography =========== */
   h1,
   .h1 {
