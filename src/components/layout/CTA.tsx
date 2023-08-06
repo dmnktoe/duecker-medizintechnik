@@ -1,5 +1,4 @@
 import { useTranslation } from 'next-i18next';
-import { Key } from 'react';
 
 import Button from '@/components/buttons/Button';
 import { Container } from '@/components/layout/Container';
@@ -27,6 +26,8 @@ export const CTA = () => {
                 {t('buttonText')}
               </Button>
               <ul className='-m-4 flex flex-wrap'>
+                {/*
+                // TODO: Add bullets
                 {t('bullets', { returnObjects: true })?.map(
                   (
                     bullet: {
@@ -44,6 +45,7 @@ export const CTA = () => {
                     </li>
                   )
                 )}
+                */}
               </ul>
             </div>
           </div>
@@ -53,6 +55,7 @@ export const CTA = () => {
   );
 };
 
+// eslint-disable-next-line unused-imports/no-unused-vars
 const TickIcon = () => (
   <svg
     className='mr-3 h-[20px] w-[20px] md:h-[26px] md:w-[26px]'
