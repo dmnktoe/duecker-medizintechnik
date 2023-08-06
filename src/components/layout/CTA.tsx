@@ -1,7 +1,11 @@
+import { useTranslation } from 'next-i18next';
+import { Key } from 'react';
+
 import Button from '@/components/buttons/Button';
 import { Container } from '@/components/layout/Container';
 
 export const CTA = () => {
+  const { t } = useTranslation('cta');
   return (
     <>
       <section className='bg-primary-500 overflow-hidden py-12 lg:py-32'>
@@ -9,10 +13,10 @@ export const CTA = () => {
           <div className='relative overflow-hidden'>
             <div className='relative'>
               <h2 className='font-heading mb-2 text-4xl tracking-tighter text-white lg:text-6xl'>
-                Benötigen Sie Hilfe bei der Aufbereitung?
+                {t('headline')}
               </h2>
               <h2 className='font-heading mb-8 text-4xl tracking-tighter text-white/50 lg:text-6xl'>
-                Wir beraten Sie gerne!
+                {t('subline')}
               </h2>
               <Button
                 size='lg'
@@ -20,101 +24,26 @@ export const CTA = () => {
                 variant='light'
                 isDarkBg
               >
-                Angebot anfordern
+                {t('buttonText')}
               </Button>
               <ul className='-m-4 flex flex-wrap'>
-                <li className='p-4'>
-                  <a className='flex flex-wrap' href='#'>
-                    <svg
-                      className='mr-3 h-[20px] w-[20px] md:h-[26px] md:w-[26px]'
-                      width={26}
-                      height={26}
-                      viewBox='0 0 26 26'
-                      fill='none'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
-                      <path
-                        d='M9.25 13L11.75 15.5L16.75 10.5M24.25 13C24.25 19.2132 19.2132 24.25 13 24.25C6.7868 24.25 1.75 19.2132 1.75 13C1.75 6.7868 6.7868 1.75 13 1.75C19.2132 1.75 24.25 6.7868 24.25 13Z'
-                        stroke='white'
-                        strokeWidth={2}
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
-                      />
-                    </svg>
-                    <span className='tracking-tight text-white'>
-                      24/7 Support
-                    </span>
-                  </a>
-                </li>
-                <li className='p-4'>
-                  <a className='flex flex-wrap' href='#'>
-                    <svg
-                      className='mr-3 h-[20px] w-[20px] md:h-[26px] md:w-[26px]'
-                      width={26}
-                      height={26}
-                      viewBox='0 0 26 26'
-                      fill='none'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
-                      <path
-                        d='M9.25 13L11.75 15.5L16.75 10.5M24.25 13C24.25 19.2132 19.2132 24.25 13 24.25C6.7868 24.25 1.75 19.2132 1.75 13C1.75 6.7868 6.7868 1.75 13 1.75C19.2132 1.75 24.25 6.7868 24.25 13Z'
-                        stroke='white'
-                        strokeWidth={2}
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
-                      />
-                    </svg>
-                    <span className='tracking-tight text-white'>
-                      Personlisierter Service
-                    </span>
-                  </a>
-                </li>
-                <li className='p-4'>
-                  <a className='flex flex-wrap' href='#'>
-                    <svg
-                      className='mr-3 h-[20px] w-[20px] md:h-[26px] md:w-[26px]'
-                      width={26}
-                      height={26}
-                      viewBox='0 0 26 26'
-                      fill='none'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
-                      <path
-                        d='M9.25 13L11.75 15.5L16.75 10.5M24.25 13C24.25 19.2132 19.2132 24.25 13 24.25C6.7868 24.25 1.75 19.2132 1.75 13C1.75 6.7868 6.7868 1.75 13 1.75C19.2132 1.75 24.25 6.7868 24.25 13Z'
-                        stroke='white'
-                        strokeWidth={2}
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
-                      />
-                    </svg>
-                    <span className='tracking-tight text-white'>
-                      Medizintechnik Experten
-                    </span>
-                  </a>
-                </li>
-                <li className='p-4'>
-                  <a className='flex flex-wrap' href='#'>
-                    <svg
-                      className='mr-3 h-[20px] w-[20px] md:h-[26px] md:w-[26px]'
-                      width={26}
-                      height={26}
-                      viewBox='0 0 26 26'
-                      fill='none'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
-                      <path
-                        d='M9.25 13L11.75 15.5L16.75 10.5M24.25 13C24.25 19.2132 19.2132 24.25 13 24.25C6.7868 24.25 1.75 19.2132 1.75 13C1.75 6.7868 6.7868 1.75 13 1.75C19.2132 1.75 24.25 6.7868 24.25 13Z'
-                        stroke='white'
-                        strokeWidth={2}
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
-                      />
-                    </svg>
-                    <span className='tracking-tight text-white'>
-                      100% Zufriedenheit
-                    </span>
-                  </a>
-                </li>
+                {t('bullets', { returnObjects: true })?.map(
+                  (
+                    bullet: {
+                      title: string;
+                    },
+                    index: Key
+                  ) => (
+                    <li key={index} className='p-4'>
+                      <div className='flex flex-wrap'>
+                        <TickIcon />
+                        <span className='tracking-tight text-white'>
+                          {bullet.title}
+                        </span>
+                      </div>
+                    </li>
+                  )
+                )}
               </ul>
             </div>
           </div>
@@ -123,3 +52,22 @@ export const CTA = () => {
     </>
   );
 };
+
+const TickIcon = () => (
+  <svg
+    className='mr-3 h-[20px] w-[20px] md:h-[26px] md:w-[26px]'
+    width={26}
+    height={26}
+    viewBox='0 0 26 26'
+    fill='none'
+    xmlns='http://www.w3.org/2000/svg'
+  >
+    <path
+      d='M9.25 13L11.75 15.5L16.75 10.5M24.25 13C24.25 19.2132 19.2132 24.25 13 24.25C6.7868 24.25 1.75 19.2132 1.75 13C1.75 6.7868 6.7868 1.75 13 1.75C19.2132 1.75 24.25 6.7868 24.25 13Z'
+      stroke='white'
+      strokeWidth={2}
+      strokeLinecap='round'
+      strokeLinejoin='round'
+    />
+  </svg>
+);

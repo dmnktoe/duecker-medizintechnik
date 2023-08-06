@@ -47,13 +47,13 @@ const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
         ref={ref}
         {...rest}
         className={clsxm(
-          'inline-flex items-center rounded-lg font-medium tracking-tight',
+          'inline-flex items-center rounded-2xl font-normal tracking-tight',
           'focus-visible:ring-primary-500 focus:outline-none focus-visible:ring',
           'transition-colors duration-75',
           //#region  //*=========== Size ===========
           [
-            size === 'base' && ['px-3 py-1.5', 'text-sm md:text-base'],
-            size === 'sm' && ['px-2 py-1', 'text-xs md:text-sm'],
+            size === 'sm' && ['px-3 py-1', 'text-xs md:text-sm'],
+            size === 'base' && ['px-4 py-1.5', 'text-sm md:text-base'],
             size === 'lg' && ['px-5 py-4', 'text-base'],
           ],
           //#endregion  //*======== Size ===========
@@ -99,6 +99,7 @@ const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
             className={clsxm([
               size === 'base' && 'mr-1',
               size === 'sm' && 'mr-1.5',
+              size === 'lg' && 'mr-2',
             ])}
           >
             <LeftIcon
@@ -106,6 +107,7 @@ const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
                 [
                   size === 'base' && 'md:text-md text-md',
                   size === 'sm' && 'md:text-md text-sm',
+                  size === 'lg' && 'text-lg md:text-lg',
                 ],
                 leftIconClassName
               )}
@@ -118,6 +120,7 @@ const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
             className={clsxm([
               size === 'base' && 'ml-1',
               size === 'sm' && 'ml-1.5',
+              size === 'lg' && 'ml-2',
             ])}
           >
             <RightIcon
@@ -125,6 +128,7 @@ const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
                 [
                   size === 'base' && 'text-md md:text-md',
                   size === 'sm' && 'md:text-md text-sm',
+                  size === 'lg' && 'text-lg md:text-lg',
                 ],
                 rightIconClassName
               )}

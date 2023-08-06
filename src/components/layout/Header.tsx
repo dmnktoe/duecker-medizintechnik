@@ -31,7 +31,7 @@ export const Header = () => {
   return (
     <header className='border-b-1 fixed left-0 top-0 z-30 w-full border-b border-gray-100 bg-white/90 backdrop-blur-[12px]'>
       <Container className='h-navigation-height flex'>
-        <UnstyledLink className='text-md flex items-center' href='/'>
+        <UnstyledLink className='text-md mr-auto flex items-center' href='/'>
           <Logo className='text-primary-500 mr-4 w-36' />
         </UnstyledLink>
 
@@ -52,7 +52,7 @@ export const Header = () => {
             <ul
               className={clsx(
                 '[&_li]:border-grey-dark flex h-full flex-col md:flex-row md:items-center [&_li]:ml-4 [&_li]:border-b md:[&_li]:border-none',
-                '[&_a:hover]:text-grey [&_a]:h-navigation-height ease-in [&_a]:flex [&_a]:w-full [&_a]:translate-y-8 [&_a]:items-center [&_a]:text-lg [&_a]:transition-[color,transform] [&_a]:duration-300 md:[&_a]:translate-y-0 md:[&_a]:text-base [&_a]:md:transition-colors',
+                '[&_a:hover]:text-grey [&_a]:h-navigation-height ease-in [&_a]:flex [&_a]:w-full [&_a]:translate-y-8 [&_a]:items-center [&_a]:text-lg [&_a]:transition-[color,transform] [&_a]:duration-300 md:[&_a]:translate-y-0 md:[&_a]:text-sm [&_a]:md:transition-colors',
                 hamburgerMenuIsOpen && '[&_a]:translate-y-0'
               )}
             >
@@ -78,9 +78,14 @@ export const Header = () => {
         </div>
 
         <div className='ml-auto flex h-full items-center'>
-          <UnstyledLink className='mr-6 text-base' href='/downloads'>
+          <ButtonLink
+            variant='light'
+            className='mr-2 text-base'
+            href='/downloads'
+            size='base'
+          >
             Downloads
-          </UnstyledLink>
+          </ButtonLink>
           <ButtonLink size='base' href='/kontakt'>
             Kontakt aufnehmen
           </ButtonLink>

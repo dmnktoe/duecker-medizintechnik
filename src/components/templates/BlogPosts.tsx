@@ -1,6 +1,55 @@
+import { useCallback, useRef } from 'react';
+import { Navigation } from 'swiper/modules';
+import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+
+import Card from '@/components/Card';
 import { Container } from '@/components/layout/Container';
 
+const data = [
+  {
+    title: 'How to decorating ourdoor sofa ',
+    description:
+      'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
+    category: 'Interior',
+    image: 'https://picsum.photos/2000/1400',
+  },
+  {
+    title: 'How to decorating ourdoor sofa ',
+    description:
+      'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
+    category: 'Interior',
+    image: 'https://picsum.photos/2000/1400',
+  },
+  {
+    title: 'How to decorating ourdoor sofa ',
+    description:
+      'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
+    category: 'Interior',
+    image: 'https://picsum.photos/2000/1400',
+  },
+  {
+    title: 'How to decorating ourdoor sofa ',
+    description:
+      'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
+    category: 'Interior',
+    image: 'https://picsum.photos/2000/1400',
+  },
+];
+
 export const BlogPosts = () => {
+  const swiperElRef = useRef<SwiperRef>(null);
+
+  const handlePrev = useCallback(() => {
+    if (!swiperElRef.current) return;
+    swiperElRef.current.swiper.slidePrev();
+  }, []);
+
+  const handleNext = useCallback(() => {
+    if (!swiperElRef.current) return;
+    swiperElRef.current.swiper.slideNext();
+  }, []);
+
   return (
     <>
       <section className='bg-coolGray-50 overflow-hidden py-12 md:py-24'>
@@ -13,9 +62,9 @@ export const BlogPosts = () => {
             </div>
             <div className='w-full px-4 md:w-1/2'>
               <div className='flex items-center justify-end'>
-                <a
+                <button
                   className='sm:h-18 sm:w-18 mr-8 inline-flex h-16 w-16 items-center justify-center rounded-full border border-black text-black transition duration-200 hover:bg-black hover:text-white'
-                  href='#'
+                  onClick={handlePrev}
                 >
                   <svg
                     width={27}
@@ -41,10 +90,10 @@ export const BlogPosts = () => {
                       strokeLinejoin='round'
                     />
                   </svg>
-                </a>
-                <a
+                </button>
+                <button
                   className='sm:h-18 sm:w-18 inline-flex h-16 w-16 items-center justify-center rounded-full border border-black text-black transition duration-200 hover:bg-black hover:text-white'
-                  href='#'
+                  onClick={handleNext}
                 >
                   <svg
                     width={27}
@@ -70,106 +119,31 @@ export const BlogPosts = () => {
                       strokeLinejoin='round'
                     />
                   </svg>
-                </a>
+                </button>
               </div>
             </div>
           </div>
-          <div className='mb-20 flex'>
-            <div className='w-full md:mr-10 md:max-w-lg md:flex-shrink-0'>
-              <a className='group block' href='#'>
-                <div className='rounded-4xl relative mb-6 overflow-hidden'>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    className='block h-72 w-full object-cover'
-                    src='asitrastudio-assets/blog/blog-third1.png'
-                    alt=''
+          <Swiper
+            modules={[Navigation]}
+            navigation
+            spaceBetween={20}
+            slidesPerView={3}
+            ref={swiperElRef}
+          >
+            <div className='mb-20 flex'>
+              {data.map((item, index) => (
+                <SwiperSlide key={index}>
+                  <Card
+                    title={item.title}
+                    description={item.description}
+                    category={item.category}
+                    image={item.image}
                   />
-                  <div className='absolute left-0 top-0 h-full w-full transition duration-200 group-hover:bg-black group-hover:bg-opacity-10' />
-                </div>
-                <div className='max-w-xs sm:max-w-md'>
-                  <div className='mb-3'>
-                    <span className='border-1.5 mr-6 inline-block rounded-full border-black px-3 py-2 text-sm leading-none text-black transition duration-200 group-hover:bg-black group-hover:text-white'>
-                      Interior
-                    </span>
-                    <span className='text-coolGray-600 inline-block text-sm font-medium'>
-                      9 min read
-                    </span>
-                  </div>
-                  <h4 className='mb-6 text-3xl tracking-tight sm:text-4xl'>
-                    How to decorating ourdoor sofa
-                  </h4>
-                  <p className='max-w-sm'>
-                    It is a long established fact that a reader will be
-                    distracted by the readable content of a page when looking at
-                    its layout.
-                  </p>
-                </div>
-              </a>
+                </SwiperSlide>
+              ))}
             </div>
-            <div className='mr-10 hidden w-full max-w-lg md:block md:flex-shrink-0'>
-              <a className='group block' href='#'>
-                <div className='rounded-4xl relative mb-6 overflow-hidden'>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    className='block h-72 w-full object-cover'
-                    src='asitrastudio-assets/blog/blog-third2.png'
-                    alt=''
-                  />
-                  <div className='absolute left-0 top-0 h-full w-full transition duration-200 group-hover:bg-black group-hover:bg-opacity-10' />
-                </div>
-                <div className='max-w-md'>
-                  <div className='mb-3'>
-                    <span className='border-1.5 mr-6 inline-block rounded-full border-black px-3 py-2 text-sm leading-none text-black transition duration-200 group-hover:bg-black group-hover:text-white'>
-                      Interior
-                    </span>
-                    <span className='text-coolGray-600 inline-block text-sm font-medium'>
-                      9 min read
-                    </span>
-                  </div>
-                  <h4 className='mb-6 text-4xl tracking-tight'>
-                    How to decorating ourdoor sofa
-                  </h4>
-                  <p className='max-w-sm'>
-                    It is a long established fact that a reader will be
-                    distracted by the readable content of a page when looking at
-                    its layout.
-                  </p>
-                </div>
-              </a>
-            </div>
-            <div className='hidden w-full max-w-lg md:block md:flex-shrink-0'>
-              <a className='group block' href='#'>
-                <div className='rounded-4xl relative mb-6 overflow-hidden'>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    className='block h-72 w-full object-cover'
-                    src='asitrastudio-assets/blog/blog-third3.png'
-                    alt=''
-                  />
-                  <div className='absolute left-0 top-0 h-full w-full transition duration-200 group-hover:bg-black group-hover:bg-opacity-10' />
-                </div>
-                <div className='max-w-md'>
-                  <div className='mb-3'>
-                    <span className='border-1.5 mr-6 inline-block rounded-full border-black px-3 py-2 text-sm leading-none text-black transition duration-200 group-hover:bg-black group-hover:text-white'>
-                      Interior
-                    </span>
-                    <span className='text-coolGray-600 inline-block text-sm font-medium'>
-                      9 min read
-                    </span>
-                  </div>
-                  <h4 className='mb-6 text-4xl tracking-tight'>
-                    How to decorating ourdoor sofa
-                  </h4>
-                  <p className='max-w-sm'>
-                    It is a long established fact that a reader will be
-                    distracted by the readable content of a page when looking at
-                    its layout.
-                  </p>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div className='text-center'>
+          </Swiper>
+          <div className='mt-16 text-center'>
             <a
               className='group inline-flex items-center border-b-2 border-black pb-2 font-medium leading-none'
               href='#'
