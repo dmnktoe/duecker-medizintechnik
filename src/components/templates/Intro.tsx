@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import NextImage from '@/components/atoms/NextImage';
 import { Container } from '@/components/layout/Container';
 import ButtonLink from '@/components/links/ButtonLink';
+import NextImage from '@/components/NextImage';
 
 export const Intro = () => {
   return (
@@ -11,7 +11,7 @@ export const Intro = () => {
         <BackgroundBlurTop />
         <Container>
           <div className='my-auto flex h-[80vh] min-h-[60rem] items-center gap-x-48'>
-            <div className='w-full'>
+            <div className='max-w-6xl'>
               <IntroText />
             </div>
             <div className='hidden w-full md:block'>
@@ -40,20 +40,11 @@ const IntroText = () => {
   return (
     <>
       <div>
-        <div className='hidden sm:mb-8 sm:flex'>
-          <div className='hover:ring-primary-900/20 relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10'>
-            Announcing our next round of funding.{' '}
-            <a href='#' className='text-primary-500 font-semibold'>
-              <span className='absolute inset-0' aria-hidden='true' />
-              Read more <span aria-hidden='true'>&rarr;</span>
-            </a>
-          </div>
-        </div>
         <div className='text-left'>
-          <h1 className='text-4xl font-bold tracking-tight text-black md:text-5xl lg:text-6xl'>
+          <h1 className='text-4xl tracking-tight text-gray-900 md:text-6xl'>
             OP-Lösungen und Sterilisierungen von Dücker Medizintechnik
           </h1>
-          <p className='mt-6 text-lg leading-8 text-gray-600'>
+          <p className='mt-6 text-xl leading-8 text-gray-900 '>
             Entdecken Sie unser breites Spektrum an Produkten und
             Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren
             Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im
