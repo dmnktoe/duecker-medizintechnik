@@ -6,35 +6,28 @@ import { Container } from '@/components/layout/Container';
 import { useHidePageOverflow } from '@/utils/toggle-page-overflow';
 import { useEscapePress } from '@/utils/use-escape-press';
 
-import {
-  Availability,
-  Colors,
-  Music,
-  SchedulingLinks,
-  Team,
-  Todo,
-} from './Card';
+import { Commerce, Music, Production, Repair } from './Card';
 import { useFeatureStore } from './store';
 import { FeatureTitle } from './Title';
 import { MusicVisual, OtherVisual } from './Visual';
 
 const stickyScroll = [
   {
-    title: 'Aufbereitung aller OP-Materialen.',
-    id: 'todo-list',
-    card: Todo,
+    title: 'Produktion nach höchstem Maßstab.',
+    id: 'production',
+    card: Production,
     visual: OtherVisual,
   },
   {
-    title: 'ISO Klasse 8 Produktion auf höchstem Maßstab',
-    id: 'colors',
-    card: Colors,
+    title: 'Reparatur und Wartung von Medizinprodukten.',
+    id: 'repair',
+    card: Repair,
     visual: OtherVisual,
   },
   {
-    title: 'Instantly know if someone is available',
-    id: 'availability',
-    card: Availability,
+    title: 'Handel mit Medizinprodukten.',
+    id: 'commerce',
+    card: Commerce,
     visual: OtherVisual,
   },
   {
@@ -42,18 +35,6 @@ const stickyScroll = [
     id: 'music',
     card: Music,
     visual: MusicVisual,
-  },
-  {
-    title: 'Send scheduling links guests love',
-    id: 'scheduling-links',
-    card: SchedulingLinks,
-    visual: OtherVisual,
-  },
-  {
-    title: 'Always know what your team is up to',
-    id: 'team',
-    card: Team,
-    visual: OtherVisual,
   },
 ];
 

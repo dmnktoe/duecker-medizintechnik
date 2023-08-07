@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
+import NextImage from '@/components/NextImage';
+
 import { useFeatureStore } from './store';
 
 type FeatureCardProps = {
@@ -21,7 +23,7 @@ const FeatureCard = ({ gradient, children, id }: FeatureCardProps) => {
   return (
     <div
       className={clsx(
-        'absolute inset-0 h-full w-full rounded-2xl transition-opacity',
+        'absolute inset-0 h-full w-full overflow-hidden rounded-2xl transition-opacity',
         inViewFeature === id
           ? 'active-card opacity-100'
           : 'pointer-events-none opacity-0'
@@ -44,25 +46,40 @@ const FeatureCard = ({ gradient, children, id }: FeatureCardProps) => {
   );
 };
 
-export const Todo = ({ id }: CardProps) => {
+export const Production = ({ id }: CardProps) => {
   return (
     <FeatureCard id={id} gradient='from-[#f7f0ff] to-[#a78afe]'>
+      <NextImage
+        alt='Produktion'
+        src='/images/sticky-scroll_image-production.jpg'
+        layout='fill'
+      />
       <span />
     </FeatureCard>
   );
 };
 
-export const Colors = ({ id }: CardProps) => {
+export const Repair = ({ id }: CardProps) => {
   return (
     <FeatureCard id={id} gradient='from-[#f5fbff] to-[#addeff]'>
+      <NextImage
+        alt='Produktion'
+        src='/images/sticky-scroll_image-repair.jpg'
+        layout='fill'
+      />
       <span />
     </FeatureCard>
   );
 };
 
-export const Availability = ({ id }: CardProps) => {
+export const Commerce = ({ id }: CardProps) => {
   return (
     <FeatureCard id={id} gradient='from-[#f5fff7] to-[#adf8ff]'>
+      <NextImage
+        alt='Produktion'
+        src='/images/sticky-scroll_image-commerce.jpg'
+        layout='fill'
+      />
       <span />
     </FeatureCard>
   );
@@ -73,39 +90,39 @@ export const Music = ({ id }: CardProps) => {
   const isFullscreen = fullscreenFeature === id;
 
   return (
-    <FeatureCard id={id} gradient='from-[#f7fff5] to-[#adffd8]'>
+    <FeatureCard id={id} gradient='from-[#e0e0e0] to-[#ffffff]'>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         className={clsx(
-          'absolute left-[10%] top-[10%] w-[20%] rounded-xl shadow-lg transition-transform',
+          'absolute left-[5%] top-[10%] w-[30%] rounded-xl shadow-lg transition-transform',
           isFullscreen ? 'scale-0' : 'scale-100'
         )}
-        src='/song-1.webp'
+        src='/images/sticky-scroll_grid-1.jpg'
         alt='song1'
       />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         className={clsx(
-          'absolute left-[70%] top-[20%] w-[25%] rounded-xl shadow-lg transition-transform',
+          'absolute left-[70%] top-[20%] w-[35%] rounded-xl shadow-lg transition-transform',
           isFullscreen ? 'scale-0' : 'scale-100'
         )}
-        src='/song-2.webp'
+        src='/images/sticky-scroll_grid-2.jpg'
         alt='song2'
       />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         className={clsx(
-          'absolute left-[20%] top-[60%] w-[30%] rounded-xl shadow-lg transition-transform',
+          'absolute left-[15%] top-[50%] w-[70%] rounded-xl shadow-lg transition-transform',
           isFullscreen ? 'scale-0' : 'scale-100'
         )}
-        src='/song-3.webp'
+        src='/images/sticky-scroll_grid-3.jpg'
         alt='song3'
       />
 
       {!isFullscreen && (
         <motion.div
           layoutId='spotify-logo'
-          className='absolute left-[40%] top-32 h-48 w-24 rounded-[96px] bg-[#1bd761] p-3 shadow-lg'
+          className='bg-primary-500 absolute left-[40%] top-32 h-48 w-24 rounded-[96px] p-3 shadow-lg'
         >
           <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'>
             <path

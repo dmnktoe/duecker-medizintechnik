@@ -31,7 +31,7 @@ export const MusicVisual = ({ id }: Props) => {
   return (
     <Visual id={id}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src='/window-spotify.webp' alt='window' />
+      <img src='/images/window-spotify.webp' alt='window' />
       {isFullscreen && (
         <motion.div
           layoutId='spotify-logo'
@@ -53,7 +53,7 @@ export const OtherVisual = ({ id }: Props) => {
   return (
     <Visual id={id}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src='/window-spotify.webp' alt='window2' />
+      <img src='/images/window-spotify.webp' alt='window2' />
     </Visual>
   );
 };
