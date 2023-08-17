@@ -5,8 +5,8 @@ import NextImage from '@/components/NextImage';
 interface CardProps {
   title: string;
   description: string;
-  category: string;
-  image: string;
+  category?: string;
+  image?: string;
 }
 
 const Card: React.FC<CardProps> = ({ title, description, category, image }) => {

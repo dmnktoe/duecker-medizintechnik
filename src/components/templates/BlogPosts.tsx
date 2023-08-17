@@ -6,38 +6,13 @@ import 'swiper/css';
 import Card from '@/components/Card';
 import { Container } from '@/components/layout/Container';
 
-const data = [
-  {
-    title: 'How to decorating ourdoor sofa ',
-    description:
-      'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
-    category: 'Interior',
-    image: 'https://picsum.photos/2000/1400',
-  },
-  {
-    title: 'How to decorating ourdoor sofa ',
-    description:
-      'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
-    category: 'Interior',
-    image: 'https://picsum.photos/2000/1400',
-  },
-  {
-    title: 'How to decorating ourdoor sofa ',
-    description:
-      'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
-    category: 'Interior',
-    image: 'https://picsum.photos/2000/1400',
-  },
-  {
-    title: 'How to decorating ourdoor sofa ',
-    description:
-      'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
-    category: 'Interior',
-    image: 'https://picsum.photos/2000/1400',
-  },
-];
+import { Post } from '@/interfaces/Post';
 
-export const BlogPosts = () => {
+export interface Props {
+  posts: Post[];
+}
+
+export const BlogPosts = ({ posts }: Props) => {
   const swiperElRef = useRef<SwiperRef>(null);
 
   const handlePrev = useCallback(() => {
@@ -131,13 +106,12 @@ export const BlogPosts = () => {
             ref={swiperElRef}
           >
             <div className='mb-20 flex'>
-              {data.map((item, index) => (
+              {posts.map((post, index) => (
                 <SwiperSlide key={index}>
                   <Card
-                    title={item.title}
-                    description={item.description}
-                    category={item.category}
-                    image={item.image}
+                    title={post.attributes.title}
+                    description={post.attributes.content}
+                    category={post.attributes.publishedAt}
                   />
                 </SwiperSlide>
               ))}
