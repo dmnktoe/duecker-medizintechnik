@@ -1,0 +1,39 @@
+{
+  "intro": {
+    "title": "Operating room solutions and sterilization from Dücker Medizintechnik",
+    "content": "Discover our wide range of products and services for reprocessing surgical tools. Learn how we help you ensure optimal care in a medical context.",
+    "button": "Learn more"
+  },
+  "stickyScroll": {
+    "production": "Production to the highest standard.",
+    "repair": "Repair and maintenance of medical devices.",
+    "commerce": "Trade with medical devices.",
+    "anythingElse": "And everything else you need."
+  },
+  "features": {
+    "title": "Unsere Leistungen",
+    "content": "Wir bieten Ihnen ein breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
+    "items": [
+      {
+        "title": "OP-Lösungen",
+        "content": "Wir bieten Ihnen ein breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
+        "image": "https://via.placeholder.com/300x300"
+      },
+      {
+        "title": "Sterilisierungen",
+        "content": "Wir bieten Ihnen ein breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
+        "image": "https://via.placeholder.com/300x300"
+      },
+      {
+        "title": "OP-Lösungen",
+        "content": "Wir bieten Ihnen ein breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
+        "image": "https://via.placeholder.com/300x300"
+      },
+      {
+        "title": "OP-Lösungen",
+        "content": "Wir bieten Ihnen ein breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
+        "image": "https://via.placeholder.com/300x300"
+      }
+    ]
+  }
+}

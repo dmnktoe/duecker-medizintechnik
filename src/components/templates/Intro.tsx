@@ -1,3 +1,4 @@
+import { useTranslation } from 'next-i18next';
 import * as React from 'react';
 
 import { Container } from '@/components/layout/Container';
@@ -10,7 +11,7 @@ export const Intro = () => {
       <section className='mb-6'>
         <BackgroundBlurTop />
         <Container>
-          <div className='my-auto flex h-[80vh] min-h-[60rem] items-center gap-x-48'>
+          <div className='my-auto flex h-[40vh] min-h-[40rem] items-center gap-x-48 lg:h-[80vh] lg:min-h-[60rem]'>
             <div className='max-w-6xl'>
               <IntroText />
             </div>
@@ -37,25 +38,23 @@ export const Intro = () => {
 };
 
 const IntroText = () => {
+  const { t } = useTranslation('home');
   return (
     <>
       <div>
         <div className='text-left'>
           <h1 className='text-4xl tracking-tight text-gray-900 md:text-6xl'>
-            OP-Lösungen und Sterilisierungen von Dücker Medizintechnik
+            {t('intro.title')}
           </h1>
           <p className='mt-6 text-xl leading-8 text-gray-900 '>
-            Entdecken Sie unser breites Spektrum an Produkten und
-            Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren
-            Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im
-            medizinischen Kontext zu gewährleisten.
+            {t('intro.content')}
           </p>
           <div className='mt-10 flex items-center justify-start gap-x-6'>
             <ButtonLink
               href='#'
               className='px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
             >
-              Get started
+              {t('intro.button')}
             </ButtonLink>
             <a
               href='#'
@@ -70,70 +69,48 @@ const IntroText = () => {
   );
 };
 
+const customerLogos = [
+  {
+    name: 'Bissinger',
+    image: '/svg/bissinger.svg',
+  },
+  {
+    name: 'Eberle',
+    image: '/svg/eberle.svg',
+  },
+  {
+    name: 'Hupfer',
+    image: '/svg/hupfer.svg',
+  },
+  {
+    name: 'Key Surgical',
+    image: '/svg/keysurgical.svg',
+  },
+  {
+    name: 'Medicon',
+    image: '/svg/medicon.svg',
+  },
+  {
+    name: 'Nouvag',
+    image: '/svg/nouvag.svg',
+  },
+];
+
 const CustomerLogos = () => {
   return (
-    <div className='grid grid-cols-2 justify-around gap-8 text-neutral-600 md:grid-cols-3 lg:grid-cols-6'>
-      <div className='flex'>
-        <NextImage
-          useSkeleton={true}
-          src='/svg/bissinger.svg'
-          blurDataURL='/svg/bissinger.svg'
-          width='100'
-          height='100'
-          alt='Icon'
-          className='text-neutral-600'
-        />
-      </div>
-      <div className='self-center'>
-        <NextImage
-          useSkeleton
-          src='/svg/eberle.svg'
-          blurDataURL='/svg/eberle.svg'
-          width='100'
-          height='100'
-          alt='Icon'
-        />
-      </div>
-      <div className='self-center'>
-        <NextImage
-          useSkeleton
-          src='/svg/hupfer.svg'
-          blurDataURL='/svg/hupfer.svg'
-          width='100'
-          height='100'
-          alt='Icon'
-        />
-      </div>
-      <div className='self-center'>
-        <NextImage
-          useSkeleton
-          src='/svg/keysurgical.svg'
-          blurDataURL='/svg/keysurgical.svg'
-          width='100'
-          height='100'
-          alt='Icon'
-        />
-      </div>
-      <div className='self-center'>
-        <NextImage
-          useSkeleton
-          src='/svg/medicon.svg'
-          blurDataURL='/svg/medicon.svg'
-          width='100'
-          height='100'
-          alt='Icon'
-        />
-      </div>
-      <div className='self-center'>
-        <NextImage
-          useSkeleton
-          src='/svg/nouvag.svg'
-          blurDataURL='/svg/nouvag.svg'
-          width='100'
-          height='100'
-          alt='Icon'
-        />
-      </div>
+    <div className='grid grid-cols-2 gap-12 text-gray-500 dark:text-gray-400 sm:gap-12 md:grid-cols-3 lg:grid-cols-6'>
+      {customerLogos.map((logo) => (
+        <div key={logo.name} className='flex items-center justify-center'>
+          <NextImage
+            useSkeleton={true}
+            src={logo.image}
+            blurDataURL={logo.image}
+            width='100'
+            height='100'
+            alt='Icon'
+          />
+        </div>
+      ))}
     </div>
   );
 };
