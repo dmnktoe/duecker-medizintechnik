@@ -3,7 +3,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 
 import Layout from '@/components/layout/Layout';
-import Seo from '@/components/Seo';
+import Seo from '@/components/layout/Seo';
 import { BlogPosts } from '@/components/templates/BlogPosts';
 import { Features } from '@/components/templates/Features';
 import { Intro } from '@/components/templates/Intro';

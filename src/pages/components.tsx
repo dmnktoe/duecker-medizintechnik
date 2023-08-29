@@ -11,7 +11,7 @@ import {
 } from 'react-icons/hi';
 
 import Layout from '@/components/layout/Layout';
-import Seo from '@/components/Seo';
+import Seo from '@/components/layout/Seo';
 import Button from '@/components/ui/buttons/Button';
 import IconButton from '@/components/ui/buttons/IconButton';
 import TextButton from '@/components/ui/buttons/TextButton';
