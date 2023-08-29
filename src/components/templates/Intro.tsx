@@ -2,8 +2,8 @@ import { useTranslation } from 'next-i18next';
 import * as React from 'react';
 
 import { Container } from '@/components/layout/Container';
-import ButtonLink from '@/components/links/ButtonLink';
-import NextImage from '@/components/NextImage';
+import ButtonLink from '@/components/ui/links/ButtonLink';
+import NextImage from '@/components/ui/NextImage';
 
 export const Intro = () => {
   return (

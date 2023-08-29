@@ -2,11 +2,11 @@ import clsx from 'clsx';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 
-import { HamburgerIcon } from '@/components/icons/hamburger';
-import { Logo } from '@/components/icons/logo';
 import { Container } from '@/components/layout/Container';
-import ButtonLink from '@/components/links/ButtonLink';
-import UnstyledLink from '@/components/links/UnstyledLink';
+import { HamburgerIcon } from '@/components/ui/icons/hamburger';
+import { Logo } from '@/components/ui/icons/logo';
+import ButtonLink from '@/components/ui/links/ButtonLink';
+import UnstyledLink from '@/components/ui/links/UnstyledLink';
 
 export const Header = () => {
   const [hamburgerMenuIsOpen, setHamburgerMenuIsOpen] = useState(false);

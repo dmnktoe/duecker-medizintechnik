@@ -3,8 +3,8 @@ import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
-import Card from '@/components/Card';
 import { Container } from '@/components/layout/Container';
+import Card from '@/components/ui/Card';
 
 const data = [
   {

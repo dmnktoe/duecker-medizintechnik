@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { Logo } from '@/components/icons/logo';
 import { Container } from '@/components/layout/Container';
-import UnstyledLink from '@/components/links/UnstyledLink';
+import { Logo } from '@/components/ui/icons/logo';
+import UnstyledLink from '@/components/ui/links/UnstyledLink';
 
 export const Footer = () => {
   return (

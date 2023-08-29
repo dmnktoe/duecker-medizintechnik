@@ -1,6 +1,6 @@
 import React from 'react';
 
-import NextImage from '@/components/NextImage';
+import NextImage from '@/components/ui/NextImage';
 
 interface CardProps {
   title: string;

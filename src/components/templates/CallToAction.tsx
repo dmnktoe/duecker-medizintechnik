@@ -1,9 +1,9 @@
 import { useTranslation } from 'next-i18next';
 
-import Button from '@/components/buttons/Button';
 import { Container } from '@/components/layout/Container';
+import Button from '@/components/ui/buttons/Button';
 
-export const CTA = () => {
+export const CallToAction = () => {
   const { t } = useTranslation('cta');
   return (
     <>

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
-import NextImage from '@/components/NextImage';
+import NextImage from '@/components/ui/NextImage';
 
 import { useFeatureStore } from './store';
 
