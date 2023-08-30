@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
@@ -10,19 +9,17 @@ import * as DEFAULT_LOCALE from './../../next-i18next.config';
  * @param {string} locale - The locale to use.
  * @returns {i18n.i18n} The initialized i18n instance.
  */
+
 const initializeI18n = async (
   namespaces: string[],
-  locale = DEFAULT_LOCALE.i18n.defaultLocale
-) => {
+  locale: string = DEFAULT_LOCALE.i18n.defaultLocale
+): Promise<typeof i18n> => {
   const resources: { [ns: string]: object } = {};
 
-  // Load resources for the default language and given namespaces
   namespaces.forEach((ns) => {
     const filePath = `public/locales/${locale}/${ns}.json`;
     try {
-      // eslint-disable-next-line @typescript-eslint/no-var-requires,global-require,import/no-dynamic-require
-      const translations = require(`../../${filePath}`);
-      resources[ns] = translations;
+      resources[ns] = require(`../../${filePath}`);
     } catch (error) {
       throw new Error(
         `Could not load translations for locale: ${locale}, namespace: ${ns}`
