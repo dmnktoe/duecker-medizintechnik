@@ -8,7 +8,7 @@ describe('404', () => {
     await initializeI18n(['notFound']);
     render(<NotFoundPage />);
   });
-  it('should render the free price', async () => {
+  it('should render 404 heading', async () => {
     expect(await screen.findByText('Seite nicht gefunden')).toBeInTheDocument();
   });
 });
