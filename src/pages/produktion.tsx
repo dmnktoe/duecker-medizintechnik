@@ -1,7 +1,7 @@
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/layout/Seo';
 
-export default function Produktion() {
+export default function ProductionPage() {
   return (
     <Layout>
       <Seo templateTitle='Produktion' />
