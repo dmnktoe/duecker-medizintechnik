@@ -11,22 +11,20 @@ export const Intro = () => {
       <section className='mb-6'>
         <BackgroundBlurTop />
         <Container>
-          <div className='my-auto flex h-[40vh] min-h-[40rem] items-center gap-x-48 lg:h-[80vh] lg:min-h-[60rem]'>
-            <div className='max-w-6xl'>
+          <div className='mb-12 flex items-center gap-x-36 md:mb-24 '>
+            <div className='w-full lg:w-1/2'>
               <IntroText />
             </div>
-            <div className='hidden w-full md:block'>
-              <div className='absolute right-0 top-0 h-full max-h-[60rem] w-1/2 overflow-y-hidden object-cover'>
-                <NextImage
-                  alt='hero'
-                  src='/images/hero_bg.jpg'
-                  useSkeleton={true}
-                  blurDataURL='/images/hero_bg.jpg'
-                  width={1800}
-                  height={1800}
-                  className='h-full w-full overflow-hidden rounded-bl-[50vw]'
-                />
-              </div>
+            <div className='w-full lg:w-1/2'>
+              <NextImage
+                alt='hero'
+                src='/images/hero_bg.jpg'
+                useSkeleton={true}
+                blurDataURL='/images/hero_bg.jpg'
+                width={2500}
+                height={1700}
+                className='h-full w-full overflow-hidden rounded-[2rem]'
+              />
             </div>
           </div>
           <CustomerLogos />
@@ -43,10 +41,10 @@ const IntroText = () => {
     <>
       <div>
         <div className='text-left'>
-          <h1 className='text-4xl tracking-tight text-gray-900 md:text-6xl'>
+          <h1 className='text-4xl tracking-tight text-[#071626] md:text-5xl xl:text-6xl xl:leading-[1.1]'>
             {t('intro.title')}
           </h1>
-          <p className='mt-6 text-xl leading-8 text-gray-900 '>
+          <p className='mt-6 text-lg leading-8 text-gray-900 '>
             {t('intro.content')}
           </p>
           <div className='mt-10 flex items-center justify-start gap-x-6'>
@@ -105,7 +103,7 @@ const CustomerLogos = () => {
             useSkeleton={true}
             src={logo.image}
             blurDataURL={logo.image}
-            width='100'
+            width='120'
             height='100'
             alt='Icon'
           />
@@ -125,7 +123,7 @@ const BackgroundBlurTop = () => {
         className='from-primary-800 to-primary-300 relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]'
         style={{
           clipPath:
-            'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+            'polygon(74.1% 100%, 100% 91.6%, 100%, 65.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
         }}
       />
     </div>
