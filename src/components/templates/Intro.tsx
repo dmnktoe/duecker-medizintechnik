@@ -8,14 +8,14 @@ import NextImage from '@/components/ui/NextImage';
 export const Intro = () => {
   return (
     <>
-      <section className='mb-6'>
+      <section className='py-16 md:py-24 lg:py-32'>
         <BackgroundBlurTop />
         <Container>
-          <div className='mb-12 flex items-center gap-x-36 md:mb-24 '>
-            <div className='w-full lg:w-1/2'>
+          <div className='mb-12 flex flex-col items-center gap-12 md:mb-24 lg:flex-row lg:gap-36'>
+            <div className='w-full sm:w-8/12 lg:w-1/2'>
               <IntroText />
             </div>
-            <div className='w-full lg:w-1/2'>
+            <div className='w-full sm:w-8/12 lg:w-1/2'>
               <NextImage
                 alt='hero'
                 src='/images/hero_bg.jpg'
@@ -41,10 +41,10 @@ const IntroText = () => {
     <>
       <div>
         <div className='text-left'>
-          <h1 className='text-4xl tracking-tight text-[#071626] md:text-5xl xl:text-6xl xl:leading-[1.1]'>
+          <h1 className='text-4xl font-semibold tracking-tight text-[#071626] md:text-5xl xl:text-6xl xl:leading-[1.1]'>
             {t('intro.title')}
           </h1>
-          <p className='mt-6 text-lg leading-8 text-gray-900 '>
+          <p className='mt-6 text-lg font-medium leading-8 text-gray-700 '>
             {t('intro.content')}
           </p>
           <div className='mt-10 flex items-center justify-start gap-x-6'>
