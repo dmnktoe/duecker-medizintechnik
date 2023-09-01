@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import Link from 'next/link';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
@@ -65,7 +66,61 @@ export const Header = () => {
               <Logo className='w-48 text-[#071626]' />
             </Link>
             <div className='ml-auto xl:hidden'>
-              <HamburguerMenu />
+              <button
+                className='navbar-burger flex h-12 w-12 items-center justify-center rounded-md bg-gray-100 transition duration-200 hover:bg-gray-200'
+                onClick={() => setHamburgerMenuIsOpen((open) => !open)}
+              >
+                <svg
+                  width='24'
+                  height='24'
+                  viewBox='0 0 24 24'
+                  fill='none'
+                  xmlns='http://www.w3.org/2000/svg'
+                >
+                  <path
+                    d='M3 12H21'
+                    stroke='black'
+                    strokeWidth='2'
+                    strokeLinecap='round'
+                  ></path>
+                  <path
+                    d='M3 6H21'
+                    stroke='black'
+                    strokeWidth='2'
+                    strokeLinecap='round'
+                  ></path>
+                  <path
+                    d='M3 18H21'
+                    stroke='black'
+                    strokeWidth='2'
+                    strokeLinecap='round'
+                  ></path>
+                </svg>
+                <span className='sr-only'>Toggle menu</span>
+              </button>
+            </div>
+            <div
+              className={clsx(
+                'transition-[visibility] md:visible',
+                hamburgerMenuIsOpen ? 'visible' : 'invisible delay-500'
+              )}
+            >
+              <nav
+                className={clsx(
+                  'top-navigation-height animate-fadeInRight bg-background fixed left-0 h-[calc(100vh_-_var(--navigation-height))] w-full overflow-auto duration-300 ease-in-out md:relative md:top-0 md:block md:h-auto md:w-auto md:translate-x-0 md:overflow-hidden md:bg-transparent md:opacity-100 md:transition-none',
+                  hamburgerMenuIsOpen
+                    ? 'translate-x-0 opacity-100'
+                    : 'translate-x-[-100vw] opacity-0'
+                )}
+              >
+                <ul
+                  className={clsx(
+                    '[&_li]:border-grey-dark flex h-full flex-col md:flex-row md:items-center [&_li]:ml-4 [&_li]:border-b md:[&_li]:border-none',
+                    '[&_a:hover]:text-grey [&_a]:h-navigation-height ease-in [&_a]:flex [&_a]:w-full [&_a]:translate-y-8 [&_a]:items-center [&_a]:text-lg [&_a]:transition-[color,transform] [&_a]:duration-300 md:[&_a]:translate-y-0 md:[&_a]:text-sm [&_a]:md:transition-colors',
+                    hamburgerMenuIsOpen && '[&_a]:translate-y-0'
+                  )}
+                ></ul>
+              </nav>
             </div>
             <ul className='absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 transform text-lg font-normal text-gray-600 lg:w-auto lg:space-x-10 xl:flex'>
               <li className='group relative py-2'>
@@ -318,38 +373,5 @@ export const Header = () => {
         </Container>
       </header>
     </>
-  );
-};
-
-const HamburguerMenu = () => {
-  return (
-    <button className='navbar-burger flex h-12 w-12 items-center justify-center rounded-md bg-gray-100 transition duration-200 hover:bg-gray-200'>
-      <svg
-        width='24'
-        height='24'
-        viewBox='0 0 24 24'
-        fill='none'
-        xmlns='http://www.w3.org/2000/svg'
-      >
-        <path
-          d='M3 12H21'
-          stroke='black'
-          strokeWidth='2'
-          strokeLinecap='round'
-        ></path>
-        <path
-          d='M3 6H21'
-          stroke='black'
-          strokeWidth='2'
-          strokeLinecap='round'
-        ></path>
-        <path
-          d='M3 18H21'
-          stroke='black'
-          strokeWidth='2'
-          strokeLinecap='round'
-        ></path>
-      </svg>
-    </button>
   );
 };
