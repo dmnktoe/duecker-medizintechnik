@@ -6,7 +6,7 @@ import UnstyledLink from '@/components/ui/links/UnstyledLink';
 
 export const Footer = () => {
   return (
-    <footer className='bg-primary-50/50 py-12 md:py-32'>
+    <footer className='bg-primary-50/50 py-16 md:py-24 lg:py-32'>
       <Container>
         <div className='-mx-4 mb-24 flex flex-wrap'>
           <div className='mb-12 w-full px-4 xl:mb-0 xl:w-4/12'>

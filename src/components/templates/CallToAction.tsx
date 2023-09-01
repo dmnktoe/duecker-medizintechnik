@@ -1,4 +1,5 @@
 import { useTranslation } from 'next-i18next';
+import { Key } from 'react';
 
 import { Container } from '@/components/layout/Container';
 import Button from '@/components/ui/buttons/Button';
@@ -7,7 +8,7 @@ export const CallToAction = () => {
   const { t } = useTranslation('cta');
   return (
     <>
-      <section className='bg-primary-500 overflow-hidden py-12 lg:py-32'>
+      <section className='bg-primary-500 overflow-hidden py-16 md:py-24 lg:py-32'>
         <Container>
           <div className='relative overflow-hidden'>
             <div className='relative'>
@@ -26,8 +27,6 @@ export const CallToAction = () => {
                 {t('buttonText')}
               </Button>
               <ul className='-m-4 flex flex-wrap'>
-                {/*
-                // TODO: Add bullets
                 {t('bullets', { returnObjects: true })?.map(
                   (
                     bullet: {
@@ -45,7 +44,6 @@ export const CallToAction = () => {
                     </li>
                   )
                 )}
-                */}
               </ul>
             </div>
           </div>
@@ -55,7 +53,6 @@ export const CallToAction = () => {
   );
 };
 
-// eslint-disable-next-line unused-imports/no-unused-vars
 const TickIcon = () => (
   <svg
     className='mr-3 h-[20px] w-[20px] md:h-[26px] md:w-[26px]'

@@ -19,7 +19,7 @@ export const Features = () => {
   };
 
   return (
-    <section className='bg-gradient-to-br from-black to-neutral-800 py-12 md:py-32'>
+    <section className='bg-gradient-to-br from-black to-neutral-800 py-16 md:py-24 lg:py-32'>
       <Container>
         <div className='mx-auto mb-16 max-w-4xl text-white md:mb-24'>
           <h1 className='text-center text-4xl lg:text-6xl'>
