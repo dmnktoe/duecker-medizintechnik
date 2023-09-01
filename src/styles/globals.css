@@ -31,7 +31,7 @@
 
 @layer base {
   :root {
-    --navigation-height: 4.5rem;
+    --navigation-height: 110px;
   }
 
   @font-face {

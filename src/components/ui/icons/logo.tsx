@@ -1,8 +1,6 @@
 export const Logo = ({ className }: { className?: string }) => (
   <svg
-    width='268'
-    height='50'
-    viewBox='0 0 268 88'
+    viewBox='0 0 270 89'
     fill='currentColor'
     aria-label='Duecker Medizintechnik Logotype'
     className={className}
