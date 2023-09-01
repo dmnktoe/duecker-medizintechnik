@@ -55,10 +55,30 @@ export default {
             backgroundPosition: '700px 0',
           },
         },
+        slideRight: {
+          '0%': {
+            opacity: '0',
+            transform: 'translateX(20px)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateX(0)',
+          },
+        },
+        simpleFade: {
+          '0%': {
+            opacity: '0',
+          },
+          '100%': {
+            opacity: '1',
+          },
+        },
       },
       animation: {
         flicker: 'flicker 3s linear infinite',
         shimmer: 'shimmer 1.3s linear infinite',
+        fadeInRight: 'slideRight 0.2s ease-in-out',
+        fadeIn: 'simpleFade 0.2s ease-in-out',
       },
       backgroundImage: {
         'spotlight-hover':
