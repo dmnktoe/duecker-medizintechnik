@@ -2,8 +2,14 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
-import { HiMail, HiOutlineChevronDown, HiPhone } from 'react-icons/hi';
-import { HiLanguage } from 'react-icons/hi2';
+import {
+  HiGlobe,
+  HiMail,
+  HiMenu,
+  HiOutlineChevronDown,
+  HiPhone,
+} from 'react-icons/hi';
+import { Portal } from 'react-portal';
 
 import { Container } from '@/components/layout/Container';
 import { Logo } from '@/components/ui/icons/logo';
@@ -31,34 +37,7 @@ export const Header = () => {
 
   return (
     <>
-      <div className='relative hidden bg-[#071626] py-3 lg:w-auto xl:block'>
-        <Container>
-          <div className='flex items-end justify-between text-xs font-medium tracking-normal text-white'>
-            <div className='flex items-center gap-x-2'>
-              <HiLanguage className='text-primary-500 h-4 w-4' />
-              English (United States){' '}
-              <HiOutlineChevronDown className='relative -top-[2px] inline-block text-xs' />
-            </div>
-            <div className='flex gap-x-4'>
-              <div className='flex items-center gap-x-2'>
-                <HiPhone className='text-primary-500 h-4 w-4' />
-                +49 123 456 789
-              </div>
-              <div className='flex items-center gap-x-2'>
-                <HiMail className='text-primary-500 h-4 w-4' />
-                <p>
-                  <Link
-                    href='mailto:info@duecker-medizintechnik.de'
-                    className='hover:underline'
-                  >
-                    info@duecker-medizintechnik.de
-                  </Link>
-                </p>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </div>
+      <TopBar />
       <header className='sticky top-0 z-50 mb-12 bg-white py-6 md:mb-24'>
         <Container>
           <div className='relative flex items-center'>
@@ -70,58 +49,26 @@ export const Header = () => {
                 className='navbar-burger flex h-12 w-12 items-center justify-center rounded-md bg-gray-100 transition duration-200 hover:bg-gray-200'
                 onClick={() => setHamburgerMenuIsOpen((open) => !open)}
               >
-                <svg
-                  width='24'
-                  height='24'
-                  viewBox='0 0 24 24'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
-                  <path
-                    d='M3 12H21'
-                    stroke='black'
-                    strokeWidth='2'
-                    strokeLinecap='round'
-                  ></path>
-                  <path
-                    d='M3 6H21'
-                    stroke='black'
-                    strokeWidth='2'
-                    strokeLinecap='round'
-                  ></path>
-                  <path
-                    d='M3 18H21'
-                    stroke='black'
-                    strokeWidth='2'
-                    strokeLinecap='round'
-                  ></path>
-                </svg>
+                <HiMenu className='h-6 w-6 text-gray-600' />
                 <span className='sr-only'>Toggle menu</span>
               </button>
             </div>
-            <div
-              className={clsx(
-                'transition-[visibility] md:visible',
-                hamburgerMenuIsOpen ? 'visible' : 'invisible delay-500'
-              )}
-            >
-              <nav
-                className={clsx(
-                  'top-navigation-height animate-fadeInRight bg-background fixed left-0 h-[calc(100vh_-_var(--navigation-height))] w-full overflow-auto duration-300 ease-in-out md:relative md:top-0 md:block md:h-auto md:w-auto md:translate-x-0 md:overflow-hidden md:bg-transparent md:opacity-100 md:transition-none',
-                  hamburgerMenuIsOpen
-                    ? 'translate-x-0 opacity-100'
-                    : 'translate-x-[-100vw] opacity-0'
-                )}
-              >
-                <ul
+            {hamburgerMenuIsOpen && (
+              <Portal>
+                <div
                   className={clsx(
-                    '[&_li]:border-grey-dark flex h-full flex-col md:flex-row md:items-center [&_li]:ml-4 [&_li]:border-b md:[&_li]:border-none',
-                    '[&_a:hover]:text-grey [&_a]:h-navigation-height ease-in [&_a]:flex [&_a]:w-full [&_a]:translate-y-8 [&_a]:items-center [&_a]:text-lg [&_a]:transition-[color,transform] [&_a]:duration-300 md:[&_a]:translate-y-0 md:[&_a]:text-sm [&_a]:md:transition-colors',
-                    hamburgerMenuIsOpen && '[&_a]:translate-y-0'
+                    'top-navigation-height animate-fadeIn fixed inset-0 z-50 flex max-h-full w-full max-w-full flex-row md:justify-end md:bg-gray-500/10 md:backdrop-blur-[25px] xl:hidden',
+                    hamburgerMenuIsOpen ? 'visible' : 'invisible'
                   )}
-                ></ul>
-              </nav>
-            </div>
+                >
+                  <div className='animate-fadeInRight m-0 flex h-[calc(100vh_-_var(--navigation-height))] w-full overflow-hidden md:w-96'>
+                    <div className='flex-grow items-stretch bg-white text-black md:m-6 md:rounded-2xl md:shadow-xl'>
+                      Startseite
+                    </div>
+                  </div>
+                </div>
+              </Portal>
+            )}
             <ul className='absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 transform text-lg font-normal text-gray-600 lg:w-auto lg:space-x-10 xl:flex'>
               <li className='group relative py-2'>
                 <Link
@@ -373,5 +320,38 @@ export const Header = () => {
         </Container>
       </header>
     </>
+  );
+};
+
+const TopBar = () => {
+  return (
+    <div className='relative hidden bg-[#071626] py-3 lg:w-auto xl:block'>
+      <Container>
+        <div className='flex items-end justify-between text-xs font-medium tracking-normal text-white'>
+          <div className='flex items-center gap-x-2'>
+            <HiGlobe className='text-primary-500 h-4 w-4' />
+            English (United States){' '}
+            <HiOutlineChevronDown className='relative inline-block text-xs' />
+          </div>
+          <div className='flex gap-x-4'>
+            <div className='flex items-center gap-x-2'>
+              <HiPhone className='text-primary-500 h-4 w-4' />
+              +49 123 456 789
+            </div>
+            <div className='flex items-center gap-x-2'>
+              <HiMail className='text-primary-500 h-4 w-4' />
+              <p>
+                <Link
+                  href='mailto:info@duecker-medizintechnik.de'
+                  className='hover:underline'
+                >
+                  info@duecker-medizintechnik.de
+                </Link>
+              </p>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </div>
   );
 };

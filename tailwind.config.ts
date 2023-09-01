@@ -65,11 +65,20 @@ export default {
             transform: 'translateX(0)',
           },
         },
+        simpleFade: {
+          '0%': {
+            opacity: '0',
+          },
+          '100%': {
+            opacity: '1',
+          },
+        },
       },
       animation: {
         flicker: 'flicker 3s linear infinite',
         shimmer: 'shimmer 1.3s linear infinite',
-        fadeInRight: 'slideRight 0.3s ease-in-out',
+        fadeInRight: 'slideRight 0.2s ease-in-out',
+        fadeIn: 'simpleFade 0.2s ease-in-out',
       },
       backgroundImage: {
         'spotlight-hover':
