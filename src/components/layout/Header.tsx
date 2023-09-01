@@ -61,13 +61,26 @@ export const Header = () => {
                 <Logo className='w-40 text-[#071626] md:w-48' />
               </Link>
               <div className='ml-auto xl:hidden'>
-                <button
-                  className='navbar-burger flex items-center justify-center rounded-full border-[1px] border-solid border-[#071626] p-3 text-[#071626] transition duration-200 hover:bg-black hover:text-white md:p-6'
-                  onClick={() => setHamburgerMenuIsOpen((open) => !open)}
-                >
-                  <VscMenu className='h-6 w-6 text-inherit' />
-                  <span className='sr-only'>Toggle menu</span>
-                </button>
+                <div className='flex flex-row gap-3'>
+                  <div className='ml-auto hidden md:block xl:hidden'>
+                    <div className='flex items-center'>
+                      <a
+                        className='text-primary-600 border-primary-500 hover:text-primary-50 hover:bg-primary-500 group relative inline-block overflow-hidden rounded-full border-[1px] bg-transparent px-6 py-5 text-lg font-bold transition duration-200 hover:scale-95 2xl:text-lg'
+                        href='#'
+                      >
+                        <span className='relative'>Kontakt aufnehmen</span>
+                      </a>
+                    </div>
+                  </div>
+                  <button
+                    className='navbar-burger flex items-center justify-center rounded-full border-[1px] border-solid border-[#071626] p-3 text-[#071626] transition duration-200 hover:scale-95 hover:bg-black hover:text-white active:bg-neutral-800 md:p-6'
+                    onClick={() => setHamburgerMenuIsOpen((open) => !open)}
+                    data-testid='navigationButton'
+                  >
+                    <VscMenu className='h-6 w-6 text-inherit' />
+                    <span className='sr-only'>Toggle menu</span>
+                  </button>
+                </div>
               </div>
               <div
                 className={clsx(
@@ -78,6 +91,7 @@ export const Header = () => {
                 )}
               >
                 <div
+                  data-testid='navigationMenu'
                   className={clsx(
                     'animate-fadeInRight m-0 flex h-[calc(100vh_-_var(--navigation-height))] w-full overflow-hidden transition-all duration-200 ease-in-out md:w-96',
                     hamburgerMenuIsOpen
