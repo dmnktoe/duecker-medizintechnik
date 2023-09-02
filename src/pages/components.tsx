@@ -316,6 +316,27 @@ export default function ComponentsPage() {
                     Small Size
                   </Button>
                 </div>
+                <div className='!mt-4 flex flex-wrap gap-2'>
+                  <Button size='lg' variant='primary'>
+                    Large Size
+                  </Button>
+                  <Button
+                    size='lg'
+                    variant='outline'
+                    isDarkBg={mode === 'dark'}
+                  >
+                    Large Size
+                  </Button>
+                  <Button size='lg' variant='ghost' isDarkBg={mode === 'dark'}>
+                    Large Size
+                  </Button>
+                  <Button size='lg' variant='dark'>
+                    Large Size
+                  </Button>
+                  <Button size='lg' variant='light'>
+                    Large Size
+                  </Button>
+                </div>
                 <div className='flex flex-wrap gap-2'>
                   <Button
                     size='sm'
