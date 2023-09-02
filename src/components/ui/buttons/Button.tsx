@@ -48,8 +48,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={clsxm(
           'inline-flex items-center justify-center rounded-full font-normal tracking-tight',
           'focus-visible:ring-primary-500 focus:outline-none focus-visible:ring',
-          'transition-colors duration-150',
-          isScaling && 'transform hover:scale-95',
+          'transition-all duration-150',
           //#region  //*=========== Size ===========
           [
             size === 'sm' && ['px-3 py-2', 'text-xs md:text-sm'],
