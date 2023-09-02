@@ -23,11 +23,13 @@
     "test1:": "test1"
   },
   "header": {
+    "change-locale": "English (United States)",
     "ctaButtonText": "Kontakt aufnehmen",
     "toggleNavigationText": "Navigation umschalten",
     "imprintLinkText": "Impressum",
     "cookieLinkText": "Cookie-Einstellungen",
     "privacyLinkText": "Datenschutz",
+    "servicesDropdownText": "Unser Service",
     "navigationItems": [
       {
         "href": "/",
