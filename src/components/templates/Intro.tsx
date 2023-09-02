@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import * as React from 'react';
 
@@ -11,7 +12,7 @@ export const Intro = () => {
       <section className='py-16 md:py-24 lg:py-32'>
         <BackgroundBlurTop />
         <Container>
-          <div className='mb-12 flex flex-col items-center gap-12 md:mb-24 lg:flex-row lg:gap-36'>
+          <div className='mb-12 flex flex-col items-center gap-12 md:mb-24 md:gap-24 lg:flex-row lg:gap-36'>
             <div className='w-full sm:w-8/12 lg:w-1/2'>
               <IntroText />
             </div>
@@ -71,26 +72,32 @@ const customerLogos = [
   {
     name: 'Bissinger',
     image: '/svg/bissinger.svg',
+    url: 'https://www.bissinger.com/de',
   },
   {
     name: 'Eberle',
     image: '/svg/eberle.svg',
+    url: 'https://www.eberle-med.de/eberle-medizin/',
   },
   {
     name: 'Hupfer',
     image: '/svg/hupfer.svg',
+    url: 'https://www.hupfer.com/de/medical',
   },
   {
     name: 'Key Surgical',
     image: '/svg/keysurgical.svg',
+    url: 'https://www.keysurgical.de/',
   },
   {
     name: 'Medicon',
     image: '/svg/medicon.svg',
+    url: 'https://medicon.de/',
   },
   {
     name: 'Nouvag',
     image: '/svg/nouvag.svg',
+    url: 'https://www.nouvag.com/de/',
   },
 ];
 
@@ -99,14 +106,16 @@ const CustomerLogos = () => {
     <div className='grid grid-cols-2 gap-12 text-gray-500 dark:text-gray-400 sm:gap-12 md:grid-cols-3 lg:grid-cols-6'>
       {customerLogos.map((logo) => (
         <div key={logo.name} className='flex items-center justify-center'>
-          <NextImage
-            useSkeleton={true}
-            src={logo.image}
-            blurDataURL={logo.image}
-            width='120'
-            height='100'
-            alt='Icon'
-          />
+          <Link href={logo.url} target='_blank'>
+            <NextImage
+              useSkeleton={true}
+              src={logo.image}
+              blurDataURL={logo.image}
+              width='120'
+              height='100'
+              alt='Icon'
+            />
+          </Link>
         </div>
       ))}
     </div>
