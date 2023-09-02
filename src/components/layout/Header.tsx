@@ -6,6 +6,7 @@ import {
   VscChevronDown,
   VscDeviceMobile,
   VscGlobe,
+  VscLocation,
   VscMail,
   VscMenu,
 } from 'react-icons/vsc';
@@ -17,7 +18,10 @@ import {
   CollapsibleTrigger,
 } from '@/components/ui/Collapsible';
 import { Logo } from '@/components/ui/icons/logo';
+import { SubdirectoryIcon } from '@/components/ui/icons/subdirectory';
 import NextImage from '@/components/ui/NextImage';
+
+import { data } from '@/constant/data';
 
 export const Header = () => {
   const [hamburgerMenuIsOpen, setHamburgerMenuIsOpen] = useState(false);
@@ -110,61 +114,13 @@ export const Header = () => {
                         <CollapsibleContent>
                           <div className='mt-2 flex flex-col gap-y-2 text-2xl text-gray-700'>
                             <Link href='/'>
-                              <svg
-                                width='24'
-                                height='24'
-                                viewBox='0 0 24 24'
-                                fill='none'
-                                xmlns='http://www.w3.org/2000/svg'
-                                className='inline'
-                              >
-                                <path
-                                  d='M4 5.00049V11.0005C4 14.3142 6.68629 17.0005 10 17.0005H16'
-                                  stroke='currentColor'
-                                  stroke-opacity='0.4'
-                                  stroke-width='1.5'
-                                  stroke-linecap='round'
-                                ></path>
-                              </svg>{' '}
-                              Produktion
+                              <SubdirectoryIcon /> Produktion
                             </Link>
                             <Link href='/'>
-                              <svg
-                                width='24'
-                                height='24'
-                                viewBox='0 0 24 24'
-                                fill='none'
-                                xmlns='http://www.w3.org/2000/svg'
-                                className='inline'
-                              >
-                                <path
-                                  d='M4 5.00049V11.0005C4 14.3142 6.68629 17.0005 10 17.0005H16'
-                                  stroke='currentColor'
-                                  stroke-opacity='0.4'
-                                  stroke-width='1.5'
-                                  stroke-linecap='round'
-                                ></path>
-                              </svg>{' '}
-                              Reparatur
+                              <SubdirectoryIcon /> Reparatur
                             </Link>
                             <Link href='/'>
-                              <svg
-                                width='24'
-                                height='24'
-                                viewBox='0 0 24 24'
-                                fill='none'
-                                xmlns='http://www.w3.org/2000/svg'
-                                className='inline'
-                              >
-                                <path
-                                  d='M4 5.00049V11.0005C4 14.3142 6.68629 17.0005 10 17.0005H16'
-                                  stroke='currentColor'
-                                  stroke-opacity='0.4'
-                                  stroke-width='1.5'
-                                  stroke-linecap='round'
-                                ></path>
-                              </svg>{' '}
-                              Handel
+                              <SubdirectoryIcon /> Handel
                             </Link>
                           </div>
                         </CollapsibleContent>
@@ -455,17 +411,18 @@ const TopBar = () => {
           </div>
           <div className='flex gap-x-4'>
             <div className='flex items-center gap-x-2'>
+              <VscLocation className='text-primary-500 h-4 w-4' />
+              {data.street}, {data.city}
+            </div>
+            <div className='flex items-center gap-x-2'>
               <VscDeviceMobile className='text-primary-500 h-4 w-4' />
-              +49 123 456 789
+              {data.phone}
             </div>
             <div className='flex items-center gap-x-2'>
               <VscMail className='text-primary-500 h-4 w-4' />
               <p>
-                <Link
-                  href='mailto:info@duecker-medizintechnik.de'
-                  className='hover:underline'
-                >
-                  info@duecker-medizintechnik.de
+                <Link href={`mailto:${data.mail}`} className='hover:underline'>
+                  {data.mail}
                 </Link>
               </p>
             </div>

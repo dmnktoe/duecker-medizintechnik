@@ -1,0 +1,18 @@
+export const SubdirectoryIcon = () => (
+  <svg
+    width='24'
+    height='24'
+    viewBox='0 0 24 24'
+    fill='none'
+    xmlns='http://www.w3.org/2000/svg'
+    className='inline'
+  >
+    <path
+      d='M4 5.00049V11.0005C4 14.3142 6.68629 17.0005 10 17.0005H16'
+      stroke='currentColor'
+      strokeOpacity='0.4'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+    ></path>
+  </svg>
+);
