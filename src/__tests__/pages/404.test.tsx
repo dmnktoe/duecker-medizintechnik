@@ -5,7 +5,7 @@ import initializeI18n from '@/utils/i18n-testing';
 
 describe('404', () => {
   beforeEach(async () => {
-    await initializeI18n(['notFound', 'cta']);
+    await initializeI18n(['common', 'notFound']);
     render(<NotFoundPage />);
   });
   it('should render 404 heading', async () => {

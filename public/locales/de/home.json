@@ -2,7 +2,8 @@
   "intro": {
     "title": "OP-Lösungen und Sterilisierungen für den B2B-Betrieb",
     "content": "Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
-    "button": "Mehr erfahren"
+    "primaryButton": "Das Unternehmen",
+    "secondaryButton": "Dienstleistungen"
   },
   "stickyScroll": {
     "production": "Produktion nach höchstem Maßstab.",

@@ -29,13 +29,7 @@ const HomePage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
 
 export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale ?? 'de', [
-      'common',
-      'cta',
-      'footer',
-      'header',
-      'home',
-    ])),
+    ...(await serverSideTranslations(locale ?? 'de', ['common', 'home'])),
   },
 });
 

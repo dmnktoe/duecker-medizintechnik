@@ -1,3 +1,63 @@
 {
-  "name": "Dücker Medizintechnik"
+  "cta": {
+    "headline": "Benötigen Sie Hilfe bei der Aufbereitung?",
+    "subline": "Wir beraten Sie gerne!",
+    "buttonText": "Angebot anfordern",
+    "buttonLink": "/kontakt",
+    "bullets": [
+      {
+        "title": "24/7 Support"
+      },
+      {
+        "title": "Persönlicher Ansprechpartner"
+      },
+      {
+        "title": "Medizinische Expertise"
+      },
+      {
+        "title": "Kostenloses Angebot"
+      }
+    ]
+  },
+  "footer": {
+    "test1:": "test1"
+  },
+  "header": {
+    "ctaButtonText": "Kontakt aufnehmen",
+    "toggleNavigationText": "Navigation umschalten",
+    "navigationItems": [
+      {
+        "href": "/",
+        "text": "Startseite"
+      },
+      {
+        "text": "Leistungen",
+        "subItems": [
+          {
+            "href": "/leistungen/produktion",
+            "text": "Produktion",
+            "description": "Nach höchstem Maßstab."
+          },
+          {
+            "href": "/leistungen/reparatur",
+            "text": "Reparatur",
+            "description": "Wartung von Medizinprodukten."
+          },
+          {
+            "href": "/leistungen/handel",
+            "text": "Handel",
+            "description": "Handel & b2b-Plattform."
+          }
+        ]
+      },
+      {
+        "href": "/downloads",
+        "text": "Downloads"
+      },
+      {
+        "href": "/neuigkeiten",
+        "text": "Neuigkeiten"
+      }
+    ]
+  }
 }

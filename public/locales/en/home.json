@@ -2,7 +2,8 @@
   "intro": {
     "title": "Operating room solutions and sterilization from Dücker Medizintechnik",
     "content": "Discover our wide range of products and services for reprocessing surgical tools. Learn how we help you ensure optimal care in a medical context.",
-    "button": "Learn more"
+    "primaryButton": "About us",
+    "secondaryButton": "Services"
   },
   "stickyScroll": {
     "production": "Production to the highest standard.",

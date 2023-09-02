@@ -33,7 +33,7 @@ export default function NotFoundPage() {
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['common', 'cta', 'notFound'])),
+      ...(await serverSideTranslations(locale, ['common', 'notFound'])),
     },
   };
 }
