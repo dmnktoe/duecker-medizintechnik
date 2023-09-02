@@ -25,6 +25,9 @@
   "header": {
     "ctaButtonText": "Kontakt aufnehmen",
     "toggleNavigationText": "Navigation umschalten",
+    "imprintLinkText": "Impressum",
+    "cookieLinkText": "Cookie-Einstellungen",
+    "privacyLinkText": "Datenschutz",
     "navigationItems": [
       {
         "href": "/",
