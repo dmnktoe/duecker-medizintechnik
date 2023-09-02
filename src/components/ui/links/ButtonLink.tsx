@@ -18,6 +18,7 @@ const ButtonLinkSize = ['sm', 'base', 'lg'] as const;
 
 type ButtonLinkProps = {
   isDarkBg?: boolean;
+  isScaling?: boolean;
   variant?: (typeof ButtonLinkVariant)[number];
   size?: (typeof ButtonLinkSize)[number];
   leftIcon?: IconType;
@@ -34,6 +35,7 @@ const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
       variant = 'primary',
       size = 'base',
       isDarkBg = false,
+      isScaling = false,
       leftIcon: LeftIcon,
       rightIcon: RightIcon,
       leftIconClassName,
@@ -47,14 +49,15 @@ const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
         ref={ref}
         {...rest}
         className={clsxm(
-          'inline-flex items-center rounded-2xl font-normal tracking-tight',
+          'inline-flex items-center justify-center rounded-full font-normal tracking-tight',
           'focus-visible:ring-primary-500 focus:outline-none focus-visible:ring',
-          'transition-colors duration-75',
+          'transition-colors duration-150',
+          isScaling && 'transform hover:scale-95',
           //#region  //*=========== Size ===========
           [
-            size === 'sm' && ['px-3 py-1', 'text-xs md:text-sm'],
-            size === 'base' && ['px-4 py-1.5', 'text-sm md:text-base'],
-            size === 'lg' && ['px-5 py-4', 'text-base'],
+            size === 'sm' && ['px-4 py-2', 'text-xs md:text-sm'],
+            size === 'base' && ['px-5 py-3', 'text-base md:text-base'],
+            size === 'lg' && ['px-7 py-5', 'text-lg font-bold 2xl:text-lg'],
           ],
           //#endregion  //*======== Size ===========
           //#region  //*=========== Variants ===========
@@ -64,13 +67,15 @@ const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
               'hover:bg-primary-600 hover:text-white',
               'active:bg-primary-700',
               'disabled:bg-primary-700',
+              isScaling && 'transform hover:scale-95',
             ],
             variant === 'outline' && [
               'text-primary-500',
               'border-primary-500 border',
-              'hover:bg-primary-50 active:bg-primary-100 disabled:bg-primary-100',
+              'hover:text-primary-50 hover:bg-primary-500 disabled:bg-primary-100',
               isDarkBg &&
                 'hover:bg-gray-900 active:bg-gray-800 disabled:bg-gray-800',
+              isScaling && 'transform hover:scale-95',
             ],
             variant === 'ghost' && [
               'text-primary-500',
@@ -78,15 +83,18 @@ const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
               'hover:bg-primary-50 active:bg-primary-100 disabled:bg-primary-100',
               isDarkBg &&
                 'hover:bg-gray-900 active:bg-gray-800 disabled:bg-gray-800',
+              isScaling && 'transform hover:scale-95',
             ],
             variant === 'light' && [
               'bg-white text-gray-700',
               'hover:text-dark hover:bg-gray-100',
               'active:bg-white/80 disabled:bg-gray-200',
+              isScaling && 'transform hover:scale-95',
             ],
             variant === 'dark' && [
               'bg-gray-900 text-white',
               'hover:bg-gray-800 active:bg-gray-700 disabled:bg-gray-700',
+              isScaling && 'transform hover:scale-95',
             ],
           ],
           //#endregion  //*======== Variants ===========
