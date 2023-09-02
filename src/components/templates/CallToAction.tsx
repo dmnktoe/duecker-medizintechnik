@@ -5,7 +5,7 @@ import { Container } from '@/components/layout/Container';
 import Button from '@/components/ui/buttons/Button';
 
 export const CallToAction = () => {
-  const { t } = useTranslation('cta');
+  const { t, ready } = useTranslation('cta', { useSuspense: false });
   return (
     <>
       <section className='bg-primary-500 overflow-hidden py-16 md:py-24 lg:py-32'>
@@ -27,23 +27,24 @@ export const CallToAction = () => {
                 {t('buttonText')}
               </Button>
               <ul className='-m-4 flex flex-wrap'>
-                {t('bullets', { returnObjects: true })?.map(
-                  (
-                    bullet: {
-                      title: string;
-                    },
-                    index: Key
-                  ) => (
-                    <li key={index} className='p-4'>
-                      <div className='flex flex-wrap'>
-                        <TickIcon />
-                        <span className='tracking-tight text-white'>
-                          {bullet.title}
-                        </span>
-                      </div>
-                    </li>
-                  )
-                )}
+                {ready &&
+                  t('bullets', { returnObjects: true }).map(
+                    (
+                      bullet: {
+                        title: string;
+                      },
+                      index: Key
+                    ) => (
+                      <li key={index} className='p-4'>
+                        <div className='flex flex-wrap'>
+                          <TickIcon />
+                          <span className='tracking-tight text-white'>
+                            {bullet.title}
+                          </span>
+                        </div>
+                      </li>
+                    )
+                  )}
               </ul>
             </div>
           </div>
