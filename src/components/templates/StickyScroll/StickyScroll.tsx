@@ -100,27 +100,18 @@ export const StickyScroll = () => {
   }, [animate, fullscreenFeature, lastFullscreenFeature]);
 
   return (
-    <section className='min-h-full'>
+    <section className='lg:min-h-full'>
       <Container>
         <div ref={scope}>
-          {stickyScroll.map((feature) => (
-            <feature.visual id={feature.id} key={feature.id} />
-          ))}
-          <button
-            onClick={() => setFullscreenFeature(null)}
-            className='back-to-site-btn fixed bottom-6 left-1/2 z-10 -translate-x-1/2 translate-y-[300%] rounded-full bg-black px-4 py-2 text-white opacity-0 shadow-lg'
-          >
-            Back to site
-          </button>
-          <div className='flex w-full items-start gap-x-48'>
-            <div className='sticky top-0 flex h-screen w-full items-center'>
-              <div className='relative aspect-square w-full rounded-2xl bg-gray-100 [&:has(>_.active-card)]:bg-transparent'>
+          <div className='w-full items-start lg:flex lg:gap-x-48'>
+            <div className='fixed bottom-8 right-8 z-50 flex h-48 w-48 items-center lg:sticky lg:top-0 lg:h-screen lg:w-full'>
+              <div className='relative hidden aspect-square w-full rounded-2xl bg-gray-100 lg:block [&:has(>_.active-card)]:block lg:[&:has(>_.active-card)]:bg-transparent'>
                 {stickyScroll.map((feature) => (
                   <feature.card id={feature.id} key={feature.id} />
                 ))}
               </div>
             </div>
-            <div className='w-full py-[50vh]'>
+            <div className='w-full py-[50vh] lg:py-[50vh]'>
               <ul>
                 {stickyScroll.map((feature) => (
                   <li key={feature.id}>
