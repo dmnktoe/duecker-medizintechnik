@@ -7,11 +7,13 @@ import initializeI18n from '@/utils/i18n-testing';
 
 describe('Call to action', () => {
   beforeEach(async () => {
-    await initializeI18n(['cta']);
+    await initializeI18n(['common']);
     render(<Header />);
   });
   it('should render the header', async () => {
-    expect(await screen.findByText('Toggle menu')).toBeInTheDocument();
+    expect(
+      await screen.findByText('Navigation umschalten')
+    ).toBeInTheDocument();
   });
   {
     /*}

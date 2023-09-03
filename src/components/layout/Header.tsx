@@ -249,7 +249,7 @@ const NavItem = ({ href, text, subItems }: NavItemProps) => {
         <button
           className={clsx(
             'inline-block transition duration-200 ease-in-out group-hover:text-black',
-            currentRoute.includes(href as string) && 'underline'
+            currentRoute === href && 'underline'
           )}
           aria-haspopup='true'
         >
