@@ -169,7 +169,7 @@ export const Header = () => {
                 </div>
               </div>
               {/* Desktop navigation list */}
-              <ul className='text-md absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 transform text-lg font-bold text-gray-600 lg:w-auto lg:space-x-10 xl:flex 2xl:text-xl'>
+              <ul className='text-md absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 transform text-lg font-bold text-gray-500 lg:w-auto lg:space-x-10 xl:flex 2xl:text-xl'>
                 {ready &&
                   t('header.navigationItems', { returnObjects: true }).map(
                     (item, index) => <NavItem key={index} {...item} />
@@ -261,7 +261,7 @@ const NavItem = ({ href, text, subItems }: NavItemProps) => {
           href={href as string}
           className={clsx(
             'transition duration-150 ease-in-out hover:text-black active:text-neutral-100',
-            currentRoute === href && 'underline'
+            currentRoute === href && 'text-dark'
           )}
         >
           {text}
@@ -296,7 +296,7 @@ const NavItem = ({ href, text, subItems }: NavItemProps) => {
                           href={item.href}
                           className={clsx(
                             'text-md hover:text-primary-500 hover:to-primary-50 hover:bg-primary-50 -mx-2 block rounded-lg p-2 font-semibold text-gray-800 transition duration-200 ease-in-out',
-                            currentRoute === item.href && 'underline'
+                            currentRoute === item.href && 'text-primary-500'
                           )}
                         >
                           {item.text}
