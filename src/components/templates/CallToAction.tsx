@@ -8,7 +8,7 @@ export const CallToAction = () => {
   const { t, ready } = useTranslation('common', { useSuspense: false });
   return (
     <>
-      <section className='bg-primary-500 overflow-hidden py-16 md:py-24 lg:py-32'>
+      <section className='from-primary-400 to-primary-600 overflow-hidden bg-gradient-to-tr py-16 md:py-24 lg:py-32'>
         <Container>
           <div className='relative overflow-hidden'>
             <div className='relative'>
