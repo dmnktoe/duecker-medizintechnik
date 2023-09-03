@@ -1,13 +1,10 @@
 module.exports = {
   ci: {
     collect: {
-      startServerCommand: 'next build && next start -p 3000',
+      startServerCommand: 'yarn start',
       startServerReadyPattern: 'Started a web server',
-      numberOfRuns: 1,
+      numberOfRuns: 3,
       url: ['http://localhost:3000'],
-      settings: {
-        preset: 'desktop',
-      },
     },
     assert: {
       preset: 'lighthouse:recommended',

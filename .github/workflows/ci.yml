@@ -124,8 +124,8 @@ jobs:
       - name: 📥 Download deps
         uses: bahmutov/npm-install@v1
 
-      - name: 🏗 Build & Start
-        run: yarn build && yarn start
+      - name: 🏗 Build
+        run: yarn build
 
       - name: lighthouse mobile audit
         run: yarn lhci:mobile
