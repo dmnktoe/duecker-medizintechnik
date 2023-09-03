@@ -6,7 +6,7 @@ import initializeI18n from '@/utils/i18n-testing';
 
 describe('Call to action', () => {
   beforeEach(async () => {
-    await initializeI18n(['cta']);
+    await initializeI18n(['common']);
     render(<CallToAction />);
   });
   it('should render the call to action section', async () => {

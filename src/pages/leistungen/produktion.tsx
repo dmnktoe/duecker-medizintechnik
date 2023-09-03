@@ -1,7 +1,12 @@
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/layout/Seo';
 
-export default function ProductionPage() {
+const ProductionPage = (
+  _props: InferGetStaticPropsType<typeof getStaticProps>
+) => {
   return (
     <Layout>
       <Seo templateTitle='Produktion' />
@@ -377,4 +382,12 @@ export default function ProductionPage() {
       </section>
     </Layout>
   );
-}
+};
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale ?? 'de', ['common', 'home'])),
+  },
+});
+
+export default ProductionPage;

@@ -42,25 +42,22 @@ const IntroText = () => {
     <>
       <div>
         <div className='text-left'>
-          <h1 className='text-4xl font-semibold tracking-tight text-[#071626] md:text-5xl xl:text-6xl xl:leading-[1.1]'>
+          <h1 className='text-dark text-4xl font-semibold tracking-tight md:text-5xl xl:text-6xl xl:leading-[1.1]'>
             {t('intro.title')}
           </h1>
           <p className='mt-6 text-lg font-medium leading-8 text-gray-700 '>
             {t('intro.content')}
           </p>
-          <div className='mt-10 flex items-center justify-start gap-x-6'>
-            <ButtonLink
-              href='#'
-              className='px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
-            >
-              {t('intro.button')}
+          <div className='mt-10 flex items-center justify-start gap-x-3'>
+            <ButtonLink size='base' href='/ueber-uns'>
+              {t('intro.primaryButton')}
             </ButtonLink>
-            <a
-              href='#'
-              className='text-sm font-semibold leading-6 text-gray-900'
-            >
-              Learn more <span aria-hidden='true'>→</span>
-            </a>
+            <ButtonLink size='base' variant='ghost' href='/ueber-uns'>
+              {t('intro.secondaryButton')}{' '}
+              <span aria-hidden='true' className='ml-2'>
+                →
+              </span>
+            </ButtonLink>
           </div>
         </div>
       </div>

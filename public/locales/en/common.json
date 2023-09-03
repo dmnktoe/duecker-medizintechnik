@@ -1,3 +1,68 @@
 {
-  "name": "Dücker Medizintechnik"
+  "cta": {
+    "headline": "Do you have any questions or need a quote?",
+    "subline": "We are happy to help you!",
+    "buttonText": "Get a Quote",
+    "buttonLink": "/kontakt",
+    "bullets": [
+      {
+        "title": "24/7 Support"
+      },
+      {
+        "title": "Your personal contact"
+      },
+      {
+        "title": "Medical expertise in an international environment"
+      },
+      {
+        "title": "Get a quote within 24 hours"
+      }
+    ]
+  },
+  "footer": {
+    "test1:": "test1"
+  },
+  "header": {
+    "change-locale": "German (DE)",
+    "ctaButtonText": "Get a Quote / Contact Us",
+    "toggleNavigationText": "Toggle menu",
+    "imprintLinkText": "Imprint",
+    "cookieLinkText": "Cookie Settings",
+    "privacyLinkText": "Privacy Policy",
+    "servicesDropdownText": "Our Services",
+    "navigationItems": [
+      {
+        "href": "/",
+        "text": "Home"
+      },
+      {
+        "text": "Services",
+        "subItems": [
+          {
+            "href": "/leistungen/produktion",
+            "text": "Production",
+            "description": "High quality medical production."
+          },
+          {
+            "href": "/leistungen/reparatur",
+            "text": "Repair",
+            "description": "Repair of medical devices."
+          },
+          {
+            "href": "/leistungen/handel",
+            "text": "Commerce",
+            "description": "Commerce and b2b sales of medical devices."
+          }
+        ]
+      },
+      {
+        "href": "/downloads",
+        "text": "Downloads"
+      },
+      {
+        "href": "/neuigkeiten",
+        "text": "News"
+      }
+    ]
+  }
 }

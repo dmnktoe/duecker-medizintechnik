@@ -1,4 +1,5 @@
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 
@@ -9,14 +10,11 @@ import { Features } from '@/components/templates/Features';
 import { Intro } from '@/components/templates/Intro';
 import { StickyScroll } from '@/components/templates/StickyScroll/StickyScroll';
 
-type Props = {
-  // Add custom props here
-};
-
 const HomePage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const { t } = useTranslation('home');
   return (
     <Layout>
-      <Seo templateTitle='Handel, Produktion, Reperatur für OP-Lösungen und Sterilisierungen' />
+      <Seo templateTitle={t('seo.title')} description={t('seo.description')} />
       <main>
         <Intro />
         <StickyScroll />
@@ -27,15 +25,9 @@ const HomePage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
   );
 };
 
-export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => ({
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale ?? 'de', [
-      'common',
-      'cta',
-      'footer',
-      'header',
-      'home',
-    ])),
+    ...(await serverSideTranslations(locale ?? 'de', ['common', 'home'])),
   },
 });
 
