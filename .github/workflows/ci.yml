@@ -124,16 +124,15 @@ jobs:
       - name: 📥 Download deps
         uses: bahmutov/npm-install@v1
 
-      - name: Install LHCI
-        run: npm install -g @lhci/cli@0.8.x
+      - name: 🏗 Build & Start
+        run: yarn build && yarn start
 
-      - name: 🏗 Build
-        run: yarn build
+      - name: lighthouse mobile audit
+        run: yarn lhci:mobile
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
-      - name: Collect Lighthouse Metrics
-        run: lhci collect
-
-      - name: Upload Lighthouse Metrics
-        run: lhci upload
+      - name: lighthouse desktop audit
+        run: yarn lhci:desktop
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
