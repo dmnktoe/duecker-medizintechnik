@@ -4,9 +4,9 @@
       "startServerCommand": "yarn build && yarn start",
       "url": [
         "http://localhost:3000/",
-        "http://localhost:3000/produktion",
-        "http://localhost:3000/reparatur",
-        "http://localhost:3000/handel"
+        "http://localhost:3000/leistungen/produktion",
+        "http://localhost:3000/leistungen/reparatur",
+        "http://localhost:3000/leistungen/handel"
       ],
       "numberOfRuns": 2
     },
