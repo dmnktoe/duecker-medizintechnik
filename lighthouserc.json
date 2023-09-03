@@ -2,8 +2,13 @@
   "ci": {
     "collect": {
       "startServerCommand": "yarn build && yarn start",
-      "url": ["http://localhost:3000/"],
-      "numberOfRuns": 3
+      "url": [
+        "http://localhost:3000/",
+        "http://localhost:3000/leistungen/produktion",
+        "http://localhost:3000/leistungen/reparatur",
+        "http://localhost:3000/leistungen/handel"
+      ],
+      "numberOfRuns": 2
     },
     "upload": {
       "target": "temporary-public-storage"

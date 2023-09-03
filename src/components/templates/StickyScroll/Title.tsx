@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { useInView } from 'framer-motion';
+import Link from 'next/link';
 import React, { useEffect, useRef } from 'react';
 
 import { useFeatureStore } from './store';
@@ -26,11 +27,11 @@ export const FeatureTitle = ({ children, id }: Props) => {
     <h2
       ref={ref}
       className={clsx(
-        'feature-title font-heading py-16 text-4xl transition-colors lg:text-5xl xl:text-6xl',
-        isInView ? 'text-black' : 'text-gray-300'
+        'feature-title py-20 text-4xl font-bold tracking-tight transition-colors md:text-5xl xl:py-32 xl:leading-[1.1]',
+        isInView ? 'text-dark' : 'text-gray-300'
       )}
     >
-      {children}
+      <Link href={`/leistungen/${id}`}>{children}</Link>
     </h2>
   );
 };

@@ -12,7 +12,7 @@ export const Intro = () => {
       <section className='py-16 md:py-24 lg:py-32'>
         <BackgroundBlurTop />
         <Container>
-          <div className='mb-12 flex flex-col items-center gap-12 md:mb-24 md:gap-24 lg:flex-row lg:gap-36'>
+          <div className='mx-auto mb-12 flex max-w-7xl flex-col items-center gap-12 md:mb-24 md:gap-24 lg:flex-row lg:gap-36'>
             <div className='w-full sm:w-8/12 lg:w-1/2'>
               <IntroText />
             </div>
@@ -42,10 +42,10 @@ const IntroText = () => {
     <>
       <div>
         <div className='text-left'>
-          <h1 className='text-dark text-4xl font-semibold tracking-tight md:text-5xl xl:text-6xl xl:leading-[1.1]'>
+          <h1 className='text-dark text-4xl font-bold tracking-tight md:text-5xl  md:leading-[1.1]'>
             {t('intro.title')}
           </h1>
-          <p className='mt-6 text-lg font-medium leading-8 text-gray-700 '>
+          <p className='mt-6 text-lg font-semibold leading-8 text-gray-700 '>
             {t('intro.content')}
           </p>
           <div className='mt-10 flex items-center justify-start gap-x-3'>
