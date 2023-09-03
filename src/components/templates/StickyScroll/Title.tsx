@@ -26,8 +26,8 @@ export const FeatureTitle = ({ children, id }: Props) => {
     <h2
       ref={ref}
       className={clsx(
-        'feature-title font-heading py-16 text-4xl transition-colors lg:text-5xl xl:text-6xl',
-        isInView ? 'text-black' : 'text-gray-300'
+        'feature-title py-16 text-4xl font-semibold tracking-tight transition-colors md:text-5xl xl:text-6xl xl:leading-[1.1]',
+        isInView ? 'text-dark' : 'text-gray-300'
       )}
     >
       {children}

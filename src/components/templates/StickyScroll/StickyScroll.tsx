@@ -6,10 +6,10 @@ import { Container } from '@/components/layout/Container';
 import { useHidePageOverflow } from '@/utils/toggle-page-overflow';
 import { useEscapePress } from '@/utils/use-escape-press';
 
-import { Commerce, Music, Production, Repair } from './Card';
+import { Commerce, Production, Repair } from './Card';
 import { useFeatureStore } from './store';
 import { FeatureTitle } from './Title';
-import { MusicVisual, OtherVisual } from './Visual';
+import { OtherVisual } from './Visual';
 
 const stickyScroll = [
   {
@@ -29,12 +29,6 @@ const stickyScroll = [
     id: 'commerce',
     card: Commerce,
     visual: OtherVisual,
-  },
-  {
-    title: 'Track what you listened to when',
-    id: 'music',
-    card: Music,
-    visual: MusicVisual,
   },
 ];
 
@@ -104,14 +98,14 @@ export const StickyScroll = () => {
       <Container>
         <div ref={scope}>
           <div className='w-full items-start lg:flex lg:gap-x-48'>
-            <div className='fixed bottom-8 right-8 z-50 flex h-48 w-48 items-center lg:sticky lg:top-0 lg:h-screen lg:w-full'>
-              <div className='relative hidden aspect-square w-full rounded-2xl bg-gray-100 lg:block [&:has(>_.active-card)]:block lg:[&:has(>_.active-card)]:bg-transparent'>
+            <div className='fixed bottom-8 right-8 z-30 flex h-64 w-64 items-center md:h-96 md:w-96 lg:sticky lg:top-0 lg:h-screen lg:w-full'>
+              <div className='relative aspect-square w-full rounded-2xl bg-gray-100 opacity-0 transition-opacity duration-200 lg:block [&:has(>_.active-card)]:opacity-100 lg:[&:has(>_.active-card)]:bg-transparent'>
                 {stickyScroll.map((feature) => (
                   <feature.card id={feature.id} key={feature.id} />
                 ))}
               </div>
             </div>
-            <div className='w-full py-[50vh] lg:py-[50vh]'>
+            <div className='w-full py-[15vh] lg:py-[50vh]'>
               <ul>
                 {stickyScroll.map((feature) => (
                   <li key={feature.id}>
