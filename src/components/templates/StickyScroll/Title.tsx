@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { useInView } from 'framer-motion';
+import Link from 'next/link';
 import React, { useEffect, useRef } from 'react';
 
 import { useFeatureStore } from './store';
@@ -30,7 +31,7 @@ export const FeatureTitle = ({ children, id }: Props) => {
         isInView ? 'text-dark' : 'text-gray-300'
       )}
     >
-      {children}
+      <Link href={`/leistungen/${id}`}>{children}</Link>
     </h2>
   );
 };

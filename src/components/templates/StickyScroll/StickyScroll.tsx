@@ -17,19 +17,19 @@ import { OtherVisual } from './Visual';
 const stickyScroll = [
   {
     title: 'Produktion nach höchstem Maßstab.',
-    id: 'production',
+    id: 'produktion',
     card: Production,
     visual: OtherVisual,
   },
   {
     title: 'Reparatur und Wartung von Medizinprodukten.',
-    id: 'repair',
+    id: 'reparatur',
     card: Repair,
     visual: OtherVisual,
   },
   {
     title: 'Handel mit Medizinprodukten.',
-    id: 'commerce',
+    id: 'handel',
     card: Commerce,
     visual: OtherVisual,
   },
@@ -97,11 +97,11 @@ export const StickyScroll = () => {
   }, [animate, fullscreenFeature, lastFullscreenFeature]);
 
   return (
-    <section className='lg:min-h-full'>
+    <section className='bg-gradient-to-b from-transparent to-blue-100 lg:min-h-[calc(100vh_-_var(--navigation-height))]'>
       <Container>
         <div ref={scope}>
           <div className='w-full items-start lg:flex lg:gap-x-48'>
-            <div className='fixed bottom-8 right-8 z-30 flex h-64 w-64 items-center md:h-96 md:w-96 lg:sticky lg:top-0 lg:h-screen lg:w-full'>
+            <div className='fixed bottom-8 right-8 z-30 flex h-64 w-64 items-center md:h-96 md:w-96 lg:sticky lg:top-0 lg:h-[calc(100vh_+_var(--navigation-height))] lg:w-full'>
               <div className='relative aspect-square w-full rounded-2xl bg-gray-100 opacity-0 transition-opacity duration-200 lg:block lg:opacity-100 [&:has(>_.active-card)]:opacity-100 lg:[&:has(>_.active-card)]:bg-transparent'>
                 {stickyScroll.map((feature) => (
                   <feature.card id={feature.id} key={feature.id} />

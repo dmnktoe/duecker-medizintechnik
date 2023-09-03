@@ -12,10 +12,10 @@ export const CallToAction = () => {
         <Container>
           <div className='relative overflow-hidden'>
             <div className='relative'>
-              <h2 className='font-heading mb-2 text-4xl tracking-tighter text-white lg:text-6xl'>
+              <h2 className='mb-2 text-4xl font-semibold tracking-tighter text-white lg:text-6xl'>
                 {t('cta.headline')}
               </h2>
-              <h2 className='font-heading mb-8 text-4xl tracking-tighter text-white/50 lg:text-6xl'>
+              <h2 className='mb-8 text-4xl font-semibold tracking-tighter text-white/50 lg:text-6xl'>
                 {t('cta.subline')}
               </h2>
               <Button
@@ -38,7 +38,7 @@ export const CallToAction = () => {
                       <li key={index} className='p-4'>
                         <div className='flex flex-wrap'>
                           <TickIcon />
-                          <span className='tracking-tight text-white'>
+                          <span className='font-semibold tracking-tight text-white'>
                             {bullet.title}
                           </span>
                         </div>
