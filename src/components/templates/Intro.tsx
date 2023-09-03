@@ -12,7 +12,7 @@ export const Intro = () => {
       <section className='py-16 md:py-24 lg:py-32'>
         <BackgroundBlurTop />
         <Container>
-          <div className='mb-12 flex flex-col items-center gap-12 md:mb-24 md:gap-24 lg:flex-row lg:gap-36'>
+          <div className='mx-auto mb-12 flex max-w-7xl flex-col items-center gap-12 md:mb-24 md:gap-24 lg:flex-row lg:gap-36'>
             <div className='w-full sm:w-8/12 lg:w-1/2'>
               <IntroText />
             </div>

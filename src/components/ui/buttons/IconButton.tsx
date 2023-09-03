@@ -1,3 +1,5 @@
+// TODO: Adapt styles from `Button.tsx` to match the rest of the buttons
+
 import * as React from 'react';
 import { IconType } from 'react-icons';
 import { ImSpinner2 } from 'react-icons/im';

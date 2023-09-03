@@ -1,3 +1,6 @@
+// TODO: Add buttons for navigation
+// TODO: Remove spotify.webp
+
 import { stagger, useAnimate } from 'framer-motion';
 import { useEffect } from 'react';
 
