@@ -228,8 +228,8 @@ const TopBar = () => {
             <div className='flex items-center gap-x-2'>
               <VscMail className='text-primary-500 h-4 w-4' />
               <p>
-                <Link href={`mailto:${data.mail}`} className='hover:underline'>
-                  {data.mail}
+                <Link href={`mailto:${data.email}`} className='hover:underline'>
+                  {data.email}
                 </Link>
               </p>
             </div>
