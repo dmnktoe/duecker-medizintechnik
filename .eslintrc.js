@@ -16,6 +16,7 @@ module.exports = {
   rules: {
     'no-unused-vars': 'off',
     'no-console': 'warn',
+    'no-multi-spaces': 'error',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     'react/no-unescaped-entities': 'off',
     'object-curly-spacing': ['warn', 'always'],

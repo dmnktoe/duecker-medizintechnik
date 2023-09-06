@@ -20,7 +20,54 @@
     ]
   },
   "footer": {
-    "test1:": "test1"
+    "phone": "Phone",
+    "fax": "Fax",
+    "web": "Website",
+    "email": "E-Mail",
+    "navigation": [
+      {
+        "title": "Company",
+        "items": [
+          {
+            "href": "/kontakt",
+            "text": "Kontakt"
+          },
+          {
+            "href": "/neuigkeiten",
+            "text": "Neugikeiten"
+          },
+          {
+            "href": "/ueber-uns",
+            "text": "Firmengeschichte"
+          },
+          {
+            "href": "/neuigkeiten",
+            "text": "Zertifikate / Downloads"
+          },
+          {
+            "href": "/kontakt",
+            "text": "Kontakt"
+          }
+        ]
+      },
+      {
+        "title": "Rechtliches",
+        "items": [
+          {
+            "href": "/impressum",
+            "text": "Impressum"
+          },
+          {
+            "href": "/datenschutz",
+            "text": "Datenschutz"
+          },
+          {
+            "href": "/agb",
+            "text": "AGB"
+          }
+        ]
+      }
+    ]
   },
   "header": {
     "change-locale": "German (DE)",

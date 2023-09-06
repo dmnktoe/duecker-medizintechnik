@@ -1,43 +1,51 @@
+import { useTranslation } from 'next-i18next';
 import * as React from 'react';
 
 import { Container } from '@/components/layout/Container';
 import { Logo } from '@/components/ui/icons/logo';
 import UnstyledLink from '@/components/ui/links/UnstyledLink';
 
+import { data } from '@/constant/data';
+
 export const Footer = () => {
+  const { t } = useTranslation('common');
   return (
     <footer className='bg-primary-50/50 py-16 md:py-24 lg:py-32'>
       <Container>
         <div className='-mx-4 mb-24 flex flex-wrap'>
           <div className='mb-12 w-full px-4 xl:mb-0 xl:w-4/12'>
-            <UnstyledLink className='inline-block' href='#'>
-              <Logo className='mb-3 w-16' />
+            <UnstyledLink className='inline-block' href='/'>
+              <Logo className='text-primary-500 mb-3 w-48' />
             </UnstyledLink>
             <ul className='mb-3'>
-              <li className='mb-1'>Elfershäuser Str. 18</li>
-              <li>34212 Melsungen</li>
-            </ul>
-            <ul className='mb-3'>
-              <li className='mb-1'>Tel: (05661) 52532</li>
-              <li>Fax: (05661) 52731</li>
+              <li className='mb-1'>{data.street} </li>
+              <li>{data.city}</li>
             </ul>
             <ul className='mb-3'>
               <li className='mb-1'>
-                Internet:{' '}
+                {t('footer.phone')}: {data.phone}
+              </li>
+              <li>
+                {t('footer.fax')}: {data.fax}
+              </li>
+            </ul>
+            <ul className='mb-3'>
+              <li className='mb-1'>
+                {t('footer.web')}:{' '}
                 <UnstyledLink
-                  href='https://www.duecker-medizintechnik.de'
+                  href={'https://' + data.url}
                   className='inline-block text-black'
                 >
-                  duecker-medizintechnik.de
+                  {data.url}
                 </UnstyledLink>
               </li>
               <li>
-                E-Mail:{' '}
+                {t('footer.email')}:{' '}
                 <UnstyledLink
-                  href='mailto:info@duecker-medizintechnik.de'
+                  href={'mailto:' + data.email}
                   className='inline-block text-black'
                 >
-                  info@duecker-medizintechnik.de
+                  {data.email}
                 </UnstyledLink>
               </li>
             </ul>
@@ -48,17 +56,17 @@ export const Footer = () => {
             </h5>
             <ul>
               <li className='mb-3'>
-                <a className='inline-block  text-black' href='#'>
+                <a className='inline-block text-black' href='#'>
                   Kontakt
                 </a>
               </li>
               <li className='mb-3'>
-                <a className='inline-block  text-black' href='#'>
+                <a className='inline-block text-black' href='#'>
                   Neuigkeiten
                 </a>
               </li>
               <li className='mb-3'>
-                <a className='inline-block  text-black' href='#'>
+                <a className='inline-block text-black' href='#'>
                   Unsere Geschichte
                 </a>
               </li>
@@ -66,7 +74,7 @@ export const Footer = () => {
                 <UnstyledLink href='/zertifikate'>Zertifikate</UnstyledLink>
               </li>
               <li>
-                <UnstyledLink href='/jobs' className='inline-block  text-black'>
+                <UnstyledLink href='/jobs' className='inline-block text-black'>
                   <span className='mr-2'>Jobs</span>
                   <span className='bg-primary-500 inline-block rounded-full px-2 py-1 text-xs text-white'>
                     Wir suchen
@@ -91,7 +99,7 @@ export const Footer = () => {
               <li className='mb-3'>
                 <UnstyledLink
                   href='/reparatur'
-                  className='inline-block  text-black'
+                  className='inline-block text-black'
                 >
                   Reparatur
                 </UnstyledLink>
@@ -99,7 +107,7 @@ export const Footer = () => {
               <li className='mb-3'>
                 <UnstyledLink
                   href='/produktion'
-                  className='inline-block  text-black'
+                  className='inline-block text-black'
                 >
                   Produktion
                 </UnstyledLink>
@@ -114,7 +122,7 @@ export const Footer = () => {
               <li className='mb-3'>
                 <UnstyledLink
                   href='/impressum'
-                  className='inline-block  text-black'
+                  className='inline-block text-black'
                 >
                   Impressum
                 </UnstyledLink>
@@ -122,7 +130,7 @@ export const Footer = () => {
               <li className='mb-3'>
                 <UnstyledLink
                   href='/datenschutz'
-                  className='inline-block  text-black'
+                  className='inline-block text-black'
                 >
                   Datenschutz
                 </UnstyledLink>
@@ -130,7 +138,7 @@ export const Footer = () => {
               <li className='mb-3'>
                 <UnstyledLink
                   href='/cookie-policy'
-                  className='font-primary inline-block  text-black'
+                  className='font-primary inline-block text-black'
                 >
                   Cookie-Richtlinie
                 </UnstyledLink>
@@ -138,7 +146,7 @@ export const Footer = () => {
               <li>
                 <UnstyledLink
                   href='/cookie-policy'
-                  className='inline-block  text-black'
+                  className='inline-block text-black'
                 >
                   Allgemeine Geschäftsbedingungen
                 </UnstyledLink>
@@ -255,7 +263,7 @@ export const Footer = () => {
           </div>
           <div className='mb-8 hidden px-4 md:mb-0 md:block md:w-1/2 xl:w-4/12 xl:text-center'>
             <span className='text-sm text-gray-400'>
-              © {new Date().getFullYear()} Dücker Medizintechnik
+              © {new Date().getFullYear()} {data.companyName}
             </span>
           </div>
           <div className='w-full px-4 md:w-1/2 xl:w-4/12'>
