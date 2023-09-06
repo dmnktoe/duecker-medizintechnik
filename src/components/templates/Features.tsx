@@ -5,7 +5,94 @@ import clsxm from '@/lib/clsxm';
 import { Container } from '@/components/layout/Container';
 import NextImage from '@/components/ui/NextImage';
 
-export const Features = () => {
+const TextBlocks = () => {
+  const data = [
+    {
+      title: 'Style Guide',
+      content:
+        'We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.',
+    },
+    {
+      title: 'UI/UX Design',
+      content:
+        'We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.',
+    },
+    {
+      title: 'Web Development',
+      content:
+        'We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.',
+    },
+    {
+      title: 'Mobile Development',
+      content:
+        'We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.',
+    },
+    {
+      title: 'SEO Optimization',
+      content:
+        'We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.',
+    },
+    {
+      title: 'Marketing',
+      content:
+        'We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.',
+    },
+  ];
+
+  const TextBlock = ({
+    title,
+    content,
+  }: {
+    title: string;
+    content: string;
+  }) => (
+    <div className='w-full p-8 md:w-1/2 lg:w-1/3'>
+      <div className='md:max-w-sm'>
+        <div className='-m-1.5 flex flex-wrap'>
+          <div className='w-auto p-1.5'>
+            <svg
+              width='29'
+              height='29'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <path
+                fillRule='evenodd'
+                clipRule='evenodd'
+                d='M14.5 28.5C22.232 28.5 28.5 22.232 28.5 14.5C28.5 6.76801 22.232 0.5 14.5 0.5C6.76801 0.5 0.5 6.76801 0.5 14.5C0.5 22.232 6.76801 28.5 14.5 28.5ZM20.9874 12.2374C21.6709 11.554 21.6709 10.446 20.9874 9.76256C20.304 9.07915 19.196 9.07915 18.5126 9.76256L12.75 15.5251L10.4874 13.2626C9.80402 12.5791 8.69598 12.5791 8.01256 13.2626C7.32915 13.946 7.32915 15.054 8.01256 15.7374L11.5126 19.2374C12.196 19.9209 13.304 19.9209 13.9874 19.2374L20.9874 12.2374Z'
+                fill='var(--color-primary-500)'
+              ></path>
+            </svg>
+          </div>
+          <div className='flex-1 p-1.5'>
+            <h3 className='mb-2 text-xl font-semibold tracking-tight'>
+              {title}
+            </h3>
+            <p className='tracking-tight'>{content}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  return (
+    <>
+      <Container>
+        <div className='-m-8 flex flex-wrap'>
+          {data.map((item) => (
+            <TextBlock
+              key={item.title}
+              title={item.title}
+              content={item.content}
+            />
+          ))}
+        </div>
+      </Container>
+    </>
+  );
+};
+
+const BentoGrid = () => {
   const onMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     for (const card of Array.from(
       e.currentTarget.children as HTMLCollectionOf<HTMLElement>
@@ -22,12 +109,6 @@ export const Features = () => {
   return (
     <section className='py-16 md:py-24 lg:py-32'>
       <Container>
-        <div className='mx-auto mb-8 max-w-6xl md:mb-12'>
-          <h1 className='text-4xl font-bold lg:text-5xl'>Unsere Leistungen</h1>
-          <h1 className='text-4xl font-bold text-gray-500 lg:text-5xl'>
-            Verschaffen Sie sich einen Überlick.
-          </h1>
-        </div>
         <div
           className='group grid auto-rows-[200px] grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-12'
           onMouseMove={onMouseMove}
@@ -41,16 +122,7 @@ export const Features = () => {
             )}
           >
             <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col justify-start rounded-3xl bg-gray-100 p-4'>
-              <NextImage
-                src='/images/keydot.jpg'
-                width={200}
-                height={200}
-                layout='responsive'
-                objectFit='cover'
-                objectPosition='center'
-                className='absolute right-0 top-0 h-full w-full overflow-hidden rounded-3xl'
-                alt='Keydot'
-              />
+              <h3>Schachtel 1</h3>
             </div>
           </div>
           <div
@@ -122,7 +194,16 @@ export const Features = () => {
             )}
           >
             <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4'>
-              <h3>Schachtel 7</h3>
+              <NextImage
+                src='/images/keydot.jpg'
+                width={200}
+                height={200}
+                layout='responsive'
+                objectFit='cover'
+                objectPosition='center'
+                className='absolute right-0 top-0 h-full w-full overflow-hidden rounded-3xl'
+                alt='Keydot'
+              />
             </div>
           </div>
           <div
@@ -152,5 +233,26 @@ export const Features = () => {
         </div>
       </Container>
     </section>
+  );
+};
+
+export const Features = () => {
+  return (
+    <>
+      <section className='py-16 md:py-24 lg:py-32'>
+        <Container>
+          <div className='mb-16 md:mb-24'>
+            <h1 className='text-4xl font-bold tracking-tight lg:text-5xl'>
+              Unsere Leistungen
+            </h1>
+            <h1 className='text-4xl font-bold text-gray-500 lg:text-5xl'>
+              Verschaffen Sie sich einen Überblick.
+            </h1>
+          </div>
+        </Container>
+        <TextBlocks />
+        <BentoGrid />
+      </section>
+    </>
   );
 };

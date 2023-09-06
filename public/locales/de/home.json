@@ -12,8 +12,7 @@
   "stickyScroll": {
     "production": "Produktion nach höchstem Maßstab.",
     "repair": "Reparatur und Wartung von Medizinprodukten.",
-    "commerce": "Handel mit Medizinprodukten.",
-    "anythingElse": "Und alles andere, was Sie brauchen."
+    "commerce": "Handel mit Medizinprodukten."
   },
   "features": {
     "title": "Unsere Leistungen",

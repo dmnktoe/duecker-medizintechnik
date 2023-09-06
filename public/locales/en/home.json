@@ -12,8 +12,7 @@
   "stickyScroll": {
     "production": "Production to the highest standard.",
     "repair": "Repair and maintenance of medical devices.",
-    "commerce": "Trade with medical devices.",
-    "anythingElse": "And everything else you need."
+    "commerce": "Trade with medical devices."
   },
   "features": {
     "title": "Unsere Leistungen",

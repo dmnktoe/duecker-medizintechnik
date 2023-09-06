@@ -2,6 +2,7 @@
 // TODO: Remove spotify.webp
 
 import { stagger, useAnimate } from 'framer-motion';
+import { useTranslation } from 'next-i18next';
 import { useEffect } from 'react';
 
 import { Container } from '@/components/layout/Container';
@@ -16,26 +17,24 @@ import { OtherVisual } from './Visual';
 
 const stickyScroll = [
   {
-    title: 'Produktion nach höchstem Maßstab.',
-    id: 'produktion',
+    id: 'production',
     card: Production,
     visual: OtherVisual,
   },
   {
-    title: 'Reparatur und Wartung von Medizinprodukten.',
-    id: 'reparatur',
+    id: 'repair',
     card: Repair,
     visual: OtherVisual,
   },
   {
-    title: 'Handel mit Medizinprodukten.',
-    id: 'handel',
+    id: 'commerce',
     card: Commerce,
     visual: OtherVisual,
   },
 ];
 
 export const StickyScroll = () => {
+  const { t } = useTranslation('home');
   const [scope, animate] = useAnimate();
   const fullscreenFeature = useFeatureStore((state) => state.fullscreenFeature);
   const lastFullscreenFeature = useFeatureStore(
@@ -112,7 +111,9 @@ export const StickyScroll = () => {
               <ul>
                 {stickyScroll.map((feature) => (
                   <li key={feature.id}>
-                    <FeatureTitle id={feature.id}>{feature.title}</FeatureTitle>
+                    <FeatureTitle id={feature.id}>
+                      {t(('stickyScroll.' + feature.id) as never)}
+                    </FeatureTitle>
                   </li>
                 ))}
               </ul>
