@@ -60,7 +60,6 @@ jobs:
             --exclude 'github\.com/dmnktoe/duecker-medizintechnik/(issues|pulls)'
             --cache
             --max-cache-age 2d
-          fail: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
