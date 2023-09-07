@@ -1,14 +1,10 @@
 name: Housekeeping
 
 on:
-  schedule:
-    - cron: '0 0 * * *'
+  repository_dispatch:
   workflow_dispatch:
-    inputs:
-      issueLimit:
-        description: Max. number of issues to create
-        required: true
-        default: '5'
+  schedule:
+    - cron: "00 18 * * *"
 
 permissions:
   issues: write
@@ -67,3 +63,11 @@ jobs:
           fail: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 📝 Create Issue from File
+        if: env.lychee_exit_code != 0
+        uses: peter-evans/create-issue-from-file@v4
+        with:
+          title: Link Checker Report
+          content-filepath: ./lychee/out.md
+          labels: report, automated issue, links
