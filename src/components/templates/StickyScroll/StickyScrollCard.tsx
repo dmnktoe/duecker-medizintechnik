@@ -5,7 +5,7 @@ import NextImage from '@/components/ui/NextImage';
 
 import { useFeatureStore } from './store';
 
-type FeatureCardProps = {
+type StickyScrollCardProps = {
   gradient: string;
   children: React.ReactNode;
 } & CardProps;
@@ -14,7 +14,11 @@ type CardProps = {
   id: string;
 };
 
-const FeatureCard = ({ gradient, children, id }: FeatureCardProps) => {
+const StickyScrollCard = ({
+  gradient,
+  children,
+  id,
+}: StickyScrollCardProps) => {
   const inViewFeature = useFeatureStore((state) => state.inViewFeature);
   const setFullscreenFeature = useFeatureStore(
     (state) => state.setFullscreenFeature
@@ -48,40 +52,40 @@ const FeatureCard = ({ gradient, children, id }: FeatureCardProps) => {
 
 export const Production = ({ id }: CardProps) => {
   return (
-    <FeatureCard id={id} gradient='from-[#f7f0ff] to-[#a78afe]'>
+    <StickyScrollCard id={id} gradient='from-[#f7f0ff] to-[#a78afe]'>
       <NextImage
         alt='Produktion'
         src='/images/sticky-scroll_image-production.jpg'
         layout='fill'
       />
       <span />
-    </FeatureCard>
+    </StickyScrollCard>
   );
 };
 
 export const Repair = ({ id }: CardProps) => {
   return (
-    <FeatureCard id={id} gradient='from-[#f5fbff] to-[#addeff]'>
+    <StickyScrollCard id={id} gradient='from-[#f5fbff] to-[#addeff]'>
       <NextImage
         alt='Produktion'
         src='/images/sticky-scroll_image-repair.jpg'
         layout='fill'
       />
       <span />
-    </FeatureCard>
+    </StickyScrollCard>
   );
 };
 
 export const Commerce = ({ id }: CardProps) => {
   return (
-    <FeatureCard id={id} gradient='from-[#f5fff7] to-[#adf8ff]'>
+    <StickyScrollCard id={id} gradient='from-[#f5fff7] to-[#adf8ff]'>
       <NextImage
         alt='Produktion'
         src='/images/sticky-scroll_image-commerce.jpg'
         layout='fill'
       />
       <span />
-    </FeatureCard>
+    </StickyScrollCard>
   );
 };
 
@@ -90,7 +94,7 @@ export const Music = ({ id }: CardProps) => {
   const isFullscreen = fullscreenFeature === id;
 
   return (
-    <FeatureCard id={id} gradient='from-[#e0e0e0] to-[#ffffff]'>
+    <StickyScrollCard id={id} gradient='from-[#e0e0e0] to-[#ffffff]'>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         className={clsx(
@@ -132,22 +136,6 @@ export const Music = ({ id }: CardProps) => {
           </svg>
         </motion.div>
       )}
-    </FeatureCard>
-  );
-};
-
-export const SchedulingLinks = ({ id }: CardProps) => {
-  return (
-    <FeatureCard id={id} gradient='from-[#fff7f5] to-[#ffd8ad]'>
-      <span />
-    </FeatureCard>
-  );
-};
-
-export const Team = ({ id }: CardProps) => {
-  return (
-    <FeatureCard id={id} gradient='from-[#fef5ff] to-[#ffade1]'>
-      <span />
-    </FeatureCard>
+    </StickyScrollCard>
   );
 };

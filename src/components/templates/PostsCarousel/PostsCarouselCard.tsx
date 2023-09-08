@@ -5,11 +5,16 @@ import NextImage from '@/components/ui/NextImage';
 interface CardProps {
   title: string;
   description: string;
-  category: string;
-  image: string;
+  category?: string;
+  image?: string;
 }
 
-const Card: React.FC<CardProps> = ({ title, description, category, image }) => {
+const PostsCarouselCard: React.FC<CardProps> = ({
+  title,
+  description,
+  category,
+  image,
+}) => {
   return (
     <div className='w-full md:mr-10 md:max-w-lg md:flex-shrink-0'>
       <a className='group block' href='#'>
@@ -32,11 +37,11 @@ const Card: React.FC<CardProps> = ({ title, description, category, image }) => {
             </span>
           </div>
           <h4 className='mb-6 text-3xl tracking-tight sm:text-4xl'>{title}</h4>
-          <p className='max-w-sm'>{description}</p>
+          <p className='line-clamp-4 max-w-sm'>{description}</p>
         </div>
       </a>
     </div>
   );
 };
 
-export default Card;
+export default PostsCarouselCard;

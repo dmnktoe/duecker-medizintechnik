@@ -1,3 +1,4 @@
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
@@ -7,7 +8,9 @@ import Layout from '@/components/layout/Layout';
 import Seo from '@/components/layout/Seo';
 import ArrowLink from '@/components/ui/links/ArrowLink';
 
-export default function NotFoundPage() {
+const NotFoundPage = (
+  _props: InferGetStaticPropsType<typeof getStaticProps>
+) => {
   const { t } = useTranslation('notFound');
   return (
     <Layout>
@@ -28,12 +31,12 @@ export default function NotFoundPage() {
       </main>
     </Layout>
   );
-}
+};
 
-export async function getStaticProps({ locale }: { locale: string }) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['common', 'notFound'])),
-    },
-  };
-}
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale ?? 'de', ['common', 'notFound'])),
+  },
+});
+
+export default NotFoundPage;

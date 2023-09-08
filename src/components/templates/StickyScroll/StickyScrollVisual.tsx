@@ -11,7 +11,7 @@ type VisualProps = {
   children: React.ReactNode;
 } & Props;
 
-const Visual = ({ children, id }: VisualProps) => {
+const StickyScrollVisual = ({ children, id }: VisualProps) => {
   return (
     <div
       className={clsx(
@@ -29,7 +29,7 @@ export const MusicVisual = ({ id }: Props) => {
   const isFullscreen = fullscreenFeature === id;
 
   return (
-    <Visual id={id}>
+    <StickyScrollVisual id={id}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src='/images/window-spotify.webp' alt='window' />
       {isFullscreen && (
@@ -45,15 +45,15 @@ export const MusicVisual = ({ id }: Props) => {
           </svg>
         </motion.div>
       )}
-    </Visual>
+    </StickyScrollVisual>
   );
 };
 
 export const OtherVisual = ({ id }: Props) => {
   return (
-    <Visual id={id}>
+    <StickyScrollVisual id={id}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src='/images/window-spotify.webp' alt='window2' />
-    </Visual>
+    </StickyScrollVisual>
   );
 };

@@ -107,7 +107,7 @@ const BentoGrid = () => {
   };
 
   return (
-    <section className='py-16 md:py-24 lg:py-32'>
+    <section className='pt-16 md:pt-24 lg:pt-32'>
       <Container>
         <div
           className='group grid auto-rows-[200px] grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-12'

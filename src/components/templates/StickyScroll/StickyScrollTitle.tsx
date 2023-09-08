@@ -5,12 +5,12 @@ import React, { useEffect, useRef } from 'react';
 
 import { useFeatureStore } from './store';
 
-type Props = {
+type StickyScrollTitleProps = {
   children: React.ReactNode;
   id: string;
 };
 
-export const FeatureTitle = ({ children, id }: Props) => {
+export const StickyScrollTitle = ({ children, id }: StickyScrollTitleProps) => {
   const ref = useRef<HTMLParagraphElement>(null);
   const isInView = useInView(ref, {
     margin: '-50% 0px -50% 0px',
