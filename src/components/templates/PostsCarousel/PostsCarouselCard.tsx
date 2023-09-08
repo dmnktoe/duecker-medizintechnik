@@ -1,23 +1,26 @@
 import React from 'react';
 
+import UnstyledLink from '@/components/ui/links/UnstyledLink';
 import NextImage from '@/components/ui/NextImage';
 
 interface CardProps {
   title: string;
   description: string;
+  slug: string;
   category?: string;
   image?: string;
 }
 
-const PostsCarouselCard: React.FC<CardProps> = ({
+const PostsCarouselCard = ({
   title,
   description,
-  category,
+  slug,
+  category = 'Category',
   image,
-}) => {
+}: CardProps) => {
   return (
     <div className='w-full md:mr-10 md:max-w-lg md:flex-shrink-0'>
-      <a className='group block' href='#'>
+      <UnstyledLink className='group block' href={'/news/' + slug}>
         <div className='rounded-4xl relative mb-6 overflow-hidden'>
           <NextImage
             className='block h-72 w-full object-cover'
@@ -39,7 +42,7 @@ const PostsCarouselCard: React.FC<CardProps> = ({
           <h4 className='mb-6 text-3xl tracking-tight sm:text-4xl'>{title}</h4>
           <p className='line-clamp-4 max-w-sm'>{description}</p>
         </div>
-      </a>
+      </UnstyledLink>
     </div>
   );
 };

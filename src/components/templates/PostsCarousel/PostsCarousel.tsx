@@ -1,3 +1,4 @@
+import { useTranslation } from 'next-i18next';
 import { useCallback, useRef } from 'react';
 import { VscArrowLeft, VscArrowRight } from 'react-icons/vsc';
 import { Navigation } from 'swiper/modules';
@@ -15,6 +16,7 @@ type PostsCarouselProps = {
 
 export const PostsCarousel = ({ posts }: PostsCarouselProps) => {
   const swiperElRef = useRef<SwiperRef>(null);
+  const { t } = useTranslation('home');
 
   const handlePrev = useCallback(() => {
     if (!swiperElRef.current) return;
@@ -33,7 +35,7 @@ export const PostsCarousel = ({ posts }: PostsCarouselProps) => {
           <div className='-mx-4 mb-20 flex flex-wrap items-center'>
             <div className='mb-8 w-full px-4 md:mb-0 md:w-1/2'>
               <h1 className='font-heading text-4xl tracking-tighter lg:text-6xl'>
-                Neuigkeiten und Wissenswertes
+                {t('postsCarousel.headline')}
               </h1>
             </div>
             <div className='w-full px-4 md:w-1/2'>
@@ -66,6 +68,8 @@ export const PostsCarousel = ({ posts }: PostsCarouselProps) => {
                   <PostsCarouselCard
                     title={post.attributes.title}
                     description={post.attributes.content}
+                    slug={post.attributes.slug}
+                    image={post.attributes.image.url}
                   />
                 </SwiperSlide>
               ))}
@@ -76,7 +80,7 @@ export const PostsCarousel = ({ posts }: PostsCarouselProps) => {
               className='group inline-flex items-center border-b-2 border-black pb-2 font-medium leading-none'
               href='#'
             >
-              <span className='mr-4'>See our blog</span>
+              <span className='mr-4'>{t('postsCarousel.readMore')}</span>
               <span className='transform transition duration-100 group-hover:rotate-45'>
                 <svg
                   width={11}

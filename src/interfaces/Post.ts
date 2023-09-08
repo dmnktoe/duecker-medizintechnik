@@ -3,6 +3,7 @@ export interface Post {
   attributes: {
     title: string;
     content: string;
+    slug: string;
     createdAt: Date;
     updatedAt: Date;
     publishedAt: Date;
