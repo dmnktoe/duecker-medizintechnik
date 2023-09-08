@@ -4,7 +4,7 @@ import { isLocal } from '@/constant/env';
 
 export default function Document() {
   return (
-    <Html lang='en'>
+    <Html>
       <Head>
         <link
           rel='preload'
