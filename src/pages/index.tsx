@@ -29,7 +29,9 @@ const HomePage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const posts = await fetchAPI('/posts?sort=id:desc&populate=*');
+  const posts = await fetchAPI(
+    '/posts?sort=id:desc&populate=*&pagination[pageSize]=10'
+  );
   return {
     props: {
       ...(await serverSideTranslations(locale ?? 'de', ['common', 'home'])),

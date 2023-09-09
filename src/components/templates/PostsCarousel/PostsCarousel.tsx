@@ -8,10 +8,10 @@ import 'swiper/css';
 import { Container } from '@/components/layout/Container';
 import PostsCarouselCard from '@/components/templates/PostsCarousel/PostsCarouselCard';
 
-import { Post } from '@/interfaces/Post';
+import { Data } from '@/interfaces/model';
 
 type PostsCarouselProps = {
-  posts: Post[];
+  posts: Data[];
 };
 
 export const PostsCarousel = ({ posts }: PostsCarouselProps) => {
@@ -63,13 +63,14 @@ export const PostsCarousel = ({ posts }: PostsCarouselProps) => {
             ref={swiperElRef}
           >
             <div className='mb-20 flex'>
-              {posts.map((post, index) => (
+              {posts.map((post: Data, index) => (
                 <SwiperSlide key={index}>
                   <PostsCarouselCard
                     title={post.attributes.title}
                     description={post.attributes.content}
                     slug={post.attributes.slug}
-                    image={post.attributes.image.url}
+                    image={post.attributes.image.data?.attributes.url}
+                    date={post.attributes.publishedAt}
                   />
                 </SwiperSlide>
               ))}
