@@ -53,6 +53,14 @@
     overflow: visible !important;
   }
 
+  .news__content p {
+    @apply mb-8;
+  }
+
+  .news__content p:last-child {
+    @apply mb-0;
+  }
+
   /* #region  /**=========== Typography =========== */
   h1,
   .h1 {

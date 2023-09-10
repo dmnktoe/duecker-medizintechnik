@@ -15,7 +15,11 @@ const nextConfig = {
   i18n,
 
   images: {
-    domains: ['res.cloudinary.com', 'picsum.photos'],
+    domains: [
+      'res.cloudinary.com',
+      'picsum.photos',
+      'cms.duecker-medizintechnik.de',
+    ],
   },
 
   // SVGR

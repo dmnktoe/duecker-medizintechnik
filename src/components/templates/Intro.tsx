@@ -42,7 +42,7 @@ const IntroText = () => {
     <>
       <div>
         <div className='text-left'>
-          <h1 className='text-dark text-4xl font-bold tracking-tight md:text-5xl  md:leading-[1.1]'>
+          <h1 className='text-dark text-4xl font-bold tracking-tight md:text-5xl md:leading-[1.1]'>
             {t('intro.title')}
           </h1>
           <p className='mt-6 text-lg font-semibold leading-8 text-gray-700 '>

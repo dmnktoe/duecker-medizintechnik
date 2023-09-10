@@ -15,29 +15,38 @@
     "commerce": "Handel mit Medizinprodukten."
   },
   "features": {
-    "title": "Unsere Leistungen",
-    "content": "Wir bieten Ihnen ein breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
-    "items": [
+    "headline": "Unsere Leistungen",
+    "subline": "Verschaffen Sie sich einen Überblick.",
+    "textBlocks": [
       {
-        "title": "OP-Lösungen",
-        "content": "Wir bieten Ihnen ein breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
-        "image": "https://via.placeholder.com/300x300"
+        "title": "Geil<33 Guide",
+        "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change."
       },
       {
-        "title": "Sterilisierungen",
-        "content": "Wir bieten Ihnen ein breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
-        "image": "https://via.placeholder.com/300x300"
+        "title": "UI/UX Design",
+        "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change."
       },
       {
-        "title": "OP-Lösungen",
-        "content": "Wir bieten Ihnen ein breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
-        "image": "https://via.placeholder.com/300x300"
+        "title": "Web Development",
+        "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change."
       },
       {
-        "title": "OP-Lösungen",
-        "content": "Wir bieten Ihnen ein breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
-        "image": "https://via.placeholder.com/300x300"
+        "title": "Mobile Development",
+        "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change."
+      },
+      {
+        "title": "SEO Optimization",
+        "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change."
+      },
+      {
+        "title": "Marketing",
+        "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change."
       }
-    ]
+    ],
+    "bentoGrid": []
+  },
+  "postsCarousel": {
+    "headline": "Neuigkeiten und Wissenswertes",
+    "readMore": "Alle Einträge ansehen"
   }
 }

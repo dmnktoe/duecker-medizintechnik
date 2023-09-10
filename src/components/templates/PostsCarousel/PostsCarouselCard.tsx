@@ -1,22 +1,34 @@
 import React from 'react';
 
+import { formatDate, getStrapiMedia } from '@/lib/helper';
+
+import UnstyledLink from '@/components/ui/links/UnstyledLink';
 import NextImage from '@/components/ui/NextImage';
 
 interface CardProps {
   title: string;
   description: string;
-  category: string;
+  slug: string;
   image: string;
+  date: Date;
 }
 
-const Card: React.FC<CardProps> = ({ title, description, category, image }) => {
+const PostsCarouselCard = ({
+  title,
+  description,
+  slug,
+  image,
+  date,
+}: CardProps) => {
   return (
     <div className='w-full md:mr-10 md:max-w-lg md:flex-shrink-0'>
-      <a className='group block' href='#'>
-        <div className='rounded-4xl relative mb-6 overflow-hidden'>
+      <UnstyledLink className='group block' href={'/news/' + slug}>
+        <div className='relative mb-6 overflow-hidden rounded-3xl'>
           <NextImage
             className='block h-72 w-full object-cover'
-            src={image}
+            src={getStrapiMedia(image)}
+            blurDataURL={getStrapiMedia(image)}
+            useSkeleton
             alt=''
             layout='fill'
           />
@@ -25,18 +37,18 @@ const Card: React.FC<CardProps> = ({ title, description, category, image }) => {
         <div className='max-w-xs sm:max-w-md'>
           <div className='mb-3'>
             <span className='border-1.5 mr-6 inline-block rounded-full border-black px-3 py-2 text-sm leading-none text-black transition duration-200 group-hover:bg-black group-hover:text-white'>
-              {category}
+              xxx
             </span>
             <span className='text-coolGray-600 inline-block text-sm font-medium'>
-              9 min read
+              {formatDate(date.toString())}
             </span>
           </div>
           <h4 className='mb-6 text-3xl tracking-tight sm:text-4xl'>{title}</h4>
-          <p className='max-w-sm'>{description}</p>
+          <p className='line-clamp-4 max-w-sm'>{description}</p>
         </div>
-      </a>
+      </UnstyledLink>
     </div>
   );
 };
 
-export default Card;
+export default PostsCarouselCard;

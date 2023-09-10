@@ -1,3 +1,4 @@
+import { useTranslation } from 'next-i18next';
 import { MouseEvent } from 'react';
 
 import clsxm from '@/lib/clsxm';
@@ -6,91 +7,60 @@ import { Container } from '@/components/layout/Container';
 import NextImage from '@/components/ui/NextImage';
 
 const TextBlocks = () => {
-  const data = [
-    {
-      title: 'Style Guide',
-      content:
-        'We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.',
-    },
-    {
-      title: 'UI/UX Design',
-      content:
-        'We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.',
-    },
-    {
-      title: 'Web Development',
-      content:
-        'We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.',
-    },
-    {
-      title: 'Mobile Development',
-      content:
-        'We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.',
-    },
-    {
-      title: 'SEO Optimization',
-      content:
-        'We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.',
-    },
-    {
-      title: 'Marketing',
-      content:
-        'We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.',
-    },
-  ];
-
-  const TextBlock = ({
-    title,
-    content,
-  }: {
-    title: string;
-    content: string;
-  }) => (
-    <div className='w-full p-8 md:w-1/2 lg:w-1/3'>
-      <div className='md:max-w-sm'>
-        <div className='-m-1.5 flex flex-wrap'>
-          <div className='w-auto p-1.5'>
-            <svg
-              width='29'
-              height='29'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <path
-                fillRule='evenodd'
-                clipRule='evenodd'
-                d='M14.5 28.5C22.232 28.5 28.5 22.232 28.5 14.5C28.5 6.76801 22.232 0.5 14.5 0.5C6.76801 0.5 0.5 6.76801 0.5 14.5C0.5 22.232 6.76801 28.5 14.5 28.5ZM20.9874 12.2374C21.6709 11.554 21.6709 10.446 20.9874 9.76256C20.304 9.07915 19.196 9.07915 18.5126 9.76256L12.75 15.5251L10.4874 13.2626C9.80402 12.5791 8.69598 12.5791 8.01256 13.2626C7.32915 13.946 7.32915 15.054 8.01256 15.7374L11.5126 19.2374C12.196 19.9209 13.304 19.9209 13.9874 19.2374L20.9874 12.2374Z'
-                fill='var(--color-primary-500)'
-              ></path>
-            </svg>
-          </div>
-          <div className='flex-1 p-1.5'>
-            <h3 className='mb-2 text-xl font-semibold tracking-tight'>
-              {title}
-            </h3>
-            <p className='tracking-tight'>{content}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-
+  const { t, ready } = useTranslation('home', { useSuspense: false });
   return (
     <>
       <Container>
         <div className='-m-8 flex flex-wrap'>
-          {data.map((item) => (
-            <TextBlock
-              key={item.title}
-              title={item.title}
-              content={item.content}
-            />
-          ))}
+          {ready &&
+            t('features.textBlocks', {
+              returnObjects: true,
+            }).map((item) => (
+              <TextBlockElement
+                key={item.title}
+                title={item.title}
+                content={item.content}
+              />
+            ))}
         </div>
       </Container>
     </>
   );
 };
+
+const TextBlockElement = ({
+  title,
+  content,
+}: {
+  title: string;
+  content: string;
+}) => (
+  <div className='w-full p-8 md:w-1/2 lg:w-1/3'>
+    <div className='md:max-w-sm'>
+      <div className='-m-1.5 flex flex-wrap'>
+        <div className='w-auto p-1.5'>
+          <svg
+            width='29'
+            height='29'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <path
+              fillRule='evenodd'
+              clipRule='evenodd'
+              d='M14.5 28.5C22.232 28.5 28.5 22.232 28.5 14.5C28.5 6.76801 22.232 0.5 14.5 0.5C6.76801 0.5 0.5 6.76801 0.5 14.5C0.5 22.232 6.76801 28.5 14.5 28.5ZM20.9874 12.2374C21.6709 11.554 21.6709 10.446 20.9874 9.76256C20.304 9.07915 19.196 9.07915 18.5126 9.76256L12.75 15.5251L10.4874 13.2626C9.80402 12.5791 8.69598 12.5791 8.01256 13.2626C7.32915 13.946 7.32915 15.054 8.01256 15.7374L11.5126 19.2374C12.196 19.9209 13.304 19.9209 13.9874 19.2374L20.9874 12.2374Z'
+              fill='var(--color-primary-500)'
+            ></path>
+          </svg>
+        </div>
+        <div className='flex-1 p-1.5'>
+          <h3 className='mb-2 text-xl font-semibold tracking-tight'>{title}</h3>
+          <p className='tracking-tight'>{content}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+);
 
 const BentoGrid = () => {
   const onMouseMove = (e: MouseEvent<HTMLDivElement>) => {
@@ -107,7 +77,7 @@ const BentoGrid = () => {
   };
 
   return (
-    <section className='py-16 md:py-24 lg:py-32'>
+    <section className='pt-16 md:pt-24 lg:pt-32'>
       <Container>
         <div
           className='group grid auto-rows-[200px] grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-12'
@@ -237,16 +207,17 @@ const BentoGrid = () => {
 };
 
 export const Features = () => {
+  const { t } = useTranslation('home');
   return (
     <>
       <section className='py-16 md:py-24 lg:py-32'>
         <Container>
           <div className='mb-16 md:mb-24'>
             <h1 className='text-4xl font-bold tracking-tight lg:text-5xl'>
-              Unsere Leistungen
+              {t('features.headline')}
             </h1>
             <h1 className='text-4xl font-bold text-gray-500 lg:text-5xl'>
-              Verschaffen Sie sich einen Überblick.
+              {t('features.subline')}
             </h1>
           </div>
         </Container>

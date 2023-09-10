@@ -10,10 +10,10 @@ import { Container } from '@/components/layout/Container';
 import { useHidePageOverflow } from '@/utils/toggle-page-overflow';
 import { useEscapePress } from '@/utils/use-escape-press';
 
-import { Commerce, Production, Repair } from './Card';
+import { Commerce, Production, Repair } from './StickyScrollCard';
+import { StickyScrollTitle } from './StickyScrollTitle';
+import { OtherVisual } from './StickyScrollVisual';
 import { useFeatureStore } from './store';
-import { FeatureTitle } from './Title';
-import { OtherVisual } from './Visual';
 
 const stickyScroll = [
   {
@@ -111,9 +111,9 @@ export const StickyScroll = () => {
               <ul>
                 {stickyScroll.map((feature) => (
                   <li key={feature.id}>
-                    <FeatureTitle id={feature.id}>
+                    <StickyScrollTitle id={feature.id}>
                       {t(('stickyScroll.' + feature.id) as never)}
-                    </FeatureTitle>
+                    </StickyScrollTitle>
                   </li>
                 ))}
               </ul>
