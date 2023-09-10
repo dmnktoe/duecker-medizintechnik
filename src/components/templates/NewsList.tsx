@@ -19,7 +19,7 @@ export const NewsList = (props: NewsListProps) => {
     <>
       <section>
         <Container>
-          <ul className='mx-auto max-w-5xl divide-y divide-gray-200 dark:divide-gray-700'>
+          <ul className='mx-auto max-w-5xl divide-y divide-gray-200'>
             {posts.map((post: Data) => (
               <li className='py-12' key={post.id}>
                 <article className='flex flex-row items-center justify-center gap-x-16 align-middle'>

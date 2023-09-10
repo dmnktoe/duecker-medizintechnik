@@ -71,9 +71,6 @@ export const PostsCarousel = ({ posts }: PostsCarouselProps) => {
               768: {
                 slidesPerView: 3,
               },
-              1024: {
-                slidesPerView: 4,
-              },
             }}
           >
             <div className='mb-20 flex'>
