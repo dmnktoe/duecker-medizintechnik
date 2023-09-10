@@ -18,7 +18,7 @@ export const Footer = () => {
               <Logo className='text-primary-500 mb-3 w-48' />
             </UnstyledLink>
             <ul className='mb-3'>
-              <li className='mb-1'>{data.street} </li>
+              <li className='mb-1'>{data.street}</li>
               <li>{data.city}</li>
             </ul>
             <ul className='mb-3'>
