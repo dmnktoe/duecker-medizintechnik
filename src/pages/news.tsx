@@ -12,14 +12,13 @@ const NewsPage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const posts = props.posts;
   return (
     <Layout>
-      <Seo templateTitle='News' description='News' />
-      <main>
+      <Seo templateTitle='News' />
+      <section className='bg-gray-100 py-16 md:py-24 lg:py-32'>
         <Container>
           <h1>News</h1>
-          <p>News</p>
         </Container>
         <NewsList posts={posts} />
-      </main>
+      </section>
     </Layout>
   );
 };

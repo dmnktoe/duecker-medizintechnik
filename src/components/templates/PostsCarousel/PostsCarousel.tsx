@@ -7,6 +7,7 @@ import 'swiper/css';
 
 import { Container } from '@/components/layout/Container';
 import PostsCarouselCard from '@/components/templates/PostsCarousel/PostsCarouselCard';
+import UnstyledLink from '@/components/ui/links/UnstyledLink';
 
 import { Data } from '@/interfaces/model';
 
@@ -30,7 +31,7 @@ export const PostsCarousel = ({ posts }: PostsCarouselProps) => {
 
   return (
     <>
-      <section className='overflow-hidden bg-neutral-50 py-12 md:py-24'>
+      <section className='overflow-hidden bg-gray-50 py-12 md:py-24'>
         <Container>
           <div className='-mx-4 mb-20 flex flex-wrap items-center'>
             <div className='mb-8 w-full px-4 md:mb-0 md:w-1/2'>
@@ -44,13 +45,13 @@ export const PostsCarousel = ({ posts }: PostsCarouselProps) => {
                   className='sm:h-18 sm:w-18 mr-2 inline-flex h-16 w-16 items-center justify-center rounded-full border border-black text-black transition duration-200 hover:bg-black hover:text-white'
                   onClick={handlePrev}
                 >
-                  <VscArrowLeft size={26} />
+                  <VscArrowLeft size={28} />
                 </button>
                 <button
                   className='sm:h-18 sm:w-18 inline-flex h-16 w-16 items-center justify-center rounded-full border border-black text-black transition duration-200 hover:bg-black hover:text-white'
                   onClick={handleNext}
                 >
-                  <VscArrowRight size={26} />
+                  <VscArrowRight size={28} />
                 </button>
               </div>
             </div>
@@ -58,9 +59,22 @@ export const PostsCarousel = ({ posts }: PostsCarouselProps) => {
           <Swiper
             modules={[Navigation]}
             navigation
-            spaceBetween={20}
-            slidesPerView={3}
+            spaceBetween={10}
             ref={swiperElRef}
+            breakpoints={{
+              0: {
+                slidesPerView: 1,
+              },
+              640: {
+                slidesPerView: 2,
+              },
+              768: {
+                slidesPerView: 3,
+              },
+              1024: {
+                slidesPerView: 4,
+              },
+            }}
           >
             <div className='mb-20 flex'>
               {posts.map((post: Data, index) => (
@@ -77,38 +91,15 @@ export const PostsCarousel = ({ posts }: PostsCarouselProps) => {
             </div>
           </Swiper>
           <div className='mt-16 text-center'>
-            <a
+            <UnstyledLink
               className='group inline-flex items-center border-b-2 border-black pb-2 font-medium leading-none'
-              href='#'
+              href='/news'
             >
               <span className='mr-4'>{t('postsCarousel.readMore')}</span>
-              <span className='transform transition duration-100 group-hover:rotate-45'>
-                <svg
-                  width={11}
-                  height={11}
-                  viewBox='0 0 11 11'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
-                  <path
-                    d='M9.5 1.5L1.5 9.5'
-                    stroke='black'
-                    strokeWidth='1.3'
-                    strokeMiterlimit={10}
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                  />
-                  <path
-                    d='M9.5 8.83571V1.5H2.16429'
-                    stroke='black'
-                    strokeWidth='1.3'
-                    strokeMiterlimit={10}
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                  />
-                </svg>
+              <span className='-rotate-45 transform transition duration-100 group-hover:rotate-0'>
+                <VscArrowRight size={15} />
               </span>
-            </a>
+            </UnstyledLink>
           </div>
         </Container>
       </section>

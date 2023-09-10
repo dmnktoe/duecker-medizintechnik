@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { formatDate } from '@/lib/helper';
+import { formatDate, getStrapiMedia } from '@/lib/helper';
 
 import UnstyledLink from '@/components/ui/links/UnstyledLink';
 import NextImage from '@/components/ui/NextImage';
@@ -23,10 +23,12 @@ const PostsCarouselCard = ({
   return (
     <div className='w-full md:mr-10 md:max-w-lg md:flex-shrink-0'>
       <UnstyledLink className='group block' href={'/news/' + slug}>
-        <div className='rounded-4xl relative mb-6 overflow-hidden'>
+        <div className='relative mb-6 overflow-hidden rounded-3xl'>
           <NextImage
             className='block h-72 w-full object-cover'
-            src={image}
+            src={getStrapiMedia(image)}
+            blurDataURL={getStrapiMedia(image)}
+            useSkeleton
             alt=''
             layout='fill'
           />
