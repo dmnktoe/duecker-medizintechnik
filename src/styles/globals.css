@@ -53,11 +53,15 @@
     overflow: visible !important;
   }
 
-  .news__content p {
+  .news__content p,
+  .privacy__content p,
+  .imprint__content p {
     @apply mb-8;
   }
 
-  .news__content p:last-child {
+  .news__content p:last-child,
+  .privacy__content p:last-child,
+  .imprint__content p:last-child {
     @apply mb-0;
   }
 

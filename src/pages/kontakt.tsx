@@ -30,8 +30,8 @@ const ContactPage = (
               <h1>{t('headline')}</h1>
               <p className='text-lg'>{t('subheadline')}</p>
             </div>
-            <div className='flex gap-10'>
-              <div className='h-auto w-2/3 bg-gray-100'>
+            <div className='flex flex-col gap-10 lg:flex-row'>
+              <div className='h-auto w-full bg-gray-100 lg:w-2/3'>
                 <div className='p-10'>
                   <h2 className='text-dark mb-4 text-4xl font-semibold tracking-tight'>
                     Kontaktieren Sie uns
@@ -44,7 +44,7 @@ const ContactPage = (
                   </div>
                 </div>
               </div>
-              <div className='h-auto w-1/3 bg-gray-100'>
+              <div className='h-auto w-full bg-gray-100 lg:w-1/3'>
                 <div className='p-10'>
                   <h2 className='text-dark mb-4 text-4xl font-semibold tracking-tight'>
                     Kontaktieren Sie uns
@@ -93,7 +93,7 @@ const ContactPage = (
                       </label>
                       <textarea
                         id='message'
-                        className='focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm'
+                        className='focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-500 dark:focus:border-primary-500 block h-24 w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm'
                         placeholder='Leave a comment...'
                       ></textarea>
                     </div>
