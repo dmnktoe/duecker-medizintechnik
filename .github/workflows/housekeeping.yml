@@ -60,13 +60,6 @@ jobs:
             --exclude 'github\.com/dmnktoe/duecker-medizintechnik/(issues|pulls)'
             --cache
             --max-cache-age 2d
+          fail: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: 📝 Create Issue from File
-        if: env.lychee_exit_code != 0
-        uses: peter-evans/create-issue-from-file@v4
-        with:
-          title: Link Checker Report
-          content-filepath: ./lychee/out.md
-          labels: report, links
