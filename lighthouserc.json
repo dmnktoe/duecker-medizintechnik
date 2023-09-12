@@ -7,7 +7,9 @@
         "http://localhost:3000/",
         "http://localhost:3000/leistungen/produktion",
         "http://localhost:3000/leistungen/reparatur",
-        "http://localhost:3000/leistungen/handel"
+        "http://localhost:3000/leistungen/handel",
+        "http://localhost:3000/news",
+        "http://localhost:3000/kontakt"
       ],
       "numberOfRuns": 2
     },
