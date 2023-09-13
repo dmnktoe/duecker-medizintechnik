@@ -1,30 +1,26 @@
-import type { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 
-import { fetchAPI } from '@/lib/fetch-api';
-
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/layout/Seo';
-import { NewsList } from '@/components/templates/NewsList';
 
-const NewsPage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const { t } = useTranslation('news');
-  const posts = props.posts;
-
+const AboutUsPage = (
+  _props: InferGetStaticPropsType<typeof getStaticProps>,
+) => {
+  const { t } = useTranslation('aboutUs');
   return (
     <Layout>
       <Seo templateTitle={t('seo.title')} description={t('seo.description')} />
-      <section className='bg-gray-100 py-16 md:py-24'>
+      <section className='py-16 md:py-24'>
         <Container>
           <div className='mx-auto max-w-5xl '>
             <div className='mb-12 flex flex-col gap-3'>
               <h1>{t('headline')}</h1>
               <p className='text-lg'>{t('subheadline')}</p>
             </div>
-            <NewsList posts={posts} />
           </div>
         </Container>
       </section>
@@ -33,13 +29,11 @@ const NewsPage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const posts = await fetchAPI('/posts?sort=id:desc&populate=*');
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? 'de', ['common', 'news'])),
-      posts: posts.data,
+      ...(await serverSideTranslations(locale ?? 'de', ['common', 'aboutUs'])),
     },
   };
 };
 
-export default NewsPage;
+export default AboutUsPage;

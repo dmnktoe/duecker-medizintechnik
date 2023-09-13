@@ -59,7 +59,7 @@ export const PostsCarousel = ({ posts }: PostsCarouselProps) => {
           <Swiper
             modules={[Navigation]}
             navigation
-            spaceBetween={10}
+            spaceBetween={15}
             ref={swiperElRef}
             breakpoints={{
               0: {
@@ -76,13 +76,7 @@ export const PostsCarousel = ({ posts }: PostsCarouselProps) => {
             <div className='mb-20 flex'>
               {posts.map((post: Data, index) => (
                 <SwiperSlide key={index}>
-                  <PostsCarouselCard
-                    title={post.attributes.title}
-                    description={post.attributes.content}
-                    slug={post.attributes.slug}
-                    image={post.attributes.image.data?.attributes.url}
-                    date={post.attributes.publishedAt}
-                  />
+                  <PostsCarouselCard post={post} />
                 </SwiperSlide>
               ))}
             </div>

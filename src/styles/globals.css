@@ -97,6 +97,10 @@
     }
   }
 
+  .news__content a {
+    @apply text-primary-600;
+  }
+
   /* #region  /**=========== Typography =========== */
   h1,
   .h1 {

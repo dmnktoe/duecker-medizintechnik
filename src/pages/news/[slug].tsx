@@ -17,6 +17,7 @@ import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/layout/Seo';
 import { AspectRatio } from '@/components/ui/AspectRatio';
+import ArrowLink from '@/components/ui/links/ArrowLink';
 
 import { Data } from '@/interfaces/model';
 
@@ -56,13 +57,26 @@ const PostPage = (props: PostPageProps) => {
   return (
     <Layout>
       <Seo templateTitle={post.attributes.title} />
-      <section className='bg-gray-100 py-16 md:py-24 lg:py-32'>
+      <section className='bg-gray-100'>
+        <div className='mx-auto flex max-w-3xl'>
+          <ArrowLink direction='left' href='/news' className='mt-12 text-xs'>
+            Zurück zur Übersicht
+          </ArrowLink>
+        </div>
+      </section>
+      <section className='bg-gray-100 py-16 md:py-24'>
         <Container>
           <div className='flex flex-col gap-y-16'>
             <div className='mx-auto flex max-w-3xl flex-col gap-y-4'>
-              <span className='text-gray-600'>
-                {formatDate(post.attributes.publishedAt.toString())}
-              </span>
+              <div className='flex flex-row items-center gap-x-4'>
+                <span className='border-1.5 bg-primary-800/20 inline-block rounded-full border-black px-3 py-2 text-sm leading-none text-black transition duration-200'>
+                  {post.attributes.category}
+                </span>
+                <span className='text-gray-300'>|</span>
+                <span className='text-gray-600'>
+                  {formatDate(post.attributes.publishedAt)}
+                </span>
+              </div>
               <h1 className='text-dark text-4xl font-bold tracking-tight md:text-5xl md:leading-[1.1]'>
                 {post.attributes.title}
               </h1>
@@ -89,19 +103,24 @@ const PostPage = (props: PostPageProps) => {
               </div>
             </div>
             <div className='relative mx-auto w-full max-w-5xl'>
-              <AspectRatio ratio={16 / 9} className='bg-muted'>
-                <Image
-                  src={getStrapiMedia(
-                    post.attributes.image.data?.attributes.url ?? '',
-                  )}
-                  blurDataURL={getStrapiMedia(
-                    post.attributes.image.data?.attributes.url ?? '',
-                  )}
-                  alt='Photo by Drew Beamer'
-                  fill
-                  className='object-cover object-center'
-                />
-              </AspectRatio>
+              {post.attributes.image.data?.attributes.name && (
+                <AspectRatio ratio={16 / 9} className='bg-muted'>
+                  <Image
+                    src={getStrapiMedia(
+                      post.attributes.image.data?.attributes.url ?? '',
+                    )}
+                    blurDataURL={getStrapiMedia(
+                      post.attributes.image.data?.attributes.url ?? '',
+                    )}
+                    alt='Photo by Drew Beamer'
+                    fill
+                    className='object-cover object-center'
+                  />
+                </AspectRatio>
+              )}
+              <div className='mt-3 text-right text-sm text-gray-500'>
+                {post.attributes.image.data?.attributes.name}
+              </div>
             </div>
             <div
               className='news__content mx-auto max-w-3xl'

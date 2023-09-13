@@ -1,11 +1,12 @@
 import Image from 'next/image';
+import { useTranslation } from 'next-i18next';
 import React from 'react';
 
-import { getStrapiMedia } from '@/lib/helper';
+import { formatDate, getStrapiMedia } from '@/lib/helper';
 
-import { Container } from '@/components/layout/Container';
 import { AspectRatio } from '@/components/ui/AspectRatio';
-import PrimaryLink from '@/components/ui/links/PrimaryLink';
+import ArrowLink from '@/components/ui/links/ArrowLink';
+import UnstyledLink from '@/components/ui/links/UnstyledLink';
 
 import { Data } from '@/interfaces/model';
 
@@ -15,15 +16,19 @@ interface NewsListProps {
 
 export const NewsList = (props: NewsListProps) => {
   const { posts } = props;
+  const { t } = useTranslation('news');
   return (
     <>
-      <section>
-        <Container>
-          <ul className='mx-auto max-w-5xl divide-y divide-gray-200'>
-            {posts.map((post: Data) => (
-              <li className='py-12' key={post.id}>
-                <article className='flex flex-row items-center justify-center gap-x-16 align-middle'>
-                  <div className='w-1/5'>
+      <ul className='divide-y divide-gray-200'>
+        {posts.map((post: Data) => (
+          <li className='py-12' key={post.id}>
+            <article>
+              <div className='group flex flex-row items-center justify-center gap-x-16 align-middle'>
+                <div className='w-4/12'>
+                  <UnstyledLink
+                    href={`/news/${post.attributes.slug}`}
+                    className='block'
+                  >
                     <AspectRatio ratio={9 / 11} className='bg-muted'>
                       <Image
                         src={getStrapiMedia(
@@ -32,25 +37,45 @@ export const NewsList = (props: NewsListProps) => {
                         blurDataURL={getStrapiMedia(
                           post.attributes.image.data?.attributes.url ?? '',
                         )}
-                        alt='Photo by Drew Beamer'
+                        alt={post.attributes.image.data?.attributes.name ?? ''}
                         fill
-                        className='object-cover object-center'
+                        className='rounded-3xl object-cover object-center shadow-xl'
                       />
                     </AspectRatio>
+                  </UnstyledLink>
+                </div>
+                <div className='flex w-8/12 flex-col gap-4'>
+                  <div className='flex flex-row items-center gap-x-4'>
+                    <span className='border-1.5 bg-primary-800/20 inline-block rounded-full border-black px-3 py-2 text-sm leading-none text-black transition duration-200'>
+                      {post.attributes.category}
+                    </span>
+                    <span className='text-gray-300'>|</span>
+                    <span className='text-gray-600'>
+                      {formatDate(post.attributes.publishedAt)}
+                    </span>
                   </div>
-                  <div className='flex w-4/5 flex-col gap-4'>
-                    <h2>{post.attributes.title}</h2>
-                    <p className='line-clamp-3'>{post.attributes.content}</p>
-                    <PrimaryLink href={`/news/${post.attributes.slug}`}>
-                      Learn more
-                    </PrimaryLink>
-                  </div>
-                </article>
-              </li>
-            ))}
-          </ul>
-        </Container>
-      </section>
+                  <UnstyledLink
+                    href={`/news/${post.attributes.slug}`}
+                    className='block'
+                  >
+                    <h2 className='text-dark transition duration-100 group-hover:text-gray-700'>
+                      {post.attributes.title}
+                    </h2>
+                  </UnstyledLink>
+                  <p className='line-clamp-3'>{post.attributes.content}</p>
+                  <ArrowLink
+                    as={UnstyledLink}
+                    className='inline-flex items-center'
+                    href={`/news/${post.attributes.slug}`}
+                  >
+                    {t('newsList.readMore')}
+                  </ArrowLink>
+                </div>
+              </div>
+            </article>
+          </li>
+        ))}
+      </ul>
     </>
   );
 };
