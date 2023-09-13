@@ -12,7 +12,7 @@ import UnderlineLink from '@/components/ui/links/UnderlineLink';
 import { data } from '@/constant/data';
 
 const ImprintPage = (
-  _props: InferGetStaticPropsType<typeof getStaticProps>
+  _props: InferGetStaticPropsType<typeof getStaticProps>,
 ) => {
   const { t } = useTranslation('imprint');
   return (

@@ -12,7 +12,7 @@ import * as DEFAULT_LOCALE from './../../next-i18next.config';
 
 const initializeI18n = async (
   namespaces: string[],
-  locale: string = DEFAULT_LOCALE.i18n.defaultLocale
+  locale: string = DEFAULT_LOCALE.i18n.defaultLocale,
 ): Promise<typeof i18n> => {
   const resources: { [ns: string]: object } = {};
 
@@ -22,7 +22,7 @@ const initializeI18n = async (
       resources[ns] = require(`../../${filePath}`);
     } catch (error) {
       throw new Error(
-        `Could not load translations for locale: ${locale}, namespace: ${ns}`
+        `Could not load translations for locale: ${locale}, namespace: ${ns}`,
       );
     }
   });
