@@ -24,7 +24,7 @@ export const Intro = () => {
                 blurDataURL='/images/hero_bg.jpg'
                 width={2500}
                 height={1700}
-                className='h-full w-full overflow-hidden rounded-[2rem]'
+                className='h-full w-full overflow-hidden rounded-3xl'
               />
             </div>
           </div>
@@ -49,10 +49,10 @@ const IntroText = () => {
             {t('intro.content')}
           </p>
           <div className='mt-10 flex items-center justify-start gap-x-3'>
-            <ButtonLink size='base' href='/ueber-uns'>
+            <ButtonLink size='base' href='/unternehmen'>
               {t('intro.primaryButton')}
             </ButtonLink>
-            <ButtonLink size='base' variant='ghost' href='/ueber-uns'>
+            <ButtonLink size='base' variant='ghost' href='/leistungen'>
               {t('intro.secondaryButton')}{' '}
               <span aria-hidden='true' className='ml-2'>
                 →
