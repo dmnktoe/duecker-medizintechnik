@@ -12,7 +12,7 @@ describe('Call to action', () => {
   });
   it('should render the header', async () => {
     expect(
-      await screen.findByText('Navigation umschalten')
+      await screen.findByText('Navigation umschalten'),
     ).toBeInTheDocument();
   });
   {

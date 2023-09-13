@@ -10,7 +10,7 @@ import Seo from '@/components/layout/Seo';
 import Button from '@/components/ui/buttons/Button';
 
 const ContactPage = (
-  _props: InferGetStaticPropsType<typeof getStaticProps>
+  _props: InferGetStaticPropsType<typeof getStaticProps>,
 ) => {
   const { t } = useTranslation('contact');
   return (

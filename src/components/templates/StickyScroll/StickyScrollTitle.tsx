@@ -28,7 +28,7 @@ export const StickyScrollTitle = ({ children, id }: StickyScrollTitleProps) => {
       ref={ref}
       className={clsx(
         'feature-title py-20 text-4xl font-bold tracking-tight transition-colors md:text-5xl xl:py-32 xl:leading-[1.1]',
-        isInView ? 'text-dark' : 'text-gray-300'
+        isInView ? 'text-dark' : 'text-gray-300',
       )}
     >
       <Link href={`/leistungen/${id}`}>{children}</Link>

@@ -8,7 +8,7 @@ import Layout from '@/components/layout/Layout';
 import Seo from '@/components/layout/Seo';
 
 const ProductionPage = (
-  _props: InferGetStaticPropsType<typeof getStaticProps>
+  _props: InferGetStaticPropsType<typeof getStaticProps>,
 ) => {
   return (
     <Layout>

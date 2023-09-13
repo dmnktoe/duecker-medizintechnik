@@ -9,7 +9,7 @@ import Seo from '@/components/layout/Seo';
 import ArrowLink from '@/components/ui/links/ArrowLink';
 
 const NotFoundPage = (
-  _props: InferGetStaticPropsType<typeof getStaticProps>
+  _props: InferGetStaticPropsType<typeof getStaticProps>,
 ) => {
   const { t } = useTranslation('notFound');
   return (
