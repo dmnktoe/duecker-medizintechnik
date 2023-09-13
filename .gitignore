@@ -43,3 +43,6 @@ sitemap-*.xml
 
 # webstorm project files
 .idea
+
+# Sentry Auth Token
+.sentryclirc

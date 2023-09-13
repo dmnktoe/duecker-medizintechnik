@@ -28,6 +28,7 @@
     "@radix-ui/react-aspect-ratio": "^1.0.3",
     "@radix-ui/react-collapsible": "^1.0.3",
     "clsx": "^2.0.0",
+    "@sentry/nextjs": "^7.68.0",
     "framer-motion": "^10.16.4",
     "i18next": "^23.5.1",
     "marked": "^9.0.0",
