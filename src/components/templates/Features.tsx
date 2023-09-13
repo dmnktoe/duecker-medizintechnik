@@ -65,7 +65,7 @@ const TextBlockElement = ({
 const BentoGrid = () => {
   const onMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     for (const card of Array.from(
-      e.currentTarget.children as HTMLCollectionOf<HTMLElement>
+      e.currentTarget.children as HTMLCollectionOf<HTMLElement>,
     )) {
       const rect = card.getBoundingClientRect(),
         x = e.clientX - rect.left,
@@ -88,7 +88,7 @@ const BentoGrid = () => {
               'relative col-span-1 row-span-2 cursor-pointer overflow-hidden rounded-3xl bg-white/10 lg:col-span-3',
               "before:bg-spotlight-hover before:absolute before:inset-0 before:z-30 before:rounded-3xl before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
               "after:bg-spotlight-borders after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
-              'hover:before:opacity-100 group-hover:after:opacity-100'
+              'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
             <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col justify-start rounded-3xl bg-gray-100 p-4'>
@@ -100,7 +100,7 @@ const BentoGrid = () => {
               'relative col-span-1 row-span-1 cursor-pointer overflow-hidden rounded-3xl bg-white/10 lg:col-span-3',
               "before:bg-spotlight-hover before:absolute before:inset-0 before:z-30 before:rounded-3xl before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
               "after:bg-spotlight-borders after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
-              'hover:before:opacity-100 group-hover:after:opacity-100'
+              'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
             <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4'>
@@ -112,7 +112,7 @@ const BentoGrid = () => {
               'relative col-span-1 row-span-1 cursor-pointer overflow-hidden rounded-3xl bg-white/10 lg:col-span-3',
               "before:bg-spotlight-hover before:absolute before:inset-0 before:z-30 before:rounded-3xl before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
               "after:bg-spotlight-borders after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
-              'hover:before:opacity-100 group-hover:after:opacity-100'
+              'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
             <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4'>
@@ -124,7 +124,7 @@ const BentoGrid = () => {
               'relative col-span-1 row-span-2 cursor-pointer overflow-hidden rounded-3xl bg-white/10 lg:col-span-3',
               "before:bg-spotlight-hover before:absolute before:inset-0 before:z-30 before:rounded-3xl before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
               "after:bg-spotlight-borders after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
-              'hover:before:opacity-100 group-hover:after:opacity-100'
+              'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
             <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4'>
@@ -136,7 +136,7 @@ const BentoGrid = () => {
               'relative col-span-1 row-span-2 cursor-pointer overflow-hidden rounded-3xl bg-white/10 lg:col-span-6',
               "before:bg-spotlight-hover before:absolute before:inset-0 before:z-30 before:rounded-3xl before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
               "after:bg-spotlight-borders after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
-              'hover:before:opacity-100 group-hover:after:opacity-100'
+              'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
             <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4'>
@@ -148,7 +148,7 @@ const BentoGrid = () => {
               'relative col-span-1 row-span-1 cursor-pointer overflow-hidden rounded-3xl bg-white/10 lg:col-span-3',
               "before:bg-spotlight-hover before:absolute before:inset-0 before:z-30 before:rounded-3xl before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
               "after:bg-spotlight-borders after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
-              'hover:before:opacity-100 group-hover:after:opacity-100'
+              'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
             <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4'>
@@ -160,7 +160,7 @@ const BentoGrid = () => {
               'relative col-span-1 row-span-2 cursor-pointer overflow-hidden rounded-3xl bg-white/10 lg:col-span-3',
               "before:bg-spotlight-hover before:absolute before:inset-0 before:z-30 before:rounded-3xl before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
               "after:bg-spotlight-borders after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
-              'hover:before:opacity-100 group-hover:after:opacity-100'
+              'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
             <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4'>
@@ -181,7 +181,7 @@ const BentoGrid = () => {
               'relative col-span-1 row-span-1 cursor-pointer overflow-hidden rounded-3xl bg-white/10 lg:col-span-6',
               "before:bg-spotlight-hover before:absolute before:inset-0 before:z-30 before:rounded-3xl before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
               "after:bg-spotlight-borders after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
-              'hover:before:opacity-100 group-hover:after:opacity-100'
+              'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
             <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4'>
@@ -193,7 +193,7 @@ const BentoGrid = () => {
               'relative col-span-1 row-span-1 cursor-pointer overflow-hidden rounded-3xl bg-white/10 lg:col-span-3',
               "before:bg-spotlight-hover before:absolute before:inset-0 before:z-30 before:rounded-3xl before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
               "after:bg-spotlight-borders after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
-              'hover:before:opacity-100 group-hover:after:opacity-100'
+              'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
             <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4'>

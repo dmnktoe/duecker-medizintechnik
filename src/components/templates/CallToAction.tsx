@@ -33,7 +33,7 @@ export const CallToAction = () => {
                       bullet: {
                         title: string;
                       },
-                      index: Key
+                      index: Key,
                     ) => (
                       <li key={index} className='p-4'>
                         <div className='flex flex-wrap'>
@@ -43,7 +43,7 @@ export const CallToAction = () => {
                           </span>
                         </div>
                       </li>
-                    )
+                    ),
                   )}
               </ul>
             </div>

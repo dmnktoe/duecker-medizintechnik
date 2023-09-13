@@ -125,7 +125,7 @@ export const Header = () => {
                   'top-navigation-height fixed inset-0 z-50 flex max-h-full w-full max-w-full flex-row transition-all duration-200 ease-in-out md:justify-end md:bg-gray-500/10 md:backdrop-blur-[25px] xl:hidden',
                   hamburgerMenuIsOpen
                     ? 'visible opacity-100'
-                    : 'invisible opacity-0'
+                    : 'invisible opacity-0',
                 )}
               >
                 <div
@@ -134,7 +134,7 @@ export const Header = () => {
                     'animate-fadeInRight m-0 flex h-[calc(100vh_-_var(--navigation-height))] w-full overflow-hidden transition-all duration-200 ease-in-out md:w-96',
                     hamburgerMenuIsOpen
                       ? 'translate-x-0 opacity-100'
-                      : 'translate-x-2 opacity-0'
+                      : 'translate-x-2 opacity-0',
                   )}
                 >
                   <div className='flex flex-grow flex-col items-stretch bg-white text-black md:m-6 md:rounded-2xl md:shadow-xl'>
@@ -172,7 +172,7 @@ export const Header = () => {
               <ul className='text-md absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 transform text-lg font-bold text-gray-500 lg:w-auto lg:space-x-10 xl:flex 2xl:text-xl'>
                 {ready &&
                   t('header.navigationItems', { returnObjects: true }).map(
-                    (item, index) => <NavItem key={index} {...item} />
+                    (item, index) => <NavItem key={index} {...item} />,
                   )}
               </ul>
               {/* CTA Button */}
@@ -249,7 +249,7 @@ const NavItem = ({ href, text, subItems }: NavItemProps) => {
         <button
           className={clsx(
             'inline-block transition duration-200 ease-in-out group-hover:text-black',
-            currentRoute === href && 'underline'
+            currentRoute === href && 'underline',
           )}
           aria-haspopup='true'
         >
@@ -261,7 +261,7 @@ const NavItem = ({ href, text, subItems }: NavItemProps) => {
           href={href as string}
           className={clsx(
             'transition duration-150 ease-in-out hover:text-black active:text-neutral-100',
-            currentRoute === href && 'text-dark'
+            currentRoute === href && 'text-dark',
           )}
         >
           {text}
@@ -296,7 +296,7 @@ const NavItem = ({ href, text, subItems }: NavItemProps) => {
                           href={item.href}
                           className={clsx(
                             'text-md hover:text-primary-500 hover:to-primary-50 hover:bg-primary-50 -mx-2 block rounded-lg p-2 font-semibold text-gray-800 transition duration-200 ease-in-out',
-                            currentRoute === item.href && 'text-primary-500'
+                            currentRoute === item.href && 'text-primary-500',
                           )}
                         >
                           {item.text}
@@ -342,7 +342,7 @@ const ResponsiveNavItem = ({ href, text, subItems }: NavItemProps) => {
           href={href as string}
           className={clsx(
             'transition duration-150 ease-in-out hover:text-black active:text-neutral-100',
-            currentRoute === href && 'underline'
+            currentRoute === href && 'underline',
           )}
         >
           {text}

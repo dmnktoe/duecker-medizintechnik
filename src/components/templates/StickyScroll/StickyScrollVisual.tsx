@@ -16,7 +16,7 @@ const StickyScrollVisual = ({ children, id }: VisualProps) => {
     <div
       className={clsx(
         'pointer-events-none fixed inset-0 flex items-center justify-center opacity-0',
-        `visual-${id}`
+        `visual-${id}`,
       )}
     >
       <div className='max-w-6xl px-4'>{children}</div>

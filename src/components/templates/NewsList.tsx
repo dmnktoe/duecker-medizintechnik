@@ -27,10 +27,10 @@ export const NewsList = (props: NewsListProps) => {
                     <AspectRatio ratio={9 / 11} className='bg-muted'>
                       <Image
                         src={getStrapiMedia(
-                          post.attributes.image.data?.attributes.url ?? ''
+                          post.attributes.image.data?.attributes.url ?? '',
                         )}
                         blurDataURL={getStrapiMedia(
-                          post.attributes.image.data?.attributes.url ?? ''
+                          post.attributes.image.data?.attributes.url ?? '',
                         )}
                         alt='Photo by Drew Beamer'
                         fill

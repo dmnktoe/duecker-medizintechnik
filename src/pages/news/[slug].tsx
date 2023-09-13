@@ -24,11 +24,12 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const result = await fetchAPI('/posts');
 
   const paths = result.data
-    .map((result: Data) =>
-      locales?.map((locale) => ({
-        params: { slug: result.attributes.slug.toString() },
-        locale,
-      }))
+    .map(
+      (result: Data) =>
+        locales?.map((locale) => ({
+          params: { slug: result.attributes.slug.toString() },
+          locale,
+        })),
     )
     .flat();
   return { paths, fallback: false };
@@ -36,7 +37,7 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
 
 export const getStaticProps: GetStaticProps = async ({ locale, params }) => {
   const posts = await fetchAPI(
-    `/posts?filters[slug][$eq]=${params?.slug}&populate=*`
+    `/posts?filters[slug][$eq]=${params?.slug}&populate=*`,
   );
   return {
     props: {
@@ -91,10 +92,10 @@ const PostPage = (props: PostPageProps) => {
               <AspectRatio ratio={16 / 9} className='bg-muted'>
                 <Image
                   src={getStrapiMedia(
-                    post.attributes.image.data?.attributes.url ?? ''
+                    post.attributes.image.data?.attributes.url ?? '',
                   )}
                   blurDataURL={getStrapiMedia(
-                    post.attributes.image.data?.attributes.url ?? ''
+                    post.attributes.image.data?.attributes.url ?? '',
                   )}
                   alt='Photo by Drew Beamer'
                   fill

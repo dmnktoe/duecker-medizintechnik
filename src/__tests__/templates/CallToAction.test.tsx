@@ -11,7 +11,7 @@ describe('Call to action', () => {
   });
   it('should render the call to action section', async () => {
     expect(
-      await screen.findByText('Benötigen Sie Hilfe bei der Aufbereitung?')
+      await screen.findByText('Benötigen Sie Hilfe bei der Aufbereitung?'),
     ).toBeInTheDocument();
   });
 });

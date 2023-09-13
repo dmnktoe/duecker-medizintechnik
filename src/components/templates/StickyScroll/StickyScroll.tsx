@@ -38,10 +38,10 @@ export const StickyScroll = () => {
   const [scope, animate] = useAnimate();
   const fullscreenFeature = useFeatureStore((state) => state.fullscreenFeature);
   const lastFullscreenFeature = useFeatureStore(
-    (state) => state.lastFullscreenFeature
+    (state) => state.lastFullscreenFeature,
   );
   const setFullscreenFeature = useFeatureStore(
-    (state) => state.setFullscreenFeature
+    (state) => state.setFullscreenFeature,
   );
 
   const onEscapePress = () => {

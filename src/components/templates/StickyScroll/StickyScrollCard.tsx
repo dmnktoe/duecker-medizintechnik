@@ -21,7 +21,7 @@ const StickyScrollCard = ({
 }: StickyScrollCardProps) => {
   const inViewFeature = useFeatureStore((state) => state.inViewFeature);
   const setFullscreenFeature = useFeatureStore(
-    (state) => state.setFullscreenFeature
+    (state) => state.setFullscreenFeature,
   );
 
   return (
@@ -30,13 +30,13 @@ const StickyScrollCard = ({
         'absolute inset-0 h-full w-full overflow-hidden rounded-2xl transition-opacity',
         inViewFeature === id
           ? 'active-card opacity-100'
-          : 'pointer-events-none opacity-0'
+          : 'pointer-events-none opacity-0',
       )}
     >
       <div
         className={clsx(
           'gradient absolute inset-0 origin-bottom-left rounded-2xl bg-gradient-to-br',
-          gradient
+          gradient,
         )}
       />
       {children}
@@ -99,7 +99,7 @@ export const Music = ({ id }: CardProps) => {
       <img
         className={clsx(
           'absolute left-[5%] top-[10%] w-[30%] rounded-xl shadow-lg transition-transform',
-          isFullscreen ? 'scale-0' : 'scale-100'
+          isFullscreen ? 'scale-0' : 'scale-100',
         )}
         src='/images/sticky-scroll_grid-1.jpg'
         alt='song1'
@@ -108,7 +108,7 @@ export const Music = ({ id }: CardProps) => {
       <img
         className={clsx(
           'absolute left-[70%] top-[20%] w-[35%] rounded-xl shadow-lg transition-transform',
-          isFullscreen ? 'scale-0' : 'scale-100'
+          isFullscreen ? 'scale-0' : 'scale-100',
         )}
         src='/images/sticky-scroll_grid-2.jpg'
         alt='song2'
@@ -117,7 +117,7 @@ export const Music = ({ id }: CardProps) => {
       <img
         className={clsx(
           'absolute left-[15%] top-[50%] w-[70%] rounded-xl shadow-lg transition-transform',
-          isFullscreen ? 'scale-0' : 'scale-100'
+          isFullscreen ? 'scale-0' : 'scale-100',
         )}
         src='/images/sticky-scroll_grid-3.jpg'
         alt='song3'
