@@ -40,6 +40,6 @@ describe('getStrapiMedia function', () => {
 });
 
 test('formatDate function', () => {
-  const result = formatDate('2022-01-01');
-  expect(result).toBe('January 1, 2022');
+  const result = formatDate(new Date('2022-01-01'));
+  expect(result).toBe('1. Januar 2022');
 });
