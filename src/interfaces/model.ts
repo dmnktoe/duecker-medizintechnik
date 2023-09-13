@@ -2,6 +2,7 @@ export interface Attribute {
   url: string;
   width: number;
   height: number;
+  name: string;
 }
 
 export interface Image {
@@ -12,6 +13,7 @@ export interface Attribute {
   title: string;
   content: string;
   slug: string;
+  category: string;
   createdAt: Date;
   updatedAt: Date;
   publishedAt: Date;
