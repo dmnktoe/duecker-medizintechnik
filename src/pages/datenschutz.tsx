@@ -27,13 +27,12 @@ const PrivacyPage = (
             <p>
               Diese Datenschutzerklärung klärt Nutzer über die Art, den Umfang
               und Zwecke der Erhebung, Verwendung sowie Verarbeitung
-              personenbezogener Daten durch den verantwortlichen Anbieter AMP
-              Ambulante Mobile Pflege in Baunatal GmbH, Stettiner Straße 11,
-              34225 Baunatal-Großenritte,
+              personenbezogener Daten durch den verantwortlichen Anbieter{' '}
+              {data.companyName}, {data.street},{data.city},{' '}
               <UnderlineLink href={'mailto:' + data.email}>
                 {data.email}
               </UnderlineLink>
-              , Telefon: 0 56 01 / 92 17 910 auf. Wir bitten Sie daher, die
+              , Telefon: {data.phone} auf. Wir bitten Sie daher, die
               nachfolgenden Ausführungen sorgfältig durchzulesen.
             </p>
             <p>
@@ -101,23 +100,23 @@ const PrivacyPage = (
               Fax: {data.fax}
             </p>
             <p>
-              E-Mail:
+              E-Mail:{' '}
               <UnderlineLink href={'mailto:' + data.email}>
                 {data.email}
               </UnderlineLink>
             </p>
             <p>
-              Vertreter des Verantwortlichen ist die Datenschutzbeauftragte
-              Janina Wiesenmayer.
+              Vertreter des Verantwortlichen ist der Datenschutzbeauftragte Marc
+              Dücker.
             </p>
             <p>
               <strong>4. Datenschutzbeauftragter</strong>
             </p>
             <p>
-              Sie können unseren Datenschutzbeauftragten über die E-Mailadresse
-              <UnderlineLink href='mailto:janina.wiesenmayer@ampinbaunatal.de'>
-                janina.wiesenmayer@ampinbaunatal.de
-              </UnderlineLink>
+              Sie können unseren Datenschutzbeauftragten über die E-Mailadresse{' '}
+              <UnderlineLink href={'mailto:' + data.email}>
+                {data.email}
+              </UnderlineLink>{' '}
               oder über unsere Postadresse mit dem Zusatz „der
               Datenschutzbeauftragte“ kontaktieren.
             </p>
@@ -265,9 +264,9 @@ const PrivacyPage = (
               Wenn Sie mit uns über E-Mail kontaktieren, können Sie der
               Speicherung Ihrer personenbezogener Daten jederzeit widersprechen.
               In diesem Fall kann unsere Konversation natürlich nicht mehr
-              fortgeführt werden. Einen solchen Widerruf richten Sie bitte an
-              <UnderlineLink href='mailto:janina.wiesenmayer@ampinbaunatal.de'>
-                janina.wiesenmayer@ampinbaunatal.de
+              fortgeführt werden. Einen solchen Widerruf richten Sie bitte an{' '}
+              <UnderlineLink href={'mailto:' + data.email}>
+                {data.email}
               </UnderlineLink>
               . Alle personenbezogenen Daten, die im Zuge der Kontaktaufnahme
               gespeichert wurden, werden dann gelöscht.
@@ -439,9 +438,9 @@ const PrivacyPage = (
             <p>
               Die von Ihnen an uns übermittelten Informationen können Sie
               jederzeit auf Anfrage erneuern oder löschen lassen. Hierfür senden
-              Sie uns bitte eine E-Mail an
-              <UnderlineLink href='mailto:janina.wiesenmayer@ampinbaunatal.de'>
-                janina.wiesenmayer@ampinbaunatal.de
+              Sie uns bitte eine E-Mail an{' '}
+              <UnderlineLink href={'mailto:' + data.email}>
+                {data.email}
               </UnderlineLink>
               . Dies gilt nicht, soweit Sie sich in einem laufenden
               Bewerbungsverfahren um eine konkrete Position bei uns beworben
@@ -578,10 +577,10 @@ const PrivacyPage = (
               und dort gekürzt.
             </p>
             <p>
-              Google ist im EU-US Privacy Shield
+              Google ist im EU-US Privacy Shield{' '}
               <UnderlineLink href='https://www.privacyshield.gov/participant?id=a2zt000000001L5AAI'>
                 https://www.privacyshield.gov/participant?id=a2zt000000001L5AAI
-              </UnderlineLink>
+              </UnderlineLink>{' '}
               zertifiziert, das für Daten bei Google in den USA ein angemessenes
               Datenschutzniveau gewährleistet.
             </p>
@@ -600,7 +599,7 @@ const PrivacyPage = (
             </p>
             <p>
               In den oben genannten Zwecken liegt unser berechtigtes Interesse
-              an der Datenverarbeitung durch Google Analytics. Rechtsgrundlag
+              an der Datenverarbeitung durch Google Analytics. Rechtsgrundlage
               ist Art. 6 Abs. 1 lit. f DSGVO.
             </p>
             <p>
@@ -624,7 +623,7 @@ const PrivacyPage = (
               Cookie erzeugten und auf ihre Nutzung unserer Website bezogenen
               Daten an Google sowie die Verarbeitung dieser Daten durch Google
               verhindern, indem sie das verfügbare Browser-Plugin von Google
-              herunterladen und installieren:
+              herunterladen und installieren:{' '}
               <UnderlineLink href='https://tools.google.com/dlpage/gaoptout?hl=de'>
                 https://tools.google.com/dlpage/gaoptout?hl=de
               </UnderlineLink>
@@ -642,16 +641,16 @@ const PrivacyPage = (
               Bitte beachten Sie, dass dieses Opt-Out-Cookie nur so lange eine
               Webanalyse verhindert, wie sie es nicht gelöscht haben. Weitere
               Informationen zu Google Analytics erhalten Sie in den Google
-              Analytics Nutzungsbedingungen
+              Analytics Nutzungsbedingungen{' '}
               <UnderlineLink href='https://www.google.de/analytics/terms/de.html'>
                 https://www.google.de/analytics/terms/de.html
               </UnderlineLink>
               , in den Sicherheits- und Datenschutzgrundsätzen von Google
-              Analytics
+              Analytics{' '}
               <UnderlineLink href='https://support.google.com/analytics/answer/6004245?hl=de'>
                 https://support.google.com/analytics/answer/6004245?hl=de
-              </UnderlineLink>
-              sowie in der der Google Datenschutzerklärung
+              </UnderlineLink>{' '}
+              sowie in der der Google Datenschutzerklärung{' '}
               <UnderlineLink href='https://www.google.de/intl/de/policies/privacy/'>
                 https://www.google.de/intl/de/policies/privacy/
               </UnderlineLink>
