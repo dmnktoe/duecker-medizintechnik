@@ -93,7 +93,7 @@ const PrivacyPage = (
               <br />
               {data.city}
             </p>
-            <p>Geschäftsführer: Marc Dücker</p>
+            <p>Geschäftsführer: {data.ceo}</p>
             <p>
               Tel.: {data.phone}
               <br />

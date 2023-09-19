@@ -1,13 +1,13 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
+import { data } from '@/constant/data';
+
 const defaultMeta = {
-  title: 'Dücker Medizintechnik Melsungen',
-  siteName: 'Dücker Medizintechnik',
-  description:
-    'Dücker Medizintechnik ist ein Familienunternehmen, das sich auf die Herstellung von medizinischen Produkten spezialisiert hat.',
-  /** Without additional '/' on the end, e.g. https://theodorusclarence.com */
-  url: 'https://duecker-medizintechnik.de',
+  title: data.companyName,
+  siteName: data.siteName,
+  description: data.description,
+  url: 'https://' + data.url,
   type: 'website',
   robots: 'follow, index',
   /**
@@ -70,12 +70,7 @@ export default function Seo(props: SeoProps) {
             property='og:publish_date'
             content={meta.date}
           />
-          {/* // !STARTERCONF Remove or change to your name */}
-          <meta
-            name='author'
-            property='article:author'
-            content='Theodorus Clarence'
-          />
+          <meta name='author' property='article:author' content={data.ceo} />
         </>
       )}
 
@@ -112,7 +107,7 @@ const favicons: Array<React.ComponentPropsWithoutRef<'link'>> = [
   {
     rel: 'mask-icon',
     href: '/favicon/safari-pinned-tab.svg',
-    color: '#00e887',
+    color: data.primaryHex,
   },
   { rel: 'shortcut icon', href: '/favicon/favicon.ico' },
 ];
