@@ -23,8 +23,8 @@ export const NewsList = (props: NewsListProps) => {
         {posts.map((post: Data) => (
           <li className='py-12' key={post.id}>
             <article>
-              <div className='group flex flex-row items-center justify-center gap-x-16 align-middle'>
-                <div className='w-4/12'>
+              <div className='group md:flex md:flex-row md:items-center md:justify-center md:gap-x-16 md:align-middle'>
+                <div className='mb-10 md:mb-0 md:w-4/12'>
                   <UnstyledLink
                     href={`/news/${post.attributes.slug}`}
                     className='block'
@@ -39,12 +39,12 @@ export const NewsList = (props: NewsListProps) => {
                         )}
                         alt={post.attributes.image.data?.attributes.name ?? ''}
                         fill
-                        className='rounded-3xl object-cover object-center shadow-xl'
+                        className='rounded-3xl object-cover object-center md:shadow-xl'
                       />
                     </AspectRatio>
                   </UnstyledLink>
                 </div>
-                <div className='flex w-8/12 flex-col gap-4'>
+                <div className='flex md:w-8/12 flex-col gap-4'>
                   <div className='flex flex-row items-center gap-x-4'>
                     <span className='border-1.5 bg-primary-800/20 inline-block rounded-full border-black px-3 py-2 text-sm leading-none text-black transition duration-200'>
                       {post.attributes.category}
@@ -62,7 +62,9 @@ export const NewsList = (props: NewsListProps) => {
                       {post.attributes.title}
                     </h2>
                   </UnstyledLink>
-                  <p className='line-clamp-3'>{post.attributes.content}</p>
+                  <p className='text-base line-clamp-4 md:line-clamp-3'>
+                    {post.attributes.content}
+                  </p>
                   <ArrowLink
                     as={UnstyledLink}
                     className='inline-flex items-center'

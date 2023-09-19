@@ -58,11 +58,13 @@ const PostPage = (props: PostPageProps) => {
     <Layout>
       <Seo templateTitle={post.attributes.title} />
       <section className='bg-gray-100'>
-        <div className='mx-auto flex max-w-3xl'>
-          <ArrowLink direction='left' href='/news' className='mt-12 text-xs'>
-            Zurück zur Übersicht
-          </ArrowLink>
-        </div>
+        <Container>
+          <div className='mx-auto flex max-w-3xl'>
+            <ArrowLink direction='left' href='/news' className='mt-12 text-xs'>
+              Zurück zur Übersicht
+            </ArrowLink>
+          </div>
+        </Container>
       </section>
       <section className='bg-gray-100 py-16 md:py-24'>
         <Container>
