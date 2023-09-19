@@ -15,21 +15,4 @@ describe('Call to action', () => {
       await screen.findByText('Navigation umschalten'),
     ).toBeInTheDocument();
   });
-  {
-    /*}
-  it('should close and open the navigationMenu with navigationButton', async () => {
-    expect(screen.getByTestId('navigationMenu')).not.toBeVisible();
-    fireEvent.click(screen.getByTestId('navigationButton'));
-    expect(screen.getByTestId('navigationMenu')).toBeVisible();
-    fireEvent.click(screen.getByTestId('navigationButton'));
-    expect(screen.getByTestId('navigationMenu')).not.toBeVisible();
-  });
-  it('should close the navigationMenu with Escape', async () => {
-    fireEvent.click(screen.getByTestId('navigationButton'));
-    expect(screen.getByTestId('navigationMenu')).toBeVisible();
-    fireEvent.keyDown(document, { key: 'Escape' });
-    expect(screen.getByTestId('navigationMenu')).not.toBeVisible();
-  });
-  */
-  }
 });

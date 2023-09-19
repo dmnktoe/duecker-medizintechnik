@@ -4,7 +4,7 @@ import { CallToAction } from '@/components/templates/CallToAction';
 
 import initializeI18n from '@/utils/i18n-testing';
 
-describe('Call to action', () => {
+describe('Call To Action', () => {
   beforeEach(async () => {
     await initializeI18n(['common']);
     render(<CallToAction />);
