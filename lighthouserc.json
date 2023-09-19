@@ -9,9 +9,13 @@
         "http://localhost:3000/leistungen/reparatur",
         "http://localhost:3000/leistungen/handel",
         "http://localhost:3000/news",
-        "http://localhost:3000/kontakt"
+        "http://localhost:3000/kontakt",
+        "http://localhost:3000/impressum",
+        "http://localhost:3000/datenschutz",
+        "http://localhost:3000/unternehmen",
+        "http://localhost:3000/downloads"
       ],
-      "numberOfRuns": 2
+      "numberOfRuns": 1
     },
     "upload": {
       "target": "temporary-public-storage"
