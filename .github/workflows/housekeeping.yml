@@ -17,7 +17,7 @@ jobs:
     if: github.repository_owner == 'dmnktoe'
     steps:
       - name: ⬇️ Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: ⎔ Setup node
         uses: actions/setup-node@v3
@@ -37,7 +37,7 @@ jobs:
     if: github.repository_owner == 'dmnktoe'
     steps:
       - name: ⬇️ Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: 🔎 Find broken links
         id: lychee
