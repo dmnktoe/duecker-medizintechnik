@@ -39,7 +39,9 @@ describe('getStrapiMedia function', () => {
   });
 });
 
-test('formatDate function', () => {
-  const result = formatDate(new Date('2022-01-01'));
-  expect(result).toBe('1. Januar 2022');
+describe('formatDate function', () => {
+  test('should return the correct date format', () => {
+    const result = formatDate(new Date('2022-01-01'));
+    expect(result).toBe('1. Januar 2022');
+  });
 });
