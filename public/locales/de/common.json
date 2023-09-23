@@ -83,6 +83,10 @@
         "text": "Startseite"
       },
       {
+        "href": "/unternehmen",
+        "text": "Über uns"
+      },
+      {
         "text": "Leistungen",
         "subItems": [
           {
@@ -108,7 +112,7 @@
       },
       {
         "href": "/news",
-        "text": "Neuigkeiten"
+        "text": "News"
       }
     ]
   }
