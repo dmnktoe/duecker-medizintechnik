@@ -19,8 +19,7 @@ export const CallToAction = () => {
                 {t('cta.subline')}
               </h2>
               <Button
-                size='lg'
-                className='mb-32 block'
+                className='mb-32 block p-4 lg:p-6'
                 variant='light'
                 isDarkBg
               >

@@ -2,7 +2,6 @@ import { useTranslation } from 'next-i18next';
 import * as React from 'react';
 
 import { Container } from '@/components/layout/Container';
-import { Logo } from '@/components/ui/icons/logo';
 import UnstyledLink from '@/components/ui/links/UnstyledLink';
 
 import { data } from '@/constant/data';
@@ -15,7 +14,9 @@ export const Footer = () => {
         <div className='-mx-4 mb-24 flex flex-wrap'>
           <div className='mb-12 w-full px-4 xl:mb-0 xl:w-4/12'>
             <UnstyledLink className='inline-block' href='/'>
-              <Logo className='text-primary-500 mb-3 w-48' />
+              <h5 className='text-primary-500 mb-6 font-black'>
+                Dücker Medizintechnik
+              </h5>
             </UnstyledLink>
             <ul className='mb-3'>
               <li className='mb-1'>{data.street}</li>
@@ -51,27 +52,38 @@ export const Footer = () => {
             </ul>
           </div>
           <div className='mb-8 w-1/2 px-4 md:mb-0 md:w-1/4 xl:w-2/12'>
-            <h5 className='mb-4 text-sm font-medium uppercase text-gray-400'>
+            <h5 className='mb-4 text-sm font-medium text-gray-400'>
               Unternehmen
             </h5>
             <ul>
               <li className='mb-3'>
-                <a className='inline-block text-black' href='#'>
-                  Kontakt
-                </a>
-              </li>
-              <li className='mb-3'>
-                <a className='inline-block text-black' href='#'>
-                  Neuigkeiten
-                </a>
-              </li>
-              <li className='mb-3'>
-                <a className='inline-block text-black' href='#'>
+                <UnstyledLink
+                  className='inline-block text-black'
+                  href='/unternehmen'
+                >
                   Unsere Geschichte
-                </a>
+                </UnstyledLink>
               </li>
               <li className='mb-3'>
-                <UnstyledLink href='/zertifikate'>Zertifikate</UnstyledLink>
+                <UnstyledLink className='inline-block text-black' href='/news'>
+                  News
+                </UnstyledLink>
+              </li>
+              <li className='mb-3'>
+                <UnstyledLink
+                  className='inline-block text-black'
+                  href='/downloads'
+                >
+                  Downloads
+                </UnstyledLink>
+              </li>
+              <li className='mb-3'>
+                <UnstyledLink
+                  className='inline-block text-black'
+                  href='/kontakt'
+                >
+                  Anfrage & Kontakt
+                </UnstyledLink>
               </li>
               <li>
                 <UnstyledLink href='/jobs' className='inline-block text-black'>
@@ -84,16 +96,16 @@ export const Footer = () => {
             </ul>
           </div>
           <div className='mb-8 w-1/2 px-4 md:mb-0 md:w-1/4 xl:w-2/12'>
-            <h5 className='mb-4 text-sm font-medium uppercase text-gray-400'>
+            <h5 className='mb-4 text-sm font-medium text-gray-400'>
               Leistungen
             </h5>
             <ul>
               <li className='mb-3'>
                 <UnstyledLink
-                  href='/handel'
+                  href='/produktion'
                   className='inline-block text-black'
                 >
-                  Handel
+                  Produktion
                 </UnstyledLink>
               </li>
               <li className='mb-3'>
@@ -106,10 +118,10 @@ export const Footer = () => {
               </li>
               <li className='mb-3'>
                 <UnstyledLink
-                  href='/produktion'
+                  href='/handel'
                   className='inline-block text-black'
                 >
-                  Produktion
+                  Handel
                 </UnstyledLink>
               </li>
             </ul>
@@ -154,27 +166,26 @@ export const Footer = () => {
             </ul>
           </div>
           <div className='w-1/2 px-4 md:w-1/4 xl:w-2/12'>
-            <h5 className='mb-4 text-sm font-medium text-gray-400'>Company</h5>
+            <h5 className='mb-4 text-sm font-medium text-gray-400'>
+              Aus dem Blog
+            </h5>
             <ul>
-              <li className='mb-3'>
-                <a className='inline-block text-lg text-black' href='#'>
-                  Press
-                </a>
+              <li className='mb-3 line-clamp-2'>
+                <UnstyledLink
+                  href='/news/die-erfolgsgeschichte-von-duecker-medizintechnik-qualitaet-und-service-seit-1979'
+                  className='inline-block text-black line-clamp-2'
+                >
+                  Die Erfolgsgeschichte von Dücker Medizintechnik: Qualität &
+                  Service seit 1979
+                </UnstyledLink>
               </li>
-              <li className='mb-3'>
-                <a className='inline-block text-lg text-black' href='#'>
-                  Brand Assets
-                </a>
-              </li>
-              <li className='mb-3'>
-                <a className='inline-block text-lg text-black' href='#'>
-                  Changelog
-                </a>
-              </li>
-              <li>
-                <a className='inline-block text-lg text-black' href='#'>
-                  Help centre
-                </a>
+              <li className='mb-3 line-clamp-2'>
+                <UnstyledLink
+                  href='/news/die-erfolgsgeschichte-von-duecker-medizintechnik-qualitaet-und-service-seit-1979'
+                  className='inline-block text-black'
+                >
+                  Dücker Medizintechnik feiert 25-jähriges Firmenjubiläum
+                </UnstyledLink>
               </li>
             </ul>
           </div>

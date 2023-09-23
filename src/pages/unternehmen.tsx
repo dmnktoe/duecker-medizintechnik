@@ -25,10 +25,10 @@ const AboutUsPage = (
         width={1920}
         height={600}
       />
-      <section className='py-16 md:py-24'>
+      <main className='py-16 md:py-24'>
         <Container>
           <div className='mx-auto max-w-5xl'>
-            <h1 className='mb-6 text-4xl tracking-tight font-bold text-dark'>
+            <h1 className='mb-6 text-3xl lg:text-4xl tracking-tight font-bold text-dark'>
               {t('headline')}
             </h1>
             <p className='mb-4'>
@@ -65,7 +65,7 @@ const AboutUsPage = (
               Artikeln und Laborbedarf, Ärztebedarf, Dentalbedarf,
               zahnärztlichen Instrumenten, Krankenhaus- und Altenpflegebedarf
             </p>
-            <hr className='my-8' />
+            <hr className='my-10' />
             <p className='mb-4'>
               Bei Dücker Medizintechnik legen wir großen Wert auf{' '}
               <span className='font-medium'> Qualität und Transparenz</span>.
@@ -148,7 +148,7 @@ const AboutUsPage = (
             </dl>
           </div>
         </Container>
-      </section>
+      </main>
       <div className='relative'>
         <div className='after:from-primary-500/10 after:to-primary-600/0 after:absolute after:bottom-0 after:-z-10 after:h-[52rem] after:w-full after:rounded-tl-[15rem] after:bg-gradient-to-b'></div>
       </div>
