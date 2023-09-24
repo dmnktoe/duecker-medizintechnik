@@ -12,11 +12,13 @@ import Layout from '@/components/layout/Layout';
 import Seo from '@/components/layout/Seo';
 import ImageBanner from '@/components/templates/ImageBanner/ImageBanner';
 import UnderlineLink from '@/components/ui/links/UnderlineLink';
+import { Title } from '@/components/ui/typography/Title';
 
-import aboutUsImg1 from '@/../public/images/about-us/duecker-medizintechnik_about-us_1.webp';
-import aboutUsImg2 from '@/../public/images/about-us/duecker-medizintechnik_about-us_2.webp';
-import heroImg from '@/../public/images/about-us/duecker-medizintechnik_about-us_hero.webp';
 import { customerLogos } from '@/constant/customerLogos';
+
+import aboutUsImg1 from '/public/images/about-us/duecker-medizintechnik_about-us_1.webp';
+import aboutUsImg2 from '/public/images/about-us/duecker-medizintechnik_about-us_2.webp';
+import heroImg from '/public/images/about-us/duecker-medizintechnik_about-us_hero.webp';
 
 const AboutUsPage = (
   _props: InferGetStaticPropsType<typeof getStaticProps>,
@@ -28,7 +30,6 @@ const AboutUsPage = (
       <ImageBanner
         role='hero'
         delay={0}
-        blurDataURL='/images/about-us/duecker-medizintechnik_about_us_hero.webp'
         priority={true}
         src={heroImg}
         className='flex-1'
@@ -36,9 +37,9 @@ const AboutUsPage = (
       <main className='py-16 md:py-24'>
         <Container>
           <div className='mx-auto mb-16 max-w-5xl'>
-            <h1 className='text-dark mb-6 text-3xl font-bold tracking-tight lg:text-4xl'>
-              <StaggerText>{t('headline')}</StaggerText>
-            </h1>
+            <Title size='two' isAnimated>
+              {t('headline')}
+            </Title>
             <p className='mb-4'>
               Schnell wurde sich am Markt ein guter Name geschaffen, da die
               Kunden mit bester Qualität und Service bedient wurden. Um den

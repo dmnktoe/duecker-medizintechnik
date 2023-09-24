@@ -1,0 +1,41 @@
+import clsx from 'clsx';
+import React from 'react';
+import StaggerText from 'react-stagger-text';
+
+type Size = 'one' | 'two' | 'three';
+
+interface TitleProps {
+  renderAs?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  size?: Size;
+  isAnimated?: boolean;
+  children: string;
+  margin?: boolean;
+}
+
+export const Title = ({
+  renderAs = 'h1',
+  size = 'one',
+  isAnimated = false,
+  children,
+  margin = true,
+}: TitleProps) => {
+  const Component = renderAs;
+
+  return (
+    <Component
+      className={clsx(
+        'font-semibold tracking-tight',
+        {
+          'text-4xl md:text-5xl md:leading-[1.2]': size === 'one',
+          'text-3xl md:text-4xl': size === 'two',
+          'text-2xl md:text-3xl': size === 'three',
+        },
+        {
+          'mb-8': margin,
+        },
+      )}
+    >
+      {isAnimated ? <StaggerText>{children}</StaggerText> : children}
+    </Component>
+  );
+};

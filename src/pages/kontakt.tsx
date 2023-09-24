@@ -8,6 +8,7 @@ import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/layout/Seo';
 import Button from '@/components/ui/buttons/Button';
+import { Title } from '@/components/ui/typography/Title';
 
 const ContactPage = (
   _props: InferGetStaticPropsType<typeof getStaticProps>,
@@ -26,8 +27,8 @@ const ContactPage = (
       <main className='py-16 md:py-24 lg:py-32'>
         <Container>
           <div className='flex flex-col gap-16'>
-            <div className='flex flex-col gap-3'>
-              <h1>{t('headline')}</h1>
+            <div className='flex flex-col'>
+              <Title size='two'>{t('headline')}</Title>
               <p className='text-lg'>{t('subheadline')}</p>
             </div>
             <div className='flex flex-col gap-10 lg:flex-row'>
