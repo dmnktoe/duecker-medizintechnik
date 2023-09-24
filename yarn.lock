@@ -7357,6 +7357,11 @@ react-dom@^18.2.0:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
 
+react-fast-marquee@^1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/react-fast-marquee/-/react-fast-marquee-1.6.1.tgz#38ee8a8725a98eac3e8a16da914b04b6f7d0e5cc"
+  integrity sha512-SFY+FQectFXsuCrcJuIxrh34YzJ+TKH0Lp6BqZaalVhjdmu6Sx11rKKGQiC6vvC/q9ySXYVn9sozoOvPXFSMoQ==
+
 react-i18next@^13.2.2:
   version "13.2.2"
   resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-13.2.2.tgz#b1e78ed66a54f4bc819616f68b98221e1b1a1936"

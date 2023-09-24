@@ -1,13 +1,51 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
+import Marquee from 'react-fast-marquee';
 
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/layout/Seo';
+import ImageBanner from '@/components/templates/ImageBanner/ImageBanner';
 import UnderlineLink from '@/components/ui/links/UnderlineLink';
-import NextImage from '@/components/ui/NextImage';
+
+import heroImg from '@/../public/images/about-us/duecker-medizintechnik_about_us_hero.webp';
+
+const customerLogos = [
+  {
+    name: 'Bissinger',
+    image: '/svg/bissinger.svg',
+    url: 'https://www.bissinger.com/de',
+  },
+  {
+    name: 'Eberle',
+    image: '/svg/eberle.svg',
+    url: 'https://www.eberle-med.de/eberle-medizin/',
+  },
+  {
+    name: 'Hupfer',
+    image: '/svg/hupfer.svg',
+    url: 'https://www.hupfer.com/de/medical',
+  },
+  {
+    name: 'Key Surgical',
+    image: '/svg/keysurgical.svg',
+    url: 'https://www.keysurgical.de/',
+  },
+  {
+    name: 'Medicon',
+    image: '/svg/medicon.svg',
+    url: 'https://medicon.de/',
+  },
+  {
+    name: 'Nouvag',
+    image: '/svg/nouvag.svg',
+    url: 'https://www.nouvag.com/de/',
+  },
+];
 
 const AboutUsPage = (
   _props: InferGetStaticPropsType<typeof getStaticProps>,
@@ -16,18 +54,17 @@ const AboutUsPage = (
   return (
     <Layout>
       <Seo templateTitle={t('seo.title')} description={t('seo.description')} />
-      <NextImage
-        alt={t('headline')}
-        src='/images/about-us/duecker-medizintechnik_about_us_hero.webp'
+      <ImageBanner
+        role='hero'
+        delay={0}
         blurDataURL='/images/about-us/duecker-medizintechnik_about_us_hero.webp'
-        useSkeleton={true}
-        className='w-full'
-        width={1920}
-        height={600}
+        priority={true}
+        src={heroImg}
+        className='flex-1'
       />
       <main className='py-16 md:py-24'>
         <Container>
-          <div className='mx-auto max-w-5xl'>
+          <div className='mx-auto max-w-5xl mb-16'>
             <h1 className='mb-6 text-3xl lg:text-4xl tracking-tight font-bold text-dark'>
               {t('headline')}
             </h1>
@@ -77,9 +114,31 @@ const AboutUsPage = (
               </UnderlineLink>
               , um detaillierte Informationen und die entsprechenden Dokumente
               herunterzuladen. Bei Fragen stehen wir Ihnen gerne zur Verfügung.
+              Mit uns sind Sie in guter Gesellschaft.
             </p>
+            <div className='pt-16'>
+              <Marquee gradient={true} autoFill={true} speed={25}>
+                {customerLogos.map((logo) => (
+                  <div key={logo.name} className='px-12 opacity-40'>
+                    <Link
+                      href={logo.url}
+                      target='_blank'
+                      className='text-gray-300'
+                    >
+                      <Image
+                        src={logo.image}
+                        blurDataURL={logo.image}
+                        width='120'
+                        height='100'
+                        alt='Icon'
+                      />
+                    </Link>
+                  </div>
+                ))}
+              </Marquee>
+            </div>
           </div>
-          <div className='gap-16 items-center py-8 mx-auto max-w-5xl lg:grid lg:grid-cols-2 lg:py-24'>
+          <div className='gap-16 items-center py-8 mx-auto max-w-5xl lg:grid lg:grid-cols-2 lg:pt-32 lg:pb-16'>
             <div>
               <h2 className='mb-4 text-4xl tracking-tight font-bold text-gray-900'>
                 Qualität, Innovation und Kundenzufriedenheit
@@ -99,51 +158,43 @@ const AboutUsPage = (
               </p>
             </div>
             <div className='grid grid-cols-2 gap-4 mt-8'>
-              <NextImage
+              <Image
                 alt='hero'
                 src='/images/about-us/duecker-medizintechnik_about_us_1.webp'
                 blurDataURL='/images/about-us/duecker-medizintechnik_about_us_1.webp'
-                useSkeleton={true}
                 className='w-full rounded-lg'
                 width={500}
                 height={500}
               />
-              <NextImage
+              <Image
                 alt='hero'
                 src='/images/about-us/duecker-medizintechnik_about_us_2.webp'
                 blurDataURL='/images/about-us/duecker-medizintechnik_about_us_2.webp'
-                useSkeleton={true}
-                className='mt-4 w-full lg:mt-10'
+                className='mt-4 w-full lg:mt-10 rounded-lg'
                 width={500}
                 height={500}
               />
             </div>
           </div>
           <div className='max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-16 lg:px-6'>
-            <dl className='grid max-w-screen-md gap-8 mx-auto text-gray-900 sm:grid-cols-3 dark:text-white'>
+            <dl className='grid max-w-screen-md gap-8 mx-auto text-gray-900 sm:grid-cols-3'>
               <div className='flex flex-col items-center justify-center'>
                 <dt className='mb-2 text-3xl md:text-4xl font-extrabold'>
                   73M+
                 </dt>
-                <dd className='font-light text-gray-500 dark:text-gray-400'>
-                  Set-Packer
-                </dd>
+                <dd className='font-light text-gray-500'>Set-Packer</dd>
               </div>
               <div className='flex flex-col items-center justify-center'>
                 <dt className='mb-2 text-3xl md:text-4xl font-extrabold'>
                   1B+
                 </dt>
-                <dd className='font-light text-gray-500 dark:text-gray-400'>
-                  contributors
-                </dd>
+                <dd className='font-light text-gray-500'>contributors</dd>
               </div>
               <div className='flex flex-col items-center justify-center'>
                 <dt className='mb-2 text-3xl md:text-4xl font-extrabold'>
                   4M+
                 </dt>
-                <dd className='font-light text-gray-500 dark:text-gray-400'>
-                  organizations
-                </dd>
+                <dd className='font-light text-gray-500'>organizations</dd>
               </div>
             </dl>
           </div>
