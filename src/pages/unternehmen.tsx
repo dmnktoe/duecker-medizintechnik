@@ -13,40 +13,10 @@ import Seo from '@/components/layout/Seo';
 import ImageBanner from '@/components/templates/ImageBanner/ImageBanner';
 import UnderlineLink from '@/components/ui/links/UnderlineLink';
 
-import heroImg from '@/../public/images/about-us/duecker-medizintechnik_about_us_hero.webp';
-
-const customerLogos = [
-  {
-    name: 'Bissinger',
-    image: '/svg/bissinger.svg',
-    url: 'https://www.bissinger.com/de',
-  },
-  {
-    name: 'Eberle',
-    image: '/svg/eberle.svg',
-    url: 'https://www.eberle-med.de/eberle-medizin/',
-  },
-  {
-    name: 'Hupfer',
-    image: '/svg/hupfer.svg',
-    url: 'https://www.hupfer.com/de/medical',
-  },
-  {
-    name: 'Key Surgical',
-    image: '/svg/keysurgical.svg',
-    url: 'https://www.keysurgical.de/',
-  },
-  {
-    name: 'Medicon',
-    image: '/svg/medicon.svg',
-    url: 'https://medicon.de/',
-  },
-  {
-    name: 'Nouvag',
-    image: '/svg/nouvag.svg',
-    url: 'https://www.nouvag.com/de/',
-  },
-];
+import aboutUsImg1 from '@/../public/images/about-us/duecker-medizintechnik_about-us_1.webp';
+import aboutUsImg2 from '@/../public/images/about-us/duecker-medizintechnik_about-us_2.webp';
+import heroImg from '@/../public/images/about-us/duecker-medizintechnik_about-us_hero.webp';
+import { customerLogos } from '@/constant/customerLogos';
 
 const AboutUsPage = (
   _props: InferGetStaticPropsType<typeof getStaticProps>,
@@ -65,8 +35,8 @@ const AboutUsPage = (
       />
       <main className='py-16 md:py-24'>
         <Container>
-          <div className='mx-auto max-w-5xl mb-16'>
-            <h1 className='mb-6 text-3xl lg:text-4xl tracking-tight font-bold text-dark'>
+          <div className='mx-auto mb-16 max-w-5xl'>
+            <h1 className='text-dark mb-6 text-3xl font-bold tracking-tight lg:text-4xl'>
               <StaggerText>{t('headline')}</StaggerText>
             </h1>
             <p className='mb-4'>
@@ -128,7 +98,6 @@ const AboutUsPage = (
                     >
                       <Image
                         src={logo.image}
-                        blurDataURL={logo.image}
                         width='120'
                         height='100'
                         alt='Icon'
@@ -139,9 +108,9 @@ const AboutUsPage = (
               </Marquee>
             </div>
           </div>
-          <div className='gap-16 items-center py-8 mx-auto max-w-5xl lg:grid lg:grid-cols-2 lg:pt-32 lg:pb-16'>
+          <div className='mx-auto max-w-5xl items-center gap-16 py-8 lg:grid lg:grid-cols-2 lg:pb-16 lg:pt-32'>
             <div>
-              <h2 className='mb-4 text-4xl tracking-tight font-bold text-gray-900'>
+              <h2 className='mb-4 text-4xl font-bold tracking-tight text-gray-900'>
                 <StaggerText>
                   Qualität, Innovation und Kundenzufriedenheit
                 </StaggerText>
@@ -160,41 +129,43 @@ const AboutUsPage = (
                 problem solvers. Small enough to be simple and quick.
               </p>
             </div>
-            <div className='grid grid-cols-2 gap-4 mt-8'>
+            <div className='mt-8 grid grid-cols-2 gap-4'>
               <Image
                 alt='hero'
-                src='/images/about-us/duecker-medizintechnik_about_us_1.webp'
-                blurDataURL='/images/about-us/duecker-medizintechnik_about_us_1.webp'
+                src={aboutUsImg1}
+                placeholder='blur'
                 className='w-full rounded-lg'
-                width={500}
+                width={600}
                 height={500}
+                loading='lazy'
               />
               <Image
                 alt='hero'
-                src='/images/about-us/duecker-medizintechnik_about_us_2.webp'
-                blurDataURL='/images/about-us/duecker-medizintechnik_about_us_2.webp'
-                className='mt-4 w-full lg:mt-10 rounded-lg'
-                width={500}
+                src={aboutUsImg2}
+                placeholder='blur'
+                className='mt-4 w-full rounded-lg lg:mt-10'
+                width={600}
                 height={500}
+                loading='lazy'
               />
             </div>
           </div>
-          <div className='max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-16 lg:px-6'>
-            <dl className='grid max-w-screen-md gap-8 mx-auto text-gray-900 sm:grid-cols-3'>
+          <div className='mx-auto max-w-screen-xl px-4 py-8 text-center lg:px-6 lg:py-16'>
+            <dl className='mx-auto grid max-w-screen-md gap-8 text-gray-900 sm:grid-cols-3'>
               <div className='flex flex-col items-center justify-center'>
-                <dt className='mb-2 text-3xl md:text-4xl font-extrabold'>
+                <dt className='mb-2 text-3xl font-extrabold md:text-4xl'>
                   <StaggerText staggerType='letter'>73M+</StaggerText>
                 </dt>
                 <dd className='font-light text-gray-500'>Set-Packer</dd>
               </div>
               <div className='flex flex-col items-center justify-center'>
-                <dt className='mb-2 text-3xl md:text-4xl font-extrabold'>
+                <dt className='mb-2 text-3xl font-extrabold md:text-4xl'>
                   <StaggerText staggerType='letter'>1B+</StaggerText>
                 </dt>
                 <dd className='font-light text-gray-500'>contributors</dd>
               </div>
               <div className='flex flex-col items-center justify-center'>
-                <dt className='mb-2 text-3xl md:text-4xl font-extrabold'>
+                <dt className='mb-2 text-3xl font-extrabold md:text-4xl'>
                   <StaggerText staggerType='letter'>4M+</StaggerText>
                 </dt>
                 <dd className='font-light text-gray-500'>organizations</dd>

@@ -1,12 +1,11 @@
-// TODO: Test navigationMenu and navigationButton
 // TODO: User outerClick
-// TODO: Header props with JSDoc
 // TODO: Language switcher in TopBar
 // TODO: current page in navigation indicator - with SUB PATH
 // TODO: TypeSscript error
 // TODO: Change locale as Dropdown an keep path
 
 import clsx from 'clsx';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/router';
@@ -33,8 +32,8 @@ import {
 import { Logo } from '@/components/ui/icons/logo';
 import { SubdirectoryIcon } from '@/components/ui/icons/subdirectory';
 import ButtonLink from '@/components/ui/links/ButtonLink';
-import NextImage from '@/components/ui/NextImage';
 
+import megaMenuBg from '@/../public/images/header/mega-menu_bg.webp';
 import { data } from '@/constant/data';
 
 export interface NavItemProps {
@@ -274,14 +273,14 @@ const NavItem = ({ href, text, subItems }: NavItemProps) => {
             <div className='relative z-10'>
               <div className='grid grid-cols-2 gap-6'>
                 <div>
-                  <NextImage
+                  <Image
                     alt='hero'
-                    src='/images/sticky-scroll_image-production.jpg'
-                    useSkeleton={true}
-                    blurDataURL='/images/sticky-scroll_image-production.jpg'
+                    src={megaMenuBg}
+                    placeholder='blur'
                     width={500}
                     height={500}
                     className='h-full w-full overflow-hidden rounded-xl'
+                    quality={100}
                   />
                 </div>
                 <div>

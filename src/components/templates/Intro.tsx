@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import * as React from 'react';
@@ -5,6 +6,9 @@ import * as React from 'react';
 import { Container } from '@/components/layout/Container';
 import ButtonLink from '@/components/ui/links/ButtonLink';
 import NextImage from '@/components/ui/NextImage';
+
+import heroBg from '@/../public/images/home/duecker-medizintechnik_home_hero-bg.jpg';
+import { customerLogos } from '@/constant/customerLogos';
 
 export const Intro = () => {
   return (
@@ -17,11 +21,11 @@ export const Intro = () => {
               <IntroText />
             </div>
             <div className='w-full sm:w-8/12 lg:w-1/2'>
-              <NextImage
-                alt='hero'
-                src='/images/hero_bg.jpg'
-                useSkeleton={true}
-                blurDataURL='/images/hero_bg.jpg'
+              <Image
+                alt='OP-Lösungen und Sterilisierungen für den B2B-Betrieb'
+                src={heroBg}
+                placeholder='blur'
+                priority
                 width={2500}
                 height={1700}
                 className='h-full w-full overflow-hidden rounded-3xl'
@@ -64,39 +68,6 @@ const IntroText = () => {
     </>
   );
 };
-
-const customerLogos = [
-  {
-    name: 'Bissinger',
-    image: '/svg/bissinger.svg',
-    url: 'https://www.bissinger.com/de',
-  },
-  {
-    name: 'Eberle',
-    image: '/svg/eberle.svg',
-    url: 'https://www.eberle-med.de/eberle-medizin/',
-  },
-  {
-    name: 'Hupfer',
-    image: '/svg/hupfer.svg',
-    url: 'https://www.hupfer.com/de/medical',
-  },
-  {
-    name: 'Key Surgical',
-    image: '/svg/keysurgical.svg',
-    url: 'https://www.keysurgical.de/',
-  },
-  {
-    name: 'Medicon',
-    image: '/svg/medicon.svg',
-    url: 'https://medicon.de/',
-  },
-  {
-    name: 'Nouvag',
-    image: '/svg/nouvag.svg',
-    url: 'https://www.nouvag.com/de/',
-  },
-];
 
 const CustomerLogos = () => {
   return (
