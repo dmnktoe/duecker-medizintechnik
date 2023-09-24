@@ -35,7 +35,7 @@ import ButtonLink from '@/components/ui/links/ButtonLink';
 
 import { data } from '@/constant/data';
 
-import megaMenuBg from '/public/images/header/mega-menu_bg.webp';
+import megaMenuBg from '../public/images/header/mega-menu_bg.webp';
 
 export interface NavItemProps {
   href?: string;
