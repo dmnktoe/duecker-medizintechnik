@@ -12,7 +12,7 @@ describe('Intro', () => {
   it('should render the intro section', async () => {
     expect(
       await screen.findByText(
-        'Ihr Partner für Handelsvermittlung von pharma Erzeugnissen',
+        'Ihr Partner für Handelsvermittlung von pharma Erzeugnissen, medizinischen und orthopädischen Artikeln und Laborbedarf',
       ),
     ).toBeInTheDocument();
   });
