@@ -10,7 +10,7 @@ import { Title } from '@/components/ui/typography/Title';
 
 import { customerLogos } from '@/constant/customerLogos';
 
-import heroBg from '../public/images/home/duecker-medizintechnik_home_hero-bg.jpg';
+import heroBg from '/public/images/home/duecker-medizintechnik_home_hero-bg.jpg';
 
 export const Intro = () => {
   return (

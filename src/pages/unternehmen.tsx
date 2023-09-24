@@ -16,9 +16,9 @@ import { Title } from '@/components/ui/typography/Title';
 
 import { customerLogos } from '@/constant/customerLogos';
 
-import aboutUsImg1 from '../public/images/about-us/duecker-medizintechnik_about-us_1.webp';
-import aboutUsImg2 from '../public/images/about-us/duecker-medizintechnik_about-us_2.webp';
-import heroImg from '../public/images/about-us/duecker-medizintechnik_about-us_hero.webp';
+import aboutUsImg1 from '/public/images/about-us/duecker-medizintechnik_about-us_1.webp';
+import aboutUsImg2 from '/public/images/about-us/duecker-medizintechnik_about-us_2.webp';
+import heroImg from '/public/images/about-us/duecker-medizintechnik_about-us_hero.webp';
 
 const AboutUsPage = (
   _props: InferGetStaticPropsType<typeof getStaticProps>,
