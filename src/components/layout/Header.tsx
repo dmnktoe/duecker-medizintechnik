@@ -33,8 +33,9 @@ import { Logo } from '@/components/ui/icons/logo';
 import { SubdirectoryIcon } from '@/components/ui/icons/subdirectory';
 import ButtonLink from '@/components/ui/links/ButtonLink';
 
-import megaMenuBg from '@/../public/images/header/mega-menu_bg.webp';
 import { data } from '@/constant/data';
+
+import megaMenuBg from '/public/images/header/mega-menu_bg.webp';
 
 export interface NavItemProps {
   href?: string;

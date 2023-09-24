@@ -47,7 +47,7 @@ const IntroText = () => {
     <>
       <div>
         <div className='text-left'>
-          <Title isAnimated>{t('intro.title')}</Title>
+          <Title>{t('intro.title')}</Title>
           <p className='mt-6 text-lg leading-8 font-medium text-gray-800 tracking-tight'>
             {t('intro.content')}
           </p>
