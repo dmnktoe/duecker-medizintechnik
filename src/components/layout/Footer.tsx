@@ -102,7 +102,7 @@ export const Footer = () => {
             <ul>
               <li className='mb-3'>
                 <UnstyledLink
-                  href='/produktion'
+                  href='/leistungen/produktion'
                   className='inline-block text-black'
                 >
                   Produktion
@@ -110,7 +110,7 @@ export const Footer = () => {
               </li>
               <li className='mb-3'>
                 <UnstyledLink
-                  href='/reparatur'
+                  href='/leistungen/reparatur'
                   className='inline-block text-black'
                 >
                   Reparatur
@@ -118,7 +118,7 @@ export const Footer = () => {
               </li>
               <li className='mb-3'>
                 <UnstyledLink
-                  href='/handel'
+                  href='/leistungen/handel'
                   className='inline-block text-black'
                 >
                   Handel

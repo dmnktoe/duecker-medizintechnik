@@ -8,9 +8,8 @@ import ButtonLink from '@/components/ui/links/ButtonLink';
 import NextImage from '@/components/ui/NextImage';
 import { Title } from '@/components/ui/typography/Title';
 
+import heroBg from '@/../public/images/home/duecker-medizintechnik_home_hero-bg.jpg';
 import { customerLogos } from '@/constant/customerLogos';
-
-import heroBg from '../public/images/home/duecker-medizintechnik_home_hero-bg.jpg';
 
 export const Intro = () => {
   return (
