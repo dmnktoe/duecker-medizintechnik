@@ -6,6 +6,7 @@ import * as React from 'react';
 import { Container } from '@/components/layout/Container';
 import ButtonLink from '@/components/ui/links/ButtonLink';
 import NextImage from '@/components/ui/NextImage';
+import { Title } from '@/components/ui/typography/Title';
 
 import heroBg from '@/../public/images/home/duecker-medizintechnik_home_hero-bg.jpg';
 import { customerLogos } from '@/constant/customerLogos';
@@ -16,11 +17,11 @@ export const Intro = () => {
       <section className='py-16 md:py-24 lg:py-32'>
         <BackgroundBlurTop />
         <Container>
-          <div className='mx-auto mb-12 flex max-w-7xl flex-col items-center gap-12 md:mb-24 md:gap-24 lg:flex-row lg:gap-36'>
-            <div className='w-full sm:w-8/12 lg:w-1/2'>
+          <div className='mb-12 flex flex-col items-center gap-12 md:mb-36 md:gap-24 lg:flex-row lg:gap-36'>
+            <div className='w-full lg:w-3/5'>
               <IntroText />
             </div>
-            <div className='w-full sm:w-8/12 lg:w-1/2'>
+            <div className='w-full lg:w-2/5'>
               <Image
                 alt='OP-Lösungen und Sterilisierungen für den B2B-Betrieb'
                 src={heroBg}
@@ -46,14 +47,12 @@ const IntroText = () => {
     <>
       <div>
         <div className='text-left'>
-          <h1 className='text-dark text-4xl font-semibold tracking-tight md:text-5xl md:leading-[1.1]'>
-            {t('intro.title')}
-          </h1>
+          <Title isAnimated>{t('intro.title')}</Title>
           <p className='mt-6 text-lg leading-8 font-medium text-gray-800 tracking-tight'>
             {t('intro.content')}
           </p>
           <div className='mt-10 flex items-center justify-start gap-x-3'>
-            <ButtonLink size='base' href='/unternehmen'>
+            <ButtonLink variant='outline' size='base' href='/unternehmen'>
               {t('intro.primaryButton')}
             </ButtonLink>
             <ButtonLink size='base' variant='ghost' href='/leistungen'>

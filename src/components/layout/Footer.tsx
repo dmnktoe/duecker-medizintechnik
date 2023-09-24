@@ -15,7 +15,7 @@ export const Footer = () => {
           <div className='mb-12 w-full px-4 xl:mb-0 xl:w-4/12'>
             <UnstyledLink className='inline-block' href='/'>
               <h5 className='text-primary-500 mb-6 font-black'>
-                Dücker Medizintechnik
+                {data.companyName}
               </h5>
             </UnstyledLink>
             <ul className='mb-3'>
