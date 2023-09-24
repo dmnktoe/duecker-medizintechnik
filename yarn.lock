@@ -7390,6 +7390,11 @@ react-is@^18.0.0:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.2.0.tgz#199431eeaaa2e09f86427efbb4f1473edb47609b"
   integrity sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==
 
+react-stagger-text@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/react-stagger-text/-/react-stagger-text-1.0.5.tgz#cf1a5207a797dde28c8de1a872debaf231ad0863"
+  integrity sha512-cHya/wu3eWmyKPjMLeXYO7QMiykA/32Oy0A4GPHWy96K111NhEcXUMpv8FiJ5ij+Jl+KPdZHu3xzM4Da0a89Ng==
+
 react@^18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react/-/react-18.2.0.tgz#555bd98592883255fa00de14f1151a917b5d77d5"

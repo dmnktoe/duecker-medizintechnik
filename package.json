@@ -40,6 +40,7 @@
     "react-fast-marquee": "^1.6.1",
     "react-i18next": "^13.2.2",
     "react-icons": "^4.11.0",
+    "react-stagger-text": "^1.0.5",
     "swiper": "^10.2.0",
     "tailwind-merge": "^1.14.0",
     "zustand": "^4.4.1"

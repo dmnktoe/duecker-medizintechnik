@@ -5,6 +5,7 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 import Marquee from 'react-fast-marquee';
+import StaggerText from 'react-stagger-text';
 
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
@@ -66,7 +67,7 @@ const AboutUsPage = (
         <Container>
           <div className='mx-auto max-w-5xl mb-16'>
             <h1 className='mb-6 text-3xl lg:text-4xl tracking-tight font-bold text-dark'>
-              {t('headline')}
+              <StaggerText>{t('headline')}</StaggerText>
             </h1>
             <p className='mb-4'>
               Schnell wurde sich am Markt ein guter Name geschaffen, da die
@@ -141,7 +142,9 @@ const AboutUsPage = (
           <div className='gap-16 items-center py-8 mx-auto max-w-5xl lg:grid lg:grid-cols-2 lg:pt-32 lg:pb-16'>
             <div>
               <h2 className='mb-4 text-4xl tracking-tight font-bold text-gray-900'>
-                Qualität, Innovation und Kundenzufriedenheit
+                <StaggerText>
+                  Qualität, Innovation und Kundenzufriedenheit
+                </StaggerText>
               </h2>
               <p className='mb-4'>
                 Die Medizintechnik entwickelt sich ständig weiter, und wir
@@ -180,19 +183,19 @@ const AboutUsPage = (
             <dl className='grid max-w-screen-md gap-8 mx-auto text-gray-900 sm:grid-cols-3'>
               <div className='flex flex-col items-center justify-center'>
                 <dt className='mb-2 text-3xl md:text-4xl font-extrabold'>
-                  73M+
+                  <StaggerText staggerType='letter'>73M+</StaggerText>
                 </dt>
                 <dd className='font-light text-gray-500'>Set-Packer</dd>
               </div>
               <div className='flex flex-col items-center justify-center'>
                 <dt className='mb-2 text-3xl md:text-4xl font-extrabold'>
-                  1B+
+                  <StaggerText staggerType='letter'>1B+</StaggerText>
                 </dt>
                 <dd className='font-light text-gray-500'>contributors</dd>
               </div>
               <div className='flex flex-col items-center justify-center'>
                 <dt className='mb-2 text-3xl md:text-4xl font-extrabold'>
-                  4M+
+                  <StaggerText staggerType='letter'>4M+</StaggerText>
                 </dt>
                 <dd className='font-light text-gray-500'>organizations</dd>
               </div>
