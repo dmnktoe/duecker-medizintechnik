@@ -154,21 +154,21 @@ const AboutUsPage = (
           <div className='mx-auto max-w-screen-xl px-4 py-8 text-center lg:px-6 lg:py-16'>
             <dl className='mx-auto grid max-w-screen-md gap-8 text-gray-900 sm:grid-cols-3'>
               <div className='flex flex-col items-center justify-center'>
-                <dt className='mb-2 text-3xl font-extrabold md:text-4xl'>
-                  <StaggerText staggerType='letter'>73M+</StaggerText>
-                </dt>
+                <span className='mb-2 text-3xl font-extrabold md:text-4xl'>
+                  <StaggerText>73M+</StaggerText>
+                </span>
                 <dd className='font-light text-gray-500'>Set-Packer</dd>
               </div>
               <div className='flex flex-col items-center justify-center'>
-                <dt className='mb-2 text-3xl font-extrabold md:text-4xl'>
-                  <StaggerText staggerType='letter'>1B+</StaggerText>
-                </dt>
+                <span className='mb-2 text-3xl font-extrabold md:text-4xl'>
+                  <StaggerText>1B+</StaggerText>
+                </span>
                 <dd className='font-light text-gray-500'>contributors</dd>
               </div>
               <div className='flex flex-col items-center justify-center'>
-                <dt className='mb-2 text-3xl font-extrabold md:text-4xl'>
-                  <StaggerText staggerType='letter'>4M+</StaggerText>
-                </dt>
+                <span className='mb-2 text-3xl font-extrabold md:text-4xl'>
+                  <StaggerText>4M+</StaggerText>
+                </span>
                 <dd className='font-light text-gray-500'>organizations</dd>
               </div>
             </dl>
