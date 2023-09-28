@@ -1,3 +1,4 @@
+import { useRouter } from 'next/navigation';
 import { useTranslation } from 'next-i18next';
 import { Key } from 'react';
 
@@ -6,6 +7,7 @@ import Button from '@/components/ui/buttons/Button';
 
 export const CallToAction = () => {
   const { t, ready } = useTranslation('common', { useSuspense: false });
+  const router = useRouter();
   return (
     <>
       <section className='from-primary-400 to-primary-600 overflow-hidden bg-gradient-to-tr py-16 md:py-24 lg:py-32'>
@@ -22,6 +24,7 @@ export const CallToAction = () => {
                 className='mb-32 block p-4 lg:p-6'
                 variant='light'
                 isDarkBg
+                onClick={() => router.push('/kontakt')}
               >
                 {t('cta.buttonText')}
               </Button>

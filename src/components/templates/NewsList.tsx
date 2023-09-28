@@ -7,6 +7,7 @@ import { formatDate, getStrapiMedia } from '@/lib/helper';
 import { AspectRatio } from '@/components/ui/AspectRatio';
 import ArrowLink from '@/components/ui/links/ArrowLink';
 import UnstyledLink from '@/components/ui/links/UnstyledLink';
+import { Title } from '@/components/ui/typography/Title';
 
 import { Data } from '@/interfaces/model';
 
@@ -58,13 +59,20 @@ export const NewsList = (props: NewsListProps) => {
                     href={`/news/${post.attributes.slug}`}
                     className='block'
                   >
-                    <h2 className='text-dark transition duration-100 group-hover:text-gray-700'>
+                    <Title
+                      size='three'
+                      margin={false}
+                      className='text-2xl text-dark transition duration-100 group-hover:text-gray-700'
+                    >
                       {post.attributes.title}
-                    </h2>
+                    </Title>
                   </UnstyledLink>
-                  <p className='text-base line-clamp-4 md:line-clamp-3'>
-                    {post.attributes.content}
-                  </p>
+                  <p
+                    className='text-base line-clamp-4 md:line-clamp-3'
+                    dangerouslySetInnerHTML={{
+                      __html: post.attributes.content,
+                    }}
+                  />
                   <ArrowLink
                     as={UnstyledLink}
                     className='inline-flex items-center'

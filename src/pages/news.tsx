@@ -9,6 +9,7 @@ import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/layout/Seo';
 import { NewsList } from '@/components/templates/NewsList';
+import { Title } from '@/components/ui/typography/Title';
 
 const NewsPage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { t } = useTranslation('news');
@@ -21,7 +22,9 @@ const NewsPage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
         <Container>
           <div className='mx-auto max-w-5xl '>
             <div className='mb-12 flex flex-col gap-3'>
-              <h1>{t('headline')}</h1>
+              <Title size='two' isAnimated margin={false}>
+                {t('headline')}
+              </Title>
               <p className='text-lg'>{t('subheadline')}</p>
             </div>
             <NewsList posts={posts} />

@@ -10,6 +10,7 @@ interface TitleProps {
   isAnimated?: boolean;
   children: string;
   margin?: boolean;
+  className?: string;
 }
 
 export const Title = ({
@@ -18,6 +19,7 @@ export const Title = ({
   isAnimated = false,
   children,
   margin = true,
+  className,
 }: TitleProps) => {
   const Component = renderAs;
 
@@ -33,6 +35,7 @@ export const Title = ({
         {
           'mb-8': margin,
         },
+        className,
       )}
     >
       {isAnimated ? <StaggerText>{children}</StaggerText> : children}

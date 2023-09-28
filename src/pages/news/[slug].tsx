@@ -18,6 +18,7 @@ import Layout from '@/components/layout/Layout';
 import Seo from '@/components/layout/Seo';
 import { AspectRatio } from '@/components/ui/AspectRatio';
 import ArrowLink from '@/components/ui/links/ArrowLink';
+import { Title } from '@/components/ui/typography/Title';
 
 import { Data } from '@/interfaces/model';
 
@@ -79,9 +80,9 @@ const PostPage = (props: PostPageProps) => {
                   {formatDate(post.attributes.publishedAt)}
                 </span>
               </div>
-              <h1 className='text-dark text-4xl font-bold tracking-tight md:text-5xl md:leading-[1.1]'>
+              <Title margin={false} className='text-dark' isAnimated>
                 {post.attributes.title}
-              </h1>
+              </Title>
               <p className='text-dark line-clamp-3 font-medium tracking-tight md:text-lg'>
                 {post.attributes.content}
               </p>
@@ -114,7 +115,8 @@ const PostPage = (props: PostPageProps) => {
                     blurDataURL={getStrapiMedia(
                       post.attributes.image.data?.attributes.url ?? '',
                     )}
-                    alt='Photo by Drew Beamer'
+                    placeholder='blur'
+                    alt={post.attributes.title}
                     fill
                     className='object-cover object-center'
                   />
