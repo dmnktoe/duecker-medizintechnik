@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import * as React from 'react';
@@ -5,6 +6,11 @@ import * as React from 'react';
 import { Container } from '@/components/layout/Container';
 import ButtonLink from '@/components/ui/links/ButtonLink';
 import NextImage from '@/components/ui/NextImage';
+import { Title } from '@/components/ui/typography/Title';
+
+import { customerLogos } from '@/constant/customerLogos';
+
+import heroBg from '/public/images/home/duecker-medizintechnik_home_hero-bg.jpg';
 
 export const Intro = () => {
   return (
@@ -12,16 +18,16 @@ export const Intro = () => {
       <section className='py-16 md:py-24 lg:py-32'>
         <BackgroundBlurTop />
         <Container>
-          <div className='mx-auto mb-12 flex max-w-7xl flex-col items-center gap-12 md:mb-24 md:gap-24 lg:flex-row lg:gap-36'>
-            <div className='w-full sm:w-8/12 lg:w-1/2'>
+          <div className='mb-12 flex flex-col items-center gap-12 md:mb-36 md:gap-24 lg:flex-row lg:gap-36'>
+            <div className='w-full lg:w-3/5'>
               <IntroText />
             </div>
-            <div className='w-full sm:w-8/12 lg:w-1/2'>
-              <NextImage
-                alt='hero'
-                src='/images/hero_bg.jpg'
-                useSkeleton={true}
-                blurDataURL='/images/hero_bg.jpg'
+            <div className='w-full lg:w-2/5'>
+              <Image
+                alt='OP-Lösungen und Sterilisierungen für den B2B-Betrieb'
+                src={heroBg}
+                placeholder='blur'
+                priority
                 width={2500}
                 height={1700}
                 className='h-full w-full overflow-hidden rounded-3xl'
@@ -42,14 +48,12 @@ const IntroText = () => {
     <>
       <div>
         <div className='text-left'>
-          <h1 className='text-dark text-4xl font-bold tracking-tight md:text-5xl md:leading-[1.1]'>
-            {t('intro.title')}
-          </h1>
-          <p className='mt-6 text-lg font-semibold leading-8 text-gray-700 '>
+          <Title>{t('intro.title')}</Title>
+          <p className='mt-6 text-lg leading-8 font-medium text-gray-800 tracking-tight'>
             {t('intro.content')}
           </p>
           <div className='mt-10 flex items-center justify-start gap-x-3'>
-            <ButtonLink size='base' href='/unternehmen'>
+            <ButtonLink variant='outline' size='base' href='/unternehmen'>
               {t('intro.primaryButton')}
             </ButtonLink>
             <ButtonLink size='base' variant='ghost' href='/leistungen'>
@@ -64,39 +68,6 @@ const IntroText = () => {
     </>
   );
 };
-
-const customerLogos = [
-  {
-    name: 'Bissinger',
-    image: '/svg/bissinger.svg',
-    url: 'https://www.bissinger.com/de',
-  },
-  {
-    name: 'Eberle',
-    image: '/svg/eberle.svg',
-    url: 'https://www.eberle-med.de/eberle-medizin/',
-  },
-  {
-    name: 'Hupfer',
-    image: '/svg/hupfer.svg',
-    url: 'https://www.hupfer.com/de/medical',
-  },
-  {
-    name: 'Key Surgical',
-    image: '/svg/keysurgical.svg',
-    url: 'https://www.keysurgical.de/',
-  },
-  {
-    name: 'Medicon',
-    image: '/svg/medicon.svg',
-    url: 'https://medicon.de/',
-  },
-  {
-    name: 'Nouvag',
-    image: '/svg/nouvag.svg',
-    url: 'https://www.nouvag.com/de/',
-  },
-];
 
 const CustomerLogos = () => {
   return (

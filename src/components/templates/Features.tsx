@@ -165,7 +165,7 @@ const BentoGrid = () => {
           >
             <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4'>
               <NextImage
-                src='/images/keydot.jpg'
+                src='/images/home/bento-grid/bento-grid_keydot.jpg'
                 width={200}
                 height={200}
                 layout='responsive'

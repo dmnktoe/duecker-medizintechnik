@@ -55,7 +55,7 @@ export const Production = ({ id }: CardProps) => {
     <StickyScrollCard id={id} gradient='from-[#f7f0ff] to-[#a78afe]'>
       <NextImage
         alt='Produktion'
-        src='/images/sticky-scroll_image-production.jpg'
+        src='/images/home/sticky-scroll/sticky-scroll_image-production.jpg'
         layout='fill'
       />
       <span />
@@ -68,7 +68,7 @@ export const Repair = ({ id }: CardProps) => {
     <StickyScrollCard id={id} gradient='from-[#f5fbff] to-[#addeff]'>
       <NextImage
         alt='Produktion'
-        src='/images/sticky-scroll_image-repair.jpg'
+        src='/images/home/sticky-scroll/sticky-scroll_image-repair.jpg'
         layout='fill'
       />
       <span />
@@ -81,7 +81,7 @@ export const Commerce = ({ id }: CardProps) => {
     <StickyScrollCard id={id} gradient='from-[#f5fff7] to-[#adf8ff]'>
       <NextImage
         alt='Produktion'
-        src='/images/sticky-scroll_image-commerce.jpg'
+        src='/images/home/sticky-scroll/sticky-scroll_image-commerce.jpg'
         layout='fill'
       />
       <span />

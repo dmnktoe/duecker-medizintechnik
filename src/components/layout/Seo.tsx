@@ -4,9 +4,11 @@ import { useRouter } from 'next/router';
 import { data } from '@/constant/data';
 
 const defaultMeta = {
-  title: data.companyName,
-  siteName: data.siteName,
-  description: data.description,
+  title:
+    'Dücker Medizintechnik | Ihr Partner für OP-Lösungen und Sterilisierungen',
+  siteName: 'Dücker Medizintechnik',
+  description:
+    'Dücker Medizintechnik ist Ihr Partner für OP-Lösungen und Sterilisierungen. Wir sind ein zertifizierter Hersteller von sterilen- und unsterilen Schlauch-Sets und beliefern den Deutschen und Europäischen Markt für namhafte Hersteller und Set-Packern.',
   url: 'https://' + data.url,
   type: 'website',
   robots: 'follow, index',
