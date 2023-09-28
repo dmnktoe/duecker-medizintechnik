@@ -24,7 +24,7 @@ const ContactPage = (
         loading='lazy'
         referrerPolicy='no-referrer-when-downgrade'
       ></iframe>
-      <main className='py-16 md:py-24 lg:py-32'>
+      <main className='py-16 md:py-24'>
         <Container>
           <div className='flex flex-col gap-16'>
             <div className='flex flex-col'>
