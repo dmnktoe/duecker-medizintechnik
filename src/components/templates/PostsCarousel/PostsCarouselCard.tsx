@@ -13,6 +13,11 @@ interface CardProps {
 }
 
 const PostsCarouselCard = ({ post }: CardProps) => {
+  const BlogExcerpt = ({ content }: { content: string }) => {
+    const excerpt = content.split(' ').slice(0, 50).join(' ');
+    return <p className='line-clamp-3 max-w-sm'>{excerpt}</p>;
+  };
+
   return (
     <div className='w-full md:mr-10 md:max-w-lg md:flex-shrink-0'>
       <UnstyledLink
@@ -47,7 +52,7 @@ const PostsCarouselCard = ({ post }: CardProps) => {
           <h4 className='mb-6 text-3xl tracking-tight sm:text-4xl'>
             {post.attributes.title}
           </h4>
-          <p className='line-clamp-4 max-w-sm'>{post.attributes.content}</p>
+          <BlogExcerpt content={post.attributes.content} />
         </div>
       </UnstyledLink>
     </div>
