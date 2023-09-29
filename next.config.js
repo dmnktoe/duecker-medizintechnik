@@ -28,28 +28,26 @@ const nextConfig = {
 
   webpack(config) {
     config.plugins.push(
-      new MangleCssClassPlugin(
-        {
-          classNameRegExp:
-            '((hover|focus|active|disabled|visited|first|last|odd|even|group-hover|focus-within|xs|sm|md|lg|xl)[\\\\]*:)*tw-[a-zA-Z0-9_-]*([\\\\]*/[0-9]*)?',
-          ignorePrefixRegExp:
-            '((hover|focus|active|disabled|visited|first|last|odd|even|group-hover|focus-within|xs|sm|md||lg|xl)[\\\\]*:)*',
-          log: true,
-        },
-        {
-          test: /\.svg$/i,
-          issuer: /\.[jt]sx?$/,
-          use: [
-            {
-              loader: '@svgr/webpack',
-              options: {
-                typescript: true,
-                icon: true,
-              },
+      new MangleCssClassPlugin({
+        classNameRegExp:
+          '((hover|focus|active|disabled|visited|first|last|odd|even|group-hover|focus-within|xs|sm|md|lg|xl)[\\\\]*:)*tw-[a-zA-Z0-9_-]*([\\\\]*/[0-9]*)?',
+        ignorePrefixRegExp:
+          '((hover|focus|active|disabled|visited|first|last|odd|even|group-hover|focus-within|xs|sm|md||lg|xl)[\\\\]*:)*',
+        log: true,
+      }),
+      {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        use: [
+          {
+            loader: '@svgr/webpack',
+            options: {
+              typescript: true,
+              icon: true,
             },
-          ],
-        },
-      ),
+          },
+        ],
+      },
     );
 
     return config;
