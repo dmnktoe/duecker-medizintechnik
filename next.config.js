@@ -27,7 +27,7 @@ const nextConfig = {
   },
 
   webpack(config) {
-    config.module.rules.push(
+    config.plugins.push(
       new MangleCssClassPlugin({
         classNameRegExp:
           '((hover|focus|active|disabled|visited|first|last|odd|even|group-hover|focus-within|xs|sm|md|lg|xl)[\\\\]*:)*tw-[a-zA-Z0-9_-]*([\\\\]*/[0-9]*)?',
