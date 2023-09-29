@@ -26,7 +26,22 @@ const nextConfig = {
     ],
   },
 
+  // SVGR
   webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/i,
+      issuer: /\.[jt]sx?$/,
+      use: [
+        {
+          loader: '@svgr/webpack',
+          options: {
+            typescript: true,
+            icon: true,
+          },
+        },
+      ],
+    });
+
     config.plugins.push(
       new MangleCssClassPlugin({
         classNameRegExp:
@@ -35,19 +50,6 @@ const nextConfig = {
           '((hover|focus|active|disabled|visited|first|last|odd|even|group-hover|focus-within|xs|sm|md||lg|xl)[\\\\]*:)*',
         log: true,
       }),
-      {
-        test: /\.svg$/i,
-        issuer: /\.[jt]sx?$/,
-        use: [
-          {
-            loader: '@svgr/webpack',
-            options: {
-              typescript: true,
-              icon: true,
-            },
-          },
-        ],
-      },
     );
 
     return config;
