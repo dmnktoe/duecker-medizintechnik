@@ -4,6 +4,8 @@
 const { i18n } = require('./next-i18next.config');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { withSentryConfig } = require('@sentry/nextjs');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const MangleCssClassPlugin = require('mangle-css-class-webpack-plugin');
 
 const nextConfig = {
   eslint: {
@@ -24,21 +26,31 @@ const nextConfig = {
     ],
   },
 
-  // SVGR
   webpack(config) {
-    config.module.rules.push({
-      test: /\.svg$/i,
-      issuer: /\.[jt]sx?$/,
-      use: [
+    config.plugins.push(
+      new MangleCssClassPlugin(
         {
-          loader: '@svgr/webpack',
-          options: {
-            typescript: true,
-            icon: true,
-          },
+          classNameRegExp:
+            '((hover|focus|active|disabled|visited|first|last|odd|even|group-hover|focus-within|xs|sm|md|lg|xl)[\\\\]*:)*tw-[a-zA-Z0-9_-]*([\\\\]*/[0-9]*)?',
+          ignorePrefixRegExp:
+            '((hover|focus|active|disabled|visited|first|last|odd|even|group-hover|focus-within|xs|sm|md||lg|xl)[\\\\]*:)*',
+          log: true,
         },
-      ],
-    });
+        {
+          test: /\.svg$/i,
+          issuer: /\.[jt]sx?$/,
+          use: [
+            {
+              loader: '@svgr/webpack',
+              options: {
+                typescript: true,
+                icon: true,
+              },
+            },
+          ],
+        },
+      ),
+    );
 
     return config;
   },

@@ -6206,6 +6206,11 @@ makeerror@1.0.12:
   dependencies:
     tmpl "1.0.5"
 
+mangle-css-class-webpack-plugin@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/mangle-css-class-webpack-plugin/-/mangle-css-class-webpack-plugin-5.1.0.tgz#42008a8fbe0257f491968796320eb94b17a36321"
+  integrity sha512-/K5ADYUFBLE8c6on3SCduDuOTJ6Wg0BrQ8JQuX8XNOvXI5Pz4SczaRNN2qv0Ocks7kSTXeGaGXIgQZe4lX2m9A==
+
 map-obj@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"

@@ -58,7 +58,7 @@
   .news__content p,
   .privacy__content p,
   .imprint__content p {
-    @apply mb-8;
+    @apply tw-mb-8;
   }
 
   .privacy__content,
@@ -66,11 +66,11 @@
   .news__content {
     & p,
     & ul {
-      @apply mb-8;
+      @apply tw-mb-8;
     }
     & p:last-child,
     & ul:last-child {
-      @apply mb-0;
+      @apply tw-mb-0;
     }
     & ul {
       list-style-type: disc;
@@ -98,49 +98,49 @@
   }
 
   .news__content a {
-    @apply text-primary-600;
+    @apply tw-text-primary-600;
   }
 
   /* #region  /**=========== Typography =========== */
   h1,
   .h1 {
-    @apply font-primary text-3xl font-medium md:text-5xl;
+    @apply tw-font-primary tw-text-3xl tw-font-medium md:tw-text-5xl;
   }
 
   h2,
   .h2 {
-    @apply font-primary text-2xl font-medium md:text-4xl;
+    @apply tw-font-primary tw-text-2xl tw-font-medium md:tw-text-4xl;
   }
 
   h3,
   .h3 {
-    @apply font-primary text-xl font-medium md:text-3xl;
+    @apply tw-font-primary tw-text-xl tw-font-medium md:tw-text-3xl;
   }
 
   h4,
   .h4 {
-    @apply font-primary text-lg font-medium md:text-2xl;
+    @apply tw-font-primary tw-text-lg tw-font-medium md:tw-text-2xl;
   }
 
   body,
   .p {
-    @apply font-primary text-sm md:text-base;
+    @apply tw-font-primary tw-text-sm md:tw-text-base;
   }
   /* #endregion  /**======== Typography =========== */
 
   .layout {
     /* 1100px */
     max-width: 68.75rem;
-    @apply mx-auto w-11/12;
+    @apply tw-mx-auto tw-w-11/12;
   }
 
   .bg-dark a.custom-link {
-    @apply border-gray-200 hover:border-gray-200/0;
+    @apply tw-border-gray-200 hover:tw-border-gray-200/0;
   }
 
   /* Class to adjust with sticky footer */
   .min-h-main {
-    @apply min-h-[calc(100vh-56px)];
+    @apply tw-min-h-[calc(100vh-56px)];
   }
 }
 
