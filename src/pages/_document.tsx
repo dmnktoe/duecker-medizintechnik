@@ -15,7 +15,7 @@ export default function Document() {
           crossOrigin='anonymous'
         />
         <Script
-          src='https://cmp.osano.com/AzZMywTrF2HBrUVGi/0c4834d3-c26e-4262-bfdf-4e2afee3d90c/osano.js'
+          src='https://cdn-cookieyes.com/client_data/c6cd7ed9757924c114c7a9e4/script.js'
           strategy='beforeInteractive'
         />
       </Head>
