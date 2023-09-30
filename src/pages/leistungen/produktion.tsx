@@ -2,12 +2,15 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import Image from 'next/image';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
-import { VscCheck } from 'react-icons/vsc';
+import { VscArrowRight, VscCheck } from 'react-icons/vsc';
 
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/layout/Seo';
 import ImageBanner from '@/components/templates/ImageBanner/ImageBanner';
+import { AspectRatio } from '@/components/ui/AspectRatio';
+import Badge from '@/components/ui/Badge';
+import NextBreadcrumb from '@/components/ui/Breadcrumb';
 import { Title } from '@/components/ui/typography/Title';
 
 import heroImg from '/public/images/production/duecker-medizintechnik_production_hero-bg.jpg';
@@ -20,12 +23,27 @@ const ProductionPage = (
       <Seo templateTitle='Produktion' />
       <main className='py-8'>
         <Container>
-          <div className='mb-12 flex flex-row gap-6 items-start py-12'>
+          <NextBreadcrumb
+            homeElement='Startseite'
+            separator={<VscArrowRight className='h-6 w-3 mr-2' />}
+            activeClasses='text-primary-500'
+            containerClasses='flex'
+            listClasses='hover:underline mr-2'
+            capitalizeLinks
+            className='mb-6'
+          />
+          <hr />
+          <div className='mb-12 flex flex-col md:flex-row md:gap-6 items-start py-12'>
             <div className='mb-12 w-full lg:mb-0 lg:w-2/3 xl:w-1/2'>
               <div className='text-dark'>
-                <span className='mb-4 inline-block p-2 rounded-full bg-purple-50 text-xs font-semibold text-purple-900'>
-                  PRODUKTION
-                </span>
+                <Badge
+                  size='md'
+                  color='primary'
+                  variant='ghost'
+                  className='mb-6'
+                >
+                  Produktion
+                </Badge>
                 <Title isAnimated>
                   Wir unterstützen Ihre Deployments durch unsere Produktion
                 </Title>
@@ -61,14 +79,16 @@ const ProductionPage = (
               </div>
             </div>
             <div className='w-full lg:w-1/3 xl:w-1/2'>
-              <div className='pl-5'>
-                <Image
-                  src='/images/production/duecker-medizintechnik_production_grid-bg.jpg'
-                  width={2000}
-                  height={2000}
-                  className='object-cover object-center '
-                  alt=''
-                />
+              <div className='md:pl-5'>
+                <AspectRatio ratio={1}>
+                  <Image
+                    src='/images/production/duecker-medizintechnik_production_grid-bg.jpg'
+                    width={2000}
+                    height={2000}
+                    className='object-cover object-center '
+                    alt=''
+                  />
+                </AspectRatio>
               </div>
             </div>
           </div>

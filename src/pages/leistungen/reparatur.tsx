@@ -1,13 +1,14 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
-import Image from 'next/image';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
-import { VscCheck } from 'react-icons/vsc';
+import { VscArrowRight, VscCheck } from 'react-icons/vsc';
 
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/layout/Seo';
 import ImageBanner from '@/components/templates/ImageBanner/ImageBanner';
+import Badge from '@/components/ui/Badge';
+import NextBreadcrumb from '@/components/ui/Breadcrumb';
 import { Title } from '@/components/ui/typography/Title';
 
 import heroImg from '/public/images/repair/duecker-medizintechnik_repair_hero-bg.webp';
@@ -25,12 +26,27 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
       />
       <main className='py-8'>
         <Container>
+          <NextBreadcrumb
+            homeElement='Startseite'
+            separator={<VscArrowRight className='h-6 w-3 mr-2' />}
+            activeClasses='text-primary-500'
+            containerClasses='flex'
+            listClasses='hover:underline mr-2'
+            capitalizeLinks
+            className='mb-6'
+          />
+          <hr />
           <div className='mb-12 flex flex-row gap-6 items-start py-12'>
             <div className='mb-12 w-full lg:mb-0 lg:w-2/3 xl:w-1/2'>
               <div className='text-dark'>
-                <span className='mb-4 inline-block p-2 rounded-full bg-purple-50 text-xs font-semibold text-purple-900'>
-                  REPERATUR
-                </span>
+                <Badge
+                  size='md'
+                  color='secondary'
+                  variant='ghost'
+                  className='mb-6'
+                >
+                  Reparatur
+                </Badge>
                 <Title isAnimated>
                   Durch unseren eigenen Reparaturservice garantieren wir eine
                   schnelle Bearbeitung Ihrer Reparaturaufträge
@@ -66,16 +82,8 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                 </ul>
               </div>
             </div>
-            <div className='w-full lg:w-1/3 xl:w-1/2'>
-              <div className='pl-5'>
-                <Image
-                  src='/images/repair/produktion_grid-bg.jpg'
-                  width={2000}
-                  height={2000}
-                  className='object-cover object-center '
-                  alt=''
-                />
-              </div>
+            <div className='w-full hidden lg:block lg:w-1/3 xl:w-1/2'>
+              <div className='pl-5'></div>
             </div>
           </div>
         </Container>
