@@ -9,7 +9,7 @@ import { data } from '@/constant/data';
 export const Footer = () => {
   const { t } = useTranslation('common');
   return (
-    <footer className='bg-primary-50/50 py-16 md:py-24 lg:py-32'>
+    <footer className='bg-white py-16 md:py-24 lg:py-32 text-dark'>
       <Container>
         <div className='-mx-4 mb-24 flex flex-wrap'>
           <div className='mb-12 w-full px-4 xl:mb-0 xl:w-4/12'>
@@ -57,36 +57,27 @@ export const Footer = () => {
             </h5>
             <ul>
               <li className='mb-3'>
-                <UnstyledLink
-                  className='inline-block text-black'
-                  href='/unternehmen'
-                >
+                <UnstyledLink className='inline-block' href='/unternehmen'>
                   Unsere Geschichte
                 </UnstyledLink>
               </li>
               <li className='mb-3'>
-                <UnstyledLink className='inline-block text-black' href='/news'>
+                <UnstyledLink className='inline-block' href='/news'>
                   News
                 </UnstyledLink>
               </li>
               <li className='mb-3'>
-                <UnstyledLink
-                  className='inline-block text-black'
-                  href='/downloads'
-                >
+                <UnstyledLink className='inline-block' href='/downloads'>
                   Downloads
                 </UnstyledLink>
               </li>
               <li className='mb-3'>
-                <UnstyledLink
-                  className='inline-block text-black'
-                  href='/kontakt'
-                >
+                <UnstyledLink className='inline-block' href='/kontakt'>
                   Anfrage & Kontakt
                 </UnstyledLink>
               </li>
               <li>
-                <UnstyledLink href='/jobs' className='inline-block text-black'>
+                <UnstyledLink href='/jobs' className='inline-block'>
                   <span className='mr-2'>Jobs</span>
                   <span className='bg-primary-500 inline-block rounded-full px-2 py-1 text-xs text-white'>
                     Wir suchen
@@ -103,7 +94,7 @@ export const Footer = () => {
               <li className='mb-3'>
                 <UnstyledLink
                   href='/leistungen/produktion'
-                  className='inline-block text-black'
+                  className='inline-block'
                 >
                   Produktion
                 </UnstyledLink>
@@ -111,7 +102,7 @@ export const Footer = () => {
               <li className='mb-3'>
                 <UnstyledLink
                   href='/leistungen/reparatur'
-                  className='inline-block text-black'
+                  className='inline-block'
                 >
                   Reparatur
                 </UnstyledLink>
@@ -119,7 +110,7 @@ export const Footer = () => {
               <li className='mb-3'>
                 <UnstyledLink
                   href='/leistungen/handel'
-                  className='inline-block text-black'
+                  className='inline-block'
                 >
                   Handel
                 </UnstyledLink>
@@ -132,34 +123,22 @@ export const Footer = () => {
             </h5>
             <ul>
               <li className='mb-3'>
-                <UnstyledLink
-                  href='/impressum'
-                  className='inline-block text-black'
-                >
+                <UnstyledLink href='/impressum' className='inline-block'>
                   Impressum
                 </UnstyledLink>
               </li>
               <li className='mb-3'>
-                <UnstyledLink
-                  href='/datenschutz'
-                  className='inline-block text-black'
-                >
+                <UnstyledLink href='/datenschutz' className='inline-block'>
                   Datenschutz
                 </UnstyledLink>
               </li>
               <li className='mb-3'>
-                <UnstyledLink
-                  href='/cookie-policy'
-                  className='font-primary inline-block text-black'
-                >
+                <UnstyledLink href='/cookie-policy' className='inline-block'>
                   Cookie-Richtlinie
                 </UnstyledLink>
               </li>
               <li>
-                <UnstyledLink
-                  href='/cookie-policy'
-                  className='inline-block text-black'
-                >
+                <UnstyledLink href='/cookie-policy' className='inline-block'>
                   Allgemeine Geschäftsbedingungen
                 </UnstyledLink>
               </li>
@@ -173,7 +152,7 @@ export const Footer = () => {
               <li className='mb-3 line-clamp-2'>
                 <UnstyledLink
                   href='/news/die-erfolgsgeschichte-von-duecker-medizintechnik-qualitaet-und-service-seit-1979'
-                  className='inline-block text-black line-clamp-2'
+                  className='inline-block line-clamp-2'
                 >
                   Die Erfolgsgeschichte von Dücker Medizintechnik: Qualität &
                   Service seit 1979
@@ -182,7 +161,7 @@ export const Footer = () => {
               <li className='mb-3 line-clamp-2'>
                 <UnstyledLink
                   href='/news/die-erfolgsgeschichte-von-duecker-medizintechnik-qualitaet-und-service-seit-1979'
-                  className='inline-block text-black'
+                  className='inline-block'
                 >
                   Dücker Medizintechnik feiert 25-jähriges Firmenjubiläum
                 </UnstyledLink>
@@ -247,7 +226,7 @@ export const Footer = () => {
                   </svg>
                 </span>
                 <select
-                  className='relative rounded-lg border-0 py-2 pl-2 pr-6 text-sm text-black outline-none'
+                  className='relative rounded-lg border-0 py-2 pl-2 pr-6 text-sm outline-none'
                   name=''
                   id=''
                 >

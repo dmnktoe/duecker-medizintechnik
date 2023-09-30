@@ -36,9 +36,9 @@ const AboutUsPage = (
         src={heroImg}
         className='flex-1'
       />
-      <main className='py-8'>
+      <main className='py-16 lg:py-24'>
         <Container>
-          <div className='mx-auto mb-16 max-w-5xl'>
+          <div className='mx-auto max-w-5xl'>
             <NextBreadcrumb
               homeElement='Startseite'
               separator={<VscArrowRight className='h-6 w-3 mr-2' />}
@@ -48,8 +48,14 @@ const AboutUsPage = (
               capitalizeLinks
               className='mb-6'
             />
-            <hr className='mb-12' />
-            <Title>Unternehmen</Title>
+          </div>
+          <div className='mx-auto mb-16 max-w-5xl'>
+            <Title margin={false}>Unternehmen & Leitbild</Title>
+            <p>
+              Dücker Medizintechnik wurde im Jahr 1979 von Herrn Rolf Dücker mit
+              einer klaren Vision gegründet.
+            </p>
+            <hr className='my-12' />
             <Title size='three' isAnimated>
               {t('headline')}
             </Title>

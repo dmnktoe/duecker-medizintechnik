@@ -7,7 +7,6 @@ import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/layout/Seo';
 import ImageBanner from '@/components/templates/ImageBanner/ImageBanner';
-import Badge from '@/components/ui/Badge';
 import NextBreadcrumb from '@/components/ui/Breadcrumb';
 import { Title } from '@/components/ui/typography/Title';
 
@@ -24,7 +23,7 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
         src={heroImg}
         className='flex-1'
       />
-      <main className='py-8'>
+      <main className='py-16 lg:py-24 mb-16'>
         <Container>
           <NextBreadcrumb
             homeElement='Startseite'
@@ -35,18 +34,9 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
             capitalizeLinks
             className='mb-6'
           />
-          <hr />
-          <div className='mb-12 flex flex-row gap-6 items-start py-12'>
-            <div className='mb-12 w-full lg:mb-0 lg:w-2/3 xl:w-1/2'>
+          <div className='flex flex-row gap-6 items-start'>
+            <div className='mb-12 w-full lg:mb-0 '>
               <div className='text-dark'>
-                <Badge
-                  size='md'
-                  color='secondary'
-                  variant='ghost'
-                  className='mb-6'
-                >
-                  Reparatur
-                </Badge>
                 <Title isAnimated>
                   Durch unseren eigenen Reparaturservice garantieren wir eine
                   schnelle Bearbeitung Ihrer Reparaturaufträge
@@ -64,9 +54,9 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                   Qualitätsstandards bilden das Fundament unseres Schaffens.
                 </p>
                 <h5 className='font-semibold my-6'>
-                  Ihr vertrauenswürdiger Partner
+                  Ihr vertrauenswürdiger Partner für
                 </h5>
-                <ul className='mb-6'>
+                <ul>
                   <li className='mb-4 flex items-center'>
                     <VscCheck className='mr-4 h-4 w-4 text-primary-500' />
                     <span>Qualitätsstandards</span>

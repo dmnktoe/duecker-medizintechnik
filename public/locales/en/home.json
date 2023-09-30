@@ -4,10 +4,10 @@
     "description": "Discover our wide range of products and services for reprocessing surgical tools. Learn how we help you ensure optimal care in a medical context."
   },
   "intro": {
-    "title": "Operating room solutions and sterilization services",
+    "title": "Your partner for trade mediation of pharma products, medical and orthopedic articles and laboratory supplies",
     "content": "Discover our wide range of products and services for reprocessing surgical tools. Learn how we help you ensure optimal care in a medical context. We are your partner for the reprocessing of surgical instruments and medical devices.",
-    "primaryButton": "About us",
-    "secondaryButton": "Services"
+    "primaryButton": "Services",
+    "secondaryButton": "Contact Us"
   },
   "stickyScroll": {
     "production": "Production to the highest standard.",

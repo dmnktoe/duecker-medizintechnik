@@ -6,8 +6,8 @@ import clsxm from '@/lib/clsxm';
 
 import { Container } from '@/components/layout/Container';
 
-import bentoGridImg3 from '/public/images/home/bento-grid/bento-grid_high-speed.png';
 import bentoGridImg2 from '/public/images/home/bento-grid/bento-grid_keydot.jpg';
+import bentoGridImg5 from '/public/images/home/bento-grid/bento-grid_nouvag.png';
 import bentoGridImg1 from '/public/images/home/bento-grid/bento-grid_product-highlight.jpg';
 
 const TextBlocks = () => {
@@ -96,7 +96,31 @@ const BentoGrid = () => {
             )}
           >
             <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col justify-start rounded-3xl bg-gray-100 p-4'>
-              <h3>Schachtel 1</h3>
+              <Image
+                src={bentoGridImg2}
+                placeholder='blur'
+                fill
+                objectFit='cover'
+                objectPosition='center'
+                className='absolute right-0 top-0 h-full w-full overflow-hidden rounded-3xl mix-blend-darken'
+                alt='Keydot'
+              />
+            </div>
+          </div>
+          <div
+            className={clsxm(
+              'relative col-span-1 row-span-1 cursor-pointer overflow-hidden rounded-3xl bg-white/10 lg:col-span-3',
+              "before:bg-spotlight-hover before:absolute before:inset-0 before:z-30 before:rounded-3xl before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
+              "after:bg-spotlight-borders after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
+              'hover:before:opacity-100 group-hover:after:opacity-100',
+            )}
+          >
+            <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-gray-100 p-4'>
+              <h5>Spezifikation</h5>
+              <h1 className='text-7xl font-bold bg-gradient-to-r from-purple-400 to-purple-700 inline-block text-transparent bg-clip-text'>
+                ISO8
+              </h1>
+              <h5>Spezifikation</h5>
             </div>
           </div>
           <div
@@ -108,19 +132,7 @@ const BentoGrid = () => {
             )}
           >
             <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4'>
-              <h3>Schachtel 2</h3>
-            </div>
-          </div>
-          <div
-            className={clsxm(
-              'relative col-span-1 row-span-1 cursor-pointer overflow-hidden rounded-3xl bg-white/10 lg:col-span-3',
-              "before:bg-spotlight-hover before:absolute before:inset-0 before:z-30 before:rounded-3xl before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
-              "after:bg-spotlight-borders after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
-              'hover:before:opacity-100 group-hover:after:opacity-100',
-            )}
-          >
-            <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4'>
-              <h3>Schachtel 3</h3>
+              Box
             </div>
           </div>
           <div
@@ -132,7 +144,15 @@ const BentoGrid = () => {
             )}
           >
             <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4'>
-              <h3>Schachtel 4</h3>
+              <Image
+                src={bentoGridImg5}
+                placeholder='blur'
+                fill
+                objectFit='cover'
+                objectPosition='center'
+                className='absolute right-0 top-0 h-full w-full overflow-hidden rounded-3xl'
+                alt='Keydot'
+              />
             </div>
           </div>
           <div
@@ -163,8 +183,8 @@ const BentoGrid = () => {
               'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
-            <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4'>
-              <h3>Schachtel 6</h3>
+            <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-gray-100 p-4'>
+              Box
             </div>
           </div>
           <div
@@ -176,15 +196,7 @@ const BentoGrid = () => {
             )}
           >
             <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4'>
-              <Image
-                src={bentoGridImg2}
-                placeholder='blur'
-                fill
-                objectFit='cover'
-                objectPosition='center'
-                className='absolute right-0 top-0 h-full w-full overflow-hidden rounded-3xl'
-                alt='Keydot'
-              />
+              Box
             </div>
           </div>
           <div
@@ -196,15 +208,9 @@ const BentoGrid = () => {
             )}
           >
             <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4'>
-              <Image
-                src={bentoGridImg3}
-                placeholder='blur'
-                fill
-                objectFit='cover'
-                objectPosition='center'
-                className='absolute right-0 top-0 h-full w-full overflow-hidden rounded-3xl'
-                alt='Keydot'
-              />
+              <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-gray-100 p-4'>
+                Box
+              </div>
             </div>
           </div>
           <div
@@ -216,7 +222,9 @@ const BentoGrid = () => {
             )}
           >
             <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4'>
-              <h3>Schachtel 9</h3>
+              <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-gray-100 p-4'>
+                Box
+              </div>
             </div>
           </div>
         </div>

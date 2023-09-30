@@ -26,14 +26,14 @@ export const Title = ({
   return (
     <Component
       className={clsx(
-        'font-semibold tracking-tight',
+        'font-semibold tracking-tighter text-dark',
         {
           'text-4xl md:text-5xl md:leading-[1.2]': size === 'one',
           'text-3xl md:text-4xl': size === 'two',
           'text-2xl md:text-3xl': size === 'three',
         },
         {
-          'mb-8': margin,
+          'mb-6': margin,
         },
         className,
       )}

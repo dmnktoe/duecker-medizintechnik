@@ -4,6 +4,7 @@ import { Key } from 'react';
 
 import { Container } from '@/components/layout/Container';
 import Button from '@/components/ui/buttons/Button';
+import { Title } from '@/components/ui/typography/Title';
 
 export const CallToAction = () => {
   const { t, ready } = useTranslation('common', { useSuspense: false });
@@ -14,12 +15,22 @@ export const CallToAction = () => {
         <Container>
           <div className='relative overflow-hidden'>
             <div className='relative'>
-              <h2 className='mb-2 text-4xl font-semibold tracking-tighter text-white lg:text-6xl'>
+              <Title
+                className='mb-0 text-white'
+                renderAs='h3'
+                size='one'
+                margin={false}
+              >
                 {t('cta.headline')}
-              </h2>
-              <h2 className='mb-8 text-4xl font-semibold tracking-tighter text-white/50 lg:text-6xl'>
+              </Title>
+              <Title
+                className='mb-8 text-white/50'
+                renderAs='h4'
+                size='one'
+                margin={false}
+              >
                 {t('cta.subline')}
-              </h2>
+              </Title>
               <Button
                 className='mb-32 block p-4 lg:p-6'
                 variant='light'

@@ -20,7 +20,7 @@ const NewsPage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <Layout>
       <Seo templateTitle={t('seo.title')} description={t('seo.description')} />
-      <section className='bg-gray-100 py-16 md:py-24'>
+      <main className='py-16 lg:py-24'>
         <Container>
           <div className='mx-auto max-w-5xl'>
             <NextBreadcrumb
@@ -32,16 +32,16 @@ const NewsPage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
               capitalizeLinks
               className='mb-6'
             />
-            <div className='mb-12 flex flex-col gap-3'>
-              <Title size='two' isAnimated margin={false}>
-                {t('headline')}
-              </Title>
-              <p className='text-lg'>{t('subheadline')}</p>
+          </div>
+          <div className='mx-auto mb-16 max-w-5xl'>
+            <div className='flex flex-col'>
+              <Title margin={false}>{t('headline')}</Title>
+              <p>{t('subheadline')}</p>
             </div>
             <NewsList posts={posts} />
           </div>
         </Container>
-      </section>
+      </main>
     </Layout>
   );
 };
