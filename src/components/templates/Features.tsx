@@ -6,6 +6,7 @@ import clsxm from '@/lib/clsxm';
 
 import { Container } from '@/components/layout/Container';
 
+import bentoGridImg3 from '/public/images/home/bento-grid/bento-grid_high-speed.png';
 import bentoGridImg2 from '/public/images/home/bento-grid/bento-grid_keydot.jpg';
 import bentoGridImg1 from '/public/images/home/bento-grid/bento-grid_product-highlight.jpg';
 
@@ -143,7 +144,6 @@ const BentoGrid = () => {
             )}
           >
             <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4'>
-              <h3>Schachtel 5</h3>
               <Image
                 src={bentoGridImg1}
                 placeholder='blur'
@@ -196,7 +196,15 @@ const BentoGrid = () => {
             )}
           >
             <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4'>
-              <h3>Schachtel 8</h3>
+              <Image
+                src={bentoGridImg3}
+                placeholder='blur'
+                fill
+                objectFit='cover'
+                objectPosition='center'
+                className='absolute right-0 top-0 h-full w-full overflow-hidden rounded-3xl'
+                alt='Keydot'
+              />
             </div>
           </div>
           <div
