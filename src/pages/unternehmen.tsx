@@ -5,12 +5,14 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 import Marquee from 'react-fast-marquee';
+import { VscArrowRight } from 'react-icons/vsc';
 import StaggerText from 'react-stagger-text';
 
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/layout/Seo';
 import ImageBanner from '@/components/templates/ImageBanner/ImageBanner';
+import NextBreadcrumb from '@/components/ui/Breadcrumb';
 import UnderlineLink from '@/components/ui/links/UnderlineLink';
 import { Title } from '@/components/ui/typography/Title';
 
@@ -34,10 +36,21 @@ const AboutUsPage = (
         src={heroImg}
         className='flex-1'
       />
-      <main className='py-16 md:py-24'>
+      <main className='py-8'>
         <Container>
           <div className='mx-auto mb-16 max-w-5xl'>
-            <Title size='two' isAnimated>
+            <NextBreadcrumb
+              homeElement='Startseite'
+              separator={<VscArrowRight className='h-6 w-3 mr-2' />}
+              activeClasses='text-primary-500'
+              containerClasses='flex'
+              listClasses='hover:underline mr-2'
+              capitalizeLinks
+              className='mb-6'
+            />
+            <hr className='mb-12' />
+            <Title>Unternehmen</Title>
+            <Title size='three' isAnimated>
               {t('headline')}
             </Title>
             <p className='mb-4'>
@@ -91,7 +104,7 @@ const AboutUsPage = (
             <div className='pt-16'>
               <Marquee gradient={true} autoFill={true} speed={25}>
                 {customerLogos.map((logo) => (
-                  <div key={logo.name} className='px-12 opacity-40'>
+                  <div key={logo.name} className='px-6 lg:px-12 opacity-40'>
                     <Link
                       href={logo.url}
                       target='_blank'

@@ -53,10 +53,10 @@ const IntroText = () => {
             {t('intro.content')}
           </p>
           <div className='mt-10 flex items-center justify-start gap-x-3'>
-            <ButtonLink variant='outline' size='base' href='/unternehmen'>
+            <ButtonLink variant='outline' size='base' href='/leistungen'>
               {t('intro.primaryButton')}
             </ButtonLink>
-            <ButtonLink size='base' variant='ghost' href='/leistungen'>
+            <ButtonLink size='base' variant='ghost' href='/kontakt'>
               {t('intro.secondaryButton')}{' '}
               <span aria-hidden='true' className='ml-2'>
                 →
