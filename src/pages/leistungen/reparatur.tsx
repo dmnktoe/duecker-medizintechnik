@@ -47,7 +47,7 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
         src={heroImg}
         className='flex-1'
       />
-      <main className='py-16 lg:py-24'>
+      <main className='overflow-hidden py-16 lg:py-24'>
         <Container>
           <NextBreadcrumb
             homeElement='Startseite'
@@ -140,7 +140,7 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                 delay: 5000,
                 disableOnInteraction: false,
               }}
-              loop={true}
+              loop={false}
             >
               <div className='flex'>
                 <SwiperSlide>
