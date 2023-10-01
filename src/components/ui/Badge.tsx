@@ -31,7 +31,7 @@ const Badge = ({ size, color, variant, className, children }: Props) => {
   return (
     <span
       className={clsx(
-        'inline-flex items-center font-medium rounded-full',
+        'inline-flex items-center rounded-full font-medium',
         sizeClasses[size],
         colorClasses[color],
         variantClasses[variant],

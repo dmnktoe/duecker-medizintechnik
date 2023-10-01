@@ -126,7 +126,7 @@ export const Music = ({ id }: CardProps) => {
       {!isFullscreen && (
         <motion.div
           layoutId='spotify-logo'
-          className='bg-primary-500 absolute left-[40%] top-32 h-48 w-24 rounded-[96px] p-3 shadow-lg'
+          className='absolute left-[40%] top-32 h-48 w-24 rounded-[96px] bg-primary-500 p-3 shadow-lg'
         >
           <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'>
             <path

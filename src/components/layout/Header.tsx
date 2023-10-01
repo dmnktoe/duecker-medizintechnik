@@ -84,13 +84,13 @@ export const Header = () => {
   return (
     <>
       <TopBar />
-      <header className='h-navigation-height sticky top-0 z-50 bg-white'>
+      <header className='sticky top-0 z-50 h-navigation-height bg-white'>
         <div>
           <Container>
-            <div className='h-navigation-height relative flex items-center'>
+            <div className='relative flex h-navigation-height items-center'>
               {/* Logo Section */}
               <Link href='/' className='inline-block text-lg font-bold'>
-                <Logo className='text-dark w-40 md:w-48' />
+                <Logo className='w-40 text-dark md:w-48' />
               </Link>
               {/* CTA Button / Menu Button */}
               <div className='ml-auto xl:hidden'>
@@ -108,7 +108,7 @@ export const Header = () => {
                     </div>
                   </div>
                   <button
-                    className='navbar-burger border-dark text-dark flex items-center justify-center rounded-full border-[1px] border-solid p-3 transition duration-200 hover:scale-95 hover:bg-black hover:text-white active:scale-75 active:bg-neutral-700 md:p-6'
+                    className='navbar-burger flex items-center justify-center rounded-full border-[1px] border-solid border-dark p-3 text-dark transition duration-200 hover:scale-95 hover:bg-black hover:text-white active:scale-75 active:bg-neutral-700 md:p-6'
                     onClick={() => setHamburgerMenuIsOpen((open) => !open)}
                     data-testid='navigationButton'
                   >
@@ -122,7 +122,7 @@ export const Header = () => {
               {/* Absolute positioned mobile menu with blur-mask */}
               <div
                 className={clsx(
-                  'top-navigation-height fixed inset-0 z-50 flex max-h-full w-full max-w-full flex-row transition-all duration-200 ease-in-out md:justify-end md:bg-gray-500/10 md:backdrop-blur-[25px] xl:hidden',
+                  'fixed inset-0 top-navigation-height z-50 flex max-h-full w-full max-w-full flex-row transition-all duration-200 ease-in-out md:justify-end md:bg-gray-500/10 md:backdrop-blur-[25px] xl:hidden',
                   hamburgerMenuIsOpen
                     ? 'visible opacity-100'
                     : 'invisible opacity-0',
@@ -131,7 +131,7 @@ export const Header = () => {
                 <div
                   data-testid='navigationMenu'
                   className={clsx(
-                    'animate-fadeInRight m-0 flex h-[calc(100vh_-_var(--navigation-height))] w-full overflow-hidden transition-all duration-200 ease-in-out md:w-96',
+                    'm-0 flex h-[calc(100vh_-_var(--navigation-height))] w-full animate-fadeInRight overflow-hidden transition-all duration-200 ease-in-out md:w-96',
                     hamburgerMenuIsOpen
                       ? 'translate-x-0 opacity-100'
                       : 'translate-x-2 opacity-0',
@@ -204,11 +204,11 @@ const TopBar = () => {
   const changeTo = router.locale === 'en' ? 'de' : 'en';
 
   return (
-    <div className='bg-dark relative hidden py-3 xl:block xl:w-auto'>
+    <div className='relative hidden bg-dark py-3 xl:block xl:w-auto'>
       <Container>
         <div className='flex items-end justify-between text-xs font-medium tracking-normal text-white'>
           <div className='flex items-center gap-x-2'>
-            <VscGlobe className='text-primary-500 h-4 w-4' />
+            <VscGlobe className='h-4 w-4 text-primary-500' />
             <Link href='/' locale={changeTo}>
               <button className='hover:underline'>
                 {t('header.change-locale', { changeTo })}
@@ -218,15 +218,15 @@ const TopBar = () => {
           </div>
           <div className='flex gap-x-4'>
             <div className='flex items-center gap-x-2'>
-              <VscLocation className='text-primary-500 h-4 w-4' />
+              <VscLocation className='h-4 w-4 text-primary-500' />
               {data.street}, {data.city}
             </div>
             <div className='flex items-center gap-x-2'>
-              <VscDeviceMobile className='text-primary-500 h-4 w-4' />
+              <VscDeviceMobile className='h-4 w-4 text-primary-500' />
               {data.phone}
             </div>
             <div className='flex items-center gap-x-2'>
-              <VscMail className='text-primary-500 h-4 w-4' />
+              <VscMail className='h-4 w-4 text-primary-500' />
               <p>
                 <Link href={`mailto:${data.email}`} className='hover:underline'>
                   {data.email}
@@ -295,7 +295,7 @@ const NavItem = ({ href, text, subItems }: NavItemProps) => {
                         <Link
                           href={item.href}
                           className={clsx(
-                            'text-md hover:text-primary-500 hover:to-primary-50 hover:bg-primary-50 -mx-2 block rounded-lg p-2 font-semibold text-gray-800 transition duration-200 ease-in-out',
+                            'text-md -mx-2 block rounded-lg p-2 font-semibold text-gray-800 transition duration-200 ease-in-out hover:bg-primary-50 hover:to-primary-50 hover:text-primary-500',
                             currentRoute === item.href && 'text-primary-500',
                           )}
                         >

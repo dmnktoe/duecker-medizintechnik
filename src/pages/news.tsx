@@ -20,12 +20,12 @@ const NewsPage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <Layout>
       <Seo templateTitle={t('seo.title')} description={t('seo.description')} />
-      <main className='py-16 lg:py-24 bg-gray-100'>
+      <main className='bg-gray-100 py-16 lg:py-24'>
         <Container>
           <div className='mx-auto max-w-5xl'>
             <NextBreadcrumb
               homeElement='Startseite'
-              separator={<VscArrowRight className='h-6 w-3 mr-2' />}
+              separator={<VscArrowRight className='mr-2 h-6 w-3' />}
               activeClasses='text-primary-500'
               containerClasses='flex'
               listClasses='hover:underline mr-2'

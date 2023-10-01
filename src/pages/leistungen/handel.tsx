@@ -8,7 +8,7 @@ export default function CommercePage() {
       <Seo templateTitle='Handel' />
       <section className='py-16 md:py-24 lg:py-32'>
         <Container>
-          <h1 className='text-dark text-4xl font-semibold tracking-tight md:text-5xl xl:text-6xl xl:leading-[1.1]'>
+          <h1 className='text-4xl font-semibold tracking-tight text-dark md:text-5xl xl:text-6xl xl:leading-[1.1]'>
             Handel
           </h1>
           <p className='mt-6 text-lg font-medium leading-8 text-gray-700 '>

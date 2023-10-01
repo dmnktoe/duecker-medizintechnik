@@ -45,9 +45,9 @@ export const NewsList = (props: NewsListProps) => {
                     </AspectRatio>
                   </UnstyledLink>
                 </div>
-                <div className='flex md:w-8/12 flex-col gap-4'>
+                <div className='flex flex-col gap-4 md:w-8/12'>
                   <div className='flex flex-row items-center gap-x-4'>
-                    <span className='border-1.5 bg-primary-800/20 inline-block rounded-full border-black px-3 py-2 text-sm leading-none text-black transition duration-200'>
+                    <span className='border-1.5 inline-block rounded-full border-black bg-primary-800/20 px-3 py-2 text-sm leading-none text-black transition duration-200'>
                       {post.attributes.category}
                     </span>
                     <span className='text-gray-300'>|</span>
@@ -68,7 +68,7 @@ export const NewsList = (props: NewsListProps) => {
                     </Title>
                   </UnstyledLink>
                   <p
-                    className='text-base line-clamp-4 md:line-clamp-3'
+                    className='line-clamp-4 text-base md:line-clamp-3'
                     dangerouslySetInnerHTML={{
                       __html: post.attributes.content,
                     }}

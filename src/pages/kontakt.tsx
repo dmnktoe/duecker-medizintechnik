@@ -34,13 +34,13 @@ const ContactPage = (
       ></iframe>
       <main className='relative z-10 overflow-hidden bg-white py-16 lg:py-24'>
         <Container>
-          <div className='max-w-5xl mx-auto'>
+          <div className='mx-auto max-w-5xl'>
             <div className='-mx-4 flex flex-wrap lg:justify-between'>
               <div className='w-full px-4 lg:w-1/2 xl:w-6/12'>
                 <div className='mb-12 max-w-[570px] lg:mb-0'>
                   <NextBreadcrumb
                     homeElement='Startseite'
-                    separator={<VscArrowRight className='h-6 w-3 mr-2' />}
+                    separator={<VscArrowRight className='mr-2 h-6 w-3' />}
                     activeClasses='text-primary-500'
                     containerClasses='flex'
                     listClasses='hover:underline mr-2'
@@ -54,12 +54,12 @@ const ContactPage = (
                     Ut enim adiqua minim veniam quis nostrud exercitation
                     ullamco
                   </p>
-                  <div className='mb-8 flex items-center w-full max-w-[370px]'>
-                    <div className='bg-primary-500 text-primary-500 mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-opacity-5 sm:h-[70px] sm:max-w-[70px]'>
+                  <div className='mb-8 flex w-full max-w-[370px] items-center'>
+                    <div className='mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-primary-500 bg-opacity-5 text-primary-500 sm:h-[70px] sm:max-w-[70px]'>
                       <VscHome className='h-8 w-8' />
                     </div>
                     <div className='w-full'>
-                      <h4 className='text-dark mb-1 text-xl font-bold'>
+                      <h4 className='mb-1 text-xl font-bold text-dark'>
                         Unser Standort
                       </h4>
                       <p className='text-body-color text-base'>
@@ -69,12 +69,12 @@ const ContactPage = (
                       </p>
                     </div>
                   </div>
-                  <div className='mb-8 flex items-center w-full max-w-[370px]'>
-                    <div className='bg-primary-500 text-primary-500 mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-opacity-5 sm:h-[70px] sm:max-w-[70px]'>
+                  <div className='mb-8 flex w-full max-w-[370px] items-center'>
+                    <div className='mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-primary-500 bg-opacity-5 text-primary-500 sm:h-[70px] sm:max-w-[70px]'>
                       <VscCallOutgoing className='h-8 w-8' />
                     </div>
                     <div className='w-full'>
-                      <h4 className='text-dark mb-1 text-xl font-bold'>
+                      <h4 className='mb-1 text-xl font-bold text-dark'>
                         Phone Number
                       </h4>
                       <p className='text-body-color text-base'>
@@ -82,12 +82,12 @@ const ContactPage = (
                       </p>
                     </div>
                   </div>
-                  <div className='mb-8 flex items-center w-full max-w-[370px]'>
-                    <div className='bg-primary-500 text-primary-500 mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-opacity-5 sm:h-[70px] sm:max-w-[70px]'>
+                  <div className='mb-8 flex w-full max-w-[370px] items-center'>
+                    <div className='mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-primary-500 bg-opacity-5 text-primary-500 sm:h-[70px] sm:max-w-[70px]'>
                       <VscMail className='h-8 w-8' />
                     </div>
                     <div className='w-full'>
-                      <h4 className='text-dark mb-1 text-xl font-bold'>
+                      <h4 className='mb-1 text-xl font-bold text-dark'>
                         Email Address
                       </h4>
                       <p className='text-body-color text-base'>
@@ -115,7 +115,7 @@ const ContactPage = (
                       <input
                         type='email'
                         id='email'
-                        className='focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm'
+                        className='dark:shadow-sm-light block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:focus:border-primary-500 dark:focus:ring-primary-500'
                         placeholder='name@flowbite.com'
                         required
                       />
@@ -130,7 +130,7 @@ const ContactPage = (
                       <input
                         type='text'
                         id='subject'
-                        className='focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 shadow-sm'
+                        className='dark:shadow-sm-light block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:focus:border-primary-500 dark:focus:ring-primary-500'
                         placeholder='Let us know how we can help you'
                         required
                       />
@@ -144,7 +144,7 @@ const ContactPage = (
                       </label>
                       <textarea
                         id='message'
-                        className='focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-500 dark:focus:border-primary-500 block h-24 w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm'
+                        className='block h-24 w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:focus:border-primary-500 dark:focus:ring-primary-500'
                         placeholder='Leave a comment...'
                       ></textarea>
                     </div>
@@ -153,7 +153,7 @@ const ContactPage = (
                     </Button>
                   </form>
                   <div>
-                    <span className='absolute -top-10 -right-9 z-[-1]'>
+                    <span className='absolute -right-9 -top-10 z-[-1]'>
                       <svg
                         width='100'
                         height='100'
@@ -389,7 +389,7 @@ const ContactPage = (
                         />
                       </svg>
                     </span>
-                    <span className='absolute -left-7 -bottom-7 z-[-1]'>
+                    <span className='absolute -bottom-7 -left-7 z-[-1]'>
                       <svg
                         width='107'
                         height='134'

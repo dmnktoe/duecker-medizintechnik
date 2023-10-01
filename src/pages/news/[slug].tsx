@@ -72,7 +72,7 @@ const PostPage = (props: PostPageProps) => {
           <div className='flex flex-col gap-y-16'>
             <div className='mx-auto flex max-w-3xl flex-col gap-y-4'>
               <div className='flex flex-row items-center gap-x-4'>
-                <span className='border-1.5 bg-primary-800/20 inline-block rounded-full border-black px-3 py-2 text-sm leading-none text-black transition duration-200'>
+                <span className='border-1.5 inline-block rounded-full border-black bg-primary-800/20 px-3 py-2 text-sm leading-none text-black transition duration-200'>
                   {post.attributes.category}
                 </span>
                 <span className='text-gray-300'>|</span>
@@ -83,25 +83,25 @@ const PostPage = (props: PostPageProps) => {
               <Title margin={false} className='text-dark' isAnimated>
                 {post.attributes.title}
               </Title>
-              <p className='text-dark line-clamp-3 font-medium tracking-tight md:text-lg'>
+              <p className='line-clamp-3 font-medium tracking-tight text-dark md:text-lg'>
                 {post.attributes.content}
               </p>
               <div className='mt-3 flex flex-row text-gray-500'>
                 <RiTwitterXFill
                   size={20}
-                  className='hover:text-dark mr-2 transition-colors duration-200 ease-in-out'
+                  className='mr-2 transition-colors duration-200 ease-in-out hover:text-dark'
                 />
                 <RiFacebookCircleFill
                   size={20}
-                  className='hover:text-dark mr-2 transition-colors duration-200 ease-in-out'
+                  className='mr-2 transition-colors duration-200 ease-in-out hover:text-dark'
                 />
                 <RiMailFill
                   size={20}
-                  className='hover:text-dark mr-2 transition-colors duration-200 ease-in-out'
+                  className='mr-2 transition-colors duration-200 ease-in-out hover:text-dark'
                 />
                 <RiLinksFill
                   size={20}
-                  className='hover:text-dark mr-2 transition-colors duration-200 ease-in-out'
+                  className='mr-2 transition-colors duration-200 ease-in-out hover:text-dark'
                 />
               </div>
             </div>

@@ -51,14 +51,14 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
         <Container>
           <NextBreadcrumb
             homeElement='Startseite'
-            separator={<VscArrowRight className='h-6 w-3 mr-2' />}
+            separator={<VscArrowRight className='mr-2 h-6 w-3' />}
             activeClasses='text-primary-500'
             containerClasses='flex'
             listClasses='hover:underline mr-2'
             capitalizeLinks
             className='mb-6'
           />
-          <div className='flex flex-row gap-6 items-start'>
+          <div className='flex flex-row items-start gap-6'>
             <div className='mb-12 w-full lg:mb-0 '>
               <div className='text-dark'>
                 <Title isAnimated>
@@ -77,7 +77,7 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                   externe, akkreditierte Labore kontrolliert. Diese hohen
                   Qualitätsstandards bilden das Fundament unseres Schaffens.
                 </p>
-                <h5 className='font-semibold my-6'>
+                <h5 className='my-6 font-semibold'>
                   Ihr vertrauenswürdiger Partner für
                 </h5>
                 <ul>
@@ -96,7 +96,7 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                 </ul>
               </div>
             </div>
-            <div className='w-full hidden lg:block lg:w-1/3 xl:w-1/2'></div>
+            <div className='hidden w-full lg:block lg:w-1/3 xl:w-1/2'></div>
           </div>
           <div className='w-full'>
             <div className='-mx-4 mb-20 flex flex-wrap items-center'>

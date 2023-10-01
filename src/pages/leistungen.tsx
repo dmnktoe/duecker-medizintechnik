@@ -17,10 +17,10 @@ const ServicesPage = (
       <Seo templateTitle='Leistungen' />
       <main className='bg-gray-100 py-16 md:py-24 '>
         <Container>
-          <div className='flex flex-wrap -mx-4'>
+          <div className='-mx-4 flex flex-wrap'>
             <div className='w-full px-4'>
               <div className='mx-auto mb-12 max-w-[510px] text-center lg:mb-20'>
-                <span className='block mb-2 text-lg font-semibold text-primary'>
+                <span className='text-primary mb-2 block text-lg font-semibold'>
                   Our Services
                 </span>
                 <Title margin={false} className='mb-4'>
@@ -33,7 +33,7 @@ const ServicesPage = (
               </div>
             </div>
           </div>
-          <div className='flex flex-wrap -mx-4'>
+          <div className='-mx-4 flex flex-wrap'>
             <ServiceCard
               title='Produktion'
               details='We dejoy working with discerning clients, people for whom qualuty, service, integrity & aesthetics.'
@@ -71,7 +71,7 @@ const ServiceCard = ({
     <>
       <div className='w-full px-4 md:w-1/2 lg:w-1/3'>
         <div className='mb-8 rounded-[20px] bg-white p-10 shadow-md hover:shadow-lg md:px-7 xl:px-10'>
-          <div className='mb-8 flex h-[70px] w-[70px] p-3 items-center justify-center rounded-2xl bg-primary-500'>
+          <div className='mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary-500 p-3'>
             {icon}
           </div>
           <h4 className='mb-3 text-xl font-semibold text-dark'>{title}</h4>

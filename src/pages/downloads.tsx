@@ -37,7 +37,7 @@ const DownloadsPage = (
           <div className='mx-auto mb-16 max-w-5xl'>
             <NextBreadcrumb
               homeElement='Startseite'
-              separator={<VscArrowRight className='h-6 w-3 mr-2' />}
+              separator={<VscArrowRight className='mr-2 h-6 w-3' />}
               activeClasses='text-primary-500'
               containerClasses='flex'
               listClasses='hover:underline mr-2'
@@ -55,18 +55,18 @@ const DownloadsPage = (
                 renderAs='h2'
                 size='three'
                 margin={false}
-                className='text-primary-500 mb-2'
+                className='mb-2 text-primary-500'
               >
                 Zertifikate
               </Title>
               <Accordion type='single'>
                 <AccordionItem value='item-1'>
-                  <AccordionTrigger className='text-2xl bg-gray-100 px-4'>
+                  <AccordionTrigger className='bg-gray-100 px-4 text-2xl'>
                     EN ISO 13485:2016
                   </AccordionTrigger>
                   <AccordionContent>
-                    <div className='flex flex-col gap-2 mt-4'>
-                      <div className='border-solid border-gray-100 border-[1px] text-dark p-4 w-full'>
+                    <div className='mt-4 flex flex-col gap-2'>
+                      <div className='w-full border-[1px] border-solid border-gray-100 p-4 text-dark'>
                         <div className='flex flex-row justify-between'>
                           <PrimaryLink
                             className='text-base'
@@ -74,8 +74,8 @@ const DownloadsPage = (
                           >
                             EN ISO 13485:2016
                           </PrimaryLink>
-                          <div className='flex flex-row gap-3 items-center'>
-                            <span className='text-sm text-light'>
+                          <div className='flex flex-row items-center gap-3'>
+                            <span className='text-light text-sm'>
                               pdf, 778.99 KB
                             </span>
                             <PrimaryLink
@@ -87,7 +87,7 @@ const DownloadsPage = (
                           </div>
                         </div>
                       </div>
-                      <div className='border-solid border-gray-100 border-[1px] text-dark p-4 w-full'>
+                      <div className='w-full border-[1px] border-solid border-gray-100 p-4 text-dark'>
                         <PrimaryLink
                           className='text-base'
                           href='/downloads/EN_ISO_13485_2016.pdf'
@@ -95,7 +95,7 @@ const DownloadsPage = (
                           EN ISO 13485:2016
                         </PrimaryLink>
                       </div>
-                      <div className='border-solid border-gray-100 border-[1px] text-dark p-4 w-full'>
+                      <div className='w-full border-[1px] border-solid border-gray-100 p-4 text-dark'>
                         <PrimaryLink
                           className='text-base'
                           href='/downloads/EN_ISO_13485_2016.pdf'
@@ -107,7 +107,7 @@ const DownloadsPage = (
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value='item-2'>
-                  <AccordionTrigger className='text-2xl bg-gray-100 px-4'>
+                  <AccordionTrigger className='bg-gray-100 px-4 text-2xl'>
                     93/42/EWG
                   </AccordionTrigger>
                   <AccordionContent>
@@ -115,7 +115,7 @@ const DownloadsPage = (
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value='item-3'>
-                  <AccordionTrigger className='text-2xl bg-gray-100 px-4'>
+                  <AccordionTrigger className='bg-gray-100 px-4 text-2xl'>
                     Ökostrom
                   </AccordionTrigger>
                   <AccordionContent>
@@ -129,13 +129,13 @@ const DownloadsPage = (
                 renderAs='h2'
                 size='three'
                 margin={false}
-                className='text-primary-500 mb-2'
+                className='mb-2 text-primary-500'
               >
                 Handhabungshinweise
               </Title>
               <Accordion type='single'>
                 <AccordionItem value='item-1'>
-                  <AccordionTrigger className='text-2xl bg-gray-100 px-4'>
+                  <AccordionTrigger className='bg-gray-100 px-4 text-2xl'>
                     EN ISO 13485:2016
                   </AccordionTrigger>
                   <AccordionContent>
@@ -143,7 +143,7 @@ const DownloadsPage = (
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value='item-2'>
-                  <AccordionTrigger className='text-2xl bg-gray-100 px-4'>
+                  <AccordionTrigger className='bg-gray-100 px-4 text-2xl'>
                     93/42/EWG
                   </AccordionTrigger>
                   <AccordionContent>
@@ -151,7 +151,7 @@ const DownloadsPage = (
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value='item-3'>
-                  <AccordionTrigger className='text-2xl bg-gray-100 px-4'>
+                  <AccordionTrigger className='bg-gray-100 px-4 text-2xl'>
                     Ökostrom
                   </AccordionTrigger>
                   <AccordionContent>

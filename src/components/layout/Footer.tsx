@@ -9,12 +9,12 @@ import { data } from '@/constant/data';
 export const Footer = () => {
   const { t } = useTranslation('common');
   return (
-    <footer className='bg-white py-16 md:py-24 lg:py-32 text-dark'>
+    <footer className='bg-white py-16 text-dark md:py-24 lg:py-32'>
       <Container>
         <div className='-mx-4 mb-24 flex flex-wrap'>
           <div className='mb-12 w-full px-4 xl:mb-0 xl:w-4/12'>
             <UnstyledLink className='inline-block' href='/'>
-              <h5 className='text-primary-500 mb-6 font-black'>
+              <h5 className='mb-6 font-black text-primary-500'>
                 {data.companyName}
               </h5>
             </UnstyledLink>
@@ -79,7 +79,7 @@ export const Footer = () => {
               <li>
                 <UnstyledLink href='/jobs' className='inline-block'>
                   <span className='mr-2'>Jobs</span>
-                  <span className='bg-primary-500 inline-block rounded-full px-2 py-1 text-xs text-white'>
+                  <span className='inline-block rounded-full bg-primary-500 px-2 py-1 text-xs text-white'>
                     Wir suchen
                   </span>
                 </UnstyledLink>
@@ -152,7 +152,7 @@ export const Footer = () => {
               <li className='mb-3 line-clamp-2'>
                 <UnstyledLink
                   href='/news/die-erfolgsgeschichte-von-duecker-medizintechnik-qualitaet-und-service-seit-1979'
-                  className='inline-block line-clamp-2'
+                  className='line-clamp-2 inline-block'
                 >
                   Die Erfolgsgeschichte von Dücker Medizintechnik: Qualität &
                   Service seit 1979

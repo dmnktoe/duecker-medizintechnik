@@ -90,12 +90,12 @@ const BentoGrid = () => {
           <div
             className={clsxm(
               'relative col-span-1 row-span-2 cursor-pointer overflow-hidden rounded-3xl bg-white/10 lg:col-span-3',
-              "before:bg-spotlight-hover before:absolute before:inset-0 before:z-30 before:rounded-3xl before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
-              "after:bg-spotlight-borders after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
+              "before:absolute before:inset-0 before:z-30 before:rounded-3xl before:bg-spotlight-hover before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
+              "after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:bg-spotlight-borders after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
               'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
-            <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col justify-start rounded-3xl bg-gray-100 p-4'>
+            <div className='absolute inset-px z-20 flex flex-grow flex-col justify-start rounded-3xl bg-gray-100 p-4 text-dark'>
               <Image
                 src={bentoGridImg2}
                 placeholder='blur'
@@ -110,14 +110,14 @@ const BentoGrid = () => {
           <div
             className={clsxm(
               'relative col-span-1 row-span-1 cursor-pointer overflow-hidden rounded-3xl bg-white/10 lg:col-span-3',
-              "before:bg-spotlight-hover before:absolute before:inset-0 before:z-30 before:rounded-3xl before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
-              "after:bg-spotlight-borders after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
+              "before:absolute before:inset-0 before:z-30 before:rounded-3xl before:bg-spotlight-hover before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
+              "after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:bg-spotlight-borders after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
               'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
-            <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-gray-100 p-4'>
+            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-gray-100 p-4 text-dark'>
               <h5>Spezifikation</h5>
-              <h1 className='text-7xl font-bold bg-gradient-to-r from-purple-400 to-purple-700 inline-block text-transparent bg-clip-text'>
+              <h1 className='inline-block bg-gradient-to-r from-purple-400 to-purple-700 bg-clip-text text-7xl font-bold text-transparent'>
                 ISO8
               </h1>
               <h5>Spezifikation</h5>
@@ -126,24 +126,24 @@ const BentoGrid = () => {
           <div
             className={clsxm(
               'relative col-span-1 row-span-1 cursor-pointer overflow-hidden rounded-3xl bg-white/10 lg:col-span-3',
-              "before:bg-spotlight-hover before:absolute before:inset-0 before:z-30 before:rounded-3xl before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
-              "after:bg-spotlight-borders after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
+              "before:absolute before:inset-0 before:z-30 before:rounded-3xl before:bg-spotlight-hover before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
+              "after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:bg-spotlight-borders after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
               'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
-            <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4'>
+            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4 text-dark'>
               Box
             </div>
           </div>
           <div
             className={clsxm(
               'relative col-span-1 row-span-2 cursor-pointer overflow-hidden rounded-3xl bg-white/10 lg:col-span-3',
-              "before:bg-spotlight-hover before:absolute before:inset-0 before:z-30 before:rounded-3xl before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
-              "after:bg-spotlight-borders after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
+              "before:absolute before:inset-0 before:z-30 before:rounded-3xl before:bg-spotlight-hover before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
+              "after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:bg-spotlight-borders after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
               'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
-            <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4'>
+            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4 text-dark'>
               <Image
                 src={bentoGridImg5}
                 placeholder='blur'
@@ -158,12 +158,12 @@ const BentoGrid = () => {
           <div
             className={clsxm(
               'relative col-span-1 row-span-2 cursor-pointer overflow-hidden rounded-3xl bg-white/10 lg:col-span-6',
-              "before:bg-spotlight-hover before:absolute before:inset-0 before:z-30 before:rounded-3xl before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
-              "after:bg-spotlight-borders after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
+              "before:absolute before:inset-0 before:z-30 before:rounded-3xl before:bg-spotlight-hover before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
+              "after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:bg-spotlight-borders after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
               'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
-            <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4'>
+            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4 text-dark'>
               <Image
                 src={bentoGridImg1}
                 placeholder='blur'
@@ -178,37 +178,37 @@ const BentoGrid = () => {
           <div
             className={clsxm(
               'relative col-span-1 row-span-1 cursor-pointer overflow-hidden rounded-3xl bg-white/10 lg:col-span-3',
-              "before:bg-spotlight-hover before:absolute before:inset-0 before:z-30 before:rounded-3xl before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
-              "after:bg-spotlight-borders after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
+              "before:absolute before:inset-0 before:z-30 before:rounded-3xl before:bg-spotlight-hover before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
+              "after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:bg-spotlight-borders after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
               'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
-            <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-gray-100 p-4'>
+            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-gray-100 p-4 text-dark'>
               Box
             </div>
           </div>
           <div
             className={clsxm(
               'relative col-span-1 row-span-2 cursor-pointer overflow-hidden rounded-3xl bg-white/10 lg:col-span-3',
-              "before:bg-spotlight-hover before:absolute before:inset-0 before:z-30 before:rounded-3xl before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
-              "after:bg-spotlight-borders after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
+              "before:absolute before:inset-0 before:z-30 before:rounded-3xl before:bg-spotlight-hover before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
+              "after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:bg-spotlight-borders after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
               'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
-            <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4'>
+            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4 text-dark'>
               Box
             </div>
           </div>
           <div
             className={clsxm(
               'relative col-span-1 row-span-1 cursor-pointer overflow-hidden rounded-3xl bg-white/10 lg:col-span-6',
-              "before:bg-spotlight-hover before:absolute before:inset-0 before:z-30 before:rounded-3xl before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
-              "after:bg-spotlight-borders after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
+              "before:absolute before:inset-0 before:z-30 before:rounded-3xl before:bg-spotlight-hover before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
+              "after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:bg-spotlight-borders after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
               'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
-            <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4'>
-              <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-gray-100 p-4'>
+            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4 text-dark'>
+              <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-gray-100 p-4 text-dark'>
                 Box
               </div>
             </div>
@@ -216,13 +216,13 @@ const BentoGrid = () => {
           <div
             className={clsxm(
               'relative col-span-1 row-span-1 cursor-pointer overflow-hidden rounded-3xl bg-white/10 lg:col-span-3',
-              "before:bg-spotlight-hover before:absolute before:inset-0 before:z-30 before:rounded-3xl before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
-              "after:bg-spotlight-borders after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
+              "before:absolute before:inset-0 before:z-30 before:rounded-3xl before:bg-spotlight-hover before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
+              "after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:bg-spotlight-borders after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
               'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
-            <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4'>
-              <div className='text-dark absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-gray-100 p-4'>
+            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4 text-dark'>
+              <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-gray-100 p-4 text-dark'>
                 Box
               </div>
             </div>
