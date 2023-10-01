@@ -10,6 +10,7 @@ import Seo from '@/components/layout/Seo';
 import ImageBanner from '@/components/templates/ImageBanner/ImageBanner';
 import { AspectRatio } from '@/components/ui/AspectRatio';
 import NextBreadcrumb from '@/components/ui/Breadcrumb';
+import UnstyledLink from '@/components/ui/links/UnstyledLink';
 import { Title } from '@/components/ui/typography/Title';
 
 import heroImg from '/public/images/production/duecker-medizintechnik_production_hero-bg.jpg';
@@ -38,8 +39,8 @@ const ProductionPage = (
             capitalizeLinks
             className='mb-6'
           />
-          <div className='flex flex-col md:flex-row md:gap-6 items-start mb-36'>
-            <div className='mb-12 w-full lg:mb-0 lg:w-2/3 xl:w-1/2'>
+          <div className='flex flex-col md:flex-row md:gap-6 items-start mb-16 lg:mb-24'>
+            <div className='mb-6 w-full lg:mb-0 lg:w-2/3 xl:w-1/2'>
               <div className='text-dark'>
                 <Title isAnimated>
                   Wir unterstützen Ihre Deployments durch unsere Produktion
@@ -92,10 +93,10 @@ const ProductionPage = (
           <div className='flex flex-col-reverse lg:flex-row gap-6'>
             <div className='w-full xl:w-1/2'>
               <div className='flex h-full flex-wrap'>
-                <div className='mb-8 w-full md:mb-0 md:w-1/2'>
+                <div className='mb-4 w-full md:mb-0 md:w-1/2'>
                   <div className='flex h-full flex-col'>
                     <a
-                      className='relative mb-7 block h-full bg-primary-50 px-8 pb-5 pt-8 transition duration-200 hover:bg-primary-100'
+                      className='relative mb-4 block h-full bg-primary-50 px-8 pb-5 pt-8 transition duration-200 hover:bg-primary-100'
                       href='#'
                     >
                       <div className='flex h-full max-w-sm flex-col justify-between pr-16'>
@@ -107,9 +108,9 @@ const ProductionPage = (
                         </span>
                       </div>
                     </a>
-                    <a
+                    <UnstyledLink
                       className='relative block h-full bg-purple-50 px-8 pb-5 pt-8 transition duration-200 hover:bg-purple-100'
-                      href='#'
+                      href='/downloads'
                     >
                       <div className='flex h-full max-w-sm flex-col justify-between pr-16'>
                         <p className='mb-10 text-sm text-gray-900 md:mb-6'>
@@ -117,10 +118,10 @@ const ProductionPage = (
                           workflow to believe you
                         </p>
                         <span className='text-3xl font-semibold text-gray-900'>
-                          See our workflow
+                          Zertifikate ansehen
                         </span>
                       </div>
-                    </a>
+                    </UnstyledLink>
                   </div>
                 </div>
                 <div className='w-full md:pl-4 md:w-1/2'>
@@ -141,7 +142,7 @@ const ProductionPage = (
                 </div>
               </div>
             </div>
-            <div className='mb-8 w-full lg:px-4 xl:mb-0 xl:w-1/2'>
+            <div className='w-full lg:px-4 xl:mb-0 xl:w-1/2'>
               <Title>Was auch immer Sie benötigen, wir sind da</Title>
               <p className='mb-3'>
                 Mit unserem umfangreichen Sortiment sind wir in der Lage, die
