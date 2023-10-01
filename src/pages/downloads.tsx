@@ -1,7 +1,7 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React from 'react';
-import { VscArrowRight } from 'react-icons/vsc';
+import { VscArrowRight, VscCloudDownload } from 'react-icons/vsc';
 
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
@@ -14,6 +14,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import NextBreadcrumb from '@/components/ui/Breadcrumb';
+import PrimaryLink from '@/components/ui/links/PrimaryLink';
 import { Title } from '@/components/ui/typography/Title';
 
 import heroImg from '/public/images/downloads/duecker-medizintechnik_downloads_hero-bg.webp';
@@ -64,7 +65,45 @@ const DownloadsPage = (
                     EN ISO 13485:2016
                   </AccordionTrigger>
                   <AccordionContent>
-                    Yes. It adheres to the WAI-ARIA design pattern.
+                    <div className='flex flex-col gap-2 mt-4'>
+                      <div className='border-solid border-gray-100 border-[1px] text-dark p-4 w-full'>
+                        <div className='flex flex-row justify-between'>
+                          <PrimaryLink
+                            className='text-base'
+                            href='/downloads/EN_ISO_13485_2016.pdf'
+                          >
+                            EN ISO 13485:2016
+                          </PrimaryLink>
+                          <div className='flex flex-row gap-3 items-center'>
+                            <span className='text-sm text-light'>
+                              pdf, 778.99 KB
+                            </span>
+                            <PrimaryLink
+                              className='text-base'
+                              href='/downloads/EN_ISO_13485_2016.pdf'
+                            >
+                              <VscCloudDownload className='h-6 w-6' />
+                            </PrimaryLink>
+                          </div>
+                        </div>
+                      </div>
+                      <div className='border-solid border-gray-100 border-[1px] text-dark p-4 w-full'>
+                        <PrimaryLink
+                          className='text-base'
+                          href='/downloads/EN_ISO_13485_2016.pdf'
+                        >
+                          EN ISO 13485:2016
+                        </PrimaryLink>
+                      </div>
+                      <div className='border-solid border-gray-100 border-[1px] text-dark p-4 w-full'>
+                        <PrimaryLink
+                          className='text-base'
+                          href='/downloads/EN_ISO_13485_2016.pdf'
+                        >
+                          EN ISO 13485:2016
+                        </PrimaryLink>
+                      </div>
+                    </div>
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value='item-2'>
