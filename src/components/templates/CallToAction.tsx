@@ -11,7 +11,7 @@ export const CallToAction = () => {
   const router = useRouter();
   return (
     <>
-      <section className='from-primary-400 to-primary-600 overflow-hidden bg-gradient-to-tr py-16 md:py-24 lg:py-32'>
+      <section className='overflow-hidden bg-gradient-to-tr from-primary-400 to-primary-600 py-16 md:py-24 lg:py-32'>
         <Container>
           <div className='relative overflow-hidden'>
             <div className='relative'>

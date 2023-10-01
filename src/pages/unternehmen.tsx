@@ -41,7 +41,7 @@ const AboutUsPage = (
           <div className='mx-auto max-w-5xl'>
             <NextBreadcrumb
               homeElement='Startseite'
-              separator={<VscArrowRight className='h-6 w-3 mr-2' />}
+              separator={<VscArrowRight className='mr-2 h-6 w-3' />}
               activeClasses='text-primary-500'
               containerClasses='flex'
               listClasses='hover:underline mr-2'
@@ -110,7 +110,7 @@ const AboutUsPage = (
             <div className='pt-16'>
               <Marquee gradient={true} autoFill={true} speed={25}>
                 {customerLogos.map((logo) => (
-                  <div key={logo.name} className='px-6 lg:px-12 opacity-40'>
+                  <div key={logo.name} className='px-6 opacity-40 lg:px-12'>
                     <Link
                       href={logo.url}
                       target='_blank'
@@ -195,7 +195,7 @@ const AboutUsPage = (
         </Container>
       </main>
       <div className='relative'>
-        <div className='after:from-primary-500/10 after:to-primary-600/0 after:absolute after:bottom-0 after:-z-10 after:h-[52rem] after:w-full after:rounded-tl-[15rem] after:bg-gradient-to-b'></div>
+        <div className='after:absolute after:bottom-0 after:-z-10 after:h-[52rem] after:w-full after:rounded-tl-[15rem] after:bg-gradient-to-b after:from-primary-500/10 after:to-primary-600/0'></div>
       </div>
     </Layout>
   );

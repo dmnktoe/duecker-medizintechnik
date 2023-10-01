@@ -32,14 +32,14 @@ const ProductionPage = (
         <Container>
           <NextBreadcrumb
             homeElement='Startseite'
-            separator={<VscArrowRight className='h-6 w-3 mr-2' />}
+            separator={<VscArrowRight className='mr-2 h-6 w-3' />}
             activeClasses='text-primary-500'
             containerClasses='flex'
             listClasses='hover:underline mr-2'
             capitalizeLinks
             className='mb-6'
           />
-          <div className='flex flex-col md:flex-row md:gap-6 items-start mb-16 lg:mb-24'>
+          <div className='mb-16 flex flex-col items-start md:flex-row md:gap-6 lg:mb-24'>
             <div className='mb-6 w-full lg:mb-0 lg:w-2/3 xl:w-1/2'>
               <div className='text-dark'>
                 <Title isAnimated>
@@ -57,7 +57,7 @@ const ProductionPage = (
                   externe, akkreditierte Labore kontrolliert. Diese hohen
                   Qualitätsstandards bilden das Fundament unseres Schaffens.
                 </p>
-                <h5 className='font-semibold my-6'>
+                <h5 className='my-6 font-semibold'>
                   Ihr vertrauenswürdiger Partner für
                 </h5>
                 <ul className='mb-6'>
@@ -90,7 +90,7 @@ const ProductionPage = (
               </div>
             </div>
           </div>
-          <div className='flex flex-col-reverse lg:flex-row gap-6'>
+          <div className='flex flex-col-reverse gap-6 lg:flex-row'>
             <div className='w-full xl:w-1/2'>
               <div className='flex h-full flex-wrap'>
                 <div className='mb-4 w-full md:mb-0 md:w-1/2'>
@@ -124,7 +124,7 @@ const ProductionPage = (
                     </UnstyledLink>
                   </div>
                 </div>
-                <div className='w-full md:pl-4 md:w-1/2'>
+                <div className='w-full md:w-1/2 md:pl-4'>
                   <a
                     className='relative block h-full bg-gray-50 px-8 pb-5 pt-8 transition duration-200 hover:bg-gray-100'
                     href='#'

@@ -37,7 +37,7 @@ const ImageBanner = ({
       custom={delay}
       variants={staticAnimation ? {} : imgBannerVariants}
       className={clsx(
-        'relative w-full self-end overflow-hidden min-h-[250px] md:min-h-[350px]',
+        'relative min-h-[250px] w-full self-end overflow-hidden md:min-h-[350px]',
         className,
       )}
     >
