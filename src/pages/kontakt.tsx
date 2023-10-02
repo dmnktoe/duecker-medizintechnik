@@ -30,9 +30,11 @@ const ContactPage = (
         data-cookieconsent='marketing'
         width='100%'
         height='350'
-        loading='lazy'
         referrerPolicy='no-referrer-when-downgrade'
       ></iframe>
+      <div className='cookieconsent-optout-marketing'>
+        Please accept marketing-cookies to watch this video.
+      </div>
       <main className='relative z-10 overflow-hidden bg-white py-16 lg:py-24'>
         <Container>
           <div className='mx-auto max-w-5xl'>
