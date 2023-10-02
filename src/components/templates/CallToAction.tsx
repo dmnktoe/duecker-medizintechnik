@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { Key } from 'react';
 
@@ -10,7 +9,6 @@ import { Title } from '@/components/ui/typography/Title';
 
 export const CallToAction = () => {
   const { t, ready } = useTranslation('common', { useSuspense: false });
-  const router = useRouter();
 
   function handleCtaButtonClick() {
     if (process.env.NODE_ENV === 'production') {
@@ -20,10 +18,10 @@ export const CallToAction = () => {
         label: 'cta button',
         value: 1,
       });
-      router.push('/kontakt');
+      window.location.href = '/kontakt';
       return;
     }
-    router.push('/kontakt');
+    window.location.href = '/kontakt';
   }
   return (
     <>

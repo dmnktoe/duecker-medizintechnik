@@ -24,6 +24,7 @@ import {
 } from 'react-icons/vsc';
 
 import { Container } from '@/components/layout/Container';
+import Button from '@/components/ui/buttons/Button';
 import {
   Collapsible,
   CollapsibleContent,
@@ -31,7 +32,6 @@ import {
 } from '@/components/ui/Collapsible';
 import { Logo } from '@/components/ui/icons/logo';
 import { SubdirectoryIcon } from '@/components/ui/icons/subdirectory';
-import ButtonLink from '@/components/ui/links/ButtonLink';
 
 import { data } from '@/constant/data';
 
@@ -97,14 +97,14 @@ export const Header = () => {
                 <div className='flex flex-row gap-3'>
                   <div className='ml-auto hidden md:block xl:hidden'>
                     <div className='flex items-center'>
-                      <ButtonLink
-                        href='/kontakt'
+                      <Button
+                        onClick={() => (window.location.href = '/kontakt')}
                         size='lg'
                         className='ml-4'
                         variant='outline'
                       >
                         {t('header.ctaButtonText')}
-                      </ButtonLink>
+                      </Button>
                     </div>
                   </div>
                   <button
@@ -156,14 +156,14 @@ export const Header = () => {
                           {t('header.privacyLinkText')}
                         </Link>
                       </div>
-                      <ButtonLink
-                        href='/kontakt'
+                      <Button
+                        onClick={() => (window.location.href = '/kontakt')}
                         size='lg'
                         className='ml-4'
                         variant='outline'
                       >
                         {t('header.ctaButtonText')}
-                      </ButtonLink>
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -178,8 +178,8 @@ export const Header = () => {
               {/* CTA Button */}
               <div className='ml-auto hidden xl:block'>
                 <div className='flex items-center'>
-                  <ButtonLink
-                    href='/kontakt'
+                  <Button
+                    onClick={() => (window.location.href = '/kontakt')}
                     size='lg'
                     variant='outline'
                     isScaling
@@ -187,7 +187,7 @@ export const Header = () => {
                     leftIconClassName='h-6 w-6 mr-1'
                   >
                     {t('header.ctaButtonText')}
-                  </ButtonLink>
+                  </Button>
                 </div>
               </div>
             </div>
