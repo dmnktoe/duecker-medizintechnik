@@ -1,5 +1,7 @@
 import { Head, Html, Main, NextScript } from 'next/document';
 
+import GoogleAnalytics from '@/components/layout/GoogleAnalytics';
+
 import { isLocal } from '@/constant/env';
 const GA_MEASUREMENT_ID = 'G-HNLHM0MQDN';
 
@@ -15,27 +17,7 @@ export default function Document() {
           data-blockingmode='auto'
           type='text/javascript'
         ></script>
-        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-        <script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-          type='text/plain'
-          data-cookieconsent='statistics'
-        />
-        <script
-          id='google-analytics'
-          type='text/plain'
-          data-cookieconsent='statistics'
-        >
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            
-            gtag('config', '${GA_MEASUREMENT_ID}', {
-              page_path: window.location.pathname,
-            });
-          `}
-        </script>
+        <GoogleAnalytics GA_MEASUREMENT_ID={GA_MEASUREMENT_ID} />
         <link
           rel='preload'
           href='/fonts/manrope-var-wght.woff2'
