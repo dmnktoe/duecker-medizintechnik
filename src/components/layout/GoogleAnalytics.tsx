@@ -8,6 +8,7 @@ export default function GoogleAnalytics({
 }: {
   GA_MEASUREMENT_ID: string;
 }) {
+  // TODO: Add support for Next.js 12's built-in Google Analytics support
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
