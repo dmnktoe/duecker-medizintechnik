@@ -8,19 +8,24 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        <Script
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script
           id='Cookiebot'
           src='https://consent.cookiebot.com/uc.js'
           data-cbid='3722981a-3eb0-4ff9-9145-777cf50e6875'
+          data-blockingmode='auto'
           type='text/javascript'
-          async
-          strategy='beforeInteractive'
-        />
+        ></script>
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
           strategy='afterInteractive'
+          data-cookieconsent='analytics'
         />
-        <Script id='google-analytics' strategy='afterInteractive'>
+        <Script
+          id='google-analytics'
+          strategy='afterInteractive'
+          data-cookieconsent='analytics'
+        >
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){window.dataLayer.push(arguments);}
