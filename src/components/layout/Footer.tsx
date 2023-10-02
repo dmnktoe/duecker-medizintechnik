@@ -133,12 +133,15 @@ export const Footer = () => {
                 </UnstyledLink>
               </li>
               <li className='mb-3'>
-                <UnstyledLink href='/cookie-policy' className='inline-block'>
+                <UnstyledLink
+                  href='/cookie-richtlinie'
+                  className='inline-block'
+                >
                   Cookie-Richtlinie
                 </UnstyledLink>
               </li>
               <li>
-                <UnstyledLink href='/cookie-policy' className='inline-block'>
+                <UnstyledLink href='/agb' className='inline-block'>
                   Allgemeine Geschäftsbedingungen
                 </UnstyledLink>
               </li>
