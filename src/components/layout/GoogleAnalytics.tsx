@@ -29,15 +29,18 @@ export default function GoogleAnalytics({
         id='google-analytics'
         type='text/plain'
         data-cookieconsent='statistics'
-      >
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-          gtag('config', '${GA_MEASUREMENT_ID}');
-        `}
-      </script>
+            gtag('config', '${GA_MEASUREMENT_ID}', {
+                page_path: window.location.pathname,
+            });
+            `,
+        }}
+      />
     </>
   );
 }
