@@ -9,14 +9,16 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-        <script
-          id='Cookiebot'
-          src='https://consent.cookiebot.com/uc.js'
-          data-cbid='3722981a-3eb0-4ff9-9145-777cf50e6875'
-          data-blockingmode='auto'
-          type='text/javascript'
-        ></script>
+        {process.env.NODE_ENV == 'production' && (
+          // eslint-disable-next-line @next/next/no-sync-scripts
+          <script
+            id='Cookiebot'
+            src='https://consent.cookiebot.com/uc.js'
+            data-cbid='3722981a-3eb0-4ff9-9145-777cf50e6875'
+            async
+            type='text/javascript'
+          ></script>
+        )}
         <GoogleAnalytics GA_MEASUREMENT_ID={GA_MEASUREMENT_ID} />
         <link
           rel='preload'
