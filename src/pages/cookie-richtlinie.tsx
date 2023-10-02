@@ -51,7 +51,7 @@ const CookiePolicy = (
               Download.
             </p>
             <hr className='my-12' />
-            {process.env.NODE_ENV == 'development' && (
+            {process.env.NODE_ENV !== 'development' && (
               <div id='CookiebotDeclaration' />
             )}
           </div>
