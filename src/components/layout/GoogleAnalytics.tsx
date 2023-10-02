@@ -1,23 +1,8 @@
-import { usePathname, useSearchParams } from 'next/navigation';
-import { useEffect } from 'react';
-
-import { pageview } from '@/lib/helper';
-
 export default function GoogleAnalytics({
   GA_MEASUREMENT_ID,
 }: {
   GA_MEASUREMENT_ID: string;
 }) {
-  // TODO: Add support for Next.js 12's built-in Google Analytics support
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-
-  useEffect(() => {
-    const url = pathname + searchParams.toString();
-
-    pageview(GA_MEASUREMENT_ID, url);
-  }, [pathname, searchParams, GA_MEASUREMENT_ID]);
-
   return (
     <>
       {/* eslint-disable-next-line @next/next/no-sync-scripts */}

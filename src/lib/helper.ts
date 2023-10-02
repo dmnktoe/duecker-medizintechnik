@@ -74,6 +74,24 @@ export const pageview = (GA_MEASUREMENT_ID: string, url: string) => {
   });
 };
 
+export const event = ({
+  action,
+  category,
+  label,
+  value,
+}: {
+  action: string;
+  category: string;
+  label: string;
+  value: number;
+}) => {
+  window.gtag('event', action, {
+    event_category: category,
+    event_label: label,
+    value: value,
+  });
+};
+
 // ADDS DELAY TO SIMULATE SLOW API REMOVE FOR PRODUCTION
 export const delay = (time: number) =>
   new Promise((resolve) => setTimeout(() => resolve(1), time));
