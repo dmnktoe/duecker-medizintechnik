@@ -18,9 +18,14 @@ export default function Document() {
         {/* eslint-disable-next-line @next/next/no-sync-scripts */}
         <script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-          data-cookieconsent='analytics'
+          type='text/plain'
+          data-cookieconsent='statistics'
         />
-        <script id='google-analytics' data-cookieconsent='analytics'>
+        <script
+          id='google-analytics'
+          type='text/plain'
+          data-cookieconsent='statistics'
+        >
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){window.dataLayer.push(arguments);}
