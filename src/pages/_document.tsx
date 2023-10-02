@@ -1,5 +1,4 @@
 import { Head, Html, Main, NextScript } from 'next/document';
-import Script from 'next/script';
 
 import { isLocal } from '@/constant/env';
 const GA_MEASUREMENT_ID = 'G-HNLHM0MQDN';
@@ -16,23 +15,19 @@ export default function Document() {
           data-blockingmode='auto'
           type='text/javascript'
         ></script>
-        <Script
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-          strategy='afterInteractive'
           data-cookieconsent='analytics'
         />
-        <Script
-          id='google-analytics'
-          strategy='afterInteractive'
-          data-cookieconsent='analytics'
-        >
+        <script id='google-analytics' data-cookieconsent='analytics'>
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){window.dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', '${GA_MEASUREMENT_ID}');
           `}
-        </Script>
+        </script>
         <link
           rel='preload'
           href='/fonts/manrope-var-wght.woff2'
