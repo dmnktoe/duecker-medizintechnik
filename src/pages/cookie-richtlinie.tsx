@@ -51,8 +51,12 @@ const CookiePolicy = (
               Download.
             </p>
             <hr className='my-12' />
-            {process.env.NODE_ENV == 'production' && (
+            {process.env.NODE_ENV == 'production' ? (
               <div id='CookiebotDeclaration' />
+            ) : (
+              <span className='text-red-700'>
+                CookieBot is not available in development mode.
+              </span>
             )}
           </div>
         </Container>

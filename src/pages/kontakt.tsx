@@ -31,6 +31,7 @@ const ContactPage = (
         width='100%'
         height='350'
         referrerPolicy='no-referrer-when-downgrade'
+        loading='eager'
       ></iframe>
       <div className='cookieconsent-optout-marketing'>
         Please accept marketing-cookies to watch this video.
