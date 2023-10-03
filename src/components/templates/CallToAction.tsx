@@ -8,12 +8,14 @@ import { Container } from '@/components/layout/Container';
 import Button from '@/components/ui/buttons/Button';
 import { Title } from '@/components/ui/typography/Title';
 
+import { isProd } from '@/constant/env';
+
 export const CallToAction = () => {
   const { t, ready } = useTranslation('common', { useSuspense: false });
   const router = useRouter();
 
   function handleCtaButtonClick() {
-    if (process.env.NODE_ENV === 'production') {
+    if (isProd) {
       event({
         category: 'cta',
         action: 'click',

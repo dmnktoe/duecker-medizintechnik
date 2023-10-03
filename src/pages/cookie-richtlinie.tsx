@@ -11,6 +11,8 @@ import Seo from '@/components/layout/Seo';
 import NextBreadcrumb from '@/components/ui/Breadcrumb';
 import { Title } from '@/components/ui/typography/Title';
 
+import { isProd } from '@/constant/env';
+
 const CookiePolicy = (
   _props: InferGetStaticPropsType<typeof getStaticProps>,
 ) => {
@@ -51,7 +53,7 @@ const CookiePolicy = (
               Download.
             </p>
             <hr className='my-12' />
-            {process.env.NODE_ENV == 'production' ? (
+            {isProd ? (
               <div id='CookiebotDeclaration' />
             ) : (
               <span className='text-red-700'>
