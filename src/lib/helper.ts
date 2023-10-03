@@ -68,30 +68,6 @@ export function formatDate(dateString: Date) {
   return date.toLocaleDateString('de-DE', options);
 }
 
-export const pageview = (GA_MEASUREMENT_ID: string, url: string) => {
-  window.gtag('config', GA_MEASUREMENT_ID, {
-    page_path: url,
-  });
-};
-
-export const event = ({
-  action,
-  category,
-  label,
-  value,
-}: {
-  action: string;
-  category: string;
-  label: string;
-  value: number;
-}) => {
-  window.gtag('event', action, {
-    event_category: category,
-    event_label: label,
-    value: value,
-  });
-};
-
 // ADDS DELAY TO SIMULATE SLOW API REMOVE FOR PRODUCTION
 export const delay = (time: number) =>
   new Promise((resolve) => setTimeout(() => resolve(1), time));

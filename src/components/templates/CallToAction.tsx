@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { Key } from 'react';
 
-import { event } from '@/lib/helper';
+import { event } from '@/lib/gtagHelper';
 
 import { Container } from '@/components/layout/Container';
 import Button from '@/components/ui/buttons/Button';
