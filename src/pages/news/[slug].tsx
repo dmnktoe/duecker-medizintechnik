@@ -5,10 +5,16 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React from 'react';
 import {
   RiFacebookCircleFill,
-  RiLinksFill,
   RiMailFill,
   RiTwitterXFill,
+  RiWhatsappLine,
 } from 'react-icons/ri';
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+} from 'react-share';
 
 import { fetchAPI } from '@/lib/fetch-api';
 import { formatDate, getStrapiMedia } from '@/lib/helper';
@@ -20,6 +26,7 @@ import { AspectRatio } from '@/components/ui/AspectRatio';
 import ArrowLink from '@/components/ui/links/ArrowLink';
 import { Title } from '@/components/ui/typography/Title';
 
+import { data } from '@/constant/data';
 import { Data } from '@/interfaces/model';
 
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
@@ -55,6 +62,7 @@ interface PostPageProps extends InferGetStaticPropsType<typeof getStaticProps> {
 
 const PostPage = (props: PostPageProps) => {
   const post = props.post;
+  const fullPostUrl = 'https://' + data.url + '/news/' + post.attributes.slug;
   return (
     <Layout>
       <Seo templateTitle={post.attributes.title} />
@@ -87,22 +95,30 @@ const PostPage = (props: PostPageProps) => {
                 {post.attributes.content}
               </p>
               <div className='mt-3 flex flex-row text-gray-500'>
-                <RiTwitterXFill
-                  size={20}
-                  className='mr-2 transition-colors duration-200 ease-in-out hover:text-dark'
-                />
-                <RiFacebookCircleFill
-                  size={20}
-                  className='mr-2 transition-colors duration-200 ease-in-out hover:text-dark'
-                />
-                <RiMailFill
-                  size={20}
-                  className='mr-2 transition-colors duration-200 ease-in-out hover:text-dark'
-                />
-                <RiLinksFill
-                  size={20}
-                  className='mr-2 transition-colors duration-200 ease-in-out hover:text-dark'
-                />
+                <TwitterShareButton url={fullPostUrl}>
+                  <RiTwitterXFill
+                    size={20}
+                    className='mr-2 transition-colors duration-200 ease-in-out hover:text-dark'
+                  />
+                </TwitterShareButton>
+                <FacebookShareButton url={fullPostUrl}>
+                  <RiFacebookCircleFill
+                    size={20}
+                    className='mr-2 transition-colors duration-200 ease-in-out hover:text-dark'
+                  />
+                </FacebookShareButton>
+                <WhatsappShareButton url={fullPostUrl}>
+                  <RiWhatsappLine
+                    size={20}
+                    className='mr-2 transition-colors duration-200 ease-in-out hover:text-dark'
+                  />
+                </WhatsappShareButton>
+                <EmailShareButton url={fullPostUrl}>
+                  <RiMailFill
+                    size={20}
+                    className='mr-2 transition-colors duration-200 ease-in-out hover:text-dark'
+                  />
+                </EmailShareButton>
               </div>
             </div>
             <div className='relative mx-auto w-full max-w-5xl'>
