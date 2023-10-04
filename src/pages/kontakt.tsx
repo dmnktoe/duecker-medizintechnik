@@ -17,6 +17,7 @@ import Button from '@/components/ui/buttons/Button';
 import { Title } from '@/components/ui/typography/Title';
 
 import { data } from '@/constant/data';
+import { isLocal } from '@/constant/env';
 
 const ContactPage = (
   _props: InferGetStaticPropsType<typeof getServerSideProps>,
@@ -33,9 +34,55 @@ const ContactPage = (
         referrerPolicy='no-referrer-when-downgrade'
         loading='eager'
       ></iframe>
-      <div className='cookieconsent-optout-marketing h-[350px]'>
+      <div className='cookieconsent-optout-marketing flex h-[350px] items-center bg-gray-100 align-middle'>
         <Container>
-          Please accept marketing-cookies to watch this video.
+          <div className='flex flex-col items-center gap-8 align-middle'>
+            <span className='text-center font-normal text-gray-500 md:text-lg'>
+              Dieser Inhalt wird über Google Maps geladen.
+              <br />
+              Akzeptieren Sie die Marketing Cookies um den Inhalt anzuzeigen.
+            </span>
+            <div className='flex w-full flex-wrap justify-center gap-4 sm:w-auto'>
+              <Button
+                variant='primary'
+                size='sm'
+                className='w-full sm:w-56'
+                onClick={
+                  isLocal
+                    ? () => {
+                        // eslint-disable-next-line no-console
+                        console.log('Marketing Cookies accepted');
+                      }
+                    : () => {
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                        // @ts-ignore
+                        window.Cookiebot.submitCustomConsent('optinMarketing');
+                      }
+                }
+              >
+                Marketing Cookies akzeptieren
+              </Button>
+              <Button
+                variant='outline'
+                size='sm'
+                className='w-full sm:w-56'
+                onClick={
+                  isLocal
+                    ? () => {
+                        // eslint-disable-next-line no-console
+                        console.log('Open Cookiebot Dialog');
+                      }
+                    : () => {
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                        // @ts-ignore
+                        window.Cookiebot.show();
+                      }
+                }
+              >
+                Cookie-Einstellungen
+              </Button>
+            </div>
+          </div>
         </Container>
       </div>
       <main className='relative z-10 overflow-hidden bg-white py-16 lg:py-24'>
