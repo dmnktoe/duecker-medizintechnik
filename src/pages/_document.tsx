@@ -1,5 +1,4 @@
 import { Head, Html, Main, NextScript } from 'next/document';
-import Script from 'next/script';
 
 import GoogleAnalytics from '@/components/layout/GoogleAnalytics';
 
@@ -10,13 +9,13 @@ export default function Document() {
     <Html>
       <Head>
         {isProd && (
-          <Script
+          <script
             id='Cookiebot'
             src='https://consent.cookiebot.com/uc.js'
             data-cbid={cookieBotId}
             async
             type='text/javascript'
-          />
+          ></script>
         )}
         <GoogleAnalytics GA_MEASUREMENT_ID={gaTrackingId} />
         <link
