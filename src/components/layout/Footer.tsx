@@ -1,21 +1,14 @@
-import { useRouter } from 'next/router';
-import { i18n } from 'next-i18next';
 import * as React from 'react';
 import { VscGlobe } from 'react-icons/vsc';
 
 import { Container } from '@/components/layout/Container';
+import LanguagePicker from '@/components/templates/LanguagePicker';
 import { Logo } from '@/components/ui/icons/logo';
 import UnstyledLink from '@/components/ui/links/UnstyledLink';
 
 import { data } from '@/constant/data';
 
-import * as LOCALES from '../../../next-i18next.config';
-
 export const Footer = () => {
-  const router = useRouter();
-  function handleLanguageChange(e: React.ChangeEvent<HTMLSelectElement>) {
-    router.push(router.pathname, router.pathname, { locale: e.target.value });
-  }
   return (
     <>
       <footer className='bg-white pb-12 pt-16 text-dark md:pt-24 lg:pt-32'>
@@ -179,27 +172,7 @@ export const Footer = () => {
                 <span className='mr-3 inline-block'>
                   <VscGlobe size={18} />
                 </span>
-                <select
-                  className='relative rounded-lg border-0 py-2 pl-2 pr-8 text-sm'
-                  name=''
-                  id=''
-                  onChange={handleLanguageChange}
-                  value={LOCALES.i18n.locales.find(
-                    (locale) => locale === i18n?.language,
-                  )}
-                >
-                  {LOCALES.i18n.locales.map((lang) => {
-                    const nameGenerator = new Intl.DisplayNames(lang, {
-                      type: 'language',
-                    });
-                    const displayName = nameGenerator.of(lang);
-                    return (
-                      <option key={lang} value={lang}>
-                        {displayName}
-                      </option>
-                    );
-                  })}
-                </select>
+                <LanguagePicker className='relative rounded-lg border-0 py-2 pl-2 pr-8 text-sm' />
               </div>
               <p className='mt-4 text-sm text-gray-500 sm:order-first sm:mt-0'>
                 <span className='text-sm text-gray-400'>
