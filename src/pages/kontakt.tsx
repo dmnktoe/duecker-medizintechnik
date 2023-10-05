@@ -4,6 +4,7 @@ import { GetServerSideProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
+import { useEffect, useState } from 'react';
 import {
   VscArrowRight,
   VscCallOutgoing,
@@ -24,6 +25,10 @@ import { isLocal } from '@/constant/env';
 const ContactPage = (
   _props: InferGetStaticPropsType<typeof getServerSideProps>,
 ) => {
+  const [iframeKey, setIframeKey] = useState(0);
+  useEffect(() => {
+    setIframeKey((prev) => prev + 1);
+  }, []);
   const { t } = useTranslation('contact');
   return (
     <Layout>
@@ -35,6 +40,7 @@ const ContactPage = (
         height='350'
         referrerPolicy='no-referrer-when-downgrade'
         loading='eager'
+        key={iframeKey}
       ></iframe>
       <div className='cookieconsent-optout-marketing flex h-[350px] items-center bg-gray-100 align-middle'>
         <Container>
