@@ -1,10 +1,8 @@
-'use client';
-
 import { GetServerSideProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import {
   VscArrowRight,
   VscCallOutgoing,
@@ -25,11 +23,21 @@ import { isLocal } from '@/constant/env';
 const ContactPage = (
   _props: InferGetStaticPropsType<typeof getServerSideProps>,
 ) => {
-  const [iframeKey, setIframeKey] = useState(0);
-  useEffect(() => {
-    setIframeKey((prev) => prev + 1);
-  }, []);
   const { t } = useTranslation('contact');
+  const iframeRef = useRef(null); // Create a ref
+
+  useEffect(() => {
+    const iframe = iframeRef.current;
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const src = iframe.getAttribute('data-cookieblock-src');
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    iframe.setAttribute('data-cookieblock-src', '');
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    iframe.setAttribute('data-cookieblock-src', src);
+  }, []);
   return (
     <Layout>
       <Seo templateTitle={t('seo.title')} description={t('seo.description')} />
@@ -40,7 +48,8 @@ const ContactPage = (
         height='350'
         referrerPolicy='no-referrer-when-downgrade'
         loading='eager'
-        key={iframeKey}
+        id='google-maps'
+        ref={iframeRef}
       ></iframe>
       <div className='cookieconsent-optout-marketing flex h-[350px] items-center bg-gray-100 align-middle'>
         <Container>
