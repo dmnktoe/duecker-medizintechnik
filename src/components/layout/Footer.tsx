@@ -1,5 +1,8 @@
 import * as React from 'react';
+import { useEffect, useState } from 'react';
 import { VscGlobe } from 'react-icons/vsc';
+
+import { fetchAPI } from '@/lib/fetch-api';
 
 import { Container } from '@/components/layout/Container';
 import LanguagePicker from '@/components/templates/LanguagePicker';
@@ -7,6 +10,54 @@ import { Logo } from '@/components/ui/icons/logo';
 import UnstyledLink from '@/components/ui/links/UnstyledLink';
 
 import { data } from '@/constant/data';
+import { Data } from '@/interfaces/model';
+
+const FooterPosts = () => {
+  const [posts, setPosts] = useState<Data[]>();
+  const [isLoading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await fetchAPI(
+        '/posts?sort=id:desc&populate=*&pagination[pageSize]=3',
+      );
+      setPosts(result.data);
+      setLoading(false);
+    };
+    fetchData();
+  }, []);
+
+  if (isLoading)
+    return (
+      <>
+        <div className='h-24 w-60 rounded-md'>
+          <div className='flex h-full animate-pulse flex-row space-x-5'>
+            <div className='flex flex-col space-y-2'>
+              <div className='h-3 w-36 rounded-md bg-gray-300'></div>
+              <div className='h-3 w-24 rounded-md bg-gray-300'></div>
+            </div>
+          </div>
+        </div>
+      </>
+    );
+
+  if (!posts) return <p>Keine Einträge gefunden.</p>;
+
+  return (
+    <>
+      {posts.map((post: Data) => (
+        <li key={post.id} className='line-clamp-2'>
+          <UnstyledLink
+            className='text-gray-700 transition hover:text-gray-700/75'
+            href={`/news/${post.attributes.slug}`}
+          >
+            {post.attributes.title}
+          </UnstyledLink>
+        </li>
+      ))}
+    </>
+  );
+};
 
 export const Footer = () => {
   return (
@@ -145,23 +196,7 @@ export const Footer = () => {
                   Aus dem Blog
                 </p>
                 <ul className='mt-8 space-y-4 text-sm'>
-                  <li className='line-clamp-1'>
-                    <UnstyledLink
-                      className='text-gray-700 transition hover:text-gray-700/75'
-                      href='/leistungen/produktion'
-                    >
-                      Die Erfolgsgeschichte von Dücker Medizintechnik: Qualität
-                      & Service seit 1979
-                    </UnstyledLink>
-                  </li>
-                  <li className='line-clamp-1'>
-                    <UnstyledLink
-                      className='text-gray-700 transition hover:text-gray-700/75'
-                      href='/leistungen/reparatur'
-                    >
-                      Dücker Medizintechnik feiert 25-jähriges Firmenjubiläum
-                    </UnstyledLink>
-                  </li>
+                  <FooterPosts />
                 </ul>
               </div>
             </div>
