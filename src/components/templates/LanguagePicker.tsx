@@ -12,8 +12,19 @@ type Props = {
 const LanguagePicker = ({ className }: Props) => {
   const router = useRouter();
 
+  if (!router.isReady) {
+    return null;
+  }
+
   function handleLanguageChange(e: React.ChangeEvent<HTMLSelectElement>) {
-    router.push(router.pathname, router.pathname, { locale: e.target.value });
+    const newLocale = e.target.value;
+    const currentPath = router.asPath.includes(router.locale ?? '')
+      ? router.asPath.split(`/${router.locale}`)[1]
+      : router.asPath;
+    const newPath =
+      newLocale === 'de' ? currentPath : `/${newLocale}${currentPath}`;
+
+    router.push(newPath, newPath, { locale: false });
   }
 
   return (

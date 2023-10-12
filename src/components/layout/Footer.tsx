@@ -160,7 +160,7 @@ export const Footer = () => {
                   <li>
                     <UnstyledLink
                       className='text-gray-700 transition hover:text-gray-700/75'
-                      href='/leistungen/produktion'
+                      href='/impressum'
                     >
                       Impressum
                     </UnstyledLink>
@@ -168,7 +168,7 @@ export const Footer = () => {
                   <li>
                     <UnstyledLink
                       className='text-gray-700 transition hover:text-gray-700/75'
-                      href='/leistungen/reparatur'
+                      href='/datenschutz'
                     >
                       Datenschutz
                     </UnstyledLink>
@@ -176,7 +176,7 @@ export const Footer = () => {
                   <li>
                     <UnstyledLink
                       className='text-gray-700 transition hover:text-gray-700/75'
-                      href='/leistungen/handel'
+                      href='/cookie-richtlinie'
                     >
                       Cookie-Richtlinie
                     </UnstyledLink>
@@ -184,7 +184,7 @@ export const Footer = () => {
                   <li>
                     <UnstyledLink
                       className='text-gray-700 transition hover:text-gray-700/75'
-                      href='/leistungen/handel'
+                      href='/agb'
                     >
                       Allgemeine Geschäftsbedingungen
                     </UnstyledLink>
