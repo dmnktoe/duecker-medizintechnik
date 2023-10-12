@@ -8,7 +8,7 @@ import Layout from '@/components/layout/Layout';
 import Seo from '@/components/layout/Seo';
 import UnderlineLink from '@/components/ui/links/UnderlineLink';
 
-import { data } from '@/constant/data';
+import { company } from '@/constant/company';
 
 const PrivacyPage = (
   _props: InferGetStaticPropsType<typeof getStaticProps>,
@@ -28,11 +28,11 @@ const PrivacyPage = (
               Diese Datenschutzerklärung klärt Nutzer über die Art, den Umfang
               und Zwecke der Erhebung, Verwendung sowie Verarbeitung
               personenbezogener Daten durch den verantwortlichen Anbieter{' '}
-              {data.companyName}, {data.street},{data.city},{' '}
-              <UnderlineLink href={'mailto:' + data.email}>
-                {data.email}
+              {company.companyName}, {company.street}, {company.city},{' '}
+              <UnderlineLink href={'mailto:' + company.email}>
+                {company.email}
               </UnderlineLink>
-              , Telefon: {data.phone} auf. Wir bitten Sie daher, die
+              , Telefon: {company.phone} auf. Wir bitten Sie daher, die
               nachfolgenden Ausführungen sorgfältig durchzulesen.
             </p>
             <p>
@@ -87,22 +87,22 @@ const PrivacyPage = (
               <strong>3. Name und Anschrift des Verantwortlichen</strong>
             </p>
             <p>
-              {data.companyName}
+              {company.companyName}
               <br />
-              {data.street}
+              {company.street}
               <br />
-              {data.city}
+              {company.city}
             </p>
-            <p>Geschäftsführer: {data.ceo}</p>
+            <p>Geschäftsführer: {company.ceo}</p>
             <p>
-              Tel.: {data.phone}
+              Tel.: {company.phone}
               <br />
-              Fax: {data.fax}
+              Fax: {company.fax}
             </p>
             <p>
               E-Mail:{' '}
-              <UnderlineLink href={'mailto:' + data.email}>
-                {data.email}
+              <UnderlineLink href={'mailto:' + company.email}>
+                {company.email}
               </UnderlineLink>
             </p>
             <p>
@@ -114,8 +114,8 @@ const PrivacyPage = (
             </p>
             <p>
               Sie können unseren Datenschutzbeauftragten über die E-Mailadresse{' '}
-              <UnderlineLink href={'mailto:' + data.email}>
-                {data.email}
+              <UnderlineLink href={'mailto:' + company.email}>
+                {company.email}
               </UnderlineLink>{' '}
               oder über unsere Postadresse mit dem Zusatz „der
               Datenschutzbeauftragte“ kontaktieren.
@@ -265,8 +265,8 @@ const PrivacyPage = (
               Speicherung Ihrer personenbezogener Daten jederzeit widersprechen.
               In diesem Fall kann unsere Konversation natürlich nicht mehr
               fortgeführt werden. Einen solchen Widerruf richten Sie bitte an{' '}
-              <UnderlineLink href={'mailto:' + data.email}>
-                {data.email}
+              <UnderlineLink href={'mailto:' + company.email}>
+                {company.email}
               </UnderlineLink>
               . Alle personenbezogenen Daten, die im Zuge der Kontaktaufnahme
               gespeichert wurden, werden dann gelöscht.
@@ -439,8 +439,8 @@ const PrivacyPage = (
               Die von Ihnen an uns übermittelten Informationen können Sie
               jederzeit auf Anfrage erneuern oder löschen lassen. Hierfür senden
               Sie uns bitte eine E-Mail an{' '}
-              <UnderlineLink href={'mailto:' + data.email}>
-                {data.email}
+              <UnderlineLink href={'mailto:' + company.email}>
+                {company.email}
               </UnderlineLink>
               . Dies gilt nicht, soweit Sie sich in einem laufenden
               Bewerbungsverfahren um eine konkrete Position bei uns beworben

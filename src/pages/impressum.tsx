@@ -9,7 +9,7 @@ import Seo from '@/components/layout/Seo';
 import PrimaryLink from '@/components/ui/links/PrimaryLink';
 import UnderlineLink from '@/components/ui/links/UnderlineLink';
 
-import { data } from '@/constant/data';
+import { company } from '@/constant/company';
 
 const ImprintPage = (
   _props: InferGetStaticPropsType<typeof getStaticProps>,
@@ -26,25 +26,27 @@ const ImprintPage = (
               <strong>{t('provider')}</strong>
             </p>
             <p>
-              <strong>{data.companyName}</strong>
+              <strong>{company.companyName}</strong>
               <br />
-              {data.street}
+              {company.street}
               <br />
-              {data.city}
+              {company.city}
             </p>
             <p>
-              {t('phone')}: {data.phone}
+              {t('phone')}: {company.phone}
               <br />
-              {t('fax')}: {data.fax}
+              {t('fax')}: {company.fax}
             </p>
             <p>
               {t('email')}:{' '}
-              <PrimaryLink href={`mailto:${data.email}`}>
-                {data.email}
+              <PrimaryLink href={`mailto:${company.email}`}>
+                {company.email}
               </PrimaryLink>
               <br />
               {t('web')}:{' '}
-              <PrimaryLink href={'https://' + data.url}>{data.url}</PrimaryLink>
+              <PrimaryLink href={'https://' + company.url}>
+                {company.url}
+              </PrimaryLink>
             </p>
             <p>
               Steuernummer: 02522835460

@@ -26,8 +26,8 @@ import { AspectRatio } from '@/components/ui/AspectRatio';
 import ArrowLink from '@/components/ui/links/ArrowLink';
 import { Title } from '@/components/ui/typography/Title';
 
-import { data } from '@/constant/data';
-import { Data } from '@/interfaces/model';
+import { company } from '@/constant/company';
+import { Data } from '@/interfaces/Data';
 
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const result = await fetchAPI('/posts');
@@ -62,7 +62,8 @@ interface PostPageProps extends InferGetStaticPropsType<typeof getStaticProps> {
 
 const PostPage = (props: PostPageProps) => {
   const post = props.post;
-  const fullPostUrl = 'https://' + data.url + '/news/' + post.attributes.slug;
+  const fullPostUrl =
+    'https://' + company.url + '/news/' + post.attributes.slug;
   return (
     <Layout>
       <Seo templateTitle={post.attributes.title} />

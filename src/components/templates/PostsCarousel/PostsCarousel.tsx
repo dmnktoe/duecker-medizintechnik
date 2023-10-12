@@ -9,7 +9,7 @@ import { Container } from '@/components/layout/Container';
 import PostsCarouselCard from '@/components/templates/PostsCarousel/PostsCarouselCard';
 import UnstyledLink from '@/components/ui/links/UnstyledLink';
 
-import { Data } from '@/interfaces/model';
+import { Data } from '@/interfaces/Data';
 
 type PostsCarouselProps = {
   posts: Data[];

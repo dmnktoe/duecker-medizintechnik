@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-import { data } from '@/constant/data';
+import { company } from '@/constant/company';
 
 const defaultMeta = {
   title:
@@ -9,7 +9,7 @@ const defaultMeta = {
   siteName: 'Dücker Medizintechnik',
   description:
     'Dücker Medizintechnik ist Ihr Partner für OP-Lösungen und Sterilisierungen. Wir sind ein zertifizierter Hersteller von sterilen- und unsterilen Schlauch-Sets und beliefern den Deutschen und Europäischen Markt für namhafte Hersteller und Set-Packern.',
-  url: 'https://' + data.url,
+  url: 'https://' + company.url,
   type: 'website',
   robots: 'follow, index',
   /**
@@ -72,7 +72,7 @@ export default function Seo(props: SeoProps) {
             property='og:publish_date'
             content={meta.date}
           />
-          <meta name='author' property='article:author' content={data.ceo} />
+          <meta name='author' property='article:author' content={company.ceo} />
         </>
       )}
 
@@ -109,7 +109,7 @@ const favicons: Array<React.ComponentPropsWithoutRef<'link'>> = [
   {
     rel: 'mask-icon',
     href: '/favicon/safari-pinned-tab.svg',
-    color: data.primaryHex,
+    color: company.primaryHex,
   },
   { rel: 'shortcut icon', href: '/favicon/favicon.ico' },
 ];

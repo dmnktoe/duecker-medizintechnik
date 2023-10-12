@@ -32,7 +32,7 @@ import { Logo } from '@/components/ui/icons/logo';
 import { SubdirectoryIcon } from '@/components/ui/icons/subdirectory';
 import ButtonLink from '@/components/ui/links/ButtonLink';
 
-import { data } from '@/constant/data';
+import { company } from '@/constant/company';
 
 import megaMenuBg from '/public/images/header/mega-menu_bg.webp';
 
@@ -210,17 +210,20 @@ const TopBar = () => {
           <div className='flex gap-x-4'>
             <div className='flex items-center gap-x-2'>
               <VscLocation className='h-4 w-4 text-primary-500' />
-              {data.street}, {data.city}
+              {company.street}, {company.city}
             </div>
             <div className='flex items-center gap-x-2'>
               <VscDeviceMobile className='h-4 w-4 text-primary-500' />
-              {data.phone}
+              {company.phone}
             </div>
             <div className='flex items-center gap-x-2'>
               <VscMail className='h-4 w-4 text-primary-500' />
               <p>
-                <Link href={`mailto:${data.email}`} className='hover:underline'>
-                  {data.email}
+                <Link
+                  href={`mailto:${company.email}`}
+                  className='hover:underline'
+                >
+                  {company.email}
                 </Link>
               </p>
             </div>
