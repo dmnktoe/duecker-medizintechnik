@@ -9,8 +9,8 @@ import LanguagePicker from '@/components/templates/LanguagePicker';
 import { Logo } from '@/components/ui/icons/logo';
 import UnstyledLink from '@/components/ui/links/UnstyledLink';
 
-import { data } from '@/constant/data';
-import { Data } from '@/interfaces/model';
+import { company } from '@/constant/company';
+import { Data } from '@/interfaces/Data';
 
 const FooterPosts = () => {
   const [posts, setPosts] = useState<Data[]>();
@@ -72,17 +72,17 @@ export const Footer = () => {
               <p className='mt-6 max-w-md text-center text-sm leading-relaxed text-gray-700 sm:max-w-xs sm:text-left'>
                 Sie können uns gerne telefonisch unter der{' '}
                 <UnstyledLink
-                  href={`tel:${data.phone}`}
+                  href={`tel:${company.phone}`}
                   className='text-gray-700 transition hover:text-gray-700/75'
                 >
-                  {data.phone}
+                  {company.phone}
                 </UnstyledLink>{' '}
                 erreichen oder uns eine Nachricht per E-Mail an{' '}
                 <UnstyledLink
                   className='text-gray-700 transition hover:text-gray-700/75'
-                  href={'mailto:' + data.email}
+                  href={'mailto:' + company.email}
                 >
-                  {data.email}
+                  {company.email}
                 </UnstyledLink>{' '}
                 schicken. Wir bearbeiten Ihre Anfrage schnellstmöglich.
               </p>
@@ -211,8 +211,8 @@ export const Footer = () => {
               </div>
               <p className='mt-4 text-sm text-gray-500 sm:order-first sm:mt-0'>
                 <span className='text-sm text-gray-400'>
-                  © {new Date().getFullYear()} {data.companyName} •{' '}
-                  {data.street}, {data.city}
+                  © {new Date().getFullYear()} {company.companyName} •{' '}
+                  {company.street}, {company.city}
                 </span>
               </p>
             </div>

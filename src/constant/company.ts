@@ -1,4 +1,4 @@
-export const data = {
+export const company = {
   ceo: 'Marc Dücker',
   companyName: 'Dücker Medizintechnik',
   email: 'info@duecker-medizintechnik.de',

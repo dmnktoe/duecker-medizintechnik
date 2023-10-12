@@ -6,7 +6,7 @@ import { formatDate, getStrapiMedia } from '@/lib/helper';
 import { AspectRatio } from '@/components/ui/AspectRatio';
 import UnstyledLink from '@/components/ui/links/UnstyledLink';
 
-import { Data } from '@/interfaces/model';
+import { Data } from '@/interfaces/Data';
 
 interface CardProps {
   post: Data;

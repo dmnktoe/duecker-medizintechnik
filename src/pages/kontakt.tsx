@@ -16,7 +16,7 @@ import NextBreadcrumb from '@/components/ui/Breadcrumb';
 import Button from '@/components/ui/buttons/Button';
 import { Title } from '@/components/ui/typography/Title';
 
-import { data } from '@/constant/data';
+import { company } from '@/constant/company';
 
 const ContactPage = (
   _props: InferGetStaticPropsType<typeof getStaticProps>,
@@ -65,9 +65,9 @@ const ContactPage = (
                         Unser Standort
                       </h4>
                       <p className='text-body-color text-base'>
-                        {data.street}
+                        {company.street}
                         <br />
-                        {data.city}
+                        {company.city}
                       </p>
                     </div>
                   </div>
