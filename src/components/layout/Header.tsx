@@ -8,14 +8,12 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import {
   VscCallOutgoing,
   VscChevronDown,
-  VscChevronRight,
   VscDeviceMobile,
   VscGlobe,
   VscLocation,
@@ -24,6 +22,7 @@ import {
 } from 'react-icons/vsc';
 
 import { Container } from '@/components/layout/Container';
+import LanguagePicker from '@/components/templates/LanguagePicker';
 import {
   Collapsible,
   CollapsibleContent,
@@ -169,7 +168,7 @@ export const Header = () => {
                 </div>
               </div>
               {/* Desktop navigation list */}
-              <ul className='text-md absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 transform text-lg font-bold text-gray-500 lg:w-auto lg:space-x-10 xl:flex 2xl:text-xl'>
+              <ul className='text-md absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 transform text-lg font-bold text-gray-500 lg:w-auto lg:space-x-8 xl:flex 2xl:space-x-10 2xl:text-xl'>
                 {ready &&
                   t('header.navigationItems', { returnObjects: true }).map(
                     (item, index) => <NavItem key={index} {...item} />,
@@ -199,22 +198,14 @@ export const Header = () => {
 };
 
 const TopBar = () => {
-  const router = useRouter();
-  const { t } = useTranslation('common');
-  const changeTo = router.locale === 'en' ? 'de' : 'en';
-
   return (
     <div className='relative hidden bg-dark py-3 xl:block xl:w-auto'>
       <Container>
-        <div className='flex items-end justify-between text-xs font-medium tracking-normal text-white'>
+        <div className='flex items-center justify-between text-xs font-medium tracking-normal text-white'>
           <div className='flex items-center gap-x-2'>
             <VscGlobe className='h-4 w-4 text-primary-500' />
-            <Link href='/' locale={changeTo}>
-              <button className='hover:underline'>
-                {t('header.change-locale', { changeTo })}
-              </button>
-            </Link>
-            <VscChevronRight className='relative inline-block text-xs' />
+            <LanguagePicker className='relative h-6 cursor-pointer rounded-lg border-0 bg-transparent p-0 text-xs outline-none hover:underline focus:border-0 focus:outline-none focus:ring-0' />
+            <VscChevronDown className='relative inline-block text-xs' />
           </div>
           <div className='flex gap-x-4'>
             <div className='flex items-center gap-x-2'>
