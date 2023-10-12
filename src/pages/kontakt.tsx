@@ -114,7 +114,9 @@ const ContactPage = (
                 <div className='mb-12 max-w-[570px] lg:mb-0'>
                   <NextBreadcrumb
                     homeElement='Startseite'
-                    separator={<VscArrowRight className='mr-2 h-6 w-3' />}
+                    separator={
+                      <VscArrowRight className='mr-2 h-5 w-3 md:h-6 md:w-3 lg:h-6 lg:w-4' />
+                    }
                     activeClasses='text-primary-500'
                     containerClasses='flex'
                     listClasses='hover:underline mr-2'
