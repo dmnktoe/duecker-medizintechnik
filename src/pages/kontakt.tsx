@@ -26,7 +26,7 @@ const ContactPage = (
 ) => {
   const { t } = useTranslation('contact');
   const iframeRef = useRef(null); // Create a ref
-  const mapRef = useRef();
+  const mapRef = useRef(null);
 
   useEffect(() => {
     const iframe = iframeRef.current;
@@ -53,7 +53,6 @@ const ContactPage = (
         id='google-maps'
         ref={iframeRef}
       ></iframe>
-      <div ref={mapRef}></div>
       <Script
         id='googleMaps'
         src={`https://maps.googleapis.com/maps/api/js?sensor=false&key=${googleMapsApiKey}&callback=mapAPI_Loaded`}
@@ -67,6 +66,7 @@ const ContactPage = (
           });
         }}
       />
+      <div ref={mapRef}></div>
       <div className='cookieconsent-optout-marketing flex h-[350px] items-center bg-gray-100 align-middle'>
         <Container>
           <div className='flex flex-col items-center gap-8 align-middle'>
