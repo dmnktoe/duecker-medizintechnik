@@ -6,6 +6,8 @@ const Maps = () => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     if (window.Cookiebot.submitCustomConsent) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       const google = window.google;
       let map = mapRef.current;
       const lat = '40.748817';
