@@ -2,6 +2,8 @@ import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { Key } from 'react';
 
+import { event } from '@/lib/gtagHelper';
+
 import { Container } from '@/components/layout/Container';
 import Button from '@/components/ui/buttons/Button';
 import { Title } from '@/components/ui/typography/Title';
@@ -9,6 +11,21 @@ import { Title } from '@/components/ui/typography/Title';
 export const CallToAction = () => {
   const { t, ready } = useTranslation('common', { useSuspense: false });
   const router = useRouter();
+
+  function handleCtaButtonClick() {
+    // TODO: use isProd from env.ts
+    if (process.env.NODE_ENV === 'production') {
+      event({
+        category: 'cta',
+        action: 'click',
+        label: 'cta button',
+        value: 1,
+      });
+      router.push('/kontakt');
+      return;
+    }
+    router.push('/kontakt');
+  }
   return (
     <>
       <section className='overflow-hidden bg-gradient-to-tr from-primary-400 to-primary-600 py-16 md:py-24 lg:py-32'>
@@ -35,7 +52,7 @@ export const CallToAction = () => {
                 className='mb-32 block p-4 lg:p-6'
                 variant='light'
                 isDarkBg
-                onClick={() => router.push('/kontakt')}
+                onClick={() => handleCtaButtonClick()}
               >
                 {t('cta.buttonText')}
               </Button>
