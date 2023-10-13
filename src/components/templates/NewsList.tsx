@@ -9,7 +9,7 @@ import ArrowLink from '@/components/ui/links/ArrowLink';
 import UnstyledLink from '@/components/ui/links/UnstyledLink';
 import { Title } from '@/components/ui/typography/Title';
 
-import { Data } from '@/interfaces/model';
+import { Data } from '@/interfaces/Data';
 
 interface NewsListProps {
   posts: Data[];
