@@ -2,7 +2,6 @@ import { GetServerSideProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
-import { useEffect, useRef } from 'react';
 import {
   VscArrowRight,
   VscCallOutgoing,
@@ -13,6 +12,7 @@ import {
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/layout/Seo';
+import GoogleMaps from '@/components/templates/GoogleMaps';
 import NextBreadcrumb from '@/components/ui/Breadcrumb';
 import Button from '@/components/ui/buttons/Button';
 import { Title } from '@/components/ui/typography/Title';
@@ -24,33 +24,11 @@ const ContactPage = (
   _props: InferGetStaticPropsType<typeof getServerSideProps>,
 ) => {
   const { t } = useTranslation('contact');
-  const mapContainer = useRef(null);
-
-  useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    const map = new google.maps.Map(mapContainer.current, {
-      center: {
-        lat: -33.86882,
-        lng: 151.20929,
-      },
-      zoom: 10,
-    });
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    new google.maps.Marker({
-      position: {
-        lat: -33.86882,
-        lng: 151.20929,
-      },
-      map,
-    });
-  }, []);
 
   return (
     <Layout>
       <Seo templateTitle={t('seo.title')} description={t('seo.description')} />
-      <div ref={mapContainer} className='map-container w-full'></div>
+      <GoogleMaps />
       <div className='cookieconsent-optout-marketing flex h-[350px] items-center bg-gray-100 align-middle'>
         <Container>
           <div className='flex flex-col items-center gap-8 align-middle'>

@@ -24,7 +24,7 @@ export default function Document() {
           ></script>
         )}
         <script
-          src={`https://maps.googleapis.com/maps/api/js?sensor=false&key=${googleMapsApiKey}&callback=initMap&libraries=&v=weekly`}
+          src={`https://maps.googleapis.com/maps/api/js?sensor=false&key=${googleMapsApiKey}&libraries=&v=weekly`}
           async
           type='text/plain'
           data-cookieconsent='marketing'
