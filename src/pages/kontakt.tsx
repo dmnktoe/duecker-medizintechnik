@@ -28,7 +28,9 @@ const ContactPage = (
   return (
     <Layout>
       <Seo templateTitle={t('seo.title')} description={t('seo.description')} />
-      <GoogleMaps />
+      <div className='cookieconsent-optin-marketing flex h-[350px] items-center bg-gray-100 align-middle'>
+        <GoogleMaps />
+      </div>
       <div className='cookieconsent-optout-marketing flex h-[350px] items-center bg-gray-100 align-middle'>
         <Container>
           <div className='flex flex-col items-center gap-8 align-middle'>
