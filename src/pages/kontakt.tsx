@@ -60,6 +60,8 @@ const ContactPage = (
         async
         data-cookieconsent='marketing'
         onReady={() => {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
           new google.maps.Map(mapRef.current, {
             center: { lat: -34.397, lng: 150.644 },
             zoom: 8,
