@@ -19,7 +19,7 @@ const LanguagePicker = ({ className }: Props) => {
   function handleLanguageChange(e: React.ChangeEvent<HTMLSelectElement>) {
     const newLocale = e.target.value;
     const currentPath = router.asPath.includes(router.locale ?? '')
-      ? router.asPath.split(`/${router.locale}`)[1]
+      ? router.asPath.replace(`/${router.locale}`, '')
       : router.asPath;
     const newPath =
       newLocale === 'de' ? currentPath : `/${newLocale}${currentPath}`;
@@ -31,8 +31,8 @@ const LanguagePicker = ({ className }: Props) => {
     <>
       <select
         className={clsx(className)}
-        name=''
-        id=''
+        name='languages'
+        id='languages'
         onChange={handleLanguageChange}
         value={LOCALES.i18n.locales.find((locale) => locale === i18n?.language)}
       >
