@@ -5,7 +5,7 @@ const Maps = () => {
   React.useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    if (window.Cookiebot.submitCustomConsent) {
+    if (window.Cookiebot.consent.marketing && window.google) {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       const google = window.google;
