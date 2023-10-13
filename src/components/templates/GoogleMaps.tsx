@@ -5,7 +5,7 @@ const Maps = () => {
   React.useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    if (window.Cookiebot.consent.marketing && window.google) {
+    if (window.Cookiebot.consent.marketing) {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       const google = window.google;
@@ -104,7 +104,7 @@ const Maps = () => {
   });
   return (
     <>
-      <div ref={mapRef}></div>
+      <div className='h-full w-full' ref={mapRef}></div>
     </>
   );
 };
