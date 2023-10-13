@@ -1,4 +1,4 @@
-import { gaTrackingId } from '@/constant/env';
+import { googleAnalyticsId } from '@/constant/env';
 
 export default function GoogleAnalytics({
   GA_MEASUREMENT_ID,
@@ -9,7 +9,7 @@ export default function GoogleAnalytics({
     <>
       {/* eslint-disable-next-line @next/next/no-sync-scripts */}
       <script
-        src={`https://www.googletagmanager.com/gtag/js?id=${gaTrackingId}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
         type='text/plain'
         data-cookieconsent='statistics'
       />

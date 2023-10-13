@@ -1,4 +1,5 @@
 import { GetServerSideProps, InferGetStaticPropsType } from 'next';
+import Script from 'next/script';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
@@ -18,13 +19,14 @@ import Button from '@/components/ui/buttons/Button';
 import { Title } from '@/components/ui/typography/Title';
 
 import { data } from '@/constant/data';
-import { isLocal } from '@/constant/env';
+import { googleMapsApiKey, isLocal } from '@/constant/env';
 
 const ContactPage = (
   _props: InferGetStaticPropsType<typeof getServerSideProps>,
 ) => {
   const { t } = useTranslation('contact');
   const iframeRef = useRef(null); // Create a ref
+  const mapRef = useRef();
 
   useEffect(() => {
     const iframe = iframeRef.current;
@@ -51,6 +53,20 @@ const ContactPage = (
         id='google-maps'
         ref={iframeRef}
       ></iframe>
+      <div ref={mapRef}></div>
+      <Script
+        id='googleMaps'
+        src={`https://maps.googleapis.com/maps/api/js?sensor=false&key=${googleMapsApiKey}&callback=mapAPI_Loaded`}
+        type='text/plain'
+        async
+        data-cookieconsent='marketing'
+        onReady={() => {
+          new google.maps.Map(mapRef.current, {
+            center: { lat: -34.397, lng: 150.644 },
+            zoom: 8,
+          });
+        }}
+      />
       <div className='cookieconsent-optout-marketing flex h-[350px] items-center bg-gray-100 align-middle'>
         <Container>
           <div className='flex flex-col items-center gap-8 align-middle'>

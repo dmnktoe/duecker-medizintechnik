@@ -2,7 +2,12 @@ import { Head, Html, Main, NextScript } from 'next/document';
 
 import GoogleAnalytics from '@/components/layout/GoogleAnalytics';
 
-import { cookieBotId, gaTrackingId, isLocal, isProd } from '@/constant/env';
+import {
+  cookieBotId,
+  googleAnalyticsId,
+  isLocal,
+  isProd,
+} from '@/constant/env';
 
 export default function Document() {
   return (
@@ -17,7 +22,7 @@ export default function Document() {
             type='text/javascript'
           ></script>
         )}
-        <GoogleAnalytics GA_MEASUREMENT_ID={gaTrackingId} />
+        <GoogleAnalytics GA_MEASUREMENT_ID={googleAnalyticsId} />
         <link
           rel='preload'
           href='/fonts/manrope-var-wght.woff2'
