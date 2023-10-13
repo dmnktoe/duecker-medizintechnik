@@ -1,4 +1,4 @@
-import { GetServerSideProps, InferGetStaticPropsType } from 'next';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
@@ -20,7 +20,7 @@ import { data } from '@/constant/data';
 import { isLocal } from '@/constant/env';
 
 const ContactPage = (
-  _props: InferGetStaticPropsType<typeof getServerSideProps>,
+  _props: InferGetStaticPropsType<typeof getStaticProps>,
 ) => {
   const { t } = useTranslation('contact');
   return (
@@ -1030,7 +1030,7 @@ const ContactPage = (
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
       ...(await serverSideTranslations(locale ?? 'de', ['common', 'contact'])),
