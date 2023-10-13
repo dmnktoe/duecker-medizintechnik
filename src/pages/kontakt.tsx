@@ -1,5 +1,4 @@
 import { GetServerSideProps, InferGetStaticPropsType } from 'next';
-import Script from 'next/script';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
@@ -19,56 +18,39 @@ import Button from '@/components/ui/buttons/Button';
 import { Title } from '@/components/ui/typography/Title';
 
 import { data } from '@/constant/data';
-import { googleMapsApiKey, isLocal } from '@/constant/env';
+import { isLocal } from '@/constant/env';
 
 const ContactPage = (
   _props: InferGetStaticPropsType<typeof getServerSideProps>,
 ) => {
   const { t } = useTranslation('contact');
-  const iframeRef = useRef(null); // Create a ref
-  const mapRef = useRef(null);
+  const mapContainer = useRef(null);
 
   useEffect(() => {
-    const iframe = iframeRef.current;
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    const src = iframe.getAttribute('data-cookieblock-src');
+    const map = new google.maps.Map(mapContainer.current, {
+      center: {
+        lat: -33.86882,
+        lng: 151.20929,
+      },
+      zoom: 10,
+    });
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    iframe.setAttribute('data-cookieblock-src', '');
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    iframe.setAttribute('data-cookieblock-src', src);
+    new google.maps.Marker({
+      position: {
+        lat: -33.86882,
+        lng: 151.20929,
+      },
+      map,
+    });
   }, []);
+
   return (
     <Layout>
       <Seo templateTitle={t('seo.title')} description={t('seo.description')} />
-      <iframe
-        data-cookieblock-src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2504.4921251717064!2d9.525939712762506!3d51.117829971609424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bb5aaf09e8bad1%3A0x545375d8f9b01b22!2sRolf%20D%C3%BCcker%20M.E.T.Melsunger%20Endoskopie%20Technik!5e0!3m2!1sde!2sde!4v1694365981272!5m2!1sde!2sde'
-        data-cookieconsent='marketing'
-        width='100%'
-        height='350'
-        referrerPolicy='no-referrer-when-downgrade'
-        loading='eager'
-        id='google-maps'
-        ref={iframeRef}
-      ></iframe>
-      <Script
-        id='googleMaps'
-        src={`https://maps.googleapis.com/maps/api/js?sensor=false&key=${googleMapsApiKey}&callback=mapAPI_Loaded`}
-        type='text/plain'
-        async
-        data-cookieconsent='marketing'
-        onReady={() => {
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          new google.maps.Map(mapRef.current, {
-            center: { lat: -34.397, lng: 150.644 },
-            zoom: 8,
-          });
-        }}
-      />
-      <div ref={mapRef}></div>
+      <div ref={mapContainer} className='map-container w-full'></div>
       <div className='cookieconsent-optout-marketing flex h-[350px] items-center bg-gray-100 align-middle'>
         <Container>
           <div className='flex flex-col items-center gap-8 align-middle'>

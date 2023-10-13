@@ -5,6 +5,7 @@ import GoogleAnalytics from '@/components/layout/GoogleAnalytics';
 import {
   cookieBotId,
   googleAnalyticsId,
+  googleMapsApiKey,
   isLocal,
   isProd,
 } from '@/constant/env';
@@ -22,6 +23,12 @@ export default function Document() {
             type='text/javascript'
           ></script>
         )}
+        <script
+          src={`https://maps.googleapis.com/maps/api/js?sensor=false&key=${googleMapsApiKey}&callback=initMap&libraries=&v=weekly`}
+          async
+          type='text/plain'
+          data-cookieconsent='marketing'
+        ></script>
         <GoogleAnalytics GA_MEASUREMENT_ID={googleAnalyticsId} />
         <link
           rel='preload'
