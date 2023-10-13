@@ -16,8 +16,8 @@ import NextBreadcrumb from '@/components/ui/Breadcrumb';
 import Button from '@/components/ui/buttons/Button';
 import { Title } from '@/components/ui/typography/Title';
 
-import { isLocal } from '@/constant/env';
 import { company } from '@/constant/company';
+import { isLocal } from '@/constant/env';
 
 const ContactPage = (
   _props: InferGetStaticPropsType<typeof getStaticProps>,
