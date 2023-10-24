@@ -2,6 +2,7 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
+import { useEffect } from 'react';
 import {
   VscArrowRight,
   VscCallOutgoing,
@@ -23,6 +24,13 @@ const ContactPage = (
   _props: InferGetStaticPropsType<typeof getStaticProps>,
 ) => {
   const { t } = useTranslation('contact');
+
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    window.Cookiebot.initConsent();
+  }, []);
+
   return (
     <Layout>
       <Seo templateTitle={t('seo.title')} description={t('seo.description')} />
