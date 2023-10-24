@@ -1,5 +1,6 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import Image from 'next/image';
+import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 import { VscArrowRight, VscCheck } from 'react-icons/vsc';
@@ -18,6 +19,7 @@ import heroImg from '/public/images/production/duecker-medizintechnik_production
 const ProductionPage = (
   _props: InferGetStaticPropsType<typeof getStaticProps>,
 ) => {
+  const { t } = useTranslation('production');
   return (
     <Layout>
       <Seo templateTitle='Produktion' />
@@ -44,9 +46,7 @@ const ProductionPage = (
           <div className='mb-16 flex flex-col items-start md:flex-row md:gap-6 lg:mb-24'>
             <div className='mb-6 w-full lg:mb-0 lg:w-2/3 xl:w-1/2'>
               <div className='text-dark'>
-                <Title isAnimated>
-                  Wir unterstützen Ihre Deployments durch unsere Produktion
-                </Title>
+                <Title isAnimated>{t('headline')}</Title>
                 <p className='text-base'>
                   Als Hersteller von sterilen und unsterilen Schlauchsystemen
                   sind wir seit Jahren im Markt etabliert. Unser
