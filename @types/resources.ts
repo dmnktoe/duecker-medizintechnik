@@ -8,6 +8,7 @@ import news from '~/locales/de/news.json';
 import notFound from '~/locales/de/notFound.json';
 import privacy from '~/locales/de/privacy.json';
 import production from '~/locales/de/production.json';
+import services from '~/locales/de/services.json';
 
 const resources = {
   aboutUs,
@@ -20,6 +21,7 @@ const resources = {
   notFound,
   privacy,
   production,
+  services,
 } as const;
 
 export default resources;
