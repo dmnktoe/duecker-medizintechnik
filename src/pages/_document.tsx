@@ -1,10 +1,12 @@
 import { Head, Html, Main, NextScript } from 'next/document';
 
 import GoogleAnalytics from '@/components/layout/GoogleAnalytics';
+import Hotjar from '@/components/layout/Hotjar';
 
 import {
   cookieBotId,
   googleAnalyticsId,
+  hotjarId,
   isLocal,
   isProd,
 } from '@/constant/env';
@@ -23,6 +25,7 @@ export default function Document() {
           ></script>
         )}
         <GoogleAnalytics GA_MEASUREMENT_ID={googleAnalyticsId} />
+        <Hotjar HOTJAR_ID={hotjarId} />
         <link
           rel='preload'
           href='/fonts/manrope-var-wght.woff2'
