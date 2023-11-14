@@ -13,6 +13,7 @@ import {
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/layout/Seo';
+import ContactForm from '@/components/templates/ContactForm';
 import NextBreadcrumb from '@/components/ui/Breadcrumb';
 import Button from '@/components/ui/buttons/Button';
 import { Title } from '@/components/ui/typography/Title';
@@ -236,6 +237,7 @@ const ContactPage = (
                       Submit
                     </Button>
                   </form>
+                  <ContactForm />
                   <div>
                     <span className='absolute -right-9 -top-10 z-[-1]'>
                       <svg
