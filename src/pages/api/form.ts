@@ -35,7 +35,7 @@ export default async function ContactApi(
     return;
   }
   const transporter = nodemailer.createTransport({
-    port: 465,
+    port: process.env.SMTP_PORT as unknown as number,
     secure: true,
     host: process.env.SMTP_HOST,
     auth: {
