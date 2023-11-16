@@ -1,51 +1,53 @@
 import { zodResolver } from '@hookform/resolvers/zod';
+import * as Sentry from '@sentry/nextjs';
 import axios from 'axios';
-import { i18n, useTranslation } from 'next-i18next';
+import { i18n, Trans, useTranslation } from 'next-i18next';
 import React, { useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 import Button from '@/components/ui/buttons/Button';
-
-const formSchema = z.object({
-  fullName: z
-    .string()
-    .min(1, { message: i18n?.t('contact:contactForm.fullName.error') }),
-  email: z
-    .string()
-    .min(1, { message: i18n?.t('contact:contactForm.email.error.required') })
-    .email({
-      message: i18n?.t('contact:contactForm.email.error.invalid'),
-    }),
-  phone: z
-    .string()
-    .min(1, { message: i18n?.t('contact:contactForm.phone.error.required') })
-    // TODO: Regex for phone number
-    .regex(/^\+(?:[0-9]⋅?){6,14}[0-9]$/, {
-      message: i18n?.t('contact:contactForm.phone.error.invalid'),
-    }),
-  message: z
-    .string()
-    .min(10, { message: 'Message must be at least 10 characters' })
-    .max(1000, { message: 'Message must be less than 1000 characters' }),
-});
-
-type FormData = z.infer<typeof formSchema>;
+import UnderlineLink from '@/components/ui/links/UnderlineLink';
 
 export default function ContactForm() {
+  type FormData = z.infer<typeof formSchema>;
+
   const { t } = useTranslation('contact');
-  // eslint-disable-next-line unused-imports/no-unused-vars
   const [result, setResult] = useState<string>();
-  // eslint-disable-next-line unused-imports/no-unused-vars
   const [resultColor, setResultColor] = useState<string>();
   const recaptchaRef = useRef<ReCAPTCHA>(null);
+
+  const formSchema = z.object({
+    fullName: z.string().min(1, {
+      message: i18n?.t('contact:contactForm.fullName.error.required'),
+    }),
+    email: z
+      .string()
+      .min(1, { message: i18n?.t('contact:contactForm.email.error.required') })
+      .email({
+        message: i18n?.t('contact:contactForm.email.error.invalid'),
+      }),
+    phone: z
+      .string()
+      .min(1, { message: i18n?.t('contact:contactForm.phone.error.required') }),
+    message: z
+      .string()
+      .min(10, {
+        message: i18n?.t('contact:contactForm.message.error.minLength'),
+      })
+      .max(1000, {
+        message: i18n?.t('contact:contactForm.message.error.maxLength'),
+      }),
+    terms: z.boolean().refine((val) => val, {
+      message: i18n?.t('contact:contactForm.terms.error'),
+    }),
+  });
 
   const {
     register,
     handleSubmit,
     reset,
-    // eslint-disable-next-line unused-imports/no-unused-vars
     formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -69,7 +71,8 @@ export default function ContactForm() {
       if (response.status === 200) {
         // Handle success. You can change the message to whatever you want.
         setResult(
-          'Your message has been sent. Thank you for contacting us. We will get back to you as soon as possible.',
+          i18n?.t('contact:contactForm.submit.success') ||
+            'Thank you for your message. We will get back to you as soon as possible.',
         );
         setResultColor('text-green-500');
         // Reset the form after successful submission
@@ -80,6 +83,7 @@ export default function ContactForm() {
       // Handle errors. You can change the message to whatever you want.
       setResult(err.response.data.message + ': ' + err.response.statusText);
       setResultColor('text-red-500');
+      Sentry.captureException(err);
     }
   };
 
@@ -97,10 +101,10 @@ export default function ContactForm() {
           >
             {errors.fullName?.message ? (
               <span className='text-red-500'>
-                {t('contactForm.fullName.label')}
+                {t('contactForm.fullName.label')}*
               </span>
             ) : (
-              <span>{t('contactForm.fullName.label')}</span>
+              <span>{t('contactForm.fullName.label')}*</span>
             )}
           </label>
           <input
@@ -125,10 +129,10 @@ export default function ContactForm() {
           >
             {errors.email?.message ? (
               <span className='text-red-500'>
-                {t('contactForm.email.label')}
+                {t('contactForm.email.label')}*
               </span>
             ) : (
-              <span>{t('contactForm.email.label')}</span>
+              <span>{t('contactForm.email.label')}*</span>
             )}
           </label>
           <input
@@ -153,10 +157,10 @@ export default function ContactForm() {
           >
             {errors.phone?.message ? (
               <span className='text-red-500'>
-                {t('contactForm.phone.label')}
+                {t('contactForm.phone.label')}*
               </span>
             ) : (
-              <span>{t('contactForm.phone.label')}</span>
+              <span>{t('contactForm.phone.label')}*</span>
             )}
           </label>
           <input
@@ -182,10 +186,10 @@ export default function ContactForm() {
             >
               {errors.message?.message ? (
                 <span className='text-red-500'>
-                  {t('contactForm.message.label')}
+                  {t('contactForm.message.label')}*
                 </span>
               ) : (
-                <span>{t('contactForm.message.label')}</span>
+                <span>{t('contactForm.message.label')}*</span>
               )}
             </label>
             <textarea
@@ -205,6 +209,37 @@ export default function ContactForm() {
           </div>
         </div>
         <div>
+          <div className='flex items-center'>
+            <input
+              type='checkbox'
+              id='terms'
+              className='h-4 w-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500'
+              {...register('terms')}
+            />
+            <label htmlFor='terms' className='ml-2 block text-sm text-gray-900'>
+              <Trans
+                i18nKey='contactForm.terms.label'
+                t={t}
+                components={{
+                  linkTag: (
+                    <UnderlineLink
+                      target='_blank'
+                      href='/datenschutz'
+                      // eslint-disable-next-line react/no-children-prop
+                      children=''
+                    />
+                  ),
+                }}
+              />
+            </label>
+          </div>
+          {errors.terms?.message && (
+            <div className='mt-1 text-xs text-red-500'>
+              {errors.terms?.message}
+            </div>
+          )}
+        </div>
+        <div>
           <ReCAPTCHA
             sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
             size='invisible'
@@ -220,7 +255,7 @@ export default function ContactForm() {
             isLoading={isSubmitting}
             className='w-full'
           >
-            {isSubmitting ? 'Sending...' : t('contactForm.submitButton')}
+            {isSubmitting ? 'Sending...' : t('contactForm.submit.label')}
           </Button>
 
           {isSubmitSuccessful && (
