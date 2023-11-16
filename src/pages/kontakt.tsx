@@ -139,7 +139,7 @@ const ContactPage = (
                   </p>
                   <div className='mb-8 flex w-full max-w-[370px] items-center'>
                     <div className='mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-primary-500 bg-opacity-5 text-primary-500 sm:h-[70px] sm:max-w-[70px]'>
-                      <VscHome className='h-8 w-8' />
+                      <VscHome className='h-6 w-6' />
                     </div>
                     <div className='w-full'>
                       <h4 className='mb-1 text-xl font-semibold text-dark'>
@@ -154,7 +154,7 @@ const ContactPage = (
                   </div>
                   <div className='mb-8 flex w-full max-w-[370px] items-center'>
                     <div className='mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-primary-500 bg-opacity-5 text-primary-500 sm:h-[70px] sm:max-w-[70px]'>
-                      <VscCallOutgoing className='h-8 w-8' />
+                      <VscCallOutgoing className='h-6 w-6' />
                     </div>
                     <div className='w-full'>
                       <h4 className='mb-1 text-xl font-semibold text-dark'>
@@ -169,7 +169,7 @@ const ContactPage = (
                   </div>
                   <div className='mb-8 flex w-full max-w-[370px] items-center'>
                     <div className='mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-primary-500 bg-opacity-5 text-primary-500 sm:h-[70px] sm:max-w-[70px]'>
-                      <VscMail className='h-8 w-8' />
+                      <VscMail className='h-6 w-6' />
                     </div>
                     <div className='w-full'>
                       <h4 className='mb-1 text-xl font-semibold text-dark'>
