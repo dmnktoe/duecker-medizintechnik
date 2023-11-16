@@ -4,7 +4,7 @@
     "description": "Dücker Medizintechnik will be happy to answer your questions, provide detailed information about our medical application services or assist you with technical matters."
   },
   "mapsBanner": {
-    "cookieNotice": "This content is loaded from a third party service (Google Maps). If you activate the content, personal data may be processed and cookies may be set.",
+    "cookieNotice": "This content is loaded from a third party service (Google Maps). <br/> If you activate the content, personal data may be processed and cookies may be set.",
     "cookieSettings": "Cookie settings",
     "accept": "Accept"
   },

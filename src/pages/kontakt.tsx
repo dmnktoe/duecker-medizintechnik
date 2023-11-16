@@ -52,9 +52,12 @@ const ContactPage = (
           <div className='cookieconsent-optout-marketing flex h-[350px] items-center bg-gray-100 align-middle'>
             <Container>
               <div className='flex flex-col items-center gap-8 align-middle'>
-                <span className='text-center font-normal text-gray-500 md:text-lg'>
-                  {t('mapsBanner.cookieNotice')}
-                </span>
+                <span
+                  className='text-center font-normal text-gray-500 md:text-lg'
+                  dangerouslySetInnerHTML={{
+                    __html: t('mapsBanner.cookieNotice'),
+                  }}
+                />
                 <div className='flex w-full flex-wrap justify-center gap-4 sm:w-auto'>
                   <Button
                     variant='primary'
