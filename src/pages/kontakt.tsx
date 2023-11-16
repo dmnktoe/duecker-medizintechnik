@@ -16,7 +16,7 @@ import Seo from '@/components/layout/Seo';
 import ContactForm from '@/components/templates/ContactForm';
 import NextBreadcrumb from '@/components/ui/Breadcrumb';
 import Button from '@/components/ui/buttons/Button';
-import UnstyledLink from '@/components/ui/links/UnstyledLink';
+import UnderlineLink from '@/components/ui/links/UnderlineLink';
 import { Title } from '@/components/ui/typography/Title';
 
 import { company } from '@/constant/company';
@@ -53,10 +53,7 @@ const ContactPage = (
             <Container>
               <div className='flex flex-col items-center gap-8 align-middle'>
                 <span className='text-center font-normal text-gray-500 md:text-lg'>
-                  Dieser Inhalt wird über Google Maps geladen.
-                  <br />
-                  Akzeptieren Sie die Marketing Cookies um den Inhalt
-                  anzuzeigen.
+                  {t('mapsBanner.cookieNotice')}
                 </span>
                 <div className='flex w-full flex-wrap justify-center gap-4 sm:w-auto'>
                   <Button
@@ -80,7 +77,7 @@ const ContactPage = (
                           }
                     }
                   >
-                    Marketing Cookies akzeptieren
+                    {t('mapsBanner.accept')}
                   </Button>
                   <Button
                     variant='outline'
@@ -133,12 +130,9 @@ const ContactPage = (
                     capitalizeLinks
                     className='mb-6'
                   />
-                  <Title margin={false}>Kontakt aufnehmen</Title>
+                  <Title>{t('headline')}</Title>
                   <p className='text-body-color mb-12 text-base leading-relaxed'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eius tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim adiqua minim veniam quis nostrud exercitation
-                    ullamco
+                    {t('subheadline')}
                   </p>
                   <div className='mb-8 flex w-full max-w-[370px] items-center'>
                     <div className='mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-primary-500 bg-opacity-5 text-primary-500 sm:h-[70px] sm:max-w-[70px]'>
@@ -161,12 +155,12 @@ const ContactPage = (
                     </div>
                     <div className='w-full'>
                       <h4 className='mb-1 text-xl font-bold text-dark'>
-                        {t('telephone')}
+                        {t('phone')}
                       </h4>
                       <p className='text-body-color text-base'>
-                        <UnstyledLink href={`tel:${company.phone}`}>
+                        <UnderlineLink href={`tel:${company.phone}`}>
                           {company.phone}
-                        </UnstyledLink>
+                        </UnderlineLink>
                       </p>
                     </div>
                   </div>
@@ -179,9 +173,9 @@ const ContactPage = (
                         {t('email')}
                       </h4>
                       <p className='text-body-color text-base'>
-                        <UnstyledLink href={`mailto:${company.email}`}>
+                        <UnderlineLink href={`mailto:${company.email}`}>
                           {company.email}
-                        </UnstyledLink>
+                        </UnderlineLink>
                       </p>
                     </div>
                   </div>
@@ -189,10 +183,9 @@ const ContactPage = (
               </div>
               <div className='w-full px-4 lg:w-1/2 xl:w-5/12'>
                 <div className='relative rounded-lg bg-white p-8 shadow-lg sm:p-12'>
-                  <Title size='three'>Schreiben Sie uns</Title>
+                  <Title size='three'>{t('contactForm.title')}</Title>
                   <p className='mb-8 font-light text-gray-500 lg:mb-12'>
-                    Got a technical issue? Want to send feedback about a beta
-                    feature? Need details about our Business plan? Let us know.
+                    {t('contactForm.description')}
                   </p>
                   <ContactForm />
                   <div>
