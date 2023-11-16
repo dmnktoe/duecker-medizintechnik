@@ -1,8 +1,58 @@
 {
   "seo": {
-    "title": "Handel, Produktion, Reperatur für OP-Lösungen und Sterilisierungen",
-    "description": "Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten."
+    "title": "Contact us",
+    "description": "Dücker Medizintechnik will be happy to answer your questions, provide detailed information about our medical application services or assist you with technical matters."
   },
-  "headline": "Lassen Sie uns gemeinsam die Zukunft gestalten",
-  "subheadline": "Kontaktieren Sie uns, um mehr über unsere Produkte und Dienstleistungen zu erfahren."
+  "mapsBanner": {
+    "cookieNotice": "This content is loaded from a third party service (Google Maps). If you activate the content, personal data may be processed and cookies may be set.",
+    "cookieSettings": "Cookie settings",
+    "accept": "Accept"
+  },
+  "headline": "Contact us",
+  "subheadline": "Our team is ready to answer your questions, provide detailed information about our medical application services or assist you with technical matters.",
+  "ourLocation": "Our location",
+  "phone": "Phone",
+  "email": "E-Mail",
+  "contactForm": {
+    "title": "Write us a message",
+    "description": "We are looking forward to your message and will get back to you as soon as possible.",
+    "fullName": {
+      "label": "Full name",
+      "placeholder": "John Doe",
+      "error": {
+        "required": "Please enter your full name."
+      }
+    },
+    "email": {
+      "label": "Your e-mail address",
+      "placeholder": "name@example.com",
+      "error": {
+        "required": "Please enter your e-mail address.",
+        "invalid": "Please enter a valid e-mail address."
+      }
+    },
+    "phone": {
+      "label": "Your phone number",
+      "placeholder": "+XX 123 4567890",
+      "error": {
+        "required": "Please enter your phone number."
+      }
+    },
+    "terms": {
+      "label": "I accept the <linkTag>privacy policy</linkTag>.",
+      "error": "Please accept our privacy policy."
+    },
+    "message": {
+      "label": "Your message",
+      "placeholder": "Let us know how we can help you.",
+      "error": {
+        "minLength": "The message must be at least 10 characters long.",
+        "maxLength": "The message must not be longer than 1000 characters."
+      }
+    },
+    "submit": {
+      "label": "Send message",
+      "success": "Thank you for your message. We will get back to you as soon as possible."
+    }
+  }
 }
