@@ -208,7 +208,7 @@ export default function ContactForm() {
             )}
           </div>
         </div>
-        <div>
+        <div className='py-1'>
           <div className='flex items-center'>
             <input
               type='checkbox'

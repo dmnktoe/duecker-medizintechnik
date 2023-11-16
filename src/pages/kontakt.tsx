@@ -142,7 +142,7 @@ const ContactPage = (
                       <VscHome className='h-8 w-8' />
                     </div>
                     <div className='w-full'>
-                      <h4 className='mb-1 text-xl font-bold text-dark'>
+                      <h4 className='mb-1 text-xl font-semibold text-dark'>
                         {t('ourLocation')}
                       </h4>
                       <p className='text-body-color text-base'>
@@ -157,7 +157,7 @@ const ContactPage = (
                       <VscCallOutgoing className='h-8 w-8' />
                     </div>
                     <div className='w-full'>
-                      <h4 className='mb-1 text-xl font-bold text-dark'>
+                      <h4 className='mb-1 text-xl font-semibold text-dark'>
                         {t('phone')}
                       </h4>
                       <p className='text-body-color text-base'>
@@ -172,7 +172,7 @@ const ContactPage = (
                       <VscMail className='h-8 w-8' />
                     </div>
                     <div className='w-full'>
-                      <h4 className='mb-1 text-xl font-bold text-dark'>
+                      <h4 className='mb-1 text-xl font-semibold text-dark'>
                         {t('email')}
                       </h4>
                       <p className='text-body-color text-base'>
