@@ -4,5 +4,39 @@
     "description": "Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten."
   },
   "headline": "Planen Sie eine Zusammenarbeit mit uns?",
-  "subheadline": "Kontaktieren Sie uns, um mehr über unsere Produkte und Dienstleistungen zu erfahren."
+  "subheadline": "Kontaktieren Sie uns, um mehr über unsere Produkte und Dienstleistungen zu erfahren.",
+  "ourLocation": "Unser Standort",
+  "telephone": "Telefon-Nr.",
+  "email": "E-Mail Adresse",
+  "contactForm": {
+    "title": "Schreiben Sie uns",
+    "description": "Wir freuen uns auf Ihre Nachricht und werden uns schnellstmöglich bei Ihnen melden.",
+    "fullName": {
+      "label": "Ihr Vor- & Nachname*\n",
+      "placeholder": "Ihr Vor- & Nachname",
+      "error": "Bitte geben Sie Ihren Vor- & Nachnamen ein"
+    },
+    "email": {
+      "label": "Ihre E-Mail*\n",
+      "placeholder": "name@example.com",
+      "error": {
+        "required": "Bitte geben Sie Ihre E-Mail-Adresse ein",
+        "invalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein"
+      }
+    },
+    "phone": {
+      "label": "Ihre Telefonnummer*\n",
+      "placeholder": "+49 123 456 7890",
+      "error": {
+        "required": "Bitte geben Sie Ihre Telefonnummer ein",
+        "invalid": "Bitte geben Sie eine gültige Telefonnummer ein"
+      }
+    },
+    "message": {
+      "label": "Ihre Nachricht ans uns*\n",
+      "placeholder": "Lassen Sie uns wissen, wie wir Ihnen helfen können.",
+      "error": "Die Nachricht muss mindestens 10 Zeichen lang sein."
+    },
+    "submitButton": "Nachricht senden"
+  }
 }
