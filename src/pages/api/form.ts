@@ -4,7 +4,7 @@ import hbs from 'nodemailer-express-handlebars';
 import path from 'path';
 
 interface Data {
-  nameSurname: string;
+  fullName: string;
   email: string;
   message: string;
   phone: string;
@@ -26,7 +26,7 @@ export default async function ContactApi(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
-  const { nameSurname, email, phone, message, token }: Data = req.body;
+  const { fullName, email, phone, message, token }: Data = req.body;
 
   const human = await validateHuman(token);
   if (!human) {
@@ -49,15 +49,15 @@ export default async function ContactApi(
 
   try {
     await transporter.sendMail({
-      from: `${nameSurname} ${email}`,
+      from: `${fullName} no-reply@${process.env.CONTACT_FORM_SEND_EMAIL_DOMAIN}`,
       replyTo: email,
       to: process.env.CONTACT_FORM_RECEIVE_EMAIL,
-      subject: `Contact form from - ${nameSurname}`,
+      subject: `Dücker Medizintechnik Kontaktformular von ${fullName}`,
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore-next-line
       template: 'contact',
       context: {
-        nameSurname: nameSurname,
+        fullName: fullName,
         email: email,
         phone: phone,
         message: message,
@@ -71,7 +71,7 @@ export default async function ContactApi(
 }
 
 async function validateHuman(token: string) {
-  const secret = process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_SECRET_KEY;
+  const secret = process.env.RECAPTCHA_SECRET_KEY;
   const response = await fetch(
     `https://www.google.com/recaptcha/api/siteverify?secret=${secret}&response=${token}`,
     {
