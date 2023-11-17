@@ -10,6 +10,7 @@ import Layout from '@/components/layout/Layout';
 import Seo from '@/components/layout/Seo';
 import ImageBanner from '@/components/templates/ImageBanner/ImageBanner';
 import { AspectRatio } from '@/components/ui/AspectRatio';
+import Badge from '@/components/ui/Badge';
 import NextBreadcrumb from '@/components/ui/Breadcrumb';
 import UnderlineLink from '@/components/ui/links/UnderlineLink';
 import { Title } from '@/components/ui/typography/Title';
@@ -48,6 +49,11 @@ const CommercePage = (
           <div className='mb-16 flex flex-col items-start md:flex-row md:gap-6 lg:mb-24'>
             <div className='mb-6 w-full lg:mb-0 lg:w-2/3 xl:w-1/2'>
               <div className='text-dark'>
+                <div className='mb-2'>
+                  <Badge size='lg' color='secondary' variant='solid'>
+                    Handel
+                  </Badge>
+                </div>
                 <Title isAnimated>
                   Ein ganzes Universum innovativer Lösungen von Medizintechnik
                   bis Logistik

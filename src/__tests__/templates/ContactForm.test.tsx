@@ -108,5 +108,14 @@ describe('ContactForm', () => {
     expect(res.json).toHaveBeenCalledWith({ message: 'success' });
   });
 
-  // TODO: Add test for error handling
+  it('should not submit the form with empty fields', async () => {
+    const { getByText, getByRole } = render(<ContactForm />);
+
+    await act(async () => {
+      fireEvent.click(getByRole('button', { name: /Absenden/i }));
+    });
+
+    // expect /Invalid input/i to be in the document
+    expect(getByText(/Invalid input/i)).toBeInTheDocument();
+  });
 });
