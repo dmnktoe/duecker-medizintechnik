@@ -65,7 +65,7 @@ export default async function ContactApi(
     });
     res.status(200).json({ message: 'success' });
   } catch (err) {
-    res.status(500).json({ message: 'an error occured' });
+    res.status(500).json({ message: 'an error occurred' });
     throw err;
   }
 }
