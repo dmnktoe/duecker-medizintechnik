@@ -6,19 +6,19 @@ import Button from '@/components/ui/buttons/Button';
 describe('Button', () => {
   afterEach(cleanup); // Add this line
 
-  test('renders correctly', () => {
+  it('should render correctly', () => {
     render(<Button>Test Button</Button>);
     expect(screen.getByText('Test Button')).toBeInTheDocument();
   });
 
-  test('handles click', () => {
+  it('should handle click', () => {
     const handleClick = jest.fn();
     render(<Button onClick={handleClick}>Click Me</Button>);
     fireEvent.click(screen.getByText('Click Me'));
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
 
-  test('shows loading state', () => {
+  it('should show loading state', () => {
     render(<Button isLoading>Test Button</Button>);
     expect(screen.getByRole('button')).toBeDisabled();
     expect(screen.getByText('Test Button')).toHaveClass('text-transparent');
@@ -30,7 +30,7 @@ describe('Button', () => {
     expect(screen.getByText('Test Button')).toHaveClass('disabled:cursor-wait');
   });
 
-  test('renders with different variants', () => {
+  it('should render with different variants', () => {
     const variants = ['primary', 'outline', 'ghost', 'light', 'dark'];
     variants.forEach((variant) => {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -41,7 +41,7 @@ describe('Button', () => {
     });
   });
 
-  test('renders with different sizes', () => {
+  it('should render with different sizes', () => {
     const sizes = ['sm', 'base', 'lg'];
     sizes.forEach((size) => {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -52,7 +52,7 @@ describe('Button', () => {
     });
   });
 
-  test('renders with left and right icons', () => {
+  it('should render with left and right icons', () => {
     render(
       <Button leftIcon={HiPlus} rightIcon={HiArrowRight}>
         Test Button
@@ -61,12 +61,12 @@ describe('Button', () => {
     expect(screen.getByText('Test Button')).toBeInTheDocument();
   });
 
-  test('renders with isDarkBg prop', () => {
+  it('should render with isDarkBg prop', () => {
     render(<Button isDarkBg>Test Button</Button>);
     expect(screen.getByText('Test Button')).toBeInTheDocument();
   });
 
-  test('renders with isScaling prop', () => {
+  it('should render with isScaling prop', () => {
     render(<Button isScaling>Test Button</Button>);
     expect(screen.getByText('Test Button')).toBeInTheDocument();
   });
