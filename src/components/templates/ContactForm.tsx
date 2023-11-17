@@ -254,6 +254,7 @@ export default function ContactForm() {
             onClick={handleSubmit(processForm)}
             isLoading={isSubmitting}
             className='w-full'
+            role='button'
           >
             {isSubmitting ? 'Sending...' : t('contactForm.submit.label')}
           </Button>
