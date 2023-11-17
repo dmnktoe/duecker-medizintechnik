@@ -107,4 +107,6 @@ describe('ContactForm', () => {
     expect(res.status).toHaveBeenCalledWith(200);
     expect(res.json).toHaveBeenCalledWith({ message: 'success' });
   });
+
+  // TODO: Add test for error handling
 });
