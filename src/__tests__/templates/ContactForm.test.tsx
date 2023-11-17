@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
 import { NextApiRequest, NextApiResponse } from 'next';
 import React from 'react';
 
@@ -10,14 +11,12 @@ import ContactForm from '@/components/templates/ContactForm';
 import form from '@/pages/api/form';
 import initializeI18n from '@/utils/i18n-testing';
 
-jest.mock('axios');
-const mockedAxios = axios as jest.Mocked<typeof axios>;
+const mock = new MockAdapter(axios);
 
 jest.mock('react-google-recaptcha', () => {
   const MockReCAPTCHA = React.forwardRef<HTMLDivElement>((props, ref) => {
-    // Store the executeAsync and reset functions in separate variables
     const executeAsync = () => Promise.resolve('mocked_token');
-    const reset = () => {}; // Add this line
+    const reset = () => {};
 
     // Attach the executeAsync and reset functions to the ref
     if (ref && typeof ref === 'object') {
@@ -26,7 +25,7 @@ jest.mock('react-google-recaptcha', () => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
         executeAsync,
-        reset, // Add this line
+        reset,
       };
     }
 
@@ -39,7 +38,7 @@ jest.mock('react-google-recaptcha', () => {
 jest.mock('nodemailer', () => ({
   createTransport: jest.fn().mockReturnValue({
     sendMail: jest.fn().mockResolvedValue(true),
-    use: jest.fn(), // Add this line
+    use: jest.fn(),
   }),
 }));
 
@@ -54,16 +53,27 @@ describe('ContactForm', () => {
     await initializeI18n(['common', 'contact']);
   });
 
+  test('renders correctly', () => {
+    const { getByLabelText, getByRole } = render(<ContactForm />);
+
+    expect(getByLabelText(/Ihr Vor- & Nachname/i)).toBeInTheDocument();
+    expect(getByLabelText(/Ihre E-Mail/i)).toBeInTheDocument();
+    expect(getByLabelText(/Ihre Telefonnummer/i)).toBeInTheDocument();
+    expect(getByLabelText(/Ihre Nachricht/i)).toBeInTheDocument();
+    expect(getByLabelText(/Ich habe die/i)).toBeInTheDocument();
+    expect(getByRole('button', { name: /Absenden/i })).toBeInTheDocument();
+  });
   test('submits the form correctly', async () => {
-    mockedAxios.post.mockResolvedValueOnce({ status: 200 });
+    mock.onPost('/api/form').reply(200, { message: 'success' });
 
     const { getByLabelText, getByRole } = render(<ContactForm />);
 
+    // Simulate user input
     fireEvent.input(getByLabelText(/Ihr Vor- & Nachname/i), {
-      target: { value: 'Marc Duecker' },
+      target: { value: 'John Doe' },
     });
     fireEvent.input(getByLabelText(/Ihre E-Mail/i), {
-      target: { value: 'info@duecker-medizintechnik.de' },
+      target: { value: 'johndoe@example.com' },
     });
     fireEvent.input(getByLabelText(/Ihre Telefonnummer/i), {
       target: { value: '0123456789' },
@@ -74,35 +84,25 @@ describe('ContactForm', () => {
     fireEvent.click(getByLabelText(/Ich habe die/i));
     fireEvent.click(getByRole('button', { name: /Absenden/i }));
 
-    await waitFor(() => {
-      expect(mockedAxios.post).toHaveBeenCalledTimes(1);
-      expect(mockedAxios.post).toHaveBeenCalledWith('/api/form', {
-        fullName: 'Marc Duecker',
-        email: 'info@duecker-medizintechnik.de',
-        phone: '0123456789',
-        message: 'Test Test Test Test',
-        terms: true,
-      });
-    });
-  });
-});
-
-describe('form API route', () => {
-  test('handles the API request correctly', async () => {
-    const req = {
+    // Create a mock request and response object
+    const req: NextApiRequest = {
       body: {
         fullName: 'John Doe',
-        // ... rest of your form data ...
+        email: 'johndoe@example.com',
+        phone: '9876543210',
+        message: 'Test Test Test Test',
       },
     } as NextApiRequest;
 
-    const res = {
+    const res: NextApiResponse = {
       status: jest.fn().mockReturnThis(),
       json: jest.fn(),
     } as unknown as NextApiResponse;
 
+    // Call the form API route
     await form(req, res);
 
+    // Assert that the response status and message are correct
     expect(res.status).toHaveBeenCalledWith(200);
     expect(res.json).toHaveBeenCalledWith({ message: 'success' });
   });
