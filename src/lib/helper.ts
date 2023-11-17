@@ -11,8 +11,7 @@ export function openGraph({
   siteName,
   templateTitle,
   description,
-  // !STARTERCONF Add Duecker logo.
-  logo = 'https://og.<your-domain>/images/logo.jpg',
+  logo = 'https://cms.duecker-medizintechnik.de/uploads/duecker_medizintechnik_logo_3f4698e41c.png',
 }: OpenGraphType): string {
   const ogLogo = encodeURIComponent(logo);
   const ogSiteName = encodeURIComponent(siteName.trim());
