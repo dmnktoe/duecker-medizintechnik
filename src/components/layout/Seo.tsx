@@ -14,6 +14,7 @@ const defaultMeta = {
   url: 'https://' + company.url,
   type: 'website',
   robots: 'follow, index',
+  image: '',
 };
 
 type SeoProps = {
