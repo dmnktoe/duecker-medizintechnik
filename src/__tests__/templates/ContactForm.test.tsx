@@ -5,6 +5,7 @@ import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { NextApiRequest, NextApiResponse } from 'next';
 import React from 'react';
+import { act } from 'react-dom/test-utils';
 
 import ContactForm from '@/components/templates/ContactForm';
 
@@ -14,7 +15,7 @@ import initializeI18n from '@/utils/i18n-testing';
 const mock = new MockAdapter(axios);
 
 jest.mock('react-google-recaptcha', () => {
-  const MockReCAPTCHA = React.forwardRef<HTMLDivElement>((props, ref) => {
+  return React.forwardRef<HTMLDivElement>((_props, ref) => {
     const executeAsync = () => Promise.resolve('mocked_token');
     const reset = () => {};
 
@@ -31,8 +32,6 @@ jest.mock('react-google-recaptcha', () => {
 
     return <div ref={ref}>Mock ReCAPTCHA</div>;
   });
-
-  return MockReCAPTCHA;
 });
 
 jest.mock('nodemailer', () => ({
@@ -53,7 +52,7 @@ describe('ContactForm', () => {
     await initializeI18n(['common', 'contact']);
   });
 
-  test('renders correctly', () => {
+  it('should render correctly', () => {
     const { getByLabelText, getByRole } = render(<ContactForm />);
 
     expect(getByLabelText(/Ihr Vor- & Nachname/i)).toBeInTheDocument();
@@ -63,26 +62,28 @@ describe('ContactForm', () => {
     expect(getByLabelText(/Ich habe die/i)).toBeInTheDocument();
     expect(getByRole('button', { name: /Absenden/i })).toBeInTheDocument();
   });
-  test('submits the form correctly', async () => {
+
+  it('should submit the form correctly', async () => {
     mock.onPost('/api/form').reply(200, { message: 'success' });
 
     const { getByLabelText, getByRole } = render(<ContactForm />);
 
-    // Simulate user input
-    fireEvent.input(getByLabelText(/Ihr Vor- & Nachname/i), {
-      target: { value: 'John Doe' },
+    await act(async () => {
+      fireEvent.input(getByLabelText(/Ihr Vor- & Nachname/i), {
+        target: { value: 'John Doe' },
+      });
+      fireEvent.input(getByLabelText(/Ihre E-Mail/i), {
+        target: { value: 'johndoe@example.com' },
+      });
+      fireEvent.input(getByLabelText(/Ihre Telefonnummer/i), {
+        target: { value: '0123456789' },
+      });
+      fireEvent.input(getByLabelText(/Ihre Nachricht/i), {
+        target: { value: 'Test Test Test Test' },
+      });
+      fireEvent.click(getByLabelText(/Ich habe die/i));
+      fireEvent.click(getByRole('button', { name: /Absenden/i }));
     });
-    fireEvent.input(getByLabelText(/Ihre E-Mail/i), {
-      target: { value: 'johndoe@example.com' },
-    });
-    fireEvent.input(getByLabelText(/Ihre Telefonnummer/i), {
-      target: { value: '0123456789' },
-    });
-    fireEvent.input(getByLabelText(/Ihre Nachricht/i), {
-      target: { value: 'Test Test Test Test' },
-    });
-    fireEvent.click(getByLabelText(/Ich habe die/i));
-    fireEvent.click(getByRole('button', { name: /Absenden/i }));
 
     // Create a mock request and response object
     const req: NextApiRequest = {
