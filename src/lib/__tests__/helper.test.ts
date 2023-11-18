@@ -1,4 +1,11 @@
-import { formatDate, getStrapiMedia, openGraph } from '@/lib/helper';
+import {
+  delay,
+  formatDate,
+  getFromLocalStorage,
+  getFromSessionStorage,
+  getStrapiMedia,
+  openGraph,
+} from '@/lib/helper';
 
 describe('Open Graph function should work correctly', () => {
   it('should not return templateTitle when not specified', () => {
@@ -20,19 +27,19 @@ describe('Open Graph function should work correctly', () => {
 });
 
 describe('getStrapiMedia function', () => {
-  test('returns the full URL if the media is hosted on an external provider', () => {
+  it('should return the full URL if the media is hosted on an external provider', () => {
     const url = 'http://external-provider.com/media.jpg';
     const result = getStrapiMedia(url);
     expect(result).toBe(url);
   });
 
-  test('returns the URL prepended with the Strapi URL if the media is not hosted on an external provider', () => {
+  it('should return the URL prepended with the Strapi URL if the media is not hosted on an external provider', () => {
     const url = '/media.jpg';
     const result = getStrapiMedia(url);
     expect(result).toBe('https://cms.duecker-medizintechnik.de' + url);
   });
 
-  test('returns an empty string if the URL is null', () => {
+  it('should return an empty string if the URL is null', () => {
     const url = null;
     const result = getStrapiMedia(url);
     expect(result).toBe('');
@@ -40,8 +47,57 @@ describe('getStrapiMedia function', () => {
 });
 
 describe('formatDate function', () => {
-  test('should return the correct date format', () => {
+  it('should return the correct date format', () => {
     const result = formatDate(new Date('2022-01-01'));
     expect(result).toBe('1. Januar 2022');
+  });
+});
+
+describe('getFromLocalStorage', () => {
+  it('should return the value from local storage if it exists', () => {
+    const key = 'testKey';
+    const value = 'testValue';
+    window.localStorage.setItem(key, value);
+
+    expect(getFromLocalStorage(key)).toBe(value);
+  });
+
+  it('should return null if the value does not exist in local storage', () => {
+    const key = 'nonExistentKey';
+    window.localStorage.removeItem(key);
+
+    expect(getFromLocalStorage(key)).toBeNull();
+  });
+});
+
+describe('getFromSessionStorage', () => {
+  it('should return the value from session storage if it exists', () => {
+    const key = 'testKey';
+    const value = 'testValue';
+    sessionStorage.setItem(key, value);
+
+    expect(getFromSessionStorage(key)).toBe(value);
+  });
+
+  it('should return null if the value does not exist in session storage', () => {
+    const key = 'nonExistentKey';
+    sessionStorage.removeItem(key);
+
+    expect(getFromSessionStorage(key)).toBeNull();
+  });
+});
+
+describe('delay', () => {
+  jest.useFakeTimers();
+
+  it('should resolve with the value after the specified time', async () => {
+    const time = 1000;
+    const value = 1;
+
+    const promise = delay(time);
+    jest.advanceTimersByTime(time);
+
+    const result = await promise;
+    expect(result).toBe(value);
   });
 });

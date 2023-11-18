@@ -4,6 +4,7 @@ import { useTranslation } from 'next-i18next';
 import * as React from 'react';
 
 import { Container } from '@/components/layout/Container';
+import { AnimatedBadge } from '@/components/ui/AnimatedBadge';
 import ButtonLink from '@/components/ui/links/ButtonLink';
 import NextImage from '@/components/ui/NextImage';
 import { Title } from '@/components/ui/typography/Title';
@@ -48,12 +49,13 @@ const IntroText = () => {
     <>
       <div>
         <div className='text-left'>
+          <AnimatedBadge text='✨ Neue Website Relaunch' />
           <Title>{t('intro.title')}</Title>
           <p className='mt-6 text-lg font-medium leading-8 tracking-tight text-gray-800'>
             {t('intro.content')}
           </p>
           <div className='mt-10 flex items-center justify-start gap-x-3'>
-            <ButtonLink variant='outline' size='base' href='/leistungen'>
+            <ButtonLink variant='primary' size='base' href='/leistungen'>
               {t('intro.primaryButton')}
             </ButtonLink>
             <ButtonLink size='base' variant='ghost' href='/kontakt'>

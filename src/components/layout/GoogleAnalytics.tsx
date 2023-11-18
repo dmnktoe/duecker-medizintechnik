@@ -1,15 +1,13 @@
-import { googleAnalyticsId } from '@/constant/env';
-
 export default function GoogleAnalytics({
   GA_MEASUREMENT_ID,
 }: {
-  GA_MEASUREMENT_ID: string;
+  GA_MEASUREMENT_ID: string | undefined;
 }) {
   return (
     <>
       {/* eslint-disable-next-line @next/next/no-sync-scripts */}
       <script
-        src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
         type='text/plain'
         data-cookieconsent='statistics'
       />

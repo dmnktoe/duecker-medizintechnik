@@ -1,18 +1,17 @@
+import { ogBaseUrl, strapiApiUrl } from '@/constant/env';
+
 type OpenGraphType = {
   siteName: string;
   description: string;
   templateTitle?: string;
   logo?: string;
 };
-// !STARTERCONF This OG is generated from https://github.com/theodorusclarence/og
-// Please clone them and self-host if your site is going to be visited by many people.
-// Then change the url and the default logo.
+
 export function openGraph({
   siteName,
   templateTitle,
   description,
-  // !STARTERCONF Or, you can use my server with your own logo.
-  logo = 'https://og.<your-domain>/images/logo.jpg',
+  logo = 'https://cms.duecker-medizintechnik.de/uploads/duecker_medizintechnik_logo_3f4698e41c.png',
 }: OpenGraphType): string {
   const ogLogo = encodeURIComponent(logo);
   const ogSiteName = encodeURIComponent(siteName.trim());
@@ -21,7 +20,7 @@ export function openGraph({
     : undefined;
   const ogDesc = encodeURIComponent(description.trim());
 
-  return `https://og.<your-domain>/api/general?siteName=${ogSiteName}&description=${ogDesc}&logo=${ogLogo}${
+  return `${ogBaseUrl}/api/general?siteName=${ogSiteName}&description=${ogDesc}&logo=${ogLogo}${
     ogTemplateTitle ? `&templateTitle=${ogTemplateTitle}` : ''
   }`;
 }
@@ -41,7 +40,7 @@ export function getFromSessionStorage(key: string): string | null {
 }
 
 export function getStrapiURL(path = '') {
-  return `${'https://cms.duecker-medizintechnik.de'}${path}`;
+  return `${strapiApiUrl}${path}`;
 }
 
 export function getStrapiMedia(url: string | null) {

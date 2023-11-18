@@ -13,8 +13,10 @@ import {
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/layout/Seo';
+import ContactForm from '@/components/templates/ContactForm';
 import NextBreadcrumb from '@/components/ui/Breadcrumb';
 import Button from '@/components/ui/buttons/Button';
+import UnderlineLink from '@/components/ui/links/UnderlineLink';
 import { Title } from '@/components/ui/typography/Title';
 
 import { company } from '@/constant/company';
@@ -50,12 +52,12 @@ const ContactPage = (
           <div className='cookieconsent-optout-marketing flex h-[350px] items-center bg-gray-100 align-middle'>
             <Container>
               <div className='flex flex-col items-center gap-8 align-middle'>
-                <span className='text-center font-normal text-gray-500 md:text-lg'>
-                  Dieser Inhalt wird über Google Maps geladen.
-                  <br />
-                  Akzeptieren Sie die Marketing Cookies um den Inhalt
-                  anzuzeigen.
-                </span>
+                <span
+                  className='text-center font-normal text-gray-500 md:text-lg'
+                  dangerouslySetInnerHTML={{
+                    __html: t('mapsBanner.cookieNotice'),
+                  }}
+                />
                 <div className='flex w-full flex-wrap justify-center gap-4 sm:w-auto'>
                   <Button
                     variant='primary'
@@ -78,7 +80,7 @@ const ContactPage = (
                           }
                     }
                   >
-                    Marketing Cookies akzeptieren
+                    {t('mapsBanner.accept')}
                   </Button>
                   <Button
                     variant='outline'
@@ -97,7 +99,7 @@ const ContactPage = (
                           }
                     }
                   >
-                    Cookie-Einstellungen
+                    {t('mapsBanner.cookieSettings')}
                   </Button>
                 </div>
               </div>
@@ -131,20 +133,17 @@ const ContactPage = (
                     capitalizeLinks
                     className='mb-6'
                   />
-                  <Title margin={false}>Kontakt aufnehmen</Title>
+                  <Title>{t('headline')}</Title>
                   <p className='text-body-color mb-12 text-base leading-relaxed'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eius tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim adiqua minim veniam quis nostrud exercitation
-                    ullamco
+                    {t('subheadline')}
                   </p>
                   <div className='mb-8 flex w-full max-w-[370px] items-center'>
                     <div className='mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-primary-500 bg-opacity-5 text-primary-500 sm:h-[70px] sm:max-w-[70px]'>
-                      <VscHome className='h-8 w-8' />
+                      <VscHome className='h-6 w-6' />
                     </div>
                     <div className='w-full'>
-                      <h4 className='mb-1 text-xl font-bold text-dark'>
-                        Unser Standort
+                      <h4 className='mb-1 text-xl font-semibold text-dark'>
+                        {t('ourLocation')}
                       </h4>
                       <p className='text-body-color text-base'>
                         {company.street}
@@ -155,27 +154,31 @@ const ContactPage = (
                   </div>
                   <div className='mb-8 flex w-full max-w-[370px] items-center'>
                     <div className='mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-primary-500 bg-opacity-5 text-primary-500 sm:h-[70px] sm:max-w-[70px]'>
-                      <VscCallOutgoing className='h-8 w-8' />
+                      <VscCallOutgoing className='h-6 w-6' />
                     </div>
                     <div className='w-full'>
-                      <h4 className='mb-1 text-xl font-bold text-dark'>
-                        Phone Number
+                      <h4 className='mb-1 text-xl font-semibold text-dark'>
+                        {t('phone')}
                       </h4>
                       <p className='text-body-color text-base'>
-                        (+62)81 414 257 9980
+                        <UnderlineLink href={`tel:${company.phone}`}>
+                          {company.phone}
+                        </UnderlineLink>
                       </p>
                     </div>
                   </div>
                   <div className='mb-8 flex w-full max-w-[370px] items-center'>
                     <div className='mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-primary-500 bg-opacity-5 text-primary-500 sm:h-[70px] sm:max-w-[70px]'>
-                      <VscMail className='h-8 w-8' />
+                      <VscMail className='h-6 w-6' />
                     </div>
                     <div className='w-full'>
-                      <h4 className='mb-1 text-xl font-bold text-dark'>
-                        Email Address
+                      <h4 className='mb-1 text-xl font-semibold text-dark'>
+                        {t('email')}
                       </h4>
                       <p className='text-body-color text-base'>
-                        info@yourdomain.com
+                        <UnderlineLink href={`mailto:${company.email}`}>
+                          {company.email}
+                        </UnderlineLink>
                       </p>
                     </div>
                   </div>
@@ -183,59 +186,11 @@ const ContactPage = (
               </div>
               <div className='w-full px-4 lg:w-1/2 xl:w-5/12'>
                 <div className='relative rounded-lg bg-white p-8 shadow-lg sm:p-12'>
-                  <Title size='three'>Schreiben Sie uns</Title>
-                  <p className='mb-8 font-light text-gray-500 lg:mb-16'>
-                    Got a technical issue? Want to send feedback about a beta
-                    feature? Need details about our Business plan? Let us know.
+                  <Title size='three'>{t('contactForm.title')}</Title>
+                  <p className='mb-8 font-light text-gray-500 lg:mb-12'>
+                    {t('contactForm.description')}
                   </p>
-                  <form action='#' className='space-y-4'>
-                    <div>
-                      <label
-                        htmlFor='email'
-                        className='mb-2 block text-sm font-medium text-gray-900'
-                      >
-                        Your email
-                      </label>
-                      <input
-                        type='email'
-                        id='email'
-                        className='dark:shadow-sm-light block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:focus:border-primary-500 dark:focus:ring-primary-500'
-                        placeholder='name@flowbite.com'
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor='subject'
-                        className='mb-2 block text-sm font-medium text-gray-900'
-                      >
-                        Subject
-                      </label>
-                      <input
-                        type='text'
-                        id='subject'
-                        className='dark:shadow-sm-light block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:focus:border-primary-500 dark:focus:ring-primary-500'
-                        placeholder='Let us know how we can help you'
-                        required
-                      />
-                    </div>
-                    <div className='sm:col-span-2'>
-                      <label
-                        htmlFor='message'
-                        className='mb-2 block text-sm font-medium text-gray-900'
-                      >
-                        Your message
-                      </label>
-                      <textarea
-                        id='message'
-                        className='block h-24 w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:focus:border-primary-500 dark:focus:ring-primary-500'
-                        placeholder='Leave a comment...'
-                      ></textarea>
-                    </div>
-                    <Button type='submit' className='w-full'>
-                      Submit
-                    </Button>
-                  </form>
+                  <ContactForm />
                   <div>
                     <span className='absolute -right-9 -top-10 z-[-1]'>
                       <svg

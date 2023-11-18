@@ -1,7 +1,11 @@
 export const isProd = process.env.NODE_ENV === 'production';
 export const isLocal = process.env.NODE_ENV === 'development';
-export const googleAnalyticsId = 'G-HNLHM0MQDN';
-export const cookieBotId = '3722981a-3eb0-4ff9-9145-777cf50e6875';
+export const chatwootId = process.env.NEXT_PUBLIC_CHATWOOT_ID;
+export const cookieBotId = process.env.NEXT_PUBLIC_COOKIEBOT_ID;
+export const googleAnalyticsId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
+export const hotjarId = process.env.NEXT_PUBLIC_HOTJAR_ID;
+export const ogBaseUrl = process.env.NEXT_PUBLIC_OG_BASE_URL;
+export const strapiApiUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL;
 
 export const showLogger = isLocal
   ? true
