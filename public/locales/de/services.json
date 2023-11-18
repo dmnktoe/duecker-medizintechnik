@@ -1,9 +1,9 @@
 {
-  "seo": {
-    "title": "Leistungen",
-    "description": "test"
-  },
-  "tagline": "Unsere Leistungen",
   "headline": "Was wir für Sie tun können",
-  "subline": "Wir bieten Ihnen ein breites Spektrum an Leistungen rund um das Thema Webdesign und Webentwicklung. Von der Konzeption über die Umsetzung bis hin zur Wartung und Pflege Ihrer Website sind wir Ihr Ansprechpartner."
+  "seo": {
+    "description": "test",
+    "title": "Leistungen"
+  },
+  "subline": "Wir bieten Ihnen ein breites Spektrum an Leistungen rund um das Thema Webdesign und Webentwicklung. Von der Konzeption über die Umsetzung bis hin zur Wartung und Pflege Ihrer Website sind wir Ihr Ansprechpartner.",
+  "tagline": "Unsere Leistungen"
 }

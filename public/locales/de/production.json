@@ -1,8 +1,8 @@
 {
-  "seo": {
-    "title": "Produktion",
-    "description": "test"
-  },
   "headline": "Wir unterstützen Ihre Deployments durch unsere Produktion",
+  "seo": {
+    "description": "test",
+    "title": "Produktion"
+  },
   "text": "Als Hersteller von sterilen und unsterilen Schlauchsystemen sind wir seit Jahren im Markt etabliert. Unser Produktportfolio erstreckt sich über Schwerkraft-Schlauchsets bis hin zu Systemen für arthroskopische Rollenpumpen. Internationale Setpacker profitieren von unseren unsterilen Bulk-Lieferungen, um Ihre OP-Trays zu komplettieren. Unsere ISO Klasse 8 Produktion erfüllt die hohen Ansprüche an die geforderten Umgebungsbedingungen und wird regelmäßig durch externe, akkreditierte Labore kontrolliert. Diese hohen Qualitätsstandards bilden das Fundament unseres Schaffens."
 }
