@@ -25,7 +25,7 @@ import { isLocal, isProd } from '@/constant/env';
 const ContactPage = (
   _props: InferGetStaticPropsType<typeof getStaticProps>,
 ) => {
-  const { t } = useTranslation('contact', { useSuspense: false });
+  const { t } = useTranslation('contact');
 
   useEffect(() => {
     if (isProd) {
