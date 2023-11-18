@@ -99,7 +99,7 @@ const ContactPage = (
                           }
                     }
                   >
-                    Cookie-Einstellungen
+                    {t('mapsBanner.cookieSettings')}
                   </Button>
                 </div>
               </div>
