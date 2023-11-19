@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import { useInView } from 'framer-motion';
-import Link from 'next/link';
 import React, { useEffect, useRef } from 'react';
 
 import { useFeatureStore } from './store';
@@ -31,7 +30,7 @@ export const StickyScrollTitle = ({ children, id }: StickyScrollTitleProps) => {
         isInView ? 'text-dark' : 'text-gray-300',
       )}
     >
-      <Link href={`/leistungen/${id}`}>{children}</Link>
+      {children}
     </h2>
   );
 };

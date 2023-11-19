@@ -4,18 +4,18 @@
     "cards": {
       "commerce": {
         "href": "handel",
-        "text": "",
+        "text": "Ein ganzes Universum innovativer Lösungen von Medizintechnik bis Logistik.",
         "title": "Handel"
       },
       "production": {
         "href": "produktion",
-        "text": "",
+        "text": "Wir unterstützen Ihre Deployments durch unsere Produktion.",
         "title": "Produktion"
       },
       "readMore": "Mehr erfahren",
       "repair": {
         "href": "reparatur",
-        "text": "",
+        "text": "Durch unseren eigenen Reparaturservice garantieren wir eine schnelle Reparatur.",
         "title": "Reparatur"
       }
     },
