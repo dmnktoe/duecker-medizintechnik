@@ -1,0 +1,21 @@
+{
+  "content": {
+    "table": {
+      "certificates": {
+        "label": "Certificates"
+      },
+      "instructions": {
+        "label": "Handling instructions"
+      }
+    },
+    "text": "",
+    "title": ""
+  },
+  "meta": {
+    "pageTitle": "",
+    "seo": {
+      "description": "",
+      "title": ""
+    }
+  }
+}

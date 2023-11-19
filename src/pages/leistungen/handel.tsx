@@ -1,6 +1,7 @@
 'use client';
 import { Player } from '@lottiefiles/react-lottie-player';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 import { VscArrowRight, VscCheck } from 'react-icons/vsc';
@@ -21,11 +22,16 @@ import animation from '/public/images/commerce/package-rotate_lottie.json';
 const CommercePage = (
   _props: InferGetStaticPropsType<typeof getStaticProps>,
 ) => {
+  const { t } = useTranslation('commerce');
   const animationURL = animation;
 
   return (
     <Layout>
-      <Seo templateTitle='Handel' />
+      <Seo
+        templateTitle={t('meta.pageTitle')}
+        description={t('meta.seo.description')}
+        title={t('meta.seo.title')}
+      />
       <ImageBanner
         role='hero'
         delay={0}
@@ -51,23 +57,12 @@ const CommercePage = (
               <div className='text-dark'>
                 <div className='mb-2'>
                   <Badge size='lg' color='secondary' variant='solid'>
-                    Handel
+                    {t('meta.pageTitle')}
                   </Badge>
                 </div>
-                <Title isAnimated>
-                  Ein ganzes Universum innovativer Lösungen von Medizintechnik
-                  bis Logistik
-                </Title>
-                <p className='text-base'>
-                  Mit unseren ausgewählten Handelspartnern bieten wir Ihnen ein
-                  leistungsstarkes Netzwerk von Produkten und Dienstleistungen.
-                  Von chirurgischem Instrumentarium, HF-Chirurgische Instrumente
-                  über Orthopädische Shaver-Systemen, Pumpen und Bildgebenden
-                  Systemen bis hin zu Logistik Lösungen, Zubehör für die AEMP
-                  und Neurochirurgischen Bohrsystemen bieten wir ein komplettes
-                  Gesamtpaket an innovativen Lösungen.
-                </p>
-                <h5 className='my-6 font-semibold'>Unsere Handelspartner:</h5>
+                <Title isAnimated>{t('content.title')}</Title>
+                <p className='text-base'>{t('content.text')}</p>
+                <h5 className='my-6 font-semibold'>{t('content.partners')}:</h5>
                 <ul className='mb-6 flex flex-row gap-6'>
                   <div>
                     <li className='mb-3 flex items-center'>

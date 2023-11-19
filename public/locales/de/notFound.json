@@ -1,8 +1,13 @@
 {
-  "seo": {
-    "title": "Seite nicht gefunden",
-    "description": "Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten."
+  "content": {
+    "pageNotFound": "Seite nicht gefunden",
+    "returnToHome": "Zurück zur Startseite"
   },
-  "pageNotFound": "Seite nicht gefunden",
-  "returnToHome": "Zurück zur Startseite"
+  "meta": {
+    "pageTitle": "404",
+    "seo": {
+      "description": "Die Seite konnte nicht gefunden werden.",
+      "title": "Seite nicht gefunden"
+    }
+  }
 }

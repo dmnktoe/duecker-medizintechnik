@@ -1,11 +1,19 @@
 {
-  "seo": {
-    "title": "Kontaktieren Sie uns",
-    "description": "Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten."
+  "content": {
+    "newsList": {
+      "readMore": "Weiterlesen"
+    },
+    "newsSlug": {
+      "back": "Zurück zur Übersicht"
+    },
+    "text": "Immer auf dem Laufenden bleiben: Aktuelle Entwicklungen, Branchennews und Unternehmensnachrichten bei Dücker Medizintechnik finden Sie hier.",
+    "title": "Neuigkeiten bei Dücker Medizintechnik"
   },
-  "headline": "Neuigkeiten bei Dücker Medizintechnik",
-  "subheadline": "Immer auf dem Laufenden bleiben: Aktuelle Entwicklungen, Branchennews und Unternehmensnachrichten bei Dücker Medizintechnik finden Sie hier.",
-  "newsList": {
-    "readMore": "Weiterlesen"
+  "meta": {
+    "pageTitle": "",
+    "seo": {
+      "description": "Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
+      "title": "Kontaktieren Sie uns"
+    }
   }
 }

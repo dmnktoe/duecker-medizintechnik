@@ -1,8 +1,26 @@
 {
-  "seo": {
-    "title": "Qualität, Innovation und Kundenzufriedenheit seit 1979",
-    "description": "Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten."
+  "content": {
+    "companyText": {
+      "text1": "Schnell wurde sich am Markt ein guter Name geschaffen, da die Kunden mit bester Qualität und Service bedient wurden. Um den Ansprüchen der Kunden gewachsen zu sein, wurde das Lager der Firma Dücker-Medizintechnik ständig erweitert. Aus diesem Grund wurde 1994 der Standort gewechselt. Es erfolgte der Umzug in das jetzige Büro und Produktionshaus in Melsungen. Hier entstand ein Reinraum der ISO Klasse 8 zur Produktion von medizinischen Einweg-Produkten.",
+      "text2": "Dücker Medizintechnik ist zertifizierter Hersteller von sterilen- und unsterilen Schlauch-Sets und beliefert den Deutschen und Europäischen Markt für namhafte Hersteller und Set-Packern. 2001 wurde der Service-Bereich erweitert. Es wurden Chirurgiemechaniker eingestellt, die die Reparaturen von chir.-Instrumenten durchführen. Dieser Schritt war Richtungsweisend für unser Unternehmen.",
+      "text3": "Dücker Medizintechnik ist mit dem eigenem Reparatur-Service der Ansprechpartner für Kliniken, ambulante Praxen und externe Medizintechniken geworden.",
+      "text4": "Seit dem 01.01.2003 wird das Unternehmen von Herrn Marc Dücker als Geschäftsführer geleitet.",
+      "text5": "Heute sind wir Ihr Ansprechpartner für Handelsvermittlung von pharmazeutischen Erzeugnissen, medizinischen und orthopädischen Artikeln und Laborbedarf, Ärztebedarf, Dentalbedarf, zahnärztlichen Instrumenten, Krankenhaus- und Altenpflegebedarf.",
+      "text6": "Bei Dücker Medizintechnik legen wir großen Wert auf Qualität und Transparenz. Unsere Zertifikate und Downloads sind ein Beweis für unser Engagement in diesen Bereichen. Möchten Sie mehr über unsere Zertifikate und Downloads erfahren? Besuchen Sie unsere Zertifikate und Downloads-Seite, um detaillierte Informationen und die entsprechenden Dokumente herunterzuladen. Bei Fragen stehen wir Ihnen gerne zur Verfügung. Mit uns sind Sie in guter Gesellschaft.",
+      "title": "Dücker Medizintechnik wurde im Jahr 1979 von Herrn Rolf Dücker mit einer klaren Vision gegründet."
+    },
+    "innovationText": {
+      "text": "Die Medizintechnik entwickelt sich ständig weiter, und wir stehen an vorderster Front dieses Wandels. Unsere Fähigkeit, innovative Lösungen zu entwickeln und in die Produktion umzusetzen, hat uns zu einem anerkannten Akteur in der Branche gemacht.\n\nWir investieren kontinuierlich in Forschung und Entwicklung, um sicherzustellen, dass unsere Kunden stets von den neuesten Entwicklungen profitieren.",
+      "title": "Qualität, Innovation und Kundenzufriedenheit"
+    },
+    "title": "Unternehmen & Leitbild",
+    "titleText": "Dücker Medizintechnik wurde im Jahr 1979 von Herrn Rolf Dücker mit einer klaren Vision gegründet."
   },
-  "headline": "Dücker Medizintechnik wurde im Jahr 1979 von Herrn Rolf Dücker mit einer klaren Vision gegründet.",
-  "subheadline": "Immer auf dem Laufenden bleiben: Aktuelle Entwicklungen, Branchennews und Unternehmensnachrichten bei Dücker Medizintechnik finden Sie hier."
+  "meta": {
+    "pageTitle": "",
+    "seo": {
+      "description": "Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
+      "title": "Qualität, Innovation und Kundenzufriedenheit seit 1979"
+    }
+  }
 }

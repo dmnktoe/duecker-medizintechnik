@@ -1,9 +1,5 @@
 {
   "cta": {
-    "headline": "Benötigen Sie Hilfe bei der Aufbereitung?",
-    "subline": "Wir beraten Sie gerne!",
-    "buttonText": "Angebot anfordern",
-    "buttonLink": "/kontakt",
     "bullets": [
       {
         "title": "24/7 Support"
@@ -17,66 +13,90 @@
       {
         "title": "Kostenloses Angebot"
       }
-    ]
+    ],
+    "buttonLink": "/kontakt",
+    "buttonText": "Angebot anfordern",
+    "title": "Benötigen Sie Hilfe bei der Aufbereitung?",
+    "titleSub": "Wir beraten Sie gerne!"
   },
   "footer": {
-    "phone": "Telefon",
-    "fax": "Fax",
-    "web": "Internet",
-    "email": "E-Mail",
+    "contactSection": {
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "text": "Wir sind Ihnen gerne bei der Lösung Ihrer Probleme behilflich und stehen Ihnen jederzeit für Fragen zur Verfügung. Wir freuen uns."
+    },
     "navigation": [
       {
-        "title": "Unternehmen",
         "items": [
           {
-            "href": "/kontakt",
-            "text": "Kontakt"
+            "href": "/unternehmen",
+            "title": "Unsere Geschichte"
           },
           {
-            "href": "/neuigkeiten",
-            "text": "Neugikeiten"
-          },
-          {
-            "href": "/ueber-uns",
-            "text": "Firmengeschichte"
-          },
-          {
-            "href": "/neuigkeiten",
-            "text": "Zertifikate / Downloads"
+            "href": "/downloads",
+            "title": "Downloads & Zertifikate"
           },
           {
             "href": "/kontakt",
-            "text": "Kontakt"
+            "title": "Kontakt & Anfrage"
+          },
+          {
+            "href": "/jobs",
+            "title": "Jobs"
           }
-        ]
+        ],
+        "title": "Unternehmen"
       },
       {
-        "title": "Rechtliches",
+        "items": [
+          {
+            "href": "/leistungen/produktion",
+            "title": "Produktion"
+          },
+          {
+            "href": "/leistungen/reparatur",
+            "title": "Reparatur"
+          },
+          {
+            "href": "/leistungen/handel",
+            "title": "Handel"
+          }
+        ],
+        "title": "Leistungen"
+      },
+      {
         "items": [
           {
             "href": "/impressum",
-            "text": "Impressum"
+            "title": "Impressum"
           },
           {
             "href": "/datenschutz",
-            "text": "Datenschutz"
+            "title": "Datenschutz"
+          },
+          {
+            "href": "/cookie-richtlinie",
+            "title": "Cookie-Richtlinie"
           },
           {
             "href": "/agb",
-            "text": "AGB"
+            "title": "Allgemeine Geschäftsbedingungen"
           }
-        ]
+        ],
+        "title": "Richtlinien"
       }
-    ]
+    ],
+    "newsSection": {
+      "link": "Alle Neuigkeiten",
+      "noResults": "Keine Neuigkeiten vorhanden.",
+      "title": "Aus dem Blog"
+    }
   },
   "header": {
     "change-locale": "Sprache wechseln (en-US)",
-    "ctaButtonText": "Kontakt aufnehmen",
-    "toggleNavigationText": "Navigation umschalten",
-    "imprintLinkText": "Impressum",
     "cookieLinkText": "Cookie-Einstellungen",
-    "privacyLinkText": "Datenschutz",
-    "servicesDropdownText": "Unser Service",
+    "ctaButtonText": "Kontakt aufnehmen",
+    "imprintLinkText": "Impressum",
     "navigationItems": [
       {
         "href": "/",
@@ -87,24 +107,24 @@
         "text": "Über uns"
       },
       {
-        "text": "Leistungen",
         "subItems": [
           {
+            "description": "Nach höchstem Maßstab.",
             "href": "/leistungen/produktion",
-            "text": "Produktion",
-            "description": "Nach höchstem Maßstab."
+            "text": "Produktion"
           },
           {
+            "description": "Wartung von Medizinprodukten.",
             "href": "/leistungen/reparatur",
-            "text": "Reparatur",
-            "description": "Wartung von Medizinprodukten."
+            "text": "Reparatur"
           },
           {
+            "description": "Handel & b2b-Plattform.",
             "href": "/leistungen/handel",
-            "text": "Handel",
-            "description": "Handel & b2b-Plattform."
+            "text": "Handel"
           }
-        ]
+        ],
+        "text": "Leistungen"
       },
       {
         "href": "/downloads",
@@ -114,6 +134,9 @@
         "href": "/news",
         "text": "News"
       }
-    ]
+    ],
+    "privacyLinkText": "Datenschutz",
+    "servicesDropdownText": "Unser Service",
+    "toggleNavigationText": "Navigation umschalten"
   }
 }

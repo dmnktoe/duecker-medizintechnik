@@ -1,11 +1,52 @@
 {
-  "seo": {
-    "title": "Imprint"
+  "content": {
+    "by": {
+      "text": "Images: Patrick Dücker, Web: Domenik Töfflinger",
+      "title": "Concept & Development"
+    },
+    "copyright": {
+      "text": "All rights reserved. The texts, images, graphics, files, etc. used on the website are subject to copyright and other laws for the protection of intellectual property. Their dissemination, modification, commercial use or use in other websites or media is not permitted.",
+      "title": "Copyright"
+    },
+    "disclaimer": {
+      "text1": "The content of this website has been created with the greatest possible care and to the best of our knowledge. Nevertheless, the provider of this website assumes no liability for the topicality, completeness and accuracy of the pages and content provided.",
+      "text2": "As a service provider, the provider of this website is responsible for its own content and information provided on these pages in accordance with Section 7 (1) TMG (German Telemedia Act) and general legislation; however, in accordance with Sections 8 to 10 TMG, it is not obliged to monitor the transmitted or stored third-party information. This content will be removed or blocked immediately from the time we become aware of a specific infringement. Liability is only possible from the point in time at which knowledge is obtained.",
+      "title": "Disclaimer"
+    },
+    "importantNotesOnLinks": {
+      "text": "In its judgment of May 12, 1998, case no. 312 O 85/98, the Hamburg Regional Court ruled that the inclusion of a link may entail co-responsibility for the information contained on this page. In the opinion of the LG Hamburg, this can only be avoided by expressly distancing oneself. Accordingly, as a precautionary measure, we expressly distance ourselves from the content of the pages whose links you find here or which are otherwise accessible via our site. The contents of these pages are the sole responsibility of third parties. We have no influence over the content of these sites, which is why we cannot and do not accept any liability for the information contained therein.",
+      "title": "Important notes on links"
+    },
+    "osPlatform": {
+      "text1": "The EU's online dispute resolution platform (ODR platform) can be accessed via the following link: <linkTag>https://ec.europa.eu/consumers/odr/</linkTag>",
+      "text2": "We are not obliged to participate in a dispute resolution procedure before a consumer arbitration board and are generally not prepared to do so.",
+      "title": "Online dispute resolution platform"
+    },
+    "privacy": {
+      "text1": "We collect, process and use your data only in accordance with the statutory provisions. This data protection declaration applies exclusively to the use of the websites offered by us. It does not apply to the websites of other service providers to which we merely refer by means of a link. When using our websites, you remain anonymous unless you voluntarily provide us with personal data. Personal data is only collected if this is necessary for the use of the services offered on the website, in particular forms.",
+      "text2": "The legal basis can be found in our <linkTag>Privacy Policy (GDPR)</linkTag>.",
+      "title": "Data privacy"
+    },
+    "provider": {
+      "email": "Mail",
+      "fax": "Fax",
+      "imageSources": "Image Sources",
+      "phone": "Phone",
+      "taxNumber": "Tax number",
+      "title": "Provider according to § 5 TMG and § 2 DL-InfoV",
+      "web": "Web"
+    },
+    "teleservicesAct": {
+      "text": "The respective providers are responsible for third-party websites to which the publisher refers via so-called links. The publisher is not responsible for the content of such third-party sites. Furthermore, the publisher's website may be linked from other websites without the publisher's knowledge. The publisher accepts no responsibility for representations, content or any connection to the publisher's party organization on third-party websites. The publisher is only responsible for third-party content if it has positive knowledge of it (i.e. also of illegal or punishable content) and it is technically possible and reasonable for the publisher to prevent its use. However, according to the Teleservices Act, the publisher is not obliged to constantly check external content.",
+      "title": "Note according to the Teleservices Act"
+    },
+    "title": "Legal Notice"
   },
-  "headline": "Imprint",
-  "provider": "Provider according to § 5 TMG and § 2 DL-InfoV",
-  "phone": "Phone",
-  "fax": "Fax",
-  "web": "Internet",
-  "email": "Mail"
+  "meta": {
+    "pageTitle": "Legal Notice",
+    "seo": {
+      "description": "",
+      "title": "Legal Notice"
+    }
+  }
 }

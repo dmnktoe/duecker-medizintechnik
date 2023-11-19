@@ -1,52 +1,75 @@
 {
-  "seo": {
-    "title": "Trade, production, repair for surgical solutions and sterilization",
-    "description": "Discover our wide range of products and services for reprocessing surgical tools. Learn how we help you ensure optimal care in a medical context."
-  },
-  "intro": {
-    "title": "Your partner for trade mediation of pharma products, medical and orthopedic articles and laboratory supplies",
-    "content": "Discover our wide range of products and services for reprocessing surgical tools. Learn how we help you ensure optimal care in a medical context. We are your partner for the reprocessing of surgical instruments and medical devices.",
-    "primaryButton": "Services",
-    "secondaryButton": "Contact Us"
-  },
-  "stickyScroll": {
-    "production": "Production to the highest standard.",
-    "repair": "Repair and maintenance of medical devices.",
-    "commerce": "Trade with medical devices."
-  },
-  "features": {
-    "headline": "Our services",
-    "subline": "We are your partner for the reprocessing of surgical instruments and medical devices.",
-    "textBlocks": [
-      {
-        "title": "Production",
-        "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change."
+  "content": {
+    "features": {
+      "bentoGrid": {
+        "boxIso": {
+          "textAccent": "",
+          "textBottom": "",
+          "textTop": ""
+        }
       },
-      {
-        "title": "Repair",
-        "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change."
+      "textBlocks": [
+        {
+          "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
+          "title": "Production"
+        },
+        {
+          "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
+          "title": "Repair"
+        },
+        {
+          "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
+          "title": "Commerce"
+        },
+        {
+          "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
+          "title": "Logistics"
+        },
+        {
+          "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
+          "title": "Consulting"
+        },
+        {
+          "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
+          "title": "Training"
+        }
+      ],
+      "title": "Our services",
+      "titleTwo": "We are your partner for the reprocessing of surgical instruments and medical devices."
+    },
+    "hero": {
+      "buttons": {
+        "primary": {
+          "label": "Services"
+        },
+        "secondary": {
+          "label": "Contact Us"
+        }
       },
-      {
-        "title": "Commerce",
-        "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change."
+      "text": "Discover our wide range of products and services for reprocessing surgical tools. Learn how we help you ensure optimal care in a medical context. We are your partner for the reprocessing of surgical instruments and medical devices.",
+      "title": "Your partner for trade mediation of pharma products, medical and orthopedic articles and laboratory supplies"
+    },
+    "postsCarousel": {
+      "readMore": "View all posts",
+      "title": "Recent news from our blog"
+    },
+    "stickyScroll": {
+      "commerce": {
+        "title": "Trade with medical devices."
       },
-      {
-        "title": "Logistics",
-        "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change."
+      "production": {
+        "title": "Production to the highest standard."
       },
-      {
-        "title": "Consulting",
-        "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change."
-      },
-      {
-        "title": "Training",
-        "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change."
+      "repair": {
+        "title": "Repair and maintenance of medical devices."
       }
-    ],
-    "bentoGrid": []
+    }
   },
-  "postsCarousel": {
-    "headline": "Recent news from our blog",
-    "readMore": "View all posts"
+  "meta": {
+    "pageTitle": "Home",
+    "seo": {
+      "description": "Discover our wide range of products and services for reprocessing surgical tools. Learn how we help you ensure optimal care in a medical context.",
+      "title": "Trade, production, repair for surgical solutions and sterilization"
+    }
   }
 }

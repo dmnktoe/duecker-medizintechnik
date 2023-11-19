@@ -1,9 +1,10 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import Image from 'next/image';
+import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 import { useCallback, useRef } from 'react';
-import { VscArrowLeft, VscArrowRight, VscCheck } from 'react-icons/vsc';
+import { VscArrowLeft, VscArrowRight } from 'react-icons/vsc';
 import { Autoplay, Navigation, Scrollbar } from 'swiper/modules';
 import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -27,6 +28,7 @@ import repairSliderImg6 from '/public/images/repair/repair-slider_image-6.webp';
 
 const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const swiperElRef = useRef<SwiperRef>(null);
+  const { t } = useTranslation('repair');
 
   const handlePrev = useCallback(() => {
     if (!swiperElRef.current) return;
@@ -37,9 +39,14 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
     if (!swiperElRef.current) return;
     swiperElRef.current.swiper.slideNext();
   }, []);
+
   return (
     <Layout>
-      <Seo templateTitle='Reparatur' />
+      <Seo
+        templateTitle={t('meta.pageTitle')}
+        description={t('meta.seo.description')}
+        title={t('meta.seo.title')}
+      />
       <ImageBanner
         role='hero'
         delay={0}
@@ -60,42 +67,14 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
             capitalizeLinks
             className='mb-6'
           />
-          <div className='flex flex-row items-start gap-6'>
+          <div className='mb-16 flex flex-row items-start gap-6'>
             <div className='mb-12 w-full lg:mb-0 '>
               <div className='text-dark'>
-                <Title isAnimated>
-                  Durch unseren eigenen Reparaturservice garantieren wir eine
-                  schnelle Bearbeitung Ihrer Reparaturaufträge
-                </Title>
-                <p className='text-base'>
-                  Als Hersteller von sterilen und unsterilen Schlauchsystemen
-                  sind wir seit Jahren im Markt etabliert. Unser
-                  Produktportfolio erstreckt sich über Schwerkraft-Schlauchsets
-                  bis hin zu Systemen für arthroskopische Rollenpumpen.
-                  Internationale Setpacker profitieren von unseren unsterilen
-                  Bulk-Lieferungen, um Ihre OP-Trays zu komplettieren. Unsere
-                  ISO Klasse 8 Produktion erfüllt die hohen Ansprüche an die
-                  geforderten Umgebungsbedingungen und wird regelmäßig durch
-                  externe, akkreditierte Labore kontrolliert. Diese hohen
-                  Qualitätsstandards bilden das Fundament unseres Schaffens.
-                </p>
+                <Title isAnimated>{t('content.title')}</Title>
+                <p className='text-base'>{t('content.text')}</p>
                 <h5 className='my-6 font-semibold'>
-                  Ihr vertrauenswürdiger Partner für
+                  {t('content.textAccent')}
                 </h5>
-                <ul>
-                  <li className='mb-4 flex items-center'>
-                    <VscCheck className='mr-4 h-4 w-4 text-primary-500' />
-                    <span>Qualitätsstandards</span>
-                  </li>
-                  <li className='mb-4 flex items-center'>
-                    <VscCheck className='mr-4 h-4 w-4' />
-                    <span>Arthroskopische Lösungen</span>
-                  </li>
-                  <li className='flex items-center'>
-                    <VscCheck className='mr-4 h-4 w-4' />
-                    <span>Unsterile Bulk-Lieferungen</span>
-                  </li>
-                </ul>
               </div>
             </div>
             <div className='hidden w-full lg:block lg:w-1/3 xl:w-1/2'></div>
@@ -151,7 +130,7 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                       src={repairSliderImg1}
                       placeholder='blur'
                       priority
-                      alt='Picture of the author'
+                      alt={t('content.title')}
                       layout='fill'
                       objectFit='cover'
                     />
@@ -163,7 +142,7 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                       src={repairSliderImg2}
                       placeholder='blur'
                       priority
-                      alt='Picture of the author'
+                      alt={t('content.title')}
                       layout='fill'
                       objectFit='cover'
                     />
@@ -175,7 +154,7 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                       src={repairSliderImg3}
                       placeholder='blur'
                       priority
-                      alt='Picture of the author'
+                      alt={t('content.title')}
                       layout='fill'
                       objectFit='cover'
                     />
@@ -187,7 +166,7 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                       src={repairSliderImg4}
                       placeholder='blur'
                       priority
-                      alt='Picture of the author'
+                      alt={t('content.title')}
                       layout='fill'
                       objectFit='cover'
                     />
@@ -199,7 +178,7 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                       src={repairSliderImg5}
                       placeholder='blur'
                       priority
-                      alt='Picture of the author'
+                      alt={t('content.title')}
                       layout='fill'
                       objectFit='cover'
                     />
@@ -211,7 +190,7 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                       src={repairSliderImg6}
                       placeholder='blur'
                       priority
-                      alt='Picture of the author'
+                      alt={t('content.title')}
                       layout='fill'
                       objectFit='cover'
                     />

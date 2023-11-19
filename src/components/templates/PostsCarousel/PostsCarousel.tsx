@@ -36,7 +36,7 @@ export const PostsCarousel = ({ posts }: PostsCarouselProps) => {
           <div className='-mx-4 mb-20 flex flex-wrap items-center'>
             <div className='mb-8 w-full px-4 md:mb-0 md:w-1/2'>
               <h1 className='font-heading text-4xl tracking-tighter lg:text-6xl'>
-                {t('postsCarousel.headline')}
+                {t('content.postsCarousel.title')}
               </h1>
             </div>
             <div className='w-full px-4 md:w-1/2'>
@@ -86,7 +86,9 @@ export const PostsCarousel = ({ posts }: PostsCarouselProps) => {
               className='group inline-flex items-center border-b-2 border-black pb-2 font-medium leading-none'
               href='/news'
             >
-              <span className='mr-4'>{t('postsCarousel.readMore')}</span>
+              <span className='mr-4'>
+                {t('content.postsCarousel.readMore')}
+              </span>
               <span className='-rotate-45 transform transition duration-100 group-hover:rotate-0'>
                 <VscArrowRight size={15} />
               </span>

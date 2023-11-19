@@ -8,7 +8,7 @@ import { fetchAPI } from '@/lib/fetch-api';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/layout/Seo';
 import { Features } from '@/components/templates/Features';
-import { Intro } from '@/components/templates/Intro';
+import { Hero } from '@/components/templates/Hero';
 import { PostsCarousel } from '@/components/templates/PostsCarousel/PostsCarousel';
 import { StickyScroll } from '@/components/templates/StickyScroll/StickyScroll';
 
@@ -17,9 +17,13 @@ const HomePage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const posts = props.posts;
   return (
     <Layout>
-      <Seo templateTitle={t('seo.title')} description={t('seo.description')} />
+      <Seo
+        templateTitle={t('meta.pageTitle')}
+        description={t('meta.seo.description')}
+        title={t('meta.seo.title')}
+      />
       <main>
-        <Intro />
+        <Hero />
         <StickyScroll />
         <Features />
         <PostsCarousel posts={posts} />

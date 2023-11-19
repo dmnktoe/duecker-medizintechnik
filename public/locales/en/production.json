@@ -1,0 +1,44 @@
+{
+  "content": {
+    "boxes": {
+      "1": {
+        "text": "production:content.boxes.1.text",
+        "title": "production:content.boxes.1.title"
+      },
+      "2": {
+        "text": "production:content.boxes.2.text",
+        "title": "production:content.boxes.2.title"
+      },
+      "3": {
+        "text": "production:content.boxes.3.text",
+        "title": "production:content.boxes.3.title"
+      }
+    },
+    "list": {
+      "items": {
+        "1": {
+          "label": ""
+        },
+        "2": {
+          "label": ""
+        },
+        "3": {
+          "label": "production:content.list.items.3.label"
+        }
+      },
+      "title": "production:content.list.title"
+    },
+    "text1": "production:content.text1",
+    "text2": "production:content.text2",
+    "text3": "production:content.text3",
+    "title1": "production:content.title1",
+    "title2": "production:content.title2"
+  },
+  "meta": {
+    "pageTitle": "production:meta.pageTitle",
+    "seo": {
+      "description": "production:meta.seo.description",
+      "title": "production:meta.seo.title"
+    }
+  }
+}

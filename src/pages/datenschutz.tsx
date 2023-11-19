@@ -16,10 +16,14 @@ const PrivacyPage = (
   const { t } = useTranslation('privacy');
   return (
     <Layout>
-      <Seo templateTitle={t('seo.title')} />
+      <Seo
+        templateTitle={t('meta.pageTitle')}
+        description={t('meta.seo.description')}
+        title={t('meta.seo.title')}
+      />
       <main className='py-16 md:py-24'>
         <Container className='max-w-4xl'>
-          <h1 className='mb-8'>{t('headline')}</h1>
+          <h1 className='mb-8'>{t('content.title')}</h1>
           <div className='privacy__content'>
             <p>
               <strong>1. Geltungsbereich</strong>

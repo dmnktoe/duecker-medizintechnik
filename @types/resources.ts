@@ -1,6 +1,8 @@
 import aboutUs from '~/locales/de/aboutUs.json';
+import commerce from '~/locales/de/commerce.json';
 import common from '~/locales/de/common.json';
 import contact from '~/locales/de/contact.json';
+import cookiePolicy from '~/locales/de/cookiePolicy.json';
 import downloads from '~/locales/de/downloads.json';
 import home from '~/locales/de/home.json';
 import imprint from '~/locales/de/imprint.json';
@@ -8,12 +10,15 @@ import news from '~/locales/de/news.json';
 import notFound from '~/locales/de/notFound.json';
 import privacy from '~/locales/de/privacy.json';
 import production from '~/locales/de/production.json';
+import repair from '~/locales/de/repair.json';
 import services from '~/locales/de/services.json';
 
 const resources = {
   aboutUs,
+  commerce,
   common,
   contact,
+  cookiePolicy,
   downloads,
   home,
   imprint,
@@ -21,6 +26,7 @@ const resources = {
   notFound,
   privacy,
   production,
+  repair,
   services,
 } as const;
 

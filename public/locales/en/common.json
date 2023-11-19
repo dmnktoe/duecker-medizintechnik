@@ -1,9 +1,5 @@
 {
   "cta": {
-    "headline": "Do you have any questions or need a quote?",
-    "subline": "We are happy to help you!",
-    "buttonText": "Get a Quote",
-    "buttonLink": "/kontakt",
     "bullets": [
       {
         "title": "24/7 Support"
@@ -17,66 +13,90 @@
       {
         "title": "Get a quote within 24 hours"
       }
-    ]
+    ],
+    "buttonLink": "/kontakt",
+    "buttonText": "Get a Quote",
+    "title": "Do you have any questions or need a quote?",
+    "titleSub": "We are happy to help you!"
   },
   "footer": {
-    "phone": "Phone",
-    "fax": "Fax",
-    "web": "Website",
-    "email": "E-Mail",
+    "contactSection": {
+      "email": "E-Mail",
+      "phone": "Phone",
+      "text": "We are happy to help you solve your problems and are always available to answer your questions. We look forward to hearing from you."
+    },
     "navigation": [
       {
-        "title": "Company",
         "items": [
           {
-            "href": "/kontakt",
-            "text": "Kontakt"
+            "href": "/unternehmen",
+            "title": "About Us"
           },
           {
-            "href": "/neuigkeiten",
-            "text": "Neugikeiten"
-          },
-          {
-            "href": "/ueber-uns",
-            "text": "Firmengeschichte"
-          },
-          {
-            "href": "/neuigkeiten",
-            "text": "Zertifikate / Downloads"
+            "href": "/downloads",
+            "title": "Downloads & Certificates"
           },
           {
             "href": "/kontakt",
-            "text": "Kontakt"
+            "title": "Contact Us"
+          },
+          {
+            "href": "/jobs",
+            "title": "Career"
           }
-        ]
+        ],
+        "title": "Company"
       },
       {
-        "title": "Rechtliches",
+        "items": [
+          {
+            "href": "/leistungen/produktion",
+            "title": "Production"
+          },
+          {
+            "href": "/leistungen/reparatur",
+            "title": "Repair"
+          },
+          {
+            "href": "/leistungen/handel",
+            "title": "Commerce"
+          }
+        ],
+        "title": "Services"
+      },
+      {
         "items": [
           {
             "href": "/impressum",
-            "text": "Impressum"
+            "title": "Legal Notice"
           },
           {
             "href": "/datenschutz",
-            "text": "Datenschutz"
+            "title": "Privacy Policy"
+          },
+          {
+            "href": "/cookie-richtlinie",
+            "title": "Cookie Settings"
           },
           {
             "href": "/agb",
-            "text": "AGB"
+            "title": "Terms and Conditions"
           }
-        ]
+        ],
+        "title": "Policies"
       }
-    ]
+    ],
+    "newsSection": {
+      "link": "",
+      "noResults": "No posts found.",
+      "title": "Recent News"
+    }
   },
   "header": {
     "change-locale": "Change Language (de-DE)",
-    "ctaButtonText": "Get a Quote / Contact Us",
-    "toggleNavigationText": "Toggle menu",
-    "imprintLinkText": "Imprint",
     "cookieLinkText": "Cookie Settings",
-    "privacyLinkText": "Privacy Policy",
-    "servicesDropdownText": "Our Services",
+    "ctaButtonText": "Get a Quote / Contact Us",
+    "imprintLinkText": "Imprint",
     "navigationItems": [
       {
         "href": "/",
@@ -87,24 +107,24 @@
         "text": "About Us"
       },
       {
-        "text": "Services",
         "subItems": [
           {
+            "description": "High quality medical production.",
             "href": "/leistungen/produktion",
-            "text": "Production",
-            "description": "High quality medical production."
+            "text": "Production"
           },
           {
+            "description": "Repair of medical devices.",
             "href": "/leistungen/reparatur",
-            "text": "Repair",
-            "description": "Repair of medical devices."
+            "text": "Repair"
           },
           {
+            "description": "Commerce and b2b sales of medical devices.",
             "href": "/leistungen/handel",
-            "text": "Commerce",
-            "description": "Commerce and b2b sales of medical devices."
+            "text": "Commerce"
           }
-        ]
+        ],
+        "text": "Services"
       },
       {
         "href": "/downloads",
@@ -114,6 +134,9 @@
         "href": "/news",
         "text": "News"
       }
-    ]
+    ],
+    "privacyLinkText": "Privacy Policy",
+    "servicesDropdownText": "Our Services",
+    "toggleNavigationText": "Toggle menu"
   }
 }

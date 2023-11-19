@@ -1,0 +1,19 @@
+{
+  "content": {
+    "newsList": {
+      "readMore": ""
+    },
+    "newsSlug": {
+      "back": "Go back to all posts"
+    },
+    "text": "",
+    "title": ""
+  },
+  "meta": {
+    "pageTitle": "",
+    "seo": {
+      "description": "",
+      "title": ""
+    }
+  }
+}

@@ -1,6 +1,12 @@
 {
-  "seo": {
+  "content": {
     "title": "Privacy Policy"
   },
-  "headline": "Privacy Policy"
+  "meta": {
+    "pageTitle": "",
+    "seo": {
+      "description": "",
+      "title": "Privacy Policy"
+    }
+  }
 }
