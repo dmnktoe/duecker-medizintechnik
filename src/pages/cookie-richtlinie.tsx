@@ -35,9 +35,9 @@ const CookiePolicy = (
   return (
     <Layout>
       <Seo
-        templateTitle={t('meta.seo.title')}
+        templateTitle={t('meta.pageTitle')}
         description={t('meta.seo.description')}
-        title={t('meta.pageTitle')}
+        title={t('meta.seo.title')}
       />
       <main className='py-16 lg:py-24'>
         <Container>
@@ -60,7 +60,7 @@ const CookiePolicy = (
               <div id='CookiebotDeclaration' />
             ) : (
               <span className='text-red-700'>
-                CookieBot is not available in development mode.
+                {t('content.cookieBotAvailability')}
               </span>
             )}
           </div>

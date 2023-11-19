@@ -1,6 +1,7 @@
 import { marked } from 'marked';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import Image from 'next/image';
+import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React from 'react';
 import {
@@ -50,7 +51,7 @@ export const getStaticProps: GetStaticProps = async ({ locale, params }) => {
   );
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? 'de', ['common', 'home'])),
+      ...(await serverSideTranslations(locale ?? 'de', ['common', 'news'])),
       post: posts.data[0],
     },
   };
@@ -61,17 +62,18 @@ interface PostPageProps extends InferGetStaticPropsType<typeof getStaticProps> {
 }
 
 const PostPage = (props: PostPageProps) => {
+  const { t } = useTranslation('news');
   const post = props.post;
   const fullPostUrl =
     'https://' + company.url + '/news/' + post.attributes.slug;
   return (
     <Layout>
-      <Seo templateTitle={post.attributes.title} />
+      <Seo title={post.attributes.title} />
       <section className='bg-gray-100'>
         <Container>
           <div className='mx-auto flex max-w-3xl'>
             <ArrowLink direction='left' href='/news' className='mt-12 text-xs'>
-              Zurück zur Übersicht
+              {t('content.newsSlug.back')}
             </ArrowLink>
           </div>
         </Container>

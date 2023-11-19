@@ -15,9 +15,9 @@ const NotFoundPage = (
   return (
     <Layout>
       <Seo
-        templateTitle={t('meta.seo.title')}
+        templateTitle={t('meta.pageTitle')}
         description={t('meta.seo.description')}
-        title={t('meta.pageTitle')}
+        title={t('meta.seo.title')}
       />
       <main>
         <section className='bg-white'>

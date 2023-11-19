@@ -20,9 +20,9 @@ const NewsPage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <Layout>
       <Seo
-        templateTitle={t('meta.seo.title')}
+        templateTitle={t('meta.pageTitle')}
         description={t('meta.seo.description')}
-        title={t('meta.pageTitle')}
+        title={t('meta.seo.title')}
       />
       <main className='bg-gray-100 py-16 lg:py-24'>
         <Container>

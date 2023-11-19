@@ -19,9 +19,9 @@ const ServicesPage = (
   return (
     <Layout>
       <Seo
-        templateTitle={t('meta.seo.title')}
+        templateTitle={t('meta.pageTitle')}
         description={t('meta.seo.description')}
-        title={t('meta.pageTitle')}
+        title={t('meta.seo.title')}
       />
       <main className='bg-white py-16 md:py-24 '>
         <Container>
