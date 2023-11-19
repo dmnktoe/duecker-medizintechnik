@@ -1,5 +1,6 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import Image from 'next/image';
+import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 import { useCallback, useRef } from 'react';
@@ -27,6 +28,7 @@ import repairSliderImg6 from '/public/images/repair/repair-slider_image-6.webp';
 
 const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const swiperElRef = useRef<SwiperRef>(null);
+  const { t } = useTranslation('repair');
 
   const handlePrev = useCallback(() => {
     if (!swiperElRef.current) return;
@@ -37,6 +39,7 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
     if (!swiperElRef.current) return;
     swiperElRef.current.swiper.slideNext();
   }, []);
+
   return (
     <Layout>
       <Seo
