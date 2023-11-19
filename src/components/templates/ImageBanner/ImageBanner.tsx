@@ -14,7 +14,6 @@ type Props = {
   src: StaticImageData;
   role: ImageBannerRole;
   delay?: number;
-  blurDataURL?: string;
   className?: string;
   priority?: boolean;
   staticAnimation?: boolean;
@@ -26,7 +25,6 @@ const ImageBanner = ({
   className,
   priority,
   staticAnimation,
-  blurDataURL,
   delay,
 }: Props) => {
   return (
@@ -46,11 +44,9 @@ const ImageBanner = ({
         sizes={responsiveImageSizes[role]}
         fill
         fetchPriority='high'
-        quality={95}
+        quality={60}
         priority={priority}
         alt='hero'
-        placeholder='blur'
-        blurDataURL={blurDataURL}
         className='object-cover'
       />
     </motion.div>
