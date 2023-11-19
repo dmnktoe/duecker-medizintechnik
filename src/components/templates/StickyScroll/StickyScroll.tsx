@@ -112,7 +112,7 @@ export const StickyScroll = () => {
                 {stickyScroll.map((feature) => (
                   <li key={feature.id}>
                     <StickyScrollTitle id={feature.id}>
-                      {t(('stickyScroll.' + feature.id) as never)}
+                      {t(('content.stickyScroll.' + feature.id) as never)}
                     </StickyScrollTitle>
                   </li>
                 ))}

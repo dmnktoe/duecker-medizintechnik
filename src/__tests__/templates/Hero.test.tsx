@@ -1,13 +1,13 @@
 import { render, screen } from '@testing-library/react';
 
-import { Intro } from '@/components/templates/Intro';
+import { Hero } from '@/components/templates/Hero';
 
 import initializeI18n from '@/utils/i18n-testing';
 
 describe('Intro', () => {
   beforeEach(async () => {
     await initializeI18n(['home']);
-    render(<Intro />);
+    render(<Hero />);
   });
   it('should render the intro section', async () => {
     expect(

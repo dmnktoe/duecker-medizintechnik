@@ -28,7 +28,11 @@ const AboutUsPage = (
   const { t } = useTranslation('aboutUs');
   return (
     <Layout>
-      <Seo templateTitle={t('seo.title')} description={t('seo.description')} />
+      <Seo
+        templateTitle={t('meta.seo.title')}
+        description={t('meta.seo.description')}
+        title={t('meta.pageTitle')}
+      />
       <ImageBanner
         role='hero'
         delay={0}
@@ -52,49 +56,17 @@ const AboutUsPage = (
             />
           </div>
           <div className='mx-auto mb-16 max-w-5xl'>
-            <Title margin={false}>Unternehmen & Leitbild</Title>
-            <p>
-              Dücker Medizintechnik wurde im Jahr 1979 von Herrn Rolf Dücker mit
-              einer klaren Vision gegründet.
-            </p>
+            <Title margin={false}>{t('content.title')}</Title>
+            <p>{t('content.titleText')}</p>
             <hr className='my-12' />
             <Title size='three' isAnimated>
-              {t('headline')}
+              {t('content.companyText.title')}
             </Title>
-            <p className='mb-4'>
-              Schnell wurde sich am Markt ein guter Name geschaffen, da die
-              Kunden mit bester Qualität und Service bedient wurden. Um den
-              Ansprüchen der Kunden gewachsen zu sein, wurde das Lager der Firma
-              Dücker-Medizintechnik ständig erweitert. Aus diesem Grund wurde
-              1994 der Standort gewechselt. Es erfolgte der Umzug in das jetzige
-              Büro und Produktionshaus in Melsungen. Hier entstand ein Reinraum
-              der ISO Klasse 8 zur Produktion von medizinischen
-              Einweg-Produkten.
-            </p>
-            <p className='mb-4'>
-              Dücker Medizintechnik ist zertifizierter Hersteller von sterilen-
-              und unsterilen Schlauch-Sets und beliefert den Deutschen und
-              Europäischen Markt für namhafte Hersteller und Set-Packern. 2001
-              wurde der Service-Bereich erweitert. Es wurden Chirurgiemechaniker
-              eingestellt, die die Reparaturen von chir.-Instrumenten
-              durchführen. Dieser Schritt war Richtungsweisend für unser
-              Unternehmen.
-            </p>
-            <p className='mb-4 font-medium'>
-              Dücker Medizintechnik ist mit dem eigenem Reparatur-Service der
-              Ansprechpartner für Kliniken, ambulante Praxen und externe
-              Medizintechniken geworden.
-            </p>
-            <p className='mb-4'>
-              Seit dem 01.01.2003 wird das Unternehmen von Herrn Marc Dücker als
-              Geschäftsführer geleitet.
-            </p>
-            <p className='mb-4'>
-              Heute sind wir Ihr Ansprechpartner für Handelsvermittlung von
-              pharmazeutischen Erzeugnissen, medizinischen und orthopädischen
-              Artikeln und Laborbedarf, Ärztebedarf, Dentalbedarf,
-              zahnärztlichen Instrumenten, Krankenhaus- und Altenpflegebedarf
-            </p>
+            <p className='mb-4'>{t('content.companyText.text1')}</p>
+            <p className='mb-4'>{t('content.companyText.text2')}</p>
+            <p className='mb-4 font-medium'>{t('content.companyText.text3')}</p>
+            <p className='mb-4'>{t('content.companyText.text4')}</p>
+            <p className='mb-4'>{t('content.companyText.text5')}</p>
             <hr className='my-10' />
             <p className='mb-4'>
               Bei Dücker Medizintechnik legen wir großen Wert auf{' '}
@@ -133,23 +105,9 @@ const AboutUsPage = (
           <div className='mx-auto max-w-5xl items-center gap-16 py-8 lg:grid lg:grid-cols-2 lg:pb-16 lg:pt-32'>
             <div>
               <h2 className='mb-4 text-4xl font-bold tracking-tight text-gray-900'>
-                <StaggerText>
-                  Qualität, Innovation und Kundenzufriedenheit
-                </StaggerText>
+                <StaggerText>{t('content.innovationText.title')}</StaggerText>
               </h2>
-              <p className='mb-4'>
-                Die Medizintechnik entwickelt sich ständig weiter, und wir
-                stehen an vorderster Front dieses Wandels. Unsere Fähigkeit,
-                innovative Lösungen zu entwickeln und in die Produktion
-                umzusetzen, hat uns zu einem anerkannten Akteur in der Branche
-                gemacht. Wir investieren kontinuierlich in Forschung und
-                Entwicklung, um sicherzustellen, dass unsere Kunden stets von
-                den neuesten Entwicklungen profitieren.
-              </p>
-              <p>
-                We are strategists, designers and developers. Innovators and
-                problem solvers. Small enough to be simple and quick.
-              </p>
+              <p className='mb-4'>{t('content.innovationText.text')}</p>
             </div>
             <div className='mt-8 grid grid-cols-2 gap-4'>
               <Image

@@ -78,7 +78,7 @@ export const NewsList = (props: NewsListProps) => {
                     className='inline-flex items-center'
                     href={`/news/${post.attributes.slug}`}
                   >
-                    {t('newsList.readMore')}
+                    {t('content.newsList.readMore')}
                   </ArrowLink>
                 </div>
               </div>

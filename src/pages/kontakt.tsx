@@ -37,7 +37,11 @@ const ContactPage = (
 
   return (
     <Layout>
-      <Seo templateTitle={t('seo.title')} description={t('seo.description')} />
+      <Seo
+        templateTitle={t('meta.seo.title')}
+        description={t('meta.seo.description')}
+        title={t('meta.pageTitle')}
+      />
       {isProd ? (
         <>
           <div className='cookieconsent-optin-marketing flex h-[350px] items-center bg-gray-100 align-middle'>
@@ -55,7 +59,7 @@ const ContactPage = (
                 <span
                   className='text-center font-normal text-gray-500 md:text-lg'
                   dangerouslySetInnerHTML={{
-                    __html: t('mapsBanner.cookieNotice'),
+                    __html: t('content.mapsBanner.cookieNotice'),
                   }}
                 />
                 <div className='flex w-full flex-wrap justify-center gap-4 sm:w-auto'>
@@ -80,7 +84,7 @@ const ContactPage = (
                           }
                     }
                   >
-                    {t('mapsBanner.accept')}
+                    {t('content.mapsBanner.accept')}
                   </Button>
                   <Button
                     variant='outline'
@@ -99,7 +103,7 @@ const ContactPage = (
                           }
                     }
                   >
-                    {t('mapsBanner.cookieSettings')}
+                    {t('content.mapsBanner.cookieSettings')}
                   </Button>
                 </div>
               </div>
@@ -133,9 +137,9 @@ const ContactPage = (
                     capitalizeLinks
                     className='mb-6'
                   />
-                  <Title>{t('headline')}</Title>
+                  <Title>{t('content.title')}</Title>
                   <p className='text-body-color mb-12 text-base leading-relaxed'>
-                    {t('subheadline')}
+                    {t('content.text')}
                   </p>
                   <div className='mb-8 flex w-full max-w-[370px] items-center'>
                     <div className='mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-primary-500 bg-opacity-5 text-primary-500 sm:h-[70px] sm:max-w-[70px]'>
@@ -143,7 +147,7 @@ const ContactPage = (
                     </div>
                     <div className='w-full'>
                       <h4 className='mb-1 text-xl font-semibold text-dark'>
-                        {t('ourLocation')}
+                        {t('content.contactDetails.location')}
                       </h4>
                       <p className='text-body-color text-base'>
                         {company.street}
@@ -158,7 +162,7 @@ const ContactPage = (
                     </div>
                     <div className='w-full'>
                       <h4 className='mb-1 text-xl font-semibold text-dark'>
-                        {t('phone')}
+                        {t('content.contactDetails.phone')}
                       </h4>
                       <p className='text-body-color text-base'>
                         <UnderlineLink href={`tel:${company.phone}`}>
@@ -173,7 +177,7 @@ const ContactPage = (
                     </div>
                     <div className='w-full'>
                       <h4 className='mb-1 text-xl font-semibold text-dark'>
-                        {t('email')}
+                        {t('content.contactDetails.email')}
                       </h4>
                       <p className='text-body-color text-base'>
                         <UnderlineLink href={`mailto:${company.email}`}>
@@ -186,9 +190,9 @@ const ContactPage = (
               </div>
               <div className='w-full px-4 lg:w-1/2 xl:w-5/12'>
                 <div className='relative rounded-lg bg-white p-8 shadow-lg sm:p-12'>
-                  <Title size='three'>{t('contactForm.title')}</Title>
+                  <Title size='three'>{t('content.contactForm.title')}</Title>
                   <p className='mb-8 font-light text-gray-500 lg:mb-12'>
-                    {t('contactForm.description')}
+                    {t('content.contactForm.text')}
                   </p>
                   <ContactForm />
                   <div>

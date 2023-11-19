@@ -20,27 +20,29 @@ export default function ContactForm() {
 
   const formSchema = z.object({
     fullName: z.string().min(1, {
-      message: i18n?.t('contact:contactForm.fullName.error.required'),
+      message: i18n?.t('contact:content.contactForm.fullName.error.required'),
     }),
     email: z
       .string()
-      .min(1, { message: i18n?.t('contact:contactForm.email.error.required') })
+      .min(1, {
+        message: i18n?.t('contact:content.contactForm.email.error.required'),
+      })
       .email({
-        message: i18n?.t('contact:contactForm.email.error.invalid'),
+        message: i18n?.t('contact:content.contactForm.email.error.invalid'),
       }),
-    phone: z
-      .string()
-      .min(1, { message: i18n?.t('contact:contactForm.phone.error.required') }),
+    phone: z.string().min(1, {
+      message: i18n?.t('contact:content.contactForm.phone.error.required'),
+    }),
     message: z
       .string()
       .min(10, {
-        message: i18n?.t('contact:contactForm.message.error.minLength'),
+        message: i18n?.t('contact:content.contactForm.message.error.minLength'),
       })
       .max(1000, {
-        message: i18n?.t('contact:contactForm.message.error.maxLength'),
+        message: i18n?.t('contact:content.contactForm.message.error.maxLength'),
       }),
     terms: z.boolean().refine((val) => val, {
-      message: i18n?.t('contact:contactForm.terms.error'),
+      message: i18n?.t('contact:content.contactForm.terms.error'),
     }),
   });
 
@@ -71,7 +73,7 @@ export default function ContactForm() {
       if (response.status === 200) {
         // Handle success. You can change the message to whatever you want.
         setResult(
-          i18n?.t('contact:contactForm.submit.success') ||
+          i18n?.t('contact:content.contactForm.submit.success') ||
             'Thank you for your message. We will get back to you as soon as possible.',
         );
         setResultColor('text-green-500');
@@ -101,10 +103,10 @@ export default function ContactForm() {
           >
             {errors.fullName?.message ? (
               <span className='text-red-500'>
-                {t('contactForm.fullName.label')}*
+                {t('content.contactForm.fullName.label')}*
               </span>
             ) : (
-              <span>{t('contactForm.fullName.label')}*</span>
+              <span>{t('content.contactForm.fullName.label')}*</span>
             )}
           </label>
           <input
@@ -113,7 +115,7 @@ export default function ContactForm() {
             className={`${
               errors.fullName?.message && 'border-red-500'
             } dark:shadow-sm-light block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:focus:border-primary-500 dark:focus:ring-primary-500`}
-            placeholder={t('contactForm.fullName.placeholder')}
+            placeholder={t('content.contactForm.fullName.placeholder')}
             {...register('fullName')}
           />
           {errors.fullName?.message && (
@@ -129,10 +131,10 @@ export default function ContactForm() {
           >
             {errors.email?.message ? (
               <span className='text-red-500'>
-                {t('contactForm.email.label')}*
+                {t('content.contactForm.email.label')}*
               </span>
             ) : (
-              <span>{t('contactForm.email.label')}*</span>
+              <span>{t('content.contactForm.email.label')}*</span>
             )}
           </label>
           <input
@@ -141,7 +143,7 @@ export default function ContactForm() {
             className={`${
               errors.email?.message && 'border-red-500'
             } dark:shadow-sm-light block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:focus:border-primary-500 dark:focus:ring-primary-500`}
-            placeholder={t('contactForm.email.placeholder')}
+            placeholder={t('content.contactForm.email.placeholder')}
             {...register('email')}
           />
           {errors.email?.message && (
@@ -157,10 +159,10 @@ export default function ContactForm() {
           >
             {errors.phone?.message ? (
               <span className='text-red-500'>
-                {t('contactForm.phone.label')}*
+                {t('content.contactForm.phone.label')}*
               </span>
             ) : (
-              <span>{t('contactForm.phone.label')}*</span>
+              <span>{t('content.contactForm.phone.label')}*</span>
             )}
           </label>
           <input
@@ -169,7 +171,7 @@ export default function ContactForm() {
             className={`${
               errors.phone?.message && 'border-red-500'
             } dark:shadow-sm-light block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:focus:border-primary-500 dark:focus:ring-primary-500`}
-            placeholder={t('contactForm.phone.placeholder')}
+            placeholder={t('content.contactForm.phone.placeholder')}
             {...register('phone')}
           />
           {errors.phone?.message && (
@@ -186,10 +188,10 @@ export default function ContactForm() {
             >
               {errors.message?.message ? (
                 <span className='text-red-500'>
-                  {t('contactForm.message.label')}*
+                  {t('content.contactForm.message.label')}*
                 </span>
               ) : (
-                <span>{t('contactForm.message.label')}*</span>
+                <span>{t('content.contactForm.message.label')}*</span>
               )}
             </label>
             <textarea
@@ -198,7 +200,7 @@ export default function ContactForm() {
               className={`${
                 errors.message?.message && 'border-red-500'
               } dark:shadow-sm-light block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:focus:border-primary-500 dark:focus:ring-primary-500`}
-              placeholder={t('contactForm.message.placeholder')}
+              placeholder={t('content.contactForm.message.placeholder')}
               {...register('message')}
             ></textarea>
             {errors.message?.message && (
@@ -218,7 +220,7 @@ export default function ContactForm() {
             />
             <label htmlFor='terms' className='ml-2 block text-sm text-gray-900'>
               <Trans
-                i18nKey='contactForm.terms.label'
+                i18nKey='content.contactForm.terms.label'
                 t={t}
                 components={{
                   linkTag: (
@@ -256,7 +258,9 @@ export default function ContactForm() {
             className='w-full'
             role='button'
           >
-            {isSubmitting ? 'Sending...' : t('contactForm.submit.label')}
+            {isSubmitting
+              ? 'Sending...'
+              : t('content.contactForm.submit.label')}
           </Button>
 
           {isSubmitSuccessful && (

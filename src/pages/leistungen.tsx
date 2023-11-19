@@ -8,6 +8,7 @@ import { MdOutlinePrecisionManufacturing } from 'react-icons/md';
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/layout/Seo';
+import { AnimatedBadge } from '@/components/ui/AnimatedBadge';
 import ArrowLink from '@/components/ui/links/ArrowLink';
 import { Title } from '@/components/ui/typography/Title';
 
@@ -17,38 +18,40 @@ const ServicesPage = (
   const { t } = useTranslation('services');
   return (
     <Layout>
-      <Seo templateTitle={t('seo.title')} />
+      <Seo
+        templateTitle={t('meta.seo.title')}
+        description={t('meta.seo.description')}
+        title={t('meta.pageTitle')}
+      />
       <main className='bg-white py-16 md:py-24 '>
         <Container>
           <div className='-mx-4 flex flex-wrap'>
             <div className='w-full px-4'>
               <div className='mx-auto mb-12 max-w-[510px] text-center lg:mb-20'>
-                <span className='text-primary mb-2 block text-lg font-semibold'>
-                  {t('tagline')}
-                </span>
+                <AnimatedBadge text={t('content.badge')} />
                 <Title margin={false} className='mb-4'>
-                  {t('headline')}
+                  {t('content.title')}
                 </Title>
-                <p className='text-base text-dark'>{t('subline')}</p>
+                <p className='text-base text-dark'>{t('content.text')}</p>
               </div>
             </div>
           </div>
           <div className='-mx-4 flex flex-wrap'>
             <ServiceCard
-              title='Produktion'
-              details='We dejoy working with discerning clients, people for whom qualuty, service, integrity & aesthetics.'
+              title={t('content.cards.production.title')}
+              details={t('content.cards.production.text')}
               icon={
                 <MdOutlinePrecisionManufacturing className='h-10 w-10 text-white' />
               }
             />
             <ServiceCard
-              title='Reparatur'
-              details='We dejoy working with discerning clients, people for whom qualuty, service, integrity & aesthetics.'
+              title={t('content.cards.repair.title')}
+              details={t('content.cards.repair.text')}
               icon={<GiAutoRepair className='h-10 w-10 text-white' />}
             />
             <ServiceCard
-              title='Handel'
-              details='We dejoy working with discerning clients, people for whom qualuty, service, integrity & aesthetics.'
+              title={t('content.cards.commerce.title')}
+              details={t('content.cards.commerce.text')}
               icon={<GiTrade className='h-10 w-10 text-white' />}
             />
           </div>
@@ -67,6 +70,7 @@ const ServiceCard = ({
   title: string;
   details: string;
 }) => {
+  const { t } = useTranslation('services');
   return (
     <>
       <div className='w-full px-4 md:w-1/2 lg:w-1/3'>
@@ -77,7 +81,7 @@ const ServiceCard = ({
           <h4 className='mb-3 text-xl font-semibold text-dark'>{title}</h4>
           <p className='text-body-color mb-6'>{details}</p>
           <ArrowLink href={`/leistungen/${title.toLowerCase()}`}>
-            Mehr erfahren
+            {t('content.cards.readMore')}
           </ArrowLink>
         </div>
       </div>

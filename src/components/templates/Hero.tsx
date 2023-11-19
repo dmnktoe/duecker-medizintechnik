@@ -4,7 +4,6 @@ import { useTranslation } from 'next-i18next';
 import * as React from 'react';
 
 import { Container } from '@/components/layout/Container';
-import { AnimatedBadge } from '@/components/ui/AnimatedBadge';
 import ButtonLink from '@/components/ui/links/ButtonLink';
 import NextImage from '@/components/ui/NextImage';
 import { Title } from '@/components/ui/typography/Title';
@@ -13,7 +12,7 @@ import { customerLogos } from '@/constant/customerLogos';
 
 import heroBg from '/public/images/home/duecker-medizintechnik_home_hero-bg.jpg';
 
-export const Intro = () => {
+export const Hero = () => {
   return (
     <>
       <section className='py-16 md:py-24 lg:py-32'>
@@ -21,7 +20,7 @@ export const Intro = () => {
         <Container>
           <div className='mb-12 flex flex-col items-center gap-12 md:mb-36 md:gap-24 lg:flex-row lg:gap-36'>
             <div className='w-full lg:w-3/5'>
-              <IntroText />
+              <HeroText />
             </div>
             <div className='w-full lg:w-2/5'>
               <Image
@@ -43,23 +42,22 @@ export const Intro = () => {
   );
 };
 
-const IntroText = () => {
+const HeroText = () => {
   const { t } = useTranslation('home');
   return (
     <>
       <div>
         <div className='text-left'>
-          <AnimatedBadge text='✨ Neue Website Relaunch' />
-          <Title>{t('intro.title')}</Title>
+          <Title>{t('content.hero.title')}</Title>
           <p className='mt-6 text-lg font-medium leading-8 tracking-tight text-gray-800'>
-            {t('intro.content')}
+            {t('content.hero.text')}
           </p>
           <div className='mt-10 flex items-center justify-start gap-x-3'>
             <ButtonLink variant='primary' size='base' href='/leistungen'>
-              {t('intro.primaryButton')}
+              {t('content.hero.buttons.primary.label')}
             </ButtonLink>
             <ButtonLink size='base' variant='ghost' href='/kontakt'>
-              {t('intro.secondaryButton')}{' '}
+              {t('content.hero.buttons.secondary.label')}{' '}
               <span aria-hidden='true' className='ml-2'>
                 →
               </span>

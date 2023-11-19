@@ -5,6 +5,7 @@ import { openGraph } from '@/lib/helper';
 
 import { company } from '@/constant/company';
 
+// TODO: Consistent meta tags for all pages (see below)
 const defaultMeta = {
   title:
     'Dücker Medizintechnik | Ihr Partner für OP-Lösungen und Sterilisierungen',

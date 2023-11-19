@@ -27,7 +27,11 @@ const CommercePage = (
 
   return (
     <Layout>
-      <Seo templateTitle='Handel' />
+      <Seo
+        templateTitle={t('meta.seo.title')}
+        description={t('meta.seo.description')}
+        title={t('meta.pageTitle')}
+      />
       <ImageBanner
         role='hero'
         delay={0}
@@ -53,12 +57,12 @@ const CommercePage = (
               <div className='text-dark'>
                 <div className='mb-2'>
                   <Badge size='lg' color='secondary' variant='solid'>
-                    Handel
+                    {t('meta.pageTitle')}
                   </Badge>
                 </div>
-                <Title isAnimated>{t('headline')}</Title>
-                <p className='text-base'>{t('text')}</p>
-                <h5 className='my-6 font-semibold'>{t('ourPartners')}:</h5>
+                <Title isAnimated>{t('content.title')}</Title>
+                <p className='text-base'>{t('content.text')}</p>
+                <h5 className='my-6 font-semibold'>{t('content.partners')}:</h5>
                 <ul className='mb-6 flex flex-row gap-6'>
                   <div>
                     <li className='mb-3 flex items-center'>

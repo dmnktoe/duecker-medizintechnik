@@ -1,4 +1,5 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React from 'react';
 import { VscArrowRight, VscCloudDownload } from 'react-icons/vsc';
@@ -22,9 +23,14 @@ import heroImg from '/public/images/downloads/duecker-medizintechnik_downloads_h
 const DownloadsPage = (
   _props: InferGetStaticPropsType<typeof getStaticProps>,
 ) => {
+  const { t } = useTranslation('downloads');
   return (
     <Layout>
-      <Seo templateTitle='Reparatur' />
+      <Seo
+        templateTitle={t('meta.seo.title')}
+        description={t('meta.seo.description')}
+        title={t('meta.pageTitle')}
+      />
       <ImageBanner
         role='hero'
         delay={0}
@@ -46,11 +52,8 @@ const DownloadsPage = (
               capitalizeLinks
               className='mb-6'
             />
-            <Title margin={false}>Downloads & Zertifikate</Title>
-            <p>
-              Hier finden Sie alle wichtigen Dokumente und Zertifikate zum
-              Download.
-            </p>
+            <Title>{t('content.title')}</Title>
+            <p>{t('content.text')}</p>
             <hr className='my-12' />
             <div className='mb-12 flex flex-col'>
               <Title
@@ -59,7 +62,7 @@ const DownloadsPage = (
                 margin={false}
                 className='mb-2 text-primary-500'
               >
-                Zertifikate
+                {t('content.table.certificates.label')}
               </Title>
               <Accordion type='single'>
                 <AccordionItem value='item-1'>
@@ -133,7 +136,7 @@ const DownloadsPage = (
                 margin={false}
                 className='mb-2 text-primary-500'
               >
-                Handhabungshinweise
+                {t('content.table.instructions.label')}
               </Title>
               <Accordion type='single'>
                 <AccordionItem value='item-1'>

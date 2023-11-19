@@ -17,7 +17,7 @@ const TextBlocks = () => {
       <Container>
         <div className='-m-8 flex flex-wrap'>
           {ready &&
-            t('features.textBlocks', {
+            t('content.features.textBlocks', {
               returnObjects: true,
             }).map((item) => (
               <TextBlockElement
@@ -80,6 +80,8 @@ const BentoGrid = () => {
     }
   };
 
+  const { t } = useTranslation('home');
+
   return (
     <section className='pt-16 md:pt-24 lg:pt-32'>
       <Container>
@@ -116,11 +118,11 @@ const BentoGrid = () => {
             )}
           >
             <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-gray-100 p-4 text-dark'>
-              <h5>Spezifikation</h5>
+              <h5>{t('content.features.bentoGrid.boxIso.textTop')}</h5>
               <h1 className='inline-block bg-gradient-to-r from-purple-400 to-purple-700 bg-clip-text text-7xl font-bold text-transparent'>
-                ISO8
+                {t('content.features.bentoGrid.boxIso.textAccent')}
               </h1>
-              <h5>Spezifikation</h5>
+              <h5>{t('content.features.bentoGrid.boxIso.textBottom')}</h5>
             </div>
           </div>
           <div
@@ -241,10 +243,10 @@ export const Features = () => {
         <Container>
           <div className='mb-16 md:mb-24'>
             <h1 className='text-4xl font-bold tracking-tight lg:text-5xl'>
-              {t('features.headline')}
+              {t('content.features.title')}
             </h1>
             <h1 className='text-4xl font-bold text-gray-500 lg:text-5xl'>
-              {t('features.subline')}
+              {t('content.features.titleTwo')}
             </h1>
           </div>
         </Container>

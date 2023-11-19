@@ -19,7 +19,11 @@ const NewsPage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
 
   return (
     <Layout>
-      <Seo templateTitle={t('seo.title')} description={t('seo.description')} />
+      <Seo
+        templateTitle={t('meta.seo.title')}
+        description={t('meta.seo.description')}
+        title={t('meta.pageTitle')}
+      />
       <main className='bg-gray-100 py-16 lg:py-24'>
         <Container>
           <div className='mx-auto max-w-5xl'>
@@ -37,8 +41,8 @@ const NewsPage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
           </div>
           <div className='mx-auto mb-16 max-w-5xl'>
             <div className='flex flex-col'>
-              <Title margin={false}>{t('headline')}</Title>
-              <p>{t('subheadline')}</p>
+              <Title margin={false}>{t('content.title')}</Title>
+              <p>{t('content.text')}</p>
             </div>
             <NewsList posts={posts} />
           </div>

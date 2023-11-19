@@ -1,18 +1,18 @@
 {
   "content": {
     "table": {
-      "certifcates": {
+      "certificates": {
         "label": "Zertifikate"
       },
       "instructions": {
         "label": "Handhabungshinweise"
       }
     },
-    "text": "Kontaktieren Sie uns, um mehr über unsere Produkte und Dienstleistungen zu erfahren.",
-    "title": "Lassen Sie uns gemeinsam die Zukunft gestalten"
+    "text": "Hier finden Sie alle wichtigen Dokumente und Zertifikate zum Download.",
+    "title": "Downloads & Zertifikate"
   },
   "meta": {
-    "pageTitle": "",
+    "pageTitle": "Downloads",
     "seo": {
       "description": "Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
       "title": "Kontaktieren Sie uns"

@@ -16,7 +16,7 @@ import { isProd } from '@/constant/env';
 const CookiePolicy = (
   _props: InferGetStaticPropsType<typeof getStaticProps>,
 ) => {
-  const { t } = useTranslation('imprint');
+  const { t } = useTranslation('cookiePolicy');
 
   useEffect(() => {
     const cookieBotWrapper = document.getElementById('CookiebotDeclaration');
@@ -34,24 +34,27 @@ const CookiePolicy = (
 
   return (
     <Layout>
-      <Seo templateTitle={t('seo.title')} />
+      <Seo
+        templateTitle={t('meta.seo.title')}
+        description={t('meta.seo.description')}
+        title={t('meta.pageTitle')}
+      />
       <main className='py-16 lg:py-24'>
         <Container>
-          <div className='mx-auto mb-16 max-w-5xl'>
+          <div className='mx-auto max-w-5xl'>
             <NextBreadcrumb
               homeElement='Startseite'
-              separator={<VscArrowRight className='mr-2 h-6 w-3' />}
+              separator={
+                <VscArrowRight className='mr-2 h-5 w-3 md:h-6 md:w-3 lg:h-6 lg:w-4' />
+              }
               activeClasses='text-primary-500'
               containerClasses='flex'
               listClasses='hover:underline mr-2'
               capitalizeLinks
               className='mb-6'
             />
-            <Title margin={false}>Cookie Richtlinie</Title>
-            <p>
-              Hier finden Sie alle wichtigen Dokumente und Zertifikate zum
-              Download.
-            </p>
+            <Title margin={false}>{t('content.title')}</Title>
+            <p>{t('content.text')}</p>
             <hr className='my-12' />
             {isProd ? (
               <div id='CookiebotDeclaration' />

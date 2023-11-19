@@ -22,7 +22,11 @@ const ProductionPage = (
   const { t } = useTranslation('production');
   return (
     <Layout>
-      <Seo templateTitle='Produktion' />
+      <Seo
+        templateTitle={t('meta.seo.title')}
+        description={t('meta.seo.description')}
+        title={t('meta.pageTitle')}
+      />
       <ImageBanner
         role='hero'
         delay={0}
@@ -46,34 +50,23 @@ const ProductionPage = (
           <div className='mb-16 flex flex-col items-start md:flex-row md:gap-6 lg:mb-24'>
             <div className='mb-6 w-full lg:mb-0 lg:w-2/3 xl:w-1/2'>
               <div className='text-dark'>
-                <Title isAnimated>{t('headline')}</Title>
-                <p className='text-base'>
-                  Als Hersteller von sterilen und unsterilen Schlauchsystemen
-                  sind wir seit Jahren im Markt etabliert. Unser
-                  Produktportfolio erstreckt sich über Schwerkraft-Schlauchsets
-                  bis hin zu Systemen für arthroskopische Rollenpumpen.
-                  Internationale Setpacker profitieren von unseren unsterilen
-                  Bulk-Lieferungen, um Ihre OP-Trays zu komplettieren. Unsere
-                  ISO Klasse 8 Produktion erfüllt die hohen Ansprüche an die
-                  geforderten Umgebungsbedingungen und wird regelmäßig durch
-                  externe, akkreditierte Labore kontrolliert. Diese hohen
-                  Qualitätsstandards bilden das Fundament unseres Schaffens.
-                </p>
+                <Title isAnimated>{t('content.title1')}</Title>
+                <p className='text-base'>{t('content.text1')}</p>
                 <h5 className='my-6 font-semibold'>
-                  Ihr vertrauenswürdiger Partner für
+                  {t('content.list.title')}
                 </h5>
                 <ul className='mb-6'>
                   <li className='mb-3 flex items-center'>
                     <VscCheck className='mr-4 h-4 w-4 text-primary-500' />
-                    <span>Qualitätsstandards</span>
+                    <span>{t('content.list.items.1.label')}</span>
                   </li>
                   <li className='mb-3 flex items-center'>
                     <VscCheck className='mr-4 h-4 w-4 text-primary-500' />
-                    <span>Arthroskopische Lösungen</span>
+                    <span>{t('content.list.items.2.label')}</span>
                   </li>
                   <li className='flex items-center'>
                     <VscCheck className='mr-4 h-4 w-4 text-primary-500' />
-                    <span>Unsterile Bulk-Lieferungen</span>
+                    <span>{t('content.list.items.3.label')}</span>
                   </li>
                 </ul>
               </div>
@@ -103,10 +96,10 @@ const ProductionPage = (
                     >
                       <div className='flex h-full max-w-sm flex-col justify-between pr-16'>
                         <p className='mb-10 text-sm text-gray-900 md:mb-6'>
-                          We have share our journey and some story
+                          {t('content.boxes.1.text')}
                         </p>
                         <span className='text-3xl font-semibold text-gray-900'>
-                          Read our blog
+                          {t('content.boxes.1.title')}
                         </span>
                       </div>
                     </a>
@@ -116,11 +109,10 @@ const ProductionPage = (
                     >
                       <div className='flex h-full max-w-sm flex-col justify-between pr-16'>
                         <p className='mb-10 text-sm text-gray-900 md:mb-6'>
-                          It’s a must to that we would like to share our
-                          workflow to believe you
+                          {t('content.boxes.2.text')}
                         </p>
                         <span className='text-3xl font-semibold text-gray-900'>
-                          Zertifikate ansehen
+                          {t('content.boxes.2.title')}
                         </span>
                       </div>
                     </UnstyledLink>
@@ -133,11 +125,10 @@ const ProductionPage = (
                   >
                     <div className='flex h-full max-w-sm flex-col items-start justify-between pr-16'>
                       <p className='mb-10 text-sm text-gray-900 md:mb-6'>
-                        2,000+ our team members around the world who create
-                        incredible and amazing projects
+                        {t('content.boxes.3.text')}
                       </p>
                       <span className='text-3xl font-semibold text-gray-900'>
-                        Meet Our Expert
+                        {t('content.boxes.3.title')}
                       </span>
                     </div>
                   </a>
@@ -145,18 +136,9 @@ const ProductionPage = (
               </div>
             </div>
             <div className='w-full lg:px-4 xl:mb-0 xl:w-1/2'>
-              <Title>Was auch immer Sie benötigen, wir sind da</Title>
-              <p className='mb-3'>
-                Mit unserem umfangreichen Sortiment sind wir in der Lage, die
-                vielfältigen Anforderungen unserer internationalen Kunden,
-                insbesondere Setpacker, zu erfüllen, die auf unsere unsterilen
-                Bulk-Lieferungen zurückgreifen, um ihre OP-Trays zu
-                komplettieren.
-              </p>
-              <p className='font-semibold text-dark'>
-                Augue justo at convallis vitae nunc maecenas est. Viverra duis
-                feugiat posuere vitae tincidunt.
-              </p>
+              <Title>{t('content.title2')}</Title>
+              <p className='mb-3'>{t('content.text2')}</p>
+              <p className='font-semibold text-dark'>{t('content.text3')}</p>
             </div>
           </div>
         </Container>
