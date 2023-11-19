@@ -2,16 +2,16 @@
   "content": {
     "boxes": {
       "1": {
-        "text": "",
-        "title": ""
+        "text": "production:content.boxes.1.text",
+        "title": "production:content.boxes.1.title"
       },
       "2": {
-        "text": "",
-        "title": ""
+        "text": "production:content.boxes.2.text",
+        "title": "production:content.boxes.2.title"
       },
       "3": {
-        "text": "",
-        "title": ""
+        "text": "production:content.boxes.3.text",
+        "title": "production:content.boxes.3.title"
       }
     },
     "list": {
@@ -23,22 +23,22 @@
           "label": ""
         },
         "3": {
-          "label": ""
+          "label": "production:content.list.items.3.label"
         }
       },
-      "title": ""
+      "title": "production:content.list.title"
     },
-    "text1": "",
-    "text2": "",
-    "text3": "",
-    "title1": "",
-    "title2": ""
+    "text1": "production:content.text1",
+    "text2": "production:content.text2",
+    "text3": "production:content.text3",
+    "title1": "production:content.title1",
+    "title2": "production:content.title2"
   },
   "meta": {
-    "pageTitle": "",
+    "pageTitle": "production:meta.pageTitle",
     "seo": {
-      "description": "",
-      "title": ""
+      "description": "production:meta.seo.description",
+      "title": "production:meta.seo.title"
     }
   }
 }

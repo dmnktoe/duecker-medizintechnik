@@ -3,6 +3,9 @@
     "newsList": {
       "readMore": ""
     },
+    "newsSlug": {
+      "back": "Go back to all posts"
+    },
     "text": "",
     "title": ""
   },

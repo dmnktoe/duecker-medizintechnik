@@ -2,16 +2,16 @@
   "content": {
     "boxes": {
       "1": {
-        "text": "Lorem",
-        "title": ""
+        "text": "production:content.boxes.1.text",
+        "title": "production:content.boxes.1.title"
       },
       "2": {
-        "text": "",
-        "title": ""
+        "text": "production:content.boxes.2.text",
+        "title": "production:content.boxes.2.title"
       },
       "3": {
-        "text": "",
-        "title": ""
+        "text": "production:content.boxes.3.text",
+        "title": "production:content.boxes.3.title"
       }
     },
     "list": {
@@ -35,10 +35,10 @@
     "title2": "Was auch immer Sie benötigen, wir sind da"
   },
   "meta": {
-    "pageTitle": "",
+    "pageTitle": "production:meta.pageTitle",
     "seo": {
-      "description": "test",
-      "title": "Produktion"
+      "description": "production:meta.seo.description",
+      "title": "production:meta.seo.title"
     }
   }
 }
