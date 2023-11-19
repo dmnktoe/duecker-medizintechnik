@@ -67,13 +67,13 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
             capitalizeLinks
             className='mb-6'
           />
-          <div className='flex flex-row items-start gap-6'>
+          <div className='mb-16 flex flex-row items-start gap-6'>
             <div className='mb-12 w-full lg:mb-0 '>
               <div className='text-dark'>
                 <Title isAnimated>{t('content.title')}</Title>
                 <p className='text-base'>{t('content.text')}</p>
                 <h5 className='my-6 font-semibold'>
-                  Ihr vertrauenswürdiger Partner für
+                  {t('content.textAccent')}
                 </h5>
               </div>
             </div>
@@ -130,7 +130,7 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                       src={repairSliderImg1}
                       placeholder='blur'
                       priority
-                      alt='Picture of the author'
+                      alt={t('content.title')}
                       layout='fill'
                       objectFit='cover'
                     />
@@ -142,7 +142,7 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                       src={repairSliderImg2}
                       placeholder='blur'
                       priority
-                      alt='Picture of the author'
+                      alt={t('content.title')}
                       layout='fill'
                       objectFit='cover'
                     />
@@ -154,7 +154,7 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                       src={repairSliderImg3}
                       placeholder='blur'
                       priority
-                      alt='Picture of the author'
+                      alt={t('content.title')}
                       layout='fill'
                       objectFit='cover'
                     />
@@ -166,7 +166,7 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                       src={repairSliderImg4}
                       placeholder='blur'
                       priority
-                      alt='Picture of the author'
+                      alt={t('content.title')}
                       layout='fill'
                       objectFit='cover'
                     />
@@ -178,7 +178,7 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                       src={repairSliderImg5}
                       placeholder='blur'
                       priority
-                      alt='Picture of the author'
+                      alt={t('content.title')}
                       layout='fill'
                       objectFit='cover'
                     />
@@ -190,7 +190,7 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                       src={repairSliderImg6}
                       placeholder='blur'
                       priority
-                      alt='Picture of the author'
+                      alt={t('content.title')}
                       layout='fill'
                       objectFit='cover'
                     />

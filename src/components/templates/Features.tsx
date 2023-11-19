@@ -118,11 +118,15 @@ const BentoGrid = () => {
             )}
           >
             <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-gray-100 p-4 text-dark'>
-              <h5>{t('content.features.bentoGrid.boxIso.textTop')}</h5>
+              <h5 className='text-black/60'>
+                {t('content.features.bentoGrid.boxIso.textTop')}
+              </h5>
               <h1 className='inline-block bg-gradient-to-r from-purple-400 to-purple-700 bg-clip-text text-7xl font-bold text-transparent'>
                 {t('content.features.bentoGrid.boxIso.textAccent')}
               </h1>
-              <h5>{t('content.features.bentoGrid.boxIso.textBottom')}</h5>
+              <h5 className='text-black/60'>
+                {t('content.features.bentoGrid.boxIso.textBottom')}
+              </h5>
             </div>
           </div>
           <div

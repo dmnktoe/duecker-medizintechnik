@@ -77,21 +77,24 @@ export const Footer = () => {
               <Logo className='w-32' />
             </div>
             <p className='mt-6 max-w-md text-center text-sm leading-relaxed text-gray-700 sm:max-w-xs sm:text-left'>
-              Sie können uns gerne telefonisch unter der{' '}
+              {t('footer.contactSection.text')}
+              <br />
+              <br />
+              {t('footer.contactSection.phone')}:{' '}
               <UnstyledLink
                 href={`tel:${company.phone}`}
                 className='text-gray-700 transition hover:text-gray-700/75'
               >
                 {company.phone}
-              </UnstyledLink>{' '}
-              erreichen oder uns eine Nachricht per E-Mail an{' '}
+              </UnstyledLink>
+              <br />
+              {t('footer.contactSection.email')}:{' '}
               <UnstyledLink
                 className='text-gray-700 transition hover:text-gray-700/75'
                 href={'mailto:' + company.email}
               >
                 {company.email}
-              </UnstyledLink>{' '}
-              schicken. Wir bearbeiten Ihre Anfrage schnellstmöglich.
+              </UnstyledLink>
             </p>
           </div>
           <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:col-span-2'>

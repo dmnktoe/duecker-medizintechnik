@@ -3,9 +3,9 @@
     "features": {
       "bentoGrid": {
         "boxIso": {
-          "textAccent": "",
-          "textBottom": "",
-          "textTop": ""
+          "textAccent": "ISO8",
+          "textBottom": "Spezifikation",
+          "textTop": "Wir versichern eine"
         }
       },
       "textBlocks": [
@@ -54,9 +54,15 @@
       "title": "Neuigkeiten und Wissenswertes"
     },
     "stickyScroll": {
-      "commerce": "Handel mit Medizinprodukten.",
-      "production": "Produktion nach höchstem Maßstab.",
-      "repair": "Reparatur und Wartung von Medizinprodukten."
+      "commerce": {
+        "title": "Handel mit Medizinprodukten."
+      },
+      "production": {
+        "title": "Produktion nach höchstem Maßstab."
+      },
+      "repair": {
+        "title": "Reparatur und Wartung von Medizinprodukten."
+      }
     }
   },
   "meta": {

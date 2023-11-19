@@ -54,9 +54,15 @@
       "title": "Recent news from our blog"
     },
     "stickyScroll": {
-      "commerce": "Trade with medical devices.",
-      "production": "Production to the highest standard.",
-      "repair": "Repair and maintenance of medical devices."
+      "commerce": {
+        "title": "Trade with medical devices."
+      },
+      "production": {
+        "title": "Production to the highest standard."
+      },
+      "repair": {
+        "title": "Repair and maintenance of medical devices."
+      }
     }
   },
   "meta": {

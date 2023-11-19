@@ -38,7 +38,7 @@ export const CallToAction = () => {
                 size='one'
                 margin={false}
               >
-                {t('cta.headline')}
+                {t('cta.title')}
               </Title>
               <Title
                 className='mb-8 text-white/50'
@@ -46,7 +46,7 @@ export const CallToAction = () => {
                 size='one'
                 margin={false}
               >
-                {t('cta.subline')}
+                {t('cta.titleSub')}
               </Title>
               <Button
                 className='mb-32 block p-4 lg:p-6'

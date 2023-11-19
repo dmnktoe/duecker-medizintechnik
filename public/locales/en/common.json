@@ -16,12 +16,15 @@
     ],
     "buttonLink": "/kontakt",
     "buttonText": "Get a Quote",
-    "headline": "Do you have any questions or need a quote?",
-    "subline": "We are happy to help you!"
+    "title": "Do you have any questions or need a quote?",
+    "titleSub": "We are happy to help you!"
   },
   "footer": {
-    "email": "E-Mail",
-    "fax": "Fax",
+    "contactSection": {
+      "email": "E-Mail",
+      "phone": "Phone",
+      "text": "We are happy to help you solve your problems and are always available to answer your questions. We look forward to hearing from you."
+    },
     "navigation": [
       {
         "items": [
@@ -87,9 +90,7 @@
       "link": "",
       "noResults": "No posts found.",
       "title": "Recent News"
-    },
-    "phone": "Phone",
-    "web": "Website"
+    }
   },
   "header": {
     "change-locale": "Change Language (de-DE)",

@@ -16,12 +16,15 @@
     ],
     "buttonLink": "/kontakt",
     "buttonText": "Angebot anfordern",
-    "headline": "Benötigen Sie Hilfe bei der Aufbereitung?",
-    "subline": "Wir beraten Sie gerne!"
+    "title": "Benötigen Sie Hilfe bei der Aufbereitung?",
+    "titleSub": "Wir beraten Sie gerne!"
   },
   "footer": {
-    "email": "E-Mail",
-    "fax": "Fax",
+    "contactSection": {
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "text": "Wir sind Ihnen gerne bei der Lösung Ihrer Probleme behilflich und stehen Ihnen jederzeit für Fragen zur Verfügung. Wir freuen uns."
+    },
     "navigation": [
       {
         "items": [
@@ -87,9 +90,7 @@
       "link": "Alle Neuigkeiten",
       "noResults": "Keine Neuigkeiten vorhanden.",
       "title": "Aus dem Blog"
-    },
-    "phone": "Telefon",
-    "web": "Internet"
+    }
   },
   "header": {
     "change-locale": "Sprache wechseln (en-US)",
