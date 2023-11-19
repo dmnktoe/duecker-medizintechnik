@@ -1,6 +1,13 @@
 {
-  "seo": {
-    "description": "This is the about page",
+  "content": {
+    "text": "Verwalten Sie Ihre Cookie-Einstellungen.",
     "title": "Cookie Richtlinie"
+  },
+  "meta": {
+    "pageTitle": "Cookie Richtlinie",
+    "seo": {
+      "description": "",
+      "title": "Cookie Richtlinie"
+    }
   }
 }

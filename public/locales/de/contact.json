@@ -1,58 +1,65 @@
 {
-  "contactForm": {
-    "description": "Bitte nutzen Sie dieses Formular, um uns Ihre spezifischen Anfragen oder technischen Anliegen mitzuteilen.",
-    "email": {
-      "error": {
-        "invalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
-        "required": "Bitte geben Sie Ihre E-Mail-Adresse ein."
+  "content": {
+    "contactDetails": {
+      "email": "E-Mail Adresse",
+      "location": "Standort",
+      "phone": "Telefon-Nr."
+    },
+    "contactForm": {
+      "email": {
+        "error": {
+          "invalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+          "required": "Bitte geben Sie Ihre E-Mail-Adresse ein."
+        },
+        "label": "Ihre E-Mail",
+        "placeholder": "name@beispiel.de"
       },
-      "label": "Ihre E-Mail",
-      "placeholder": "name@beispiel.de"
-    },
-    "fullName": {
-      "error": {
-        "required": "Bitte geben Sie Ihren Vor- und Nachnamen ein."
+      "fullName": {
+        "error": {
+          "required": "Bitte geben Sie Ihren Vor- und Nachnamen ein."
+        },
+        "label": "Ihr Vor- & Nachname",
+        "placeholder": "Max Mustermann"
       },
-      "label": "Ihr Vor- & Nachname",
-      "placeholder": "Max Mustermann"
-    },
-    "message": {
-      "error": {
-        "maxLength": "Die Nachricht darf maximal 1000 Zeichen lang sein.",
-        "minLength": "Die Nachricht muss mindestens 10 Zeichen lang sein."
+      "message": {
+        "error": {
+          "maxLength": "Die Nachricht darf maximal 1000 Zeichen lang sein.",
+          "minLength": "Die Nachricht muss mindestens 10 Zeichen lang sein."
+        },
+        "label": "Ihre Nachricht ans uns",
+        "placeholder": "Lassen Sie uns wissen, wie wir Ihnen helfen können."
       },
-      "label": "Ihre Nachricht ans uns",
-      "placeholder": "Lassen Sie uns wissen, wie wir Ihnen helfen können."
-    },
-    "phone": {
-      "error": {
-        "required": "Bitte geben Sie Ihre Telefonnummer ein."
+      "phone": {
+        "error": {
+          "required": "Bitte geben Sie Ihre Telefonnummer ein."
+        },
+        "label": "Ihre Telefonnummer",
+        "placeholder": "+49 123 456 7890"
       },
-      "label": "Ihre Telefonnummer",
-      "placeholder": "+49 123 456 7890"
+      "submit": {
+        "label": "Absenden",
+        "success": "Vielen Dank für Ihre Nachricht. Wir werden uns in Kürze bei Ihnen melden."
+      },
+      "terms": {
+        "error": "Bitte akzeptieren Sie unsere Datenschutzbestimmungen.",
+        "label": "Ich habe die <linkTag>Datenschutzerklärung</linkTag> gelesen und akzeptiere diese."
+      },
+      "text": "Bitte nutzen Sie dieses Formular, um uns Ihre spezifischen Anfragen oder technischen Anliegen mitzuteilen.",
+      "title": "Schreiben Sie uns"
     },
-    "submit": {
-      "label": "Absenden",
-      "success": "Vielen Dank für Ihre Nachricht. Wir werden uns in Kürze bei Ihnen melden."
+    "mapsBanner": {
+      "accept": "Marketing-Cookies akzeptieren",
+      "cookieNotice": "Dieser Inhalt wird über Google Maps geladen. <br/> Um diesen Inhalt anzuzeigen, müssen Sie zuerst die Verwendung von Marketing-Cookies akzeptieren.",
+      "cookieSettings": "Cookie-Einstellungen"
     },
-    "terms": {
-      "error": "Bitte akzeptieren Sie unsere Datenschutzbestimmungen.",
-      "label": "Ich habe die <linkTag>Datenschutzerklärung</linkTag> gelesen und akzeptiere diese."
-    },
-    "title": "Schreiben Sie uns"
+    "text": "Unser Team steht bereit, um auf Ihre Fragen einzugehen, detaillierte Informationen zu unseren Diensten für medizinische Anwendungen bereitzustellen oder Sie bei technischen Angelegenheiten zu unterstützen.",
+    "title": "Kontakt aufnehmen"
   },
-  "email": "E-Mail Adresse",
-  "headline": "Kontakt aufnehmen",
-  "mapsBanner": {
-    "accept": "Marketing-Cookies akzeptieren",
-    "cookieNotice": "Dieser Inhalt wird über Google Maps geladen. <br/> Um diesen Inhalt anzuzeigen, müssen Sie zuerst die Verwendung von Marketing-Cookies akzeptieren.",
-    "cookieSettings": "Cookie-Einstellungen"
-  },
-  "ourLocation": "Standort",
-  "phone": "Telefon-Nr.",
-  "seo": {
-    "description": "Unser Team steht bereit, um auf Ihre Fragen einzugehen, detaillierte Informationen zu unseren Diensten für medizinische Anwendungen bereitzustellen oder Sie bei technischen Angelegenheiten zu unterstützen.",
-    "title": "Kontaktieren Sie uns"
-  },
-  "subheadline": "Unser Team steht bereit, um auf Ihre Fragen einzugehen, detaillierte Informationen zu unseren Diensten für medizinische Anwendungen bereitzustellen oder Sie bei technischen Angelegenheiten zu unterstützen."
+  "meta": {
+    "pageTitle": "",
+    "seo": {
+      "description": "Unser Team steht bereit, um auf Ihre Fragen einzugehen, detaillierte Informationen zu unseren Diensten für medizinische Anwendungen bereitzustellen oder Sie bei technischen Angelegenheiten zu unterstützen.",
+      "title": "Kontaktieren Sie uns"
+    }
+  }
 }

@@ -1,51 +1,69 @@
 {
-  "features": {
-    "headline": "Unsere Leistungen",
-    "subline": "Verschaffen Sie sich einen Überblick.",
-    "textBlocks": [
-      {
-        "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
-        "title": "Geil<33 Guide"
+  "content": {
+    "features": {
+      "bentoGrid": {
+        "boxIso": {
+          "textAccent": "",
+          "textBottom": "",
+          "textTop": ""
+        }
       },
-      {
-        "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
-        "title": "UI/UX Design"
+      "textBlocks": [
+        {
+          "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
+          "title": "Geil<33 Guide"
+        },
+        {
+          "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
+          "title": "UI/UX Design"
+        },
+        {
+          "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
+          "title": "Web Development"
+        },
+        {
+          "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
+          "title": "Mobile Development"
+        },
+        {
+          "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
+          "title": "SEO Optimization"
+        },
+        {
+          "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
+          "title": "Marketing"
+        }
+      ],
+      "title": "Unsere Leistungen",
+      "titleTwo": "Verschaffen Sie sich einen Überblick."
+    },
+    "hero": {
+      "buttons": {
+        "primary": {
+          "label": "Leistungen"
+        },
+        "secondary": {
+          "label": "Anfrage"
+        }
       },
-      {
-        "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
-        "title": "Web Development"
-      },
-      {
-        "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
-        "title": "Mobile Development"
-      },
-      {
-        "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
-        "title": "SEO Optimization"
-      },
-      {
-        "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
-        "title": "Marketing"
-      }
-    ]
+      "text": "Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
+      "title": "Ihr Partner für Handelsvermittlung von pharma Erzeugnissen, medizinischen und orthopädischen Artikeln und Laborbedarf"
+    },
+    "postsCarousel": {
+      "readMore": "Alle Einträge ansehen",
+      "title": "Neuigkeiten und Wissenswertes"
+    },
+    "stickyScroll": {
+      "commerce": "Handel mit Medizinprodukten.",
+      "production": "Produktion nach höchstem Maßstab.",
+      "repair": "Reparatur und Wartung von Medizinprodukten."
+    }
   },
-  "intro": {
-    "content": "Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
-    "primaryButton": "Leistungen",
-    "secondaryButton": "Anfrage",
-    "title": "Ihr Partner für Handelsvermittlung von pharma Erzeugnissen, medizinischen und orthopädischen Artikeln und Laborbedarf"
-  },
-  "postsCarousel": {
-    "headline": "Neuigkeiten und Wissenswertes",
-    "readMore": "Alle Einträge ansehen"
-  },
-  "seo": {
-    "description": "Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
-    "title": "Handel, Produktion, Reperatur für OP-Lösungen und Sterilisierungen"
-  },
-  "stickyScroll": {
-    "commerce": "Handel mit Medizinprodukten.",
-    "production": "Produktion nach höchstem Maßstab.",
-    "repair": "Reparatur und Wartung von Medizinprodukten."
+  "meta": {
+    "pageTitle": "Startseite",
+    "seo": {
+      "description": "Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
+      "title": "Handel, Produktion, Reperatur für OP-Lösungen und Sterilisierungen"
+    }
   }
 }

@@ -1,8 +1,21 @@
 {
-  "headline": "Lassen Sie uns gemeinsam die Zukunft gestalten",
-  "seo": {
-    "description": "Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
-    "title": "Kontaktieren Sie uns"
+  "content": {
+    "table": {
+      "certifcates": {
+        "label": "Zertifikate"
+      },
+      "instructions": {
+        "label": "Handhabungshinweise"
+      }
+    },
+    "text": "Kontaktieren Sie uns, um mehr über unsere Produkte und Dienstleistungen zu erfahren.",
+    "title": "Lassen Sie uns gemeinsam die Zukunft gestalten"
   },
-  "subheadline": "Kontaktieren Sie uns, um mehr über unsere Produkte und Dienstleistungen zu erfahren."
+  "meta": {
+    "pageTitle": "",
+    "seo": {
+      "description": "Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
+      "title": "Kontaktieren Sie uns"
+    }
+  }
 }

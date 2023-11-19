@@ -1,0 +1,32 @@
+{
+  "content": {
+    "badge": "Our Services",
+    "cards": {
+      "commerce": {
+        "href": "handel",
+        "text": "",
+        "title": "Commerce"
+      },
+      "production": {
+        "href": "produktion",
+        "text": "",
+        "title": "Production"
+      },
+      "readMore": "Read more",
+      "repair": {
+        "href": "reparatur",
+        "text": "",
+        "title": "Repair-Services"
+      }
+    },
+    "text": "",
+    "title": ""
+  },
+  "meta": {
+    "pageTitle": "",
+    "seo": {
+      "description": "",
+      "title": ""
+    }
+  }
+}

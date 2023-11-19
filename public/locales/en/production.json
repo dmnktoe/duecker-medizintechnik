@@ -1,0 +1,44 @@
+{
+  "content": {
+    "boxes": {
+      "1": {
+        "text": "",
+        "title": ""
+      },
+      "2": {
+        "text": "",
+        "title": ""
+      },
+      "3": {
+        "text": "",
+        "title": ""
+      }
+    },
+    "list": {
+      "items": {
+        "1": {
+          "label": ""
+        },
+        "2": {
+          "label": ""
+        },
+        "3": {
+          "label": ""
+        }
+      },
+      "title": ""
+    },
+    "text1": "",
+    "text2": "",
+    "text3": "",
+    "title1": "",
+    "title2": ""
+  },
+  "meta": {
+    "pageTitle": "",
+    "seo": {
+      "description": "",
+      "title": ""
+    }
+  }
+}

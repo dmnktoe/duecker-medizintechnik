@@ -27,27 +27,19 @@
         "items": [
           {
             "href": "/unternehmen",
-            "text": "",
             "title": "Unsere Geschichte"
           },
           {
             "href": "/downloads",
-            "text": "",
             "title": "Downloads & Zertifikate"
           },
           {
             "href": "/kontakt",
-            "text": "",
             "title": "Kontakt & Anfrage"
           },
           {
             "href": "/jobs",
-            "text": "",
             "title": "Jobs"
-          },
-          {
-            "href": "",
-            "text": ""
           }
         ],
         "title": "Unternehmen"
@@ -56,17 +48,14 @@
         "items": [
           {
             "href": "/leistungen/produktion",
-            "text": "",
             "title": "Produktion"
           },
           {
             "href": "/leistungen/reparatur",
-            "text": "",
             "title": "Reparatur"
           },
           {
             "href": "/leistungen/handel",
-            "text": "",
             "title": "Handel"
           }
         ],

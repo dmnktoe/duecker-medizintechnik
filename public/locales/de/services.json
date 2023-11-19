@@ -1,9 +1,32 @@
 {
-  "headline": "Was wir für Sie tun können",
-  "seo": {
-    "description": "test",
-    "title": "Leistungen"
+  "content": {
+    "badge": "Unsere Leistungen",
+    "cards": {
+      "commerce": {
+        "href": "handel",
+        "text": "",
+        "title": "Handel"
+      },
+      "production": {
+        "href": "produktion",
+        "text": "",
+        "title": "Produktion"
+      },
+      "readMore": "Mehr erfahren",
+      "repair": {
+        "href": "reparatur",
+        "text": "",
+        "title": "Reparatur"
+      }
+    },
+    "text": "Wir bieten Ihnen ein breites Spektrum an Leistungen rund um das Thema Webdesign und Webentwicklung. Von der Konzeption über die Umsetzung bis hin zur Wartung und Pflege Ihrer Website sind wir Ihr Ansprechpartner.",
+    "title": "Was wir für Sie tun können"
   },
-  "subline": "Wir bieten Ihnen ein breites Spektrum an Leistungen rund um das Thema Webdesign und Webentwicklung. Von der Konzeption über die Umsetzung bis hin zur Wartung und Pflege Ihrer Website sind wir Ihr Ansprechpartner.",
-  "tagline": "Unsere Leistungen"
+  "meta": {
+    "pageTitle": "",
+    "seo": {
+      "description": "test",
+      "title": "Leistungen"
+    }
+  }
 }

@@ -1,12 +1,16 @@
 {
   "content": {
-    "title": "Datenschutz"
+    "newsList": {
+      "readMore": ""
+    },
+    "text": "",
+    "title": ""
   },
   "meta": {
     "pageTitle": "",
     "seo": {
       "description": "",
-      "title": "Datenschutz"
+      "title": ""
     }
   }
 }

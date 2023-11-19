@@ -1,4 +1,13 @@
 {
-  "pageNotFound": "Page not found",
-  "returnToHome": "Return to home page"
+  "content": {
+    "pageNotFound": "Page not found",
+    "returnToHome": "Return to home page"
+  },
+  "meta": {
+    "pageTitle": "404",
+    "seo": {
+      "description": "",
+      "title": ""
+    }
+  }
 }
