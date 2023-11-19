@@ -2,6 +2,10 @@ name: Lighthouse
 on:
   schedule:
     - cron: '30 12 1,15 * *'
+  push:
+    branches:
+    - main
+  workflow_dispatch:
 
 jobs:
   lighthouse:
