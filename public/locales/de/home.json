@@ -55,13 +55,19 @@
     },
     "stickyScroll": {
       "commerce": {
-        "title": "Handel mit Medizinprodukten."
+        "href": "handel",
+        "text": "Handel mit Medizinprodukten.",
+        "title": "Handel"
       },
       "production": {
-        "title": "Produktion nach höchstem Maßstab."
+        "href": "produktion",
+        "text": "Produktion nach höchstem Maßstab.",
+        "title": "Produktion"
       },
       "repair": {
-        "title": "Reparatur und Wartung von Medizinprodukten."
+        "href": "reparatur",
+        "text": "Reparatur und Wartung von Medizinprodukten.",
+        "title": "Reparatur"
       }
     }
   },
