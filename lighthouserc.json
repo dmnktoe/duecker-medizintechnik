@@ -2,6 +2,7 @@
   "ci": {
     "collect": {
       "startServerCommand": "yarn build && yarn start",
+      "startServerReadyTimeout": 60000,
       "url": [
         "http://localhost:3000/",
         "http://localhost:3000/leistungen/produktion",
