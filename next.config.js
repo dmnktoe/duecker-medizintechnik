@@ -4,6 +4,10 @@
 const { i18n } = require('./next-i18next.config');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { withSentryConfig } = require('@sentry/nextjs');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
 
 const nextConfig = {
   eslint: {
@@ -46,6 +50,8 @@ const nextConfig = {
 
 module.exports = nextConfig;
 
+module.exports = withBundleAnalyzer(module.exports);
+
 module.exports = withSentryConfig(
   module.exports,
   {
@@ -57,6 +63,9 @@ module.exports = withSentryConfig(
 
     org: 'duecker-medizintechnik',
     project: 'duecker-medizintechnik',
+
+    // An auth token is required for uploading source maps.
+    authToken: process.env.SENTRY_AUTH_TOKEN,
   },
   {
     // For all available options, see:
