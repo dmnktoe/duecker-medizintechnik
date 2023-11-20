@@ -1,6 +1,5 @@
 export const isProd = process.env.NODE_ENV === 'production';
 export const isLocal = process.env.NODE_ENV === 'development';
-export const chatwootId = process.env.NEXT_PUBLIC_CHATWOOT_ID;
 export const cookieBotId = process.env.NEXT_PUBLIC_COOKIEBOT_ID;
 export const googleAnalyticsId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
 export const hotjarId = process.env.NEXT_PUBLIC_HOTJAR_ID;

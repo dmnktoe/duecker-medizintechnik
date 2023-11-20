@@ -10,6 +10,8 @@ import { z } from 'zod';
 import Button from '@/components/ui/buttons/Button';
 import UnderlineLink from '@/components/ui/links/UnderlineLink';
 
+import { isLocal } from '@/constant/env';
+
 export default function ContactForm() {
   type FormData = z.infer<typeof formSchema>;
 
@@ -260,6 +262,14 @@ export default function ContactForm() {
                   hl='en'
                 />
               )}
+            {isLocal && (
+              <ReCAPTCHA
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
+                size='invisible'
+                ref={recaptchaRef}
+                hl='en'
+              />
+            )}
           </div>
           <div className='flex flex-col items-center justify-between gap-8'>
             <Button

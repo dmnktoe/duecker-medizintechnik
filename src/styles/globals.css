@@ -45,10 +45,6 @@
       U+2215, U+FEFF, U+FFFD;
   }
 
-  div#CookiebotWidget {
-    display: none !important;
-  }
-
   .cursor-newtab {
     cursor:
       url('/images/new-tab.png') 10 10,
