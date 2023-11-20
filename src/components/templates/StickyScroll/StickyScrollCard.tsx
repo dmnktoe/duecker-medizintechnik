@@ -41,9 +41,13 @@ const StickyScrollCard = ({
       />
       {children}
       <ButtonLink
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         href={'/leistungen/' + t('content.stickyScroll.' + id + '.href')}
-        className='show-me-btn absolute bottom-6 right-6 rounded-full bg-white/40 px-8 py-3 font-normal tracking-normal text-white backdrop-blur-sm transition-all duration-200 hover:bg-white/90 hover:text-dark'
+        className='absolute bottom-6 right-6 rounded-full bg-white/40 px-8 py-3 font-normal tracking-normal text-white backdrop-blur-sm transition-all duration-200 hover:bg-white/90 hover:text-dark'
       >
+        {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+        {/* @ts-expect-error */}
         {t('content.stickyScroll.' + id + '.title')}
         <VscArrowRight className='ml-2 inline' />
       </ButtonLink>
