@@ -45,6 +45,14 @@
       U+2215, U+FEFF, U+FFFD;
   }
 
+  div#CookiebotWidget {
+    display: none !important;
+  }
+
+  .woot--bubble-holder {
+    z-index: 30 !important;
+  }
+
   .cursor-newtab {
     cursor:
       url('/images/new-tab.png') 10 10,
