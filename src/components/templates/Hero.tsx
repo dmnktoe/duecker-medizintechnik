@@ -14,58 +14,55 @@ import heroBg from '/public/images/home/duecker-medizintechnik_home_hero-bg.jpg'
 
 export const Hero = () => {
   return (
-    <>
-      <section className='py-16 md:py-24 lg:py-32'>
-        <BackgroundBlurTop />
-        <Container>
-          <div className='mb-12 flex flex-col items-center gap-12 md:mb-36 md:gap-24 lg:flex-row lg:gap-36'>
-            <div className='w-full lg:w-3/5'>
-              <HeroText />
-            </div>
-            <div className='w-full lg:w-2/5'>
-              <Image
-                alt='OP-Lösungen und Sterilisierungen für den B2B-Betrieb'
-                src={heroBg}
-                placeholder='blur'
-                priority
-                width={2500}
-                height={1700}
-                className='h-full w-full overflow-hidden rounded-3xl'
-              />
-            </div>
+    <section className='py-16 md:py-24 lg:py-32'>
+      <BackgroundBlurTop />
+      <Container>
+        <div className='mb-12 flex flex-col items-center gap-12 md:mb-36 md:gap-24 lg:flex-row lg:gap-36'>
+          <div className='w-full lg:w-3/5'>
+            <HeroText />
           </div>
-          <CustomerLogos />
-        </Container>
-        <BackgroundBlurBottom />
-      </section>
-    </>
+          <div className='w-full lg:w-2/5'>
+            <Image
+              alt='OP-Lösungen und Sterilisierungen für den B2B-Betrieb'
+              src={heroBg}
+              placeholder='blur'
+              priority
+              width={495}
+              height={585}
+              className='h-full w-full overflow-hidden rounded-3xl'
+              quality={65}
+            />
+          </div>
+        </div>
+        <CustomerLogos />
+      </Container>
+      <BackgroundBlurBottom />
+    </section>
   );
 };
 
 const HeroText = () => {
   const { t } = useTranslation('home');
   return (
-    <>
-      <div>
-        <div className='text-left'>
-          <Title>{t('content.hero.title')}</Title>
-          <p className='mt-6 text-lg font-medium leading-8 tracking-tight text-gray-800'>
-            {t('content.hero.text')}
-          </p>
-          <div className='mt-10 flex items-center justify-start gap-x-3'>
-            <ButtonLink variant='primary' size='base' href='/leistungen'>
-              {t('content.hero.buttons.primary.label')}
-            </ButtonLink>
-            <ButtonLink size='base' variant='ghost' href='/kontakt'>
-              {t('content.hero.buttons.secondary.label')}{' '}
-              <span aria-hidden='true' className='ml-2'>
-                →
-              </span>
-            </ButtonLink>
-          </div>
+    <div>
+      <div className='text-left'>
+        <Title>{t('content.hero.title')}</Title>
+        <p className='mt-6 text-lg font-medium leading-8 tracking-tight text-gray-800'>
+          {t('content.hero.text')}
+        </p>
+        <div className='mt-10 flex items-center justify-start gap-x-3'>
+          <ButtonLink variant='primary' size='base' href='/leistungen'>
+            {t('content.hero.buttons.primary.label')}
+          </ButtonLink>
+          <ButtonLink size='base' variant='ghost' href='/kontakt'>
+            {t('content.hero.buttons.secondary.label')}{' '}
+            <span aria-hidden='true' className='ml-2'>
+              →
+            </span>
+          </ButtonLink>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
