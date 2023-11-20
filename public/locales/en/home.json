@@ -55,13 +55,19 @@
     },
     "stickyScroll": {
       "commerce": {
-        "title": "Trade with medical devices."
+        "href": "handel",
+        "text": "Trade with medical devices.",
+        "title": ""
       },
       "production": {
-        "title": "Production to the highest standard."
+        "href": "produktion",
+        "text": "Production to the highest standard.",
+        "title": "Production"
       },
       "repair": {
-        "title": "Repair and maintenance of medical devices."
+        "href": "reparatur",
+        "text": "Repair and maintenance of medical devices.",
+        "title": "Reparatur"
       }
     }
   },

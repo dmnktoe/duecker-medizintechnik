@@ -12,24 +12,20 @@ import { useEscapePress } from '@/utils/use-escape-press';
 
 import { Commerce, Production, Repair } from './StickyScrollCard';
 import { StickyScrollTitle } from './StickyScrollTitle';
-import { OtherVisual } from './StickyScrollVisual';
 import { useFeatureStore } from './store';
 
 const stickyScroll = [
   {
     id: 'production',
     card: Production,
-    visual: OtherVisual,
   },
   {
     id: 'repair',
     card: Repair,
-    visual: OtherVisual,
   },
   {
     id: 'commerce',
     card: Commerce,
-    visual: OtherVisual,
   },
 ];
 
@@ -115,7 +111,7 @@ export const StickyScroll = () => {
                       {t(
                         ('content.stickyScroll.' +
                           feature.id +
-                          '.title') as never,
+                          '.text') as never,
                       )}
                     </StickyScrollTitle>
                   </li>
