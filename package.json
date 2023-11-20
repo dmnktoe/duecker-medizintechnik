@@ -51,7 +51,7 @@
     "react-hook-form": "^7.48.2",
     "react-i18next": "^13.2.2",
     "react-icons": "^4.11.0",
-    "react-share": "^4.4.1",
+    "react-share": "^5.0.0",
     "react-stagger-text": "^1.0.6",
     "sharp": "^0.32.6",
     "swiper": "^10.3.0",
