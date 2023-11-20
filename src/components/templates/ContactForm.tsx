@@ -251,7 +251,7 @@ export default function ContactForm() {
           <div>
             {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
             {/* @ts-ignore */}
-            {window.Cookiebot?.consent?.marketing === 'true' && (
+            {global?.window?.Cookiebot?.consent?.marketing === 'true' && (
               <ReCAPTCHA
                 sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
                 size='invisible'
