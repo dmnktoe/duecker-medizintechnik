@@ -1,11 +1,16 @@
 import clsx from 'clsx';
+import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
+import * as React from 'react';
 import { VscArrowRight } from 'react-icons/vsc';
 
 import ButtonLink from '@/components/ui/links/ButtonLink';
-import NextImage from '@/components/ui/NextImage';
 
 import { useFeatureStore } from './store';
+
+import commerceStickyImg from '/public/images/home/sticky-scroll/sticky-scroll_image-commerce.jpg';
+import productionStickyImg from '/public/images/home/sticky-scroll/sticky-scroll_image-production.jpg';
+import repairStickyImg from '/public/images/home/sticky-scroll/sticky-scroll_image-repair.jpg';
 
 type StickyScrollCardProps = {
   gradient: string;
@@ -58,10 +63,15 @@ const StickyScrollCard = ({
 export const Production = ({ id }: CardProps) => {
   return (
     <StickyScrollCard id={id} gradient='from-[#f7f0ff] to-[#a78afe]'>
-      <NextImage
+      <Image
         alt='Produktion'
-        src='/images/home/sticky-scroll/sticky-scroll_image-production.jpg'
-        layout='fill'
+        src={productionStickyImg}
+        placeholder='blur'
+        priority
+        width={600}
+        height={600}
+        className='relative h-full w-full overflow-hidden'
+        quality={65}
       />
       <span />
     </StickyScrollCard>
@@ -71,10 +81,15 @@ export const Production = ({ id }: CardProps) => {
 export const Repair = ({ id }: CardProps) => {
   return (
     <StickyScrollCard id={id} gradient='from-[#f5fbff] to-[#addeff]'>
-      <NextImage
+      <Image
         alt='Produktion'
-        src='/images/home/sticky-scroll/sticky-scroll_image-repair.jpg'
-        layout='fill'
+        src={repairStickyImg}
+        placeholder='blur'
+        priority
+        width={600}
+        height={600}
+        className='relative h-full w-full overflow-hidden'
+        quality={65}
       />
       <span />
     </StickyScrollCard>
@@ -84,10 +99,15 @@ export const Repair = ({ id }: CardProps) => {
 export const Commerce = ({ id }: CardProps) => {
   return (
     <StickyScrollCard id={id} gradient='from-[#f5fff7] to-[#adf8ff]'>
-      <NextImage
+      <Image
         alt='Produktion'
-        src='/images/home/sticky-scroll/sticky-scroll_image-commerce.jpg'
-        layout='fill'
+        src={commerceStickyImg}
+        placeholder='blur'
+        priority
+        width={600}
+        height={600}
+        className='relative h-full w-full overflow-hidden'
+        quality={65}
       />
       <span />
     </StickyScrollCard>
