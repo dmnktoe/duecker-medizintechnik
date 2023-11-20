@@ -50,6 +50,8 @@
       "title": "Your partner for trade mediation of pharma products, medical and orthopedic articles and laboratory supplies"
     },
     "postsCarousel": {
+      "next": "Next slide",
+      "prev": "",
       "readMore": "View all posts",
       "title": "Recent news from our blog"
     },

@@ -44,12 +44,14 @@ export const PostsCarousel = ({ posts }: PostsCarouselProps) => {
                 <button
                   className='sm:h-18 sm:w-18 mr-2 inline-flex h-16 w-16 items-center justify-center rounded-full border border-black text-black transition duration-200 hover:bg-black hover:text-white'
                   onClick={handlePrev}
+                  aria-label={t('content.postsCarousel.prev')}
                 >
                   <VscArrowLeft size={28} />
                 </button>
                 <button
                   className='sm:h-18 sm:w-18 inline-flex h-16 w-16 items-center justify-center rounded-full border border-black text-black transition duration-200 hover:bg-black hover:text-white'
                   onClick={handleNext}
+                  aria-label={t('content.postsCarousel.next')}
                 >
                   <VscArrowRight size={28} />
                 </button>
