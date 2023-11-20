@@ -1,5 +1,4 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import * as Sentry from '@sentry/nextjs';
 import axios from 'axios';
 import { i18n, Trans, useTranslation } from 'next-i18next';
 import React, { useRef, useState } from 'react';
@@ -87,7 +86,6 @@ export default function ContactForm() {
       // Handle errors. You can change the message to whatever you want.
       setResult(err.response.data.message + ': ' + err.response.statusText);
       setResultColor('text-red-500');
-      Sentry.captureException(err);
     }
   };
 

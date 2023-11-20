@@ -1,10 +1,12 @@
 'use client';
-import { Player } from '@lottiefiles/react-lottie-player';
+import { DotLottiePlayer } from '@dotlottie/react-player';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 import { VscArrowRight, VscCheck } from 'react-icons/vsc';
+
+import '@dotlottie/react-player/dist/index.css';
 
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
@@ -17,13 +19,11 @@ import UnderlineLink from '@/components/ui/links/UnderlineLink';
 import { Title } from '@/components/ui/typography/Title';
 
 import heroImg from '/public/images/commerce/duecker-medizintechnik_commerce_hero-bg.webp';
-import animation from '/public/images/commerce/package-rotate_lottie.json';
 
 const CommercePage = (
   _props: InferGetStaticPropsType<typeof getStaticProps>,
 ) => {
   const { t } = useTranslation('commerce');
-  const animationURL = animation;
 
   return (
     <Layout>
@@ -111,7 +111,11 @@ const CommercePage = (
               <div className='md:pl-5'>
                 <AspectRatio ratio={1}>
                   <div className='flex h-full bg-gray-100'>
-                    <Player src={animationURL} autoplay loop speed={1} />
+                    <DotLottiePlayer
+                      src='./../images/commerce/lp7a683r.lottie'
+                      autoplay
+                      loop
+                    />
                   </div>
                 </AspectRatio>
               </div>
