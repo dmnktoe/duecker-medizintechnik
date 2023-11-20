@@ -49,11 +49,6 @@
     display: none !important;
   }
 
-  .woot--bubble-holder {
-    z-index: 30 !important;
-    position: relative;
-  }
-
   .cursor-newtab {
     cursor:
       url('/images/new-tab.png') 10 10,

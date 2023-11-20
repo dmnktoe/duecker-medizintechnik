@@ -111,14 +111,12 @@ const ContactPage = (
           </div>
         </>
       ) : (
-        <>
-          <iframe
-            src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2504.4921251717064!2d9.525939712762506!3d51.117829971609424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bb5aaf09e8bad1%3A0x545375d8f9b01b22!2sRolf%20D%C3%BCcker%20M.E.T.Melsunger%20Endoskopie%20Technik!5e0!3m2!1sde!2sde!4v1694365981272!5m2!1sde!2sde'
-            width='100%'
-            height='350'
-            id='google-maps'
-          ></iframe>
-        </>
+        <iframe
+          src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2504.4921251717064!2d9.525939712762506!3d51.117829971609424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bb5aaf09e8bad1%3A0x545375d8f9b01b22!2sRolf%20D%C3%BCcker%20M.E.T.Melsunger%20Endoskopie%20Technik!5e0!3m2!1sde!2sde!4v1694365981272!5m2!1sde!2sde'
+          width='100%'
+          height='350'
+          id='google-maps'
+        />
       )}
       <main className='relative z-10 overflow-hidden bg-white py-16 lg:py-24'>
         <Container>
