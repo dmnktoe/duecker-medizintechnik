@@ -51,6 +51,7 @@
 
   .woot--bubble-holder {
     z-index: 30 !important;
+    position: relative;
   }
 
   .cursor-newtab {
