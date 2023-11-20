@@ -92,7 +92,7 @@ export default function ContactForm() {
   return (
     <>
       <div className='cookieconsent-optout-marketing'>
-        Please accept marketing-cookies to view this content.
+        {t('content.contactForm.recaptchaCookieNotice')}
       </div>
       <div className='cookieconsent-optin-marketing'>
         <form
@@ -249,12 +249,16 @@ export default function ContactForm() {
             )}
           </div>
           <div>
-            <ReCAPTCHA
-              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
-              size='invisible'
-              ref={recaptchaRef}
-              hl='en'
-            />
+            {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+            {/* @ts-ignore */}
+            {window.Cookiebot?.consent?.marketing === 'true' && (
+              <ReCAPTCHA
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
+                size='invisible'
+                ref={recaptchaRef}
+                hl='en'
+              />
+            )}
           </div>
           <div className='flex flex-col items-center justify-between gap-8'>
             <Button

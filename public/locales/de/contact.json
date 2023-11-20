@@ -36,6 +36,7 @@
         "label": "Ihre Telefonnummer",
         "placeholder": "+49 123 456 7890"
       },
+      "recaptchaCookieNotice": "Bitte beachten Sie, dass durch die Nutzung dieser Seite die Übertragung von Daten an Google durch das Laden von ReCAPTCHA erfolgt. Das Kontaktformular wird nur angezeigt, wenn Marketing-Cookies aktiviert sind.",
       "submit": {
         "label": "Absenden",
         "success": "Vielen Dank für Ihre Nachricht. Wir werden uns in Kürze bei Ihnen melden."
