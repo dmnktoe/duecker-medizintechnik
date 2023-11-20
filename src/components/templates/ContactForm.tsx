@@ -91,183 +91,191 @@ export default function ContactForm() {
 
   return (
     <>
-      <form
-        className='w-full space-y-4'
-        onSubmit={handleSubmit(processForm)}
-        noValidate
-      >
-        <div>
-          <label
-            htmlFor='fullName'
-            className='mb-2 block text-sm font-medium text-gray-900'
-          >
-            {errors.fullName?.message ? (
-              <span className='text-red-500'>
-                {t('content.contactForm.fullName.label')}*
-              </span>
-            ) : (
-              <span>{t('content.contactForm.fullName.label')}*</span>
-            )}
-          </label>
-          <input
-            type='text'
-            id='fullName'
-            className={`${
-              errors.fullName?.message && 'border-red-500'
-            } dark:shadow-sm-light block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:focus:border-primary-500 dark:focus:ring-primary-500`}
-            placeholder={t('content.contactForm.fullName.placeholder')}
-            {...register('fullName')}
-          />
-          {errors.fullName?.message && (
-            <div className='mt-1 text-xs text-red-500'>
-              {errors.fullName?.message}
-            </div>
-          )}
-        </div>
-        <div>
-          <label
-            htmlFor='email'
-            className='mb-2 block text-sm font-medium text-gray-900'
-          >
-            {errors.email?.message ? (
-              <span className='text-red-500'>
-                {t('content.contactForm.email.label')}*
-              </span>
-            ) : (
-              <span>{t('content.contactForm.email.label')}*</span>
-            )}
-          </label>
-          <input
-            type='email'
-            id='email'
-            className={`${
-              errors.email?.message && 'border-red-500'
-            } dark:shadow-sm-light block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:focus:border-primary-500 dark:focus:ring-primary-500`}
-            placeholder={t('content.contactForm.email.placeholder')}
-            {...register('email')}
-          />
-          {errors.email?.message && (
-            <div className='mt-1 text-xs text-red-500'>
-              {errors.email?.message}
-            </div>
-          )}
-        </div>
-        <div>
-          <label
-            htmlFor='phone'
-            className='mb-2 block text-sm font-medium text-gray-900'
-          >
-            {errors.phone?.message ? (
-              <span className='text-red-500'>
-                {t('content.contactForm.phone.label')}*
-              </span>
-            ) : (
-              <span>{t('content.contactForm.phone.label')}*</span>
-            )}
-          </label>
-          <input
-            type='phone'
-            id='phone'
-            className={`${
-              errors.phone?.message && 'border-red-500'
-            } dark:shadow-sm-light block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:focus:border-primary-500 dark:focus:ring-primary-500`}
-            placeholder={t('content.contactForm.phone.placeholder')}
-            {...register('phone')}
-          />
-          {errors.phone?.message && (
-            <div className='mt-1 text-xs text-red-500'>
-              {errors.phone?.message}
-            </div>
-          )}
-        </div>
-        <div>
-          <div className='sm:col-span-2'>
+      <div className='cookieconsent-optout-marketing'>
+        Please accept marketing-cookies to view this content.
+      </div>
+      <div className='cookieconsent-optin-marketing'>
+        <form
+          className='w-full space-y-4'
+          onSubmit={handleSubmit(processForm)}
+          noValidate
+        >
+          <div>
             <label
-              htmlFor='message'
+              htmlFor='fullName'
               className='mb-2 block text-sm font-medium text-gray-900'
             >
-              {errors.message?.message ? (
+              {errors.fullName?.message ? (
                 <span className='text-red-500'>
-                  {t('content.contactForm.message.label')}*
+                  {t('content.contactForm.fullName.label')}*
                 </span>
               ) : (
-                <span>{t('content.contactForm.message.label')}*</span>
+                <span>{t('content.contactForm.fullName.label')}*</span>
               )}
             </label>
-            <textarea
-              id='message'
-              rows={4}
+            <input
+              type='text'
+              id='fullName'
               className={`${
-                errors.message?.message && 'border-red-500'
+                errors.fullName?.message && 'border-red-500'
               } dark:shadow-sm-light block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:focus:border-primary-500 dark:focus:ring-primary-500`}
-              placeholder={t('content.contactForm.message.placeholder')}
-              {...register('message')}
-            ></textarea>
-            {errors.message?.message && (
+              placeholder={t('content.contactForm.fullName.placeholder')}
+              {...register('fullName')}
+            />
+            {errors.fullName?.message && (
               <div className='mt-1 text-xs text-red-500'>
-                {errors.message?.message}
+                {errors.fullName?.message}
               </div>
             )}
           </div>
-        </div>
-        <div className='py-1'>
-          <div className='flex items-center'>
-            <input
-              type='checkbox'
-              id='terms'
-              className='h-4 w-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500'
-              {...register('terms')}
-            />
-            <label htmlFor='terms' className='ml-2 block text-sm text-gray-900'>
-              <Trans
-                i18nKey='content.contactForm.terms.label'
-                t={t}
-                components={{
-                  linkTag: (
-                    <UnderlineLink
-                      target='_blank'
-                      href='/datenschutz'
-                      // eslint-disable-next-line react/no-children-prop
-                      children=''
-                    />
-                  ),
-                }}
-              />
+          <div>
+            <label
+              htmlFor='email'
+              className='mb-2 block text-sm font-medium text-gray-900'
+            >
+              {errors.email?.message ? (
+                <span className='text-red-500'>
+                  {t('content.contactForm.email.label')}*
+                </span>
+              ) : (
+                <span>{t('content.contactForm.email.label')}*</span>
+              )}
             </label>
+            <input
+              type='email'
+              id='email'
+              className={`${
+                errors.email?.message && 'border-red-500'
+              } dark:shadow-sm-light block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:focus:border-primary-500 dark:focus:ring-primary-500`}
+              placeholder={t('content.contactForm.email.placeholder')}
+              {...register('email')}
+            />
+            {errors.email?.message && (
+              <div className='mt-1 text-xs text-red-500'>
+                {errors.email?.message}
+              </div>
+            )}
           </div>
-          {errors.terms?.message && (
-            <div className='mt-1 text-xs text-red-500'>
-              {errors.terms?.message}
+          <div>
+            <label
+              htmlFor='phone'
+              className='mb-2 block text-sm font-medium text-gray-900'
+            >
+              {errors.phone?.message ? (
+                <span className='text-red-500'>
+                  {t('content.contactForm.phone.label')}*
+                </span>
+              ) : (
+                <span>{t('content.contactForm.phone.label')}*</span>
+              )}
+            </label>
+            <input
+              type='phone'
+              id='phone'
+              className={`${
+                errors.phone?.message && 'border-red-500'
+              } dark:shadow-sm-light block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:focus:border-primary-500 dark:focus:ring-primary-500`}
+              placeholder={t('content.contactForm.phone.placeholder')}
+              {...register('phone')}
+            />
+            {errors.phone?.message && (
+              <div className='mt-1 text-xs text-red-500'>
+                {errors.phone?.message}
+              </div>
+            )}
+          </div>
+          <div>
+            <div className='sm:col-span-2'>
+              <label
+                htmlFor='message'
+                className='mb-2 block text-sm font-medium text-gray-900'
+              >
+                {errors.message?.message ? (
+                  <span className='text-red-500'>
+                    {t('content.contactForm.message.label')}*
+                  </span>
+                ) : (
+                  <span>{t('content.contactForm.message.label')}*</span>
+                )}
+              </label>
+              <textarea
+                id='message'
+                rows={4}
+                className={`${
+                  errors.message?.message && 'border-red-500'
+                } dark:shadow-sm-light block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:focus:border-primary-500 dark:focus:ring-primary-500`}
+                placeholder={t('content.contactForm.message.placeholder')}
+                {...register('message')}
+              ></textarea>
+              {errors.message?.message && (
+                <div className='mt-1 text-xs text-red-500'>
+                  {errors.message?.message}
+                </div>
+              )}
             </div>
-          )}
-        </div>
-        <div>
-          <ReCAPTCHA
-            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
-            size='invisible'
-            ref={recaptchaRef}
-            hl='en'
-          />
-        </div>
-        <div className='flex flex-col items-center justify-between gap-8'>
-          <Button
-            type='submit'
-            disabled={isSubmitting}
-            onClick={handleSubmit(processForm)}
-            isLoading={isSubmitting}
-            className='w-full'
-            role='button'
-          >
-            {isSubmitting
-              ? 'Sending...'
-              : t('content.contactForm.submit.label')}
-          </Button>
+          </div>
+          <div className='py-1'>
+            <div className='flex items-center'>
+              <input
+                type='checkbox'
+                id='terms'
+                className='h-4 w-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500'
+                {...register('terms')}
+              />
+              <label
+                htmlFor='terms'
+                className='ml-2 block text-sm text-gray-900'
+              >
+                <Trans
+                  i18nKey='content.contactForm.terms.label'
+                  t={t}
+                  components={{
+                    linkTag: (
+                      <UnderlineLink
+                        target='_blank'
+                        href='/datenschutz'
+                        // eslint-disable-next-line react/no-children-prop
+                        children=''
+                      />
+                    ),
+                  }}
+                />
+              </label>
+            </div>
+            {errors.terms?.message && (
+              <div className='mt-1 text-xs text-red-500'>
+                {errors.terms?.message}
+              </div>
+            )}
+          </div>
+          <div>
+            <ReCAPTCHA
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
+              size='invisible'
+              ref={recaptchaRef}
+              hl='en'
+            />
+          </div>
+          <div className='flex flex-col items-center justify-between gap-8'>
+            <Button
+              type='submit'
+              disabled={isSubmitting}
+              onClick={handleSubmit(processForm)}
+              isLoading={isSubmitting}
+              className='w-full'
+              role='button'
+            >
+              {isSubmitting
+                ? 'Sending...'
+                : t('content.contactForm.submit.label')}
+            </Button>
 
-          {isSubmitSuccessful && (
-            <div className={`text-left text-xs ${resultColor}`}>{result}</div>
-          )}
-        </div>
-      </form>
+            {isSubmitSuccessful && (
+              <div className={`text-left text-xs ${resultColor}`}>{result}</div>
+            )}
+          </div>
+        </form>
+      </div>
     </>
   );
 }
