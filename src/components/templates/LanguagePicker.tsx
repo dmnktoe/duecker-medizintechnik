@@ -12,10 +12,6 @@ type Props = {
 const LanguagePicker = ({ className }: Props) => {
   const router = useRouter();
 
-  if (!router.isReady) {
-    return null;
-  }
-
   function handleLanguageChange(e: React.ChangeEvent<HTMLSelectElement>) {
     const newLocale = e.target.value;
     const currentPath = router.asPath.includes(router.locale ?? '')
@@ -28,27 +24,25 @@ const LanguagePicker = ({ className }: Props) => {
   }
 
   return (
-    <>
-      <select
-        className={clsx(className)}
-        name='languages'
-        id='languages'
-        onChange={handleLanguageChange}
-        value={LOCALES.i18n.locales.find((locale) => locale === i18n?.language)}
-      >
-        {LOCALES.i18n.locales.map((lang) => {
-          const nameGenerator = new Intl.DisplayNames(lang, {
-            type: 'language',
-          });
-          const displayName = nameGenerator.of(lang);
-          return (
-            <option key={lang} value={lang}>
-              {displayName}
-            </option>
-          );
-        })}
-      </select>
-    </>
+    <select
+      className={clsx(className)}
+      name='languages'
+      id='languages'
+      onChange={handleLanguageChange}
+      value={LOCALES.i18n.locales.find((locale) => locale === i18n?.language)}
+    >
+      {LOCALES.i18n.locales.map((lang) => {
+        const nameGenerator = new Intl.DisplayNames(lang, {
+          type: 'language',
+        });
+        const displayName = nameGenerator.of(lang);
+        return (
+          <option key={lang} value={lang}>
+            {displayName}
+          </option>
+        );
+      })}
+    </select>
   );
 };
 
