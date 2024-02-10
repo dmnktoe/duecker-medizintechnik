@@ -34,7 +34,7 @@
     "axios": "^1.6.1",
     "clsx": "^2.0.0",
     "express-handlebars": "^6.0.7",
-    "framer-motion": "^10.16.4",
+    "framer-motion": "^11.0.0",
     "i18next": "^23.5.1",
     "lucide-react": "^0.323.0",
     "marked": "^9.0.3",
