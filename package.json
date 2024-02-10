@@ -54,7 +54,7 @@
     "react-share": "^5.0.0",
     "react-stagger-text": "^1.0.6",
     "sharp": "^0.33.0",
-    "swiper": "^10.3.0",
+    "swiper": "^11.0.0",
     "tailwind-merge": "^2.0.0",
     "zod": "^3.22.4",
     "zustand": "^4.4.1"
