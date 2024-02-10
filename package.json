@@ -36,7 +36,7 @@
     "express-handlebars": "^6.0.7",
     "framer-motion": "^10.16.4",
     "i18next": "^23.5.1",
-    "lucide-react": "^0.292.0",
+    "lucide-react": "^0.323.0",
     "marked": "^9.0.3",
     "next": "^13.5.3",
     "next-i18next": "^14.0.3",
