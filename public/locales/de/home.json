@@ -10,28 +10,28 @@
       },
       "textBlocks": [
         {
-          "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
-          "title": "Geil<33 Guide"
+          "content": "Herstellung von medizinischen Instrumenten und Containersystemen nach höchstem Maßstab sowie professionelle Reparaturdienstleistungen für chirurgische Instrumente.",
+          "title": "Produktion & Reparatur"
         },
         {
-          "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
-          "title": "UI/UX Design"
+          "content": "Breites Angebot an hochwertigen sterilen Schlauchsystemen für verschiedene medizinische Anwendungen.",
+          "title": "Sterile Schlauchsysteme"
         },
         {
-          "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
-          "title": "Web Development"
+          "content": "Wir bieten ein umfangreiches Sortiment an Medizinprodukten von führenden Herstellern für den Bedarf in Kliniken, Praxen und medizinischen Einrichtungen.",
+          "title": "Vertrieb von Medizinprodukten"
         },
         {
-          "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
-          "title": "Mobile Development"
+          "content": "Zertifizierter Hersteller von sterilen- und unsterilen Schlauch-Sets, die höchsten Qualitätsstandards entsprechen.",
+          "title": "Zertifizierte Schlauch-Sets"
         },
         {
-          "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
-          "title": "SEO Optimization"
+          "content": "Unser spezialisiertes Team von Chirurgiemechanikern führt professionelle Reparaturen an chirurgischen Instrumenten durch, um deren Funktionalität und Lebensdauer zu erhalten.",
+          "title": "Professioneller Reparaturservice"
         },
         {
-          "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
-          "title": "Marketing"
+          "content": "Wir bieten umfassende Dienstleistungen für medizinische Einrichtungen, darunter Reparatur, Wartung und Beschaffung von medizinischen Geräten und Zubehör.",
+          "title": "Umfassende Dienstleistungen"
         }
       ],
       "title": "Unsere Leistungen",
@@ -46,8 +46,8 @@
           "label": "Anfrage"
         }
       },
-      "text": "Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
-      "title": "Ihr Partner für Handelsvermittlung von pharma Erzeugnissen, medizinischen und orthopädischen Artikeln und Laborbedarf"
+      "text": "Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für Reparatur und Werterhaltung von chirurgischen Instrumentarium. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
+      "title": "Ihr Partner für Reparatur und Service chirurgischer Instrumente, Herstellung und Vertrieb von sterilen Schlauchsystemen, Vertrieb von Medizinprodukten und Dienstleistungen"
     },
     "postsCarousel": {
       "next": "",
@@ -57,9 +57,9 @@
     },
     "stickyScroll": {
       "commerce": {
-        "href": "handel",
-        "text": "Handel mit Medizinprodukten.",
-        "title": "Handel"
+        "href": "vertrieb",
+        "text": "Vertrieb von Medizinprodukten",
+        "title": "Vetrieb"
       },
       "production": {
         "href": "produktion",
@@ -68,7 +68,7 @@
       },
       "repair": {
         "href": "reparatur",
-        "text": "Reparatur und Wartung von Medizinprodukten.",
+        "text": "Reparatur und Werterhalt von chirurgischen Instrumenten & Containersystemen.",
         "title": "Reparatur"
       }
     }

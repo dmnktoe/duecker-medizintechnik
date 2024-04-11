@@ -29,4 +29,9 @@ export const customerLogos = [
     image: '/svg/nouvag.svg',
     url: 'https://www.nouvag.com/de/',
   },
+  {
+    name: 'Tontarra',
+    image: '/svg/tontarra.svg',
+    url: 'https://tontarra.de/',
+  },
 ];
