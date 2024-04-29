@@ -98,11 +98,7 @@ const PrivacyPage = (
               {company.city}
             </p>
             <p>Geschäftsführer: {company.ceo}</p>
-            <p>
-              Tel.: {company.phone}
-              <br />
-              Fax: {company.fax}
-            </p>
+            <p>Tel.: {company.phone}</p>
             <p>
               E-Mail:{' '}
               <UnderlineLink href={'mailto:' + company.email}>

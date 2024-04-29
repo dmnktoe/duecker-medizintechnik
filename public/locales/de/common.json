@@ -2,9 +2,6 @@
   "cta": {
     "bullets": [
       {
-        "title": "24/7 Support"
-      },
-      {
         "title": "Persönlicher Ansprechpartner"
       },
       {
@@ -16,7 +13,7 @@
     ],
     "buttonLink": "/kontakt",
     "buttonText": "Angebot anfordern",
-    "title": "Benötigen Sie Hilfe bei der Aufbereitung?",
+    "title": "Benötigen Sie Hilfe?",
     "titleSub": "Wir beraten Sie gerne!"
   },
   "footer": {
@@ -58,8 +55,8 @@
             "title": "Reparatur"
           },
           {
-            "href": "/leistungen/handel",
-            "title": "Handel"
+            "href": "/leistungen/vertrieb",
+            "title": "Vertrieb"
           }
         ],
         "title": "Leistungen"
@@ -119,9 +116,9 @@
             "text": "Reparatur"
           },
           {
-            "description": "Handel & b2b-Plattform.",
-            "href": "/leistungen/handel",
-            "text": "Handel"
+            "description": "Vertrieb & b2b-Plattform.",
+            "href": "/leistungen/vertrieb",
+            "text": "Vertrieb"
           }
         ],
         "text": "Leistungen"
@@ -136,7 +133,7 @@
       }
     ],
     "privacyLinkText": "Datenschutz",
-    "servicesDropdownText": "Unser Service",
+    "servicesDropdownText": "Unser Leistungsspektrum",
     "toggleNavigationText": "Navigation umschalten"
   }
 }

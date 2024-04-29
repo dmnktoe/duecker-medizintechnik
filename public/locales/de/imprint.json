@@ -29,7 +29,6 @@
     },
     "provider": {
       "email": "E-Mail",
-      "fax": "Fax",
       "imageSources": "Bildquellen",
       "phone": "Telefon",
       "taxNumber": "Steuernummer",

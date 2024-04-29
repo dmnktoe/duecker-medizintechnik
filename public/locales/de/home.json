@@ -59,7 +59,7 @@
       "commerce": {
         "href": "vertrieb",
         "text": "Vertrieb von Medizinprodukten",
-        "title": "Vetrieb"
+        "title": "Vertrieb"
       },
       "production": {
         "href": "produktion",
@@ -77,7 +77,7 @@
     "pageTitle": "Startseite",
     "seo": {
       "description": "Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
-      "title": "Handel, Produktion, Reperatur für OP-Lösungen und Sterilisierungen"
+      "title": "Vertrieb, Produktion, Reperatur für OP-Lösungen und Sterilisierungen"
     }
   }
 }

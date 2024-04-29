@@ -3,13 +3,13 @@
     "badge": "Unsere Leistungen",
     "cards": {
       "commerce": {
-        "href": "handel",
+        "href": "vertrieb",
         "text": "Ein ganzes Universum innovativer Lösungen von Medizintechnik bis Logistik.",
-        "title": "Handel"
+        "title": "Vertrieb"
       },
       "production": {
         "href": "produktion",
-        "text": "Wir unterstützen Ihre Deployments durch unsere Produktion.",
+        "text": "Wir realisieren Ihre Idee durch unsere Produktion.",
         "title": "Produktion"
       },
       "readMore": "Mehr erfahren",

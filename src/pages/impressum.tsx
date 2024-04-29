@@ -38,8 +38,6 @@ const ImprintPage = (
             </p>
             <p>
               {t('content.provider.phone')}: {company.phone}
-              <br />
-              {t('content.provider.fax')}: {company.fax}
             </p>
             <p>
               {t('content.provider.email')}:{' '}
