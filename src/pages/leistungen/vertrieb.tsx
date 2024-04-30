@@ -79,7 +79,7 @@ const CommercePage = (
                     </li>
                     <li className='flex items-center'>
                       <VscCheck className='mr-4 h-4 w-4 text-primary-500' />
-                      <UnderlineLink href='https://medicon.de/'>
+                      <UnderlineLink href='http://www.eberle-med.de/'>
                         Eberle
                       </UnderlineLink>
                     </li>
@@ -87,19 +87,19 @@ const CommercePage = (
                   <div>
                     <li className='mb-3 flex items-center'>
                       <VscCheck className='mr-4 h-4 w-4 text-primary-500' />
-                      <UnderlineLink href='https://medicon.de/'>
+                      <UnderlineLink href='https://www.hupfer.com/'>
                         Hupfer
                       </UnderlineLink>
                     </li>
                     <li className='mb-3 flex items-center'>
                       <VscCheck className='mr-4 h-4 w-4 text-primary-500' />
-                      <UnderlineLink href='https://medicon.de/'>
-                        Key Surgical
+                      <UnderlineLink href='https://www.steris.com/'>
+                        STERIS
                       </UnderlineLink>
                     </li>
                     <li className='flex items-center'>
                       <VscCheck className='mr-4 h-4 w-4 text-primary-500' />
-                      <UnderlineLink href='https://medicon.de/'>
+                      <UnderlineLink href='https://www.nouvag.com/de/'>
                         Nouvag
                       </UnderlineLink>
                     </li>

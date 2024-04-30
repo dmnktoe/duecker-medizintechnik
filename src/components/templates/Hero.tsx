@@ -68,7 +68,7 @@ const HeroText = () => {
 
 const CustomerLogos = () => {
   return (
-    <div className='grid grid-cols-2 gap-12 text-gray-500 dark:text-gray-400 sm:gap-12 md:grid-cols-3 lg:grid-cols-6'>
+    <div className='grid grid-cols-2 gap-12 text-gray-500 dark:text-gray-400 sm:gap-12 md:grid-cols-3 lg:grid-cols-4'>
       {customerLogos.map((logo) => (
         <div key={logo.name} className='flex items-center justify-center'>
           <Link href={logo.url} target='_blank'>
