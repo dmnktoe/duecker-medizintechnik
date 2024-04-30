@@ -47,7 +47,7 @@ const ImprintPage = (
               <br />
               {t('content.provider.web')}:{' '}
               <PrimaryLink href={'https://' + company.url}>
-                {company.url}
+                www.{company.url}
               </PrimaryLink>
             </p>
             <p>

@@ -23,9 +23,7 @@ describe('Call To Action', () => {
   });
   it('should render the call to action section', async () => {
     render(<CallToAction />);
-    expect(
-      await screen.findByText('Benötigen Sie Hilfe bei der Aufbereitung?'),
-    ).toBeInTheDocument();
+    expect(await screen.findByText('Benötigen Sie Hilfe?')).toBeInTheDocument();
   });
   it('calls router.push when button is clicked', () => {
     const mockRouter = { push: jest.fn() };
