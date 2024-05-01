@@ -18,6 +18,8 @@ import NextBreadcrumb from '@/components/ui/Breadcrumb';
 import UnderlineLink from '@/components/ui/links/UnderlineLink';
 import { Title } from '@/components/ui/typography/Title';
 
+import { customerLogos } from '@/constant/customerLogos';
+
 import heroImg from '/public/images/commerce/duecker-medizintechnik_commerce_hero-bg.webp';
 
 const CommercePage = (
@@ -63,47 +65,13 @@ const CommercePage = (
                 <Title isAnimated>{t('content.title')}</Title>
                 <p className='text-base'>{t('content.text')}</p>
                 <h5 className='my-6 font-semibold'>{t('content.partners')}:</h5>
-                <ul className='mb-6 flex flex-row gap-6'>
-                  <div>
-                    <li className='mb-3 flex items-center'>
+                <ul className='mb-6 flex max-w-md flex-row flex-wrap gap-6'>
+                  {customerLogos.map((logo, index) => (
+                    <li key={index} className='mb-3 flex items-center'>
                       <VscCheck className='mr-4 h-4 w-4 text-primary-500' />
-                      <UnderlineLink href='https://medicon.de/'>
-                        Medicon
-                      </UnderlineLink>
+                      <UnderlineLink href={logo.url}>{logo.name}</UnderlineLink>
                     </li>
-                    <li className='mb-3 flex items-center'>
-                      <VscCheck className='mr-4 h-4 w-4 text-primary-500' />
-                      <UnderlineLink href='https://www.bissinger-medizintechnik.de/'>
-                        Bissinger
-                      </UnderlineLink>
-                    </li>
-                    <li className='flex items-center'>
-                      <VscCheck className='mr-4 h-4 w-4 text-primary-500' />
-                      <UnderlineLink href='http://www.eberle-med.de/'>
-                        Eberle
-                      </UnderlineLink>
-                    </li>
-                  </div>
-                  <div>
-                    <li className='mb-3 flex items-center'>
-                      <VscCheck className='mr-4 h-4 w-4 text-primary-500' />
-                      <UnderlineLink href='https://www.hupfer.com/'>
-                        Hupfer
-                      </UnderlineLink>
-                    </li>
-                    <li className='mb-3 flex items-center'>
-                      <VscCheck className='mr-4 h-4 w-4 text-primary-500' />
-                      <UnderlineLink href='https://www.steris.com/'>
-                        STERIS
-                      </UnderlineLink>
-                    </li>
-                    <li className='flex items-center'>
-                      <VscCheck className='mr-4 h-4 w-4 text-primary-500' />
-                      <UnderlineLink href='https://www.nouvag.com/de/'>
-                        Nouvag
-                      </UnderlineLink>
-                    </li>
-                  </div>
+                  ))}
                 </ul>
               </div>
             </div>

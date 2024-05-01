@@ -15,11 +15,6 @@ export const customerLogos = [
     url: 'https://www.hupfer.com/de/medical',
   },
   {
-    name: 'Key Surgical',
-    image: '/svg/keysurgical.svg',
-    url: 'https://www.keysurgical.de/',
-  },
-  {
     name: 'Medicon',
     image: '/svg/medicon.svg',
     url: 'https://medicon.de/',
@@ -28,6 +23,11 @@ export const customerLogos = [
     name: 'Nouvag',
     image: '/svg/nouvag.svg',
     url: 'https://www.nouvag.com/de/',
+  },
+  {
+    name: 'STERIS',
+    image: '/svg/steris.svg',
+    url: 'https://www.steris.com/',
   },
   {
     name: 'Tontarra',
