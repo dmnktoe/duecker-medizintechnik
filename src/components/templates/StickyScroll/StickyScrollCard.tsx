@@ -32,7 +32,7 @@ const StickyScrollCard = ({
   return (
     <div
       className={clsx(
-        'absolute inset-0 h-full w-full overflow-hidden rounded-2xl transition-opacity',
+        'absolute inset-0 h-full w-full overflow-hidden transition-opacity',
         inViewFeature === id
           ? 'active-card opacity-100'
           : 'pointer-events-none opacity-0',
@@ -40,7 +40,7 @@ const StickyScrollCard = ({
     >
       <div
         className={clsx(
-          'gradient absolute inset-0 origin-bottom-left rounded-2xl bg-gradient-to-br',
+          'gradient absolute inset-0 origin-bottom-left bg-gradient-to-br',
           gradient,
         )}
       />
