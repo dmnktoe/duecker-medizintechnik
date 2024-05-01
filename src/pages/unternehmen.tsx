@@ -61,13 +61,12 @@ const AboutUsPage = (
             <Title size='three'>{t('content.companyText.title')}</Title>
             <p className='mb-4'>{t('content.companyText.text1')}</p>
             <p className='mb-4'>{t('content.companyText.text2')}</p>
-            <p className='mb-4 font-medium'>{t('content.companyText.text3')}</p>
+            <p className='mb-4'>{t('content.companyText.text3')}</p>
             <p className='mb-4'>{t('content.companyText.text4')}</p>
             <p className='mb-4'>{t('content.companyText.text5')}</p>
-            <hr className='my-10' />
             <p className='mb-4'>
               Bei Dücker Medizintechnik legen wir großen Wert auf{' '}
-              <span className='font-medium'> Qualität und Transparenz</span>.
+              <span className='font-bold'> Qualität und Transparenz</span>.
               Unsere Zertifikate und Downloads sind ein Beweis für unser
               Engagement in diesen Bereichen. Möchten Sie mehr über unsere
               Zertifikate und Downloads erfahren? Besuchen Sie unsere{' '}

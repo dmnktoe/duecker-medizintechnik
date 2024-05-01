@@ -20,7 +20,6 @@ const PrimaryLink = React.forwardRef<HTMLAnchorElement, PrimaryLinkProps>(
         className={clsxm(
           'inline-flex items-center',
           'focus:outline-none focus-visible:rounded focus-visible:ring focus-visible:ring-primary-500 focus-visible:ring-offset-2',
-          'font-medium',
           //#region  //*=========== Variant ===========
           variant === 'primary' && [
             'text-primary-500 hover:text-primary-600 active:text-primary-700',
