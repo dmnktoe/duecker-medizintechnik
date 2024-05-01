@@ -199,7 +199,7 @@ export const Header = () => {
 
 const TopBar = () => {
   return (
-    <div className='relative hidden bg-dark py-3 xl:block xl:w-auto'>
+    <div className='relative hidden bg-dark py-2 xl:block xl:w-auto'>
       <Container>
         <div className='flex items-center justify-between text-xs font-medium tracking-normal text-white'>
           <div className='flex items-center gap-x-2'>

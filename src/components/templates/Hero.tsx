@@ -1,7 +1,13 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import * as React from 'react';
+import { useRef } from 'react';
+import { Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 
 import { Container } from '@/components/layout/Container';
 import ButtonLink from '@/components/ui/links/ButtonLink';
@@ -12,26 +18,68 @@ import { Title } from '@/components/ui/typography/Title';
 import { customerLogos } from '@/constant/customerLogos';
 
 import heroBg from '/public/images/home/duecker-medizintechnik_home_hero-bg.jpg';
+import heroBg2 from '/public/images/home/duecker-medizintechnik_home_hero-bg-2.jpg';
 
 export const Hero = () => {
+  const progressCircle = useRef(null);
+  const progressContent = useRef(null);
+  const onAutoplayTimeLeft = (s: unknown, time: number, progress: number) => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    progressCircle.current.style.setProperty('--progress', 1 - progress);
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
+  };
   return (
-    <section className='py-16 md:py-24 lg:py-32'>
-      <BackgroundBlurTop />
+    <section className='hero pb-16 pt-4 md:pb-24 md:pt-12 lg:pb-32'>
       <Container>
-        <div className='mb-12 flex w-full flex-col items-center gap-12 md:mb-36 md:gap-24 lg:flex-row'>
+        <div className='mx-auto mb-12 flex w-full max-w-7xl flex-col items-center gap-12 md:mb-36 md:gap-24 lg:flex-row'>
           <div className='w-full lg:w-6/12'>
             <HeroText />
           </div>
           <div className='relative w-full lg:w-6/12'>
-            <Image
-              alt='OP-Lösungen und Sterilisierungen für den B2B-Betrieb'
-              src={heroBg}
-              placeholder='blur'
-              priority
-              className='h-full w-full overflow-hidden'
-              quality={65}
-            />
-            <div className='absolute -bottom-3 -right-3 w-5/6 bg-primary-500/95 p-6 text-sm tracking-tighter text-white md:-bottom-5 md:-right-5 md:text-base'>
+            <div className='relative -top-2 z-20'>
+              <Swiper
+                modules={[Autoplay]}
+                spaceBetween={2}
+                slidesPerView={1}
+                onAutoplayTimeLeft={onAutoplayTimeLeft}
+                autoplay={{
+                  delay: 5000,
+                  disableOnInteraction: false,
+                }}
+                loop={true}
+              >
+                <SwiperSlide>
+                  <Image
+                    alt='OP-Lösungen und Sterilisierungen für den B2B-Betrieb'
+                    src={heroBg}
+                    placeholder='blur'
+                    priority
+                    className='relative block h-full w-full overflow-hidden'
+                    quality={65}
+                  />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <Image
+                    alt='OP-Lösungen und Sterilisierungen für den B2B-Betrieb'
+                    src={heroBg2}
+                    placeholder='blur'
+                    priority
+                    className='relative block h-full w-full overflow-hidden'
+                    quality={65}
+                  />
+                </SwiperSlide>
+                <div className='autoplay-progress' slot='container-end'>
+                  <svg viewBox='0 0 48 48' ref={progressCircle}>
+                    <circle cx='24' cy='24' r='20'></circle>
+                  </svg>
+                  <span ref={progressContent}></span>
+                </div>
+              </Swiper>
+            </div>
+            <div className='absolute -bottom-3 -right-3 z-40 w-5/6 bg-primary-500/95 p-6 text-sm tracking-tighter text-white md:-bottom-5 md:-right-5 md:text-base'>
               Ihr{' '}
               <UnstyledLink className='underline' href='/unternehmen'>
                 {' '}
@@ -40,7 +88,12 @@ export const Hero = () => {
               für Handelsvermittlung von pharmazeutischen Erzeugnissen,
               medizinischen und orthopädischen Artikeln und Laborbedarf.
             </div>
-            <div className='absolute left-0 top-0 h-12 w-12 bg-white' />
+            <div className='absolute -top-2 left-0 z-30 h-12 w-12 bg-white' />
+            <div className='absolute -top-2 left-12 z-30 h-12 w-12 bg-white/30' />
+            <div className='absolute left-0 top-10 z-30 h-12 w-12 bg-white/30' />
+            <div className='absolute bottom-0 right-0 z-30 h-12 w-12 bg-white' />
+            <div className='absolute bottom-0 right-12 z-30 h-12 w-12 bg-white/30' />
+            <div className='absolute bottom-12 right-0 z-30 h-12 w-12 bg-white/30' />
           </div>
         </div>
         <div className='mx-auto mb-8 text-center text-xs text-neutral-400 lg:w-1/3'>
@@ -101,22 +154,6 @@ const CustomerLogos = () => {
           </Link>
         </div>
       ))}
-    </div>
-  );
-};
-
-const BackgroundBlurTop = () => {
-  return (
-    <div
-      className='absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80'
-      aria-hidden='true'
-    >
-      <div
-        className='relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[130deg] bg-gradient-to-tr from-primary-800 to-primary-300 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]'
-        style={{
-          clipPath: 'polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);',
-        }}
-      />
     </div>
   );
 };
