@@ -15,7 +15,12 @@ interface CardProps {
 const PostsCarouselCard = ({ post }: CardProps) => {
   const BlogExcerpt = ({ content }: { content: string }) => {
     const excerpt = content.split(' ').slice(0, 50).join(' ');
-    return <p className='line-clamp-3 max-w-sm'>{excerpt}</p>;
+    return (
+      <p
+        className='line-clamp-3 max-w-sm'
+        dangerouslySetInnerHTML={{ __html: excerpt }}
+      />
+    );
   };
 
   return (
