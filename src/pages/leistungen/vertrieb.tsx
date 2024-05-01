@@ -56,7 +56,7 @@ const CommercePage = (
             <div className='mb-6 w-full lg:mb-0 lg:w-2/3 xl:w-1/2'>
               <div className='text-dark'>
                 <div className='mb-2'>
-                  <Badge size='lg' color='secondary' variant='solid'>
+                  <Badge size='sm' color='secondary' variant='solid'>
                     B2B & B2C
                   </Badge>
                 </div>
