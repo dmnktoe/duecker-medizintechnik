@@ -40,10 +40,10 @@
     "hero": {
       "buttons": {
         "primary": {
-          "label": "Leistungen"
+          "label": "Leistungsspektum"
         },
         "secondary": {
-          "label": "Anfrage"
+          "label": "Kontakt & Anfrage"
         }
       },
       "text": "Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für Reparatur und Werterhaltung von chirurgischen Instrumentarium. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
