@@ -32,11 +32,11 @@ export const Hero = () => {
             />
           </div>
         </div>
-        <div className='mx-auto mb-8 w-1/3 text-center text-xs text-neutral-400'>
-          Mit unseren +5 Vertriebspartnern in Europa und den USA sind wir in der
+        <div className='mx-auto mb-8 text-center text-xs text-neutral-400 lg:w-1/3'>
+          Mit unseren Vertriebspartnern in Europa und den USA sind wir in der
           Lage, unsere Produkte weltweit zu vertreiben:
         </div>
-        <div className='mx-auto w-7/12'>
+        <div className='mx-auto lg:w-7/12'>
           <CustomerLogos />
         </div>
       </Container>
