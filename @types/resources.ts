@@ -12,6 +12,7 @@ import privacy from '~/locales/de/privacy.json';
 import production from '~/locales/de/production.json';
 import repair from '~/locales/de/repair.json';
 import services from '~/locales/de/services.json';
+import termsAndConditions from '~/locales/de/termsAndConditions.json';
 
 const resources = {
   aboutUs,
@@ -28,6 +29,7 @@ const resources = {
   production,
   repair,
   services,
+  termsAndConditions,
 } as const;
 
 export default resources;
