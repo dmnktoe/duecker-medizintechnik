@@ -18,7 +18,7 @@ export const Hero = () => {
     <section className='py-16 md:py-24 lg:py-32'>
       <BackgroundBlurTop />
       <Container>
-        <div className='mb-12 flex w-full flex-col items-center gap-12 md:mb-36 md:gap-24 lg:flex-row lg:gap-36'>
+        <div className='mb-12 flex w-full flex-col items-center gap-12 md:mb-36 md:gap-24 lg:flex-row'>
           <div className='w-full lg:w-6/12'>
             <HeroText />
           </div>

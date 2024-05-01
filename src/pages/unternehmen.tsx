@@ -13,6 +13,7 @@ import Layout from '@/components/layout/Layout';
 import Seo from '@/components/layout/Seo';
 import ImageBanner from '@/components/templates/ImageBanner/ImageBanner';
 import NextBreadcrumb from '@/components/ui/Breadcrumb';
+import ButtonLink from '@/components/ui/links/ButtonLink';
 import UnderlineLink from '@/components/ui/links/UnderlineLink';
 import { Title } from '@/components/ui/typography/Title';
 
@@ -56,12 +57,8 @@ const AboutUsPage = (
             />
           </div>
           <div className='mx-auto mb-16 max-w-5xl'>
-            <Title margin={false}>{t('content.title')}</Title>
-            <p>{t('content.titleText')}</p>
-            <hr className='my-12' />
-            <Title size='three' isAnimated>
-              {t('content.companyText.title')}
-            </Title>
+            <Title>{t('content.title')}</Title>
+            <Title size='three'>{t('content.companyText.title')}</Title>
             <p className='mb-4'>{t('content.companyText.text1')}</p>
             <p className='mb-4'>{t('content.companyText.text2')}</p>
             <p className='mb-4 font-medium'>{t('content.companyText.text3')}</p>
@@ -108,13 +105,24 @@ const AboutUsPage = (
                 <StaggerText>{t('content.innovationText.title')}</StaggerText>
               </h2>
               <p className='mb-4'>{t('content.innovationText.text')}</p>
+              <ButtonLink
+                href='/kontakt'
+                className='mt-4'
+                variant='dark'
+                size='sm'
+              >
+                {t('content.innovationText.button')}
+                <span aria-hidden='true' className='ml-2'>
+                  →
+                </span>
+              </ButtonLink>
             </div>
             <div className='mt-8 grid grid-cols-2 gap-4'>
               <Image
                 alt='hero'
                 src={aboutUsImg1}
                 placeholder='blur'
-                className='w-full rounded-lg'
+                className='w-full'
                 width={600}
                 height={500}
                 loading='lazy'
@@ -123,18 +131,17 @@ const AboutUsPage = (
                 alt='hero'
                 src={aboutUsImg2}
                 placeholder='blur'
-                className='mt-4 w-full rounded-lg lg:mt-10'
+                className='mt-4 w-full lg:mt-10'
                 width={600}
                 height={500}
                 loading='lazy'
               />
             </div>
           </div>
-          {/* TODO: fix padding */}
         </Container>
       </main>
       <div className='relative'>
-        <div className='after:absolute after:bottom-0 after:-z-10 after:h-[52rem] after:w-full after:rounded-tl-[15rem] after:bg-gradient-to-b after:from-primary-500/10 after:to-primary-600/0'></div>
+        <div className='after:absolute after:bottom-0 after:-z-10 after:h-[40rem] after:w-full after:rounded-tl-[15rem] after:bg-gradient-to-b after:from-primary-500/10 after:to-primary-600/0'></div>
       </div>
     </Layout>
   );
