@@ -57,7 +57,7 @@ const CommercePage = (
               <div className='text-dark'>
                 <div className='mb-2'>
                   <Badge size='lg' color='secondary' variant='solid'>
-                    {t('meta.pageTitle')}
+                    B2B & B2C
                   </Badge>
                 </div>
                 <Title isAnimated>{t('content.title')}</Title>
