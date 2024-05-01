@@ -2,8 +2,7 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React from 'react';
-import { GiAutoRepair, GiTrade } from 'react-icons/gi';
-import { MdOutlinePrecisionManufacturing } from 'react-icons/md';
+import { PiChartLineUpThin, PiPackageThin, PiWrenchThin } from 'react-icons/pi';
 
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
@@ -36,23 +35,21 @@ const ServicesPage = (
               </div>
             </div>
           </div>
-          <div className='-mx-4 flex flex-wrap'>
+          <div className='mx-auto flex max-w-7xl flex-wrap'>
             <ServiceCard
               title={t('content.cards.production.title')}
               details={t('content.cards.production.text')}
-              icon={
-                <MdOutlinePrecisionManufacturing className='h-10 w-10 text-white' />
-              }
+              icon={<PiChartLineUpThin className='h-10 w-10 text-white' />}
             />
             <ServiceCard
               title={t('content.cards.repair.title')}
               details={t('content.cards.repair.text')}
-              icon={<GiAutoRepair className='h-10 w-10 text-white' />}
+              icon={<PiWrenchThin className='h-10 w-10 text-white' />}
             />
             <ServiceCard
               title={t('content.cards.commerce.title')}
               details={t('content.cards.commerce.text')}
-              icon={<GiTrade className='h-10 w-10 text-white' />}
+              icon={<PiPackageThin className='h-10 w-10 text-white' />}
             />
           </div>
         </Container>
@@ -75,7 +72,7 @@ const ServiceCard = ({
     <>
       <div className='w-full px-4 md:w-1/2 lg:w-1/3'>
         <div className='mb-8 bg-gray-100 p-10 md:px-7 xl:px-10'>
-          <div className='mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary-500 p-3'>
+          <div className='mb-8 flex h-[70px] w-[70px] items-center justify-center bg-dark p-3'>
             {icon}
           </div>
           <h4 className='mb-3 text-xl font-semibold text-dark'>{title}</h4>

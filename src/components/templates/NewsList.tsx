@@ -40,7 +40,7 @@ export const NewsList = (props: NewsListProps) => {
                         )}
                         alt={post.attributes.image.data?.attributes.name ?? ''}
                         fill
-                        className='rounded-3xl object-cover object-center md:shadow-md'
+                        className='object-cover object-center'
                       />
                     </AspectRatio>
                   </UnstyledLink>
