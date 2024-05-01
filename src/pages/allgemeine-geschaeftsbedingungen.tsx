@@ -2,10 +2,13 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
+import { VscArrowRight } from 'react-icons/vsc';
 
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/layout/Seo';
+import NextBreadcrumb from '@/components/ui/Breadcrumb';
+import { Title } from '@/components/ui/typography/Title';
 
 const ImprintPage = (
   _props: InferGetStaticPropsType<typeof getStaticProps>,
@@ -20,10 +23,18 @@ const ImprintPage = (
       />
       <main className='mx-auto max-w-5xl py-16 md:py-24'>
         <Container>
-          <h1 className='mb-8'>
-            Allgemeine Verkaufsbedingungen
-            <br /> Dücker Medizintechnik{' '}
-          </h1>
+          <NextBreadcrumb
+            homeElement='Startseite'
+            separator={
+              <VscArrowRight className='mr-2 h-5 w-3 md:h-6 md:w-3 lg:h-6 lg:w-4' />
+            }
+            activeClasses='text-primary-500'
+            containerClasses='flex'
+            listClasses='hover:underline mr-2'
+            capitalizeLinks
+            className='mb-6'
+          />
+          <Title>{t('content.title')}</Title>
           <div className='privacy__content'>
             <p>
               <strong>
@@ -146,6 +157,69 @@ const ImprintPage = (
               € (Kleinstmengenaufträge) berechnen wir automatisch eine Pauschale
               in Höhe von 25,00 € zzgl. der gesetzlichen Mehrwertsteuer.
             </p>
+            <p>
+              <strong>V. Haftung, Gefahrübergang und Gewährleistung</strong>
+            </p>
+            <p>
+              1. Höhere Gewalt, sowie betriebsfremde Einflüsse befreien uns von
+              der Verpflichtung zu Lieferung. Schadenersatzansprüche des Kunden
+              bei Lieferungsverzug sind ausgeschlossen, soweit sie nicht auf
+              einer vorsätzlichen oder grob fahrlässigen Vertragsverletzung
+              unsererseits oder unserer Erfüllungsgehilfen beruhen.
+            </p>
+            <p>
+              2. Die Gefahr des zufälligen Untergangs geht auf den Besteller
+              über, wenn die Ware unsere Firma in Melsungen verlässt.
+            </p>
+            <p>
+              3. Offensichtliche Mängel, ferner Transport- und
+              Verpackungsschäden müssen direkt bei Empfang von dem
+              Transportunternehmen quittiert werden. Durch die sogenannte reine
+              Quittung erlöschen alle Ansprüche auf Schadensersatz - siehe § 438
+              HGB. Sogenannte verdeckte Schäden müssen uns innerhalb 48 Stunden,
+              dokumentiert mit Fotos, gemeldet werden. Stark äußerlich
+              beschädigte Sendungen sind sofort zu kontrollieren oder
+              zurückzuweisen, da die Ware sonst als anerkannt gilt.
+            </p>
+            <p>
+              4. Wir verpflichten uns, die Ware bei Fabrikationsfehlern nach
+              vorheriger Begutachtung – nach unserer Wahl – entweder
+              nachzubessern, oder – falls es sich nicht um eine
+              Sonderanfertigung handelt – umzutauschen. Zur Begutachtung ist die
+              beanstandetet Ware franko an uns einzusenden. Weitere Ansprüche
+              des Käufers auf Minderung oder Wandlung sind ausgeschlossen, es
+              sei denn, dass die Nachbesserung oder Ersatzlieferung fehlschlägt.
+              Ansprüche auf Schadenersatz und wegen etwaiger Folgeschäden sind
+              gänzlich ausgeschlossen, es sei denn, sie beruhen nachweislich auf
+              vorsätzlicher oder grob fahrlässiger Vertragsverletzung
+              unsererseits. Im Falle von unverschuldeten Fehlfunktionen und
+              Störungen von technischen Einrichtungen, derer wir uns zum
+              Einlesen, Übertragen, Speichern und Verarbeiten von Daten
+              bedienen, haften wir nicht.
+            </p>
+            <p>
+              <strong>VI. Erfüllungsort und Gerichtsstand</strong>
+            </p>
+            <p>
+              1. Erfüllungsort für Lieferung und Zahlung und alle beiderseitigen
+              Verpflichtungen aus dem Vertrag ist Melsungen.
+            </p>
+            <p>
+              2. Ist der Vertragspartner Vollkaufmann oder eine juristische
+              Person des öffentlichen Rechts oder ein Öffentlich-rechtliches
+              Sondervermögen, so ist ausschließlicher Gerichtsstand für alle
+              eventuellen Streitigkeiten über das Zustandekommen, die Abwicklung
+              oder Beendigung des jeweiligen Vertrages Melsungen.
+            </p>
+            <p>
+              <strong>VII. Gültigkeit</strong>
+            </p>
+            <p>
+              Die Unwirksamkeit einzelner Bestimmungen dieser Verkaufs-,
+              Lieferungs- und Zahlungsbedingungen lässt die Wirksamkeit der
+              übrigen Bestimmungen unberührt.
+            </p>
+            <p className='text-sm text-neutral-400'>Stand März 2024</p>
           </div>
         </Container>
       </main>

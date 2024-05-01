@@ -2,12 +2,15 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { Trans, useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
+import { VscArrowRight } from 'react-icons/vsc';
 
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/layout/Seo';
+import NextBreadcrumb from '@/components/ui/Breadcrumb';
 import PrimaryLink from '@/components/ui/links/PrimaryLink';
 import UnderlineLink from '@/components/ui/links/UnderlineLink';
+import { Title } from '@/components/ui/typography/Title';
 
 import { company } from '@/constant/company';
 
@@ -22,9 +25,20 @@ const ImprintPage = (
         description={t('meta.seo.description')}
         title={t('meta.seo.title')}
       />
-      <main className='py-16 md:py-24'>
-        <Container className='max-w-4xl'>
-          <h1 className='mb-8'>{t('content.title')}</h1>
+      <main className='mx-auto max-w-5xl py-16 md:py-24'>
+        <Container>
+          <NextBreadcrumb
+            homeElement='Startseite'
+            separator={
+              <VscArrowRight className='mr-2 h-5 w-3 md:h-6 md:w-3 lg:h-6 lg:w-4' />
+            }
+            activeClasses='text-primary-500'
+            containerClasses='flex'
+            listClasses='hover:underline mr-2'
+            capitalizeLinks
+            className='mb-6'
+          />
+          <Title>{t('content.title')}</Title>
           <div className='privacy__content'>
             <p>
               <strong>{t('content.provider.title')}</strong>
