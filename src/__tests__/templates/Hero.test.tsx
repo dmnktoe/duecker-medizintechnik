@@ -12,7 +12,7 @@ describe('Intro', () => {
   it('should render the intro section', async () => {
     expect(
       await screen.findByText(
-        'Ihr Partner für Reparatur und Service chirurgischer Instrumente, Herstellung und Vertrieb von sterilen Schlauchsystemen, Vertrieb von Medizinprodukten und Dienstleistungen',
+        'Ihr Partner für Reparatur und Service chirurgischer Instrumente, Herstellung und Vertrieb von sterilen Schlauchsystemen und Medizinprodukten',
       ),
     ).toBeInTheDocument();
   });
