@@ -26,7 +26,7 @@ export const StickyScrollTitle = ({ children, id }: StickyScrollTitleProps) => {
     <h2
       ref={ref}
       className={clsx(
-        'feature-title py-20 text-4xl font-medium tracking-tight transition-colors md:text-5xl xl:py-32 xl:text-6xl xl:leading-[1.1] 2xl:text-7xl',
+        'feature-title py-20 text-4xl font-medium tracking-tight transition-colors md:text-5xl xl:py-32 xl:text-6xl xl:leading-[1.05]',
         isInView ? 'text-dark' : 'text-gray-300',
       )}
     >
