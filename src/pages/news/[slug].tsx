@@ -94,8 +94,8 @@ const PostPage = (props: PostPageProps) => {
               <Title margin={false} className='text-dark' isAnimated>
                 {post.attributes.title}
               </Title>
-              <p className='line-clamp-3 font-medium tracking-tight text-dark md:text-lg'>
-                {post.attributes.content}
+              <p className='font-medium tracking-tight text-dark md:text-lg'>
+                {post.attributes.excerpt}
               </p>
               <div className='mt-3 flex flex-row text-gray-500'>
                 <TwitterShareButton url={fullPostUrl}>

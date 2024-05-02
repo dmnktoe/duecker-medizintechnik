@@ -43,21 +43,21 @@ const PostsCarouselCard = ({ post }: CardProps) => {
               className='object-cover object-center'
             />
           </AspectRatio>
-          <div className='absolute left-0 top-0 h-full w-full transition duration-200 group-hover:bg-black group-hover:bg-opacity-10' />
+          <div className='absolute left-0 top-0 h-full w-full transition duration-200 group-hover:bg-white group-hover:bg-opacity-10' />
         </div>
         <div className='max-w-xs sm:max-w-md'>
           <div className='mb-3'>
-            <span className='border-1.5 mr-6 inline-block rounded-full border-black px-3 py-2 text-sm leading-none text-black transition duration-200 group-hover:bg-black group-hover:text-white'>
+            <span className='border-1.5 mr-6 inline-block rounded-full border-black bg-dark px-3 py-2 text-sm leading-none text-white transition duration-200 group-hover:bg-primary-500 group-hover:text-white'>
               {post.attributes.category}
             </span>
             <span className='text-coolGray-600 inline-block text-sm font-medium'>
               {formatDate(post.attributes.publishedAt)}
             </span>
           </div>
-          <h4 className='mb-6 text-3xl tracking-tight sm:text-4xl'>
+          <h4 className='mb-6 line-clamp-3 text-3xl tracking-tight sm:text-4xl'>
             {post.attributes.title}
           </h4>
-          <BlogExcerpt content={post.attributes.content} />
+          <BlogExcerpt content={post.attributes.excerpt} />
         </div>
       </UnstyledLink>
     </div>
