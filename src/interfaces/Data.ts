@@ -11,6 +11,7 @@ export interface Image {
 
 export interface Attribute {
   title: string;
+  excerpt: string;
   content: string;
   slug: string;
   category: string;
