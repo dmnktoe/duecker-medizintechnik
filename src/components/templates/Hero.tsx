@@ -24,11 +24,11 @@ export const Hero = () => {
   return (
     <section className='hero pb-16 pt-4 md:pb-24 md:pt-12 lg:pb-32'>
       <Container>
-        <div className='mx-auto mb-12 flex w-full max-w-7xl flex-col items-center gap-12 md:mb-36 md:gap-24 lg:flex-row'>
-          <div className='w-full lg:w-6/12'>
+        <div className='mx-auto mb-12 flex max-w-full flex-col items-center gap-12 md:mb-36 md:max-w-3xl md:gap-24 lg:max-w-5xl lg:flex-row xl:max-w-full'>
+          <div className='w-full lg:w-8/12 xl:w-6/12'>
             <HeroText />
           </div>
-          <div className='relative w-full lg:w-6/12'>
+          <div className='relative w-full lg:w-4/12 xl:w-6/12'>
             <HeroSlider />
           </div>
         </div>
@@ -36,7 +36,7 @@ export const Hero = () => {
           Mit unseren Vertriebspartnern in Europa und den USA sind wir in der
           Lage, unsere Produkte weltweit zu vertreiben:
         </div>
-        <div className='mx-auto lg:w-7/12'>
+        <div className='mx-auto md:w-10/12 lg:w-8/12'>
           <CustomerLogos />
         </div>
       </Container>
@@ -50,7 +50,7 @@ const HeroText = () => {
     <div>
       <div className='text-left'>
         <Title>{t('content.hero.title')}</Title>
-        <p className='mt-6 text-lg font-normal leading-8 tracking-tight text-neutral-600'>
+        <p className='mt-6 text-base font-normal leading-7 tracking-tight text-neutral-600 md:text-lg md:leading-8'>
           {t('content.hero.text')}
         </p>
         <div className='mt-10 flex items-center justify-start gap-x-3'>
@@ -169,7 +169,7 @@ const CustomerLogos = () => {
         >
           <Link href={logo.url} target='_blank'>
             <NextImage
-              className='opacity-20 transition-all ease-in-out hover:opacity-100'
+              className='w-20 opacity-20 transition-all ease-in-out hover:opacity-100 md:w-full'
               useSkeleton={true}
               src={logo.image}
               blurDataURL={logo.image}
