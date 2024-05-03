@@ -10,6 +10,7 @@ import {
   RiTwitterXFill,
   RiWhatsappLine,
 } from 'react-icons/ri';
+import { VscLink } from 'react-icons/vsc';
 import {
   EmailShareButton,
   FacebookShareButton,
@@ -62,6 +63,7 @@ interface PostPageProps extends InferGetStaticPropsType<typeof getStaticProps> {
 }
 
 const PostPage = (props: PostPageProps) => {
+  const [isCopied, setIsCopied] = React.useState(false);
   const { t } = useTranslation('news');
   const post = props.post;
   const fullPostUrl =
@@ -72,7 +74,11 @@ const PostPage = (props: PostPageProps) => {
       <section className='bg-gray-100'>
         <Container>
           <div className='mx-auto flex max-w-3xl'>
-            <ArrowLink direction='left' href='/news' className='mt-12 text-xs'>
+            <ArrowLink
+              direction='left'
+              href='/news'
+              className='mt-8 text-xs md:mt-12'
+            >
               {t('content.newsSlug.back')}
             </ArrowLink>
           </div>
@@ -80,7 +86,7 @@ const PostPage = (props: PostPageProps) => {
       </section>
       <section className='bg-gray-100 py-16 md:py-24'>
         <Container>
-          <div className='flex flex-col gap-y-16'>
+          <div className='flex flex-col gap-y-8 md:gap-y-16'>
             <div className='mx-auto flex max-w-3xl flex-col gap-y-4'>
               <div className='flex flex-row items-center gap-x-4'>
                 <span className='border-1.5 inline-block rounded-full border-black bg-primary-800/20 px-3 py-2 text-sm leading-none text-black transition duration-200'>
@@ -122,6 +128,23 @@ const PostPage = (props: PostPageProps) => {
                     className='mr-2 transition-colors duration-200 ease-in-out hover:text-dark'
                   />
                 </EmailShareButton>
+                <div className='flex flex-row items-center'>
+                  <button
+                    onClick={() => {
+                      navigator.clipboard.writeText(fullPostUrl);
+                      setIsCopied(true);
+                      setTimeout(() => {
+                        setIsCopied(false);
+                      }, 2000);
+                    }}
+                  >
+                    <VscLink
+                      size={20}
+                      className='mr-2 transition-colors duration-200 ease-in-out hover:text-dark'
+                    />
+                  </button>
+                  {isCopied && <span className='text-xs'>Kopiert!</span>}
+                </div>
               </div>
             </div>
             <div className='relative mx-auto w-full max-w-5xl'>
