@@ -80,7 +80,7 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
             <div className='hidden w-full lg:block lg:w-1/3 xl:w-1/2'></div>
           </div>
           <div className='w-full'>
-            <div className='-mx-4 mb-20 flex flex-wrap items-center'>
+            <div className='-mx-4 mb-4 flex flex-wrap items-center'>
               <div className='w-full px-4'>
                 <div className='flex items-center justify-end'>
                   <button
@@ -135,6 +135,12 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                       objectFit='cover'
                     />
                   </AspectRatio>
+                  <div className='mt-3 text-xs text-neutral-500 lg:w-1/2'>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Distinctio incidunt ipsam quam quidem quis saepe. Assumenda
+                    atque autem consectetur cum dolore ducimus earum est eveniet
+                    ex illum.
+                  </div>
                 </SwiperSlide>
                 <SwiperSlide>
                   <AspectRatio ratio={16 / 9}>
@@ -147,6 +153,12 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                       objectFit='cover'
                     />
                   </AspectRatio>
+                  <div className='mt-3 text-xs text-neutral-500 lg:w-1/2'>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Distinctio incidunt ipsam quam quidem quis saepe. Assumenda
+                    atque autem consectetur cum dolore ducimus earum est eveniet
+                    ex illum.
+                  </div>
                 </SwiperSlide>
                 <SwiperSlide>
                   <AspectRatio ratio={16 / 9}>
@@ -159,6 +171,12 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                       objectFit='cover'
                     />
                   </AspectRatio>
+                  <div className='mt-4 text-xs text-neutral-500 lg:w-1/2'>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Distinctio incidunt ipsam quam quidem quis saepe. Assumenda
+                    atque autem consectetur cum dolore ducimus earum est eveniet
+                    ex illum.
+                  </div>
                 </SwiperSlide>
                 <SwiperSlide>
                   <AspectRatio ratio={16 / 9}>
@@ -171,6 +189,12 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                       objectFit='cover'
                     />
                   </AspectRatio>
+                  <div className='mt-3 text-xs text-neutral-500 lg:w-1/2'>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Distinctio incidunt ipsam quam quidem quis saepe. Assumenda
+                    atque autem consectetur cum dolore ducimus earum est eveniet
+                    ex illum.
+                  </div>
                 </SwiperSlide>
                 <SwiperSlide>
                   <AspectRatio ratio={16 / 9}>
@@ -183,6 +207,12 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                       objectFit='cover'
                     />
                   </AspectRatio>
+                  <div className='mt-3 text-xs text-neutral-500 lg:w-1/2'>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Distinctio incidunt ipsam quam quidem quis saepe. Assumenda
+                    atque autem consectetur cum dolore ducimus earum est eveniet
+                    ex illum.
+                  </div>
                 </SwiperSlide>
                 <SwiperSlide>
                   <AspectRatio ratio={16 / 9}>
@@ -195,6 +225,12 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                       objectFit='cover'
                     />
                   </AspectRatio>
+                  <div className='mt-3 text-xs text-neutral-500 lg:w-1/2'>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Distinctio incidunt ipsam quam quidem quis saepe. Assumenda
+                    atque autem consectetur cum dolore ducimus earum est eveniet
+                    ex illum.
+                  </div>
                 </SwiperSlide>
               </div>
             </Swiper>

@@ -1,8 +1,6 @@
-// TODO: User outerClick
-// TODO: Language switcher in TopBar
+// TODO: User outerClick to close hamburger menu
 // TODO: current page in navigation indicator - with SUB PATH
-// TODO: TypeSscript error
-// TODO: Change locale as Dropdown an keep path
+// TODO: TypeScript error
 
 import clsx from 'clsx';
 import Image from 'next/image';
