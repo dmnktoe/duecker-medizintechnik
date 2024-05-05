@@ -96,7 +96,7 @@ export const Header = () => {
                     <div className='flex items-center'>
                       <ButtonLink
                         href='/kontakt'
-                        size='lg'
+                        size='base'
                         className='ml-4'
                         variant='outline'
                       >
@@ -105,7 +105,7 @@ export const Header = () => {
                     </div>
                   </div>
                   <button
-                    className='navbar-burger flex items-center justify-center rounded-full border-[1px] border-solid border-dark p-3 text-dark transition duration-200 hover:scale-95 hover:bg-black hover:text-white active:scale-75 active:bg-neutral-700 md:p-6'
+                    className='navbar-burger flex items-center justify-center rounded-full border-[1px] border-solid border-dark p-3 text-dark transition duration-200 hover:scale-95 hover:bg-black hover:text-white active:scale-75 active:bg-neutral-700'
                     onClick={() => setHamburgerMenuIsOpen((open) => !open)}
                     data-testid='navigationButton'
                   >
@@ -143,21 +143,23 @@ export const Header = () => {
                           <ResponsiveNavItem key={index} {...item} />
                         ))}
                     </div>
-                    <div className='text-md flex flex-col justify-between gap-y-2 p-6 font-medium tracking-tight'>
-                      <div className='mb-2 grid grid-cols-3 divide-x text-center'>
-                        <Link href='/'>{t('header.cookieLinkText')}</Link>
+                    <div className='flex flex-col justify-between gap-y-2 px-3 py-6 text-xs font-medium tracking-tight'>
+                      <div className='mb-2 grid grid-cols-3 items-center divide-x text-center'>
                         <Link href='/impressum'>
                           {t('header.imprintLinkText')}
                         </Link>
                         <Link href='/datenschutz'>
                           {t('header.privacyLinkText')}
                         </Link>
+                        <Link href='/cookie-richtlinie'>
+                          {t('header.cookieLinkText')}
+                        </Link>
                       </div>
                       <ButtonLink
                         href='/kontakt'
-                        size='lg'
-                        className='ml-4'
-                        variant='outline'
+                        size='base'
+                        variant='light'
+                        className='border-[1px] border-dashed border-neutral-300'
                       >
                         {t('header.ctaButtonText')}
                       </ButtonLink>
@@ -178,10 +180,11 @@ export const Header = () => {
                   <ButtonLink
                     href='/kontakt'
                     size='lg'
-                    variant='outline'
+                    variant='light'
                     isScaling
                     leftIcon={VscCallOutgoing}
                     leftIconClassName='h-6 w-6 mr-1'
+                    className='border-[1px] border-dashed border-neutral-300'
                   >
                     {t('header.ctaButtonText')}
                   </ButtonLink>
