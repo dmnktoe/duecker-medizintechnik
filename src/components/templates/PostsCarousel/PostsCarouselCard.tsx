@@ -4,7 +4,9 @@ import React from 'react';
 import { formatDate, getStrapiMedia } from '@/lib/helper';
 
 import { AspectRatio } from '@/components/ui/AspectRatio';
+import Badge from '@/components/ui/Badge';
 import UnstyledLink from '@/components/ui/links/UnstyledLink';
+import { Title } from '@/components/ui/typography/Title';
 
 import { Data } from '@/interfaces/Data';
 
@@ -45,18 +47,18 @@ const PostsCarouselCard = ({ post }: CardProps) => {
           </AspectRatio>
           <div className='absolute left-0 top-0 h-full w-full transition duration-200 group-hover:bg-white group-hover:bg-opacity-10' />
         </div>
-        <div className='max-w-xs sm:max-w-md'>
+        <div className='max-w-xs sm:max-w-sm'>
           <div className='mb-3'>
-            <span className='border-1.5 mr-6 inline-block rounded-full border-black bg-dark px-3 py-2 text-sm leading-none text-white transition duration-200 group-hover:bg-primary-500 group-hover:text-white'>
+            <Badge color='dark' size='sm' variant='solid' className='mr-3'>
               {post.attributes.category}
-            </span>
+            </Badge>
             <span className='text-coolGray-600 inline-block text-sm font-medium'>
               {formatDate(post.attributes.publishedAt)}
             </span>
           </div>
-          <h4 className='mb-6 line-clamp-3 text-3xl tracking-tight sm:text-4xl'>
+          <Title size='three' className='mb-6 line-clamp-3'>
             {post.attributes.title}
-          </h4>
+          </Title>
           <BlogExcerpt content={post.attributes.excerpt} />
         </div>
       </UnstyledLink>

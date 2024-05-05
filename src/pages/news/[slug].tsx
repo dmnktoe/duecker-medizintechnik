@@ -25,6 +25,7 @@ import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/layout/Seo';
 import { AspectRatio } from '@/components/ui/AspectRatio';
+import Badge from '@/components/ui/Badge';
 import ArrowLink from '@/components/ui/links/ArrowLink';
 import { Title } from '@/components/ui/typography/Title';
 
@@ -89,9 +90,9 @@ const PostPage = (props: PostPageProps) => {
           <div className='flex flex-col gap-y-8 md:gap-y-16'>
             <div className='mx-auto flex max-w-3xl flex-col gap-y-4'>
               <div className='flex flex-row items-center gap-x-4'>
-                <span className='border-1.5 inline-block rounded-full border-black bg-primary-800/20 px-3 py-2 text-sm leading-none text-black transition duration-200'>
+                <Badge color='dark' size='md' variant='outline'>
                   {post.attributes.category}
-                </span>
+                </Badge>
                 <span className='text-gray-300'>|</span>
                 <span className='text-gray-600'>
                   {formatDate(post.attributes.publishedAt)}
