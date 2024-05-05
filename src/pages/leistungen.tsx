@@ -31,7 +31,7 @@ const ServicesPage = (
                 <Title margin={false} className='mb-4'>
                   {t('content.title')}
                 </Title>
-                <p className='text-base text-dark'>{t('content.text')}</p>
+                <p className='text-base text-gray-500'>{t('content.text')}</p>
               </div>
             </div>
           </div>
@@ -72,10 +72,10 @@ const ServiceCard = ({
     <>
       <div className='w-full px-4 md:w-1/2 lg:w-1/3'>
         <div className='mb-8 bg-gray-100 p-10 md:px-7 xl:px-10'>
-          <div className='mb-8 flex h-[70px] w-[70px] items-center justify-center bg-dark p-3'>
+          <div className='mb-8 flex h-12 w-12 items-center justify-center bg-dark p-3 lg:h-16 lg:w-16'>
             {icon}
           </div>
-          <h4 className='mb-3 text-xl font-semibold text-dark'>{title}</h4>
+          <h4 className='mb-3 text-xl font-medium text-dark'>{title}</h4>
           <p className='text-body-color mb-6'>{details}</p>
           <ArrowLink href={`/leistungen/${title.toLowerCase()}`}>
             {t('content.cards.readMore')}
