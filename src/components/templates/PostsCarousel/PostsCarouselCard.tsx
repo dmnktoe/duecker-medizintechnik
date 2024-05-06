@@ -19,7 +19,7 @@ const PostsCarouselCard = ({ post }: CardProps) => {
     const excerpt = content.split(' ').slice(0, 50).join(' ');
     return (
       <p
-        className='line-clamp-3 max-w-sm'
+        className='line-clamp-3 max-w-sm text-sm leading-6'
         dangerouslySetInnerHTML={{ __html: excerpt }}
       />
     );
@@ -47,8 +47,8 @@ const PostsCarouselCard = ({ post }: CardProps) => {
           </AspectRatio>
           <div className='absolute left-0 top-0 h-full w-full transition duration-200 group-hover:bg-white group-hover:bg-opacity-10' />
         </div>
-        <div className='max-w-xs sm:max-w-sm'>
-          <div className='mb-3'>
+        <div className='flex max-w-full flex-col space-y-2 xl:max-w-sm xl:space-y-4'>
+          <div>
             <Badge color='dark' size='sm' variant='solid' className='mr-3'>
               {post.attributes.category}
             </Badge>
@@ -56,7 +56,7 @@ const PostsCarouselCard = ({ post }: CardProps) => {
               {formatDate(post.attributes.publishedAt)}
             </span>
           </div>
-          <Title size='three' className='mb-6 line-clamp-3'>
+          <Title size='three' className='line-clamp-3'>
             {post.attributes.title}
           </Title>
           <BlogExcerpt content={post.attributes.excerpt} />

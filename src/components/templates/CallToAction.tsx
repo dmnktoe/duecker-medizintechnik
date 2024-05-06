@@ -68,7 +68,7 @@ export const CallToAction = () => {
                       <li key={index} className='p-4'>
                         <div className='flex flex-wrap'>
                           <TickIcon />
-                          <span className='font-semibold tracking-tight text-white'>
+                          <span className='font-medium tracking-tight text-white'>
                             {bullet.title}
                           </span>
                         </div>

@@ -5,6 +5,7 @@ import { MouseEvent } from 'react';
 import clsxm from '@/lib/clsxm';
 
 import { Container } from '@/components/layout/Container';
+import { Title } from '@/components/ui/typography/Title';
 
 import bentoGridImg2 from '/public/images/home/bento-grid/bento-grid_keydot.jpg';
 import bentoGridImg5 from '/public/images/home/bento-grid/bento-grid_nouvag.png';
@@ -44,22 +45,25 @@ const TextBlockElement = ({
       <div className='-m-1.5 flex flex-wrap'>
         <div className='w-auto p-1.5'>
           <svg
-            width='29'
-            height='29'
+            className='h-[20px] w-[20px] md:h-[26px] md:w-[26px]'
+            width={26}
+            height={26}
+            viewBox='0 0 26 26'
             fill='none'
             xmlns='http://www.w3.org/2000/svg'
           >
             <path
-              fillRule='evenodd'
-              clipRule='evenodd'
-              d='M14.5 28.5C22.232 28.5 28.5 22.232 28.5 14.5C28.5 6.76801 22.232 0.5 14.5 0.5C6.76801 0.5 0.5 6.76801 0.5 14.5C0.5 22.232 6.76801 28.5 14.5 28.5ZM20.9874 12.2374C21.6709 11.554 21.6709 10.446 20.9874 9.76256C20.304 9.07915 19.196 9.07915 18.5126 9.76256L12.75 15.5251L10.4874 13.2626C9.80402 12.5791 8.69598 12.5791 8.01256 13.2626C7.32915 13.946 7.32915 15.054 8.01256 15.7374L11.5126 19.2374C12.196 19.9209 13.304 19.9209 13.9874 19.2374L20.9874 12.2374Z'
-              fill='var(--color-primary-500)'
-            ></path>
+              d='M9.25 13L11.75 15.5L16.75 10.5M24.25 13C24.25 19.2132 19.2132 24.25 13 24.25C6.7868 24.25 1.75 19.2132 1.75 13C1.75 6.7868 6.7868 1.75 13 1.75C19.2132 1.75 24.25 6.7868 24.25 13Z'
+              stroke='var(--color-primary-500)'
+              strokeWidth={2}
+              strokeLinecap='round'
+              strokeLinejoin='round'
+            />
           </svg>
         </div>
         <div className='flex-1 p-1.5'>
           <h3 className='mb-2 text-xl font-semibold tracking-tight'>{title}</h3>
-          <p className='tracking-tight'>{content}</p>
+          <p className='text-sm leading-6'>{content}</p>
         </div>
       </div>
     </div>
@@ -246,12 +250,12 @@ export const Features = () => {
       <section className='py-16 md:py-24 lg:py-32'>
         <Container>
           <div className='mb-16 md:mb-24'>
-            <h1 className='text-4xl font-bold tracking-tight lg:text-5xl'>
+            <Title className='md:-mb-2' margin={false}>
               {t('content.features.title')}
-            </h1>
-            <h1 className='text-4xl font-bold text-gray-500 lg:text-5xl'>
+            </Title>
+            <Title className='text-gray-500'>
               {t('content.features.titleTwo')}
-            </h1>
+            </Title>
           </div>
         </Container>
         <TextBlocks />

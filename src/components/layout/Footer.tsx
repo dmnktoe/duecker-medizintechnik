@@ -1,7 +1,7 @@
 import { useTranslation } from 'next-i18next';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
-import { VscArrowRight, VscGlobe } from 'react-icons/vsc';
+import { VscGlobe } from 'react-icons/vsc';
 
 import { fetchAPI } from '@/lib/fetch-api';
 
@@ -66,6 +66,12 @@ type FooterNavigation = {
   }[];
 };
 
+const FooterNavigationHeadline = ({ title }: { title: string }) => (
+  <p className='mb-2 text-xs font-medium text-gray-900 md:mb-4 md:text-base'>
+    {title}
+  </p>
+);
+
 export const Footer = () => {
   const { t, ready } = useTranslation('common', { useSuspense: false });
   return (
@@ -73,10 +79,10 @@ export const Footer = () => {
       <Container>
         <div className='grid grid-cols-1 gap-8 lg:grid-cols-3'>
           <div>
-            <div className='flex justify-center text-primary-500 sm:justify-start'>
+            <div className='flex justify-start text-primary-500'>
               <Logo className='w-32' />
             </div>
-            <p className='mt-6 max-w-md text-center text-sm leading-relaxed text-gray-700 sm:max-w-xs sm:text-left'>
+            <p className='mt-6 max-w-md text-left text-xs text-gray-700 sm:max-w-xs md:text-sm md:leading-6'>
               {t('footer.contactSection.text')}
               <br />
               <br />
@@ -97,18 +103,13 @@ export const Footer = () => {
               </UnstyledLink>
             </p>
           </div>
-          <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:col-span-2'>
+          <div className='grid grid-cols-2 gap-8 md:grid-cols-4 lg:col-span-2'>
             {ready &&
               t('footer.navigation', { returnObjects: true }).map(
                 (navigation: FooterNavigation) => (
-                  <div
-                    key={navigation.title}
-                    className='text-center sm:text-left'
-                  >
-                    <p className='text-lg font-medium text-gray-900'>
-                      {navigation.title}
-                    </p>
-                    <ul className='mt-8 space-y-4 text-sm'>
+                  <div key={navigation.title} className='text-left'>
+                    <FooterNavigationHeadline title={navigation.title} />
+                    <ul className='space-y-2 text-xs md:mt-8 md:space-y-3 md:text-sm'>
                       {navigation.items.map((item) => (
                         <li key={item.title} className='line-clamp-2'>
                           <UnstyledLink
@@ -123,32 +124,24 @@ export const Footer = () => {
                   </div>
                 ),
               )}
-            <div className='text-center sm:text-left'>
-              <div className='text-lg font-medium text-gray-900'>
-                <UnstyledLink
-                  className='flex flex-row items-center transition-all duration-300 hover:text-gray-700/75'
-                  href='/news'
-                >
-                  {t('footer.newsSection.title')}{' '}
-                  <VscArrowRight className='ml-2' size={18} strokeWidth={0.6} />
-                </UnstyledLink>
-              </div>
-              <ul className='mt-8 space-y-4 text-sm'>
+            <div className='text-left'>
+              <FooterNavigationHeadline title={t('footer.newsSection.title')} />
+              <ul className='space-y-2 text-xs md:mt-8 md:space-y-3 md:text-sm'>
                 <FooterPosts />
               </ul>
             </div>
           </div>
         </div>
         <div className='mt-12 border-t border-gray-100 pt-12'>
-          <div className='text-center sm:flex sm:justify-between sm:text-left'>
-            <div className='flex items-center text-sm text-gray-500'>
+          <div className='text-center text-gray-400 sm:flex sm:items-center sm:justify-between sm:text-left'>
+            <div className='flex items-center text-xs md:text-sm'>
               <span className='mr-3 inline-block'>
                 <VscGlobe size={18} />
               </span>
-              <LanguagePicker className='relative rounded-lg border-0 py-2 pl-2 pr-8 text-sm' />
+              <LanguagePicker className='relative rounded-lg border-0 py-2 pl-2 pr-8 text-xs md:text-sm' />
             </div>
-            <p className='mt-4 text-sm text-gray-500 sm:order-first sm:mt-0'>
-              <span className='text-sm text-gray-400'>
+            <p className='mt-4 text-xs sm:order-first sm:mt-0 md:text-sm'>
+              <span>
                 © {new Date().getFullYear()} {company.companyName} •{' '}
                 {company.street}, {company.city}
               </span>
