@@ -144,14 +144,20 @@ export const Header = () => {
                         ))}
                     </div>
                     <div className='flex flex-col justify-between gap-y-2 px-3 py-6 text-xs font-medium tracking-tight'>
-                      <div className='mb-2 grid grid-cols-3 items-center divide-x text-center'>
-                        <Link href='/impressum'>
+                      <div className='mb-2 grid grid-cols-2 grid-rows-2 items-center text-center text-xs underline'>
+                        <Link href='/impressum' className='p-1'>
                           {t('header.imprintLinkText')}
                         </Link>
-                        <Link href='/datenschutz'>
+                        <Link href='/datenschutz' className='p-1'>
                           {t('header.privacyLinkText')}
                         </Link>
-                        <Link href='/cookie-richtlinie'>
+                        <Link
+                          href='/allgemeine-geschaeftsbedingungen'
+                          className='p-1'
+                        >
+                          {t('header.termsAndConditionsLinkText')}
+                        </Link>
+                        <Link href='/cookie-richtlinie' className='p-1'>
                           {t('header.cookieLinkText')}
                         </Link>
                       </div>

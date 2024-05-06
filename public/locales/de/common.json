@@ -86,7 +86,7 @@
     "newsSection": {
       "link": "Alle Neuigkeiten",
       "noResults": "Keine Neuigkeiten vorhanden.",
-      "title": "Aus dem Blog"
+      "title": "Pressemitteilungen"
     }
   },
   "header": {
@@ -134,6 +134,7 @@
     ],
     "privacyLinkText": "Datenschutz",
     "servicesDropdownText": "Unser Leistungsspektrum",
+    "termsAndConditionsLinkText": "AGB",
     "toggleNavigationText": "Navigation umschalten"
   }
 }
