@@ -14,6 +14,9 @@ function Duecker({ Component, pageProps }: AppProps) {
         stopDelayMs={200}
         height={3}
         showOnShallow={true}
+        options={{
+          showSpinner: false,
+        }}
       />
 
       <Component {...pageProps} />
