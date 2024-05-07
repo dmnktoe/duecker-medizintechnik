@@ -14,7 +14,7 @@ import repair from '~/locales/de/repair.json';
 import services from '~/locales/de/services.json';
 import termsAndConditions from '~/locales/de/termsAndConditions.json';
 
-const resources = {
+const namespaces = {
   aboutUs,
   commerce,
   common,
@@ -32,4 +32,4 @@ const resources = {
   termsAndConditions,
 } as const;
 
-export default resources;
+export default namespaces;

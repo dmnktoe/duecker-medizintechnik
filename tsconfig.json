@@ -26,6 +26,8 @@
     ]
   },
   "include": [
+    "src/interfaces/globals.d.ts",
+    "src/interfaces/i18next.d.ts",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",

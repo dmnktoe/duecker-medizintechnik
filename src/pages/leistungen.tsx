@@ -22,7 +22,7 @@ const ServicesPage = (
         description={t('meta.seo.description')}
         title={t('meta.seo.title')}
       />
-      <main className='bg-white py-16 md:py-24 '>
+      <main className='bg-white py-16 md:py-24'>
         <Container>
           <div className='-mx-4 flex flex-wrap'>
             <div className='w-full px-4'>
