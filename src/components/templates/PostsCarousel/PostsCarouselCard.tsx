@@ -19,7 +19,7 @@ const PostsCarouselCard = ({ post }: CardProps) => {
     const excerpt = content.split(' ').slice(0, 50).join(' ');
     return (
       <p
-        className='line-clamp-3 max-w-sm text-sm leading-6'
+        className='line-clamp-3 max-w-sm text-sm md:text-base'
         dangerouslySetInnerHTML={{ __html: excerpt }}
       />
     );

@@ -49,7 +49,7 @@ const HeroText = () => {
     <div>
       <div className='text-left'>
         <Title>{t('content.hero.title')}</Title>
-        <p className='mt-6 text-base font-normal leading-7 tracking-tight text-neutral-600 md:text-lg md:leading-8'>
+        <p className='mt-6 text-base font-normal leading-7 tracking-tight text-neutral-600'>
           {t('content.hero.text')}
         </p>
         <div className='mt-10 flex items-center justify-start gap-x-3'>

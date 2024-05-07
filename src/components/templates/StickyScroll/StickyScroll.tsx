@@ -3,9 +3,11 @@
 
 import { stagger, useAnimate } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 import { Container } from '@/components/layout/Container';
+import { AnimatedBadge } from '@/components/ui/AnimatedBadge';
+import { Title } from '@/components/ui/typography/Title';
 
 import { useHidePageOverflow } from '@/utils/toggle-page-overflow';
 import { useEscapePress } from '@/utils/use-escape-press';
@@ -93,6 +95,30 @@ export const StickyScroll = () => {
 
   return (
     <section className='bg-primary-50 lg:min-h-[calc(100vh_-_var(--navigation-height))]'>
+      <Container>
+        <div className='pt-16 md:pt-32'>
+          <div className='-mx-4 flex flex-wrap'>
+            <div className='w-full px-4'>
+              <div className='mb-12 max-w-5xl text-left lg:mb-20'>
+                <AnimatedBadge text='Lorem ipsum dolor sit amet.' />
+                <Title margin={false} className='mb-4'>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Distinctio, quibusdam.
+                </Title>
+                <p className='text-sm text-gray-500 md:text-base'>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Asperiores assumenda atque culpa cumque, dignissimos ea
+                  eveniet facere incidunt ipsam nobis odit quibusdam veritatis?
+                  Ab distinctio laudantium molestias natus obcaecati
+                  perspiciatis quidem tempora velit! Architecto culpa debitis
+                  dolorum earum error eum ex excepturi impedit incidunt
+                  inventore ipsam ipsum itaque minus?
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Container>
       <Container>
         <div ref={scope}>
           <div className='w-full items-start lg:flex lg:gap-x-32'>
