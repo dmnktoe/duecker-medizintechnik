@@ -4,7 +4,7 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
-import { VscArrowRight, VscCheck } from 'react-icons/vsc';
+import { VscArrowRight } from 'react-icons/vsc';
 
 import '@dotlottie/react-player/dist/index.css';
 
@@ -15,10 +15,9 @@ import ImageBanner from '@/components/templates/ImageBanner/ImageBanner';
 import { AspectRatio } from '@/components/ui/AspectRatio';
 import Badge from '@/components/ui/Badge';
 import NextBreadcrumb from '@/components/ui/Breadcrumb';
-import UnderlineLink from '@/components/ui/links/UnderlineLink';
 import { Title } from '@/components/ui/typography/Title';
 
-import { customerLogos } from '@/constant/customerLogos';
+import { Partner, partners } from '@/constant/partners';
 
 import heroImg from '/public/images/commerce/duecker-medizintechnik_commerce_hero-bg.webp';
 
@@ -65,14 +64,13 @@ const CommercePage = (
                 <Title isAnimated>{t('content.title')}</Title>
                 <p className='text-base'>{t('content.text')}</p>
                 <h5 className='my-6 font-semibold'>{t('content.partners')}:</h5>
-                <ul className='mb-6 flex max-w-md flex-row flex-wrap gap-6'>
-                  {customerLogos.map((logo, index) => (
-                    <li key={index} className='mb-3 flex items-center'>
-                      <VscCheck className='mr-4 h-4 w-4 text-primary-500' />
-                      <UnderlineLink href={logo.url}>{logo.name}</UnderlineLink>
-                    </li>
+                <div className='mb-6 grid max-w-md grid-cols-4 items-center gap-6 align-middle text-dark'>
+                  {partners.map((partner: Partner) => (
+                    <div className='divide-y py-2' key={partner.name}>
+                      <partner.image className='w-auto' />
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
             </div>
             <div className='w-full lg:w-1/3 xl:w-1/2'>

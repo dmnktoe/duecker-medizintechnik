@@ -12,10 +12,9 @@ import 'swiper/css';
 import { Container } from '@/components/layout/Container';
 import ButtonLink from '@/components/ui/links/ButtonLink';
 import UnstyledLink from '@/components/ui/links/UnstyledLink';
-import NextImage from '@/components/ui/NextImage';
 import { Title } from '@/components/ui/typography/Title';
 
-import { customerLogos } from '@/constant/customerLogos';
+import { partners } from '@/constant/partners';
 
 import heroBg from '/public/images/home/duecker-medizintechnik_home_hero-bg.jpg';
 import heroBg2 from '/public/images/home/duecker-medizintechnik_home_hero-bg-2.jpg';
@@ -161,21 +160,16 @@ const HeroSlider = () => {
 
 const CustomerLogos = () => {
   return (
-    <div className='flex flex-wrap gap-8 text-gray-500'>
-      {customerLogos.map((logo) => (
+    <div className='flex flex-wrap gap-8 text-dark'>
+      {partners.map((partner) => (
         <div
-          key={logo.name}
+          key={partner.name}
           className='flex flex-grow items-center justify-center px-6'
         >
-          <Link href={logo.url} target='_blank'>
-            <NextImage
-              className='w-20 opacity-20 transition-all ease-in-out hover:opacity-100 md:w-full'
-              useSkeleton={true}
-              src={logo.image}
-              blurDataURL={logo.image}
-              width='120'
-              height='100'
-              alt={logo.name}
+          <Link href={partner.url} target='_blank'>
+            <partner.image
+              key={partner.name}
+              className='h-6 w-20 opacity-20 transition-all ease-in-out hover:opacity-100 md:h-10 md:w-32'
             />
           </Link>
         </div>

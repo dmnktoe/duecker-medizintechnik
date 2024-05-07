@@ -17,13 +17,13 @@ import ButtonLink from '@/components/ui/links/ButtonLink';
 import UnderlineLink from '@/components/ui/links/UnderlineLink';
 import { Title } from '@/components/ui/typography/Title';
 
-import { customerLogos } from '@/constant/customerLogos';
+import { partners } from '@/constant/partners';
 
 import aboutUsImg1 from '/public/images/about-us/duecker-medizintechnik_about-us_1.webp';
 import aboutUsImg2 from '/public/images/about-us/duecker-medizintechnik_about-us_2.webp';
 import heroImg from '/public/images/about-us/duecker-medizintechnik_about-us_hero.webp';
 
-const AboutUsPage = (
+const CompanyPage = (
   _props: InferGetStaticPropsType<typeof getStaticProps>,
 ) => {
   const { t } = useTranslation('aboutUs');
@@ -56,7 +56,7 @@ const AboutUsPage = (
               className='mb-6'
             />
           </div>
-          <div className='mx-auto mb-16 max-w-5xl'>
+          <div className='mx-auto mb-16 max-w-5xl text-sm'>
             <Title>{t('content.title')}</Title>
             <Title size='three'>{t('content.companyText.title')}</Title>
             <p className='mb-4'>{t('content.companyText.text1')}</p>
@@ -79,18 +79,16 @@ const AboutUsPage = (
             </p>
             <div className='pt-16'>
               <Marquee gradient={true} autoFill={true} speed={25}>
-                {customerLogos.map((logo) => (
-                  <div key={logo.name} className='px-6 opacity-40 lg:px-12'>
+                {partners.map((partner) => (
+                  <div key={partner.name} className='px-6 lg:px-12'>
                     <Link
-                      href={logo.url}
+                      href={partner.url}
                       target='_blank'
                       className='text-gray-300'
                     >
-                      <Image
-                        src={logo.image}
-                        width='120'
-                        height='100'
-                        alt='Icon'
+                      <partner.image
+                        key={partner.name}
+                        className='h-6 w-20 md:h-10 md:w-32'
                       />
                     </Link>
                   </div>
@@ -154,4 +152,4 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
   };
 };
 
-export default AboutUsPage;
+export default CompanyPage;
