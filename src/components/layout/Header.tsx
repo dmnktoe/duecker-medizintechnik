@@ -86,7 +86,7 @@ export const Header = () => {
           <Container>
             <div className='relative flex h-navigation-height items-center'>
               {/* Logo Section */}
-              <Link href='/' className='inline-block text-lg font-bold'>
+              <Link href='/' className='inline-block'>
                 <Logo className='w-40 text-dark md:w-48' />
               </Link>
               {/* CTA Button / Menu Button */}
@@ -135,7 +135,7 @@ export const Header = () => {
                   )}
                 >
                   <div className='flex flex-grow flex-col items-stretch bg-white text-black md:m-6 md:rounded-2xl md:shadow-xl'>
-                    <div className='flex flex-1 flex-grow flex-col gap-y-2 p-6 text-3xl font-bold tracking-tight'>
+                    <div className='flex flex-1 flex-grow flex-col gap-y-2 p-6 text-3xl font-medium tracking-tight'>
                       {ready &&
                         t('header.navigationItems', {
                           returnObjects: true,
@@ -296,7 +296,7 @@ const NavItem = ({ href, text, subItems }: NavItemProps) => {
                         <Link
                           href={item.href}
                           className={clsx(
-                            'text-md -mx-2 block rounded-lg p-2 font-semibold text-gray-800 transition duration-200 ease-in-out hover:bg-primary-50 hover:to-primary-50 hover:text-primary-500',
+                            'text-md -mx-2 block rounded-lg p-2 font-medium text-gray-800 transition duration-200 ease-in-out hover:bg-primary-50 hover:to-primary-50 hover:text-primary-500',
                             currentRoute === item.href && 'text-primary-500',
                           )}
                         >
