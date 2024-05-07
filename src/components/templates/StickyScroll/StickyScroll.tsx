@@ -99,7 +99,7 @@ export const StickyScroll = () => {
         <div className='pt-16 md:pt-32'>
           <div className='-mx-4 flex flex-wrap'>
             <div className='w-full px-4'>
-              <div className='mb-12 max-w-5xl text-left lg:mb-20'>
+              <div className='mx-auto mb-12 max-w-4xl text-center lg:mb-20'>
                 <AnimatedBadge text='Lorem ipsum dolor sit amet.' />
                 <Title margin={false} className='mb-4'>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
