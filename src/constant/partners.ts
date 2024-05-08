@@ -8,7 +8,7 @@ import {
   NouvagIcon,
   SterisIcon,
   TontarraIcon,
-} from '@/components/ui/icons/partners';
+} from '@/components/ui/Icons';
 
 export type Partner = {
   name: string;

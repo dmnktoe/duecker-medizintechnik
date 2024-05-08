@@ -6,9 +6,9 @@ import { VscArrowRight } from 'react-icons/vsc';
 
 import { fetchAPI } from '@/lib/fetch-api';
 
+import Seo from '@/components/helpers/Seo';
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
-import Seo from '@/components/layout/Seo';
 import { NewsList } from '@/components/templates/NewsList';
 import NextBreadcrumb from '@/components/ui/Breadcrumb';
 import { Title } from '@/components/ui/typography/Title';

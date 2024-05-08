@@ -63,7 +63,7 @@ const TextBlockElement = ({
         </div>
         <div className='flex-1 p-1.5'>
           <h3 className='mb-2 text-xl font-semibold tracking-tight'>{title}</h3>
-          <p className='text-sm md:text-base'>{content}</p>
+          <p>{content}</p>
         </div>
       </div>
     </div>

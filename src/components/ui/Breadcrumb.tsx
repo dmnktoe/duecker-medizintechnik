@@ -3,6 +3,7 @@
 import clsx from 'clsx';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useTranslation } from 'next-i18next';
 import React, { ReactNode } from 'react';
 
 type TBreadCrumbProps = {
@@ -16,6 +17,7 @@ type TBreadCrumbProps = {
 };
 
 const NextBreadcrumb = ({
+  // eslint-disable-next-line unused-imports/no-unused-vars
   homeElement,
   separator,
   containerClasses,
@@ -24,6 +26,7 @@ const NextBreadcrumb = ({
   capitalizeLinks,
   className,
 }: TBreadCrumbProps) => {
+  const { t } = useTranslation('common');
   const paths = usePathname();
   const pathNames = paths.split('/').filter((path) => path);
 
@@ -31,7 +34,7 @@ const NextBreadcrumb = ({
     <div className={clsx('flex', className)}>
       <ul className={containerClasses}>
         <li className={listClasses}>
-          <Link href='/'>{homeElement}</Link>
+          <Link href='/'>{t('breadcrumb.home')}</Link>
         </li>
         {pathNames.length > 0 && separator}
         {pathNames.map((link, index) => {

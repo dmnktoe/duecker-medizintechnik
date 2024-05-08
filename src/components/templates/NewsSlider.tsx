@@ -6,7 +6,7 @@ import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 import { Container } from '@/components/layout/Container';
-import PostsCarouselCard from '@/components/templates/PostsCarousel/PostsCarouselCard';
+import NewsCard from '@/components/templates/NewsCard';
 import UnstyledLink from '@/components/ui/links/UnstyledLink';
 
 import { Data } from '@/interfaces/Data';
@@ -15,7 +15,7 @@ type PostsCarouselProps = {
   posts: Data[];
 };
 
-export const PostsCarousel = ({ posts }: PostsCarouselProps) => {
+export const NewsSlider = ({ posts }: PostsCarouselProps) => {
   const swiperElRef = useRef<SwiperRef>(null);
   const { t } = useTranslation('home');
 
@@ -78,14 +78,14 @@ export const PostsCarousel = ({ posts }: PostsCarouselProps) => {
             <div className='mb-20 flex'>
               {posts.map((post: Data, index) => (
                 <SwiperSlide key={index}>
-                  <PostsCarouselCard post={post} />
+                  <NewsCard post={post} />
                 </SwiperSlide>
               ))}
             </div>
           </Swiper>
           <div className='mt-16 text-center'>
             <UnstyledLink
-              className='group inline-flex items-center border-b-2 border-black pb-2 font-medium leading-none'
+              className='group inline-flex items-center border-b-2 border-black pb-2 font-medium'
               href='/news'
             >
               <span className='mr-4'>

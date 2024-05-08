@@ -4,7 +4,7 @@ import React from 'react';
 import { formatDate, getStrapiMedia } from '@/lib/helper';
 
 import { AspectRatio } from '@/components/ui/AspectRatio';
-import Badge from '@/components/ui/Badge';
+import Badge from '@/components/ui/Badges/Badge';
 import UnstyledLink from '@/components/ui/links/UnstyledLink';
 import { Title } from '@/components/ui/typography/Title';
 
@@ -12,19 +12,34 @@ import { Data } from '@/interfaces/Data';
 
 interface CardProps {
   post: Data;
+  orientation?: 'horizontal' | 'vertical';
 }
 
-const PostsCarouselCard = ({ post }: CardProps) => {
-  const BlogExcerpt = ({ content }: { content: string }) => {
-    const excerpt = content.split(' ').slice(0, 50).join(' ');
-    return (
-      <p
-        className='line-clamp-3 max-w-sm text-sm md:text-base'
-        dangerouslySetInnerHTML={{ __html: excerpt }}
-      />
-    );
-  };
+const CardExcerpt = ({ content }: { content: string }) => {
+  const excerpt = content.split(' ').slice(0, 50).join(' ');
+  return (
+    <p
+      className='line-clamp-3 max-w-sm text-sm md:text-base'
+      dangerouslySetInnerHTML={{ __html: excerpt }}
+    />
+  );
+};
 
+// eslint-disable-next-line unused-imports/no-unused-vars
+const CardHeader = ({ post }: { post: Data }) => {
+  return (
+    <div>
+      <Badge color='dark' size='sm' variant='solid' className='mr-3'>
+        {post.attributes.category}
+      </Badge>
+      <span className='inline-block text-sm font-medium text-dark'>
+        {formatDate(post.attributes.publishedAt)}
+      </span>
+    </div>
+  );
+};
+
+const NewsCard = ({ post }: CardProps) => {
   return (
     <div className='w-full md:mr-10 md:max-w-lg md:flex-shrink-0'>
       <UnstyledLink
@@ -52,18 +67,18 @@ const PostsCarouselCard = ({ post }: CardProps) => {
             <Badge color='dark' size='sm' variant='solid' className='mr-3'>
               {post.attributes.category}
             </Badge>
-            <span className='text-coolGray-600 inline-block text-sm font-medium'>
+            <span className='inline-block text-sm font-medium text-dark'>
               {formatDate(post.attributes.publishedAt)}
             </span>
           </div>
           <Title size='three' className='line-clamp-3'>
             {post.attributes.title}
           </Title>
-          <BlogExcerpt content={post.attributes.excerpt} />
+          <CardExcerpt content={post.attributes.excerpt} />
         </div>
       </UnstyledLink>
     </div>
   );
 };
 
-export default PostsCarouselCard;
+export default NewsCard;

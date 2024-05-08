@@ -21,11 +21,11 @@ import {
 import { fetchAPI } from '@/lib/fetch-api';
 import { formatDate, getStrapiMedia } from '@/lib/helper';
 
+import Seo from '@/components/helpers/Seo';
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
-import Seo from '@/components/layout/Seo';
 import { AspectRatio } from '@/components/ui/AspectRatio';
-import Badge from '@/components/ui/Badge';
+import Badge from '@/components/ui/Badges/Badge';
 import ArrowLink from '@/components/ui/links/ArrowLink';
 import { Title } from '@/components/ui/typography/Title';
 

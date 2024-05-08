@@ -6,10 +6,11 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-import Button from '@/components/ui/buttons/Button';
+import Button from '@/components/ui/Buttons/Button';
 import UnderlineLink from '@/components/ui/links/UnderlineLink';
+import { Title } from '@/components/ui/typography/Title';
 
-import { isLocal } from '@/constant/env';
+import { isLocal, isProd } from '@/constant/env';
 
 export default function ContactForm() {
   type FormData = z.infer<typeof formSchema>;
@@ -72,18 +73,15 @@ export default function ContactForm() {
     try {
       const response = await axios(config);
       if (response.status === 200) {
-        // Handle success. You can change the message to whatever you want.
         setResult(
           i18n?.t('contact:content.contactForm.submit.success') ||
             'Thank you for your message. We will get back to you as soon as possible.',
         );
         setResultColor('text-green-500');
-        // Reset the form after successful submission
         reset();
       }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
-      // Handle errors. You can change the message to whatever you want.
       setResult(err.response.data.message + ': ' + err.response.statusText);
       setResultColor('text-red-500');
     }
@@ -91,9 +89,18 @@ export default function ContactForm() {
 
   return (
     <>
-      <div className='cookieconsent-optout-marketing'>
-        {t('content.contactForm.recaptchaCookieNotice')}
-      </div>
+      <Title size='three'>{t('content.contactForm.title')}</Title>
+      <p className='mb-8 font-light text-gray-500 lg:mb-12'>
+        {t('content.contactForm.text')}
+      </p>
+      {isProd && (
+        <div
+          className='cookieconsent-optout-marketing'
+          data-cookieconsent='marketing'
+        >
+          {t('content.contactForm.recaptchaCookieNotice')}
+        </div>
+      )}
       <div className='cookieconsent-optin-marketing'>
         <form
           className='w-full space-y-4'

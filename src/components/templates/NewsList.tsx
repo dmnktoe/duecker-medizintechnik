@@ -5,6 +5,7 @@ import React from 'react';
 import { formatDate, getStrapiMedia } from '@/lib/helper';
 
 import { AspectRatio } from '@/components/ui/AspectRatio';
+import Badge from '@/components/ui/Badges/Badge';
 import ArrowLink from '@/components/ui/links/ArrowLink';
 import UnstyledLink from '@/components/ui/links/UnstyledLink';
 import { Title } from '@/components/ui/typography/Title';
@@ -46,12 +47,16 @@ export const NewsList = (props: NewsListProps) => {
                   </UnstyledLink>
                 </div>
                 <div className='flex flex-col gap-4 md:w-8/12'>
-                  <div className='flex flex-row items-center gap-x-4'>
-                    <span className='border-1.5 inline-block rounded-full border-black bg-primary-800/20 px-3 py-2 text-sm leading-none text-black transition duration-200'>
+                  <div className='flex flex-row items-center'>
+                    <Badge
+                      color='dark'
+                      size='sm'
+                      variant='solid'
+                      className='mr-3'
+                    >
                       {post.attributes.category}
-                    </span>
-                    <span className='text-gray-300'>|</span>
-                    <span className='text-gray-600'>
+                    </Badge>
+                    <span className='inline-block text-sm font-medium text-dark'>
                       {formatDate(post.attributes.publishedAt)}
                     </span>
                   </div>
