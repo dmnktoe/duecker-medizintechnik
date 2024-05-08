@@ -5,9 +5,9 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 import { VscArrowRight, VscCheck } from 'react-icons/vsc';
 
+import Seo from '@/components/helpers/Seo';
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
-import Seo from '@/components/layout/Seo';
 import ImageBanner from '@/components/templates/ImageBanner/ImageBanner';
 import { AspectRatio } from '@/components/ui/AspectRatio';
 import NextBreadcrumb from '@/components/ui/Breadcrumb';
@@ -51,7 +51,7 @@ const ProductionPage = (
             <div className='mb-6 w-full lg:mb-0 lg:w-2/3 xl:w-1/2'>
               <div className='text-dark'>
                 <Title isAnimated>{t('content.title1')}</Title>
-                <p className='text-base'>{t('content.text1')}</p>
+                <p>{t('content.text1')}</p>
                 <h5 className='my-6 font-semibold'>
                   {t('content.list.title')}
                 </h5>

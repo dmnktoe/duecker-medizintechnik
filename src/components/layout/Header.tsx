@@ -9,28 +9,17 @@ import { usePathname } from 'next/navigation';
 import { useTranslation } from 'next-i18next';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
-import {
-  VscCallOutgoing,
-  VscChevronDown,
-  VscDeviceMobile,
-  VscGlobe,
-  VscLocation,
-  VscMail,
-  VscMenu,
-} from 'react-icons/vsc';
+import { VscCallOutgoing, VscChevronDown, VscMenu } from 'react-icons/vsc';
 
 import { Container } from '@/components/layout/Container';
-import LanguagePicker from '@/components/templates/LanguagePicker';
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from '@/components/ui/Collapsible';
-import { Logo } from '@/components/ui/icons/logo';
-import { SubdirectoryIcon } from '@/components/ui/icons/subdirectory';
+import { Logo } from '@/components/ui/Icons/logo';
+import { SubdirectoryIcon } from '@/components/ui/Icons/subdirectory';
 import ButtonLink from '@/components/ui/links/ButtonLink';
-
-import { company } from '@/constant/company';
 
 import megaMenuBg from '/public/images/header/mega-menu_bg.webp';
 
@@ -80,7 +69,6 @@ export const Header = () => {
 
   return (
     <>
-      <TopBar />
       <header className='sticky top-0 z-50 h-navigation-height bg-white'>
         <div>
           <Container>
@@ -201,43 +189,6 @@ export const Header = () => {
         </div>
       </header>
     </>
-  );
-};
-
-const TopBar = () => {
-  return (
-    <div className='relative hidden bg-dark py-2 xl:block xl:w-auto'>
-      <Container>
-        <div className='flex items-center justify-between text-xs font-medium tracking-normal text-white'>
-          <div className='flex items-center gap-x-2'>
-            <VscGlobe className='h-4 w-4 text-primary-500' />
-            <LanguagePicker className='relative h-6 cursor-pointer rounded-lg border-0 bg-transparent p-0 text-xs outline-none hover:underline focus:border-0 focus:outline-none focus:ring-0' />
-            <VscChevronDown className='relative inline-block text-xs' />
-          </div>
-          <div className='flex gap-x-4'>
-            <div className='flex items-center gap-x-2'>
-              <VscLocation className='h-4 w-4 text-primary-500' />
-              {company.street}, {company.city}
-            </div>
-            <div className='flex items-center gap-x-2'>
-              <VscDeviceMobile className='h-4 w-4 text-primary-500' />
-              {company.phone}
-            </div>
-            <div className='flex items-center gap-x-2'>
-              <VscMail className='h-4 w-4 text-primary-500' />
-              <p>
-                <Link
-                  href={`mailto:${company.email}`}
-                  className='hover:underline'
-                >
-                  {company.email}
-                </Link>
-              </p>
-            </div>
-          </div>
-        </div>
-      </Container>
-    </div>
   );
 };
 

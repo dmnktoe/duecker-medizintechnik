@@ -46,10 +46,12 @@
           "label": "Kontakt & Anfrage"
         }
       },
+      "badge": "Ihr Ansprechpartner für Handelsvermittlung von pharmazeutischen Erzeugnissen, medizinischen und orthopädischen Artikeln und Laborbedarf.",
+      "partners": "Mit unseren Vertriebspartnern in Europa und den USA sind wir in der Lage, unsere Produkte weltweit zu vertreiben:",
       "text": "Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für Reparatur und Werterhaltung von chirurgischen Instrumentarium. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
       "title": "Ihr Partner für Reparatur und Service chirurgischer Instrumente, Herstellung und Vertrieb von sterilen Schlauchsystemen und Medizinprodukten"
     },
-    "postsCarousel": {
+    "newsSlider": {
       "next": "",
       "prev": "",
       "readMore": "Alle Einträge ansehen",
@@ -70,14 +72,17 @@
         "href": "reparatur",
         "text": "Reparatur und Werterhalt von chirurgischen Instrumenten & Containersystemen.",
         "title": "Reparatur"
-      }
+      },
+      "title": "...",
+      "badge": "badge:::",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores assumenda atque culpa cumque, dignissimos ea eveniet facere incidunt ipsam nobis odit quibusdam veritatis? Ab distinctio laudantium molestias natus obcaecati perspiciatis quidem tempora velit! Architecto culpa debitis dolorum earum error eum ex excepturi impedit incidunt inventore ipsam ipsum itaque minus?"
     }
   },
-  "meta": {
+  "_meta": {
     "pageTitle": "Startseite",
     "seo": {
       "description": "Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
-      "title": "Vertrieb, Produktion, Reperatur für OP-Lösungen und Sterilisierungen"
+      "title": "Vertrieb, Produktion, Reparatur für OP-Lösungen und Sterilisierungen"
     }
   }
 }

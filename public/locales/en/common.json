@@ -1,4 +1,7 @@
 {
+  "breadcrumb": {
+    "home": "Home"
+  },
   "cta": {
     "bullets": [
       {
@@ -30,7 +33,7 @@
         "items": [
           {
             "href": "/unternehmen",
-            "title": "About Us"
+            "title": "Company"
           },
           {
             "href": "/downloads",
@@ -95,7 +98,7 @@
   "header": {
     "change-locale": "Change Language (de-DE)",
     "cookieLinkText": "Cookie Settings",
-    "ctaButtonText": "Get a Quote / Contact Us",
+    "ctaButtonText": "Get a Quote",
     "imprintLinkText": "Imprint",
     "navigationItems": [
       {
@@ -104,7 +107,7 @@
       },
       {
         "href": "/unternehmen",
-        "text": "About Us"
+        "text": "Company"
       },
       {
         "subItems": [

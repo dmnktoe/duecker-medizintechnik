@@ -5,11 +5,11 @@ import * as React from 'react';
 
 import { fetchAPI } from '@/lib/fetch-api';
 
+import Seo from '@/components/helpers/Seo';
 import Layout from '@/components/layout/Layout';
-import Seo from '@/components/layout/Seo';
 import { Features } from '@/components/templates/Features';
 import { Hero } from '@/components/templates/Hero';
-import { PostsCarousel } from '@/components/templates/PostsCarousel/PostsCarousel';
+import { NewsSlider } from '@/components/templates/NewsSlider';
 import { StickyScroll } from '@/components/templates/StickyScroll/StickyScroll';
 
 const HomePage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
@@ -18,15 +18,15 @@ const HomePage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <Layout>
       <Seo
-        templateTitle={t('meta.pageTitle')}
-        description={t('meta.seo.description')}
-        title={t('meta.seo.title')}
+        templateTitle={t('_meta.pageTitle')}
+        description={t('_meta.seo.description')}
+        title={t('_meta.seo.title')}
       />
       <main>
         <Hero />
         <StickyScroll />
         <Features />
-        <PostsCarousel posts={posts} />
+        <NewsSlider posts={posts} />
       </main>
     </Layout>
   );

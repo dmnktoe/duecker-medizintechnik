@@ -10,12 +10,13 @@ import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
 
+import Seo from '@/components/helpers/Seo';
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
-import Seo from '@/components/layout/Seo';
 import ImageBanner from '@/components/templates/ImageBanner/ImageBanner';
 import { AspectRatio } from '@/components/ui/AspectRatio';
 import NextBreadcrumb from '@/components/ui/Breadcrumb';
+import { Body } from '@/components/ui/typography';
 import { Title } from '@/components/ui/typography/Title';
 
 import heroImg from '/public/images/repair/duecker-medizintechnik_repair_hero-bg.webp';
@@ -71,10 +72,8 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
             <div className='mb-12 w-full lg:mb-0 '>
               <div className='text-dark'>
                 <Title isAnimated>{t('content.title')}</Title>
-                <p className='text-base'>{t('content.text')}</p>
-                <h5 className='my-6 font-semibold'>
-                  {t('content.textAccent')}
-                </h5>
+                <Body>{t('content.text1')}</Body>
+                <Body>{t('content.text2')}</Body>
               </div>
             </div>
             <div className='hidden w-full lg:block lg:w-1/3 xl:w-1/2'></div>

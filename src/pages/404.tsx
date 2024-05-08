@@ -4,8 +4,8 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 import { RiAlarmWarningFill } from 'react-icons/ri';
 
+import Seo from '@/components/helpers/Seo';
 import Layout from '@/components/layout/Layout';
-import Seo from '@/components/layout/Seo';
 import ArrowLink from '@/components/ui/links/ArrowLink';
 
 const NotFoundPage = (

@@ -7,7 +7,7 @@ import { fetchAPI } from '@/lib/fetch-api';
 
 import { Container } from '@/components/layout/Container';
 import LanguagePicker from '@/components/templates/LanguagePicker';
-import { Logo } from '@/components/ui/icons/logo';
+import { Logo } from '@/components/ui/Icons/logo';
 import UnstyledLink from '@/components/ui/links/UnstyledLink';
 
 import { company } from '@/constant/company';
@@ -30,7 +30,7 @@ const FooterPosts = () => {
 
   if (isLoading)
     return (
-      <div className='h-24 w-60 rounded-md'>
+      <div className='h-24 w-full rounded-md'>
         <div className='flex h-full animate-pulse flex-row space-x-5'>
           <div className='flex flex-col space-y-2'>
             <div className='h-3 w-36 rounded-md bg-gray-300'></div>
@@ -82,7 +82,7 @@ export const Footer = () => {
             <div className='flex justify-start text-primary-500'>
               <Logo className='w-32' />
             </div>
-            <p className='mt-6 max-w-md text-left text-xs text-gray-700 sm:max-w-xs md:text-sm md:leading-6'>
+            <p className='mt-6 max-w-md text-left text-xs text-gray-700 sm:max-w-xs md:text-sm'>
               {t('footer.contactSection.text')}
               <br />
               <br />

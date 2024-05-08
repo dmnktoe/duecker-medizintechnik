@@ -8,12 +8,12 @@ import { VscArrowRight } from 'react-icons/vsc';
 
 import '@dotlottie/react-player/dist/index.css';
 
+import Seo from '@/components/helpers/Seo';
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
-import Seo from '@/components/layout/Seo';
 import ImageBanner from '@/components/templates/ImageBanner/ImageBanner';
 import { AspectRatio } from '@/components/ui/AspectRatio';
-import Badge from '@/components/ui/Badge';
+import Badge from '@/components/ui/Badges/Badge';
 import NextBreadcrumb from '@/components/ui/Breadcrumb';
 import { Title } from '@/components/ui/typography/Title';
 

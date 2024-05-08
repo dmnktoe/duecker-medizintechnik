@@ -4,16 +4,16 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React from 'react';
 import { VscArrowRight, VscCloudDownload } from 'react-icons/vsc';
 
+import Seo from '@/components/helpers/Seo';
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
-import Seo from '@/components/layout/Seo';
 import ImageBanner from '@/components/templates/ImageBanner/ImageBanner';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '@/components/ui/accordion';
+} from '@/components/ui/Accordion';
 import NextBreadcrumb from '@/components/ui/Breadcrumb';
 import PrimaryLink from '@/components/ui/links/PrimaryLink';
 import { Title } from '@/components/ui/typography/Title';

@@ -3,9 +3,9 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 
+import Seo from '@/components/helpers/Seo';
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
-import Seo from '@/components/layout/Seo';
 import UnderlineLink from '@/components/ui/links/UnderlineLink';
 
 import { company } from '@/constant/company';

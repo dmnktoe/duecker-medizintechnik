@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import * as React from 'react';
 import { useRef } from 'react';
+import { VscArrowRight } from 'react-icons/vsc';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -31,12 +32,12 @@ export const Hero = () => {
             <HeroSlider />
           </div>
         </div>
-        <div className='mx-auto mb-8 text-center text-xs text-neutral-400 lg:w-1/3'>
+        <div className='mx-auto mb-8 text-center font-secondary text-xs text-neutral-400 lg:w-1/3'>
           Mit unseren Vertriebspartnern in Europa und den USA sind wir in der
           Lage, unsere Produkte weltweit zu vertreiben:
         </div>
         <div className='mx-auto md:w-10/12 lg:w-8/12'>
-          <CustomerLogos />
+          <Partners />
         </div>
       </Container>
     </section>
@@ -49,14 +50,12 @@ const HeroText = () => {
     <div>
       <div className='text-left'>
         <Title>{t('content.hero.title')}</Title>
-        <p className='mt-6 text-base font-normal leading-7 tracking-tight text-neutral-600'>
-          {t('content.hero.text')}
-        </p>
+        <p className='mt-6'>{t('content.hero.text')}</p>
         <div className='mt-10 flex items-center justify-start gap-x-3'>
           <ButtonLink variant='primary' size='sm' href='/leistungen'>
             {t('content.hero.buttons.primary.label')}
             <span aria-hidden='true' className='ml-2'>
-              →
+              <VscArrowRight />
             </span>
           </ButtonLink>
           <ButtonLink size='sm' variant='ghost' href='/kontakt'>
@@ -144,9 +143,9 @@ const HeroSlider = () => {
           </div>
         </Swiper>
       </div>
-      <div className='absolute -bottom-3 -right-3 z-40 w-5/6 bg-primary-500/95 p-6 text-sm tracking-tight text-white md:-bottom-4 md:-right-4 md:text-base'>
+      <div className='absolute -bottom-3 -right-3 z-40 w-5/6 bg-primary-500/95 p-6 font-secondary text-sm tracking-tight text-white md:-bottom-4 md:-right-4 md:text-base'>
         Ihr{' '}
-        <UnstyledLink className='underline' href='/unternehmen'>
+        <UnstyledLink className='font-secondary underline' href='/unternehmen'>
           {' '}
           Ansprechpartner
         </UnstyledLink>{' '}
@@ -158,7 +157,7 @@ const HeroSlider = () => {
   );
 };
 
-const CustomerLogos = () => {
+const Partners = () => {
   return (
     <div className='flex flex-wrap gap-8 text-dark'>
       {partners.map((partner) => (

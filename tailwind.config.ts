@@ -6,7 +6,11 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        primary: ['Manrope', ...defaultTheme.fontFamily.sans],
+        primary: ['var(--font-figtree)', ...defaultTheme.fontFamily.sans],
+        secondary: [
+          'var(--font-sortsMillGoudy)',
+          ...defaultTheme.fontFamily.serif,
+        ],
       },
       colors: {
         primary: {
@@ -22,15 +26,10 @@ export default {
           900: 'rgb(var(--tw-color-primary-900) / <alpha-value>)',
           950: 'rgb(var(--tw-color-primary-950) / <alpha-value>)',
         },
-        dark: '#071626',
-        transparent: 'transparent',
         white: '#fff',
-        'off-white': '#f7f8f8',
-        'transparent-white': 'rgba(255, 255, 255, 0.08)',
-        background: '#000212',
-        grey: '#858699',
-        'grey-dark': '#222326',
-        'primary-text': '#b4bcd0',
+        dark: '#071626',
+        'light-gray': '#666',
+        transparent: 'transparent',
       },
       spacing: {
         'navigation-height': 'var(--navigation-height)',

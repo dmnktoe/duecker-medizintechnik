@@ -6,15 +6,15 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 import Marquee from 'react-fast-marquee';
 import { VscArrowRight } from 'react-icons/vsc';
-import StaggerText from 'react-stagger-text';
 
+import Seo from '@/components/helpers/Seo';
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
-import Seo from '@/components/layout/Seo';
 import ImageBanner from '@/components/templates/ImageBanner/ImageBanner';
 import NextBreadcrumb from '@/components/ui/Breadcrumb';
 import ButtonLink from '@/components/ui/links/ButtonLink';
 import UnderlineLink from '@/components/ui/links/UnderlineLink';
+import { Body } from '@/components/ui/typography';
 import { Title } from '@/components/ui/typography/Title';
 
 import { partners } from '@/constant/partners';
@@ -98,10 +98,8 @@ const CompanyPage = (
           </div>
           <div className='mx-auto max-w-5xl items-center gap-16 py-8 lg:grid lg:grid-cols-2 lg:pb-16 lg:pt-32'>
             <div>
-              <h2 className='mb-4 text-4xl font-bold tracking-tight text-gray-900'>
-                <StaggerText>{t('content.innovationText.title')}</StaggerText>
-              </h2>
-              <p className='mb-4'>{t('content.innovationText.text')}</p>
+              <Title size='two'>{t('content.innovationText.title')}</Title>
+              <Body className='mb-4'>{t('content.innovationText.text')}</Body>
               <ButtonLink
                 href='/kontakt'
                 className='mt-4'
@@ -110,7 +108,7 @@ const CompanyPage = (
               >
                 {t('content.innovationText.button')}
                 <span aria-hidden='true' className='ml-2'>
-                  →
+                  <VscArrowRight className='relative -top-0.5 inline-block h-4 w-4' />
                 </span>
               </ButtonLink>
             </div>

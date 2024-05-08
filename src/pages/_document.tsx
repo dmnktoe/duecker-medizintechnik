@@ -1,7 +1,7 @@
 import { Head, Html, Main, NextScript } from 'next/document';
 
-import GoogleAnalytics from '@/components/layout/GoogleAnalytics';
-import Hotjar from '@/components/layout/Hotjar';
+import GoogleAnalytics from '@/components/helpers/GoogleAnalytics';
+import Hotjar from '@/components/helpers/Hotjar';
 
 import {
   cookieBotId,
@@ -26,13 +26,6 @@ export default function Document() {
         )}
         <GoogleAnalytics GA_MEASUREMENT_ID={googleAnalyticsId} />
         <Hotjar HOTJAR_ID={hotjarId} />
-        <link
-          rel='preload'
-          href='/fonts/manrope-var-wght.woff2'
-          as='font'
-          type='font/woff2'
-          crossOrigin='anonymous'
-        />
       </Head>
       <body className={isLocal ? 'debug-screens' : ''}>
         <Main />

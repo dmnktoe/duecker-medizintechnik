@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import React from 'react';
 import StaggerText from 'react-stagger-text';
 
-type Size = 'one' | 'two' | 'three';
+type Size = 'one' | 'two' | 'three' | 'four' | 'five';
 
 interface TitleProps {
   renderAs?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
@@ -26,14 +26,16 @@ export const Title = ({
   return (
     <Component
       className={clsx(
-        'font-semibold tracking-tighter text-dark',
+        'font-medium tracking-tighter text-dark',
         {
           'text-4xl md:text-5xl md:leading-[1.2]': size === 'one',
           'text-3xl md:text-4xl': size === 'two',
           'text-2xl md:text-3xl': size === 'three',
+          'text-xl md:text-2xl': size === 'four',
+          'text-lg md:text-xl': size === 'five',
         },
         {
-          'mb-6': margin,
+          'mb-4': margin,
         },
         className,
       )}

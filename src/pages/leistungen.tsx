@@ -4,10 +4,10 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React from 'react';
 import { PiChartLineUpThin, PiPackageThin, PiWrenchThin } from 'react-icons/pi';
 
+import Seo from '@/components/helpers/Seo';
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
-import Seo from '@/components/layout/Seo';
-import { AnimatedBadge } from '@/components/ui/AnimatedBadge';
+import { AnimatedBadge } from '@/components/ui/Badges/AnimatedBadge';
 import ArrowLink from '@/components/ui/links/ArrowLink';
 import { Title } from '@/components/ui/typography/Title';
 
@@ -31,7 +31,7 @@ const ServicesPage = (
                 <Title margin={false} className='mb-4'>
                   {t('content.title')}
                 </Title>
-                <p className='text-base text-gray-500'>{t('content.text')}</p>
+                <p className='text-light-gray'>{t('content.text')}</p>
               </div>
             </div>
           </div>

@@ -6,7 +6,7 @@ import { useTranslation } from 'next-i18next';
 import React, { useEffect } from 'react';
 
 import { Container } from '@/components/layout/Container';
-import { AnimatedBadge } from '@/components/ui/AnimatedBadge';
+import { AnimatedBadge } from '@/components/ui/Badges/AnimatedBadge';
 import { Title } from '@/components/ui/typography/Title';
 
 import { useHidePageOverflow } from '@/utils/toggle-page-overflow';
@@ -100,19 +100,12 @@ export const StickyScroll = () => {
           <div className='-mx-4 flex flex-wrap'>
             <div className='w-full px-4'>
               <div className='mx-auto mb-12 max-w-4xl text-center lg:mb-20'>
-                <AnimatedBadge text='Lorem ipsum dolor sit amet.' />
+                <AnimatedBadge text={t('content.stickyScroll.badge')} />
                 <Title margin={false} className='mb-4'>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Distinctio, quibusdam.
+                  {t('content.stickyScroll.title')}
                 </Title>
-                <p className='text-sm text-gray-500 md:text-base'>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Asperiores assumenda atque culpa cumque, dignissimos ea
-                  eveniet facere incidunt ipsam nobis odit quibusdam veritatis?
-                  Ab distinctio laudantium molestias natus obcaecati
-                  perspiciatis quidem tempora velit! Architecto culpa debitis
-                  dolorum earum error eum ex excepturi impedit incidunt
-                  inventore ipsam ipsum itaque minus?
+                <p className='text-light-gray'>
+                  {t('content.stickyScroll.text')}
                 </p>
               </div>
             </div>
