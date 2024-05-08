@@ -11,11 +11,11 @@ import UnstyledLink from '@/components/ui/links/UnstyledLink';
 
 import { Data } from '@/interfaces/Data';
 
-type PostsCarouselProps = {
+type NewsSliderProps = {
   posts: Data[];
 };
 
-export const NewsSlider = ({ posts }: PostsCarouselProps) => {
+export const NewsSlider = ({ posts }: NewsSliderProps) => {
   const swiperElRef = useRef<SwiperRef>(null);
   const { t } = useTranslation('home');
 
@@ -29,73 +29,95 @@ export const NewsSlider = ({ posts }: PostsCarouselProps) => {
     swiperElRef.current.swiper.slideNext();
   }, []);
 
+  const NewsSliderTitle = () => {
+    return (
+      <div className='mb-8 w-full px-4 md:mb-0 md:w-1/2'>
+        <h1 className='font-heading text-4xl tracking-tighter lg:text-6xl'>
+          {t('content.newsSlider.title')}
+        </h1>
+      </div>
+    );
+  };
+
+  const NewsSliderControls = () => {
+    return (
+      <div className='flex items-center justify-end'>
+        <button
+          className='sm:h-18 sm:w-18 mr-2 inline-flex h-16 w-16 items-center justify-center rounded-full border border-black text-black transition duration-200 hover:bg-black hover:text-white'
+          onClick={handlePrev}
+          aria-label={t('content.newsSlider.prev')}
+        >
+          <VscArrowLeft size={28} />
+        </button>
+        <button
+          className='sm:h-18 sm:w-18 inline-flex h-16 w-16 items-center justify-center rounded-full border border-black text-black transition duration-200 hover:bg-black hover:text-white'
+          onClick={handleNext}
+          aria-label={t('content.newsSlider.next')}
+        >
+          <VscArrowRight size={28} />
+        </button>
+      </div>
+    );
+  };
+
+  const NewsSliderReadMore = () => {
+    return (
+      <div className='mt-16 text-center'>
+        <UnstyledLink
+          className='group inline-flex items-center border-b-2 border-black pb-2 font-medium'
+          href='/news'
+        >
+          <span className='mr-4'>{t('content.newsSlider.readMore')}</span>
+          <span className='-rotate-45 transform transition duration-100 group-hover:rotate-0'>
+            <VscArrowRight size={15} />
+          </span>
+        </UnstyledLink>
+      </div>
+    );
+  };
+
+  const NewsSliderCarousel = () => {
+    return (
+      <Swiper
+        modules={[Navigation]}
+        navigation
+        spaceBetween={15}
+        ref={swiperElRef}
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
+          },
+          640: {
+            slidesPerView: 2,
+          },
+          768: {
+            slidesPerView: 3,
+          },
+        }}
+      >
+        <div className='mb-20 flex'>
+          {posts.map((post: Data, index) => (
+            <SwiperSlide key={index}>
+              <NewsCard post={post} orientation='vertical' />
+            </SwiperSlide>
+          ))}
+        </div>
+      </Swiper>
+    );
+  };
+
   return (
     <>
       <section className='overflow-hidden bg-gray-50 py-12 md:py-24'>
         <Container>
           <div className='-mx-4 mb-20 flex flex-wrap items-center'>
-            <div className='mb-8 w-full px-4 md:mb-0 md:w-1/2'>
-              <h1 className='font-heading text-4xl tracking-tighter lg:text-6xl'>
-                {t('content.postsCarousel.title')}
-              </h1>
-            </div>
+            <NewsSliderTitle />
             <div className='w-full px-4 md:w-1/2'>
-              <div className='flex items-center justify-end'>
-                <button
-                  className='sm:h-18 sm:w-18 mr-2 inline-flex h-16 w-16 items-center justify-center rounded-full border border-black text-black transition duration-200 hover:bg-black hover:text-white'
-                  onClick={handlePrev}
-                  aria-label={t('content.postsCarousel.prev')}
-                >
-                  <VscArrowLeft size={28} />
-                </button>
-                <button
-                  className='sm:h-18 sm:w-18 inline-flex h-16 w-16 items-center justify-center rounded-full border border-black text-black transition duration-200 hover:bg-black hover:text-white'
-                  onClick={handleNext}
-                  aria-label={t('content.postsCarousel.next')}
-                >
-                  <VscArrowRight size={28} />
-                </button>
-              </div>
+              <NewsSliderControls />
             </div>
           </div>
-          <Swiper
-            modules={[Navigation]}
-            navigation
-            spaceBetween={15}
-            ref={swiperElRef}
-            breakpoints={{
-              0: {
-                slidesPerView: 1,
-              },
-              640: {
-                slidesPerView: 2,
-              },
-              768: {
-                slidesPerView: 3,
-              },
-            }}
-          >
-            <div className='mb-20 flex'>
-              {posts.map((post: Data, index) => (
-                <SwiperSlide key={index}>
-                  <NewsCard post={post} />
-                </SwiperSlide>
-              ))}
-            </div>
-          </Swiper>
-          <div className='mt-16 text-center'>
-            <UnstyledLink
-              className='group inline-flex items-center border-b-2 border-black pb-2 font-medium'
-              href='/news'
-            >
-              <span className='mr-4'>
-                {t('content.postsCarousel.readMore')}
-              </span>
-              <span className='-rotate-45 transform transition duration-100 group-hover:rotate-0'>
-                <VscArrowRight size={15} />
-              </span>
-            </UnstyledLink>
-          </div>
+          <NewsSliderCarousel />
+          <NewsSliderReadMore />
         </Container>
       </section>
     </>
