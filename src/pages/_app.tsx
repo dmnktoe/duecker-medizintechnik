@@ -6,10 +6,10 @@ import React from 'react';
 
 import '@/styles/globals.css';
 
-const manrope = Figtree({
+const figtree = Figtree({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-manrope',
+  variable: '--font-figtree',
 });
 
 const sortsMillGoudy = Sorts_Mill_Goudy({
@@ -22,7 +22,7 @@ const sortsMillGoudy = Sorts_Mill_Goudy({
 function Duecker({ Component, pageProps }: AppProps) {
   return (
     <>
-      <div className={`${manrope.variable} ${sortsMillGoudy.variable}`}>
+      <div className={`${figtree.variable} ${sortsMillGoudy.variable}`}>
         <NextNProgress
           color='var(--color-primary-500)'
           startPosition={0.3}

@@ -6,7 +6,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        primary: ['var(--font-manrope)', ...defaultTheme.fontFamily.sans],
+        primary: ['var(--font-figtree)', ...defaultTheme.fontFamily.sans],
         secondary: [
           'var(--font-sortsMillGoudy)',
           ...defaultTheme.fontFamily.serif,
