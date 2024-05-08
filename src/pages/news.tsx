@@ -11,7 +11,7 @@ import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
 import { NewsList } from '@/components/templates/NewsList';
 import NextBreadcrumb from '@/components/ui/Breadcrumb';
-import { Title } from '@/components/ui/typography/Title';
+import { Body, Title } from '@/components/ui/typography';
 
 const NewsPage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { t } = useTranslation('news');
@@ -42,7 +42,7 @@ const NewsPage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
           <div className='mx-auto mb-16 max-w-5xl'>
             <div className='flex flex-col'>
               <Title margin={false}>{t('content.title')}</Title>
-              <p>{t('content.text')}</p>
+              <Body>{t('content.text')}</Body>
             </div>
             <NewsList posts={posts} />
           </div>

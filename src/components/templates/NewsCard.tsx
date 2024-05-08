@@ -7,8 +7,7 @@ import { formatDate, getStrapiMedia } from '@/lib/helper';
 import { AspectRatio } from '@/components/ui/AspectRatio';
 import Badge from '@/components/ui/Badges/Badge';
 import UnstyledLink from '@/components/ui/links/UnstyledLink';
-import { Body } from '@/components/ui/typography';
-import { Title } from '@/components/ui/typography/Title';
+import { Body, Title } from '@/components/ui/typography';
 
 import { Data } from '@/interfaces/Data';
 
@@ -26,7 +25,7 @@ const CardImage = ({ post, orientation }: CardProps) => {
         orientation === 'horizontal' && 'mb-6 w-full md:mb-0 md:w-4/12',
       )}
     >
-      <AspectRatio ratio={orientation === 'vertical' ? 16 / 11 : 9 / 11}>
+      <AspectRatio ratio={orientation === 'vertical' ? 16 / 9 : 8 / 10}>
         <Image
           src={getStrapiMedia(post.attributes.image.data?.attributes.url ?? '')}
           blurDataURL={getStrapiMedia(
@@ -53,10 +52,15 @@ const CardHeader = ({ post }: { post: Data }) => {
           {formatDate(post.attributes.publishedAt)}
         </span>
       </div>
-      <Title size='three' className='line-clamp-3'>
-        {post.attributes.title}
-      </Title>
     </>
+  );
+};
+
+const CardTitle = ({ post }: { post: Data }) => {
+  return (
+    <Title size='three' className='line-clamp-3'>
+      {post.attributes.title}
+    </Title>
   );
 };
 
@@ -87,11 +91,12 @@ const NewsCard = ({ post, orientation }: CardProps) => {
           <CardImage post={post} orientation={orientation} />
           <div
             className={clsxm(
-              'flex flex-col space-y-2 xl:space-y-4',
+              'flex flex-col space-y-3 xl:space-y-4',
               orientation === 'vertical' ? 'xl:max-w-sm' : 'w-full md:w-8/12',
             )}
           >
             <CardHeader post={post} />
+            <CardTitle post={post} />
             <CardExcerpt post={post} />
           </div>
         </div>

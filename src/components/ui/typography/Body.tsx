@@ -3,7 +3,7 @@ import React from 'react';
 import clsxm from '@/lib/clsxm';
 
 type BodyProps = {
-  size?: 'xs' | 'sm' | 'base';
+  size?: 'xs' | 'sm' | 'base' | 'lg';
   color?: 'default' | 'light';
   className?: string;
   children: React.ReactNode;
@@ -21,6 +21,7 @@ export const Body = ({
     xs: 'text-xs',
     sm: 'text-sm',
     base: 'text-sm md:text-base',
+    lg: 'text-base md:text-lg',
   };
 
   const colorClasses = {

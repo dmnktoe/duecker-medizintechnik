@@ -5,9 +5,12 @@ import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
+import clsxm from '@/lib/clsxm';
+
 import { Container } from '@/components/layout/Container';
 import NewsCard from '@/components/templates/NewsCard';
 import UnstyledLink from '@/components/ui/links/UnstyledLink';
+import { Title } from '@/components/ui/typography';
 
 import { Data } from '@/interfaces/Data';
 
@@ -31,26 +34,32 @@ export const NewsSlider = ({ posts }: NewsSliderProps) => {
 
   const NewsSliderTitle = () => {
     return (
-      <div className='mb-8 w-full px-4 md:mb-0 md:w-1/2'>
-        <h1 className='font-heading text-4xl tracking-tighter lg:text-6xl'>
-          {t('content.newsSlider.title')}
-        </h1>
-      </div>
+      <Title margin={false} className='lg:text-6xl'>
+        {t('content.newsSlider.title')}
+      </Title>
     );
   };
 
   const NewsSliderControls = () => {
     return (
-      <div className='flex items-center justify-end'>
+      <div className='flex items-center justify-end gap-2'>
         <button
-          className='sm:h-18 sm:w-18 mr-2 inline-flex h-16 w-16 items-center justify-center rounded-full border border-black text-black transition duration-200 hover:bg-black hover:text-white'
+          className={clsxm(
+            'inline-flex items-center justify-center rounded-full ',
+            'border border-dark text-dark transition duration-200 hover:bg-dark hover:text-white',
+            'h-12 w-12 md:h-16 md:w-16',
+          )}
           onClick={handlePrev}
           aria-label={t('content.newsSlider.prev')}
         >
           <VscArrowLeft size={28} />
         </button>
         <button
-          className='sm:h-18 sm:w-18 inline-flex h-16 w-16 items-center justify-center rounded-full border border-black text-black transition duration-200 hover:bg-black hover:text-white'
+          className={clsxm(
+            'inline-flex items-center justify-center rounded-full ',
+            'border border-dark text-dark transition duration-200 hover:bg-dark hover:text-white',
+            'h-12 w-12 md:h-16 md:w-16',
+          )}
           onClick={handleNext}
           aria-label={t('content.newsSlider.next')}
         >
@@ -91,6 +100,9 @@ export const NewsSlider = ({ posts }: NewsSliderProps) => {
             slidesPerView: 2,
           },
           768: {
+            slidesPerView: 2,
+          },
+          1024: {
             slidesPerView: 3,
           },
         }}
@@ -110,9 +122,11 @@ export const NewsSlider = ({ posts }: NewsSliderProps) => {
     <>
       <section className='overflow-hidden bg-gray-50 py-12 md:py-24'>
         <Container>
-          <div className='-mx-4 mb-20 flex flex-wrap items-center'>
-            <NewsSliderTitle />
-            <div className='w-full px-4 md:w-1/2'>
+          <div className='mb-8 flex flex-col items-center justify-between gap-3 md:mb-20 md:flex-row'>
+            <div className='w-full md:w-1/2'>
+              <NewsSliderTitle />
+            </div>
+            <div className='w-full md:w-1/2'>
               <NewsSliderControls />
             </div>
           </div>
