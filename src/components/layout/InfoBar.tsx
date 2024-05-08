@@ -34,14 +34,12 @@ export const InfoBar = () => {
             </div>
             <div className='flex items-center gap-x-2'>
               <VscMail className='h-4 w-4 text-primary-500' />
-              <p>
-                <Link
-                  href={`mailto:${company.email}`}
-                  className='hover:underline'
-                >
-                  {company.email}
-                </Link>
-              </p>
+              <Link
+                href={`mailto:${company.email}`}
+                className='hover:underline'
+              >
+                {company.email}
+              </Link>
             </div>
           </div>
         </div>
