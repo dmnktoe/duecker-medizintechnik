@@ -3,7 +3,6 @@ import { useTranslation } from 'next-i18next';
 import { Key } from 'react';
 
 import clsxm from '@/lib/clsxm';
-import { event } from '@/lib/gtagHelper';
 
 import { Container } from '@/components/layout/Container';
 import Globe from '@/components/templates/Globe';
@@ -11,25 +10,12 @@ import Button from '@/components/ui/Buttons/Button';
 import { CheckIcon } from '@/components/ui/Icons';
 import { Title } from '@/components/ui/typography/Title';
 
-import { isProd } from '@/constant/env';
-
 export const CallToAction = () => {
   const { t, ready } = useTranslation('common', { useSuspense: false });
   const router = useRouter();
 
   function handleCtaButtonClick() {
-    if (!isProd) {
-      router.push('/kontakt');
-    } else {
-      event({
-        category: 'cta',
-        action: 'click',
-        label: 'cta button',
-        value: 1,
-      });
-      router.push('/kontakt');
-      return;
-    }
+    router.push('/kontakt');
   }
 
   const CallToActionTitle = () => {
