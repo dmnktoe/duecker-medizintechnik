@@ -42,7 +42,7 @@ export const CallToAction = () => {
           {t('cta.titleSub')}
         </Title>
         <Button
-          className='mb-32 flex flex-shrink p-4 lg:p-6'
+          className='pointer-events-auto mb-32 flex flex-shrink p-4 lg:p-6'
           variant='light'
           isDarkBg
           onClick={() => handleCtaButtonClick()}
@@ -88,7 +88,7 @@ export const CallToAction = () => {
         )}
       >
         <Container>
-          <div className='relative z-30 2xl:max-w-3xl'>
+          <div className='pointer-events-none relative z-30 2xl:max-w-3xl'>
             <CallToActionTitle />
             <CallToActionBullets />
           </div>
