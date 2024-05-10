@@ -5,6 +5,7 @@ import { MouseEvent } from 'react';
 import clsxm from '@/lib/clsxm';
 
 import { Container } from '@/components/layout';
+import { Title } from '@/components/ui/Typography';
 
 import bentoGridImg2 from '/public/images/home/bento-grid/bento-grid_keydot.jpg';
 import bentoGridImg5 from '/public/images/home/bento-grid/bento-grid_nouvag.png';
@@ -27,8 +28,16 @@ export const Bento = () => {
   const { t } = useTranslation('home');
 
   return (
-    <section className='pb-16 md:pb-24 lg:pb-32'>
+    <section className='border-t border-neutral-100 pb-16 md:py-24 lg:py-32'>
       <Container>
+        <div className='mb-8'>
+          <Title renderAs='h2' className='md:-mb-2' margin={false}>
+            Quality, Innovation, and Precision
+          </Title>
+          <Title renderAs='h2' className='text-gray-500'>
+            Precision Instruments for Dentistry
+          </Title>
+        </div>
         <div
           className='group grid auto-rows-[200px] grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-12'
           onMouseMove={onMouseMove}
@@ -41,7 +50,7 @@ export const Bento = () => {
               'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
-            <div className='absolute inset-px z-20 flex flex-grow flex-col justify-start rounded-3xl bg-gray-100 p-4 text-dark'>
+            <div className='absolute inset-px z-20 flex flex-grow flex-col justify-start rounded-3xl bg-neutral-50 p-4 text-dark'>
               <Image
                 src={bentoGridImg2}
                 placeholder='blur'
@@ -61,7 +70,7 @@ export const Bento = () => {
               'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
-            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-gray-100 p-4 text-dark'>
+            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-neutral-50 p-4 text-dark'>
               <h5 className='text-black/60'>
                 {t('content.features.bentoGrid.boxIso.textTop')}
               </h5>
@@ -81,7 +90,7 @@ export const Bento = () => {
               'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
-            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4 text-dark'>
+            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-neutral-50 p-4 text-dark'>
               Box
             </div>
           </div>
@@ -93,7 +102,7 @@ export const Bento = () => {
               'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
-            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4 text-dark'>
+            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-neutral-50 p-4 text-dark'>
               <Image
                 src={bentoGridImg5}
                 placeholder='blur'
@@ -113,7 +122,7 @@ export const Bento = () => {
               'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
-            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4 text-dark'>
+            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-neutral-50 p-4 text-dark'>
               <Image
                 src={bentoGridImg1}
                 placeholder='blur'
@@ -133,7 +142,7 @@ export const Bento = () => {
               'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
-            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-gray-100 p-4 text-dark'>
+            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-neutral-50 p-4 text-dark'>
               Box
             </div>
           </div>
@@ -145,7 +154,7 @@ export const Bento = () => {
               'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
-            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4 text-dark'>
+            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-neutral-50 p-4 text-dark'>
               Box
             </div>
           </div>
@@ -157,8 +166,8 @@ export const Bento = () => {
               'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
-            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4 text-dark'>
-              <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-gray-100 p-4 text-dark'>
+            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-neutral-50 p-4 text-dark'>
+              <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-neutral-50 p-4 text-dark'>
                 Box
               </div>
             </div>
@@ -171,8 +180,8 @@ export const Bento = () => {
               'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
-            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-100 p-4 text-dark'>
-              <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-gray-100 p-4 text-dark'>
+            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-neutral-50 p-4 text-dark'>
+              <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-neutral-50 p-4 text-dark'>
                 Box
               </div>
             </div>
