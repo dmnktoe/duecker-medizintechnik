@@ -82,13 +82,13 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
               <div className='w-full px-4'>
                 <div className='flex items-center justify-end'>
                   <button
-                    className='mr-2 inline-flex h-12 w-12 items-center justify-center rounded-full border border-black text-black transition duration-200 hover:bg-black hover:text-white'
+                    className='mr-2 inline-flex h-12 w-12 items-center justify-center rounded-full border border-black text-dark transition duration-200 hover:bg-black hover:text-white'
                     onClick={handlePrev}
                   >
                     <VscArrowLeft size={16} />
                   </button>
                   <button
-                    className='inline-flex h-12 w-12 items-center justify-center rounded-full border border-black text-black transition duration-200 hover:bg-black hover:text-white'
+                    className='inline-flex h-12 w-12 items-center justify-center rounded-full border border-black text-dark transition duration-200 hover:bg-black hover:text-white'
                     onClick={handleNext}
                   >
                     <VscArrowRight size={16} />

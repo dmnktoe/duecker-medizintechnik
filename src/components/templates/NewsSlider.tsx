@@ -46,7 +46,7 @@ export const NewsSlider = ({ posts }: NewsSliderProps) => {
         <button
           className={clsxm(
             'inline-flex items-center justify-center rounded-full ',
-            'border border-dark text-dark transition duration-200 hover:bg-dark hover:text-white',
+            'border border-dark text-dark hover:bg-dark hover:text-white',
             'h-12 w-12 md:h-16 md:w-16',
           )}
           onClick={handlePrev}
@@ -57,7 +57,7 @@ export const NewsSlider = ({ posts }: NewsSliderProps) => {
         <button
           className={clsxm(
             'inline-flex items-center justify-center rounded-full ',
-            'border border-dark text-dark transition duration-200 hover:bg-dark hover:text-white',
+            'border border-dark text-dark hover:bg-dark hover:text-white',
             'h-12 w-12 md:h-16 md:w-16',
           )}
           onClick={handleNext}

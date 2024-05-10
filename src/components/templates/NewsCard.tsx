@@ -36,7 +36,7 @@ const CardImage = ({ post, orientation }: CardProps) => {
           className='object-cover object-center'
         />
       </AspectRatio>
-      <div className='absolute left-0 top-0 h-full w-full transition duration-200 group-hover:bg-white group-hover:bg-opacity-10' />
+      <div className='absolute left-0 top-0 h-full w-full group-hover:bg-white group-hover:bg-opacity-10' />
     </div>
   );
 };
@@ -58,7 +58,7 @@ const CardHeader = ({ post }: { post: Data }) => {
 
 const CardTitle = ({ post }: { post: Data }) => {
   return (
-    <Title size='three' className='line-clamp-3'>
+    <Title size='three' className='line-clamp-3 group-hover:underline'>
       {post.attributes.title}
     </Title>
   );

@@ -122,7 +122,7 @@ export const Header = () => {
                       : 'translate-x-2 opacity-0',
                   )}
                 >
-                  <div className='flex flex-grow flex-col items-stretch bg-white text-black md:m-6 md:rounded-2xl md:shadow-xl'>
+                  <div className='flex flex-grow flex-col items-stretch bg-white text-dark md:m-6 md:rounded-2xl md:shadow-xl'>
                     <div className='flex flex-1 flex-grow flex-col gap-y-2 p-6 text-3xl font-medium tracking-tight'>
                       {ready &&
                         t('header.navigationItems', {
@@ -200,7 +200,7 @@ const NavItem = ({ href, text, subItems }: NavItemProps) => {
       {subItems ? (
         <button
           className={clsx(
-            'inline-block transition duration-200 ease-in-out group-hover:text-black',
+            'inline-block transition ease-in-out group-hover:text-dark',
             currentRoute === href && 'underline',
           )}
           aria-haspopup='true'
@@ -212,16 +212,16 @@ const NavItem = ({ href, text, subItems }: NavItemProps) => {
         <Link
           href={href as string}
           className={clsx(
-            'transition duration-150 ease-in-out hover:text-black active:text-neutral-100',
-            currentRoute === href && 'text-dark',
+            'hover:text-dark hover:underline active:text-neutral-400',
+            currentRoute === href && 'text-dark underline',
           )}
         >
           {text}
         </Link>
       )}
       {subItems && (
-        <div className='invisible absolute top-3 z-50 min-w-[560px] translate-y-0 transform opacity-0 transition duration-500 ease-in-out group-hover:visible group-hover:translate-y-5 group-hover:transform group-hover:opacity-100 lg:-left-48'>
-          <div className='relative top-6 w-full cursor-default rounded-xl bg-white p-6 shadow-2xl'>
+        <div className='invisible absolute top-3 z-50 min-w-[560px] translate-y-0 transform opacity-0 transition duration-300 ease-in-out group-hover:visible group-hover:translate-y-5 group-hover:transform group-hover:opacity-100 lg:-left-48'>
+          <div className='relative top-6 w-full cursor-default bg-white p-6 drop-shadow-2xl'>
             <div className='absolute top-0 z-0 h-10 w-10 translate-x-0 rotate-45 transform rounded-sm bg-white transition-transform duration-500 ease-in-out group-hover:translate-x-[12rem]'></div>
             <div className='relative z-10'>
               <div className='grid grid-cols-2 gap-6'>
@@ -247,7 +247,7 @@ const NavItem = ({ href, text, subItems }: NavItemProps) => {
                         <Link
                           href={item.href}
                           className={clsx(
-                            'text-md -mx-2 block rounded-lg p-2 font-medium text-gray-800 transition duration-200 ease-in-out hover:bg-primary-50 hover:to-primary-50 hover:text-primary-500',
+                            'text-md -mx-2 block rounded-lg p-2 font-medium text-gray-800 hover:bg-primary-50 hover:to-primary-50',
                             currentRoute === item.href && 'text-primary-500',
                           )}
                         >
@@ -293,7 +293,7 @@ const ResponsiveNavItem = ({ href, text, subItems }: NavItemProps) => {
         <Link
           href={href as string}
           className={clsx(
-            'transition duration-150 ease-in-out hover:text-black active:text-neutral-100',
+            'transition duration-150 ease-in-out hover:text-dark active:text-neutral-100',
             currentRoute === href && 'underline',
           )}
         >
