@@ -175,7 +175,7 @@ export const StickyScroll = () => {
                     quality={65}
                   />
                 </AspectRatio>
-                <div className='absolute bottom-0 left-0 w-full p-2 backdrop-blur-2xl'>
+                <div className='absolute bottom-0 left-0 w-full p-2 backdrop-blur-sm'>
                   <Title
                     renderAs='h3'
                     size='five'
