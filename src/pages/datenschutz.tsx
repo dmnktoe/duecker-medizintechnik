@@ -6,7 +6,7 @@ import * as React from 'react';
 import Seo from '@/components/helpers/Seo';
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
-import UnderlineLink from '@/components/ui/links/UnderlineLink';
+import UnderlineLink from '@/components/ui/Links/UnderlineLink';
 
 import { company } from '@/constant/company';
 

@@ -8,9 +8,9 @@ import Seo from '@/components/helpers/Seo';
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
 import NextBreadcrumb from '@/components/ui/Breadcrumb';
-import PrimaryLink from '@/components/ui/links/PrimaryLink';
-import UnderlineLink from '@/components/ui/links/UnderlineLink';
-import { Title } from '@/components/ui/typography/Title';
+import PrimaryLink from '@/components/ui/Links/PrimaryLink';
+import UnderlineLink from '@/components/ui/Links/UnderlineLink';
+import { Title } from '@/components/ui/Typography/Title';
 
 import { company } from '@/constant/company';
 

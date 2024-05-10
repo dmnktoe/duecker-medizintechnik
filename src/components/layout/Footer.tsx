@@ -8,7 +8,7 @@ import { fetchAPI } from '@/lib/fetch-api';
 import { Container } from '@/components/layout/Container';
 import LanguagePicker from '@/components/templates/LanguagePicker';
 import { Logo } from '@/components/ui/Icons/logo';
-import UnstyledLink from '@/components/ui/links/UnstyledLink';
+import UnstyledLink from '@/components/ui/Links/UnstyledLink';
 
 import { company } from '@/constant/company';
 import { Data } from '@/interfaces/Data';

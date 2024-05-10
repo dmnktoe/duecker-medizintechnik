@@ -11,8 +11,8 @@ import Layout from '@/components/layout/Layout';
 import ImageBanner from '@/components/templates/ImageBanner/ImageBanner';
 import { AspectRatio } from '@/components/ui/AspectRatio';
 import NextBreadcrumb from '@/components/ui/Breadcrumb';
-import UnstyledLink from '@/components/ui/links/UnstyledLink';
-import { Title } from '@/components/ui/typography/Title';
+import UnstyledLink from '@/components/ui/Links/UnstyledLink';
+import { Title } from '@/components/ui/Typography/Title';
 
 import heroImg from '/public/images/production/duecker-medizintechnik_production_hero-bg.jpg';
 

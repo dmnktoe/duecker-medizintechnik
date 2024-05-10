@@ -11,10 +11,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 import { Container } from '@/components/layout/Container';
-import ButtonLink from '@/components/ui/links/ButtonLink';
-import UnstyledLink from '@/components/ui/links/UnstyledLink';
-import { Body } from '@/components/ui/Typography';
-import { Title } from '@/components/ui/typography/Title';
+import ButtonLink from '@/components/ui/Links/ButtonLink';
+import UnstyledLink from '@/components/ui/Links/UnstyledLink';
+import { Body, Title } from '@/components/ui/Typography';
 
 import { partners } from '@/constant/partners';
 
@@ -48,21 +47,19 @@ const HeroIntro = () => {
 const HeroText = () => {
   const { t } = useTranslation('home');
   return (
-    <div>
-      <div className='text-left'>
-        <Title>{t('content.hero.title')}</Title>
-        <Body className='mt-6'>{t('content.hero.text')}</Body>
-        <div className='mt-10 flex items-center justify-start gap-x-3'>
-          <ButtonLink variant='primary' size='sm' href='/leistungen'>
-            {t('content.hero.buttons.primary.label')}
-            <span aria-hidden='true' className='ml-2'>
-              <VscArrowRight />
-            </span>
-          </ButtonLink>
-          <ButtonLink size='sm' variant='ghost' href='/kontakt'>
-            {t('content.hero.buttons.secondary.label')}{' '}
-          </ButtonLink>
-        </div>
+    <div className='text-left'>
+      <Title>{t('content.hero.title')}</Title>
+      <Body className='mt-6'>{t('content.hero.text')}</Body>
+      <div className='mt-10 flex items-center justify-start gap-x-3'>
+        <ButtonLink variant='primary' size='sm' href='/leistungen'>
+          {t('content.hero.buttons.primary.label')}
+          <span aria-hidden='true' className='ml-2'>
+            <VscArrowRight />
+          </span>
+        </ButtonLink>
+        <ButtonLink size='sm' variant='ghost' href='/kontakt'>
+          {t('content.hero.buttons.secondary.label')}{' '}
+        </ButtonLink>
       </div>
     </div>
   );

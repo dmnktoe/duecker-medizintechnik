@@ -9,8 +9,8 @@ import clsxm from '@/lib/clsxm';
 
 import { Container } from '@/components/layout/Container';
 import NewsCard from '@/components/templates/NewsCard';
-import UnstyledLink from '@/components/ui/links/UnstyledLink';
-import { Title } from '@/components/ui/typography';
+import UnstyledLink from '@/components/ui/Links/UnstyledLink';
+import { Title } from '@/components/ui/Typography';
 
 import { Data } from '@/interfaces/Data';
 

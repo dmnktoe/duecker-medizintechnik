@@ -9,7 +9,7 @@ import Seo from '@/components/helpers/Seo';
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
 import { NewsArticle } from '@/components/templates/NewsArticle';
-import ArrowLink from '@/components/ui/links/ArrowLink';
+import ArrowLink from '@/components/ui/Links/ArrowLink';
 
 import { Data } from '@/interfaces/Data';
 

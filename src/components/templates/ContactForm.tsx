@@ -7,8 +7,8 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 import Button from '@/components/ui/Buttons/Button';
-import UnderlineLink from '@/components/ui/links/UnderlineLink';
-import { Title } from '@/components/ui/typography/Title';
+import UnderlineLink from '@/components/ui/Links/UnderlineLink';
+import { Title } from '@/components/ui/Typography/Title';
 
 import { isLocal, isProd } from '@/constant/env';
 

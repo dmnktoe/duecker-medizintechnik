@@ -7,7 +7,7 @@ import React, { useEffect } from 'react';
 
 import { Container } from '@/components/layout/Container';
 import { AnimatedBadge } from '@/components/ui/Badges/AnimatedBadge';
-import { Title } from '@/components/ui/typography/Title';
+import { Title } from '@/components/ui/Typography/Title';
 
 import { useHidePageOverflow } from '@/utils/toggle-page-overflow';
 import { useEscapePress } from '@/utils/use-escape-press';

@@ -2,8 +2,8 @@ import { useTranslation } from 'next-i18next';
 import * as React from 'react';
 import { VscCallOutgoing, VscHome, VscMail } from 'react-icons/vsc';
 
-import UnderlineLink from '@/components/ui/links/UnderlineLink';
-import { Body, Title } from '@/components/ui/typography';
+import UnderlineLink from '@/components/ui/Links/UnderlineLink';
+import { Body, Title } from '@/components/ui/Typography';
 
 import { company } from '@/constant/company';
 

@@ -8,7 +8,7 @@ import { Container } from '@/components/layout/Container';
 import Globe from '@/components/templates/Globe';
 import Button from '@/components/ui/Buttons/Button';
 import { CheckIcon } from '@/components/ui/Icons';
-import { Title } from '@/components/ui/typography/Title';
+import { Title } from '@/components/ui/Typography/Title';
 
 export const CallToAction = () => {
   const { t, ready } = useTranslation('common', { useSuspense: false });

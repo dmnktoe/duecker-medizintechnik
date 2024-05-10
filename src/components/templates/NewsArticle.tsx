@@ -20,8 +20,8 @@ import { formatDate, getStrapiMedia } from '@/lib/helper';
 import { Container } from '@/components/layout';
 import { AspectRatio } from '@/components/ui/AspectRatio';
 import Badge from '@/components/ui/Badges/Badge';
-import UnstyledLink from '@/components/ui/links/UnstyledLink';
-import { Body, Title } from '@/components/ui/typography';
+import UnstyledLink from '@/components/ui/Links/UnstyledLink';
+import { Body, Title } from '@/components/ui/Typography';
 
 import { company } from '@/constant/company';
 import { Data } from '@/interfaces/Data';

@@ -15,7 +15,7 @@ import ImageBanner from '@/components/templates/ImageBanner/ImageBanner';
 import { AspectRatio } from '@/components/ui/AspectRatio';
 import Badge from '@/components/ui/Badges/Badge';
 import NextBreadcrumb from '@/components/ui/Breadcrumb';
-import { Title } from '@/components/ui/typography/Title';
+import { Title } from '@/components/ui/Typography/Title';
 
 import { Partner, partners } from '@/constant/partners';
 

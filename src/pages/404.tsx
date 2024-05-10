@@ -6,7 +6,7 @@ import { RiAlarmWarningFill } from 'react-icons/ri';
 
 import Seo from '@/components/helpers/Seo';
 import Layout from '@/components/layout/Layout';
-import ArrowLink from '@/components/ui/links/ArrowLink';
+import ArrowLink from '@/components/ui/Links/ArrowLink';
 
 const NotFoundPage = (
   _props: InferGetStaticPropsType<typeof getStaticProps>,

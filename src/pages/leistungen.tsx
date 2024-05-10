@@ -8,8 +8,8 @@ import Seo from '@/components/helpers/Seo';
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
 import { AnimatedBadge } from '@/components/ui/Badges/AnimatedBadge';
-import ArrowLink from '@/components/ui/links/ArrowLink';
-import { Title } from '@/components/ui/typography/Title';
+import ArrowLink from '@/components/ui/Links/ArrowLink';
+import { Title } from '@/components/ui/Typography/Title';
 
 const ServicesPage = (
   _props: InferGetStaticPropsType<typeof getStaticProps>,

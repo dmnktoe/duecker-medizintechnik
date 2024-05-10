@@ -15,8 +15,8 @@ import {
   AccordionTrigger,
 } from '@/components/ui/Accordion';
 import NextBreadcrumb from '@/components/ui/Breadcrumb';
-import PrimaryLink from '@/components/ui/links/PrimaryLink';
-import { Title } from '@/components/ui/typography/Title';
+import PrimaryLink from '@/components/ui/Links/PrimaryLink';
+import { Title } from '@/components/ui/Typography/Title';
 
 import heroImg from '/public/images/downloads/duecker-medizintechnik_downloads_hero-bg.webp';
 

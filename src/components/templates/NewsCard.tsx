@@ -6,8 +6,8 @@ import { formatDate, getStrapiMedia } from '@/lib/helper';
 
 import { AspectRatio } from '@/components/ui/AspectRatio';
 import Badge from '@/components/ui/Badges/Badge';
-import UnstyledLink from '@/components/ui/links/UnstyledLink';
-import { Body, Title } from '@/components/ui/typography';
+import UnstyledLink from '@/components/ui/Links/UnstyledLink';
+import { Body, Title } from '@/components/ui/Typography';
 
 import { Data } from '@/interfaces/Data';
 

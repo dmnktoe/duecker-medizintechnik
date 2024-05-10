@@ -12,10 +12,10 @@ import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
 import ImageBanner from '@/components/templates/ImageBanner/ImageBanner';
 import NextBreadcrumb from '@/components/ui/Breadcrumb';
-import ButtonLink from '@/components/ui/links/ButtonLink';
-import UnderlineLink from '@/components/ui/links/UnderlineLink';
-import { Body } from '@/components/ui/typography';
-import { Title } from '@/components/ui/typography/Title';
+import ButtonLink from '@/components/ui/Links/ButtonLink';
+import UnderlineLink from '@/components/ui/Links/UnderlineLink';
+import { Body } from '@/components/ui/Typography';
+import { Title } from '@/components/ui/Typography/Title';
 
 import { partners } from '@/constant/partners';
 

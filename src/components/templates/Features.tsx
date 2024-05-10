@@ -5,7 +5,7 @@ import { MouseEvent } from 'react';
 import clsxm from '@/lib/clsxm';
 
 import { Container } from '@/components/layout/Container';
-import { Title } from '@/components/ui/typography/Title';
+import { Title } from '@/components/ui/Typography/Title';
 
 import bentoGridImg2 from '/public/images/home/bento-grid/bento-grid_keydot.jpg';
 import bentoGridImg5 from '/public/images/home/bento-grid/bento-grid_nouvag.png';

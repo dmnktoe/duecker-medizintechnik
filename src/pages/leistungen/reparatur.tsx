@@ -16,8 +16,7 @@ import Layout from '@/components/layout/Layout';
 import ImageBanner from '@/components/templates/ImageBanner/ImageBanner';
 import { AspectRatio } from '@/components/ui/AspectRatio';
 import NextBreadcrumb from '@/components/ui/Breadcrumb';
-import { Body } from '@/components/ui/typography';
-import { Title } from '@/components/ui/typography/Title';
+import { Body, Title } from '@/components/ui/Typography';
 
 import heroImg from '/public/images/repair/duecker-medizintechnik_repair_hero-bg.webp';
 import repairSliderImg1 from '/public/images/repair/repair-slider_image-1.webp';

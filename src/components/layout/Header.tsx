@@ -19,7 +19,7 @@ import {
 } from '@/components/ui/Collapsible';
 import { Logo } from '@/components/ui/Icons/logo';
 import { SubdirectoryIcon } from '@/components/ui/Icons/subdirectory';
-import ButtonLink from '@/components/ui/links/ButtonLink';
+import ButtonLink from '@/components/ui/Links/ButtonLink';
 
 import megaMenuBg from '/public/images/header/mega-menu_bg.webp';
 
