@@ -2,10 +2,12 @@ import { stagger, useAnimate } from 'framer-motion';
 import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
 import React, { useEffect } from 'react';
+import { VscArrowRight } from 'react-icons/vsc';
 
 import { Container } from '@/components/layout/Container';
 import { AspectRatio } from '@/components/ui/AspectRatio';
 import { AnimatedBadge } from '@/components/ui/Badges/AnimatedBadge';
+import UnstyledLink from '@/components/ui/Links/UnstyledLink';
 import { Body, Title } from '@/components/ui/Typography';
 
 import { useHidePageOverflow } from '@/utils/toggle-page-overflow';
@@ -164,29 +166,43 @@ export const StickyScroll = () => {
             {stickyScroll.map((feature) => (
               <div
                 key={feature.id}
-                className='relative my-3 block overflow-hidden'
+                className='relative my-4 block overflow-hidden'
               >
-                <AspectRatio ratio={16 / 9}>
-                  <Image
-                    src={feature.img}
-                    alt={feature.id}
-                    placeholder='blur'
-                    priority
-                    quality={65}
-                  />
-                </AspectRatio>
-                <div className='absolute bottom-0 left-0 w-full p-2 backdrop-blur-sm'>
-                  <Title
-                    renderAs='h3'
-                    size='five'
-                    className='font-normal text-white'
-                    margin={false}
-                  >
-                    {t(
-                      ('content.stickyScroll.' + feature.id + '.text') as never,
-                    )}
-                  </Title>
-                </div>
+                <UnstyledLink
+                  href={
+                    '/leistungen/' +
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-expect-error
+                    t('content.stickyScroll.' + feature.id + '.href')
+                  }
+                >
+                  <AspectRatio ratio={16 / 9}>
+                    <Image
+                      src={feature.img}
+                      alt={feature.id}
+                      placeholder='blur'
+                      priority
+                      quality={65}
+                    />
+                  </AspectRatio>
+                  <div className='absolute bottom-0 left-0 w-full p-2'>
+                    <Title
+                      renderAs='h3'
+                      size='five'
+                      className='font-normal text-white'
+                      margin={false}
+                    >
+                      {t(
+                        ('content.stickyScroll.' +
+                          feature.id +
+                          '.text') as never,
+                      )}
+                    </Title>
+                    <span className='inline-block'>
+                      <VscArrowRight className='text-white' />
+                    </span>
+                  </div>
+                </UnstyledLink>
               </div>
             ))}
           </Container>

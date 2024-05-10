@@ -28,7 +28,7 @@ export const Bento = () => {
   const { t } = useTranslation('home');
 
   return (
-    <section className='border-t border-neutral-100 pb-16 md:py-24 lg:py-32'>
+    <section className='border-t border-neutral-100 py-16 md:py-24 lg:py-32'>
       <Container>
         <div className='mb-8'>
           <Title renderAs='h2' className='md:-mb-2' margin={false}>

@@ -19,10 +19,12 @@ const NotFoundPage = (
         description={t('meta.seo.description')}
         title={t('meta.seo.title')}
       />
-      <main className='bg-dark/95 bg-[url(/images/404/bentoBlur.svg)] bg-cover bg-center bg-no-repeat py-16 text-white md:py-32 lg:py-64'>
+      <main className='bg-dark/95 bg-[url(/images/404/bentoBlur.svg)] bg-cover bg-center bg-no-repeat py-64 text-white'>
         <section>
           <div className='flex flex-col items-center justify-center text-center'>
-            <div className='mb-0 text-[15rem] leading-none'>404</div>
+            <div className='mb-0 text-7xl leading-none md:text-[15rem]'>
+              404
+            </div>
             <Title className='text-white'>
               {t('content.pageNotFound') + '.'}
             </Title>
