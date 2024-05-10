@@ -1,6 +1,6 @@
-import aboutUs from '~/locales/de/aboutUs.json';
 import commerce from '~/locales/de/commerce.json';
 import common from '~/locales/de/common.json';
+import company from '~/locales/de/company.json';
 import contact from '~/locales/de/contact.json';
 import cookiePolicy from '~/locales/de/cookiePolicy.json';
 import downloads from '~/locales/de/downloads.json';
@@ -15,9 +15,9 @@ import services from '~/locales/de/services.json';
 import termsAndConditions from '~/locales/de/termsAndConditions.json';
 
 const namespaces = {
-  aboutUs,
   commerce,
   common,
+  company,
   contact,
   cookiePolicy,
   downloads,

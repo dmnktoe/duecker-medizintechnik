@@ -19,14 +19,14 @@ import { Title } from '@/components/ui/Typography/Title';
 
 import { partners } from '@/constant/partners';
 
-import aboutUsImg1 from '/public/images/about-us/duecker-medizintechnik_about-us_1.webp';
-import aboutUsImg2 from '/public/images/about-us/duecker-medizintechnik_about-us_2.webp';
-import heroImg from '/public/images/about-us/duecker-medizintechnik_about-us_hero.webp';
+import companyImg1 from '/public/images/company/duecker-medizintechnik_company_1.webp';
+import companyImg2 from '/public/images/company/duecker-medizintechnik_company_2.webp';
+import companyHero from '/public/images/company/duecker-medizintechnik_company_hero.webp';
 
 const CompanyPage = (
   _props: InferGetStaticPropsType<typeof getStaticProps>,
 ) => {
-  const { t } = useTranslation('aboutUs');
+  const { t } = useTranslation('company');
   return (
     <Layout>
       <Seo
@@ -38,7 +38,7 @@ const CompanyPage = (
         role='hero'
         delay={0}
         priority={true}
-        src={heroImg}
+        src={companyHero}
         className='flex-1'
       />
       <main className='py-16 lg:py-24'>
@@ -115,7 +115,7 @@ const CompanyPage = (
             <div className='mt-8 grid grid-cols-2 gap-4'>
               <Image
                 alt='hero'
-                src={aboutUsImg1}
+                src={companyImg1}
                 placeholder='blur'
                 className='w-full'
                 width={600}
@@ -124,7 +124,7 @@ const CompanyPage = (
               />
               <Image
                 alt='hero'
-                src={aboutUsImg2}
+                src={companyImg2}
                 placeholder='blur'
                 className='mt-4 w-full lg:mt-10'
                 width={600}
@@ -145,7 +145,7 @@ const CompanyPage = (
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? 'de', ['common', 'aboutUs'])),
+      ...(await serverSideTranslations(locale ?? 'de', ['common', 'company'])),
     },
   };
 };
