@@ -35,11 +35,11 @@ export const Hero = () => {
 
 const HeroIntro = () => {
   return (
-    <div className='mx-auto mb-12 flex max-w-full flex-col items-center gap-12 md:mb-36 md:max-w-3xl md:gap-24 lg:max-w-5xl lg:flex-row xl:max-w-full'>
-      <div className='w-full lg:w-8/12 xl:w-6/12'>
+    <div className='mx-auto mb-12 flex max-w-full flex-col items-center gap-12 md:mb-36 md:max-w-3xl md:gap-24 lg:max-w-6xl lg:flex-row xl:max-w-full'>
+      <div className='w-full lg:w-7/12 xl:w-6/12'>
         <HeroText />
       </div>
-      <div className='relative w-full lg:w-4/12 xl:w-6/12'>
+      <div className='relative w-full lg:w-5/12 xl:w-6/12'>
         <HeroSlider />
       </div>
     </div>
