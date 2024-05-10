@@ -25,7 +25,7 @@ const LanguagePicker = ({ className }: Props) => {
 
   return (
     <select
-      className={clsx(className)}
+      className={clsx(className, 'bg-none')}
       name='languages'
       id='languages'
       onChange={handleLanguageChange}
