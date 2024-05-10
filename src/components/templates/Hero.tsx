@@ -17,8 +17,10 @@ import { Body, Title } from '@/components/ui/Typography';
 
 import { partners } from '@/constant/partners';
 
-import heroBg from '/public/images/home/duecker-medizintechnik_home_hero-bg.jpg';
-import heroBg2 from '/public/images/home/duecker-medizintechnik_home_hero-bg-2.jpg';
+import heroSlide1 from '/public/images/home/hero-slider/duecker-slide-1.jpg';
+import heroSlide2 from '/public/images/home/hero-slider/duecker-slide-2.jpg';
+import heroSlide3 from '/public/images/home/hero-slider/duecker-slide-3.jpg';
+import heroSlide4 from '/public/images/home/hero-slider/duecker-slide-4.jpg';
 
 export const Hero = () => {
   return (
@@ -130,11 +132,19 @@ const HeroSlider = () => {
 
   const slides = [
     {
-      image: heroBg,
+      image: heroSlide1,
       alt: 'OP-Lösungen und Sterilisierungen für den B2B-Betrieb',
     },
     {
-      image: heroBg2,
+      image: heroSlide2,
+      alt: 'OP-Lösungen und Sterilisierungen für den B2B-Betrieb',
+    },
+    {
+      image: heroSlide3,
+      alt: 'OP-Lösungen und Sterilisierungen für den B2B-Betrieb',
+    },
+    {
+      image: heroSlide4,
       alt: 'OP-Lösungen und Sterilisierungen für den B2B-Betrieb',
     },
   ];
