@@ -28,7 +28,7 @@ export const Title = ({
       className={clsx(
         'font-medium tracking-tighter text-dark',
         {
-          'text-4xl md:text-5xl md:leading-[1.2]': size === 'one',
+          'text-4xl md:text-5xl md:leading-[1.1]': size === 'one',
           'text-3xl md:text-4xl': size === 'two',
           'text-2xl md:text-3xl': size === 'three',
           'text-xl md:text-2xl': size === 'four',
