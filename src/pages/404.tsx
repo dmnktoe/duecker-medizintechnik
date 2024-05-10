@@ -2,11 +2,11 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
-import { RiAlarmWarningFill } from 'react-icons/ri';
 
 import Seo from '@/components/helpers/Seo';
 import Layout from '@/components/layout/Layout';
-import ArrowLink from '@/components/ui/Links/ArrowLink';
+import UnstyledLink from '@/components/ui/Links/UnstyledLink';
+import { Title } from '@/components/ui/Typography';
 
 const NotFoundPage = (
   _props: InferGetStaticPropsType<typeof getStaticProps>,
@@ -19,19 +19,16 @@ const NotFoundPage = (
         description={t('meta.seo.description')}
         title={t('meta.seo.title')}
       />
-      <main>
-        <section className='bg-white'>
-          <div className='layout flex min-h-screen flex-col items-center justify-center text-center text-black'>
-            <RiAlarmWarningFill
-              size={60}
-              className='drop-shadow-glow animate-flicker text-red-500'
-            />
-            <h1 className='mt-8 text-4xl md:text-6xl'>
-              {t('content.pageNotFound')}
-            </h1>
-            <ArrowLink className='mt-4 md:text-lg' href='/'>
+      <main className='bg-dark/95 bg-[url(/images/404/bentoBlur.svg)] bg-cover bg-center bg-no-repeat py-16 text-white md:py-32 lg:py-64'>
+        <section>
+          <div className='flex flex-col items-center justify-center text-center'>
+            <div className='mb-0 text-[15rem] leading-none'>404</div>
+            <Title className='text-white'>
+              {t('content.pageNotFound') + '.'}
+            </Title>
+            <UnstyledLink className='mt-12 hover:underline md:text-lg' href='/'>
               {t('content.returnToHome')}
-            </ArrowLink>
+            </UnstyledLink>
           </div>
         </section>
       </main>
