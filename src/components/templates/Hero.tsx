@@ -49,7 +49,9 @@ const HeroText = () => {
   return (
     <div className='text-left'>
       <Title>{t('content.hero.title')}</Title>
-      <Body className='mt-6'>{t('content.hero.text')}</Body>
+      <Body size='lg' className='mt-6'>
+        {t('content.hero.text')}
+      </Body>
       <div className='mt-10 flex items-center justify-start gap-x-3'>
         <ButtonLink variant='primary' size='sm' href='/leistungen'>
           {t('content.hero.buttons.primary.label')}
