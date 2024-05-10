@@ -15,7 +15,7 @@ import { company } from '@/constant/company';
 
 export const InfoBar = () => {
   return (
-    <div className='relative hidden bg-dark py-2 text-xs text-white lg:block lg:w-auto'>
+    <div className='relative hidden bg-dark py-2 text-xs text-white xl:block xl:w-auto'>
       <Container>
         <div className='flex items-center justify-between'>
           <div className='flex items-center gap-x-2'>

@@ -34,6 +34,7 @@ export const Body = ({
       className={clsxm(
         {
           'mb-4': margin,
+          'font-normal': size !== 'lg',
         },
         sizeClasses[size],
         colorClasses[color],
