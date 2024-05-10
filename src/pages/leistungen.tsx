@@ -47,8 +47,8 @@ const ServicesPage = (
               icon={<PiWrenchThin className='h-10 w-10 text-white' />}
             />
             <ServiceCard
-              title={t('content.cards.commerce.title')}
-              details={t('content.cards.commerce.text')}
+              title={t('content.cards.distribution.title')}
+              details={t('content.cards.distribution.text')}
               icon={<PiPackageThin className='h-10 w-10 text-white' />}
             />
           </div>

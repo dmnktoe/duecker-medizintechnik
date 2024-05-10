@@ -19,12 +19,12 @@ import { Title } from '@/components/ui/Typography/Title';
 
 import { Partner, partners } from '@/constant/partners';
 
-import heroImg from '/public/images/commerce/duecker-medizintechnik_commerce_hero-bg.webp';
+import heroImg from '/public/images/distribution/duecker-medizintechnik_distribution_hero-bg.webp';
 
-const CommercePage = (
+const DistributionPage = (
   _props: InferGetStaticPropsType<typeof getStaticProps>,
 ) => {
-  const { t } = useTranslation('commerce');
+  const { t } = useTranslation('distribution');
 
   return (
     <Layout>
@@ -78,7 +78,7 @@ const CommercePage = (
                 <AspectRatio ratio={1}>
                   <div className='flex h-full bg-gray-100'>
                     <DotLottiePlayer
-                      src='./../images/commerce/lp7a683r.lottie'
+                      src='./../images/distribution/lp7a683r.lottie'
                       autoplay
                       loop
                     />
@@ -95,8 +95,11 @@ const CommercePage = (
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale ?? 'de', ['common', 'commerce'])),
+    ...(await serverSideTranslations(locale ?? 'de', [
+      'common',
+      'distribution',
+    ])),
   },
 });
 
-export default CommercePage;
+export default DistributionPage;

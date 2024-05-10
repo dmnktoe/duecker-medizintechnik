@@ -2,10 +2,10 @@
   "content": {
     "badge": "Our Services",
     "cards": {
-      "commerce": {
+      "distribution": {
         "href": "vertrieb",
         "text": "",
-        "title": "Commerce"
+        "title": "Distribution"
       },
       "production": {
         "href": "produktion",

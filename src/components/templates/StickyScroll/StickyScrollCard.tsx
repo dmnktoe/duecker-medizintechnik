@@ -8,7 +8,7 @@ import ButtonLink from '@/components/ui/Links/ButtonLink';
 
 import { useFeatureStore } from './store';
 
-import commerceStickyImg from '/public/images/home/sticky-scroll/sticky-scroll_image-commerce.jpg';
+import distributionStickyImg from '/public/images/home/sticky-scroll/sticky-scroll_image-distribution.jpg';
 import productionStickyImg from '/public/images/home/sticky-scroll/sticky-scroll_image-production.jpg';
 import repairStickyImg from '/public/images/home/sticky-scroll/sticky-scroll_image-repair.jpg';
 
@@ -96,12 +96,12 @@ export const Repair = ({ id }: CardProps) => {
   );
 };
 
-export const Commerce = ({ id }: CardProps) => {
+export const Distribution = ({ id }: CardProps) => {
   return (
     <StickyScrollCard id={id} gradient='from-[#f5fff7] to-[#adf8ff]'>
       <Image
         alt='Produktion'
-        src={commerceStickyImg}
+        src={distributionStickyImg}
         placeholder='blur'
         priority
         width={600}

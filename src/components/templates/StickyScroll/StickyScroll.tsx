@@ -12,7 +12,7 @@ import { Title } from '@/components/ui/Typography/Title';
 import { useHidePageOverflow } from '@/utils/toggle-page-overflow';
 import { useEscapePress } from '@/utils/use-escape-press';
 
-import { Commerce, Production, Repair } from './StickyScrollCard';
+import { Distribution, Production, Repair } from './StickyScrollCard';
 import { StickyScrollTitle } from './StickyScrollTitle';
 import { useFeatureStore } from './store';
 
@@ -26,8 +26,8 @@ const stickyScroll = [
     card: Repair,
   },
   {
-    id: 'commerce',
-    card: Commerce,
+    id: 'distribution',
+    card: Distribution,
   },
 ];
 

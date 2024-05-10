@@ -62,7 +62,7 @@
           },
           {
             "href": "/leistungen/vertrieb",
-            "title": "Commerce"
+            "title": "Distribution"
           }
         ],
         "title": "Services"
@@ -122,9 +122,9 @@
             "text": "Repair"
           },
           {
-            "description": "Commerce and b2b sales of medical devices.",
+            "description": "Distribution and b2b sales of medical devices.",
             "href": "/leistungen/vertrieb",
-            "text": "Commerce"
+            "text": "Distribution"
           }
         ],
         "text": "Services"

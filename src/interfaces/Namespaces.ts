@@ -1,8 +1,8 @@
-import commerce from '~/locales/de/commerce.json';
 import common from '~/locales/de/common.json';
 import company from '~/locales/de/company.json';
 import contact from '~/locales/de/contact.json';
 import cookiePolicy from '~/locales/de/cookiePolicy.json';
+import distribution from '~/locales/de/distribution.json';
 import downloads from '~/locales/de/downloads.json';
 import home from '~/locales/de/home.json';
 import imprint from '~/locales/de/imprint.json';
@@ -15,11 +15,11 @@ import services from '~/locales/de/services.json';
 import termsAndConditions from '~/locales/de/termsAndConditions.json';
 
 const namespaces = {
-  commerce,
   common,
   company,
   contact,
   cookiePolicy,
+  distribution,
   downloads,
   home,
   imprint,
