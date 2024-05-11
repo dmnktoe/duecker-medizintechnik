@@ -186,10 +186,18 @@ export const StickyScroll = () => {
                     />
                   </AspectRatio>
                   <div className='absolute bottom-0 left-0 w-full p-2'>
+                    <span className='text-white'>
+                      {t(
+                        ('content.stickyScroll.' +
+                          feature.id +
+                          '.title') as never,
+                      )}{' '}
+                      <VscArrowRight className='relative -top-0.5 inline-block text-white' />
+                    </span>
                     <Title
                       renderAs='h3'
                       size='five'
-                      className='font-normal text-white'
+                      className='line-clamp-1 font-normal text-white'
                       margin={false}
                     >
                       {t(
@@ -198,9 +206,6 @@ export const StickyScroll = () => {
                           '.text') as never,
                       )}
                     </Title>
-                    <span className='inline-block'>
-                      <VscArrowRight className='text-white' />
-                    </span>
                   </div>
                 </UnstyledLink>
               </div>
