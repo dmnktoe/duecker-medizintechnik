@@ -1,14 +1,13 @@
 import { useTranslation } from 'next-i18next';
 import { useCallback, useRef } from 'react';
-import { VscArrowLeft, VscArrowRight } from 'react-icons/vsc';
+import { VscArrowRight } from 'react-icons/vsc';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
-import clsxm from '@/lib/clsxm';
-
 import { Container } from '@/components/layout/Container';
 import NewsCard from '@/components/templates/NewsCard';
+import SliderButton from '@/components/ui/Buttons/SliderButton';
 import UnstyledLink from '@/components/ui/Links/UnstyledLink';
 import { Title } from '@/components/ui/Typography';
 
@@ -43,28 +42,8 @@ export const NewsSlider = ({ posts }: NewsSliderProps) => {
   const NewsSliderControls = () => {
     return (
       <div className='flex items-center justify-end gap-2'>
-        <button
-          className={clsxm(
-            'inline-flex items-center justify-center rounded-full ',
-            'border border-dark text-dark hover:bg-dark hover:text-white',
-            'h-12 w-12 md:h-16 md:w-16',
-          )}
-          onClick={handlePrev}
-          aria-label={t('content.newsSlider.prev')}
-        >
-          <VscArrowLeft size={28} />
-        </button>
-        <button
-          className={clsxm(
-            'inline-flex items-center justify-center rounded-full ',
-            'border border-dark text-dark hover:bg-dark hover:text-white',
-            'h-12 w-12 md:h-16 md:w-16',
-          )}
-          onClick={handleNext}
-          aria-label={t('content.newsSlider.next')}
-        >
-          <VscArrowRight size={28} />
-        </button>
+        <SliderButton direction='prev' handleClick={handlePrev} size='md' />
+        <SliderButton direction='next' handleClick={handleNext} size='md' />
       </div>
     );
   };

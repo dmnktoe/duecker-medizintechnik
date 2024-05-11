@@ -4,7 +4,7 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 import { useCallback, useRef } from 'react';
-import { VscArrowLeft, VscArrowRight } from 'react-icons/vsc';
+import { VscArrowRight } from 'react-icons/vsc';
 import { Autoplay, Navigation, Scrollbar } from 'swiper/modules';
 import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -16,6 +16,7 @@ import Layout from '@/components/layout/Layout';
 import ImageBanner from '@/components/templates/ImageBanner/ImageBanner';
 import { AspectRatio } from '@/components/ui/AspectRatio';
 import NextBreadcrumb from '@/components/ui/Breadcrumb';
+import SliderButton from '@/components/ui/Buttons/SliderButton';
 import { Body, Title } from '@/components/ui/Typography';
 
 import heroImg from '/public/images/repair/duecker-medizintechnik_repair_hero-bg.webp';
@@ -80,19 +81,9 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
           <div className='w-full'>
             <div className='-mx-4 mb-4 flex flex-wrap items-center'>
               <div className='w-full px-4'>
-                <div className='flex items-center justify-end'>
-                  <button
-                    className='mr-2 inline-flex h-12 w-12 items-center justify-center rounded-full border border-black text-dark transition duration-200 hover:bg-black hover:text-white'
-                    onClick={handlePrev}
-                  >
-                    <VscArrowLeft size={16} />
-                  </button>
-                  <button
-                    className='inline-flex h-12 w-12 items-center justify-center rounded-full border border-black text-dark transition duration-200 hover:bg-black hover:text-white'
-                    onClick={handleNext}
-                  >
-                    <VscArrowRight size={16} />
-                  </button>
+                <div className='flex items-center justify-end gap-2'>
+                  <SliderButton direction='prev' handleClick={handlePrev} />
+                  <SliderButton direction='next' handleClick={handleNext} />
                 </div>
               </div>
             </div>
