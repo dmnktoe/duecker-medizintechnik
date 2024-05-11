@@ -9,7 +9,7 @@ const TextBlocks = () => {
   return (
     <>
       <Container>
-        <div className='grid grid-cols-2 gap-2 lg:grid-cols-3 lg:gap-4'>
+        <div className='grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 lg:gap-4'>
           {ready &&
             t('content.features.textBlocks', {
               returnObjects: true,
@@ -33,11 +33,11 @@ const TextBlockElement = ({
   title: string;
   content: string;
 }) => (
-  <div className='w-full border border-solid border-neutral-100 hover:bg-neutral-50'>
+  <div className='w-full border border-solid border-neutral-100'>
     <div className='md:max-w-sm'>
       <div className='flex flex-wrap'>
         <div className='flex-1 p-6'>
-          <div className='mb-2 w-auto'>
+          <div className='mb-2 hidden w-auto md:block'>
             <CheckIcon />
           </div>
           <Title size='four' renderAs='h5'>
