@@ -5,18 +5,7 @@ import * as React from 'react';
 import { VscChevronDown } from 'react-icons/vsc';
 
 import { MegaMenu } from '@/components/templates/MegaMenu';
-
-export interface NavItemProps {
-  href?: string;
-  text: string;
-  subItems?: SubItem[];
-}
-
-export interface SubItem {
-  href: string;
-  text: string;
-  description: string;
-}
+import { NavItemProps } from '@/components/ui/Nav';
 
 export const NavItem = ({ href, text, subItems }: NavItemProps) => {
   const currentRoute = usePathname();
