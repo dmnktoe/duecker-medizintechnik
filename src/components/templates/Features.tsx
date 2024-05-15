@@ -37,7 +37,7 @@ const TextBlockElement = ({
     <div className='md:max-w-sm'>
       <div className='flex flex-wrap'>
         <div className='flex-1 p-6'>
-          <div className='mb-2 hidden w-auto md:block'>
+          <div className='mb-6 hidden w-auto md:block'>
             <CheckIcon />
           </div>
           <Title size='four' renderAs='h5'>
