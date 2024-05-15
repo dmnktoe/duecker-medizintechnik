@@ -26,7 +26,7 @@ export const Title = ({
   return (
     <Component
       className={clsx(
-        'font-medium tracking-tight text-dark',
+        'font-medium -tracking-[0.03em]  text-dark',
         {
           'text-4xl md:text-5xl md:leading-[1.1]': size === 'one',
           'text-3xl md:text-4xl': size === 'two',
