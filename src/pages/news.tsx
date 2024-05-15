@@ -24,7 +24,7 @@ const NewsPage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
         description={t('meta.seo.description')}
         title={t('meta.seo.title')}
       />
-      <main className='bg-gray-100 py-16 lg:py-24'>
+      <main className='py-16 lg:py-24'>
         <Container>
           <div className='mx-auto max-w-5xl'>
             <NextBreadcrumb
@@ -41,7 +41,7 @@ const NewsPage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
           </div>
           <div className='mx-auto mb-16 max-w-5xl'>
             <div className='flex flex-col'>
-              <Title margin={false}>{t('content.title')}</Title>
+              <Title>{t('content.title')}</Title>
               <Body>{t('content.text')}</Body>
             </div>
             <NewsList posts={posts} />
