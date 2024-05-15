@@ -192,7 +192,7 @@ export const NewsArticle = ({ post }: NewsArticleProps) => {
   };
 
   return (
-    <section className='bg-gray-100 py-16 md:py-24'>
+    <section className='py-16 md:py-24'>
       <Container>
         <div className='flex flex-col gap-y-8 md:gap-y-12'>
           <ArticleHeader post={post} />

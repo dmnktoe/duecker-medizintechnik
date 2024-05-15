@@ -50,7 +50,7 @@ const PostPage = (props: PostPageProps) => {
 
   const BackToNewsButton = () => {
     return (
-      <section className='bg-gray-100'>
+      <section>
         <Container>
           <div className='mx-auto flex max-w-3xl'>
             <ArrowLink
