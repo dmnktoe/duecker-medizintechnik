@@ -1,66 +1,97 @@
-import clsx from 'clsx';
 import Image from 'next/image';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslation } from 'next-i18next';
 import * as React from 'react';
-import { VscArrowRight } from 'react-icons/vsc';
 
+import clsxm from '@/lib/clsxm';
+
+import { MegaMenuContext } from '@/components/helpers/MegaMenuContext';
+import { Container } from '@/components/layout';
+import { AspectRatio } from '@/components/ui/AspectRatio';
+import UnstyledLink from '@/components/ui/Links/UnstyledLink';
 import { SubItem } from '@/components/ui/Nav';
-import { Body } from '@/components/ui/Typography';
+import { Body, Title } from '@/components/ui/Typography';
 
-import megaMenuBg from '/public/images/header/mega-menu_bg.webp';
-
-export const MegaMenu = ({ subItems }: { subItems: SubItem[] }) => {
+export const MegaMenu = () => {
   const currentRoute = usePathname();
   const { t } = useTranslation('common', { useSuspense: false });
+  const { subItems } = React.useContext(MegaMenuContext);
 
   return (
-    <div className='invisible absolute top-3 z-50 min-w-[560px] translate-y-0 transform opacity-0 transition duration-300 ease-in-out group-hover:visible group-hover:translate-y-5 group-hover:transform group-hover:opacity-100 lg:-left-56'>
-      <div className='relative top-6 w-full cursor-default bg-white p-6 drop-shadow-md'>
-        <div className='absolute top-0 z-0 h-10 w-10 translate-x-0 rotate-45 transform rounded-sm bg-white transition-transform duration-500 ease-in-out group-hover:translate-x-[14.5rem]'></div>
-        <div className='relative z-10'>
-          <div className='grid grid-cols-2 gap-6'>
-            <div>
-              <Image
-                alt='hero'
-                src={megaMenuBg}
-                placeholder='blur'
-                width={500}
-                height={500}
-                className='h-full w-full overflow-hidden'
-                quality={100}
-              />
+    <div className='mega-menu absolute left-0 z-50 hidden w-full border-t border-neutral-100 bg-white py-6 drop-shadow-sm xl:flex'>
+      <Container>
+        <div className='flex h-96 w-full flex-row gap-4'>
+          <div className='flex w-6/12 flex-col'>
+            <Title size='four'>Unser Leistungsspektrum</Title>
+            <div className='grid flex-grow grid-cols-2 gap-4'>
+              {subItems.map((subItem: SubItem) => (
+                <UnstyledLink
+                  key={subItem.text}
+                  href={subItem.href}
+                  className={clsxm(
+                    'group/megaMenuItemHover flex flex-grow flex-col justify-between bg-neutral-50 p-3 hover:cursor-pointer hover:bg-neutral-100',
+                    currentRoute === subItem.href && 'bg-primary-100',
+                  )}
+                >
+                  <div className='flex h-5 w-5 items-center justify-center rounded-full border border-dark p-2'>
+                    <Body margin={false} size='xs'>
+                      {subItems.indexOf(subItem) + 1}
+                    </Body>
+                  </div>
+                  <Title
+                    size='five'
+                    margin={false}
+                    className='group-hover/megaMenuItemHover:underline'
+                  >
+                    {subItem.text}
+                  </Title>
+                </UnstyledLink>
+              ))}
+              <UnstyledLink
+                href='/leistungen'
+                className='group/megaMenuItemHover flex items-end bg-neutral-50 p-3 hover:cursor-pointer hover:bg-neutral-100'
+              >
+                <Title
+                  size='five'
+                  margin={false}
+                  className='group-hover/megaMenuItemHover:underline'
+                >
+                  Alle Leistungen im Überblick. →
+                </Title>
+              </UnstyledLink>
             </div>
-            <div>
-              <p className='text-xs font-medium uppercase tracking-wider text-gray-500'>
-                {t('header.servicesDropdownText')}{' '}
-                <span aria-hidden='true'>
-                  <VscArrowRight className='relative -top-[2px] inline-block' />
-                </span>
-              </p>
-              <ul className='mt-2'>
-                {subItems.map((item, index) => (
-                  <li key={index}>
-                    <Link
-                      href={item.href}
-                      className={clsx(
-                        'text-md -lg -mx-2 block p-2 font-medium text-gray-800 hover:bg-primary-50 hover:to-primary-50',
-                        currentRoute === item.href && 'text-primary-500 ',
-                      )}
-                    >
-                      {item.text}
-                      <Body size='sm' margin={false} className='text-dark'>
-                        {item.description}
-                      </Body>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+          </div>
+          <div className='flex w-2/12 flex-col'>
+            <Title size='four'>&nbsp;</Title>
+            <div className='flex flex-1 flex-grow bg-neutral-50 p-0'>
+              <AspectRatio ratio={3 / 4} className='bg-muted'>
+                <Image
+                  src='https://picsum.photos/900?random=2'
+                  alt='kontakt'
+                  fill
+                  className='object-cover object-center'
+                />
+              </AspectRatio>
+            </div>
+          </div>
+          <div className='flex w-4/12 flex-col'>
+            <Title size='four'>Pressemitteilungen</Title>
+            <div className='flex flex-1 flex-grow flex-col justify-between bg-primary-50 p-3'>
+              <Body size='xs'>
+                Entdecken Sie unser breites Spektrum an Produkten und
+                Dienstleistungen für Reparatur und Werterhaltung von
+                chirurgischen Instrumentarium. Erfahren Sie, wie wir Ihnen dabei
+                helfen, eine optimale Versorgung im medizinischen
+              </Body>
+              <UnstyledLink href='/news'>
+                <Title size='five' margin={false} className='hover:underline'>
+                  Alle Beiträge ansehen. →
+                </Title>
+              </UnstyledLink>
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </div>
   );
 };

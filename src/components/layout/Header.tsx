@@ -8,14 +8,29 @@ import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { VscCallOutgoing, VscMenu } from 'react-icons/vsc';
 
+import clsxm from '@/lib/clsxm';
+
+import { MegaMenuContext } from '@/components/helpers/MegaMenuContext';
 import { Container } from '@/components/layout/Container';
+import { MegaMenu } from '@/components/templates/MegaMenu';
 import { Logo } from '@/components/ui/Icons/logo';
 import ButtonLink from '@/components/ui/Links/ButtonLink';
-import { NavItem, ResponsiveNavItem } from '@/components/ui/Nav';
+import { NavItem, ResponsiveNavItem, SubItem } from '@/components/ui/Nav';
 
 export const Header = () => {
   const { t, ready } = useTranslation('common', { useSuspense: false });
   const [hamburgerMenuIsOpen, setHamburgerMenuIsOpen] = useState(false);
+  const [isMegaMenuVisible, setIsMegaMenuVisible] = useState(false);
+  const [subItems, setSubItems] = useState<SubItem[] | undefined>(undefined);
+
+  function getSubItems() {
+    const subItems = t('header.navigationItems', { returnObjects: true });
+    setSubItems(subItems[2].subItems);
+  }
+
+  useEffect(() => {
+    getSubItems();
+  }, [t]);
 
   useEffect(() => {
     const html = document.querySelector('html');
@@ -189,24 +204,44 @@ export const Header = () => {
 
   return (
     <>
-      <header className='sticky top-0 z-50 h-navigation-height bg-white'>
-        <div>
-          <Container>
-            <div className='relative flex h-navigation-height items-center'>
-              {/* Logo Section */}
-              <LogoSection />
-              {/* CTA Button / Menu Button */}
-              <MobileCtaToggle />
-              {/* Absolute positioned mobile menu with blur-mask */}
-              <MobileMenuOverlay />
-              {/* Desktop navigation list */}
-              <DesktopMenu />
-              {/* CTA Button */}
-              <DesktopCta />
-            </div>
-          </Container>
-        </div>
-      </header>
+      <MegaMenuContext.Provider
+        value={{
+          isMegaMenuVisible,
+          setIsMegaMenuVisible,
+          subItems: subItems || [],
+        }}
+      >
+        <header className='sticky top-0 z-50 h-navigation-height bg-white'>
+          <div>
+            <Container>
+              <div className='relative flex h-navigation-height items-center'>
+                {/* Logo Section */}
+                <LogoSection />
+                {/* CTA Button / Menu Button */}
+                <MobileCtaToggle />
+                {/* Absolute positioned mobile menu with blur-mask */}
+                <MobileMenuOverlay />
+                {/* Desktop navigation list */}
+                <DesktopMenu />
+                {/* CTA Button */}
+                <DesktopCta />
+              </div>
+            </Container>
+          </div>
+          <div
+            className={clsxm(
+              'transition-all duration-150 ease-in-out',
+              isMegaMenuVisible
+                ? 'translate-y-0 opacity-100'
+                : 'invisible translate-y-[-100%] opacity-0',
+            )}
+            onMouseEnter={() => setIsMegaMenuVisible(true)}
+            onMouseLeave={() => setIsMegaMenuVisible(false)}
+          >
+            <MegaMenu />
+          </div>
+        </header>
+      </MegaMenuContext.Provider>
     </>
   );
 };
