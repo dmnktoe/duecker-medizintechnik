@@ -1,15 +1,59 @@
 {
   "content": {
-    "table": {
-      "certificates": {
-        "label": "Zertifikate"
+    "downloads": [
+      {
+        "sectionTitle": "Zertifikate",
+        "items": [
+          {
+            "title": "EN ISO 13485:2016 + AC:2018 + A11:2021",
+            "files": [
+              {
+                "url": "https://cms.duecker-medizintechnik.de/uploads/Zertifikat_Nr_50277_21_00_DE_dacd3dcc59.PDF",
+                "title": "Zertifikat Nr. 50277-21-00_DE",
+                "size": "408kb",
+                "type": ".pdf"
+              },
+              {
+                "url": "https://cms.duecker-medizintechnik.de/uploads/Anlage_zu_17_05_Rev_0_Deutsch_7928c2f543.pdf",
+                "title": "Anlage zu 17-05, Rev. 0 _ Deutsch",
+                "size": "266kb",
+                "type": ".pdf"
+              }
+            ]
+          }
+        ]
       },
-      "instructions": {
-        "label": "Handhabungshinweise"
+      {
+        "sectionTitle": "Rechtliche Dokumente",
+        "items": [
+          {
+            "title": "Allgemeine Geschäftsbedingungen",
+            "files": [
+              {
+                "url": "https://cms.duecker-medizintechnik.de/uploads/AGB_Duecker_neu_79d6111ff4.docx",
+                "title": "AGB_Dücker_2024",
+                "size": "27kb",
+                "type": ".docx"
+              }
+            ]
+          },
+          {
+            "title": "Infektionsschutz",
+            "files": [
+              {
+                "url": "https://cms.duecker-medizintechnik.de/uploads/Infektionsschutz_e4e0f4a17d.doc",
+                "title": "Dekontaminationsbescheinigung",
+                "size": "62kb",
+                "type": ".doc"
+              }
+            ]
+          }
+        ]
       }
-    },
-    "text": "Hier finden Sie alle wichtigen Dokumente und Zertifikate zum Download.",
-    "title": "Downloads & Zertifikate"
+    ],
+    "text": "Unser Unternehmen legt größten Wert auf Qualität, Sicherheit und Zuverlässigkeit. Um dies sicherzustellen, erfüllen wir strenge internationale Normen und setzen auf kontinuierliche Verbesserungen in allen Bereichen unserer Arbeit. Unser Engagement für höchste Standards wird durch die folgenden Zertifikate bestätigt.",
+    "title": "Downloads & Zertifikate",
+    "textReveal": "Wir stehen für Transparenz und Sicherheit auf höchstem Niveau. Unsere zertifizierten Prozesse garantieren Qualität und stärken das Vertrauen unserer Kunden und Partner."
   },
   "meta": {
     "pageTitle": "Downloads",
