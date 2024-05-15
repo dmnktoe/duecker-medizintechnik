@@ -51,13 +51,12 @@ export const NewsSlider = ({ posts }: NewsSliderProps) => {
   const NewsSliderReadMore = () => {
     return (
       <div className='mt-16 text-center'>
-        <UnstyledLink
-          className='group inline-flex items-center border-b-2 border-black pb-2 font-medium'
-          href='/news'
-        >
-          <span className='mr-4'>{t('content.newsSlider.readMore')}</span>
+        <UnstyledLink href='/news' className='group inline-flex items-center'>
+          <Title size='five' margin={false} className='mr-4 hover:underline'>
+            {t('content.newsSlider.readMore')}
+          </Title>
           <span className='-rotate-45 transform transition duration-100 group-hover:rotate-0'>
-            <VscArrowRight size={15} />
+            <VscArrowRight size={24} />
           </span>
         </UnstyledLink>
       </div>
