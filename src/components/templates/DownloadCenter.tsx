@@ -9,7 +9,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/Accordion';
 import PrimaryLink from '@/components/ui/Links/PrimaryLink';
-import { Title } from '@/components/ui/Typography';
+import { Body, Title } from '@/components/ui/Typography';
 
 import { Download } from '@/interfaces/Download';
 
@@ -23,7 +23,7 @@ export const DownloadCenter = () => {
   );
 
   const FileTitle = ({ title }: { title: string }) => (
-    <Title renderAs='h3' size='five' margin={false}>
+    <Title renderAs='h3' size='five' margin={false} className='text-left'>
       {title}
     </Title>
   );
@@ -40,14 +40,19 @@ export const DownloadCenter = () => {
     type: string;
   }) => (
     <div className='w-full border-[1px] border-solid border-gray-100 p-4 text-dark'>
-      <div className='flex flex-row justify-between'>
-        <PrimaryLink className='text-base' href={url}>
-          {title}
-        </PrimaryLink>
+      <div className='flex flex-row justify-between gap-2'>
+        <Body margin={false}>
+          <PrimaryLink href={url}>{title}</PrimaryLink>
+        </Body>
         <div className='flex flex-row items-center gap-3'>
-          <span className='text-light text-sm'>
+          <Body
+            size='sm'
+            color='light'
+            margin={false}
+            className='whitespace-nowrap'
+          >
             {size}, {type.toUpperCase()}
-          </span>
+          </Body>
           <PrimaryLink className='text-base' href={url}>
             <VscCloudDownload className='h-6 w-6' />
           </PrimaryLink>
