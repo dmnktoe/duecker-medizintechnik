@@ -8,6 +8,7 @@ import { fetchAPI } from '@/lib/fetch-api';
 import { Container } from '@/components/layout/Container';
 import LanguagePicker from '@/components/templates/LanguagePicker';
 import { Logo } from '@/components/ui/Icons/logo';
+import { PrivacyChoiceIcon } from '@/components/ui/Icons/privacy';
 import UnstyledLink from '@/components/ui/Links/UnstyledLink';
 
 import { company } from '@/constant/company';
@@ -116,7 +117,10 @@ export const Footer = () => {
                             className='text-gray-700 transition hover:text-gray-700/75'
                             href={item.href}
                           >
-                            {item.title}
+                            {item.title}{' '}
+                            {item.href === '/cookie-richtlinie' && (
+                              <PrivacyChoiceIcon className='relative -top-0.5 ml-1 inline-block w-5' />
+                            )}
                           </UnstyledLink>
                         </li>
                       ))}
