@@ -35,7 +35,7 @@ const DownloadsPage = (
         src={heroImg}
         className='flex-1'
       />
-      <main className='py-16 lg:py-24'>
+      <main className='pt-16 lg:pt-24'>
         <Container>
           <div className='mx-auto mb-16 max-w-5xl'>
             <NextBreadcrumb
@@ -57,7 +57,7 @@ const DownloadsPage = (
             </div>
           </div>
         </Container>
-        <div className='z-10 flex min-h-[16rem] items-center justify-center'>
+        <div className='relative z-10 flex min-h-[16rem] w-full items-center justify-center bg-black'>
           <TextReveal text={t('content.textReveal')} />
         </div>
       </main>
