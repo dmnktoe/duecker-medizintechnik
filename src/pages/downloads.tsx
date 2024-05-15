@@ -2,20 +2,17 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React from 'react';
-import { VscArrowRight, VscCloudDownload } from 'react-icons/vsc';
+import { VscArrowRight } from 'react-icons/vsc';
 
 import Seo from '@/components/helpers/Seo';
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
+import { DownloadCenter } from '@/components/templates/DownloadCenter';
+import { DownloadText } from '@/components/templates/DownloadText';
 import ImageBanner from '@/components/templates/ImageBanner/ImageBanner';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/Accordion';
+import TextReveal from '@/components/templates/TextReveal';
 import NextBreadcrumb from '@/components/ui/Breadcrumb';
-import PrimaryLink from '@/components/ui/Links/PrimaryLink';
+import { Body } from '@/components/ui/Typography';
 import { Title } from '@/components/ui/Typography/Title';
 
 import heroImg from '/public/images/downloads/duecker-medizintechnik_downloads_hero-bg.webp';
@@ -53,120 +50,16 @@ const DownloadsPage = (
               className='mb-6'
             />
             <Title>{t('content.title')}</Title>
-            <p>{t('content.text')}</p>
-            <hr className='my-12' />
-            <div className='mb-12 flex flex-col'>
-              <Title
-                renderAs='h2'
-                size='three'
-                margin={false}
-                className='mb-2 text-primary-500'
-              >
-                {t('content.table.certificates.label')}
-              </Title>
-              <Accordion type='single'>
-                <AccordionItem value='item-1'>
-                  <AccordionTrigger className='bg-gray-100 px-4 text-2xl'>
-                    EN ISO 13485:2016
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <div className='mt-4 flex flex-col gap-2'>
-                      <div className='w-full border-[1px] border-solid border-gray-100 p-4 text-dark'>
-                        <div className='flex flex-row justify-between'>
-                          <PrimaryLink
-                            className='text-base'
-                            href='/downloads/EN_ISO_13485_2016.pdf'
-                          >
-                            EN ISO 13485:2016
-                          </PrimaryLink>
-                          <div className='flex flex-row items-center gap-3'>
-                            <span className='text-light text-sm'>
-                              pdf, 778.99 KB
-                            </span>
-                            <PrimaryLink
-                              className='text-base'
-                              href='/downloads/EN_ISO_13485_2016.pdf'
-                            >
-                              <VscCloudDownload className='h-6 w-6' />
-                            </PrimaryLink>
-                          </div>
-                        </div>
-                      </div>
-                      <div className='w-full border-[1px] border-solid border-gray-100 p-4 text-dark'>
-                        <PrimaryLink
-                          className='text-base'
-                          href='/downloads/EN_ISO_13485_2016.pdf'
-                        >
-                          EN ISO 13485:2016
-                        </PrimaryLink>
-                      </div>
-                      <div className='w-full border-[1px] border-solid border-gray-100 p-4 text-dark'>
-                        <PrimaryLink
-                          className='text-base'
-                          href='/downloads/EN_ISO_13485_2016.pdf'
-                        >
-                          EN ISO 13485:2016
-                        </PrimaryLink>
-                      </div>
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value='item-2'>
-                  <AccordionTrigger className='bg-gray-100 px-4 text-2xl'>
-                    93/42/EWG
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    Yes. It adheres to the WAI-ARIA design pattern.
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value='item-3'>
-                  <AccordionTrigger className='bg-gray-100 px-4 text-2xl'>
-                    Ökostrom
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    Yes. It adheres to the WAI-ARIA design pattern.
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-            </div>
-            <div className='mb-12 flex flex-col'>
-              <Title
-                renderAs='h2'
-                size='three'
-                margin={false}
-                className='mb-2 text-primary-500'
-              >
-                {t('content.table.instructions.label')}
-              </Title>
-              <Accordion type='single'>
-                <AccordionItem value='item-1'>
-                  <AccordionTrigger className='bg-gray-100 px-4 text-2xl'>
-                    EN ISO 13485:2016
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    Yes. It adheres to the WAI-ARIA design pattern.
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value='item-2'>
-                  <AccordionTrigger className='bg-gray-100 px-4 text-2xl'>
-                    93/42/EWG
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    Yes. It adheres to the WAI-ARIA design pattern.
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value='item-3'>
-                  <AccordionTrigger className='bg-gray-100 px-4 text-2xl'>
-                    Ökostrom
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    Yes. It adheres to the WAI-ARIA design pattern.
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
+            <Body>{t('content.text')}</Body>
+            <div className='mt-12 flex flex-col gap-12'>
+              <DownloadText />
+              <DownloadCenter />
             </div>
           </div>
         </Container>
+        <div className='z-10 flex min-h-[16rem] items-center justify-center'>
+          <TextReveal text={t('content.textReveal')} />
+        </div>
       </main>
     </Layout>
   );
