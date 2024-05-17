@@ -69,12 +69,6 @@
   }
   /* #endregion  /**======== Typography =========== */
 
-  .cursor-newtab {
-    cursor:
-      url('/images/new-tab.png') 10 10,
-      pointer;
-  }
-
   .swiper {
     overflow: visible !important;
   }
@@ -124,14 +118,6 @@
     transform: rotate(-90deg);
   }
 
-  .privacy__content a {
-    overflow-wrap: anywhere;
-  }
-
-  .news__content p {
-    @apply mb-8;
-  }
-
   .privacy__content,
   .imprint__content,
   .news__content {
@@ -164,12 +150,12 @@
       padding-left: 15px;
     }
     & li {
-      @apply mb-2;
+      @apply mb-2 text-sm md:text-base;
     }
   }
 
   .news__content a {
-    @apply text-primary-600;
+    @apply underline hover:text-primary-500;
   }
 
   .layout {
@@ -178,48 +164,8 @@
     @apply mx-auto w-11/12;
   }
 
-  .bg-dark a.custom-link {
-    @apply border-gray-200 hover:border-gray-200/0;
-  }
-
   /* Class to adjust with sticky footer */
   .min-h-main {
     @apply min-h-[calc(100vh-56px)];
-  }
-}
-
-ul,
-li {
-  @apply text-sm md:text-base;
-}
-
-@layer utilities {
-  .animated-underline {
-    background-image: linear-gradient(#33333300, #33333300),
-      linear-gradient(
-        to right,
-        var(--color-primary-400),
-        var(--color-primary-500)
-      );
-    background-size:
-      100% 2px,
-      0 2px;
-    background-position:
-      100% 100%,
-      0 100%;
-    background-repeat: no-repeat;
-  }
-  @media (prefers-reduced-motion: no-preference) {
-    .animated-underline {
-      transition: 0.3s ease;
-      transition-property: background-size, color, background-color,
-        border-color;
-    }
-  }
-  .animated-underline:hover,
-  .animated-underline:focus-visible {
-    background-size:
-      0 2px,
-      100% 2px;
   }
 }
