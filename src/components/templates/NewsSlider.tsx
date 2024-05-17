@@ -8,7 +8,7 @@ import 'swiper/css';
 import { Container } from '@/components/layout/Container';
 import NewsCard from '@/components/templates/NewsCard';
 import SliderButton from '@/components/ui/Buttons/SliderButton';
-import UnstyledLink from '@/components/ui/Links/UnstyledLink';
+import UnderlineLink from '@/components/ui/Links/UnderlineLink';
 import { Title } from '@/components/ui/Typography';
 
 import { Data } from '@/interfaces/Data';
@@ -51,14 +51,18 @@ export const NewsSlider = ({ posts }: NewsSliderProps) => {
   const NewsSliderReadMore = () => {
     return (
       <div className='mt-16 text-center'>
-        <UnstyledLink href='/news' className='group inline-flex items-center'>
+        <UnderlineLink
+          underline='hover'
+          href='/news'
+          className='group inline-flex items-center'
+        >
           <Title size='five' margin={false} className='mr-4 hover:underline'>
             {t('content.newsSlider.readMore')}
           </Title>
           <span className='-rotate-45 transform transition duration-100 group-hover:rotate-0'>
             <VscArrowRight size={24} />
           </span>
-        </UnstyledLink>
+        </UnderlineLink>
       </div>
     );
   };

@@ -13,7 +13,7 @@ type UnderlineLinkProps = UnstyledLinkProps & {
 const UnderlineLink = React.forwardRef<HTMLAnchorElement, UnderlineLinkProps>(
   ({ children, className, underline = 'always', ...rest }, ref) => {
     const underlineClasses = {
-      always: 'underline hover:text-primary-500',
+      always: 'underline hover:no-underline',
       hover: 'hover:underline',
     };
 
@@ -22,7 +22,7 @@ const UnderlineLink = React.forwardRef<HTMLAnchorElement, UnderlineLinkProps>(
         ref={ref}
         {...rest}
         className={clsxm(
-          'focus:outline-dashed focus-visible:rounded-none focus-visible:ring-1 focus-visible:ring-primary-500 focus-visible:ring-offset-2',
+          'focus:outline-dashed focus:outline-1 focus:outline-offset-2 focus-visible:outline-dashed focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-dark',
           underlineClasses[underline],
           className,
         )}
