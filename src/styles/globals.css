@@ -124,9 +124,11 @@
     transform: rotate(-90deg);
   }
 
-  .news__content p,
-  .privacy__content p,
-  .imprint__content p {
+  .privacy__content a {
+    overflow-wrap: anywhere;
+  }
+
+  .news__content p {
     @apply mb-8;
   }
 
@@ -135,7 +137,7 @@
   .news__content {
     & p,
     & ul {
-      @apply mb-8;
+      @apply mb-4;
     }
     & p:last-child,
     & ul:last-child {
@@ -162,7 +164,7 @@
       padding-left: 15px;
     }
     & li {
-      padding: 0 0 10px 15px;
+      @apply mb-2;
     }
   }
 
@@ -184,6 +186,11 @@
   .min-h-main {
     @apply min-h-[calc(100vh-56px)];
   }
+}
+
+ul,
+li {
+  @apply text-sm md:text-base;
 }
 
 @layer utilities {
