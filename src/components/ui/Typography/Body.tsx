@@ -3,19 +3,21 @@ import React from 'react';
 import clsxm from '@/lib/clsxm';
 
 type BodyProps = {
-  size?: 'xs' | 'sm' | 'base' | 'lg';
-  color?: 'default' | 'light';
-  className?: string;
   children: React.ReactNode;
+  className?: string;
+  color?: 'default' | 'light';
+  isStrong?: boolean;
   margin?: boolean;
+  size?: 'xs' | 'sm' | 'base' | 'lg';
 };
 
 export const Body = ({
-  size = 'base',
-  color = 'default',
-  className,
   children,
+  className,
+  color = 'default',
+  isStrong = false,
   margin = true,
+  size = 'base',
 }: BodyProps) => {
   const sizeClasses = {
     xs: 'text-xs',
@@ -32,11 +34,10 @@ export const Body = ({
   return (
     <p
       className={clsxm(
-        {
-          'mb-4': margin,
-        },
         sizeClasses[size],
         colorClasses[color],
+        isStrong && 'font-semibold',
+        margin && 'mb-4',
         className,
       )}
     >

@@ -77,7 +77,7 @@ const NewsCard = ({ post, orientation }: CardProps) => {
   return (
     <div className='w-full'>
       <UnstyledLink
-        className='group block'
+        className='group block focus:outline-dashed focus:outline-1 focus:outline-offset-4 focus:outline-dark'
         href={'/news/' + post.attributes.slug}
       >
         <div

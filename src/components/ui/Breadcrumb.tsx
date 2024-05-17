@@ -1,10 +1,11 @@
 'use client';
 
 import clsx from 'clsx';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslation } from 'next-i18next';
 import React, { ReactNode } from 'react';
+
+import UnderlineLink from '@/components/ui/Links/UnderlineLink';
 
 type TBreadCrumbProps = {
   homeElement: ReactNode;
@@ -34,7 +35,9 @@ const NextBreadcrumb = ({
     <div className={clsx('flex', className)}>
       <ul className={containerClasses}>
         <li className={listClasses}>
-          <Link href='/'>{t('breadcrumb.home')}</Link>
+          <UnderlineLink underline='hover' href='/'>
+            {t('breadcrumb.home')}
+          </UnderlineLink>
         </li>
         {pathNames.length > 0 && separator}
         {pathNames.map((link, index) => {
@@ -47,9 +50,13 @@ const NextBreadcrumb = ({
           return (
             <React.Fragment key={index}>
               <li className={itemClasses}>
-                <Link className='line-clamp-1' href={href}>
+                <UnderlineLink
+                  underline='hover'
+                  className='line-clamp-1'
+                  href={href}
+                >
                   {itemLink}
-                </Link>
+                </UnderlineLink>
               </li>
               {pathNames.length !== index + 1 && separator}
             </React.Fragment>

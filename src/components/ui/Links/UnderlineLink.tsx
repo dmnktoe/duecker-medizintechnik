@@ -6,16 +6,24 @@ import UnstyledLink, {
   UnstyledLinkProps,
 } from '@/components/ui/Links/UnstyledLink';
 
-const UnderlineLink = React.forwardRef<HTMLAnchorElement, UnstyledLinkProps>(
-  ({ children, className, ...rest }, ref) => {
+type UnderlineLinkProps = UnstyledLinkProps & {
+  underline?: 'always' | 'hover';
+};
+
+const UnderlineLink = React.forwardRef<HTMLAnchorElement, UnderlineLinkProps>(
+  ({ children, className, underline = 'always', ...rest }, ref) => {
+    const underlineClasses = {
+      always: 'underline hover:no-underline',
+      hover: 'hover:underline',
+    };
+
     return (
       <UnstyledLink
         ref={ref}
         {...rest}
         className={clsxm(
-          'animated-underline custom-link inline-flex items-center',
-          'focus:outline-none focus-visible:rounded focus-visible:ring focus-visible:ring-primary-500 focus-visible:ring-offset-2',
-          'border-b border-solid border-dark hover:border-black/0',
+          'focus:outline-dashed focus:outline-1 focus:outline-offset-2 focus-visible:outline-dashed focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-dark',
+          underlineClasses[underline],
           className,
         )}
       >

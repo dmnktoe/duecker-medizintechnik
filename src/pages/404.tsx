@@ -5,7 +5,7 @@ import * as React from 'react';
 
 import Seo from '@/components/helpers/Seo';
 import Layout from '@/components/layout/Layout';
-import UnstyledLink from '@/components/ui/Links/UnstyledLink';
+import ArrowLink from '@/components/ui/Links/ArrowLink';
 import { Title } from '@/components/ui/Typography';
 
 const NotFoundPage = (
@@ -28,9 +28,14 @@ const NotFoundPage = (
             <Title className='text-white'>
               {t('content.pageNotFound') + '.'}
             </Title>
-            <UnstyledLink className='mt-12 hover:underline md:text-lg' href='/'>
+            <ArrowLink
+              direction='left'
+              underline='hover'
+              className='mt-12 md:text-lg'
+              href='/'
+            >
               {t('content.returnToHome')}
-            </UnstyledLink>
+            </ArrowLink>
           </div>
         </section>
       </main>
