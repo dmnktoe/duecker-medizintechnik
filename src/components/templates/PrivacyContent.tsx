@@ -220,12 +220,8 @@ export default function PrivacyContent() {
               <Title renderAs='h4' size='five'>
                 6. Verarbeitung personenbezogener Daten
               </Title>
-              <Body>
-                <strong>6.1. Besuch unserer Website</strong>
-              </Body>
-              <Body>
-                <strong>6.1.1. Umfang der Datenverarbeitung</strong>
-              </Body>
+              <Body>6.1. Besuch unserer Website</Body>
+              <Body>6.1.1. Umfang der Datenverarbeitung</Body>
               <Body>
                 Wenn Sie unsere Website besuchen, überträgt Ihr Browser auch
                 technischen Gründen bestimmte Daten an unseren Webserver. Dabei
@@ -243,26 +239,20 @@ export default function PrivacyContent() {
                 <li>Website, von der die Anforderung kommt („Referrer-URL“)</li>
                 <li>Browser, Sprache und Version der Browsersoftware</li>
               </ul>
-              <Body>
-                <strong>6.1.2. Zweck der Datenverarbeitung</strong>
-              </Body>
+              <Body>6.1.2. Zweck der Datenverarbeitung</Body>
               <Body>
                 Die Speicherung dieser Daten in Logfiles ist notwendig, um die
                 Funktionsfähigkeit der Website sicherzustellen. Sie dienen uns
                 zur Optimierung der Website und zur Sicherstellung der
                 Sicherheit unserer informationstechnischen Systeme.
               </Body>
-              <Body>
-                <strong>6.1.3. Rechtsgrundlage der Verarbeitung</strong>
-              </Body>
+              <Body>6.1.3. Rechtsgrundlage der Verarbeitung</Body>
               <Body>
                 Diese Daten erheben wir auf Grundlage unseres berechtigten
                 Interesses im Sinne des Art. 6 Abs. 1 lit. f) DSGVO, um unsere
                 Website anzeigen zu können und ihre Sicherheit zu gewährleisten.
               </Body>
-              <Body>
-                <strong>6.1.4. Dauer der Speicherung</strong>
-              </Body>
+              <Body>6.1.4. Dauer der Speicherung</Body>
               <Body>
                 Informationen in den Logfiles werden aus Sicherheitsgründen
                 (z.B. zur Aufklärung von Missbrauchs- oder Betrugshandlungen)
@@ -271,23 +261,15 @@ export default function PrivacyContent() {
                 erforderlich ist, sind bis zur endgültigen Klärung des
                 jeweiligen Vorfalls von der Löschung ausgenommen.
               </Body>
-              <Body>
-                <strong>
-                  6.1.5. Widerspruchs- und Beseitigungsmöglichkeit
-                </strong>
-              </Body>
+              <Body>6.1.5. Widerspruchs- und Beseitigungsmöglichkeit</Body>
               <Body>
                 Die Erfassung der Daten zur Bereitstellung der Website und ihre
                 Speicherung in Logfiles ist für den Betrieb aus technischen
                 Gründen zwingend erforderlich. Es besteht folglich seitens des
                 Nutzers keine Widerspruchsmöglichkeit.
               </Body>
-              <Body>
-                <strong>6.2. Kontaktformular und E-Mail-Kontakt</strong>
-              </Body>
-              <Body>
-                <strong>6.2.1. Umfang der Datenverarbeitung</strong>
-              </Body>
+              <Body>6.2. Kontaktformular und E-Mail-Kontakt</Body>
+              <Body>6.2.1. Umfang der Datenverarbeitung</Body>
               <Body>
                 Wenn Sie das Kontaktformular auf unserer Website benutzen,
                 werden folgende Daten an uns übermittelt: Ihr Name*, Ihre
@@ -305,9 +287,7 @@ export default function PrivacyContent() {
                 Dritte. Die Daten werden ausschließlich für die Verarbeitung der
                 Konversation und zur Bearbeitung des Anliegens verwendet.
               </Body>
-              <Body>
-                <strong>6.2.2. Zweck der Datenverarbeitung</strong>
-              </Body>
+              <Body>6.2.2. Zweck der Datenverarbeitung</Body>
               <Body>
                 Die Verarbeitung der personenbezogenen Daten aus der
                 Eingabemaske dient uns zur Bearbeitung der Kontaktaufnahme. Im
@@ -319,18 +299,14 @@ export default function PrivacyContent() {
                 die Sicherheit unserer informationstechnischen Systeme
                 sicherzustellen.
               </Body>
-              <Body>
-                <strong>6.2.3. Rechtsgrundlage der Verarbeitung</strong>
-              </Body>
+              <Body>6.2.3. Rechtsgrundlage der Verarbeitung</Body>
               <Body>
                 Bei der Kontaktaufnahme mit uns (per Kontaktformular oder
                 E-Mail) werden die Angaben des Nutzers zur Bearbeitung der
                 Kontaktanfrage und deren Abwicklung gem. Art. 6 Abs. 1 lit. b)
                 DSGVO verarbeitet.
               </Body>
-              <Body>
-                <strong>6.2.4. Dauer der Speicherung</strong>
-              </Body>
+              <Body>6.2.4. Dauer der Speicherung</Body>
               <Body>
                 Wir löschen personenbezogene Daten, wenn sie für die Erreichung
                 des Zweckes ihrer Erhebung nicht mehr erforderlich sind. Für die
@@ -342,11 +318,7 @@ export default function PrivacyContent() {
                 Sachverhalt oder das Informationsbegehren abschließend geklärt
                 ist.
               </Body>
-              <Body>
-                <strong>
-                  6.2.5. Widerspruchs- und Beseitigungsmöglichkeit
-                </strong>
-              </Body>
+              <Body>6.2.5. Widerspruchs- und Beseitigungsmöglichkeit</Body>
               <Body>
                 Sie haben jederzeit die Möglichkeit, Ihre Einwilligung zur
                 Verarbeitung der personenbezogenen Daten zu widerrufen.
@@ -364,14 +336,10 @@ export default function PrivacyContent() {
                 gespeichert wurden, werden dann gelöscht.
               </Body>
               <Body>
-                <strong>
-                  6.3. Vertragliche Leistungen für Gesundheitsvorsorge,
-                  therapeutische Dienstleistungen und Coaching
-                </strong>
+                6.3. Vertragliche Leistungen für Gesundheitsvorsorge,
+                therapeutische Dienstleistungen und Coaching
               </Body>
-              <Body>
-                <strong>6.3.1. Umfang der Datenverarbeitung</strong>
-              </Body>
+              <Body>6.3.1. Umfang der Datenverarbeitung</Body>
               <Body>
                 Wir verarbeiten die Daten unserer Patienten und Interessenten
                 sowie anderer Auftraggeber oder Vertragspartner entsprechend
@@ -405,9 +373,7 @@ export default function PrivacyContent() {
                 unternehmensbezogenen Daten, speichern wir grundsätzlich
                 dauerhaft.
               </Body>
-              <Body>
-                <strong>6.3.2. Zweck der Datenverarbeitung</strong>
-              </Body>
+              <Body>6.3.2. Zweck der Datenverarbeitung</Body>
               <Body>
                 Sofern für die Vertragserfüllung oder gesetzlich erforderlich,
                 offenbaren oder übermitteln wir die Daten der Patienten im
@@ -425,17 +391,13 @@ export default function PrivacyContent() {
                 im Rahmen einer Einwilligung gem. Art. 6 Abs. 1 lit. a., Art. 7
                 DSGVO.
               </Body>
-              <Body>
-                <strong>6.3.3. Rechtsgrundlage der Verarbeitung</strong>
-              </Body>
+              <Body>6.3.3. Rechtsgrundlage der Verarbeitung</Body>
               <Body>
                 Diese Daten verarbeiten wir zur Durchführung vertraglicher
                 Dienstleistungen. Rechtsgrundlage hierfür ist Art. 6 Abs. 1 lit.
                 b. DSGVO.
               </Body>
-              <Body>
-                <strong>6.3.4. Dauer der Speicherung</strong>
-              </Body>
+              <Body>6.3.4. Dauer der Speicherung</Body>
               <Body>
                 Die bei uns gespeicherten Daten werden gelöscht, sobald sie für
                 ihre Zweckbestimmung nicht mehr erforderlich sind und der
@@ -450,23 +412,15 @@ export default function PrivacyContent() {
                 Erforderlichkeit der Aufbewahrung der Daten wird alle drei Jahre
                 überprüft.
               </Body>
-              <Body>
-                <strong>
-                  6.3.5. Widerspruchs- und Beseitigungsmöglichkeit
-                </strong>
-              </Body>
+              <Body>6.3.5. Widerspruchs- und Beseitigungsmöglichkeit</Body>
               <Body>
                 Die im Zusammenhang mit einer Bestellung verarbeiteten Daten
                 unterliegen handels- und steuerrechtlichen
                 Aufbewahrungspflichten. Es besteht folglich Seitens des Nutzers
                 keine Widerspruchsmöglichkeit.
               </Body>
-              <Body>
-                <strong>6.4. Bewerbungen</strong>
-              </Body>
-              <Body>
-                <strong>6.4.1. Umfang der Datenverarbeitung</strong>
-              </Body>
+              <Body>6.4. Bewerbungen</Body>
+              <Body>6.4.1. Umfang der Datenverarbeitung</Body>
               <Body>
                 Wenn Sie an einer Mitarbeit in unserem Unternehmen interessiert
                 sind, können Sie sich bei uns online bewerben. Unter dem
@@ -476,18 +430,14 @@ export default function PrivacyContent() {
                 die Sie uns übermittelt haben, zur Durchführung des
                 Bewerbungsverfahrens.
               </Body>
-              <Body>
-                <strong>6.4.2. Zweck der Datenverarbeitung</strong>
-              </Body>
+              <Body>6.4.2. Zweck der Datenverarbeitung</Body>
               <Body>
                 Wir verarbeiten die Daten, die Sie uns im Zusammenhang mit Ihrer
                 Bewerbung zugesendet haben, um Ihre Eignung für die Stelle (oder
                 ggf. andere offene Positionen in unseren Unternehmen) zu prüfen
                 und das Bewerbungsverfahren durchzuführen.
               </Body>
-              <Body>
-                <strong>6.4.3. Rechtsgrundlage der Verarbeitung</strong>
-              </Body>
+              <Body>6.4.3. Rechtsgrundlage der Verarbeitung</Body>
               <Body>
                 Rechtsgrundlage ist § 26 Abs. 1 BDSG-neu. Danach ist die
                 Verarbeitung der Daten zulässig, die im Zusammenhang mit der
@@ -500,9 +450,7 @@ export default function PrivacyContent() {
                 f) DSGVO erfolgen. Unser Interesse besteht dann in der
                 Geltendmachung oder Abwehr von Ansprüchen
               </Body>
-              <Body>
-                <strong>6.4.4. Empfänger der Datenverarbeitung</strong>
-              </Body>
+              <Body>6.4.4. Empfänger der Datenverarbeitung</Body>
               <Body>
                 Ihre Bewerberdaten werden nach Eingang Ihrer Bewerbung von der
                 Personalabteilung gesichtet. Geeignete Bewerbungen werden dann
@@ -512,9 +460,7 @@ export default function PrivacyContent() {
                 Zugriff auf Ihre Daten, die dies für den ordnungsgemäßen Ablauf
                 unseres Bewerbungsverfahrens benötigen.
               </Body>
-              <Body>
-                <strong>6.4.5. Dauer der Speicherung</strong>
-              </Body>
+              <Body>6.4.5. Dauer der Speicherung</Body>
               <Body>
                 Wenn die Bewerbung zu einem Beschäftigungsverhältnis führt,
                 verarbeiten wir diese Daten für die Durchführung eines
@@ -530,11 +476,7 @@ export default function PrivacyContent() {
                 seiner personenbezogenen Daten erteilt, um ggf. bei neuen
                 Stellenangeboten berücksichtigt werden zu können.
               </Body>
-              <Body>
-                <strong>
-                  6.4.6. Widerspruchs- und Beseitigungsmöglichkeit
-                </strong>
-              </Body>
+              <Body>6.4.6. Widerspruchs- und Beseitigungsmöglichkeit</Body>
               <Body>
                 Die von Ihnen an uns übermittelten Informationen können Sie
                 jederzeit auf Anfrage erneuern oder löschen lassen. Hierfür
@@ -548,12 +490,8 @@ export default function PrivacyContent() {
                 Position angegebenen Informationen bis zum Ablauf der
                 gesetzlichen Klagefristen (insbes. § 15 AGG).
               </Body>
-              <Body>
-                <strong>6.5. Cookies</strong>
-              </Body>
-              <Body>
-                <strong>6.5.1. Umfang der Datenverarbeitung</strong>
-              </Body>
+              <Body>6.5. Cookies</Body>
+              <Body>6.5.1. Umfang der Datenverarbeitung</Body>
               <Body>
                 Unsere Website verwendet Cookies. Cookies sind kleine
                 Textdateien, die beim Aufruf unserer Webseite auf Ihrem Rechner
@@ -592,9 +530,7 @@ export default function PrivacyContent() {
                 unterscheiden kann. Sie können die Cookies in den
                 Sicherheitseinstellungen Ihres Browsers jederzeit löschen.
               </Body>
-              <Body>
-                <strong>6.5.2. Zweck der Datenverarbeitung</strong>
-              </Body>
+              <Body>6.5.2. Zweck der Datenverarbeitung</Body>
               <Body>
                 Wir verwenden Cookies um unsere Website attraktiv und
                 nutzerfreundlich zu gestalten, sie zu verbessern und Anfragen zu
@@ -606,17 +542,13 @@ export default function PrivacyContent() {
                 werden kann. Für diese ist es erforderlich, dass der Browser
                 auch nach einem Seitenwechsel wiedererkannt wird.
               </Body>
-              <Body>
-                <strong>6.5.3. Rechtsgrundlage der Datenverarbeitung</strong>
-              </Body>
+              <Body>6.5.3. Rechtsgrundlage der Datenverarbeitung</Body>
               <Body>
                 Die Rechtsgrundlage für die Verarbeitung personenbezogener Daten
                 unter Verwendung der technisch notwendigen Cookies ist Art. 6
                 Abs. 1 lit. f DSGVO.
               </Body>
-              <Body>
-                <strong>6.5.4. Dauer der Speicherung</strong>
-              </Body>
+              <Body>6.5.4. Dauer der Speicherung</Body>
               <Body>
                 Session-Cookies werden gelöscht, sobald der Browser geschlossen
                 wird.
@@ -625,11 +557,7 @@ export default function PrivacyContent() {
                 Persistente Cookies werden automatisiert nach einer vorgegebenen
                 Dauer gelöscht.
               </Body>
-              <Body>
-                <strong>
-                  6.5.5. Widerspruchs- und Beseitigungsmöglichkeit
-                </strong>
-              </Body>
+              <Body>6.5.5. Widerspruchs- und Beseitigungsmöglichkeit</Body>
               <Body>
                 Sie haben als Nutzer die volle Kontrolle über die Verwendung von
                 Cookies. Durch eine Änderung der Einstellungen in Ihrem
@@ -650,12 +578,8 @@ export default function PrivacyContent() {
                 gegebenenfalls nicht sämtliche Funktionen unserer Webseite
                 nutzen können.
               </Body>
-              <Body>
-                <strong>6.6. Webanalyse</strong>
-              </Body>
-              <Body>
-                <strong>6.6.1. Umfang der Datenverarbeitung</strong>
-              </Body>
+              <Body>6.6. Webanalyse</Body>
+              <Body>6.6.1. Umfang der Datenverarbeitung</Body>
               <Body>
                 Wir verwenden auf unserer Website Google Analytics, einen
                 Webanalysedienst der Google Inc., 1600 Amphitheatre Parkway,
@@ -691,9 +615,7 @@ export default function PrivacyContent() {
                 zertifiziert, das für Daten bei Google in den USA ein
                 angemessenes Datenschutzniveau gewährleistet.
               </Body>
-              <Body>
-                <strong>6.6.2. Zweck der Datenverarbeitung</strong>
-              </Body>
+              <Body>6.6.2. Zweck der Datenverarbeitung</Body>
               <Body>
                 In unserem Auftrag benutzt Google diese Informationen, um die
                 Nutzung unserer Website auszuwerten und um Reports über die
@@ -701,28 +623,20 @@ export default function PrivacyContent() {
                 ermöglicht uns Ihre Online-Erfahrung besser zu gestalten und die
                 Nutzerfreundlichkeit unserer Website zu erhöhen.
               </Body>
-              <Body>
-                <strong>6.6.3. Rechtsgrundlage der Verarbeitung</strong>
-              </Body>
+              <Body>6.6.3. Rechtsgrundlage der Verarbeitung</Body>
               <Body>
                 In den oben genannten Zwecken liegt unser berechtigtes Interesse
                 an der Datenverarbeitung durch Google Analytics. Rechtsgrundlage
                 ist Art. 6 Abs. 1 lit. f DSGVO.
               </Body>
-              <Body>
-                <strong>6.6.4. Dauer der Speicherung</strong>
-              </Body>
+              <Body>6.6.4. Dauer der Speicherung</Body>
               <Body>
                 Sitzungen und Kampagnen werden nach Ablauf einer bestimmten
                 Zeitspanne beendet. Standardmäßig werden Sitzungen nach 30
                 Minuten ohne Aktivität und Kampagnen nach sechs Monaten beendet.
                 Das Zeitlimit für Kampagnen kann maximal zwei Jahre betragen.
               </Body>
-              <Body>
-                <strong>
-                  6.6.5. Widerspruchs- und Beseitigungsmöglichkeit
-                </strong>
-              </Body>
+              <Body>6.6.5. Widerspruchs- und Beseitigungsmöglichkeit</Body>
               <Body>
                 Die von Ihrem Browser übermittelte IP-Adresse wird nicht mit
                 anderen Daten von Google zusammengeführt. Sie können der
