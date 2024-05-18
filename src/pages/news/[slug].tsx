@@ -4,6 +4,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React from 'react';
 
 import { fetchAPI } from '@/lib/fetch-api';
+import { formatDate } from '@/lib/helper';
 
 import Seo from '@/components/helpers/Seo';
 import { Container } from '@/components/layout/Container';
@@ -68,7 +69,12 @@ const PostPage = (props: PostPageProps) => {
 
   return (
     <Layout>
-      <Seo title={post.attributes.title} />
+      <Seo
+        date={formatDate(post.attributes.publishedAt)}
+        description={post.attributes.excerpt}
+        image={post.attributes.image.data?.attributes.url}
+        templateTitle={post.attributes.title}
+      />
       <BackToNewsButton />
       <NewsArticle post={post} />
     </Layout>
