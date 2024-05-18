@@ -10,9 +10,10 @@ import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
+import clsxm from '@/lib/clsxm';
+
 import { Container } from '@/components/layout/Container';
 import ButtonLink from '@/components/ui/Links/ButtonLink';
-import UnstyledLink from '@/components/ui/Links/UnstyledLink';
 import { Body, Title } from '@/components/ui/Typography';
 
 import { partners } from '@/constant/partners';
@@ -51,9 +52,7 @@ const HeroText = () => {
   return (
     <div className='text-left'>
       <Title>{t('content.hero.title')}</Title>
-      <Body size='lg' className='mt-6'>
-        {t('content.hero.text')}
-      </Body>
+      <Body size='lg'>{t('content.hero.text')}</Body>
       <div className='mt-10 flex items-center justify-start gap-x-3'>
         <ButtonLink variant='primary' size='sm' href='/leistungen'>
           {t('content.hero.buttons.primary.label')}
@@ -83,6 +82,8 @@ const HeroSlider = () => {
     }
   };
 
+  const { t } = useTranslation('home');
+
   const HeroDecorators = () => {
     const positions = [
       ['-top-2 left-0', 'md:h-12 md:w-12'],
@@ -107,14 +108,13 @@ const HeroSlider = () => {
 
   const HeroBadge = () => {
     return (
-      <div className='absolute -bottom-3 -right-3 z-40 w-5/6 bg-primary-500/95 p-6 font-secondary text-sm tracking-tight text-white md:-bottom-4 md:-right-4 md:text-base'>
-        Ihr{' '}
-        <UnstyledLink className='font-secondary underline' href='/unternehmen'>
-          {' '}
-          Ansprechpartner
-        </UnstyledLink>{' '}
-        für Handelsvermittlung von pharmazeutischen Erzeugnissen, medizinischen
-        und orthopädischen Artikeln und Laborbedarf.
+      <div
+        className={clsxm(
+          'absolute -bottom-3 -right-3 z-40 w-5/6 md:-bottom-4 md:-right-4',
+          'bg-primary-500/95 p-6 font-secondary text-sm tracking-tight text-white md:text-base',
+        )}
+      >
+        {t('content.hero.badge')}
       </div>
     );
   };
@@ -185,6 +185,8 @@ const HeroSlider = () => {
 };
 
 const HeroPartnersSection = () => {
+  const { t } = useTranslation('home');
+
   const PartnerLogos = () => {
     return (
       <div className='flex flex-wrap gap-8 text-dark'>
@@ -208,8 +210,7 @@ const HeroPartnersSection = () => {
   return (
     <>
       <div className='mx-auto mb-8 text-center font-secondary text-xs text-neutral-400 lg:w-1/3'>
-        Mit unseren Vertriebspartnern in Europa und den USA sind wir in der
-        Lage, unsere Produkte weltweit zu vertreiben:
+        {t('content.hero.partners')}
       </div>
       <div className='mx-auto md:w-10/12 lg:w-8/12'>
         <PartnerLogos />

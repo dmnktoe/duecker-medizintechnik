@@ -1,14 +1,12 @@
 {
-  "_meta": {
+  "content": {
+    "title": ""
+  },
+  "meta": {
     "pageTitle": "",
     "seo": {
       "description": "",
       "title": ""
     }
-  },
-  "content": {
-    "text1": "",
-    "text2": "",
-    "title": ""
   }
 }

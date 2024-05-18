@@ -12,9 +12,6 @@
       },
       {
         "title": "Medical expertise in an international environment"
-      },
-      {
-        "title": "Get a quote within 24 hours"
       }
     ],
     "buttonLink": "/kontakt",
@@ -140,6 +137,7 @@
     ],
     "privacyLinkText": "Privacy Policy",
     "servicesDropdownText": "Our Services",
+    "termsAndConditionsLinkText": "",
     "toggleNavigationText": "Toggle menu"
   }
 }

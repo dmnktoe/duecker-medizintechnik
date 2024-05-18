@@ -1,43 +1,51 @@
 {
+  "_meta": {
+    "pageTitle": "Home",
+    "seo": {
+      "description": "Discover our wide range of products and services for the reprocessing of surgical tools. Find out how we can help you to ensure optimum care in a medical context.",
+      "title": "Repair & service of surgical instruments, production and distribution, Dücker Medizintechnik"
+    }
+  },
   "content": {
     "features": {
       "bentoGrid": {
         "boxIso": {
-          "textAccent": "",
-          "textBottom": "",
-          "textTop": ""
+          "textAccent": "ISO8",
+          "textBottom": "Specification",
+          "textTop": "We guarantee a"
         }
       },
       "textBlocks": [
         {
-          "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
-          "title": "Production"
+          "content": "Manufacture of medical instruments and container systems to the highest standards as well as professional repair services for surgical instruments.",
+          "title": "Production & Repair"
         },
         {
-          "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
-          "title": "Repair"
+          "content": "Wide range of high-quality sterile tubing systems for various medical applications.",
+          "title": "Sterile tube systems"
         },
         {
-          "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
-          "title": "Distribution"
+          "content": "We offer an extensive range of medical products from leading manufacturers for use in clinics, surgeries and medical facilities.",
+          "title": "Distribution of medical devices"
         },
         {
-          "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
-          "title": "Logistics"
+          "content": "Certified manufacturer of sterile and non-sterile tubing sets that meet the highest quality standards.",
+          "title": "Certified hose sets"
         },
         {
-          "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
-          "title": "Consulting"
+          "content": "Our specialized team of surgical mechanics carries out professional repairs on surgical instruments to maintain their functionality and service life.",
+          "title": "Professional repair service"
         },
         {
-          "content": "We consider all the drivers of change – from the ground up and we’ll motivate and support you to make the change.",
-          "title": "Training"
+          "content": "We offer comprehensive services for medical facilities, including repair, maintenance and procurement of medical equipment and accessories.",
+          "title": "Comprehensive services"
         }
       ],
-      "title": "Our services",
-      "titleTwo": "We are your partner for the reprocessing of surgical instruments and medical devices."
+      "title": "Our Services",
+      "titleTwo": "Get an overview."
     },
     "hero": {
+      "badge": "Your contact for commercial brokerage of pharmaceutical products, medical and orthopaedic articles and laboratory supplies.",
       "buttons": {
         "primary": {
           "label": "Services"
@@ -46,20 +54,22 @@
           "label": "Contact Us"
         }
       },
-      "text": "Discover our wide range of products and services for reprocessing surgical tools. Learn how we help you ensure optimal care in a medical context. We are your partner for the reprocessing of surgical instruments and medical devices.",
-      "title": "Your partner for trade mediation of pharma products, medical and orthopedic articles and laboratory supplies"
+      "partners": "With our sales partners in Europe and the USA, we are able to distribute our products worldwide:",
+      "text": "Discover our wide range of products and services for repairing and maintaining the value of surgical instruments. Find out how we can help you to ensure optimum care in a medical context.",
+      "title": "Your partner for repair and service of surgical instruments, production and distribution of sterile tubing systems and medical devices"
     },
     "newsSlider": {
-      "next": "Next slide",
-      "prev": "",
+      "next": "Next",
+      "prev": "Previous",
       "readMore": "View all posts",
-      "title": "Recent news from our blog"
+      "title": "Press releases and news"
     },
     "stickyScroll": {
+      "badge": "Location: North Hesse",
       "distribution": {
         "href": "vertrieb",
         "text": "Trade with medical devices.",
-        "title": ""
+        "title": "Distribution"
       },
       "production": {
         "href": "produktion",
@@ -70,14 +80,9 @@
         "href": "reparatur",
         "text": "Repair and maintenance of medical devices.",
         "title": "Reparatur"
-      }
-    }
-  },
-  "meta": {
-    "pageTitle": "Home",
-    "seo": {
-      "description": "Discover our wide range of products and services for reprocessing surgical tools. Learn how we help you ensure optimal care in a medical context.",
-      "title": "Trade, production, repair for surgical solutions and sterilization"
+      },
+      "text": "We offer you a comprehensive range of services for the reprocessing of surgical tools and supplies in a medical context. Find out more about our services and products.",
+      "title": "From production to repair: the entire value chain from a single source."
     }
   }
 }

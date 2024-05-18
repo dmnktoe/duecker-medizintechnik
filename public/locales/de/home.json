@@ -1,4 +1,11 @@
 {
+  "_meta": {
+    "pageTitle": "Startseite",
+    "seo": {
+      "description": "Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
+      "title": "Reparatur & Service chirurgischer Instrumente, Herstellung und Vertrieb, Dücker Medizintechnik"
+    }
+  },
   "content": {
     "features": {
       "bentoGrid": {
@@ -38,6 +45,7 @@
       "titleTwo": "Verschaffen Sie sich einen Überblick."
     },
     "hero": {
+      "badge": "Ihr Ansprechpartner für Handelsvermittlung von pharmazeutischen Erzeugnissen, medizinischen und orthopädischen Artikeln und Laborbedarf.",
       "buttons": {
         "primary": {
           "label": "Leistungsspektum"
@@ -46,18 +54,18 @@
           "label": "Kontakt & Anfrage"
         }
       },
-      "badge": "Ihr Ansprechpartner für Handelsvermittlung von pharmazeutischen Erzeugnissen, medizinischen und orthopädischen Artikeln und Laborbedarf.",
       "partners": "Mit unseren Vertriebspartnern in Europa und den USA sind wir in der Lage, unsere Produkte weltweit zu vertreiben:",
       "text": "Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für Reparatur und Werterhaltung von chirurgischen Instrumentarium. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
       "title": "Ihr Partner für Reparatur und Service chirurgischer Instrumente, Herstellung und Vertrieb von sterilen Schlauchsystemen und Medizinprodukten"
     },
     "newsSlider": {
-      "next": "",
-      "prev": "",
+      "next": "Weiter",
+      "prev": "Zurück",
       "readMore": "Alle Einträge ansehen",
       "title": "Neuigkeiten und Wissenswertes"
     },
     "stickyScroll": {
+      "badge": "Standort: Nordhessen",
       "distribution": {
         "href": "vertrieb",
         "text": "Vertrieb von Medizinprodukten.",
@@ -73,16 +81,8 @@
         "text": "Reparatur und Werterhalt von chirurgischen Instrumenten & Containersystemen.",
         "title": "Reparatur"
       },
-      "title": "Produktion bis zur Reparatur: die gesamte Wertschöpfungskette aus einer Hand.",
-      "badge": "Standort: Nordhessen",
-      "text": "Wir bieten Ihnen ein umfangreiches Leistungsspektrum für die Aufbereitung von OP-Werkzeugen und die Versorgung im medizinischen Kontext. Erfahren Sie mehr über unsere Dienstleistungen und Produkte."
-    }
-  },
-  "_meta": {
-    "pageTitle": "Startseite",
-    "seo": {
-      "description": "Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
-      "title": "Vertrieb, Produktion, Reparatur für OP-Lösungen und Sterilisierungen"
+      "text": "Wir bieten Ihnen ein umfangreiches Leistungsspektrum für die Aufbereitung von OP-Werkzeugen und die Versorgung im medizinischen Kontext. Erfahren Sie mehr über unsere Dienstleistungen und Produkte.",
+      "title": "Produktion bis zur Reparatur: die gesamte Wertschöpfungskette aus einer Hand."
     }
   }
 }

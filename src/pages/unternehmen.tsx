@@ -1,7 +1,7 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useTranslation } from 'next-i18next';
+import { Trans, useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 import Marquee from 'react-fast-marquee';
@@ -58,25 +58,29 @@ const CompanyPage = (
           </div>
           <div className='mx-auto mb-16 max-w-5xl text-sm'>
             <Title>{t('content.title')}</Title>
-            <Title size='three'>{t('content.companyText.title')}</Title>
-            <p className='mb-4'>{t('content.companyText.text1')}</p>
-            <p className='mb-4'>{t('content.companyText.text2')}</p>
-            <p className='mb-4'>{t('content.companyText.text3')}</p>
-            <p className='mb-4'>{t('content.companyText.text4')}</p>
-            <p className='mb-4'>{t('content.companyText.text5')}</p>
-            <p className='mb-4'>
-              Bei Dücker Medizintechnik legen wir großen Wert auf{' '}
-              <span className='font-bold'> Qualität und Transparenz</span>.
-              Unsere Zertifikate und Downloads sind ein Beweis für unser
-              Engagement in diesen Bereichen. Möchten Sie mehr über unsere
-              Zertifikate und Downloads erfahren? Besuchen Sie unsere{' '}
-              <UnderlineLink href='/downloads'>
-                Zertifikate und Downloads-Seite
-              </UnderlineLink>
-              , um detaillierte Informationen und die entsprechenden Dokumente
-              herunterzuladen. Bei Fragen stehen wir Ihnen gerne zur Verfügung.
-              Mit uns sind Sie in guter Gesellschaft.
-            </p>
+            <Body>{t('content.companyText.title')}</Body>
+            <Body>{t('content.companyText.text1')}</Body>
+            <Body>{t('content.companyText.text2')}</Body>
+            <Body>{t('content.companyText.text3')}</Body>
+            <Body>{t('content.companyText.text4')}</Body>
+            <Body>
+              <Trans
+                i18nKey='content.companyText.text5'
+                t={t}
+                components={{
+                  linkTag: (
+                    <UnderlineLink
+                      target='_blank'
+                      href='downloads'
+                      // eslint-disable-next-line react/no-children-prop
+                      children=''
+                    />
+                  ),
+                  // eslint-disable-next-line react/no-children-prop
+                  italicTag: <span className='font-serif italic' children='' />,
+                }}
+              />
+            </Body>
             <div className='pt-16'>
               <Marquee gradient={true} autoFill={true} speed={25}>
                 {partners.map((partner) => (

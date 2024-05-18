@@ -50,7 +50,7 @@ const DownloadsPage = (
               className='mb-6'
             />
             <Title>{t('content.title')}</Title>
-            <Body>{t('content.text')}</Body>
+            <Body>{t('content.text.intro')}</Body>
             <div className='mt-12 flex flex-col gap-12'>
               <DownloadText />
               <DownloadCenter />

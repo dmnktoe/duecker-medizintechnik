@@ -44,9 +44,9 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <Layout>
       <Seo
-        templateTitle={t('meta.pageTitle')}
-        description={t('meta.seo.description')}
-        title={t('meta.seo.title')}
+        templateTitle={t('_meta.pageTitle')}
+        description={t('_meta.seo.description')}
+        title={t('_meta.seo.title')}
       />
       <ImageBanner
         role='hero'

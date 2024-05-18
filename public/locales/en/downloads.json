@@ -1,14 +1,70 @@
 {
   "content": {
-    "table": {
-      "certificates": {
-        "label": "Certificates"
+    "downloads": [
+      {
+        "items": [
+          {
+            "files": [
+              {
+                "size": "",
+                "title": "",
+                "type": "",
+                "url": ""
+              },
+              {
+                "size": "",
+                "title": "",
+                "type": "",
+                "url": ""
+              }
+            ],
+            "title": ""
+          }
+        ],
+        "sectionTitle": ""
       },
-      "instructions": {
-        "label": "Handling instructions"
+      {
+        "items": [
+          {
+            "files": [
+              {
+                "size": "",
+                "title": "",
+                "type": "",
+                "url": ""
+              }
+            ],
+            "title": ""
+          },
+          {
+            "files": [
+              {
+                "size": "",
+                "title": "",
+                "type": "",
+                "url": ""
+              }
+            ],
+            "title": ""
+          }
+        ],
+        "sectionTitle": ""
+      }
+    ],
+    "text": {
+      "intro": "",
+      "section": {
+        "one": {
+          "text": "",
+          "title": ""
+        },
+        "two": {
+          "text": "",
+          "title": ""
+        }
       }
     },
-    "text": "",
+    "textReveal": "",
     "title": ""
   },
   "meta": {

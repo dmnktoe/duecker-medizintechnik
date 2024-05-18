@@ -2,58 +2,70 @@
   "content": {
     "downloads": [
       {
-        "sectionTitle": "Zertifikate",
         "items": [
           {
-            "title": "EN ISO 13485:2016 + AC:2018 + A11:2021",
             "files": [
               {
-                "url": "https://cms.duecker-medizintechnik.de/uploads/Zertifikat_Nr_50277_21_00_DE_dacd3dcc59.PDF",
-                "title": "Zertifikat Nr. 50277-21-00_DE",
                 "size": "408kb",
-                "type": ".pdf"
+                "title": "Zertifikat Nr. 50277-21-00_DE",
+                "type": ".pdf",
+                "url": "https://cms.duecker-medizintechnik.de/uploads/Zertifikat_Nr_50277_21_00_DE_dacd3dcc59.PDF"
               },
               {
-                "url": "https://cms.duecker-medizintechnik.de/uploads/Anlage_zu_17_05_Rev_0_Deutsch_7928c2f543.pdf",
-                "title": "Anlage zu 17-05, Rev. 0 _ Deutsch",
                 "size": "266kb",
-                "type": ".pdf"
+                "title": "Anlage zu 17-05, Rev. 0 _ Deutsch",
+                "type": ".pdf",
+                "url": "https://cms.duecker-medizintechnik.de/uploads/Anlage_zu_17_05_Rev_0_Deutsch_7928c2f543.pdf"
               }
-            ]
+            ],
+            "title": "EN ISO 13485:2016 + AC:2018 + A11:2021"
           }
-        ]
+        ],
+        "sectionTitle": "Zertifikate"
       },
       {
-        "sectionTitle": "Rechtliche Dokumente",
         "items": [
           {
-            "title": "Allgemeine Geschäftsbedingungen",
             "files": [
               {
-                "url": "https://cms.duecker-medizintechnik.de/uploads/AGB_Duecker_neu_79d6111ff4.docx",
-                "title": "AGB_Dücker_2024",
                 "size": "27kb",
-                "type": ".docx"
+                "title": "AGB_Dücker_2024",
+                "type": ".docx",
+                "url": "https://cms.duecker-medizintechnik.de/uploads/AGB_Duecker_neu_79d6111ff4.docx"
               }
-            ]
+            ],
+            "title": "Allgemeine Geschäftsbedingungen"
           },
           {
-            "title": "Infektionsschutz",
             "files": [
               {
-                "url": "https://cms.duecker-medizintechnik.de/uploads/Infektionsschutz_e4e0f4a17d.doc",
-                "title": "Dekontaminationsbescheinigung",
                 "size": "62kb",
-                "type": ".doc"
+                "title": "Dekontaminationsbescheinigung",
+                "type": ".doc",
+                "url": "https://cms.duecker-medizintechnik.de/uploads/Infektionsschutz_e4e0f4a17d.doc"
               }
-            ]
+            ],
+            "title": "Infektionsschutz"
           }
-        ]
+        ],
+        "sectionTitle": "Rechtliche Dokumente"
       }
     ],
-    "text": "Unser Unternehmen legt größten Wert auf Qualität, Sicherheit und Zuverlässigkeit. Um dies sicherzustellen, erfüllen wir strenge internationale Normen und setzen auf kontinuierliche Verbesserungen in allen Bereichen unserer Arbeit. Unser Engagement für höchste Standards wird durch die folgenden Zertifikate bestätigt.",
-    "title": "Downloads & Zertifikate",
-    "textReveal": "Wir stehen für Transparenz und Sicherheit auf höchstem Niveau. Unsere zertifizierten Prozesse garantieren Qualität und stärken das Vertrauen unserer Kunden und Partner."
+    "text": {
+      "intro": "Unser Unternehmen legt größten Wert auf Qualität, Sicherheit und Zuverlässigkeit. Um dies sicherzustellen, erfüllen wir strenge internationale Normen und setzen auf kontinuierliche Verbesserungen in allen Bereichen unserer Arbeit. Unser Engagement für höchste Standards wird durch die folgenden Zertifikate bestätigt.",
+      "section": {
+        "one": {
+          "text": "Wir sind stolz darauf, die Zertifizierung nach EN ISO 13485:2016 + AC:2018 + A11:2021 zu besitzen. Diese international anerkannte Norm legt die Anforderungen für ein umfassendes Qualitätsmanagementsystem für die Herstellung von Medizinprodukten fest. Sie stellt sicher, dass wir stets die gesetzlichen und regulatorischen Anforderungen erfüllen und darüber hinaus unseren Kunden Produkte und Dienstleistungen von höchster Qualität bieten. Unser Zertifikat Nr. 50277-21-00_DE bestätigt unsere Konformität und unser Engagement für die kontinuierliche Verbesserung unserer Prozesse und Produkte.",
+          "title": "EN ISO 13485:2016 + AC:2018 + A11:2021"
+        },
+        "two": {
+          "text": "Unser Infektionsschutzverfahren gewährleistet höchste Standards in Hygiene und Sicherheit für unsere Mitarbeiter und Kunden. Vor jeder Reparatur oder Überarbeitung müssen alle Produkte einer gründlichen Reinigung, Desinfektion und gegebenenfalls Sterilisation unterzogen werden. Dieser Prozess, integraler Bestandteil unseres Qualitätsmanagements, entspricht den gesetzlichen Anforderungen und aktuellen wissenschaftlichen Erkenntnissen. Wir bitten unsere Kunden, bei jeder Lieferung zu bestätigen, dass die Produkte diesen Standards entsprechen. Unser Engagement für die Gesundheit und Sicherheit führt dazu, dass Ware, die nicht den Hygienestandards entspricht, abgelehnt wird oder eine separate Dekontaminationsgebühr erhoben wird.",
+          "title": "Infektionsschutz"
+        }
+      }
+    },
+    "textReveal": "Wir stehen für Transparenz und Sicherheit auf höchstem Niveau. Unsere zertifizierten Prozesse garantieren Qualität und stärken das Vertrauen unserer Kunden und Partner.",
+    "title": "Downloads & Zertifikate"
   },
   "meta": {
     "pageTitle": "Downloads",

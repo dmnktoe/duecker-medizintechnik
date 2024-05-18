@@ -15,7 +15,7 @@ export const CallToAction = () => {
   const router = useRouter();
 
   function handleCtaButtonClick() {
-    router.push('/kontakt');
+    router.push('/kontakt').then((r) => r);
   }
 
   const CallToActionTitle = () => {

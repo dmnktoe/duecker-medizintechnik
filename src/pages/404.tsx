@@ -15,9 +15,9 @@ const NotFoundPage = (
   return (
     <Layout>
       <Seo
-        templateTitle={t('meta.pageTitle')}
-        description={t('meta.seo.description')}
-        title={t('meta.seo.title')}
+        templateTitle={t('_meta.pageTitle')}
+        description={t('_meta.seo.description')}
+        title={t('_meta.seo.title')}
       />
       <main className='bg-dark/95 bg-[url(/images/404/bentoBlur.svg)] bg-cover bg-center bg-no-repeat py-64 text-white'>
         <section>

@@ -20,7 +20,7 @@ const LanguagePicker = ({ className }: Props) => {
     const newPath =
       newLocale === 'de' ? currentPath : `/${newLocale}${currentPath}`;
 
-    router.push(newPath, newPath, { locale: false });
+    router.push(newPath, newPath, { locale: false }).then();
   }
 
   return (

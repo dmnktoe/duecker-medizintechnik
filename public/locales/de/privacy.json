@@ -1,16 +1,16 @@
 {
-  "content": {
-    "title": "Datenschutzerklärung (DSGVO)",
-    "text": "Wir legen großen Wert auf den Schutz Ihrer persönlichen Daten und die Wahrung Ihrer Privatsphäre. Transparenz und Sicherheit sind uns besonders wichtig. In dieser Datenschutzerklärung informieren wir Sie umfassend darüber, welche personenbezogenen Daten wir erheben, wie wir diese verarbeiten und zu welchen Zwecken wir sie nutzen. Zudem erläutern wir, welche Rechte Ihnen im Hinblick auf Ihre Daten zustehen und wie Sie diese wahrnehmen können.\n\nUnsere Datenschutzmaßnahmen entsprechen den geltenden gesetzlichen Vorgaben, insbesondere der Datenschutz-Grundverordnung (DSGVO).",
-    "tableOfContent": {
-      "title": "Inhaltsverzeichnis"
-    }
-  },
   "_meta": {
     "pageTitle": "Datenschutzerklärung",
     "seo": {
       "description": "In dieser Datenschutzerklärung informieren wir Sie umfassend darüber, welche personenbezogenen Daten wir erheben und wie wir diese verarbeiten.",
       "title": ""
     }
+  },
+  "content": {
+    "tableOfContent": {
+      "title": "Inhaltsverzeichnis"
+    },
+    "text": "Wir legen großen Wert auf den Schutz Ihrer persönlichen Daten und die Wahrung Ihrer Privatsphäre. Transparenz und Sicherheit sind uns besonders wichtig. In dieser Datenschutzerklärung informieren wir Sie umfassend darüber, welche personenbezogenen Daten wir erheben, wie wir diese verarbeiten und zu welchen Zwecken wir sie nutzen. Zudem erläutern wir, welche Rechte Ihnen im Hinblick auf Ihre Daten zustehen und wie Sie diese wahrnehmen können.\n\nUnsere Datenschutzmaßnahmen entsprechen den geltenden gesetzlichen Vorgaben, insbesondere der Datenschutz-Grundverordnung (DSGVO).",
+    "title": "Datenschutzerklärung (DSGVO)"
   }
 }

@@ -1,12 +1,16 @@
 {
-  "content": {
-    "title": "Privacy Policy"
-  },
-  "meta": {
-    "pageTitle": "",
+  "_meta": {
+    "pageTitle": "Privacy Policy",
     "seo": {
       "description": "",
-      "title": "Privacy Policy"
+      "title": ""
     }
+  },
+  "content": {
+    "tableOfContent": {
+      "title": ""
+    },
+    "text": "",
+    "title": "Privacy Policy"
   }
 }
