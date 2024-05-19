@@ -35,6 +35,14 @@ export default {
         'navigation-height': 'var(--navigation-height)',
       },
       keyframes: {
+        marquee: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(calc(-100% - var(--gap)))' },
+        },
+        'marquee-vertical': {
+          from: { transform: 'translateY(0)' },
+          to: { transform: 'translateY(calc(-100% - var(--gap)))' },
+        },
         flicker: {
           '0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100%': {
             opacity: '0.99',
@@ -88,12 +96,8 @@ export default {
         fadeIn: 'simpleFade 0.2s ease-in-out',
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-      },
-      backgroundImage: {
-        'spotlight-hover':
-          'radial-gradient(800px circle at var(--cursor-x) var(--cursor-y), rgba(var(--tw-color-primary-500) / 15%), transparent 60%)',
-        'spotlight-borders':
-          'radial-gradient(600px circle at var(--cursor-x) var(--cursor-y), rgba(var(--tw-color-primary-500) / 65%), transparent 40%)',
+        marquee: 'marquee var(--duration) linear infinite',
+        'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
       },
     },
   },

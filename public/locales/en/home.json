@@ -7,14 +7,18 @@
     }
   },
   "content": {
-    "features": {
-      "bentoGrid": {
+    "bentoGrid": {
+      "subTitle": "",
+      "tiles": {
         "boxIso": {
           "textAccent": "ISO8",
           "textBottom": "Specification",
           "textTop": "We guarantee a"
         }
       },
+      "title": ""
+    },
+    "features": {
       "textBlocks": [
         {
           "content": "Manufacture of medical instruments and container systems to the highest standards as well as professional repair services for surgical instruments.",
