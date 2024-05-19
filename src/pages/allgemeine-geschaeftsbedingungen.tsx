@@ -219,7 +219,7 @@ const ImprintPage = (
               Lieferungs- und Zahlungsbedingungen lässt die Wirksamkeit der
               übrigen Bestimmungen unberührt.
             </p>
-            <p className='text-sm text-neutral-400'>Stand März 2024</p>
+            <p className='text-sm text-gray-400'>Stand März 2024</p>
           </div>
         </Container>
       </main>

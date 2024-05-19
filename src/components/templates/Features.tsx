@@ -33,7 +33,7 @@ const TextBlockElement = ({
   title: string;
   content: string;
 }) => (
-  <div className='w-full md:border md:border-solid md:border-neutral-100'>
+  <div className='w-full md:border md:border-solid md:border-gray-100'>
     <div className='md:max-w-sm'>
       <div className='flex flex-wrap'>
         <div className='flex-1 md:p-6'>

@@ -28,7 +28,7 @@ export const Bento = () => {
   const { t } = useTranslation('home');
 
   return (
-    <section className='border-t border-neutral-100 py-16 md:py-24 lg:py-32'>
+    <section className='border-t border-gray-100 py-16 md:py-24 lg:py-32'>
       <Container>
         <div className='mb-8'>
           <Title renderAs='h2' className='md:-mb-2' margin={false}>
@@ -50,7 +50,7 @@ export const Bento = () => {
               'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
-            <div className='absolute inset-px z-20 flex flex-grow flex-col justify-start rounded-3xl bg-neutral-50 p-4 text-dark'>
+            <div className='absolute inset-px z-20 flex flex-grow flex-col justify-start rounded-3xl bg-gray-50 p-4 text-dark'>
               <Image
                 src={bentoGridImg2}
                 placeholder='blur'
@@ -70,7 +70,7 @@ export const Bento = () => {
               'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
-            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-neutral-50 p-4 text-dark'>
+            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-gray-50 p-4 text-dark'>
               <h5 className='text-black/60'>
                 {t('content.features.bentoGrid.boxIso.textTop')}
               </h5>
@@ -90,7 +90,7 @@ export const Bento = () => {
               'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
-            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-neutral-50 p-4 text-dark'>
+            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-50 p-4 text-dark'>
               Box
             </div>
           </div>
@@ -102,7 +102,7 @@ export const Bento = () => {
               'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
-            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-neutral-50 p-4 text-dark'>
+            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-50 p-4 text-dark'>
               <Image
                 src={bentoGridImg5}
                 placeholder='blur'
@@ -122,7 +122,7 @@ export const Bento = () => {
               'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
-            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-neutral-50 p-4 text-dark'>
+            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-50 p-4 text-dark'>
               <Image
                 src={bentoGridImg1}
                 placeholder='blur'
@@ -142,7 +142,7 @@ export const Bento = () => {
               'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
-            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-neutral-50 p-4 text-dark'>
+            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-gray-50 p-4 text-dark'>
               Box
             </div>
           </div>
@@ -154,7 +154,7 @@ export const Bento = () => {
               'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
-            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-neutral-50 p-4 text-dark'>
+            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-50 p-4 text-dark'>
               Box
             </div>
           </div>
@@ -166,8 +166,8 @@ export const Bento = () => {
               'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
-            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-neutral-50 p-4 text-dark'>
-              <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-neutral-50 p-4 text-dark'>
+            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-50 p-4 text-dark'>
+              <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-gray-50 p-4 text-dark'>
                 Box
               </div>
             </div>
@@ -180,8 +180,8 @@ export const Bento = () => {
               'hover:before:opacity-100 group-hover:after:opacity-100',
             )}
           >
-            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-neutral-50 p-4 text-dark'>
-              <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-neutral-50 p-4 text-dark'>
+            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-50 p-4 text-dark'>
+              <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-gray-50 p-4 text-dark'>
                 Box
               </div>
             </div>

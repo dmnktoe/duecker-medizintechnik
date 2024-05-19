@@ -124,7 +124,7 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                       objectFit='cover'
                     />
                   </AspectRatio>
-                  <div className='mt-3 text-xs text-neutral-500 lg:w-1/2'>
+                  <div className='mt-3 text-xs text-gray-400 lg:w-1/2'>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Distinctio incidunt ipsam quam quidem quis saepe. Assumenda
                     atque autem consectetur cum dolore ducimus earum est eveniet
@@ -142,7 +142,7 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                       objectFit='cover'
                     />
                   </AspectRatio>
-                  <div className='mt-3 text-xs text-neutral-500 lg:w-1/2'>
+                  <div className='mt-3 text-xs text-gray-400 lg:w-1/2'>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Distinctio incidunt ipsam quam quidem quis saepe. Assumenda
                     atque autem consectetur cum dolore ducimus earum est eveniet
@@ -160,7 +160,7 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                       objectFit='cover'
                     />
                   </AspectRatio>
-                  <div className='mt-4 text-xs text-neutral-500 lg:w-1/2'>
+                  <div className='mt-4 text-xs text-gray-400 lg:w-1/2'>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Distinctio incidunt ipsam quam quidem quis saepe. Assumenda
                     atque autem consectetur cum dolore ducimus earum est eveniet
@@ -178,7 +178,7 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                       objectFit='cover'
                     />
                   </AspectRatio>
-                  <div className='mt-3 text-xs text-neutral-500 lg:w-1/2'>
+                  <div className='mt-3 text-xs text-gray-400 lg:w-1/2'>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Distinctio incidunt ipsam quam quidem quis saepe. Assumenda
                     atque autem consectetur cum dolore ducimus earum est eveniet
@@ -196,7 +196,7 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                       objectFit='cover'
                     />
                   </AspectRatio>
-                  <div className='mt-3 text-xs text-neutral-500 lg:w-1/2'>
+                  <div className='mt-3 text-xs text-gray-400 lg:w-1/2'>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Distinctio incidunt ipsam quam quidem quis saepe. Assumenda
                     atque autem consectetur cum dolore ducimus earum est eveniet
@@ -214,7 +214,7 @@ const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
                       objectFit='cover'
                     />
                   </AspectRatio>
-                  <div className='mt-3 text-xs text-neutral-500 lg:w-1/2'>
+                  <div className='mt-3 text-xs text-gray-400 lg:w-1/2'>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Distinctio incidunt ipsam quam quidem quis saepe. Assumenda
                     atque autem consectetur cum dolore ducimus earum est eveniet

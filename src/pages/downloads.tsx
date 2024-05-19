@@ -57,7 +57,7 @@ const DownloadsPage = (
             </div>
           </div>
         </Container>
-        <div className='relative z-10 flex min-h-[16rem] w-full items-center justify-center bg-black'>
+        <div className='relative z-10 flex min-h-[16rem] w-full items-center justify-center bg-gray-100'>
           <TextReveal text={t('content.textReveal')} />
         </div>
       </main>

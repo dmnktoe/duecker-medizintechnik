@@ -189,7 +189,7 @@ const HeroPartnersSection = () => {
 
   const PartnerLogos = () => {
     return (
-      <div className='flex flex-wrap gap-8 text-dark'>
+      <div className='flex flex-wrap gap-8 text-gray-300'>
         {partners.map((partner) => (
           <div
             key={partner.name}
@@ -198,7 +198,7 @@ const HeroPartnersSection = () => {
             <Link href={partner.url} target='_blank'>
               <partner.image
                 key={partner.name}
-                className='h-6 w-20 opacity-20 transition-all ease-in-out hover:opacity-100 md:h-10 md:w-32'
+                className='h-6 w-20 transition-all ease-in-out hover:text-dark md:h-10 md:w-32'
               />
             </Link>
           </div>
@@ -209,7 +209,7 @@ const HeroPartnersSection = () => {
 
   return (
     <>
-      <div className='mx-auto mb-8 text-center font-secondary text-xs text-neutral-400 lg:w-1/3'>
+      <div className='mx-auto mb-8 text-center font-secondary text-xs text-gray-400 lg:w-1/3'>
         {t('content.hero.partners')}
       </div>
       <div className='mx-auto md:w-10/12 lg:w-8/12'>

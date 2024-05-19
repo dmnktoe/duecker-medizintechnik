@@ -78,7 +78,7 @@
   }
 
   .swiper.swiper-initialized .swiper-scrollbar.swiper-scrollbar-horizontal {
-    @apply absolute left-0 top-[-80px] z-50 h-[2px] w-full rounded-none;
+    @apply absolute left-0 top-[-80px] z-50 h-[2px] w-full rounded-none bg-gray-200;
   }
 
   .swiper.swiper-initialized

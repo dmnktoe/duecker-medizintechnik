@@ -11,7 +11,7 @@ export default function PrivacyContent() {
   const { t } = useTranslation('privacy');
   function TableOfContent() {
     return (
-      <div className='sticky top-navigation-height w-full bg-neutral-100'>
+      <div className='sticky top-navigation-height w-full bg-gray-100'>
         <div className='px-4 py-4'>
           <Title renderAs='h4' size='five'>
             {t('content.tableOfContent.title')}
