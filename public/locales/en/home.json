@@ -10,10 +10,17 @@
     "bentoGrid": {
       "subTitle": "",
       "tiles": {
-        "boxIso": {
-          "textAccent": "ISO8",
-          "textBottom": "Specification",
-          "textTop": "We guarantee a"
+        "distribution": {
+          "description": "",
+          "title": ""
+        },
+        "downloads": {
+          "description": "",
+          "title": ""
+        },
+        "iso8": {
+          "description": ".. sdf3##sdf",
+          "title": ""
         }
       },
       "title": ""
