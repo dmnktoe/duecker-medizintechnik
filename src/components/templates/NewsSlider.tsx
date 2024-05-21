@@ -32,11 +32,7 @@ export const NewsSlider = ({ posts }: NewsSliderProps) => {
   }, []);
 
   const NewsSliderTitle = () => {
-    return (
-      <Title margin={false} className='lg:text-6xl'>
-        {t('content.newsSlider.title')}
-      </Title>
-    );
+    return <Title margin={false}>{t('content.newsSlider.title')}</Title>;
   };
 
   const NewsSliderControls = () => {

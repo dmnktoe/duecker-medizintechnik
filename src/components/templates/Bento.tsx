@@ -193,8 +193,7 @@ const BentoCard = ({
         <div>{background}</div>
         <div className='pointer-events-none z-10 flex flex-col p-6 transition-all duration-300'>
           <Title
-            size='five'
-            margin={false}
+            size='four'
             className={clsxm(textIsWhite ? 'text-white' : 'text-black')}
           >
             {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
@@ -203,10 +202,9 @@ const BentoCard = ({
           </Title>
           <Body
             margin={false}
-            size='sm'
             className={clsxm(
               'max-w-lg',
-              textIsWhite ? 'text-white/60' : 'text-neutral-400',
+              textIsWhite ? 'text-white' : 'text-neutral-dark',
             )}
           >
             {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}

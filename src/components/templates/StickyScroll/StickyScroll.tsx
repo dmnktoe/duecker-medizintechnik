@@ -109,12 +109,11 @@ export const StickyScroll = () => {
             <div className='pt-16 md:pt-32'>
               <div className='-mx-4 flex flex-wrap'>
                 <div className='w-full px-4'>
-                  <div className='mx-auto max-w-4xl text-center'>
+                  <div className='mx-auto max-w-5xl text-center'>
                     <AnimatedBadge text={t('content.stickyScroll.badge')} />
                     <Title renderAs='h2'>
                       {t('content.stickyScroll.title')}
                     </Title>
-                    <Body>{t('content.stickyScroll.text')}</Body>
                   </div>
                 </div>
               </div>
