@@ -152,6 +152,7 @@ export const StickyScroll = () => {
     );
   };
 
+  // TODO: Implement mobile version
   // eslint-disable-next-line unused-imports/no-unused-vars
   const MobileStickyScroll = () => {
     return (
