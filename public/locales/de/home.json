@@ -10,10 +10,17 @@
     "bentoGrid": {
       "subTitle": "Standards in Hygiene und Sicherheit",
       "tiles": {
-        "boxIso": {
-          "textAccent": "ISO8",
-          "textBottom": "Spezifikation",
-          "textTop": "Wir versichern eine"
+        "distribution": {
+          "description": "Mit unseren ausgewählten Vertriebspartnern bieten wir Ihnen ein leistungsstarkes Netzwerk von Produkten und Dienstleistungen.",
+          "title": "Globale Distributionsketten (EU/USA)"
+        },
+        "downloads": {
+          "description": "Unser Unternehmen legt größten Wert auf Qualität, Sicherheit und Zuverlässigkeit.",
+          "title": "Downloads & Zertifikate"
+        },
+        "iso8": {
+          "description": "Wir sind zertifiziert nach EN ISO 13485:2016 und sorgen für einen umfassenden Schutz.",
+          "title": "ISO8 Zertifizierung & Spezifikation"
         }
       },
       "title": "Qualität, Innovation & Präzision"
@@ -60,7 +67,7 @@
       },
       "partners": "Mit unseren Vertriebspartnern in Europa und den USA sind wir in der Lage, unsere Produkte weltweit zu vertreiben:",
       "text": "Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für Reparatur und Werterhaltung von chirurgischen Instrumentarium. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
-      "title": "Ihr Partner für Reparatur und Service chirurgischer Instrumente, Herstellung und Vertrieb von sterilen Schlauchsystemen und Medizinprodukten"
+      "title": "Ihr Partner für Reparatur und Service chirurgischer Instrumente, Herstellung und Vertrieb von sterilen Schlauchsystemen & Medizinprodukten"
     },
     "newsSlider": {
       "next": "Weiter",
