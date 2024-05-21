@@ -1,7 +1,9 @@
 import { useTranslation } from 'next-i18next';
+import { VscArrowRight } from 'react-icons/vsc';
 
 import { Container } from '@/components/layout/Container';
 import { CheckIcon } from '@/components/ui/Icons';
+import ButtonLink from '@/components/ui/Links/ButtonLink';
 import { Body, Title } from '@/components/ui/Typography';
 
 const TextBlocks = () => {
@@ -9,7 +11,7 @@ const TextBlocks = () => {
   return (
     <>
       <Container>
-        <div className='grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 lg:gap-4'>
+        <div className='grid grid-cols-1 gap-0 md:grid-cols-2 md:gap-8 lg:grid-cols-3 lg:gap-16'>
           {ready &&
             t('content.features.textBlocks', {
               returnObjects: true,
@@ -33,17 +35,17 @@ const TextBlockElement = ({
   title: string;
   content: string;
 }) => (
-  <div className='w-full md:border md:border-solid md:border-gray-100'>
-    <div className='md:max-w-sm'>
+  <div className='w-full'>
+    <div className='md:max-w-lg'>
       <div className='flex flex-wrap'>
-        <div className='flex-1 md:p-6'>
-          <div className='mb-6 hidden w-auto md:block'>
-            <CheckIcon />
+        <div className='flex-1 py-8 md:py-8'>
+          <div className='mb-2 flex items-center justify-start gap-2 md:mb-4'>
+            <CheckIcon className='hidden h-3 w-3 md:block md:h-4 md:w-4' />
+            <Title margin={false} size='five' renderAs='h5'>
+              {title}
+            </Title>
           </div>
-          <Title size='four' renderAs='h5'>
-            {title}
-          </Title>
-          <Body>{content}</Body>
+          <Body margin={false}>{content}</Body>
         </div>
       </div>
     </div>
@@ -60,12 +62,24 @@ export const Features = () => {
             <Title renderAs='h2' className='md:-mb-2' margin={false}>
               {t('content.features.title')}
             </Title>
-            <Title renderAs='h2' className='text-gray-500'>
+            <Title renderAs='h2' className='text-gray-500' margin={false}>
               {t('content.features.titleTwo')}
             </Title>
           </div>
+          <hr />
         </Container>
         <TextBlocks />
+        <Container>
+          <hr className='mb-8' />
+          <div className='flex justify-end'>
+            <ButtonLink href='/leistungen' variant='dark' size='sm'>
+              Alle Leistungen ansehen
+              <span aria-hidden='true' className='ml-2'>
+                <VscArrowRight />
+              </span>
+            </ButtonLink>
+          </div>
+        </Container>
       </section>
     </>
   );

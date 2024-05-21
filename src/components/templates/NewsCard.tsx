@@ -48,7 +48,7 @@ const CardHeader = ({ post }: { post: Data }) => {
         <Badge color='dark' size='sm' variant='ghost' className='mr-3'>
           {post.attributes.category}
         </Badge>
-        <span className='inline-block text-sm font-medium'>
+        <span className='inline-block font-secondary text-sm font-medium'>
           {formatDate(post.attributes.publishedAt)}
         </span>
       </div>

@@ -70,8 +70,7 @@ const CompanyPage = (
                 components={{
                   linkTag: (
                     <UnderlineLink
-                      target='_blank'
-                      href='downloads'
+                      href='/downloads'
                       // eslint-disable-next-line react/no-children-prop
                       children=''
                     />

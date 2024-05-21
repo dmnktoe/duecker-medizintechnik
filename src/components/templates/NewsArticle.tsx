@@ -51,7 +51,7 @@ export const NewsArticle = ({ post }: NewsArticleProps) => {
           {post.attributes.category}
         </Badge>
         <span className='text-gray-300'>|</span>
-        <span className='text-gray-600'>
+        <span className='font-secondary text-gray-600'>
           {formatDate(post.attributes.publishedAt)}
         </span>
       </div>
@@ -60,7 +60,7 @@ export const NewsArticle = ({ post }: NewsArticleProps) => {
 
   const ArticleTitle = ({ post }: { post: Data }) => {
     return (
-      <Title margin={false} className='text-dark' isAnimated>
+      <Title margin={false} className='text-dark'>
         {post.attributes.title}
       </Title>
     );

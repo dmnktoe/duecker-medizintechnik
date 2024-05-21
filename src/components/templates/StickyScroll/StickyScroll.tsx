@@ -104,7 +104,7 @@ export const StickyScroll = () => {
   const DesktopStickyScroll = () => {
     return (
       <>
-        <section className='hidden bg-primary-50 lg:block lg:min-h-[calc(100vh_-_var(--navigation-height))]'>
+        <section className='hidden bg-gray-50 lg:block lg:min-h-[calc(100vh_-_var(--navigation-height))]'>
           <Container>
             <div className='pt-16 md:pt-32'>
               <div className='-mx-4 flex flex-wrap'>
