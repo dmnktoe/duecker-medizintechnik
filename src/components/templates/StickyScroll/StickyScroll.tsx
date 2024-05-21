@@ -106,7 +106,7 @@ export const StickyScroll = () => {
       <>
         <section className='hidden bg-gray-50 lg:block lg:min-h-[calc(100vh_-_var(--navigation-height))]'>
           <Container>
-            <div className='pt-16 md:pt-32'>
+            <div className='pt-16 md:pt-24 lg:pt-32'>
               <div className='-mx-4 flex flex-wrap'>
                 <div className='w-full px-4'>
                   <div className='mx-auto max-w-5xl text-center'>
@@ -152,6 +152,7 @@ export const StickyScroll = () => {
     );
   };
 
+  // eslint-disable-next-line unused-imports/no-unused-vars
   const MobileStickyScroll = () => {
     return (
       <>
@@ -218,7 +219,7 @@ export const StickyScroll = () => {
   return (
     <>
       <DesktopStickyScroll />
-      <MobileStickyScroll />
+      {/* <MobileStickyScroll /> */}
     </>
   );
 };

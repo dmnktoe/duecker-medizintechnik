@@ -4,13 +4,13 @@ import Link from 'next/link';
 import { Trans, useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
-import Marquee from 'react-fast-marquee';
 import { VscArrowRight } from 'react-icons/vsc';
 
 import Seo from '@/components/helpers/Seo';
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
 import ImageBanner from '@/components/templates/ImageBanner/ImageBanner';
+import Marquee from '@/components/templates/Marquee';
 import NextBreadcrumb from '@/components/ui/Breadcrumb';
 import ButtonLink from '@/components/ui/Links/ButtonLink';
 import UnderlineLink from '@/components/ui/Links/UnderlineLink';
@@ -80,7 +80,7 @@ const CompanyPage = (
               />
             </Body>
             <div className='pt-16'>
-              <Marquee gradient={true} autoFill={true} speed={25}>
+              <Marquee className='[mask-image:linear-gradient(to_right,transparent_0%,#000_15%,#000_85%,transparent_100%)]'>
                 {partners.map((partner) => (
                   <div key={partner.name} className='px-6 lg:px-12'>
                     <Link

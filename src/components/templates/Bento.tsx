@@ -45,7 +45,7 @@ const tiles = [
     background: (
       <Marquee
         pauseOnHover
-        className='absolute top-10 [--duration:20s] [mask-image:linear-gradient(to_top,transparent_30%,#000_100%)] '
+        className='absolute top-10 [--duration:20s] [mask-image:linear-gradient(to_top,transparent_30%,#000_100%)]'
       >
         {files.map((f, idx) => (
           <figure

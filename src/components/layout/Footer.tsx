@@ -1,13 +1,14 @@
 import { useTranslation } from 'next-i18next';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
-import { VscGlobe } from 'react-icons/vsc';
+import { VscArrowRight, VscGlobe } from 'react-icons/vsc';
 
 import { fetchAPI } from '@/lib/fetch-api';
 
 import { Container } from '@/components/layout/Container';
 import LanguagePicker from '@/components/templates/LanguagePicker';
 import { PrivacyChoiceIcon } from '@/components/ui/Icons/privacy';
+import ButtonLink from '@/components/ui/Links/ButtonLink';
 import UnderlineLink from '@/components/ui/Links/UnderlineLink';
 import { Body, Title } from '@/components/ui/Typography';
 
@@ -32,26 +33,29 @@ const FooterContact = () => {
   const { t } = useTranslation('common', { useSuspense: false });
   return (
     <>
-      <Title>We're here to help you grow and succeed</Title>
-      <Body className='max-w-md text-left sm:max-w-sm'>
-        {t('footer.contactSection.text')}
-      </Body>
-      <Title size='five'>Standort</Title>
-      <Body>
-        {company.street} <br />
-        {company.city}
-      </Body>
-      <Body>
-        {t('footer.contactSection.phone')}:{' '}
-        <UnderlineLink href={`tel:${company.phone}`} underline='hover'>
-          {company.phone}
-        </UnderlineLink>
-        <br />
-        {t('footer.contactSection.email')}:{' '}
-        <UnderlineLink href={'mailto:' + company.email} underline='hover'>
-          {company.email}
-        </UnderlineLink>
-      </Body>
+      <Title size='one'>{t('footer.contact.intro')}</Title>
+      <Body className='text-left'>{t('footer.contact.text')}</Body>
+      <div className='mt-8 bg-gray-100 p-3'>
+        <Title size='five'>{t('footer.contact.location')}</Title>
+        <Body>
+          {company.street} <br />
+          {company.city}
+        </Body>
+        <Body>
+          {t('footer.contact.phone')}:{' '}
+          <UnderlineLink href={`tel:${company.phone}`} underline='hover'>
+            {company.phone}
+          </UnderlineLink>
+          <br />
+          {t('footer.contact.email')}:{' '}
+          <UnderlineLink href={'mailto:' + company.email} underline='hover'>
+            {company.email}
+          </UnderlineLink>
+        </Body>
+      </div>
+      <ButtonLink href='/kontakt' variant='primary' size='sm' className='mt-8'>
+        {t('footer.contact.button')} <VscArrowRight className='ml-2' />
+      </ButtonLink>
     </>
   );
 };
@@ -61,7 +65,7 @@ const FooterLinks = () => {
   return (
     <>
       {ready &&
-        t('footer.navigation', { returnObjects: true }).map(
+        t('footer.links', { returnObjects: true }).map(
           (navigation: FooterNavigation) => (
             <div key={navigation.title}>
               <FooterNavigationHeadline title={navigation.title} />
@@ -117,12 +121,12 @@ const FooterPosts = () => {
       </div>
     );
 
-  if (!posts) return <p>{t('footer.newsSection.noResults')}</p>;
+  if (!posts) return <p>{t('footer.posts.noResults')}</p>;
 
   return (
     <>
       <div>
-        <FooterNavigationHeadline title={t('footer.newsSection.title')} />
+        <FooterNavigationHeadline title={t('footer.posts.title')} />
         <ul className='space-y-2 md:mt-8 md:space-y-3'>
           {posts.map((post: Data) => (
             <li key={post.id}>

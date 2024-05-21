@@ -35,7 +35,7 @@
     "title2": "production:content.title2"
   },
   "meta": {
-    "pageTitle": "production:meta.pageTitle",
+    "pageTitle": "Production",
     "seo": {
       "description": "production:meta.seo.description",
       "title": "production:meta.seo.title"

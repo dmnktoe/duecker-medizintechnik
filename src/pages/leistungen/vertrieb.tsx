@@ -61,7 +61,7 @@ const DistributionPage = (
                     B2B & B2C
                   </Badge>
                 </div>
-                <Title isAnimated>{t('content.title')}</Title>
+                <Title>{t('content.title')}</Title>
                 <p className='text-base'>{t('content.text')}</p>
                 <h5 className='my-6 font-semibold'>{t('content.partners')}:</h5>
                 <div className='mb-6 grid max-w-md grid-cols-4 items-center gap-6 align-middle text-dark'>

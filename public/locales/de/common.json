@@ -20,17 +20,20 @@
     "titleSub": "Wir beraten Sie gerne!"
   },
   "footer": {
-    "contactSection": {
+    "contact": {
+      "button": "Kontakt aufnehmen",
       "email": "E-Mail",
+      "intro": "Wir sind hier, um Ihnen zu helfen",
+      "location": "Standort",
       "phone": "Telefon",
       "text": "Wir sind Ihnen gerne bei der Lösung Ihrer Probleme behilflich und stehen Ihnen jederzeit für Fragen zur Verfügung. Wir freuen uns."
     },
-    "navigation": [
+    "links": [
       {
         "items": [
           {
             "href": "/unternehmen",
-            "title": "Unsere Geschichte"
+            "title": "Unternehmen"
           },
           {
             "href": "/downloads",
@@ -59,7 +62,7 @@
           },
           {
             "href": "/leistungen/vertrieb",
-            "title": "Vertrieb"
+            "title": "Distribution"
           }
         ],
         "title": "Leistungen"
@@ -86,7 +89,7 @@
         "title": "Richtlinien"
       }
     ],
-    "newsSection": {
+    "posts": {
       "link": "Alle Neuigkeiten",
       "noResults": "Keine Neuigkeiten vorhanden.",
       "title": "Pressemitteilungen"

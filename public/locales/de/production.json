@@ -2,16 +2,16 @@
   "content": {
     "boxes": {
       "1": {
-        "text": "production:content.boxes.1.text",
-        "title": "production:content.boxes.1.title"
+        "text": "OP-Trays sind unverzichtbare Helfer im Operationssaal, die alle notwendigen Instrumente und Materialien für chirurgische Eingriffe steril und organisiert bereithalten. ",
+        "title": "OP-Trays"
       },
       "2": {
-        "text": "production:content.boxes.2.text",
-        "title": "production:content.boxes.2.title"
+        "text": "Unsere Schlauchsysteme sind die perfekte Lösung für eine Vielzahl medizinischer Anwendungen, von der Infusionstherapie bis zur Drainage. ",
+        "title": "Schlauchsysteme"
       },
       "3": {
-        "text": "production:content.boxes.3.text",
-        "title": "production:content.boxes.3.title"
+        "text": "Arthroskopische Rollenpumpen sind essenzielle Geräte in der minimalinvasiven Gelenkchirurgie. Sie gewährleisten eine präzise und kontrollierte Spülung des Operationsgebiets, was entscheidend für eine klare Sicht und erfolgreiche Eingriffe ist.",
+        "title": "Arthroskopische Rollenpumpen"
       }
     },
     "list": {
@@ -35,10 +35,10 @@
     "title2": "Was auch immer Sie benötigen, wir sind Ihnen gern behilflich"
   },
   "meta": {
-    "pageTitle": "production:meta.pageTitle",
+    "pageTitle": "Produktion",
     "seo": {
       "description": "production:meta.seo.description",
-      "title": "production:meta.seo.title"
+      "title": "Dücker Medizintechnik realisiert Ihre Idee durch unsere Produktion"
     }
   }
 }

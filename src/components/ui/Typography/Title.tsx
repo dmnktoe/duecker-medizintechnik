@@ -1,13 +1,11 @@
 import clsx from 'clsx';
 import React from 'react';
-import StaggerText from 'react-stagger-text';
 
 type Size = 'one' | 'two' | 'three' | 'four' | 'five';
 
 interface TitleProps {
   renderAs?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   size?: Size;
-  isAnimated?: boolean;
   children: string;
   margin?: boolean;
   className?: string;
@@ -16,7 +14,6 @@ interface TitleProps {
 export const Title = ({
   renderAs = 'h1',
   size = 'one',
-  isAnimated = false,
   children,
   margin = true,
   className,
@@ -41,7 +38,7 @@ export const Title = ({
         className,
       )}
     >
-      {isAnimated ? <StaggerText>{children}</StaggerText> : children}
+      {children}
     </Component>
   );
 };

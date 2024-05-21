@@ -20,12 +20,15 @@
     "titleSub": "We are happy to help you!"
   },
   "footer": {
-    "contactSection": {
+    "contact": {
+      "button": "Contact Us",
       "email": "E-Mail",
+      "intro": "We're here to help you grow and succeed",
+      "location": "Location",
       "phone": "Phone",
       "text": "We are happy to help you solve your problems and are always available to answer your questions. We look forward to hearing from you."
     },
-    "navigation": [
+    "links": [
       {
         "items": [
           {
@@ -86,7 +89,7 @@
         "title": "Policies"
       }
     ],
-    "newsSection": {
+    "posts": {
       "link": "",
       "noResults": "No posts found.",
       "title": "Recent News"

@@ -1,25 +1,28 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 import { VscArrowRight, VscCheck } from 'react-icons/vsc';
 
+import clsxm from '@/lib/clsxm';
+
 import Seo from '@/components/helpers/Seo';
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
-import ImageBanner from '@/components/templates/ImageBanner/ImageBanner';
 import { AspectRatio } from '@/components/ui/AspectRatio';
 import NextBreadcrumb from '@/components/ui/Breadcrumb';
+import UnderlineLink from '@/components/ui/Links/UnderlineLink';
 import UnstyledLink from '@/components/ui/Links/UnstyledLink';
+import { Body } from '@/components/ui/Typography';
 import { Title } from '@/components/ui/Typography/Title';
-
-import heroImg from '/public/images/production/duecker-medizintechnik_production_hero-bg.jpg';
 
 const ProductionPage = (
   _props: InferGetStaticPropsType<typeof getStaticProps>,
 ) => {
   const { t } = useTranslation('production');
+  const currentRoute = usePathname();
   return (
     <Layout>
       <Seo
@@ -27,14 +30,41 @@ const ProductionPage = (
         description={t('meta.seo.description')}
         title={t('meta.seo.title')}
       />
-      <ImageBanner
-        role='hero'
-        delay={0}
-        priority={true}
-        src={heroImg}
-        className='flex-1'
-      />
-      <main className='py-16 lg:py-24'>
+      <div className='sub-navigation sticky top-[var(--navigation-height)] z-40 border-t border-gray-100 bg-white/90 backdrop-blur-lg'>
+        <Container>
+          <nav className='flex items-center justify-between py-4'>
+            <ul className='flex gap-4'>
+              <li>
+                <UnderlineLink
+                  underline='hover'
+                  href='/leistungen/produktion'
+                  className={clsxm(
+                    'hover:underline',
+                    currentRoute === '/leistungen/produktion' && 'underline',
+                  )}
+                >
+                  Übersicht
+                </UnderlineLink>
+              </li>
+              <li>
+                <UnderlineLink
+                  underline='hover'
+                  href='/leistungen/produktion/produkt-uebersicht'
+                  className={clsxm(
+                    'hover:underline',
+                    currentRoute ===
+                      '/leistungen/produktion/produkt-uebersicht' &&
+                      'underline',
+                  )}
+                >
+                  Produktübersicht
+                </UnderlineLink>
+              </li>
+            </ul>
+          </nav>
+        </Container>
+      </div>
+      <main className='py-16 md:py-24'>
         <Container>
           <NextBreadcrumb
             homeElement='Startseite'
@@ -50,23 +80,29 @@ const ProductionPage = (
           <div className='mb-16 flex flex-col items-start md:flex-row md:gap-6 lg:mb-24'>
             <div className='mb-6 w-full lg:mb-0 lg:w-2/3 xl:w-1/2'>
               <div className='text-dark'>
-                <Title isAnimated>{t('content.title1')}</Title>
-                <p>{t('content.text1')}</p>
-                <h5 className='my-6 font-semibold'>
+                <Title>{t('content.title1')}</Title>
+                <Body>{t('content.text1')}</Body>
+                <Body isStrong className='my-6'>
                   {t('content.list.title')}
-                </h5>
-                <ul className='mb-6'>
-                  <li className='mb-3 flex items-center'>
+                </Body>
+                <ul className='mb-6 space-y-3'>
+                  <li className='flex items-center'>
                     <VscCheck className='mr-4 h-4 w-4 text-primary-500' />
-                    <span>{t('content.list.items.1.label')}</span>
-                  </li>
-                  <li className='mb-3 flex items-center'>
-                    <VscCheck className='mr-4 h-4 w-4 text-primary-500' />
-                    <span>{t('content.list.items.2.label')}</span>
+                    <Body margin={false}>
+                      {t('content.list.items.1.label')}
+                    </Body>
                   </li>
                   <li className='flex items-center'>
                     <VscCheck className='mr-4 h-4 w-4 text-primary-500' />
-                    <span>{t('content.list.items.3.label')}</span>
+                    <Body margin={false}>
+                      {t('content.list.items.2.label')}
+                    </Body>
+                  </li>
+                  <li className='flex items-center'>
+                    <VscCheck className='mr-4 h-4 w-4 text-primary-500' />
+                    <Body margin={false}>
+                      {t('content.list.items.3.label')}
+                    </Body>
                   </li>
                 </ul>
               </div>
@@ -78,14 +114,14 @@ const ProductionPage = (
                     src='/images/production/duecker-medizintechnik_production_grid-bg.jpg'
                     width={2000}
                     height={2000}
-                    className='object-cover object-center '
+                    className='object-cover object-center'
                     alt=''
                   />
                 </AspectRatio>
               </div>
             </div>
           </div>
-          <div className='flex flex-col-reverse gap-6 lg:flex-row'>
+          <div className='flex flex-col-reverse gap-6 py-16 md:py-24 lg:flex-row'>
             <div className='w-full xl:w-1/2'>
               <div className='flex h-full flex-wrap'>
                 <div className='mb-4 w-full md:mb-0 md:w-1/2'>
@@ -95,12 +131,8 @@ const ProductionPage = (
                       href='#'
                     >
                       <div className='flex h-full max-w-sm flex-col justify-between pr-16'>
-                        <p className='mb-10 text-sm text-gray-900 md:mb-6'>
-                          {t('content.boxes.1.text')}
-                        </p>
-                        <span className='text-3xl font-semibold text-gray-900'>
-                          {t('content.boxes.1.title')}
-                        </span>
+                        <Body size='sm'>{t('content.boxes.1.text')}</Body>
+                        <Title size='three'>{t('content.boxes.1.title')}</Title>
                       </div>
                     </a>
                     <UnstyledLink
@@ -108,12 +140,8 @@ const ProductionPage = (
                       href='/downloads'
                     >
                       <div className='flex h-full max-w-sm flex-col justify-between pr-16'>
-                        <p className='mb-10 text-sm text-gray-900 md:mb-6'>
-                          {t('content.boxes.2.text')}
-                        </p>
-                        <span className='text-3xl font-semibold text-gray-900'>
-                          {t('content.boxes.2.title')}
-                        </span>
+                        <Body size='sm'>{t('content.boxes.2.text')}</Body>
+                        <Title size='three'>{t('content.boxes.2.title')}</Title>
                       </div>
                     </UnstyledLink>
                   </div>
@@ -124,21 +152,17 @@ const ProductionPage = (
                     href='#'
                   >
                     <div className='flex h-full max-w-sm flex-col items-start justify-between pr-16'>
-                      <p className='mb-10 text-sm text-gray-900 md:mb-6'>
-                        {t('content.boxes.3.text')}
-                      </p>
-                      <span className='text-3xl font-semibold text-gray-900'>
-                        {t('content.boxes.3.title')}
-                      </span>
+                      <Body size='sm'>{t('content.boxes.3.text')}</Body>
+                      <Title size='three'>{t('content.boxes.3.title')}</Title>
                     </div>
                   </a>
                 </div>
               </div>
             </div>
-            <div className='w-full lg:px-4 xl:mb-0 xl:w-1/2'>
+            <div className='w-full py-16 md:py-24 lg:px-4 lg:py-32 xl:mb-0 xl:w-1/2'>
               <Title>{t('content.title2')}</Title>
-              <p className='mb-3'>{t('content.text2')}</p>
-              <p className='font-semibold text-dark'>{t('content.text3')}</p>
+              <Body>{t('content.text2')}</Body>
+              <Body>{t('content.text3')}</Body>
             </div>
           </div>
         </Container>

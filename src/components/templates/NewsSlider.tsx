@@ -98,7 +98,7 @@ export const NewsSlider = ({ posts }: NewsSliderProps) => {
 
   return (
     <>
-      <section className='overflow-hidden bg-gray-50 py-12 md:py-24'>
+      <section className='overflow-hidden bg-gray-50 py-12 md:py-24 lg:py-32'>
         <Container>
           <div className='mb-8 flex flex-col items-center justify-between gap-3 md:mb-20 md:flex-row'>
             <div className='w-full md:w-1/2'>
