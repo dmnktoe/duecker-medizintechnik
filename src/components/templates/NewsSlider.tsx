@@ -59,7 +59,7 @@ export const NewsSlider = ({ posts }: NewsSliderProps) => {
           <Title size='five' margin={false} className='mr-4 hover:underline'>
             {t('content.newsSlider.readMore')}
           </Title>
-          <span className='-rotate-45 transform transition duration-100 group-hover:rotate-0'>
+          <span className='relative top-0.5 block -rotate-45 transform transition duration-100 group-hover:rotate-0 group-hover:text-primary-500'>
             <VscArrowRight size={24} />
           </span>
         </UnderlineLink>

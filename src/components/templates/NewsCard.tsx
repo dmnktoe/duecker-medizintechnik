@@ -92,7 +92,9 @@ const NewsCard = ({ post, orientation }: CardProps) => {
           <div
             className={clsxm(
               'flex flex-col space-y-3 xl:space-y-4',
-              orientation === 'vertical' ? 'xl:max-w-sm' : 'w-full md:w-8/12',
+              orientation === 'vertical'
+                ? 'max-w-xl sm:max-w-xs xl:max-w-md'
+                : 'w-full md:w-8/12',
             )}
           >
             <CardHeader post={post} />
