@@ -7,12 +7,88 @@ import { fetchAPI } from '@/lib/fetch-api';
 
 import { Container } from '@/components/layout/Container';
 import LanguagePicker from '@/components/templates/LanguagePicker';
-import { Logo } from '@/components/ui/Icons/logo';
 import { PrivacyChoiceIcon } from '@/components/ui/Icons/privacy';
-import UnstyledLink from '@/components/ui/Links/UnstyledLink';
+import UnderlineLink from '@/components/ui/Links/UnderlineLink';
+import { Body, Title } from '@/components/ui/Typography';
 
 import { company } from '@/constant/company';
 import { Data } from '@/interfaces/Data';
+
+type FooterNavigation = {
+  title: string;
+  items: {
+    title: string;
+    href: string;
+  }[];
+};
+
+const FooterNavigationHeadline = ({ title }: { title: string }) => (
+  <Body isStrong className='mb-2 md:mb-4'>
+    {title}
+  </Body>
+);
+
+const FooterContact = () => {
+  const { t } = useTranslation('common', { useSuspense: false });
+  return (
+    <>
+      <Title>We're here to help you grow and succeed</Title>
+      <Body className='max-w-md text-left sm:max-w-sm'>
+        {t('footer.contactSection.text')}
+      </Body>
+      <Title size='five'>Standort</Title>
+      <Body>
+        {company.street} <br />
+        {company.city}
+      </Body>
+      <Body>
+        {t('footer.contactSection.phone')}:{' '}
+        <UnderlineLink href={`tel:${company.phone}`} underline='hover'>
+          {company.phone}
+        </UnderlineLink>
+        <br />
+        {t('footer.contactSection.email')}:{' '}
+        <UnderlineLink href={'mailto:' + company.email} underline='hover'>
+          {company.email}
+        </UnderlineLink>
+      </Body>
+    </>
+  );
+};
+
+const FooterLinks = () => {
+  const { t, ready } = useTranslation('common', { useSuspense: false });
+  return (
+    <>
+      {ready &&
+        t('footer.navigation', { returnObjects: true }).map(
+          (navigation: FooterNavigation) => (
+            <div key={navigation.title}>
+              <FooterNavigationHeadline title={navigation.title} />
+              <ul className='space-y-2 md:mt-8 md:space-y-3'>
+                {navigation.items.map((item) => (
+                  <li key={item.title}>
+                    <UnderlineLink
+                      underline='hover'
+                      className='line-clamp-2'
+                      href={item.href}
+                    >
+                      <Body margin={false}>
+                        {item.title}{' '}
+                        {item.href === '/cookie-richtlinie' && (
+                          <PrivacyChoiceIcon className='relative -top-0.5 ml-1 inline-block w-5' />
+                        )}
+                      </Body>
+                    </UnderlineLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ),
+        )}
+    </>
+  );
+};
 
 const FooterPosts = () => {
   const [posts, setPosts] = useState<Data[]>();
@@ -22,7 +98,7 @@ const FooterPosts = () => {
   useEffect(() => {
     const fetchData = async () => {
       const result = await fetchAPI(
-        '/posts?sort=id:desc&populate=*&pagination[pageSize]=3',
+        '/posts?sort=id:desc&populate=*&pagination[pageSize]=4',
       );
       setPosts(result.data);
     };
@@ -45,111 +121,59 @@ const FooterPosts = () => {
 
   return (
     <>
-      {posts.map((post: Data) => (
-        <li key={post.id} className='line-clamp-2'>
-          <UnstyledLink
-            className='text-gray-700 transition hover:text-gray-700/75'
-            href={`/news/${post.attributes.slug}`}
-          >
-            {post.attributes.title}
-          </UnstyledLink>
-        </li>
-      ))}
+      <div>
+        <FooterNavigationHeadline title={t('footer.newsSection.title')} />
+        <ul className='space-y-2 md:mt-8 md:space-y-3'>
+          {posts.map((post: Data) => (
+            <li key={post.id}>
+              <UnderlineLink
+                underline='hover'
+                className='line-clamp-2'
+                href={`/news/${post.attributes.slug}`}
+              >
+                <Body margin={false}>{post.attributes.title}</Body>
+              </UnderlineLink>
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 };
 
-type FooterNavigation = {
-  title: string;
-  items: {
-    title: string;
-    href: string;
-  }[];
+const FooterCopyright = () => {
+  return (
+    <>
+      <Body margin={false}>
+        © {new Date().getFullYear()} {company.companyName} • {company.street},{' '}
+        {company.city}
+      </Body>
+      <div className='flex items-center justify-center bg-gray-100 align-middle focus:outline-dashed focus:outline-1 focus:outline-offset-4 focus:outline-gray-300'>
+        <span className='mx-3 inline-block'>
+          <VscGlobe size={18} />
+        </span>
+        <LanguagePicker className='relative border-0 py-2 pl-2 pr-8' />
+      </div>
+    </>
+  );
 };
 
-const FooterNavigationHeadline = ({ title }: { title: string }) => (
-  <p className='mb-2 text-xs font-medium text-gray-900 md:mb-4 md:text-base'>
-    {title}
-  </p>
-);
-
 export const Footer = () => {
-  const { t, ready } = useTranslation('common', { useSuspense: false });
   return (
-    <footer className='bg-white pb-12 pt-16 text-dark md:pt-24 lg:pt-32'>
+    <footer className='bg-white py-16 text-dark md:py-24 lg:py-32'>
       <Container>
-        <div className='grid grid-cols-1 gap-8 lg:grid-cols-3'>
-          <div>
-            <div className='flex justify-start text-primary-500'>
-              <Logo className='w-32' />
-            </div>
-            <p className='mt-6 max-w-md text-left text-xs text-gray-700 sm:max-w-xs md:text-sm'>
-              {t('footer.contactSection.text')}
-              <br />
-              <br />
-              {t('footer.contactSection.phone')}:{' '}
-              <UnstyledLink
-                href={`tel:${company.phone}`}
-                className='text-gray-700 transition hover:text-gray-700/75'
-              >
-                {company.phone}
-              </UnstyledLink>
-              <br />
-              {t('footer.contactSection.email')}:{' '}
-              <UnstyledLink
-                className='text-gray-700 transition hover:text-gray-700/75'
-                href={'mailto:' + company.email}
-              >
-                {company.email}
-              </UnstyledLink>
-            </p>
+        <div className='grid grid-cols-1 gap-8 lg:grid-cols-12'>
+          <div className='lg:col-span-5 lg:max-w-lg'>
+            <FooterContact />
           </div>
-          <div className='grid grid-cols-2 gap-8 md:grid-cols-4 lg:col-span-2'>
-            {ready &&
-              t('footer.navigation', { returnObjects: true }).map(
-                (navigation: FooterNavigation) => (
-                  <div key={navigation.title} className='text-left'>
-                    <FooterNavigationHeadline title={navigation.title} />
-                    <ul className='space-y-2 text-xs md:mt-8 md:space-y-3 md:text-sm'>
-                      {navigation.items.map((item) => (
-                        <li key={item.title} className='line-clamp-2'>
-                          <UnstyledLink
-                            className='text-gray-700 transition hover:text-gray-700/75'
-                            href={item.href}
-                          >
-                            {item.title}{' '}
-                            {item.href === '/cookie-richtlinie' && (
-                              <PrivacyChoiceIcon className='relative -top-0.5 ml-1 inline-block w-5' />
-                            )}
-                          </UnstyledLink>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ),
-              )}
-            <div className='text-left'>
-              <FooterNavigationHeadline title={t('footer.newsSection.title')} />
-              <ul className='space-y-2 text-xs md:mt-8 md:space-y-3 md:text-sm'>
-                <FooterPosts />
-              </ul>
-            </div>
+          <div className='grid grid-cols-2 gap-8 md:grid-cols-4 lg:col-span-7'>
+            <FooterLinks />
+            <FooterPosts />
           </div>
         </div>
-        <div className='mt-12 border-t border-gray-100 pt-12'>
-          <div className='text-center text-gray-400 sm:flex sm:items-center sm:justify-between sm:text-left'>
-            <div className='flex items-center text-xs md:text-sm'>
-              <span className='mr-3 inline-block'>
-                <VscGlobe size={18} />
-              </span>
-              <LanguagePicker className='relative rounded-lg border-0 py-2 pl-2 pr-8 text-xs md:text-sm' />
-            </div>
-            <p className='mt-4 text-xs sm:order-first sm:mt-0 md:text-sm'>
-              <span>
-                © {new Date().getFullYear()} {company.companyName} •{' '}
-                {company.street}, {company.city}
-              </span>
-            </p>
+        <div className='mt-16 border-t border-gray-100 pt-16'>
+          <div className='flex flex-row items-center justify-between gap-6 text-left'>
+            <FooterCopyright />
           </div>
         </div>
       </Container>

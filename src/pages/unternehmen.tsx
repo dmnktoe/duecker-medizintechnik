@@ -58,7 +58,6 @@ const CompanyPage = (
           </div>
           <div className='mx-auto mb-16 max-w-5xl text-sm'>
             <Title>{t('content.title')}</Title>
-            <Body>{t('content.companyText.title')}</Body>
             <Body>{t('content.companyText.text1')}</Body>
             <Body>{t('content.companyText.text2')}</Body>
             <Body>{t('content.companyText.text3')}</Body>

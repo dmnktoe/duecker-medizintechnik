@@ -49,9 +49,10 @@ export const ISO8 = ({ className }: { className?: string }) => (
       x='1640.14'
       y='109.07'
       strokeWidth='0'
-      opacity='0.1'
+      opacity='1.1'
       rx='42.52'
       ry='42.52'
+      fill='#1fa0e1'
     ></rect>
     <rect
       width='141.73'

@@ -156,7 +156,7 @@ export const StickyScroll = () => {
   const MobileStickyScroll = () => {
     return (
       <>
-        <section className='block bg-primary-50 py-16 md:py-32 lg:hidden'>
+        <section className='block bg-gray-50 py-16 md:py-32 lg:hidden'>
           <Container>
             <div className='mb-8'>
               <AnimatedBadge text={t('content.stickyScroll.badge')} />

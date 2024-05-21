@@ -1,15 +1,16 @@
 import { AppProps } from 'next/app';
-import { Figtree, Sorts_Mill_Goudy } from 'next/font/google';
+import { Sarabun, Sorts_Mill_Goudy } from 'next/font/google';
 import { appWithTranslation } from 'next-i18next';
 import NextNProgress from 'nextjs-progressbar';
 import React from 'react';
 
 import '@/styles/globals.css';
 
-const figtree = Figtree({
+const sarabun = Sarabun({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-figtree',
+  variable: '--font-sarabun',
+  weight: ['400', '600', '700'],
 });
 
 const sortsMillGoudy = Sorts_Mill_Goudy({
@@ -22,7 +23,7 @@ const sortsMillGoudy = Sorts_Mill_Goudy({
 function Duecker({ Component, pageProps }: AppProps) {
   return (
     <>
-      <div className={`${figtree.variable} ${sortsMillGoudy.variable}`}>
+      <div className={`${sarabun.variable} ${sortsMillGoudy.variable}`}>
         <NextNProgress
           color='var(--color-primary-500)'
           startPosition={0.3}

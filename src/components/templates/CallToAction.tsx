@@ -69,7 +69,7 @@ export const CallToAction = () => {
       <section
         className={clsxm(
           'overflow-hidden py-16 md:py-24 lg:py-32',
-          'bg-gradient-to-tr from-primary-400 to-primary-600',
+          'bg-dark',
           'relative',
         )}
       >
@@ -79,7 +79,7 @@ export const CallToAction = () => {
             <CallToActionBullets />
           </div>
         </Container>
-        <Globe className='-right-48 top-0 z-20 hidden opacity-40 md:block md:max-w-[750px] lg:-right-32 lg:max-w-[800px] 2xl:-right-32 2xl:max-w-[900px]' />
+        <Globe className='-right-48 top-0 z-20 hidden opacity-60 md:block md:max-w-[750px] lg:-right-32 lg:max-w-[800px] 2xl:-right-32 2xl:max-w-[900px]' />
       </section>
     </>
   );

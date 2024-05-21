@@ -124,7 +124,7 @@ const tiles = [
     cta: 'Learn more',
     className: 'col-span-3 lg:col-span-2',
     background: (
-      <Globe className='top-0 h-[600px] w-[600px] opacity-60 transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_30%,#000_100%)] sm:left-40' />
+      <Globe className='top-0 h-[600px] w-[600px] opacity-30 transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_30%,#000_100%)] sm:left-40' />
     ),
   },
 ];
@@ -186,7 +186,7 @@ const BentoCard = ({
           // light styles
           textIsWhite
             ? 'bg-white'
-            : 'border border-solid border-gray-200 bg-white',
+            : 'border border-solid border-gray-100 bg-white hover:border-primary-300',
           className,
         )}
       >
@@ -222,7 +222,7 @@ const BentoCard = ({
 
 export const BentoSection = () => {
   return (
-    <section className='border-t border-gray-100 py-16 md:py-24 lg:py-32'>
+    <section className='border-t border-dashed border-gray-300 py-16 md:py-24 lg:py-32'>
       <Container>
         <SectionTitle />
         <BentoGrid>

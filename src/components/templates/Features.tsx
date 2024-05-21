@@ -11,7 +11,7 @@ const TextBlocks = () => {
   return (
     <>
       <Container>
-        <div className='grid grid-cols-1 gap-0 md:grid-cols-2 md:gap-8 lg:grid-cols-3 lg:gap-16'>
+        <div className='grid grid-cols-1 gap-0 md:grid-cols-2 md:gap-8 md:py-8 lg:grid-cols-3 lg:gap-16'>
           {ready &&
             t('content.features.textBlocks', {
               returnObjects: true,
@@ -36,9 +36,9 @@ const TextBlockElement = ({
   content: string;
 }) => (
   <div className='w-full'>
-    <div className='md:max-w-lg'>
+    <div className='md:max-w-sm'>
       <div className='flex flex-wrap'>
-        <div className='flex-1 py-8 md:py-8'>
+        <div className='flex-1 py-4 md:py-8'>
           <div className='mb-2 flex items-center justify-start gap-2 md:mb-4'>
             <CheckIcon className='hidden h-3 w-3 md:block md:h-4 md:w-4' />
             <Title margin={false} size='five' renderAs='h5'>
