@@ -77,7 +77,7 @@ const ProductionPage = (
             capitalizeLinks
             className='mb-6'
           />
-          <div className='mb-16 flex flex-col items-start md:flex-row md:gap-6 lg:mb-24'>
+          <div className='mb-16 flex flex-col items-start lg:mb-32 lg:flex-row lg:gap-16'>
             <div className='mb-6 w-full lg:mb-0 lg:w-2/3 xl:w-1/2'>
               <div className='text-dark'>
                 <Title>{t('content.title1')}</Title>
@@ -121,23 +121,23 @@ const ProductionPage = (
               </div>
             </div>
           </div>
-          <div className='flex flex-col-reverse gap-6 py-16 md:py-24 lg:flex-row'>
-            <div className='w-full xl:w-1/2'>
+          <div className='flex flex-col-reverse gap-8 lg:flex-row lg:gap-16 2xl:mx-16'>
+            <div className='w-full lg:w-2/3 xl:w-1/2'>
               <div className='flex h-full flex-wrap'>
                 <div className='mb-4 w-full md:mb-0 md:w-1/2'>
                   <div className='flex h-full flex-col'>
-                    <a
+                    <UnstyledLink
                       className='relative mb-4 block h-full bg-primary-50 px-8 pb-5 pt-8 transition duration-200 hover:bg-primary-100'
-                      href='#'
+                      href='/leistungen/produktion/produkt-uebersicht'
                     >
                       <div className='flex h-full max-w-sm flex-col justify-between pr-16'>
                         <Body size='sm'>{t('content.boxes.1.text')}</Body>
                         <Title size='three'>{t('content.boxes.1.title')}</Title>
                       </div>
-                    </a>
+                    </UnstyledLink>
                     <UnstyledLink
                       className='relative block h-full bg-purple-50 px-8 pb-5 pt-8 transition duration-200 hover:bg-purple-100'
-                      href='/downloads'
+                      href='/leistungen/produktion/produkt-uebersicht'
                     >
                       <div className='flex h-full max-w-sm flex-col justify-between pr-16'>
                         <Body size='sm'>{t('content.boxes.2.text')}</Body>
@@ -147,22 +147,22 @@ const ProductionPage = (
                   </div>
                 </div>
                 <div className='w-full md:w-1/2 md:pl-4'>
-                  <a
+                  <UnstyledLink
                     className='relative block h-full bg-gray-50 px-8 pb-5 pt-8 transition duration-200 hover:bg-gray-100'
-                    href='#'
+                    href='/leistungen/produktion/produkt-uebersicht'
                   >
                     <div className='flex h-full max-w-sm flex-col items-start justify-between pr-16'>
                       <Body size='sm'>{t('content.boxes.3.text')}</Body>
                       <Title size='three'>{t('content.boxes.3.title')}</Title>
                     </div>
-                  </a>
+                  </UnstyledLink>
                 </div>
               </div>
             </div>
-            <div className='w-full py-16 md:py-24 lg:px-4 lg:py-32 xl:mb-0 xl:w-1/2'>
+            <div className='w-full md:py-24 lg:w-1/3 lg:px-4 lg:py-32 xl:mb-0 xl:w-1/2'>
               <Title>{t('content.title2')}</Title>
               <Body>{t('content.text2')}</Body>
-              <Body>{t('content.text3')}</Body>
+              <Body margin={false}>{t('content.text3')}</Body>
             </div>
           </div>
         </Container>

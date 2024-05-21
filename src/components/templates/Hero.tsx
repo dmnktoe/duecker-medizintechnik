@@ -36,7 +36,7 @@ export const Hero = () => {
 
 const HeroIntro = () => {
   return (
-    <div className='mx-auto mb-12 flex max-w-full flex-col items-center gap-12 md:mb-36 md:max-w-3xl md:gap-24 lg:max-w-6xl lg:flex-row xl:max-w-full 2xl:mx-16'>
+    <div className='mx-auto mb-12 flex max-w-full flex-col items-center gap-12 md:mb-36 md:max-w-3xl md:gap-24 lg:max-w-6xl lg:flex-row xl:max-w-full 2xl:px-16'>
       <div className='w-full lg:w-7/12 xl:w-7/12'>
         <HeroText />
       </div>
