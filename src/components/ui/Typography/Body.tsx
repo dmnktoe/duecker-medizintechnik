@@ -21,7 +21,7 @@ export const Body = ({
 }: BodyProps) => {
   const sizeClasses = {
     xs: 'text-xs',
-    sm: 'text-sm',
+    sm: 'text-xs md:text-sm',
     base: 'text-sm md:text-base',
     lg: 'text-base md:text-lg',
   };

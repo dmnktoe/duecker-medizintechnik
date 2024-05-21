@@ -1,192 +1,280 @@
+import i18next from 'i18next';
 import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
-import { MouseEvent } from 'react';
+import { ReactNode } from 'react';
 
 import clsxm from '@/lib/clsxm';
 
 import { Container } from '@/components/layout';
-import { Title } from '@/components/ui/Typography';
+import Globe from '@/components/templates/Globe';
+import Marquee from '@/components/templates/Marquee';
+import { Body, Title } from '@/components/ui/Typography';
 
-import bentoGridImg2 from '/public/images/home/bento-grid/bento-grid_keydot.jpg';
-import bentoGridImg5 from '/public/images/home/bento-grid/bento-grid_nouvag.png';
-import bentoGridImg1 from '/public/images/home/bento-grid/bento-grid_product-highlight.jpg';
+import bentoGridImg5 from '/public/images/home/bento-grid/bento-grid_high-speed.png';
+import bentoGridImg1 from '/public/images/home/bento-grid/bento-grid_keydot.jpg';
+import bentoGridImg2 from '/public/images/home/bento-grid/bento-grid_nouvag.png';
+import sterilisationskorb from '/public/images/home/bento-grid/Sterilisationskorb-Neuro-Kanuelen.jpg';
 
-export const Bento = () => {
-  const onMouseMove = (e: MouseEvent<HTMLDivElement>) => {
-    for (const card of Array.from(
-      e.currentTarget.children as HTMLCollectionOf<HTMLElement>,
-    )) {
-      const rect = card.getBoundingClientRect(),
-        x = e.clientX - rect.left,
-        y = e.clientY - rect.top;
+const files = [
+  {
+    name: 'EN ISO',
+    body: 'Bitcoin is a cryptocurrency invented in 2008 by an unknown person or group of people using the name Satoshi Nakamoto.',
+  },
+  {
+    name: '13485:2016',
+    body: 'A blockchain is a growing list of records, called blocks, that are linked using cryptography.',
+  },
+  {
+    name: 'AC:2018',
+    body: 'A spreadsheet or worksheet is a file made of rows and columns that help sort data, arrange data easily, and calculate numerical data.',
+  },
+  {
+    name: 'A11:2021',
+    body: 'Scalable Vector Graphics is an Extensible Markup Language-based vector image format for two-dimensional graphics with support for interactivity and animation.',
+  },
+  {
+    name: 'Infekt.schutz',
+    body: 'GPG keys are used to encrypt and decrypt email, files, directories, and whole disk partitions and to authenticate messages.',
+  },
+  {
+    name: 'Seed Phrase',
+    body: 'A seed phrase, seed recovery phrase or backup seed phrase is a list of words which store all the information needed to recover Bitcoin funds on-chain.',
+  },
+];
 
-      card.style.setProperty('--cursor-x', `${x}px`);
-      card.style.setProperty('--cursor-y', `${y}px`);
-    }
-  };
+const tiles = [
+  {
+    name: 'Downloads & Zertifikate',
+    description:
+      'Unser Unternehmen legt größten Wert auf Qualität, Sicherheit und Zuverlässigkeit.',
+    className: 'col-span-3 lg:col-span-1',
+    href: '/contact',
+    background: (
+      <Marquee
+        pauseOnHover
+        className='absolute top-10 [--duration:20s] [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] '
+      >
+        {files.map((f, idx) => (
+          <figure
+            key={idx}
+            className={clsxm(
+              'relative w-32 cursor-pointer overflow-hidden rounded-xl border p-4',
+              'border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]',
+              'blur-[1px] transition-all duration-300 ease-out hover:blur-none',
+            )}
+          >
+            <div className='flex flex-row items-center gap-2'>
+              <div className='flex flex-col'>
+                <figcaption className='text-sm font-medium'>
+                  {f.name}
+                </figcaption>
+              </div>
+            </div>
+            <blockquote className='mt-2 text-xs'>{f.body}</blockquote>
+          </figure>
+        ))}
+      </Marquee>
+    ),
+  },
+  {
+    name: 'Aufbereitung & Reparatur',
+    description:
+      'Von der gewöhnlichen OP-Schere bis hin zur bipolare Koagulationszange, wir reparieren alles.',
+    className: 'col-span-3 lg:col-span-1',
+    href: '/contact',
+    background: (
+      <div className='absolute right-0 h-full w-64'>
+        <Image
+          src={bentoGridImg1.src}
+          alt='Keydot'
+          priority
+          className='h-full w-full object-cover'
+          quality={65}
+          width={800}
+          height={800}
+        />
+      </div>
+    ),
+  },
+  {
+    name: 'Nouvag',
+    description: 'Nouvag is a medical technology company.',
+    className: 'col-span-3 lg:col-span-1',
+    background: (
+      <div className='absolute h-full w-full'>
+        <Image
+          src={sterilisationskorb.src}
+          alt='Keydot'
+          priority
+          className='relative -top-8 block h-full w-full object-cover'
+          quality={65}
+          width={800}
+          height={800}
+        />
+      </div>
+    ),
+  },
+  {
+    name: 'IS8 Zertifizierung & Spezifikation',
+    description: 'Wir sind zertifiziert nach EN ISO 13485:2016.',
+    className: 'col-span-3 lg:col-span-1',
+    background: (
+      <div className='group absolute mx-auto h-full w-full pt-10 text-center'>
+        <h5 className='text-black/60'>
+          {i18next.t('home:content.bentoGrid.tiles.boxIso.textAccent')}
+        </h5>
+        <h1 className='inline-block text-[8rem] font-thin text-gray-300'>
+          {i18next.t('home:content.bentoGrid.tiles.boxIso.textAccent')} ISO8
+        </h1>
+        <h5 className='text-gray-300'>
+          {i18next.t('home:content.bentoGrid.tiles.boxIso.textBottom')}{' '}
+          Spezifikation
+        </h5>
+      </div>
+    ),
+  },
+  {
+    name: 'Distribution und Handel von Medizinprodukten',
+    description: 'We automatically save your files as you type.',
+    href: '/contact',
+    cta: 'Learn more',
+    className: 'col-span-3 lg:col-span-2',
+    background: (
+      <Globe className='top-0 h-[600px] w-[600px] opacity-40 grayscale transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_30%,#000_100%)] group-hover:scale-105 sm:left-40' />
+    ),
+  },
+  {
+    name: 'Vario Medium 300 Sterilisationskorb',
+    description: 'Nouvag is a medical technology company.',
+    className: 'col-span-3 lg:col-span-2',
+    background: (
+      <div className='absolute -right-12 h-full w-[80%]'>
+        <Image
+          src={bentoGridImg2.src}
+          alt='Keydot'
+          priority
+          className='h-full w-full object-cover'
+          quality={65}
+          width={800}
+          height={800}
+        />
+      </div>
+    ),
+  },
+  {
+    name: 'High-Speed Handstück',
+    description: 'Nouvag is a medical technology company.',
+    className: 'col-span-3 lg:col-span-1',
+    textIsWhite: true,
+    background: (
+      <div className='absolute h-full w-full'>
+        <Image
+          src={bentoGridImg5.src}
+          alt='Keydot'
+          priority
+          className='h-full w-full object-cover'
+          quality={65}
+          width={800}
+          height={800}
+        />
+      </div>
+    ),
+  },
+];
 
+const SectionTitle = () => {
   const { t } = useTranslation('home');
+  return (
+    <div className='mb-16 text-center'>
+      <Title renderAs='h2' className='md:-mb-2' margin={false}>
+        {t('content.bentoGrid.title')}
+      </Title>
+      <Title renderAs='h2' className='text-gray-400'>
+        {t('content.bentoGrid.subTitle')}
+      </Title>
+    </div>
+  );
+};
 
+const BentoGrid = ({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) => {
+  return (
+    <div
+      className={clsxm(
+        'grid w-full auto-rows-[25rem] grid-cols-3 gap-3',
+        className,
+      )}
+    >
+      {children}
+    </div>
+  );
+};
+
+const BentoCard = ({
+  name,
+  className,
+  background,
+  description,
+  textIsWhite = false,
+}: {
+  name: string;
+  className: string;
+  background: ReactNode;
+  description: string;
+  textIsWhite?: boolean;
+}) => {
+  return (
+    <>
+      <div
+        key={name}
+        className={clsxm(
+          'group relative col-span-3 flex flex-col justify-between overflow-hidden rounded-3xl',
+          // light styles
+          'border border-solid border-gray-200 bg-white',
+          className,
+        )}
+      >
+        <div>{background}</div>
+        <div className='pointer-events-none z-10 flex flex-col p-6 transition-all duration-300'>
+          <Title
+            size='five'
+            margin={false}
+            className={clsxm(textIsWhite ? 'text-white' : 'text-black')}
+          >
+            {name}
+          </Title>
+          <Body
+            margin={false}
+            size='sm'
+            className={clsxm(
+              'max-w-lg',
+              textIsWhite ? 'text-white/60' : 'text-neutral-400',
+            )}
+          >
+            {description}
+          </Body>
+        </div>
+        <div className='pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03]' />
+      </div>
+    </>
+  );
+};
+
+export const BentoSection = () => {
   return (
     <section className='border-t border-gray-100 py-16 md:py-24 lg:py-32'>
       <Container>
-        <div className='mb-8'>
-          <Title renderAs='h2' className='md:-mb-2' margin={false}>
-            Quality, Innovation, and Precision
-          </Title>
-          <Title renderAs='h2' className='text-gray-500'>
-            Precision Instruments for Dentistry
-          </Title>
-        </div>
-        <div
-          className='group grid auto-rows-[200px] grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-12'
-          onMouseMove={onMouseMove}
-        >
-          <div
-            className={clsxm(
-              'relative col-span-1 row-span-2 cursor-pointer overflow-hidden rounded-3xl bg-white/10 lg:col-span-3',
-              "before:absolute before:inset-0 before:z-30 before:rounded-3xl before:bg-spotlight-hover before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
-              "after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:bg-spotlight-borders after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
-              'hover:before:opacity-100 group-hover:after:opacity-100',
-            )}
-          >
-            <div className='absolute inset-px z-20 flex flex-grow flex-col justify-start rounded-3xl bg-gray-50 p-4 text-dark'>
-              <Image
-                src={bentoGridImg2}
-                placeholder='blur'
-                fill
-                objectFit='cover'
-                objectPosition='center'
-                className='absolute right-0 top-0 h-full w-full overflow-hidden rounded-3xl mix-blend-darken'
-                alt='Keydot'
-              />
-            </div>
-          </div>
-          <div
-            className={clsxm(
-              'relative col-span-1 row-span-1 cursor-pointer overflow-hidden rounded-3xl bg-white/10 lg:col-span-3',
-              "before:absolute before:inset-0 before:z-30 before:rounded-3xl before:bg-spotlight-hover before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
-              "after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:bg-spotlight-borders after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
-              'hover:before:opacity-100 group-hover:after:opacity-100',
-            )}
-          >
-            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-gray-50 p-4 text-dark'>
-              <h5 className='text-black/60'>
-                {t('content.features.bentoGrid.boxIso.textTop')}
-              </h5>
-              <h1 className='inline-block bg-gradient-to-r from-purple-400 to-purple-700 bg-clip-text text-7xl font-bold text-transparent'>
-                {t('content.features.bentoGrid.boxIso.textAccent')}
-              </h1>
-              <h5 className='text-black/60'>
-                {t('content.features.bentoGrid.boxIso.textBottom')}
-              </h5>
-            </div>
-          </div>
-          <div
-            className={clsxm(
-              'relative col-span-1 row-span-1 cursor-pointer overflow-hidden rounded-3xl bg-white/10 lg:col-span-3',
-              "before:absolute before:inset-0 before:z-30 before:rounded-3xl before:bg-spotlight-hover before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
-              "after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:bg-spotlight-borders after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
-              'hover:before:opacity-100 group-hover:after:opacity-100',
-            )}
-          >
-            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-50 p-4 text-dark'>
-              Box
-            </div>
-          </div>
-          <div
-            className={clsxm(
-              'relative col-span-1 row-span-2 cursor-pointer overflow-hidden rounded-3xl bg-white/10 lg:col-span-3',
-              "before:absolute before:inset-0 before:z-30 before:rounded-3xl before:bg-spotlight-hover before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
-              "after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:bg-spotlight-borders after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
-              'hover:before:opacity-100 group-hover:after:opacity-100',
-            )}
-          >
-            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-50 p-4 text-dark'>
-              <Image
-                src={bentoGridImg5}
-                placeholder='blur'
-                fill
-                objectFit='cover'
-                objectPosition='center'
-                className='absolute right-0 top-0 h-full w-full overflow-hidden rounded-3xl'
-                alt='Keydot'
-              />
-            </div>
-          </div>
-          <div
-            className={clsxm(
-              'relative col-span-1 row-span-2 cursor-pointer overflow-hidden rounded-3xl bg-white/10 lg:col-span-6',
-              "before:absolute before:inset-0 before:z-30 before:rounded-3xl before:bg-spotlight-hover before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
-              "after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:bg-spotlight-borders after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
-              'hover:before:opacity-100 group-hover:after:opacity-100',
-            )}
-          >
-            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-50 p-4 text-dark'>
-              <Image
-                src={bentoGridImg1}
-                placeholder='blur'
-                fill
-                objectFit='cover'
-                objectPosition='center'
-                className='absolute right-0 top-0 h-full w-full overflow-hidden rounded-3xl'
-                alt='Keydot'
-              />
-            </div>
-          </div>
-          <div
-            className={clsxm(
-              'relative col-span-1 row-span-1 cursor-pointer overflow-hidden rounded-3xl bg-white/10 lg:col-span-3',
-              "before:absolute before:inset-0 before:z-30 before:rounded-3xl before:bg-spotlight-hover before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
-              "after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:bg-spotlight-borders after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
-              'hover:before:opacity-100 group-hover:after:opacity-100',
-            )}
-          >
-            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-gray-50 p-4 text-dark'>
-              Box
-            </div>
-          </div>
-          <div
-            className={clsxm(
-              'relative col-span-1 row-span-2 cursor-pointer overflow-hidden rounded-3xl bg-white/10 lg:col-span-3',
-              "before:absolute before:inset-0 before:z-30 before:rounded-3xl before:bg-spotlight-hover before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
-              "after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:bg-spotlight-borders after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
-              'hover:before:opacity-100 group-hover:after:opacity-100',
-            )}
-          >
-            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-50 p-4 text-dark'>
-              Box
-            </div>
-          </div>
-          <div
-            className={clsxm(
-              'relative col-span-1 row-span-1 cursor-pointer overflow-hidden rounded-3xl bg-white/10 lg:col-span-6',
-              "before:absolute before:inset-0 before:z-30 before:rounded-3xl before:bg-spotlight-hover before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
-              "after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:bg-spotlight-borders after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
-              'hover:before:opacity-100 group-hover:after:opacity-100',
-            )}
-          >
-            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-50 p-4 text-dark'>
-              <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-gray-50 p-4 text-dark'>
-                Box
-              </div>
-            </div>
-          </div>
-          <div
-            className={clsxm(
-              'relative col-span-1 row-span-1 cursor-pointer overflow-hidden rounded-3xl bg-white/10 lg:col-span-3',
-              "before:absolute before:inset-0 before:z-30 before:rounded-3xl before:bg-spotlight-hover before:opacity-0 before:transition-opacity before:duration-[400ms] before:content-['']",
-              "after:absolute after:inset-0 after:z-10 after:h-full after:w-full after:rounded-3xl after:bg-spotlight-borders after:opacity-0 after:transition-opacity after:duration-[400ms] after:content-['']",
-              'hover:before:opacity-100 group-hover:after:opacity-100',
-            )}
-          >
-            <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-start rounded-3xl bg-gray-50 p-4 text-dark'>
-              <div className='absolute inset-px z-20 flex flex-grow flex-col items-center justify-between rounded-3xl bg-gray-50 p-4 text-dark'>
-                Box
-              </div>
-            </div>
-          </div>
-        </div>
+        <SectionTitle />
+        <BentoGrid>
+          {tiles.map((tile, idx) => (
+            <BentoCard key={idx} {...tile} />
+          ))}
+        </BentoGrid>
       </Container>
     </section>
   );

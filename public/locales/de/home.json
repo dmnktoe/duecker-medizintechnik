@@ -7,14 +7,18 @@
     }
   },
   "content": {
-    "features": {
-      "bentoGrid": {
+    "bentoGrid": {
+      "subTitle": "Standards in Hygiene und Sicherheit",
+      "tiles": {
         "boxIso": {
           "textAccent": "ISO8",
           "textBottom": "Spezifikation",
           "textTop": "Wir versichern eine"
         }
       },
+      "title": "Qualität, Innovation & Präzision"
+    },
+    "features": {
       "textBlocks": [
         {
           "content": "Herstellung von medizinischen Instrumenten und Containersystemen nach höchstem Maßstab sowie professionelle Reparaturdienstleistungen für chirurgische Instrumente.",

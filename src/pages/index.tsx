@@ -7,7 +7,7 @@ import { fetchAPI } from '@/lib/fetch-api';
 
 import Seo from '@/components/helpers/Seo';
 import Layout from '@/components/layout/Layout';
-import { Bento } from '@/components/templates/Bento';
+import { BentoSection } from '@/components/templates/Bento';
 import { Features } from '@/components/templates/Features';
 import { Hero } from '@/components/templates/Hero';
 import { NewsSlider } from '@/components/templates/NewsSlider';
@@ -25,9 +25,10 @@ const HomePage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
       />
       <main>
         <Hero />
-        <StickyScroll />
+
         <Features />
-        <Bento />
+        <StickyScroll />
+        <BentoSection />
         <NewsSlider posts={posts} />
       </main>
     </Layout>
