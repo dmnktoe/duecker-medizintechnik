@@ -56,7 +56,7 @@ const PostPage = (props: PostPageProps) => {
           <div className='mx-auto flex max-w-3xl'>
             <ArrowLink
               direction='left'
-              href='/news'
+              href='/newsroom'
               className='mt-8 text-xs md:mt-12'
             >
               {t('content.newsSlug.back')}

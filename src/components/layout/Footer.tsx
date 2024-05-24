@@ -133,7 +133,7 @@ const FooterPosts = () => {
               <UnderlineLink
                 underline='hover'
                 className='line-clamp-2'
-                href={`/news/${post.attributes.slug}`}
+                href={`/newsroom/${post.attributes.slug}`}
               >
                 <Body margin={false}>{post.attributes.title}</Body>
               </UnderlineLink>

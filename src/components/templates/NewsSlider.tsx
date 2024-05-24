@@ -49,7 +49,7 @@ export const NewsSlider = ({ posts }: NewsSliderProps) => {
       <div className='mt-16 text-center'>
         <UnderlineLink
           underline='hover'
-          href='/news'
+          href='/newsroom'
           className='group inline-flex items-center'
         >
           <Title size='five' margin={false} className='mr-4 hover:underline'>

@@ -13,7 +13,7 @@ import { NewsList } from '@/components/templates/NewsList';
 import NextBreadcrumb from '@/components/ui/Breadcrumb';
 import { Body, Title } from '@/components/ui/Typography';
 
-const NewsPage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Newsroom = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { t } = useTranslation('news');
   const posts = props.posts;
 
@@ -62,4 +62,4 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
   };
 };
 
-export default NewsPage;
+export default Newsroom;

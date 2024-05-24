@@ -43,7 +43,6 @@ const ImageBanner = ({
         src={src}
         sizes={responsiveImageSizes[role]}
         fill
-        fetchPriority='high'
         quality={60}
         priority={priority}
         alt='hero'

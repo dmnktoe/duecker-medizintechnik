@@ -76,7 +76,7 @@ export const NewsArticle = ({ post }: NewsArticleProps) => {
 
   const ShareButtons = () => {
     const getPostUrl = () => {
-      return `${company.url}/news/${post.attributes.slug}`;
+      return `${company.url}/newsroom/${post.attributes.slug}`;
     };
 
     const shareButtonProps = {
