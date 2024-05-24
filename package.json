@@ -21,8 +21,8 @@
     "prepare": "husky install",
     "clean": "rm -rf .next/ coverage/",
     "clean:nm": "rm -rf node_modules/",
-    "lhci:mobile": "lhci autorun",
-    "lhci:desktop": "lhci autorun --collect.settings.preset=desktop"
+    "lhci:mobile": "lhci --config=./.github/lighthouserc.json autorun",
+    "lhci:desktop": "lhci --config=./.github/lighthouserc.json autorun --collect.settings.preset=desktop"
   },
   "dependencies": {
     "@dotlottie/react-player": "^1.6.5",
