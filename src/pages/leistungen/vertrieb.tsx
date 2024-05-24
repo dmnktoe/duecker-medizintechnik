@@ -12,6 +12,7 @@ import Seo from '@/components/helpers/Seo';
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
 import ImageBanner from '@/components/templates/ImageBanner/ImageBanner';
+import ImageScrollEffect from '@/components/templates/ImageScrollEffect';
 import { AspectRatio } from '@/components/ui/AspectRatio';
 import Badge from '@/components/ui/Badges/Badge';
 import NextBreadcrumb from '@/components/ui/Breadcrumb';
@@ -20,6 +21,7 @@ import { Title } from '@/components/ui/Typography/Title';
 import { Partner, partners } from '@/constant/partners';
 
 import heroImg from '/public/images/distribution/duecker-medizintechnik_distribution_hero-bg.webp';
+import parallaxImg from '/public/images/distribution/duecker-medizintechnik_distribution_parallax-bg.webp';
 
 const DistributionPage = (
   _props: InferGetStaticPropsType<typeof getStaticProps>,
@@ -88,6 +90,10 @@ const DistributionPage = (
             </div>
           </div>
         </Container>
+        <ImageScrollEffect
+          image={parallaxImg}
+          text='Global Distribution Network'
+        />
       </main>
     </Layout>
   );
