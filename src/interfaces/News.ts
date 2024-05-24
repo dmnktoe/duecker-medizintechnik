@@ -6,7 +6,7 @@ export interface Attribute {
 }
 
 export interface Image {
-  data: Data;
+  data: News;
 }
 
 export interface Attribute {
@@ -21,7 +21,7 @@ export interface Attribute {
   image: Image;
 }
 
-export interface Data {
+export interface News {
   id: number;
   attributes: Attribute;
 }
@@ -38,6 +38,6 @@ export interface Meta {
 }
 
 export interface RootObject {
-  data: Data[];
+  data: News[];
   meta: Meta;
 }

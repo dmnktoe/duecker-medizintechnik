@@ -2,10 +2,10 @@ import React from 'react';
 
 import NewsCard from '@/components/templates/NewsCard';
 
-import { Data } from '@/interfaces/Data';
+import { News } from '@/interfaces/News';
 
 interface NewsListProps {
-  posts: Data[];
+  posts: News[];
 }
 
 export const NewsList = (props: NewsListProps) => {
@@ -13,7 +13,7 @@ export const NewsList = (props: NewsListProps) => {
   return (
     <>
       <ul className='divide-y divide-gray-200'>
-        {posts.map((post: Data) => (
+        {posts.map((post: News) => (
           <article className='py-12' key={post.id}>
             <NewsCard post={post} orientation='horizontal' />
           </article>

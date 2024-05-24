@@ -24,16 +24,16 @@ import UnstyledLink from '@/components/ui/Links/UnstyledLink';
 import { Body, Title } from '@/components/ui/Typography';
 
 import { company } from '@/constant/company';
-import { Data } from '@/interfaces/Data';
+import { News } from '@/interfaces/News';
 
 type NewsArticleProps = {
-  post: Data;
+  post: News;
 };
 
 export const NewsArticle = ({ post }: NewsArticleProps) => {
   const [isCopied, setIsCopied] = React.useState(false);
 
-  const ArticleHeader = ({ post }: { post: Data }) => {
+  const ArticleHeader = ({ post }: { post: News }) => {
     return (
       <div className='mx-auto flex w-full max-w-3xl flex-col gap-y-4'>
         <ArticleMeta post={post} />
@@ -44,7 +44,7 @@ export const NewsArticle = ({ post }: NewsArticleProps) => {
     );
   };
 
-  const ArticleMeta = ({ post }: { post: Data }) => {
+  const ArticleMeta = ({ post }: { post: News }) => {
     return (
       <div className='flex flex-row items-center gap-x-4'>
         <Badge color='dark' size='md' variant='outline'>
@@ -58,7 +58,7 @@ export const NewsArticle = ({ post }: NewsArticleProps) => {
     );
   };
 
-  const ArticleTitle = ({ post }: { post: Data }) => {
+  const ArticleTitle = ({ post }: { post: News }) => {
     return (
       <Title margin={false} className='text-dark'>
         {post.attributes.title}
@@ -66,7 +66,7 @@ export const NewsArticle = ({ post }: NewsArticleProps) => {
     );
   };
 
-  const ArticleExcerpt = ({ post }: { post: Data }) => {
+  const ArticleExcerpt = ({ post }: { post: News }) => {
     return (
       <Body size='lg' margin={false} className='font-medium'>
         {post.attributes.excerpt}
@@ -121,7 +121,7 @@ export const NewsArticle = ({ post }: NewsArticleProps) => {
     );
   };
 
-  const ArticleImage = ({ post }: { post: Data }) => {
+  const ArticleImage = ({ post }: { post: News }) => {
     return (
       <div className='relative mx-auto w-full max-w-5xl'>
         {post.attributes.image.data?.attributes.name && (
@@ -147,7 +147,7 @@ export const NewsArticle = ({ post }: NewsArticleProps) => {
     );
   };
 
-  const ArticleContent = ({ post }: { post: Data }) => {
+  const ArticleContent = ({ post }: { post: News }) => {
     return (
       <div
         className='news__content mx-auto w-full max-w-3xl'
@@ -158,7 +158,7 @@ export const NewsArticle = ({ post }: NewsArticleProps) => {
     );
   };
 
-  const ArticleAuthor = ({ post }: { post: Data }) => {
+  const ArticleAuthor = ({ post }: { post: News }) => {
     return (
       <div className='mx-auto w-full max-w-3xl'>
         <div className='w-2/3 md:w-1/2'>

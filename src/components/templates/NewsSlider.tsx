@@ -11,10 +11,10 @@ import SliderButton from '@/components/ui/Buttons/SliderButton';
 import UnderlineLink from '@/components/ui/Links/UnderlineLink';
 import { Title } from '@/components/ui/Typography';
 
-import { Data } from '@/interfaces/Data';
+import { News } from '@/interfaces/News';
 
 type NewsSliderProps = {
-  posts: Data[];
+  posts: News[];
 };
 
 export const NewsSlider = ({ posts }: NewsSliderProps) => {
@@ -86,7 +86,7 @@ export const NewsSlider = ({ posts }: NewsSliderProps) => {
         }}
       >
         <div className='mb-20 flex'>
-          {posts.map((post: Data, index) => (
+          {posts.map((post: News, index) => (
             <SwiperSlide key={index}>
               <NewsCard post={post} orientation='vertical' />
             </SwiperSlide>
