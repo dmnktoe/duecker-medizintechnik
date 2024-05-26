@@ -2,10 +2,10 @@ import { Image } from '@/interfaces/Image';
 
 export interface News {
   id: number;
-  attributes: NewsAttribute;
+  attributes: NewsAttributes;
 }
 
-interface NewsAttribute {
+interface NewsAttributes {
   title: string;
   excerpt: string;
   content: string;
