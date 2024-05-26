@@ -19,10 +19,15 @@ const nextConfig = {
   i18n,
 
   images: {
-    domains: [
-      'res.cloudinary.com',
-      'picsum.photos',
-      'cms.duecker-medizintechnik.de',
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cms.duecker-medizintechnik.de',
+      },
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+      },
     ],
   },
 
