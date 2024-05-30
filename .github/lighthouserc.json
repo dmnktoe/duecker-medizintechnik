@@ -7,7 +7,7 @@
       "url": [
         "http://localhost:3000/",
         "http://localhost:3000/404",
-        "http://localhost:3000/allgemeine-geschaeftsbedingungen",
+        "http://localhost:3000/agb",
         "http://localhost:3000/datenschutz",
         "http://localhost:3000/downloads",
         "http://localhost:3000/impressum",

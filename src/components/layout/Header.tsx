@@ -139,10 +139,7 @@ export const Header = () => {
                         <Link href='/datenschutz' className='p-1'>
                           {t('header.privacyLinkText')}
                         </Link>
-                        <Link
-                          href='/allgemeine-geschaeftsbedingungen'
-                          className='p-1'
-                        >
+                        <Link href='/agb' className='p-1'>
                           {t('header.termsAndConditionsLinkText')}
                         </Link>
                         <Link href='/cookie-richtlinie' className='p-1'>
