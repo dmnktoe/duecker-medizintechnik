@@ -10,7 +10,7 @@ const figtree = Figtree({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-sarabun',
-  weight: ['400', '600', '700'],
+  weight: ['400', '500', '600', '700'],
 });
 
 const sortsMillGoudy = Sorts_Mill_Goudy({

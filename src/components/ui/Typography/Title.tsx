@@ -23,7 +23,7 @@ export const Title = ({
   return (
     <Component
       className={clsx(
-        'font-medium -tracking-[0.01em] text-dark',
+        'font-medium -tracking-[0.033em] text-dark',
         {
           'text-4xl md:text-5xl md:leading-[1.1] 2xl:text-[3.4rem]':
             size === 'one',
