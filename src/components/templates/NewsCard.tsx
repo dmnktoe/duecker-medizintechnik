@@ -9,10 +9,10 @@ import Badge from '@/components/ui/Badges/Badge';
 import UnstyledLink from '@/components/ui/Links/UnstyledLink';
 import { Body, Title } from '@/components/ui/Typography';
 
-import { Data } from '@/interfaces/Data';
+import { News } from '@/interfaces/News';
 
 interface CardProps {
-  post: Data;
+  post: News;
   orientation?: 'horizontal' | 'vertical';
 }
 
@@ -41,7 +41,7 @@ const CardImage = ({ post, orientation }: CardProps) => {
   );
 };
 
-const CardHeader = ({ post }: { post: Data }) => {
+const CardHeader = ({ post }: { post: News }) => {
   return (
     <>
       <div>
@@ -56,7 +56,7 @@ const CardHeader = ({ post }: { post: Data }) => {
   );
 };
 
-const CardTitle = ({ post }: { post: Data }) => {
+const CardTitle = ({ post }: { post: News }) => {
   return (
     <Title size='three' className='line-clamp-3 group-hover:underline'>
       {post.attributes.title}
@@ -64,7 +64,7 @@ const CardTitle = ({ post }: { post: Data }) => {
   );
 };
 
-const CardExcerpt = ({ post }: { post: Data }) => {
+const CardExcerpt = ({ post }: { post: News }) => {
   const excerpt = post.attributes.excerpt.split(' ').slice(0, 50).join(' ');
   return (
     <Body margin={false} className='line-clamp-3'>
@@ -78,7 +78,7 @@ const NewsCard = ({ post, orientation }: CardProps) => {
     <div className='w-full'>
       <UnstyledLink
         className='group block focus:outline-dashed focus:outline-1 focus:outline-offset-4 focus:outline-dark'
-        href={'/news/' + post.attributes.slug}
+        href={'/newsroom/' + post.attributes.slug}
       >
         <div
           className={clsxm(

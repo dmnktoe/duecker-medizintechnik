@@ -5,7 +5,7 @@ import Image, { StaticImageData } from 'next/image';
 import {
   ImageBannerRole,
   responsiveImageSizes,
-} from '@/constant/responsiveImageSizes';
+} from '@/constant/responsive-image-sizes';
 import { VariantNames } from '@/interfaces/VariantNames';
 
 import { imgBannerVariants } from './variants';
@@ -43,7 +43,6 @@ const ImageBanner = ({
         src={src}
         sizes={responsiveImageSizes[role]}
         fill
-        fetchPriority='high'
         quality={60}
         priority={priority}
         alt='hero'

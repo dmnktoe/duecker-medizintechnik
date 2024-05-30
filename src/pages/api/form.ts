@@ -14,11 +14,11 @@ interface Data {
 const handlebarOptions = {
   viewEngine: {
     extName: '.handlebars',
-    partialsDir: path.resolve('./src/templates/'),
-    layoutsDir: path.resolve('./src/templates/'),
+    partialsDir: path.resolve('./src/email/'),
+    layoutsDir: path.resolve('./src/email/'),
     defaultLayout: 'contact',
   },
-  viewPath: path.resolve('./src/templates/'),
+  viewPath: path.resolve('./src/email/'),
   extName: '.handlebars',
 };
 

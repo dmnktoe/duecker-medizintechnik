@@ -17,7 +17,7 @@
         "http://localhost:3000/leistungen/produktion/produkt-uebersicht",
         "http://localhost:3000/leistungen/reparatur",
         "http://localhost:3000/leistungen/vertrieb",
-        "http://localhost:3000/news",
+        "http://localhost:3000/newsroom",
         "http://localhost:3000/unternehmen"
       ],
       "numberOfRuns": 1

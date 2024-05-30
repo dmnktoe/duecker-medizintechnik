@@ -12,14 +12,14 @@ import Layout from '@/components/layout/Layout';
 import { NewsArticle } from '@/components/templates/NewsArticle';
 import ArrowLink from '@/components/ui/Links/ArrowLink';
 
-import { Data } from '@/interfaces/Data';
+import { News } from '@/interfaces/News';
 
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const result = await fetchAPI('/posts');
 
   const paths = result.data
     .map(
-      (result: Data) =>
+      (result: News) =>
         locales?.map((locale) => ({
           params: { slug: result.attributes.slug.toString() },
           locale,
@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps = async ({ locale, params }) => {
 };
 
 interface PostPageProps extends InferGetStaticPropsType<typeof getStaticProps> {
-  post: Data;
+  post: News;
 }
 
 const PostPage = (props: PostPageProps) => {
@@ -56,7 +56,7 @@ const PostPage = (props: PostPageProps) => {
           <div className='mx-auto flex max-w-3xl'>
             <ArrowLink
               direction='left'
-              href='/news'
+              href='/newsroom'
               className='mt-8 text-xs md:mt-12'
             >
               {t('content.newsSlug.back')}

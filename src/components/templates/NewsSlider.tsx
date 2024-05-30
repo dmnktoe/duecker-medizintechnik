@@ -11,10 +11,10 @@ import SliderButton from '@/components/ui/Buttons/SliderButton';
 import UnderlineLink from '@/components/ui/Links/UnderlineLink';
 import { Title } from '@/components/ui/Typography';
 
-import { Data } from '@/interfaces/Data';
+import { News } from '@/interfaces/News';
 
 type NewsSliderProps = {
-  posts: Data[];
+  posts: News[];
 };
 
 export const NewsSlider = ({ posts }: NewsSliderProps) => {
@@ -49,13 +49,13 @@ export const NewsSlider = ({ posts }: NewsSliderProps) => {
       <div className='mt-16 text-center'>
         <UnderlineLink
           underline='hover'
-          href='/news'
+          href='/newsroom'
           className='group inline-flex items-center'
         >
-          <Title size='five' margin={false} className='mr-4 hover:underline'>
+          <Title size='five' margin={false} className='mr-2 hover:underline'>
             {t('content.newsSlider.readMore')}
           </Title>
-          <span className='relative top-0.5 block -rotate-45 transform transition duration-100 group-hover:rotate-0 group-hover:text-primary-500'>
+          <span className='relative block -rotate-45 transform transition duration-100 group-hover:rotate-0 group-hover:text-primary-500'>
             <VscArrowRight size={24} />
           </span>
         </UnderlineLink>
@@ -86,7 +86,7 @@ export const NewsSlider = ({ posts }: NewsSliderProps) => {
         }}
       >
         <div className='mb-20 flex'>
-          {posts.map((post: Data, index) => (
+          {posts.map((post: News, index) => (
             <SwiperSlide key={index}>
               <NewsCard post={post} orientation='vertical' />
             </SwiperSlide>

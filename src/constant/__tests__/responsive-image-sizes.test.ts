@@ -1,7 +1,7 @@
 import {
   ImageBannerRole,
   responsiveImageSizes,
-} from '@/constant/responsiveImageSizes';
+} from '@/constant/responsive-image-sizes';
 
 describe('responsiveImageSizes', () => {
   it('should have the correct values for each role', () => {

@@ -1,15 +1,11 @@
-export interface Attribute {
-  url: string;
-  width: number;
-  height: number;
-  name: string;
+import { Image } from '@/interfaces/Image';
+
+export interface News {
+  id: number;
+  attributes: NewsAttributes;
 }
 
-export interface Image {
-  data: Data;
-}
-
-export interface Attribute {
+interface NewsAttributes {
   title: string;
   excerpt: string;
   content: string;
@@ -21,23 +17,18 @@ export interface Attribute {
   image: Image;
 }
 
-export interface Data {
-  id: number;
-  attributes: Attribute;
-}
-
-export interface Pagination {
+interface Pagination {
   page: number;
   pageSize: number;
   pageCount: number;
   total: number;
 }
 
-export interface Meta {
+interface Meta {
   pagination: Pagination;
 }
 
 export interface RootObject {
-  data: Data[];
+  data: News[];
   meta: Meta;
 }

@@ -13,7 +13,7 @@ import UnderlineLink from '@/components/ui/Links/UnderlineLink';
 import { Body, Title } from '@/components/ui/Typography';
 
 import { company } from '@/constant/company';
-import { Data } from '@/interfaces/Data';
+import { News } from '@/interfaces/News';
 
 type FooterNavigation = {
   title: string;
@@ -95,7 +95,7 @@ const FooterLinks = () => {
 };
 
 const FooterPosts = () => {
-  const [posts, setPosts] = useState<Data[]>();
+  const [posts, setPosts] = useState<News[]>();
   const [isLoading, setIsLoading] = useState(true);
   const { t } = useTranslation('common');
 
@@ -128,12 +128,12 @@ const FooterPosts = () => {
       <div>
         <FooterNavigationHeadline title={t('footer.posts.title')} />
         <ul className='space-y-2 md:mt-8 md:space-y-3'>
-          {posts.map((post: Data) => (
+          {posts.map((post: News) => (
             <li key={post.id}>
               <UnderlineLink
                 underline='hover'
                 className='line-clamp-2'
-                href={`/news/${post.attributes.slug}`}
+                href={`/newsroom/${post.attributes.slug}`}
               >
                 <Body margin={false}>{post.attributes.title}</Body>
               </UnderlineLink>
