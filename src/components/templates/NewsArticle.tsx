@@ -198,7 +198,7 @@ export const NewsArticle = ({ post }: NewsArticleProps) => {
           <ArticleHeader post={post} />
           <ArticleImage post={post} />
           <ArticleContent post={post} />
-          <ArticleAuthor post={post} />
+          <ArticleAuthor />
         </div>
       </Container>
     </section>
