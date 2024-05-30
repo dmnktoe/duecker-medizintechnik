@@ -158,7 +158,7 @@ export const NewsArticle = ({ post }: NewsArticleProps) => {
     );
   };
 
-  const ArticleAuthor = ({ post }: { post: News }) => {
+  const ArticleAuthor = () => {
     return (
       <div className='mx-auto w-full max-w-3xl'>
         <div className='w-2/3 md:w-1/2'>
@@ -172,7 +172,7 @@ export const NewsArticle = ({ post }: NewsArticleProps) => {
             />
           </AspectRatio>
           <Body margin={false} className='mt-4 font-medium'>
-            Marc Dücker {post.attributes.name}
+            Marc Dücker
           </Body>
           <Body size='sm' margin={false} color='light'>
             Executive Vice President Communications & Investor Relations, Dücker
