@@ -11,7 +11,7 @@ import {
 import PrimaryLink from '@/components/ui/Links/PrimaryLink';
 import { Body, Title } from '@/components/ui/Typography';
 
-import { Download } from '@/interfaces/Download';
+import { Download } from '@/types/Download';
 
 export const DownloadCenter = () => {
   const { t, ready } = useTranslation('downloads', { useSuspense: false });

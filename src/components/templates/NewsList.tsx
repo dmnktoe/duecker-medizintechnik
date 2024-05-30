@@ -2,7 +2,7 @@ import React from 'react';
 
 import NewsCard from '@/components/templates/NewsCard';
 
-import { News } from '@/interfaces/News';
+import { News } from '@/types/News';
 
 interface NewsListProps {
   posts: News[];

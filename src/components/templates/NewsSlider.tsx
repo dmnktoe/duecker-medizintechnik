@@ -11,7 +11,7 @@ import SliderButton from '@/components/ui/Buttons/SliderButton';
 import UnderlineLink from '@/components/ui/Links/UnderlineLink';
 import { Title } from '@/components/ui/Typography';
 
-import { News } from '@/interfaces/News';
+import { News } from '@/types/News';
 
 type NewsSliderProps = {
   posts: News[];

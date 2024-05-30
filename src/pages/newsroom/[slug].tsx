@@ -12,7 +12,7 @@ import Layout from '@/components/layout/Layout';
 import { NewsArticle } from '@/components/templates/NewsArticle';
 import ArrowLink from '@/components/ui/Links/ArrowLink';
 
-import { News } from '@/interfaces/News';
+import { News } from '@/types/News';
 
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const result = await fetchAPI('/posts');

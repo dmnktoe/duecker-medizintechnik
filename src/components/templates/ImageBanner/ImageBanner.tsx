@@ -6,9 +6,10 @@ import {
   ImageBannerRole,
   responsiveImageSizes,
 } from '@/constant/responsive-image-sizes';
-import { VariantNames } from '@/interfaces/VariantNames';
 
 import { imgBannerVariants } from './variants';
+
+import { VariantNames } from '@/types/VariantNames';
 
 type Props = {
   src: StaticImageData;

@@ -1,6 +1,6 @@
 import { Variants } from 'framer-motion';
 
-import { VariantNames } from '@/interfaces/VariantNames';
+import { VariantNames } from '@/types/VariantNames';
 
 export const imgBannerVariants: Variants = {
   [VariantNames.Initial]: {

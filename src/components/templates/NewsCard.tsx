@@ -9,7 +9,7 @@ import Badge from '@/components/ui/Badges/Badge';
 import UnstyledLink from '@/components/ui/Links/UnstyledLink';
 import { Body, Title } from '@/components/ui/Typography';
 
-import { News } from '@/interfaces/News';
+import { News } from '@/types/News';
 
 interface CardProps {
   post: News;

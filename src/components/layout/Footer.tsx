@@ -13,7 +13,8 @@ import UnderlineLink from '@/components/ui/Links/UnderlineLink';
 import { Body, Title } from '@/components/ui/Typography';
 
 import { company } from '@/constant/company';
-import { News } from '@/interfaces/News';
+
+import { News } from '@/types/News';
 
 type FooterNavigation = {
   title: string;

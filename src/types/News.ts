@@ -1,4 +1,4 @@
-import { Image } from '@/interfaces/Image';
+import { Image } from '@/types/Image';
 
 export interface News {
   id: number;

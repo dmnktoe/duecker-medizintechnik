@@ -24,7 +24,8 @@ import UnstyledLink from '@/components/ui/Links/UnstyledLink';
 import { Body, Title } from '@/components/ui/Typography';
 
 import { company } from '@/constant/company';
-import { News } from '@/interfaces/News';
+
+import { News } from '@/types/News';
 
 type NewsArticleProps = {
   post: News;
