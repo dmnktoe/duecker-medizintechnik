@@ -93,7 +93,7 @@ export const Header = () => {
                     </div>
                   </div>
                   <button
-                    className='navbar-burger flex items-center justify-center border-[1px] border-solid border-dark p-3 text-dark transition duration-200 hover:scale-95 hover:bg-black hover:text-white active:scale-75 active:bg-neutral-700'
+                    className='navbar-burger flex items-center justify-center rounded-full border-[1px] border-solid border-dark p-3 text-dark transition duration-200 hover:scale-95 hover:bg-black hover:text-white active:scale-75 active:bg-neutral-700'
                     onClick={() => setHamburgerMenuIsOpen((open) => !open)}
                     data-testid='navigationButton'
                   >
