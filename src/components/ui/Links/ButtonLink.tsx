@@ -49,7 +49,7 @@ const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
         ref={ref}
         {...rest}
         className={clsxm(
-          'inline-flex items-center justify-center rounded-full font-medium',
+          'inline-flex items-center justify-center font-medium',
           'focus:outline-dashed focus:outline-1 focus:outline-offset-4 focus:outline-dark focus-visible:ring focus-visible:ring-primary-500',
           //#region  //*=========== Size ===========
           [

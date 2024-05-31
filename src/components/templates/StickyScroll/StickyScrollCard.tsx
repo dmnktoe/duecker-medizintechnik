@@ -49,7 +49,7 @@ const StickyScrollCard = ({
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
         href={'/leistungen/' + t('content.stickyScroll.' + id + '.href')}
-        className='absolute bottom-6 right-6 rounded-full bg-white/40 px-8 py-3 font-normal tracking-normal text-white backdrop-blur-sm transition-all duration-200 hover:bg-white/90 hover:text-dark active:bg-white/80'
+        className='absolute bottom-6 right-6 bg-white/40 px-8 py-3 font-normal tracking-normal text-white backdrop-blur-sm transition-all duration-200 hover:bg-white/90 hover:text-dark active:bg-white/80'
       >
         {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
         {/* @ts-expect-error */}

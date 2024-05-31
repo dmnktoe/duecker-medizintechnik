@@ -13,6 +13,7 @@ import 'swiper/css';
 import clsxm from '@/lib/clsxm';
 
 import { Container } from '@/components/layout/Container';
+import { Decorator } from '@/components/ui/Icons/decorator';
 import ButtonLink from '@/components/ui/Links/ButtonLink';
 import { Body, Title } from '@/components/ui/Typography';
 
@@ -52,16 +53,22 @@ const HeroText = () => {
   return (
     <div className='text-left'>
       <Title>{t('content.hero.title')}</Title>
-      <Body size='lg'>{t('content.hero.text')}</Body>
+
+      <Body size='lg'>
+        <span className='relative ml-2 inline-block w-5 text-primary-500'>
+          <Decorator />
+        </span>{' '}
+        {t('content.hero.text')}
+      </Body>
       <div className='mt-10 flex items-center justify-start gap-x-3'>
-        <ButtonLink variant='primary' size='sm' href='/leistungen'>
+        <ButtonLink variant='dark' size='base' href='/leistungen'>
           {t('content.hero.buttons.primary.label')}
+        </ButtonLink>
+        <ButtonLink size='base' variant='primary' href='/kontakt'>
+          {t('content.hero.buttons.secondary.label')}{' '}
           <span aria-hidden='true' className='ml-2'>
             <VscArrowRight />
           </span>
-        </ButtonLink>
-        <ButtonLink size='sm' variant='ghost' href='/kontakt'>
-          {t('content.hero.buttons.secondary.label')}{' '}
         </ButtonLink>
       </div>
     </div>
@@ -154,7 +161,7 @@ const HeroSlider = () => {
       <div className='relative -top-2 z-20'>
         <Swiper
           modules={[Autoplay]}
-          spaceBetween={2}
+          spaceBetween={0}
           slidesPerView={1}
           onAutoplayTimeLeft={onAutoplayTimeLeft}
           autoplay={{
