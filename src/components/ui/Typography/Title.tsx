@@ -4,19 +4,19 @@ import React from 'react';
 type Size = 'one' | 'two' | 'three' | 'four' | 'five';
 
 interface TitleProps {
+  children: React.ReactNode;
+  className?: string;
+  margin?: boolean;
   renderAs?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   size?: Size;
-  children: string;
-  margin?: boolean;
-  className?: string;
 }
 
 export const Title = ({
+  children,
+  className,
+  margin = true,
   renderAs = 'h1',
   size = 'one',
-  children,
-  margin = true,
-  className,
 }: TitleProps) => {
   const Component = renderAs;
 
