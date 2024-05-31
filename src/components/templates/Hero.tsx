@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import * as React from 'react';
 import { useRef } from 'react';
-import { VscArrowRight } from 'react-icons/vsc';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -51,27 +50,23 @@ const HeroIntro = () => {
 const HeroText = () => {
   const { t } = useTranslation('home');
   return (
-    <div className='text-left'>
-      <Title>{t('content.hero.title')}</Title>
-
-      <Body size='lg'>
-        <span className='relative ml-2 inline-block w-5 text-primary-500'>
+    <>
+      <Title>
+        {t('content.hero.title')}
+        <span className='relative ml-1 inline-block w-12 text-primary-500'>
           <Decorator />
-        </span>{' '}
-        {t('content.hero.text')}
-      </Body>
-      <div className='mt-10 flex items-center justify-start gap-x-3'>
+        </span>
+      </Title>
+      <Body size='lg'>{t('content.hero.text')}</Body>
+      <div className='mt-12 flex items-center justify-start gap-x-3'>
         <ButtonLink variant='dark' size='base' href='/leistungen'>
           {t('content.hero.buttons.primary.label')}
         </ButtonLink>
         <ButtonLink size='base' variant='primary' href='/kontakt'>
-          {t('content.hero.buttons.secondary.label')}{' '}
-          <span aria-hidden='true' className='ml-2'>
-            <VscArrowRight />
-          </span>
+          {t('content.hero.buttons.secondary.label')}
         </ButtonLink>
       </div>
-    </div>
+    </>
   );
 };
 
