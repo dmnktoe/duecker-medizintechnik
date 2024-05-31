@@ -8,6 +8,7 @@ import { z } from 'zod';
 
 import Button from '@/components/ui/Buttons/Button';
 import UnderlineLink from '@/components/ui/Links/UnderlineLink';
+import { Body } from '@/components/ui/Typography';
 import { Title } from '@/components/ui/Typography/Title';
 
 import { isLocal, isProd } from '@/constant/env';
@@ -87,12 +88,16 @@ export default function ContactForm() {
     }
   };
 
+  const commonClasses =
+    'dark:shadow-sm-light block w-full rounded-md border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm';
+  const errorClasses = errors.phone?.message && 'border-red-500';
+  const focusClasses =
+    'focus:border-primary-500 focus:ring-primary-500 dark:focus:border-primary-500 dark:focus:ring-primary-500';
+
   return (
     <>
       <Title size='three'>{t('content.contactForm.title')}</Title>
-      <p className='mb-8 font-light text-gray-500 lg:mb-12'>
-        {t('content.contactForm.text')}
-      </p>
+      <Body color='light'>{t('content.contactForm.text')}</Body>
       {isProd && (
         <div
           className='cookieconsent-optout-marketing'
@@ -123,9 +128,7 @@ export default function ContactForm() {
             <input
               type='text'
               id='fullName'
-              className={`${
-                errors.fullName?.message && 'border-red-500'
-              } dark:shadow-sm-light block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:focus:border-primary-500 dark:focus:ring-primary-500`}
+              className={`${commonClasses} ${errorClasses} ${focusClasses}`}
               placeholder={t('content.contactForm.fullName.placeholder')}
               {...register('fullName')}
             />
@@ -151,9 +154,7 @@ export default function ContactForm() {
             <input
               type='email'
               id='email'
-              className={`${
-                errors.email?.message && 'border-red-500'
-              } dark:shadow-sm-light block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:focus:border-primary-500 dark:focus:ring-primary-500`}
+              className={`${commonClasses} ${errorClasses} ${focusClasses}`}
               placeholder={t('content.contactForm.email.placeholder')}
               {...register('email')}
             />
@@ -179,9 +180,7 @@ export default function ContactForm() {
             <input
               type='phone'
               id='phone'
-              className={`${
-                errors.phone?.message && 'border-red-500'
-              } dark:shadow-sm-light block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:focus:border-primary-500 dark:focus:ring-primary-500`}
+              className={`${commonClasses} ${errorClasses} ${focusClasses}`}
               placeholder={t('content.contactForm.phone.placeholder')}
               {...register('phone')}
             />
@@ -208,9 +207,7 @@ export default function ContactForm() {
               <textarea
                 id='message'
                 rows={4}
-                className={`${
-                  errors.message?.message && 'border-red-500'
-                } dark:shadow-sm-light block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:focus:border-primary-500 dark:focus:ring-primary-500`}
+                className={`${commonClasses} ${errorClasses} ${focusClasses}`}
                 placeholder={t('content.contactForm.message.placeholder')}
                 {...register('message')}
               ></textarea>

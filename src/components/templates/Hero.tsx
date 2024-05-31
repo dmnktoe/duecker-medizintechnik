@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import * as React from 'react';
 import { useRef } from 'react';
-import { VscArrowRight } from 'react-icons/vsc';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -13,6 +12,7 @@ import 'swiper/css';
 import clsxm from '@/lib/clsxm';
 
 import { Container } from '@/components/layout/Container';
+import { Decorator } from '@/components/ui/Icons/decorator';
 import ButtonLink from '@/components/ui/Links/ButtonLink';
 import { Body, Title } from '@/components/ui/Typography';
 
@@ -50,21 +50,23 @@ const HeroIntro = () => {
 const HeroText = () => {
   const { t } = useTranslation('home');
   return (
-    <div className='text-left'>
-      <Title>{t('content.hero.title')}</Title>
+    <>
+      <Title>
+        {t('content.hero.title')}
+        <span className='relative ml-1 inline-block w-12 text-primary-500'>
+          <Decorator />
+        </span>
+      </Title>
       <Body size='lg'>{t('content.hero.text')}</Body>
-      <div className='mt-10 flex items-center justify-start gap-x-3'>
-        <ButtonLink variant='primary' size='sm' href='/leistungen'>
+      <div className='mt-12 flex items-center justify-start gap-x-3'>
+        <ButtonLink variant='dark' size='base' href='/leistungen'>
           {t('content.hero.buttons.primary.label')}
-          <span aria-hidden='true' className='ml-2'>
-            <VscArrowRight />
-          </span>
         </ButtonLink>
-        <ButtonLink size='sm' variant='ghost' href='/kontakt'>
-          {t('content.hero.buttons.secondary.label')}{' '}
+        <ButtonLink size='base' variant='primary' href='/kontakt'>
+          {t('content.hero.buttons.secondary.label')}
         </ButtonLink>
       </div>
-    </div>
+    </>
   );
 };
 
@@ -154,7 +156,7 @@ const HeroSlider = () => {
       <div className='relative -top-2 z-20'>
         <Swiper
           modules={[Autoplay]}
-          spaceBetween={2}
+          spaceBetween={0}
           slidesPerView={1}
           onAutoplayTimeLeft={onAutoplayTimeLeft}
           autoplay={{

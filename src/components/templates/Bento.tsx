@@ -194,7 +194,8 @@ const BentoCard = ({
         <div className='pointer-events-none z-10 flex flex-col p-6 transition-all duration-300'>
           <Title
             size='four'
-            className={clsxm(textIsWhite ? 'text-white' : 'text-black')}
+            margin={false}
+            className={clsxm(textIsWhite ? 'text-white' : 'text-black', 'mb-1')}
           >
             {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
             {/* @ts-expect-error */}

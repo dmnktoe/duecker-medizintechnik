@@ -16,7 +16,7 @@ const SliderButton = ({
   return (
     <button
       className={clsxm(
-        'inline-flex items-center justify-center rounded-full ',
+        'inline-flex items-center justify-center rounded-full',
         'border border-dark text-dark hover:bg-dark hover:text-white',
         size === 'sm' ? 'h-12 w-12' : 'h-12 w-12 md:h-16 md:w-16',
       )}
