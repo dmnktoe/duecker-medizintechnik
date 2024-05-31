@@ -1,6 +1,6 @@
 'use client';
-import { DotLottiePlayer } from '@dotlottie/react-player';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
@@ -14,12 +14,13 @@ import Layout from '@/components/layout/Layout';
 import ImageBanner from '@/components/templates/ImageBanner/ImageBanner';
 import ImageScrollEffect from '@/components/templates/ImageScrollEffect';
 import { AspectRatio } from '@/components/ui/AspectRatio';
-import Badge from '@/components/ui/Badges/Badge';
 import NextBreadcrumb from '@/components/ui/Breadcrumb';
+import { Body } from '@/components/ui/Typography';
 import { Title } from '@/components/ui/Typography/Title';
 
 import { Partner, partners } from '@/constant/partners';
 
+import darkBannerImg from '/public/images/distribution/duecker-medizintechnik_distribution_dark-banner-image.jpg';
 import heroImg from '/public/images/distribution/duecker-medizintechnik_distribution_hero-bg.webp';
 import parallaxImg from '/public/images/distribution/duecker-medizintechnik_distribution_parallax-bg.webp';
 
@@ -55,46 +56,66 @@ const DistributionPage = (
             capitalizeLinks
             className='mb-6'
           />
-          <div className='mb-16 flex flex-col items-start md:flex-row md:gap-6 lg:mb-24'>
-            <div className='mb-6 w-full lg:mb-0 lg:w-2/3 xl:w-1/2'>
+          <div className='flex flex-col items-start md:flex-row md:gap-16'>
+            <div className='mb-12 w-full lg:w-2/3 xl:w-1/2'>
               <div className='text-dark'>
-                <div className='mb-2'>
-                  <Badge size='sm' color='secondary' variant='solid'>
-                    B2B & B2C
-                  </Badge>
-                </div>
                 <Title>{t('content.title')}</Title>
-                <p className='text-base'>{t('content.text')}</p>
-                <h5 className='my-6 font-semibold'>{t('content.partners')}:</h5>
-                <div className='mb-6 grid max-w-md grid-cols-4 items-center gap-6 align-middle text-dark'>
-                  {partners.map((partner: Partner) => (
-                    <div className='divide-y py-2' key={partner.name}>
-                      <partner.image className='w-auto' />
-                    </div>
-                  ))}
-                </div>
+                <Body>{t('content.text')}</Body>
+                <Body>{t('content.text')}</Body>
+                <Body margin={false}>{t('content.text')}</Body>
               </div>
             </div>
             <div className='w-full lg:w-1/3 xl:w-1/2'>
-              <div className='md:pl-5'>
-                <AspectRatio ratio={1}>
-                  <div className='flex h-full bg-gray-100'>
-                    <DotLottiePlayer
-                      src='./../images/distribution/lp7a683r.lottie'
-                      autoplay
-                      loop
-                    />
-                  </div>
+              <AspectRatio ratio={9 / 12} className='w-full'>
+                <Image
+                  src={darkBannerImg}
+                  alt='Global Distribution Network'
+                  fill
+                  className='object-cover object-center'
+                />
+              </AspectRatio>
+            </div>
+          </div>
+        </Container>
+      </main>
+      <ImageScrollEffect image={heroImg} text={t('content.title')} />
+      <section className='bg-black py-16 md:py-24 lg:py-32'>
+        <Container>
+          <div className='flex flex-col items-center text-white md:flex-row md:gap-16'>
+            <div className='w-full lg:w-2/3 xl:w-1/2'>
+              <div className='mb-12 lg:mb-0 lg:border lg:border-white/10 lg:p-6'>
+                <AspectRatio ratio={1 / 1.1} className='w-full'>
+                  <Image
+                    src={parallaxImg}
+                    alt='Global Distribution Network'
+                    fill
+                    className='object-cover object-center'
+                  />
                 </AspectRatio>
+              </div>
+            </div>
+            <div className='w-full lg:w-1/3 xl:w-1/2'>
+              <div className='text-white'>
+                <Title className='!text-white/90'>{t('content.title')}</Title>
+                <Body className='!text-white/60'>{t('content.text')}</Body>
+                <hr className='my-12 border-white/10' />
+                <div className='lg:max-w-lg'>
+                  <div className='mb-6 grid grid-cols-4 items-center gap-x-12 gap-y-6 align-middle'>
+                    {partners.map((partner: Partner) => (
+                      <div
+                        className='divide-y py-2 !text-white/60 transition-all ease-in-out hover:!text-white/90'
+                        key={partner.name}
+                      >
+                        <partner.image className='w-auto' />
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </Container>
-        <ImageScrollEffect
-          image={parallaxImg}
-          text='Global Distribution Network'
-        />
-      </main>
+      </section>
     </Layout>
   );
 };
