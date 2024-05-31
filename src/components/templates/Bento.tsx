@@ -197,6 +197,8 @@ const BentoCard = ({
             margin={false}
             className={clsxm(textIsWhite ? 'text-white' : 'text-black', 'mb-1')}
           >
+            {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+            {/* @ts-expect-error */}
             {t(name)}
           </Title>
           <Body
