@@ -28,7 +28,11 @@ export const CallToAction = () => {
           {t('cta.titleSub')}
         </Title>
         <Button
-          className='pointer-events-auto mb-32 flex flex-shrink p-4 lg:p-6'
+          className={clsxm(
+            'pointer-events-auto mb-32 flex flex-shrink',
+            '!bg-white/10 !text-white lg:!px-12 lg:!py-6 lg:!text-xl',
+            'hover:!bg-white/100 hover:!text-dark',
+          )}
           variant='light'
           isDarkBg
           onClick={() => handleCtaButtonClick()}
