@@ -1,14 +1,67 @@
 {
   "content": {
-    "partners": "Unsere Vertriebspartner",
-    "text": "Mit unseren ausgewählten Vertriebspartnern bieten wir Ihnen ein leistungsstarkes Netzwerk von Produkten und Dienstleistungen. Von chirurgischem Instrumentarium, HF-Chirurgische Instrumente über Orthopädische Shaver-Systemen, Pumpen und Bildgebenden Systemen bis hin zu Logistik Lösungen, Zubehör für die AEMP und Neurochirurgischen Bohrsystemen bieten wir ein komplettes Gesamtpaket an innovativen Lösungen.",
-    "title": "Ein ganzes Universum innovativer Lösungen von Medizintechnik bis Logistik"
+    "consultation": {
+      "list": [
+        {
+          "title": "Globales Vertriebsnetzwerk"
+        },
+        {
+          "title": "Vertriebskonzepte"
+        },
+        {
+          "title": "Markteintrittsunterstützung"
+        },
+        {
+          "title": "Unterstützung für Start-Ups"
+        },
+        {
+          "title": "After Sales Service"
+        },
+        {
+          "title": "Lokale Registrierungsprozesse"
+        },
+        {
+          "title": "Verkaufs- und Vertriebstraining"
+        },
+        {
+          "title": "Spezialisierung auf anspruchsvolle Produkte"
+        }
+      ],
+      "text": "Zusätzlich zu unserem breiten Produktsortiment bieten wir umfassende Beratungsdienste an, um die optimale Nutzung unserer Lösungen zu gewährleisten. Unser erfahrenes Team steht Ihnen bei der Implementierung und Wartung zur Seite und sorgt dafür, dass Ihre Anforderungen stets erfüllt werden. Ob es um die Modernisierung bestehender Systeme oder die Integration neuer Technologien geht, wir unterstützen Sie dabei, die Effizienz und Leistungsfähigkeit Ihrer Prozesse zu maximieren und dabei Kosten zu minimieren.",
+      "title": "Umfassende Beratung und Unterstützung für maximale Effizienz"
+    },
+    "features": {
+      "1": {
+        "text": "Ein globales Vertriebsnetzwerk verbindet Sie mit den besten Partnern weltweit. Wir unterstützen Sie dabei, neue Märkte zu erschließen, bieten umfassende Markteintrittsstrategien und sorgen dafür, dass Ihre Produkte international erfolgreich sind. Nutzen Sie unsere Erfahrung und Expertise, um Ihre Reichweite zu maximieren und Ihr Geschäft global auszubauen.",
+        "title": "Globales Vertriebsnetzwerk"
+      },
+      "2": {
+        "text": "Maßgeschneiderte Vertriebskonzepte sind darauf ausgelegt, Ihre Verkaufsziele effizient zu erreichen. Durch innovative Strategien und eine genaue Marktanalyse entwickeln wir Lösungen, die perfekt auf Ihre Bedürfnisse abgestimmt sind. Profitieren Sie von unserer Expertise und steigern Sie Ihren Umsatz nachhaltig.",
+        "title": "Vertriebskonzepte"
+      },
+      "3": {
+        "text": "Unsere Markteintrittsunterstützung bietet Ihnen die erforderliche Expertise und Ressourcen, um erfolgreich in neue Märkte einzutreten. Von der Entwicklung einer maßgeschneiderten Strategie bis hin zur praktischen Umsetzung stehen wir Ihnen zur Seite, um Ihren Erfolg zu gewährleisten. Verlassen Sie sich auf unsere Erfahrung, um Hindernisse zu überwinden und Chancen zu nutzen, wenn Sie in neue Märkte expandieren möchten.",
+        "title": "Markteintrittsunterstützung"
+      },
+      "4": {
+        "text": "Wir unterstützen Sie bei der Navigation durch lokale Registrierungsprozesse, um sicherzustellen, dass Ihre Produkte den regionalen Anforderungen entsprechen. Unser erfahrenes Team kümmert sich um alle notwendigen Schritte und Formalitäten, damit Sie sich auf Ihr Kerngeschäft konzentrieren können. Vertrauen Sie auf unsere Expertise, um eine reibungslose Markteinführung zu gewährleisten.",
+        "title": "Lokale Registrierungsprozesse"
+      },
+      "text": "Mit unserem globalen Vertriebsnetzwerk und maßgeschneiderten Vertriebskonzepten unterstützen wir Sie beim erfolgreichen Markteintritt. Ob in Deutschland oder weltweit, wir begleiten Sie durch lokale Registrierungsprozesse und bieten spezialisierte Verkaufs- und Vertriebstrainings.",
+      "title": "Erfahren Sie wie wir Ihnen im Vertrieb behilflich sind."
+    },
+    "intro": {
+      "partners": "Mit unseren ausgewählten Vertriebspartnern bieten wir Ihnen ein leistungsstarkes Netzwerk:",
+      "text1": "Durch unsere ausgewählten Vertriebspartner bieten wir Ihnen ein leistungsstarkes Netzwerk von Produkten und Dienstleistungen. Von chirurgischem Instrumentarium, HF-Chirurgische Instrumente über Orthopädische Shaver-Systemen, Pumpen und Bildgebenden Systemen bis hin zu Logistik Lösungen, Zubehör für die AEMP und Neurochirurgischen Bohrsystemen bieten wir ein komplettes Gesamtpaket an innovativen Lösungen.",
+      "text2": "Unser Unternehmen legt besonderen Wert auf Qualität und Zuverlässigkeit. Daher arbeiten wir ausschließlich mit renommierten Herstellern und spezialisierten Vertriebspartnern zusammen, um sicherzustellen, dass unsere Kunden stets die besten Produkte und Dienstleistungen erhalten. Durch enge Zusammenarbeit und regelmäßigen Austausch mit unseren Partnern können wir schnell auf Marktveränderungen reagieren und innovative Technologien sowie maßgeschneiderte Lösungen anbieten, die den höchsten Standards entsprechen.",
+      "title": "Ein ganzes Universum innovativer Lösungen von Medizintechnik bis Logistik im B2B & B2C Bereich"
+    }
   },
   "meta": {
-    "pageTitle": "",
+    "pageTitle": "Globaler Vertrieb: Erfolgreicher Markteintritt mit maßgeschneiderten Konzepten und lokaler Unterstützung",
     "seo": {
-      "description": "Ein ganzes Universum innovativer Lösungen von Medizintechnik bis Logistik",
-      "title": "Vertrieb"
+      "description": "Ein ganzes Universum innovativer Lösungen von Medizintechnik bis Logistik im B2B & B2C Bereich",
+      "title": ""
     }
   }
 }
