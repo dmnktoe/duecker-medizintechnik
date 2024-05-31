@@ -20,7 +20,7 @@ export const InfoBar = () => {
         <div className='flex items-center justify-between'>
           <div className='flex items-center gap-x-2'>
             <VscGlobe className='h-4 w-4 text-primary-500' />
-            <LanguagePicker className='relative h-6 cursor-pointer rounded-lg border-0 bg-transparent p-0 text-xs outline-none hover:underline focus:border-0 focus:outline-none focus:ring-0' />
+            <LanguagePicker className='relative h-6 cursor-pointer border-0 bg-transparent p-0 text-xs outline-none hover:underline focus:border-0 focus:outline-none focus:ring-0' />
             <VscChevronDown className='relative inline-block text-xs' />
           </div>
           <div className='flex gap-x-4'>
