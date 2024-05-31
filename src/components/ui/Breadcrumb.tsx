@@ -29,7 +29,7 @@ const NextBreadcrumb = ({
 }: TBreadCrumbProps) => {
   const { t } = useTranslation('common');
   const paths = usePathname();
-  const pathNames = paths.split('/').filter((path) => path);
+  const pathNames = paths ? paths.split('/').filter((path) => path) : [];
 
   return (
     <div className={clsx('flex', className)}>
