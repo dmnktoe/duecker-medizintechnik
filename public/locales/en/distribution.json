@@ -1,8 +1,61 @@
 {
   "content": {
-    "partners": "",
-    "text": "",
-    "title": ""
+    "consultation": {
+      "list": [
+        {
+          "title": ""
+        },
+        {
+          "title": ""
+        },
+        {
+          "title": ""
+        },
+        {
+          "title": ""
+        },
+        {
+          "title": ""
+        },
+        {
+          "title": ""
+        },
+        {
+          "title": ""
+        },
+        {
+          "title": ""
+        }
+      ],
+      "text": "",
+      "title": ""
+    },
+    "features": {
+      "1": {
+        "text": "",
+        "title": ""
+      },
+      "2": {
+        "text": "",
+        "title": ""
+      },
+      "3": {
+        "text": "",
+        "title": ""
+      },
+      "4": {
+        "text": "",
+        "title": ""
+      },
+      "text": "",
+      "title": ""
+    },
+    "intro": {
+      "partners": "",
+      "text1": "",
+      "text2": "",
+      "title": ""
+    }
   },
   "meta": {
     "pageTitle": "",
