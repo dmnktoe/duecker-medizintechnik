@@ -82,12 +82,7 @@ export const Header = () => {
                 <div className='flex flex-row gap-3'>
                   <div className='ml-auto hidden md:block xl:hidden'>
                     <div className='flex items-center'>
-                      <ButtonLink
-                        href='/kontakt'
-                        size='base'
-                        className='ml-4'
-                        variant='outline'
-                      >
+                      <ButtonLink href='/kontakt' variant='ghost'>
                         {t('header.ctaButtonText')}
                       </ButtonLink>
                     </div>

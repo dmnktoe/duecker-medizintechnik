@@ -221,7 +221,7 @@ const BentoCard = ({
 
 export const BentoSection = () => {
   return (
-    <section className='border-t border-dashed border-gray-300 py-16 md:py-24 lg:py-32 2xl:px-16'>
+    <section className='py-16 md:py-24 lg:border-t lg:border-dashed lg:border-gray-300 lg:py-32 2xl:px-16'>
       <Container>
         <SectionTitle />
         <BentoGrid>
