@@ -1,6 +1,10 @@
 {
-  "breadcrumb": {
-    "home": "Startseite"
+  "breadcrumbs": {
+    "home": "Startseite",
+    "leistungen": "Leistungen",
+    "produktion": "Produktion",
+    "reparatur": "Reparatur",
+    "vertrieb": "Vertrieb"
   },
   "cta": {
     "bullets": [

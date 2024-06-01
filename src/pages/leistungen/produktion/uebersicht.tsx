@@ -1,18 +1,19 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import * as React from 'react';
+import React from 'react';
 
+import { Container } from '@/components/layout';
 import Page from '@/components/templates/Page';
-import ProductionIntro from '@/components/templates/ProductionIntro';
 import ProductionSubNav from '@/components/templates/ProductionSubNav';
-import ProductionTiles from '@/components/templates/ProductionTiles';
+import { Title } from '@/components/ui/Typography';
 
 import ProduktionImg from '/public/images/production/duecker-medizintechnik_production_hero-bg.jpg';
 
-const Produktion = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const { t } = useTranslation('production');
-
+const ProductOverviewPage = (
+  _props: InferGetStaticPropsType<typeof getStaticProps>,
+) => {
+  const { t } = useTranslation('services');
   return (
     <Page
       layout={{
@@ -29,16 +30,21 @@ const Produktion = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
       title={t('meta.pageTitle')}
     >
       <ProductionSubNav />
-      <ProductionIntro />
-      <ProductionTiles />
+      <section className='pb-16 md:pb-24 lg:pb-32'>
+        <Container>
+          <Title>Product Overview</Title>
+        </Container>
+      </section>
     </Page>
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => ({
-  props: {
-    ...(await serverSideTranslations(locale ?? 'de', ['common', 'production'])),
-  },
-});
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale ?? 'de', ['common', 'services'])),
+    },
+  };
+};
 
-export default Produktion;
+export default ProductOverviewPage;

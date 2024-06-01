@@ -12,21 +12,23 @@ import { imgBannerVariants } from './variants';
 import { VariantNames } from '@/types/VariantNames';
 
 type Props = {
-  src: StaticImageData;
-  role: ImageBannerRole;
-  delay?: number;
+  alt: string;
   className?: string;
+  delay?: number;
   priority?: boolean;
+  role: ImageBannerRole;
+  src: StaticImageData;
   staticAnimation?: boolean;
 };
 
 const ImageBanner = ({
-  src,
-  role,
+  alt,
   className,
-  priority,
-  staticAnimation,
   delay,
+  priority,
+  role,
+  src,
+  staticAnimation,
 }: Props) => {
   return (
     <motion.div
@@ -46,7 +48,7 @@ const ImageBanner = ({
         fill
         quality={60}
         priority={priority}
-        alt='hero'
+        alt={alt}
         className='object-cover'
       />
     </motion.div>
