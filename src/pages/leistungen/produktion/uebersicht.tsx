@@ -4,7 +4,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React from 'react';
 
 import { Container } from '@/components/layout';
-import Page from '@/components/templates/Page';
+import Page from '@/components/layout/Page';
 import ProductionSubNav from '@/components/templates/ProductionSubNav';
 import { Title } from '@/components/ui/Typography';
 

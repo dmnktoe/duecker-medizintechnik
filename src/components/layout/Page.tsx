@@ -5,7 +5,7 @@ import clsxm from '@/lib/clsxm';
 import { formatDate } from '@/lib/helper';
 
 import Seo from '@/components/helpers/Seo';
-import { Container } from '@/components/layout';
+import { Container } from '@/components/layout/index';
 import Layout from '@/components/layout/Layout';
 import Breadcrumbs from '@/components/templates/Breadcrumbs';
 import ImageBanner from '@/components/templates/ImageBanner/ImageBanner';

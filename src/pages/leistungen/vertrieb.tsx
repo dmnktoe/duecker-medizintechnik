@@ -3,10 +3,10 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 
+import Page from '@/components/layout/Page';
 import DistributionConsult from '@/components/templates/DistributionConsult';
 import DistributionFeatures from '@/components/templates/DistributionFeatures';
 import DistributionIntro from '@/components/templates/DistributionIntro';
-import Page from '@/components/templates/Page';
 
 import VertriebImg from '/public/images/distribution/duecker-medizintechnik_distribution_hero-bg.webp';
 

@@ -3,7 +3,7 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 
-import Page from '@/components/templates/Page';
+import Page from '@/components/layout/Page';
 import RepairIntro from '@/components/templates/RepairIntro';
 import RepairSlideshow from '@/components/templates/RepairSlideshow';
 
