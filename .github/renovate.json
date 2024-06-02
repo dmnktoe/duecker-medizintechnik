@@ -13,6 +13,7 @@
       "addLabels": ["ci"]
     },
     {
+      "matchUpdateTypes": ["major", "minor"],
       "matchManagers": ["npm"],
       "addLabels": ["npm"]
     }
