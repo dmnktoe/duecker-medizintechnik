@@ -1,28 +1,28 @@
-name: release-please
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
-env:
-  NEXT_PUBLIC_SHOW_LOGGER: ${{ secrets.NEXT_PUBLIC_SHOW_LOGGER }}
-  NEXT_PUBLIC_COOKIEBOT_ID: ${{ secrets.NEXT_PUBLIC_COOKIEBOT_ID }}
-  NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID }}
-  NEXT_PUBLIC_HOTJAR_ID: ${{ secrets.NEXT_PUBLIC_HOTJAR_ID }}
-  NEXT_PUBLIC_OG_BASE_URL: ${{ secrets.NEXT_PUBLIC_OG_BASE_URL }}
-  NEXT_PUBLIC_RECAPTCHA_SITE_KEY: ${{ secrets.NEXT_PUBLIC_RECAPTCHA_SITE_KEY }}
-  NEXT_PUBLIC_STRAPI_API_URL: ${{ secrets.NEXT_PUBLIC_STRAPI_API_URL }}
-  CONTACT_FORM_SEND_EMAIL_DOMAIN: ${{ secrets.CONTACT_FORM_SEND_EMAIL_DOMAIN }}
-  CONTACT_FORM_RECEIVE_EMAIL: ${{ secrets.CONTACT_FORM_RECEIVE_EMAIL }}
-  RECAPTCHA_SECRET_KEY: ${{ secrets.RECAPTCHA_SECRET_KEY }}
-  SMTP_HOST: ${{ secrets.SMTP_HOST }}
-  SMTP_PORT: ${{ secrets.SMTP_PORT }}
-  SMTP_USER: ${{ secrets.SMTP_USER }}
-  SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+permissions:
+  contents: write
+  pull-requests: write
+
+name: Release Please
 
 jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
-      - uses: google-github-actions/release-please-action@v4
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v4
         with:
-          release-type: node
-          package-name: release-please-action
+          node-version: 20.x
+          registry-url: 'https://registry.npmjs.org'
+      - uses: google-github-actions/release-please-action@v3
+        id: release
+        with:
+          config-file: .github/release-please-config.json
+          manifest-file: .github/.release-please-manifest.json
+          command: manifest
+          token: ${{secrets.RELEASE_PLEASE_TOKEN}}
+          default-branch: main
