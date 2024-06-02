@@ -84,7 +84,7 @@ const Unternehmen = (
               </Marquee>
             </div>
           </div>
-          <div className='mx-auto max-w-5xl items-center gap-16 py-8 lg:grid lg:grid-cols-2 lg:pb-16 lg:pt-32'>
+          <div className='mx-auto max-w-5xl items-center gap-16 py-8 lg:grid lg:grid-cols-2 lg:pb-16'>
             <div>
               <Title size='two'>{t('content.innovationText.title')}</Title>
               <Body className='mb-4'>{t('content.innovationText.text')}</Body>
@@ -123,9 +123,6 @@ const Unternehmen = (
           </div>
         </Container>
       </section>
-      <div className='relative z-50'>
-        <div className='after:absolute after:bottom-0 after:-z-10 after:h-[40rem] after:w-full after:rounded-tl-[15rem] after:bg-gradient-to-b after:from-primary-500/10 after:to-primary-600/0'></div>
-      </div>
     </Page>
   );
 };

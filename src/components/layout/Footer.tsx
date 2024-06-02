@@ -122,7 +122,7 @@ const FooterPosts = () => {
       </div>
     );
 
-  if (!posts) return <p>{t('footer.posts.noResults')}</p>;
+  if (!posts) return <Body>{t('footer.posts.noResults')}</Body>;
 
   return (
     <>

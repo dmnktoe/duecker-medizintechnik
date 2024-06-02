@@ -27,8 +27,10 @@ export default function ServicePageTiles() {
             <div className='mb-8 flex h-12 w-12 items-center justify-center bg-dark p-3 lg:h-16 lg:w-16'>
               {icon}
             </div>
-            <h4 className='mb-3 text-xl font-medium text-dark'>{title}</h4>
-            <p className='text-body-color mb-6'>{details}</p>
+            <Title margin={false} size='five'>
+              {title}
+            </Title>
+            <Body>{details}</Body>
             <ArrowLink href={`/leistungen/${title.toLowerCase()}`}>
               {t('content.cards.readMore')}
             </ArrowLink>

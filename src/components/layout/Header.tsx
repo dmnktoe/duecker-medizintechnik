@@ -20,6 +20,10 @@ import {
 import { Logo } from '@/components/ui/Icons/logo';
 import { SubdirectoryIcon } from '@/components/ui/Icons/subdirectory';
 import ButtonLink from '@/components/ui/Links/ButtonLink';
+import UnderlineLink from '@/components/ui/Links/UnderlineLink';
+import UnstyledLink from '@/components/ui/Links/UnstyledLink';
+
+import { Body } from '../ui/Typography';
 
 import megaMenuBg from '/public/images/header/mega-menu_bg.webp';
 
@@ -74,9 +78,9 @@ export const Header = () => {
           <Container>
             <div className='relative flex h-navigation-height items-center'>
               {/* Logo Section */}
-              <Link href='/' className='inline-block'>
+              <UnstyledLink href='/' className='inline-block'>
                 <Logo className='w-40 text-dark md:w-48' />
-              </Link>
+              </UnstyledLink>
               {/* CTA Button / Menu Button */}
               <div className='ml-auto xl:hidden'>
                 <div className='flex flex-row gap-3'>
@@ -201,15 +205,13 @@ const NavItem = ({ href, text, subItems }: NavItemProps) => {
           <VscChevronDown className='relative -top-[1px] inline-block transform text-lg duration-200 group-hover:rotate-180 group-hover:transform' />
         </button>
       ) : (
-        <Link
+        <UnderlineLink
+          underline='hover'
           href={href as string}
-          className={clsx(
-            'hover:text-dark hover:underline active:text-neutral-400',
-            currentRoute === href && 'text-dark underline',
-          )}
+          className={clsx(currentRoute === href && 'text-dark underline')}
         >
           {text}
-        </Link>
+        </UnderlineLink>
       )}
       {subItems && (
         <div className='invisible absolute top-3 z-50 min-w-[560px] translate-y-0 transform opacity-0 transition duration-300 ease-in-out group-hover:visible group-hover:translate-y-5 group-hover:transform group-hover:opacity-100 lg:-left-48'>
@@ -229,24 +231,34 @@ const NavItem = ({ href, text, subItems }: NavItemProps) => {
                   />
                 </div>
                 <div>
-                  <p className='text-xs font-medium uppercase tracking-wider text-gray-500'>
-                    {t('header.servicesDropdownText')}{' '}
+                  <Body
+                    size='xs'
+                    color='light'
+                    className='uppercase'
+                    margin={false}
+                  >
+                    {t('header.servicesDropdownText')}
                     <span aria-hidden='true'>→</span>
-                  </p>
+                  </Body>
                   <ul className='mt-2'>
                     {subItems.map((item, index) => (
                       <li key={index}>
                         <Link
                           href={item.href}
                           className={clsx(
-                            'text-md -mx-2 block rounded-lg p-2 font-medium text-gray-800 hover:bg-primary-50 hover:to-primary-50',
+                            'text-md -mx-2 block rounded-lg p-2 text-dark hover:bg-primary-50 hover:to-primary-50',
                             currentRoute === item.href && 'text-primary-500',
                           )}
                         >
                           {item.text}
-                          <p className='text-sm font-normal text-gray-500'>
+                          <Body
+                            size='sm'
+                            margin={false}
+                            color='light'
+                            className='font-normal'
+                          >
                             {item.description}
-                          </p>
+                          </Body>
                         </Link>
                       </li>
                     ))}
