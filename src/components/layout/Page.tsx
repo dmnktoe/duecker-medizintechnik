@@ -15,7 +15,7 @@ interface PageProps {
   date?: Date;
   layout: {
     background?: 'light' | 'dark' | 'primary' | 'gray';
-    breadcrumbsClasses?: string;
+    containerWidth?: string;
     showBreadcrumbs?: boolean;
     showHero?: boolean;
     padding?: 'none' | 'default' | 'large';
@@ -74,8 +74,7 @@ export default function Page({
         )}
       >
         <section>
-          <Container>
-            {/* Breadcrumbs */}
+          <Container width={layout.containerWidth}>
             {layout.showBreadcrumbs && <Breadcrumbs />}
           </Container>
         </section>

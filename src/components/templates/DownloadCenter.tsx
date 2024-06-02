@@ -2,6 +2,7 @@ import { useTranslation } from 'next-i18next';
 import { Key } from 'react';
 import { VscCloudDownload } from 'react-icons/vsc';
 
+import { Container } from '@/components/layout';
 import {
   Accordion,
   AccordionContent,
@@ -63,36 +64,40 @@ export const DownloadCenter = () => {
 
   return (
     <>
-      {ready &&
-        t('content.downloads', { returnObjects: true }).map(
-          (download: Download, index: Key) => (
-            <div className='mb-0 flex flex-col' key={index}>
-              <SectionTitle title={download.sectionTitle} />
-              <Accordion type='multiple'>
-                {download.items.map((item, index) => (
-                  <AccordionItem key={index} value={`item-${index}`}>
-                    <AccordionTrigger className='bg-gray-100 px-4'>
-                      <FileTitle title={item.title} />
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      <div className='mt-4 flex flex-col gap-2'>
-                        {item.files.map((file, index) => (
-                          <File
-                            key={index}
-                            title={file.title}
-                            size={file.size}
-                            url={file.url}
-                            type={file.type}
-                          />
-                        ))}
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </div>
-          ),
-        )}
+      <section className='mx-auto max-w-5xl pb-12 md:pb-24'>
+        <Container>
+          {ready &&
+            t('content.downloads', { returnObjects: true }).map(
+              (download: Download, index: Key) => (
+                <div className='mb-6 flex flex-col' key={index}>
+                  <SectionTitle title={download.sectionTitle} />
+                  <Accordion type='multiple'>
+                    {download.items.map((item, index) => (
+                      <AccordionItem key={index} value={`item-${index}`}>
+                        <AccordionTrigger className='bg-gray-100 px-4'>
+                          <FileTitle title={item.title} />
+                        </AccordionTrigger>
+                        <AccordionContent>
+                          <div className='mt-4 flex flex-col gap-2'>
+                            {item.files.map((file, index) => (
+                              <File
+                                key={index}
+                                title={file.title}
+                                size={file.size}
+                                url={file.url}
+                                type={file.type}
+                              />
+                            ))}
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                </div>
+              ),
+            )}
+        </Container>
+      </section>
     </>
   );
 };

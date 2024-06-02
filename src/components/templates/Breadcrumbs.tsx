@@ -36,12 +36,12 @@ export default function Breadcrumbs({ className }: { className?: string }) {
               {/* Don't link the current page */}
               {breadcrumbUrl === router.pathname ? (
                 <li className='text-primary-500'>
-                  {t('breadcrumbs.' + segment)}
+                  {t(('breadcrumbs.' + segment) as never)}
                 </li>
               ) : (
                 <li>
                   <UnderlineLink underline='hover' href={breadcrumbUrl}>
-                    {t('breadcrumbs.' + segment)}
+                    {t(('breadcrumbs.' + segment) as never)}
                   </UnderlineLink>
                 </li>
               )}
