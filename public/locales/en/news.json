@@ -1,19 +1,19 @@
 {
   "content": {
     "newsList": {
-      "readMore": ""
+      "readMore": "Read More"
     },
     "newsSlug": {
       "back": "Go back to all posts"
     },
-    "text": "",
-    "title": ""
+    "text": "Stay informed about the latest developments, industry news and company announcements at Dücker Medizintechnik! We keep you up to date regularly so that you don't miss any important information. Find out first-hand about innovations and advances in the medical technology industry. Visit our press releases and news page regularly to stay informed about everything worth knowing.",
+    "title": "Press releases and news"
   },
   "meta": {
-    "pageTitle": "",
+    "pageTitle": "Newsroom",
     "seo": {
       "description": "",
-      "title": ""
+      "title": "Newsroom: Press releases & interesting facts, Dücker Medizintechnik"
     }
   }
 }

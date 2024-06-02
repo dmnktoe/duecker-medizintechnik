@@ -1,12 +1,12 @@
 {
   "breadcrumbs": {
-    "agb": "",
+    "agb": "Terms and Conditions",
     "cookie-richtlinie": "Cookie Policy",
     "datenschutz": "Privacy Policy (GDPR)",
     "downloads": "Downloads & Certificates",
     "kontakt": "Contact Us",
     "leistungen": "Services",
-    "newsroom": "",
+    "newsroom": "Newsroom",
     "produktion": "Production",
     "reparatur": "Repair-Services",
     "startseite": "Home",
@@ -17,18 +17,18 @@
   "cta": {
     "bullets": [
       {
-        "title": "24/7 Support"
+        "title": "Personal contact person"
       },
       {
-        "title": "Your personal contact"
+        "title": "Medical expertise"
       },
       {
-        "title": "Medical expertise in an international environment"
+        "title": "Free of charge offer"
       }
     ],
     "buttonLink": "/kontakt",
     "buttonText": "Get a Quote",
-    "title": "Do you have any questions or need a quote?",
+    "title": "Do you have any questions?",
     "titleSub": "We are happy to help you!"
   },
   "footer": {
@@ -102,7 +102,7 @@
       }
     ],
     "posts": {
-      "link": "",
+      "link": "Recent press releases",
       "noResults": "No posts found.",
       "title": "Recent News"
     }
@@ -111,7 +111,7 @@
     "change-locale": "Change Language (de-DE)",
     "cookieLinkText": "Cookie Settings",
     "ctaButtonText": "Get a Quote",
-    "imprintLinkText": "Imprint",
+    "imprintLinkText": "Legal Notice",
     "navigationItems": [
       {
         "href": "/",
@@ -152,7 +152,7 @@
     ],
     "privacyLinkText": "Privacy Policy",
     "servicesDropdownText": "Our Services",
-    "termsAndConditionsLinkText": "",
+    "termsAndConditionsLinkText": "Terms",
     "toggleNavigationText": "Toggle menu"
   }
 }

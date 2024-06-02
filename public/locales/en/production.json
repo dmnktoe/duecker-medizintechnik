@@ -2,43 +2,43 @@
   "content": {
     "boxes": {
       "1": {
-        "text": "production:content.boxes.1.text",
-        "title": "production:content.boxes.1.title"
+        "text": "Operating trays are indispensable helpers in the operating theatre, keeping all the necessary instruments and materials for surgical procedures sterile and organized. ",
+        "title": "OP trays"
       },
       "2": {
-        "text": "production:content.boxes.2.text",
+        "text": "Our tubing systems are the perfect solution for a wide range of medical applications, from infusion therapy to drainage. ",
         "title": "production:content.boxes.2.title"
       },
       "3": {
-        "text": "production:content.boxes.3.text",
-        "title": "production:content.boxes.3.title"
+        "text": "Arthroscopic roller pumps are essential devices in minimally invasive joint surgery. They ensure precise and controlled irrigation of the surgical site, which is crucial for a clear view and successful interventions.",
+        "title": "Arthroscopic roller pumps"
       }
     },
     "list": {
       "items": {
         "1": {
-          "label": ""
+          "label": "High quality level"
         },
         "2": {
-          "label": ""
+          "label": "Standards and customer-oriented solutions"
         },
         "3": {
-          "label": "production:content.list.items.3.label"
+          "label": "Non-sterile bulk deliveries for set packers"
         }
       },
-      "title": "production:content.list.title"
+      "title": "Your trusted partner for"
     },
-    "text1": "production:content.text1",
-    "text2": "production:content.text2",
-    "text3": "production:content.text3",
-    "title1": "production:content.title1",
-    "title2": "production:content.title2"
+    "text1": "As a manufacturer of sterile and non-sterile tube systems, we have been established on the market for many years. Our product portfolio ranges from gravity tubing sets to systems for arthroscopic roller pumps. International set packers benefit from our non-sterile bulk deliveries to complete their surgical trays. Our ISO Class 8 production meets the high demands of the required environmental conditions and is regularly monitored by external, accredited laboratories. This monitoring forms the foundation of our work. With a strong focus on quality assurance and continuous improvement, we ensure that our products meet the highest standards. Our expertise in the manufacture of tubing systems enables us to offer customized solutions that meet the specific requirements of our customers. Through close collaboration with medical professionals and continuous feedback, we are able to develop innovative products that meet the needs of the healthcare sector. Our customers can be confident that our tubing systems will provide them with a reliable and efficient solution that offers the highest levels of safety and performance.",
+    "text2": "With our extensive range, we are able to meet the diverse requirements of our international customers, especially set packers, who rely on our non-sterile bulk supplies to complete their surgical trays.",
+    "text3": "With our extensive range, we are able to meet the diverse requirements of our international customers, especially set packers, who rely on our non-sterile bulk supplies to complete their surgical trays.",
+    "title1": "We realize your idea through our production",
+    "title2": "Whatever you need, we will be happy to help you"
   },
   "meta": {
     "pageTitle": "Production",
     "seo": {
-      "description": "production:meta.seo.description",
-      "title": "production:meta.seo.title"
+      "description": "As a manufacturer of sterile and non-sterile tube systems, we have been established on the market for many years. Our product portfolio ranges from gravity tubing sets to systems for arthroscopic roller pumps.",
+      "title": "Dücker Medizintechnik realizes your idea through our production"
     }
   }
 }

@@ -5,7 +5,7 @@ import { PiChartLineUpThin, PiPackageThin, PiWrenchThin } from 'react-icons/pi';
 import { Container } from '@/components/layout';
 import { AnimatedBadge } from '@/components/ui/Badges/AnimatedBadge';
 import ArrowLink from '@/components/ui/Links/ArrowLink';
-import { Title } from '@/components/ui/Typography';
+import { Body, Title } from '@/components/ui/Typography';
 
 export default function ServicePageTiles() {
   const { t } = useTranslation('services');
@@ -48,7 +48,7 @@ export default function ServicePageTiles() {
               <Title margin={false} className='mb-4'>
                 {t('content.title')}
               </Title>
-              <p className='text-light-gray'>{t('content.text')}</p>
+              <Body className='text-light-gray'>{t('content.text')}</Body>
             </div>
           </div>
         </div>
