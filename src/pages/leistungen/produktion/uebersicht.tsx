@@ -10,7 +10,7 @@ import { Title } from '@/components/ui/Typography';
 
 import ProduktionImg from '/public/images/production/duecker-medizintechnik_production_hero-bg.jpg';
 
-const ProductOverviewPage = (
+const ProduktUebersicht = (
   _props: InferGetStaticPropsType<typeof getStaticProps>,
 ) => {
   const { t } = useTranslation('services');
@@ -18,9 +18,10 @@ const ProductOverviewPage = (
     <Page
       layout={{
         background: 'light',
-        showBreadcrumbs: false,
+        showBreadcrumbs: true,
         showHero: false,
         padding: 'none',
+        topContent: <ProductionSubNav />,
       }}
       image={ProduktionImg}
       seo={{
@@ -29,7 +30,6 @@ const ProductOverviewPage = (
       }}
       title={t('meta.pageTitle')}
     >
-      <ProductionSubNav />
       <section className='pb-16 md:pb-24 lg:pb-32'>
         <Container>
           <Title>Product Overview</Title>
@@ -47,4 +47,4 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
   };
 };
 
-export default ProductOverviewPage;
+export default ProduktUebersicht;

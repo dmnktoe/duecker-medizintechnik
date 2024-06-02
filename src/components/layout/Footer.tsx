@@ -165,7 +165,7 @@ const FooterCopyright = () => {
 
 export const Footer = () => {
   return (
-    <footer className='bg-white py-16 text-dark md:py-24 lg:py-32'>
+    <footer className='bg-white py-16 text-dark md:py-24'>
       <Container>
         <div className='grid grid-cols-1 gap-8 lg:grid-cols-12'>
           <div className='lg:col-span-5 lg:max-w-lg'>

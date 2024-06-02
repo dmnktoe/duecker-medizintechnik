@@ -1,10 +1,17 @@
 {
   "breadcrumbs": {
-    "downloads": "",
-    "home": "Home",
+    "agb": "",
+    "cookie-richtlinie": "Cookie Policy",
+    "datenschutz": "Privacy Policy (GDPR)",
+    "downloads": "Downloads & Certificates",
+    "kontakt": "Contact Us",
     "leistungen": "Services",
-    "produktion": "",
+    "newsroom": "",
+    "produktion": "Production",
     "reparatur": "Repair-Services",
+    "startseite": "Home",
+    "uebersicht": "Overview",
+    "unternehmen": "Company",
     "vertrieb": "Distribution"
   },
   "cta": {

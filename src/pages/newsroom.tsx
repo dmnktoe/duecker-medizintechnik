@@ -2,15 +2,12 @@ import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
-import { VscArrowRight } from 'react-icons/vsc';
 
 import { fetchAPI } from '@/lib/fetch-api';
 
-import Seo from '@/components/helpers/Seo';
 import { Container } from '@/components/layout/Container';
-import Layout from '@/components/layout/Layout';
+import Page from '@/components/layout/Page';
 import { NewsList } from '@/components/templates/NewsList';
-import NextBreadcrumb from '@/components/ui/Breadcrumb';
 import { Body, Title } from '@/components/ui/Typography';
 
 const Newsroom = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
@@ -18,37 +15,28 @@ const Newsroom = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const posts = props.posts;
 
   return (
-    <Layout>
-      <Seo
-        templateTitle={t('meta.pageTitle')}
-        description={t('meta.seo.description')}
-        title={t('meta.seo.title')}
-      />
-      <main className='py-16 lg:py-24'>
+    <Page
+      layout={{
+        background: 'light',
+        containerWidth: 'max-w-5xl',
+        showBreadcrumbs: true,
+        showHero: false,
+        padding: 'default',
+      }}
+      seo={{
+        title: t('meta.seo.title'),
+        description: t('meta.seo.description'),
+      }}
+      title={t('meta.pageTitle')}
+    >
+      <section className='mx-auto mb-16 max-w-5xl'>
         <Container>
-          <div className='mx-auto max-w-5xl'>
-            <NextBreadcrumb
-              homeElement='Startseite'
-              separator={
-                <VscArrowRight className='mr-2 h-5 w-3 md:h-6 md:w-3 lg:h-6 lg:w-4' />
-              }
-              activeClasses='text-primary-500'
-              containerClasses='flex'
-              listClasses='hover:underline mr-2'
-              capitalizeLinks
-              className='mb-6'
-            />
-          </div>
-          <div className='mx-auto mb-16 max-w-5xl'>
-            <div className='flex flex-col'>
-              <Title>{t('content.title')}</Title>
-              <Body>{t('content.text')}</Body>
-            </div>
-            <NewsList posts={posts} />
-          </div>
+          <Title>{t('content.title')}</Title>
+          <Body>{t('content.text')}</Body>
+          <NewsList posts={posts} />
         </Container>
-      </main>
-    </Layout>
+      </section>
+    </Page>
   );
 };
 

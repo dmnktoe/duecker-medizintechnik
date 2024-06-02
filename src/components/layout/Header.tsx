@@ -69,7 +69,7 @@ export const Header = () => {
 
   return (
     <>
-      <header className='sticky top-0 z-50 h-navigation-height bg-white'>
+      <header className='sticky top-0 z-50 h-navigation-height border-b border-gray-100 bg-white'>
         <div>
           <Container>
             <div className='relative flex h-navigation-height items-center'>

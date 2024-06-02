@@ -2,7 +2,6 @@ import { StaticImageData } from 'next/image';
 import * as React from 'react';
 
 import clsxm from '@/lib/clsxm';
-import { formatDate } from '@/lib/helper';
 
 import Seo from '@/components/helpers/Seo';
 import { Container } from '@/components/layout/index';
@@ -18,9 +17,10 @@ interface PageProps {
     containerWidth?: string;
     showBreadcrumbs?: boolean;
     showHero?: boolean;
-    padding?: 'none' | 'default' | 'large';
+    padding?: 'none' | 'tiny' | 'small' | 'default' | 'large';
+    topContent?: React.ReactNode;
   };
-  image: StaticImageData;
+  image?: StaticImageData;
   seo: {
     title: string;
     description: string;
@@ -44,8 +44,8 @@ export default function Page({
   return (
     <Layout>
       <Seo
-        date={date ? formatDate(date) : ''}
-        image={image.src}
+        date={date ? new Date(date).toISOString() : ''}
+        image={image ? image.src : ''}
         templateTitle={title}
         /* This is a SEO-optimized meta.seo.title */
         description={seo.description}
@@ -62,6 +62,7 @@ export default function Page({
           staticAnimation
         />
       )}
+      {layout.topContent}
       <main
         className={clsxm(
           layout.background === 'light' && 'bg-white',
@@ -69,15 +70,19 @@ export default function Page({
           layout.background === 'primary' && 'bg-primary-500',
           layout.background === 'gray' && 'bg-gray-100',
           layout.padding === 'none' && 'pt-0',
+          layout.padding === 'tiny' && 'pt-4',
+          layout.padding === 'small' && 'pt-8',
           layout.padding === 'default' && 'pt-16 md:pt-24',
           layout.padding === 'large' && 'pt-32',
         )}
       >
-        <section>
-          <Container width={layout.containerWidth}>
-            {layout.showBreadcrumbs && <Breadcrumbs />}
-          </Container>
-        </section>
+        {layout.showBreadcrumbs && (
+          <section>
+            <Container width={layout.containerWidth}>
+              <Breadcrumbs />
+            </Container>
+          </section>
+        )}
         {children}
       </main>
     </Layout>

@@ -19,7 +19,7 @@ export default function Breadcrumbs({ className }: { className?: string }) {
         {/* Always include a link to home */}
         <li>
           <UnderlineLink underline='hover' href='/'>
-            {t('breadcrumbs.home')}
+            {t('breadcrumbs.startseite')}
           </UnderlineLink>
         </li>
         {pathSegments.length > 0 && (

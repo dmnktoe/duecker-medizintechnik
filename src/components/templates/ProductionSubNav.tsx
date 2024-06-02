@@ -9,7 +9,7 @@ import UnderlineLink from '@/components/ui/Links/UnderlineLink';
 export default function ProductionSubNav() {
   const currentRoute = usePathname();
   return (
-    <div className='sub-navigation sticky top-[var(--navigation-height)] z-40 mb-12 border-t border-gray-100 bg-white/90 backdrop-blur-lg'>
+    <div className='sub-navigation sticky top-[var(--navigation-height)] z-40 mb-12 bg-white/90 backdrop-blur-lg'>
       <Container>
         <nav className='flex items-center justify-between py-4'>
           <ul className='flex gap-4'>

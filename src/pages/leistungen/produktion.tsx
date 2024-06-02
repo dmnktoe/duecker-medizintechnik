@@ -17,9 +17,10 @@ const Produktion = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
     <Page
       layout={{
         background: 'light',
-        showBreadcrumbs: false,
+        showBreadcrumbs: true,
         showHero: false,
         padding: 'none',
+        topContent: <ProductionSubNav />,
       }}
       image={ProduktionImg}
       seo={{
@@ -28,7 +29,6 @@ const Produktion = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
       }}
       title={t('meta.pageTitle')}
     >
-      <ProductionSubNav />
       <ProductionIntro />
       <ProductionTiles />
     </Page>

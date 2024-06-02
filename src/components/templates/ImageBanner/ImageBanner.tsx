@@ -31,7 +31,7 @@ const ImageBanner = ({
   staticAnimation,
 }: Props) => {
   return (
-    <motion.div
+    <motion.figure
       whileInView={VariantNames.Animate}
       viewport={{ once: true, amount: 0.4 }}
       initial={VariantNames.Initial}
@@ -51,7 +51,7 @@ const ImageBanner = ({
         alt={alt}
         className='object-cover'
       />
-    </motion.div>
+    </motion.figure>
   );
 };
 export default ImageBanner;

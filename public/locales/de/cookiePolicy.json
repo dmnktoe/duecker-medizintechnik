@@ -1,7 +1,6 @@
 {
   "content": {
-    "cookieBotAvailability": "",
-    "text": "Verwalten Sie Ihre Cookie-Einstellungen.",
+    "cookieBotAvailability": "CookieBot ist im Entwicklungsmodus nicht verfügbar.",
     "title": "Cookie-Richtlinie"
   },
   "meta": {

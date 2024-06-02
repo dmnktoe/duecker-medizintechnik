@@ -21,49 +21,51 @@ export const ContactInfo = () => {
   const InfoList = () => {
     return (
       <>
-        <div className='mb-8 flex w-full max-w-[370px] items-center'>
-          <IconWrapper>
-            <VscHome className='h-6 w-6' />
-          </IconWrapper>
-          <div className='w-full'>
-            <Title size='five' renderAs='h5' margin={false}>
-              {t('content.contactDetails.location')}
-            </Title>
-            <Body margin={false}>
-              {company.street}
-              <br />
-              {company.city}
-            </Body>
+        <div className='flex flex-col gap-4'>
+          <div className='flex w-full max-w-[370px] items-center'>
+            <IconWrapper>
+              <VscHome className='h-6 w-6' />
+            </IconWrapper>
+            <div className='w-full'>
+              <Title size='five' renderAs='h5' margin={false}>
+                {t('content.contactDetails.location')}
+              </Title>
+              <Body margin={false}>
+                {company.street}
+                <br />
+                {company.city}
+              </Body>
+            </div>
           </div>
-        </div>
-        <div className='mb-8 flex w-full max-w-[370px] items-center'>
-          <IconWrapper>
-            <VscCallOutgoing className='h-6 w-6' />
-          </IconWrapper>
-          <div className='w-full'>
-            <Title size='five' renderAs='h5' margin={false}>
-              {t('content.contactDetails.phone')}
-            </Title>
-            <Body margin={false}>
-              <UnderlineLink href={`tel:${company.phone}`}>
-                {company.phone}
-              </UnderlineLink>
-            </Body>
+          <div className='flex w-full max-w-[370px] items-center'>
+            <IconWrapper>
+              <VscCallOutgoing className='h-6 w-6' />
+            </IconWrapper>
+            <div className='w-full'>
+              <Title size='five' renderAs='h5' margin={false}>
+                {t('content.contactDetails.phone')}
+              </Title>
+              <Body margin={false}>
+                <UnderlineLink href={`tel:${company.phone}`}>
+                  {company.phone}
+                </UnderlineLink>
+              </Body>
+            </div>
           </div>
-        </div>
-        <div className='mb-8 flex w-full max-w-[370px] items-center'>
-          <IconWrapper>
-            <VscMail className='h-6 w-6' />
-          </IconWrapper>
-          <div className='w-full'>
-            <Title size='five' renderAs='h5' margin={false}>
-              {t('content.contactDetails.email')}
-            </Title>
-            <Body margin={false}>
-              <UnderlineLink href={`mailto:${company.email}`}>
-                {company.email}
-              </UnderlineLink>
-            </Body>
+          <div className='flex w-full max-w-[370px] items-center'>
+            <IconWrapper>
+              <VscMail className='h-6 w-6' />
+            </IconWrapper>
+            <div className='w-full'>
+              <Title size='five' renderAs='h5' margin={false}>
+                {t('content.contactDetails.email')}
+              </Title>
+              <Body margin={false}>
+                <UnderlineLink href={`mailto:${company.email}`}>
+                  {company.email}
+                </UnderlineLink>
+              </Body>
+            </div>
           </div>
         </div>
       </>

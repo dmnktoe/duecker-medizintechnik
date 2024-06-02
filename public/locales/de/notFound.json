@@ -1,13 +1,13 @@
 {
-  "_meta": {
-    "pageTitle": "404",
-    "seo": {
-      "description": "Die Seite konnte nicht gefunden werden.",
-      "title": "Seite nicht gefunden"
-    }
-  },
   "content": {
     "pageNotFound": "Seite nicht gefunden",
     "returnToHome": "Zurück zur Startseite"
+  },
+  "meta": {
+    "pageTitle": "Seite nicht gefunden",
+    "seo": {
+      "description": "Die Seite konnte nicht gefunden werden.",
+      "title": ""
+    }
   }
 }

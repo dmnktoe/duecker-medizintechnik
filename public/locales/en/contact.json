@@ -51,7 +51,7 @@
     "mapsBanner": {
       "accept": "Accept",
       "cookieNotice": "This content is loaded from a third party service (Google Maps). <br/> If you activate the content, personal data may be processed and cookies may be set.",
-      "cookieSettings": "Cookie settings"
+      "cookieSettings": "Cookie Settings"
     },
     "text": "Our team is ready to answer your questions, provide detailed information about our medical application services or assist you with technical matters.",
     "title": "Contact us"
@@ -60,7 +60,7 @@
     "pageTitle": "",
     "seo": {
       "description": "Dücker Medizintechnik will be happy to answer your questions, provide detailed information about our medical application services or assist you with technical matters.",
-      "title": "Contact us"
+      "title": "Contact us, Dücker Medizintechnik, devices for medical technology"
     }
   }
 }

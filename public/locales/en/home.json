@@ -1,11 +1,4 @@
 {
-  "_meta": {
-    "pageTitle": "Home",
-    "seo": {
-      "description": "Discover our wide range of products and services for the reprocessing of surgical tools. Find out how we can help you to ensure optimum care in a medical context.",
-      "title": "Repair & service of surgical instruments, production and distribution, Dücker Medizintechnik"
-    }
-  },
   "content": {
     "bentoGrid": {
       "subTitle": "",
@@ -94,6 +87,13 @@
       },
       "text": "We offer you a comprehensive range of services for the reprocessing of surgical tools and supplies in a medical context. Find out more about our services and products.",
       "title": "From production to repair: the entire value chain from a single source."
+    }
+  },
+  "meta": {
+    "pageTitle": "Home",
+    "seo": {
+      "description": "Discover our wide range of products and services for the reprocessing of surgical tools. Find out how we can help you to ensure optimum care in a medical context.",
+      "title": "Repair & service of surgical instruments, production and distribution, Dücker Medizintechnik"
     }
   }
 }
