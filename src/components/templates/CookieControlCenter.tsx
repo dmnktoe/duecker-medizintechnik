@@ -1,0 +1,41 @@
+import { useTranslation } from 'next-i18next';
+import { useEffect } from 'react';
+import * as React from 'react';
+
+import { Container } from '@/components/layout';
+import { Title } from '@/components/ui/Typography';
+
+import { isProd } from '@/constant/env';
+
+export default function CookieControlCenter() {
+  const { t } = useTranslation('cookiePolicy');
+
+  useEffect(() => {
+    const cookieBotWrapper = document.getElementById('CookiebotDeclaration');
+    if (cookieBotWrapper) {
+      const script = document.createElement('script');
+      script.id = 'CookieDeclaration';
+      script.type = 'text/javascript';
+      script.async = true;
+      script.src =
+        'https://consent.cookiebot.com/3722981a-3eb0-4ff9-9145-777cf50e6875/cd.js';
+
+      cookieBotWrapper.appendChild(script);
+    }
+  }, []);
+
+  return (
+    <section className='mx-auto max-w-5xl pb-16 lg:pb-24'>
+      <Container>
+        <Title>{t('content.title')}</Title>
+        {isProd ? (
+          <div id='CookiebotDeclaration' />
+        ) : (
+          <span className='text-red-700'>
+            {t('content.cookieBotAvailability')}
+          </span>
+        )}
+      </Container>
+    </section>
+  );
+}

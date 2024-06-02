@@ -53,12 +53,20 @@ const HeroText = () => {
     <>
       <Title>
         {t('content.hero.title')}
-        <span className='relative ml-1 inline-block w-12 text-primary-500'>
+        <span className='relative ml-1 inline-block w-8 text-primary-500 md:w-10 lg:w-12'>
           <Decorator />
         </span>
       </Title>
       <Body size='lg'>{t('content.hero.text')}</Body>
-      <div className='mt-12 flex items-center justify-start gap-x-3'>
+      <div className='mt-8 flex items-center justify-start gap-x-1 lg:hidden'>
+        <ButtonLink variant='dark' size='sm' href='/leistungen'>
+          {t('content.hero.buttons.primary.label')}
+        </ButtonLink>
+        <ButtonLink variant='primary' size='sm' href='/kontakt'>
+          {t('content.hero.buttons.secondary.label')}
+        </ButtonLink>
+      </div>
+      <div className='mt-12 hidden items-center justify-start gap-x-3 lg:flex'>
         <ButtonLink variant='dark' size='base' href='/leistungen'>
           {t('content.hero.buttons.primary.label')}
         </ButtonLink>

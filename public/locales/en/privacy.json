@@ -1,16 +1,16 @@
 {
-  "_meta": {
+  "content": {
+    "tableOfContent": {
+      "title": "Table of contents"
+    },
+    "text": "We attach great importance to protecting your personal data and safeguarding your privacy. Transparency and security are particularly important to us. In this privacy policy, we provide you with comprehensive information about what personal data we collect, how we process it and for what purposes we use it. We also explain what rights you have with regard to your data and how you can exercise them.\n\nOur data protection measures comply with the applicable legal requirements, in particular the General Data Protection Regulation (GDPR).",
+    "title": "Privacy Policy"
+  },
+  "meta": {
     "pageTitle": "Privacy Policy",
     "seo": {
       "description": "",
       "title": ""
     }
-  },
-  "content": {
-    "tableOfContent": {
-      "title": ""
-    },
-    "text": "",
-    "title": "Privacy Policy"
   }
 }

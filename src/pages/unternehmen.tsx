@@ -6,12 +6,9 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 import { VscArrowRight } from 'react-icons/vsc';
 
-import Seo from '@/components/helpers/Seo';
 import { Container } from '@/components/layout/Container';
-import Layout from '@/components/layout/Layout';
-import ImageBanner from '@/components/templates/ImageBanner/ImageBanner';
+import Page from '@/components/layout/Page';
 import Marquee from '@/components/templates/Marquee';
-import NextBreadcrumb from '@/components/ui/Breadcrumb';
 import ButtonLink from '@/components/ui/Links/ButtonLink';
 import UnderlineLink from '@/components/ui/Links/UnderlineLink';
 import { Body } from '@/components/ui/Typography';
@@ -23,40 +20,29 @@ import companyImg1 from '/public/images/company/duecker-medizintechnik_company_1
 import companyImg2 from '/public/images/company/duecker-medizintechnik_company_2.webp';
 import companyHero from '/public/images/company/duecker-medizintechnik_company_hero.webp';
 
-const CompanyPage = (
+const Unternehmen = (
   _props: InferGetStaticPropsType<typeof getStaticProps>,
 ) => {
   const { t } = useTranslation('company');
   return (
-    <Layout>
-      <Seo
-        templateTitle={t('meta.pageTitle')}
-        description={t('meta.seo.description')}
-        title={t('meta.seo.title')}
-      />
-      <ImageBanner
-        role='hero'
-        delay={0}
-        priority={true}
-        src={companyHero}
-        className='flex-1'
-      />
-      <main className='py-16 lg:py-24'>
+    <Page
+      layout={{
+        background: 'light',
+        containerWidth: 'max-w-5xl',
+        showBreadcrumbs: true,
+        showHero: true,
+        padding: 'default',
+      }}
+      image={companyHero}
+      seo={{
+        title: t('meta.seo.title'),
+        description: t('meta.seo.description'),
+      }}
+      title={t('meta.pageTitle')}
+    >
+      <section className='mx-auto max-w-5xl pb-16 lg:pb-24'>
         <Container>
-          <div className='mx-auto max-w-5xl'>
-            <NextBreadcrumb
-              homeElement='Startseite'
-              separator={
-                <VscArrowRight className='mr-2 h-5 w-3 md:h-6 md:w-3 lg:h-6 lg:w-4' />
-              }
-              activeClasses='text-primary-500'
-              containerClasses='flex'
-              listClasses='hover:underline mr-2'
-              capitalizeLinks
-              className='mb-6'
-            />
-          </div>
-          <div className='mx-auto mb-16 max-w-5xl text-sm'>
+          <div className='mb-16 text-sm'>
             <Title>{t('content.title')}</Title>
             <Body>{t('content.companyText.text1')}</Body>
             <Body>{t('content.companyText.text2')}</Body>
@@ -136,11 +122,11 @@ const CompanyPage = (
             </div>
           </div>
         </Container>
-      </main>
-      <div className='relative'>
+      </section>
+      <div className='relative z-50'>
         <div className='after:absolute after:bottom-0 after:-z-10 after:h-[40rem] after:w-full after:rounded-tl-[15rem] after:bg-gradient-to-b after:from-primary-500/10 after:to-primary-600/0'></div>
       </div>
-    </Layout>
+    </Page>
   );
 };
 
@@ -152,4 +138,4 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
   };
 };
 
-export default CompanyPage;
+export default Unternehmen;

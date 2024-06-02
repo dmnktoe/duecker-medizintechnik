@@ -1,232 +1,35 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
-import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
-import { useCallback, useRef } from 'react';
-import { VscArrowRight } from 'react-icons/vsc';
-import { Autoplay, Navigation, Scrollbar } from 'swiper/modules';
-import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/scrollbar';
 
-import Seo from '@/components/helpers/Seo';
-import { Container } from '@/components/layout/Container';
-import Layout from '@/components/layout/Layout';
-import ImageBanner from '@/components/templates/ImageBanner/ImageBanner';
-import { AspectRatio } from '@/components/ui/AspectRatio';
-import NextBreadcrumb from '@/components/ui/Breadcrumb';
-import SliderButton from '@/components/ui/Buttons/SliderButton';
-import { Body, Title } from '@/components/ui/Typography';
+import Page from '@/components/layout/Page';
+import RepairIntro from '@/components/templates/RepairIntro';
+import RepairSlideshow from '@/components/templates/RepairSlideshow';
 
-import heroImg from '/public/images/repair/duecker-medizintechnik_repair_hero-bg.webp';
-import repairSliderImg1 from '/public/images/repair/repair-slider_image-1.webp';
-import repairSliderImg2 from '/public/images/repair/repair-slider_image-2.webp';
-import repairSliderImg3 from '/public/images/repair/repair-slider_image-3.webp';
-import repairSliderImg4 from '/public/images/repair/repair-slider_image-4.webp';
-import repairSliderImg5 from '/public/images/repair/repair-slider_image-5.webp';
-import repairSliderImg6 from '/public/images/repair/repair-slider_image-6.webp';
+import ReparaturImg from '/public/images/repair/duecker-medizintechnik_repair_hero-bg.webp';
 
-const RepairPage = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const swiperElRef = useRef<SwiperRef>(null);
+const Reparatur = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { t } = useTranslation('repair');
 
-  const handlePrev = useCallback(() => {
-    if (!swiperElRef.current) return;
-    swiperElRef.current.swiper.slidePrev();
-  }, []);
-
-  const handleNext = useCallback(() => {
-    if (!swiperElRef.current) return;
-    swiperElRef.current.swiper.slideNext();
-  }, []);
-
   return (
-    <Layout>
-      <Seo
-        templateTitle={t('_meta.pageTitle')}
-        description={t('_meta.seo.description')}
-        title={t('_meta.seo.title')}
-      />
-      <ImageBanner
-        role='hero'
-        delay={0}
-        priority={true}
-        src={heroImg}
-        className='flex-1'
-      />
-      <main className='overflow-hidden py-16 lg:py-24'>
-        <Container>
-          <NextBreadcrumb
-            homeElement='Startseite'
-            separator={
-              <VscArrowRight className='mr-2 h-5 w-3 md:h-6 md:w-3 lg:h-6 lg:w-4' />
-            }
-            activeClasses='text-primary-500'
-            containerClasses='flex'
-            listClasses='hover:underline mr-2'
-            capitalizeLinks
-            className='mb-6'
-          />
-          <div className='mb-16 flex flex-row items-start gap-6'>
-            <div className='mb-12 w-full lg:mb-0 '>
-              <div className='text-dark'>
-                <Title>{t('content.title')}</Title>
-                <Body>{t('content.text1')}</Body>
-                <Body>{t('content.text2')}</Body>
-              </div>
-            </div>
-            <div className='hidden w-full lg:block lg:w-1/3 xl:w-1/2'></div>
-          </div>
-          <div className='w-full'>
-            <div className='-mx-4 mb-4 flex flex-wrap items-center'>
-              <div className='w-full px-4'>
-                <div className='flex items-center justify-end gap-2'>
-                  <SliderButton direction='prev' handleClick={handlePrev} />
-                  <SliderButton direction='next' handleClick={handleNext} />
-                </div>
-              </div>
-            </div>
-            <Swiper
-              modules={[Navigation, Scrollbar, Autoplay]}
-              navigation
-              spaceBetween={15}
-              ref={swiperElRef}
-              scrollbar={{
-                hide: false,
-              }}
-              breakpoints={{
-                0: {
-                  slidesPerView: 1,
-                },
-                640: {
-                  slidesPerView: 1,
-                },
-                768: {
-                  slidesPerView: 2,
-                },
-              }}
-              autoplay={{
-                delay: 5000,
-                disableOnInteraction: false,
-              }}
-              loop={false}
-            >
-              <div className='flex'>
-                <SwiperSlide>
-                  <AspectRatio ratio={16 / 9}>
-                    <Image
-                      src={repairSliderImg1}
-                      placeholder='blur'
-                      priority
-                      alt={t('content.title')}
-                      layout='fill'
-                      objectFit='cover'
-                    />
-                  </AspectRatio>
-                  <div className='mt-3 text-xs text-gray-400 lg:w-1/2'>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Distinctio incidunt ipsam quam quidem quis saepe. Assumenda
-                    atque autem consectetur cum dolore ducimus earum est eveniet
-                    ex illum.
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <AspectRatio ratio={16 / 9}>
-                    <Image
-                      src={repairSliderImg2}
-                      placeholder='blur'
-                      priority
-                      alt={t('content.title')}
-                      layout='fill'
-                      objectFit='cover'
-                    />
-                  </AspectRatio>
-                  <div className='mt-3 text-xs text-gray-400 lg:w-1/2'>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Distinctio incidunt ipsam quam quidem quis saepe. Assumenda
-                    atque autem consectetur cum dolore ducimus earum est eveniet
-                    ex illum.
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <AspectRatio ratio={16 / 9}>
-                    <Image
-                      src={repairSliderImg3}
-                      placeholder='blur'
-                      priority
-                      alt={t('content.title')}
-                      layout='fill'
-                      objectFit='cover'
-                    />
-                  </AspectRatio>
-                  <div className='mt-4 text-xs text-gray-400 lg:w-1/2'>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Distinctio incidunt ipsam quam quidem quis saepe. Assumenda
-                    atque autem consectetur cum dolore ducimus earum est eveniet
-                    ex illum.
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <AspectRatio ratio={16 / 9}>
-                    <Image
-                      src={repairSliderImg4}
-                      placeholder='blur'
-                      priority
-                      alt={t('content.title')}
-                      layout='fill'
-                      objectFit='cover'
-                    />
-                  </AspectRatio>
-                  <div className='mt-3 text-xs text-gray-400 lg:w-1/2'>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Distinctio incidunt ipsam quam quidem quis saepe. Assumenda
-                    atque autem consectetur cum dolore ducimus earum est eveniet
-                    ex illum.
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <AspectRatio ratio={16 / 9}>
-                    <Image
-                      src={repairSliderImg5}
-                      placeholder='blur'
-                      priority
-                      alt={t('content.title')}
-                      layout='fill'
-                      objectFit='cover'
-                    />
-                  </AspectRatio>
-                  <div className='mt-3 text-xs text-gray-400 lg:w-1/2'>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Distinctio incidunt ipsam quam quidem quis saepe. Assumenda
-                    atque autem consectetur cum dolore ducimus earum est eveniet
-                    ex illum.
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <AspectRatio ratio={16 / 9}>
-                    <Image
-                      src={repairSliderImg6}
-                      placeholder='blur'
-                      priority
-                      alt={t('content.title')}
-                      layout='fill'
-                      objectFit='cover'
-                    />
-                  </AspectRatio>
-                  <div className='mt-3 text-xs text-gray-400 lg:w-1/2'>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Distinctio incidunt ipsam quam quidem quis saepe. Assumenda
-                    atque autem consectetur cum dolore ducimus earum est eveniet
-                    ex illum.
-                  </div>
-                </SwiperSlide>
-              </div>
-            </Swiper>
-          </div>
-        </Container>
-      </main>
-    </Layout>
+    <Page
+      layout={{
+        background: 'light',
+        showBreadcrumbs: true,
+        showHero: true,
+        padding: 'default',
+      }}
+      image={ReparaturImg}
+      seo={{
+        title: t('meta.seo.title'),
+        description: t('meta.seo.description'),
+      }}
+      title={t('meta.pageTitle')}
+    >
+      <RepairIntro />
+      <RepairSlideshow />
+    </Page>
   );
 };
 
@@ -236,4 +39,4 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   },
 });
 
-export default RepairPage;
+export default Reparatur;

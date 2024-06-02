@@ -4,29 +4,29 @@
     "cards": {
       "distribution": {
         "href": "vertrieb",
-        "text": "",
+        "text": "A whole universe of innovative solutions from medical technology to logistics in the B2B & B2C sector",
         "title": "Distribution"
       },
       "production": {
         "href": "produktion",
-        "text": "",
+        "text": "We realize your idea through our production",
         "title": "Production"
       },
       "readMore": "Read more",
       "repair": {
         "href": "reparatur",
-        "text": "",
+        "text": "Our in-house repair service guarantees that your repair orders are processed quickly.",
         "title": "Repair-Services"
       }
     },
-    "text": "",
-    "title": ""
+    "text": "We offer you a wide range of services in the field of medical technology. From design and implementation to the maintenance and care of your medical products, we are your point of contact.",
+    "title": "What we can do for you"
   },
   "meta": {
-    "pageTitle": "",
+    "pageTitle": "Services",
     "seo": {
-      "description": "",
-      "title": ""
+      "description": "We offer you a wide range of services in the field of medical technology. From design and implementation to the maintenance and care of your medical products, we are your point of contact.",
+      "title": "Services: What we can do for you - Dücker Medizintechnik"
     }
   }
 }

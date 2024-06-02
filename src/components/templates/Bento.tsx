@@ -70,9 +70,8 @@ const tiles = [
     ),
   },
   {
-    name: 'Aufbereitung & Reparatur',
-    description:
-      'Von der gewöhnlichen OP-Schere bis hin zur bipolare Koagulationszange, wir reparieren alles.',
+    name: '',
+    description: '',
     className: 'col-span-3 lg:col-span-1',
     href: '/contact',
     background: (
@@ -90,8 +89,8 @@ const tiles = [
     ),
   },
   {
-    name: 'Nouvag',
-    description: 'Nouvag is a medical technology company.',
+    name: '',
+    description: '',
     className: 'col-span-3 lg:col-span-1',
     background: (
       <div className='absolute h-full w-full'>

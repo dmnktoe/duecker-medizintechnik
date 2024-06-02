@@ -173,7 +173,7 @@ export const NewsArticle = ({ post }: NewsArticleProps) => {
             />
           </AspectRatio>
           <Body margin={false} className='mt-4 font-medium'>
-            Marc Dücker
+            {company.ceo}
           </Body>
           <Body size='sm' margin={false} color='light'>
             Executive Vice President Communications & Investor Relations, Dücker
@@ -193,7 +193,7 @@ export const NewsArticle = ({ post }: NewsArticleProps) => {
   };
 
   return (
-    <section className='py-16 md:py-24'>
+    <article className='pb-16 md:pb-24'>
       <Container>
         <div className='flex flex-col gap-y-8 md:gap-y-12'>
           <ArticleHeader post={post} />
@@ -202,6 +202,6 @@ export const NewsArticle = ({ post }: NewsArticleProps) => {
           <ArticleAuthor />
         </div>
       </Container>
-    </section>
+    </article>
   );
 };

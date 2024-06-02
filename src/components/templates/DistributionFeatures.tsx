@@ -23,28 +23,28 @@ export default function DistributionFeatures() {
             </Body>
           </div>
           <div className='mx-auto grid gap-6 md:grid-cols-2 lg:gap-8'>
-            <div className='rounded-md bg-primary-50 p-6 text-left'>
+            <div className='bg-primary-50 p-6 text-left'>
               <VscCombine className='inline-block h-12 w-12 overflow-visible rounded-full bg-white p-3 text-primary-500' />
               <Title size='four' className='mb-2 mt-6'>
                 {t('content.features.1.title')}
               </Title>
               <Body size='sm'>{t('content.features.1.text')}</Body>
             </div>
-            <div className='rounded-md bg-primary-50 p-6 text-left'>
+            <div className='bg-primary-50 p-6 text-left'>
               <VscLayout className='inline-block h-12 w-12 overflow-visible rounded-full bg-white p-3 text-primary-500' />
               <Title size='four' className='mb-2 mt-6'>
                 {t('content.features.2.title')}
               </Title>
               <Body size='sm'>{t('content.features.2.text')}</Body>
             </div>
-            <div className='rounded-md bg-primary-50 p-6 text-left'>
+            <div className='bg-primary-50 p-6 text-left'>
               <VscTerminalBash className='inline-block h-12 w-12 overflow-visible rounded-full bg-white p-3 text-primary-500' />
               <Title size='four' className='mb-2 mt-6'>
                 {t('content.features.3.title')}
               </Title>
               <Body size='sm'>{t('content.features.3.text')}</Body>
             </div>
-            <div className='rounded-md bg-primary-50 p-6 text-left'>
+            <div className='bg-primary-50 p-6 text-left'>
               <VscFeedback className='inline-block h-12 w-12 overflow-visible rounded-full bg-white p-3 text-primary-500' />
               <Title size='four' className='mb-2 mt-6'>
                 {t('content.features.4.title')}

@@ -13,7 +13,7 @@ import {
 
 export default function Document() {
   return (
-    <Html>
+    <Html suppressHydrationWarning>
       <Head>
         {isProd && (
           <script

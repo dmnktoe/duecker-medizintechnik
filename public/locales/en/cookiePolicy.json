@@ -1,14 +1,13 @@
 {
   "content": {
     "cookieBotAvailability": "CookieBot is not available in development mode.",
-    "text": "Manage your cookie settings.",
     "title": "Cookie Policy"
   },
   "meta": {
-    "pageTitle": "",
+    "pageTitle": "Cookie Policy",
     "seo": {
       "description": "",
-      "title": ""
+      "title": "Cookie Policy"
     }
   }
 }

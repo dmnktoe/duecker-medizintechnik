@@ -1,29 +1,22 @@
 {
-  "_meta": {
-    "pageTitle": "Home",
-    "seo": {
-      "description": "Discover our wide range of products and services for the reprocessing of surgical tools. Find out how we can help you to ensure optimum care in a medical context.",
-      "title": "Repair & service of surgical instruments, production and distribution, Dücker Medizintechnik"
-    }
-  },
   "content": {
     "bentoGrid": {
-      "subTitle": "",
+      "subTitle": "Hygiene and safety standards",
       "tiles": {
         "distribution": {
-          "description": "",
-          "title": ""
+          "description": "With our selected sales partners, we offer you a powerful network of products and services.",
+          "title": "Global distribution chains (EU/USA)"
         },
         "downloads": {
-          "description": "",
-          "title": ""
+          "description": "Our company attaches great importance to quality, safety and reliability.",
+          "title": "Downloads & Certificates"
         },
         "iso8": {
-          "description": ".. sdf3##sdf",
-          "title": ""
+          "description": "We are certified in accordance with EN ISO 13485:2016 and ensure comprehensive protection.",
+          "title": "ISO8 certification & specification"
         }
       },
-      "title": ""
+      "title": "Quality, innovation & precision"
     },
     "features": {
       "textBlocks": [
@@ -94,6 +87,13 @@
       },
       "text": "We offer you a comprehensive range of services for the reprocessing of surgical tools and supplies in a medical context. Find out more about our services and products.",
       "title": "From production to repair: the entire value chain from a single source."
+    }
+  },
+  "meta": {
+    "pageTitle": "Home",
+    "seo": {
+      "description": "Discover our wide range of products and services for the reprocessing of surgical tools. Find out how we can help you to ensure optimum care in a medical context.",
+      "title": "Repair & service of surgical instruments, production and distribution, Dücker Medizintechnik"
     }
   }
 }

@@ -1,11 +1,4 @@
 {
-  "_meta": {
-    "pageTitle": "Startseite",
-    "seo": {
-      "description": "Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
-      "title": "Reparatur & Service chirurgischer Instrumente, Herstellung und Vertrieb, Dücker Medizintechnik"
-    }
-  },
   "content": {
     "bentoGrid": {
       "subTitle": "Standards in Hygiene und Sicherheit",
@@ -94,6 +87,13 @@
       },
       "text": "Wir bieten Ihnen ein umfangreiches Leistungsspektrum für die Aufbereitung von OP-Werkzeugen und die Versorgung im medizinischen Kontext. Erfahren Sie mehr über unsere Dienstleistungen und Produkte.",
       "title": "Produktion bis zur Reparatur: die gesamte Wertschöpfungskette aus einer Hand."
+    }
+  },
+  "meta": {
+    "pageTitle": "Startseite",
+    "seo": {
+      "description": "Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
+      "title": "Reparatur & Service chirurgischer Instrumente, Herstellung und Vertrieb, Dücker Medizintechnik"
     }
   }
 }

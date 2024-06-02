@@ -4,11 +4,9 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React from 'react';
 
 import { fetchAPI } from '@/lib/fetch-api';
-import { formatDate } from '@/lib/helper';
 
-import Seo from '@/components/helpers/Seo';
 import { Container } from '@/components/layout/Container';
-import Layout from '@/components/layout/Layout';
+import Page from '@/components/layout/Page';
 import { NewsArticle } from '@/components/templates/NewsArticle';
 import ArrowLink from '@/components/ui/Links/ArrowLink';
 
@@ -51,14 +49,10 @@ const PostPage = (props: PostPageProps) => {
 
   const BackToNewsButton = () => {
     return (
-      <section>
+      <section className='py-12'>
         <Container>
           <div className='mx-auto flex max-w-3xl'>
-            <ArrowLink
-              direction='left'
-              href='/newsroom'
-              className='mt-8 text-xs md:mt-12'
-            >
+            <ArrowLink direction='left' href='/newsroom' className='text-xs'>
               {t('content.newsSlug.back')}
             </ArrowLink>
           </div>
@@ -68,16 +62,23 @@ const PostPage = (props: PostPageProps) => {
   };
 
   return (
-    <Layout>
-      <Seo
-        date={formatDate(post.attributes.publishedAt)}
-        description={post.attributes.excerpt}
-        image={post.attributes.image.data?.attributes.url}
-        templateTitle={post.attributes.title}
-      />
+    <Page
+      date={post.attributes.publishedAt}
+      layout={{
+        containerWidth: 'max-w-5xl',
+        showBreadcrumbs: false,
+        showHero: false,
+        padding: 'none',
+      }}
+      seo={{
+        title: post.attributes.title,
+        description: post.attributes.excerpt,
+      }}
+      title={post.attributes.title}
+    >
       <BackToNewsButton />
       <NewsArticle post={post} />
-    </Layout>
+    </Page>
   );
 };
 

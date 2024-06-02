@@ -5,33 +5,36 @@ import * as React from 'react';
 
 import { fetchAPI } from '@/lib/fetch-api';
 
-import Seo from '@/components/helpers/Seo';
-import Layout from '@/components/layout/Layout';
+import Page from '@/components/layout/Page';
 import { BentoSection } from '@/components/templates/Bento';
 import { Features } from '@/components/templates/Features';
 import { Hero } from '@/components/templates/Hero';
 import { NewsSlider } from '@/components/templates/NewsSlider';
 import { StickyScroll } from '@/components/templates/StickyScroll/StickyScroll';
 
-const HomePage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Startseite = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { t } = useTranslation('home');
   const posts = props.posts;
   return (
-    <Layout>
-      <Seo
-        templateTitle={t('_meta.pageTitle')}
-        description={t('_meta.seo.description')}
-        title={t('_meta.seo.title')}
-      />
-      <main>
-        <Hero />
-
-        <Features />
-        <StickyScroll />
-        <BentoSection />
-        <NewsSlider posts={posts} />
-      </main>
-    </Layout>
+    <Page
+      layout={{
+        background: 'light',
+        showBreadcrumbs: false,
+        showHero: false,
+        padding: 'tiny',
+      }}
+      seo={{
+        title: t('meta.seo.title'),
+        description: t('meta.seo.description'),
+      }}
+      title={t('meta.pageTitle')}
+    >
+      <Hero />
+      <Features />
+      <StickyScroll />
+      <BentoSection />
+      <NewsSlider posts={posts} />
+    </Page>
   );
 };
 
@@ -47,4 +50,4 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
   };
 };
 
-export default HomePage;
+export default Startseite;

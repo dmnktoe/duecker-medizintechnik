@@ -1,6 +1,18 @@
 {
-  "breadcrumb": {
-    "home": "Startseite"
+  "breadcrumbs": {
+    "agb": "Allgemeine Geschäftsbedingungen",
+    "cookie-richtlinie": "Cookie-Richtlinie",
+    "datenschutz": "Datenschutzerklärung (DSGVO)",
+    "downloads": "Downloads & Zertifikate",
+    "kontakt": "Kontakt",
+    "leistungen": "Leistungen",
+    "newsroom": "Newsroom",
+    "produktion": "Produktion",
+    "reparatur": "Reparatur",
+    "startseite": "Startseite",
+    "uebersicht": "Übersicht",
+    "unternehmen": "Unternehmen",
+    "vertrieb": "Vertrieb"
   },
   "cta": {
     "bullets": [
