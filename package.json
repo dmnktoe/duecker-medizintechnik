@@ -32,7 +32,7 @@
     "@radix-ui/react-collapsible": "^1.0.3",
     "axios": "^1.6.1",
     "clsx": "^2.0.0",
-    "express-handlebars": "^6.0.7",
+    "express-handlebars": "^7.0.0",
     "framer-motion": "^11.0.0",
     "i18next": "^23.5.1",
     "lucide-react": "^0.383.0",
