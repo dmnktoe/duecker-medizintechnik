@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.2](https://github.com/dmnktoe/duecker-medizintechnik/compare/v1.0.1...v1.0.2) (2024-06-03)
+
+
+### :bug: Bug Fixes
+
+* :lipstick:  the overflow navbar bug introduced in v1.0.1 ([02178c8](https://github.com/dmnktoe/duecker-medizintechnik/commit/02178c84634c9cb9e684d21385d69504909effd5))
+
+
+### :hammer: Refactors
+
+* **Page:** :ambulance:  better overflow fix used in Page component ([48f56fd](https://github.com/dmnktoe/duecker-medizintechnik/commit/48f56fd4ff8e1b6929158e4a4d59c4401976b798))
+
 ## [1.0.1](https://github.com/dmnktoe/duecker-medizintechnik/compare/1.0.0...v1.0.1) (2024-06-03)
 
 
