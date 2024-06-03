@@ -1,4 +1,5 @@
 import { usePathname } from 'next/navigation';
+import { useTranslation } from 'next-i18next';
 import * as React from 'react';
 
 import clsxm from '@/lib/clsxm';
@@ -8,6 +9,7 @@ import UnderlineLink from '@/components/ui/Links/UnderlineLink';
 
 export default function ProductionSubNav() {
   const currentRoute = usePathname();
+  const { t } = useTranslation('production');
   return (
     <div className='sub-navigation sticky top-[var(--navigation-height)] z-40 mb-12 bg-white/90 backdrop-blur-lg'>
       <Container>
@@ -22,7 +24,7 @@ export default function ProductionSubNav() {
                   currentRoute === '/leistungen/produktion' && 'underline',
                 )}
               >
-                Übersicht
+                {t('content.subNav.main')}
               </UnderlineLink>
             </li>
             <li>
@@ -35,7 +37,7 @@ export default function ProductionSubNav() {
                     'underline',
                 )}
               >
-                Produktübersicht
+                {t('content.subNav.productOverview')}
               </UnderlineLink>
             </li>
           </ul>
