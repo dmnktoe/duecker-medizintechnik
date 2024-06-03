@@ -14,6 +14,14 @@
         "iso8": {
           "description": "Wir sind zertifiziert nach EN ISO 13485:2016 und sorgen für einen umfassenden Schutz.",
           "title": "ISO8 Zertifizierung & Spezifikation"
+        },
+        "production": {
+          "description": "Internationale Set-Packer profitieren von unseren unsterilen Bulk-Lieferungen zur Vervollständigung ihrer OP-Sets.",
+          "title": "Standards und kundenorientierte Lösungen"
+        },
+        "repair": {
+          "description": "Unser Leistungsspektrum umfasst alle chirurgischen Instrumente wie Scheren, Klemmen, Nadelhalter und Behältersysteme.",
+          "title": "Hausinterne Reparaturdienste"
         }
       },
       "title": "Qualität, Innovation & Präzision"

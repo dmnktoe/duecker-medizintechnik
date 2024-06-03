@@ -14,6 +14,14 @@
         "iso8": {
           "description": "We are certified in accordance with EN ISO 13485:2016 and ensure comprehensive protection.",
           "title": "ISO8 certification & specification"
+        },
+        "production": {
+          "description": "International set packers benefit from our non-sterile bulk deliveries to complete their surgical trays.",
+          "title": "Standards and customer-oriented solutions"
+        },
+        "repair": {
+          "description": "Our range of services includes all surgical instruments such as scissors, clamps, needle holders and container systems.",
+          "title": "In-House Repair Services"
         }
       },
       "title": "Quality, innovation & precision"

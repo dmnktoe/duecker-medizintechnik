@@ -70,8 +70,8 @@ const tiles = [
     ),
   },
   {
-    name: '',
-    description: '',
+    name: 'content.bentoGrid.tiles.repair.title',
+    description: 'content.bentoGrid.tiles.repair.description',
     className: 'col-span-3 lg:col-span-1',
     href: '/contact',
     background: (
@@ -89,8 +89,8 @@ const tiles = [
     ),
   },
   {
-    name: '',
-    description: '',
+    name: 'content.bentoGrid.tiles.production.title',
+    description: 'content.bentoGrid.tiles.production.description',
     className: 'col-span-3 lg:col-span-1',
     background: (
       <div className='absolute h-full w-full'>
