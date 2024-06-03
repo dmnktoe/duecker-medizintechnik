@@ -1,7 +1,5 @@
 import { Head, Html, Main, NextScript } from 'next/document';
 
-import clsxm from '@/lib/clsxm';
-
 import GoogleAnalytics from '@/components/helpers/GoogleAnalytics';
 import Hotjar from '@/components/helpers/Hotjar';
 
@@ -29,9 +27,7 @@ export default function Document() {
         <GoogleAnalytics GA_MEASUREMENT_ID={googleAnalyticsId} />
         <Hotjar HOTJAR_ID={hotjarId} />
       </Head>
-      <body
-        className={clsxm(isLocal ? 'debug-screens' : '', 'overflow-x-hidden')}
-      >
+      <body className={isLocal ? 'debug-screens' : ''}>
         <Main />
         <NextScript />
       </body>
