@@ -16,15 +16,14 @@ export default function Breadcrumbs({ className }: { className?: string }) {
   return (
     <div className={clsx('mb-6', className)}>
       <ul className={clsx('flex')}>
-        {/* Always include a link to home */}
-        <li>
+        <li className='flex items-center'>
           <UnderlineLink underline='hover' href='/'>
             {t('breadcrumbs.startseite')}
           </UnderlineLink>
+          {pathSegments.length > 0 && (
+            <VscArrowRight className='mx-2 h-5 w-3 md:h-6 md:w-3 lg:h-6 lg:w-4' />
+          )}
         </li>
-        {pathSegments.length > 0 && (
-          <VscArrowRight className='mx-2 h-5 w-3 md:h-6 md:w-3 lg:h-6 lg:w-4' />
-        )}
 
         {/* Generate breadcrumb segments */}
         {pathSegments.map((segment, i) => {
@@ -39,14 +38,14 @@ export default function Breadcrumbs({ className }: { className?: string }) {
                   {t(('breadcrumbs.' + segment) as never)}
                 </li>
               ) : (
-                <li>
+                <li className='flex items-center'>
                   <UnderlineLink underline='hover' href={breadcrumbUrl}>
                     {t(('breadcrumbs.' + segment) as never)}
                   </UnderlineLink>
+                  {i < pathSegments.length - 1 && (
+                    <VscArrowRight className='mx-2 h-5 w-3 md:h-6 md:w-3 lg:h-6 lg:w-4' />
+                  )}
                 </li>
-              )}
-              {i < pathSegments.length - 1 && (
-                <VscArrowRight className='mx-2 h-5 w-3 md:h-6 md:w-3 lg:h-6 lg:w-4' />
               )}
             </React.Fragment>
           );
