@@ -74,6 +74,7 @@ export default function Page({
           layout.padding === 'small' && 'pt-8',
           layout.padding === 'default' && 'pt-16 md:pt-24',
           layout.padding === 'large' && 'pt-32',
+          'overflow-hidden',
         )}
       >
         {layout.showBreadcrumbs && (

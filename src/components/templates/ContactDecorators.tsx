@@ -2,7 +2,7 @@ import * as React from 'react';
 
 export const ContactDecorators = () => {
   return (
-    <div className='hidden xl:block'>
+    <div>
       <span className='absolute -right-10 -top-10 z-[-1]'>
         <svg
           width='100'
