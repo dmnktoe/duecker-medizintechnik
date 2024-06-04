@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
-import { VscArrowRight } from 'react-icons/vsc';
+import { VscChevronRight } from 'react-icons/vsc';
 
 import UnderlineLink from '@/components/ui/Links/UnderlineLink';
 
@@ -21,7 +21,7 @@ export default function Breadcrumbs({ className }: { className?: string }) {
             {t('breadcrumbs.startseite')}
           </UnderlineLink>
           {pathSegments.length > 0 && (
-            <VscArrowRight className='mx-2 h-5 w-3 md:h-6 md:w-3 lg:h-6 lg:w-4' />
+            <VscChevronRight className='mx-1 h-5 w-3 md:h-6 md:w-3 lg:mx-2 lg:h-6 lg:w-4' />
           )}
         </li>
 
@@ -43,7 +43,7 @@ export default function Breadcrumbs({ className }: { className?: string }) {
                     {t(('breadcrumbs.' + segment) as never)}
                   </UnderlineLink>
                   {i < pathSegments.length - 1 && (
-                    <VscArrowRight className='mx-2 h-5 w-3 md:h-6 md:w-3 lg:h-6 lg:w-4' />
+                    <VscChevronRight className='mx-1 h-5 w-3 md:h-6 md:w-3 lg:mx-2 lg:h-6 lg:w-4' />
                   )}
                 </li>
               )}
