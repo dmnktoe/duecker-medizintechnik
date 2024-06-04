@@ -111,6 +111,10 @@
     "change-locale": "Sprache wechseln (en-US)",
     "cookieLinkText": "Cookies (GDPR)",
     "ctaButtonText": "Kontakt aufnehmen",
+    "dropdown": {
+      "bottomLinkName": "Alle Leistungen ansehen",
+      "title": "Unser Leistungsspektrum"
+    },
     "imprintLinkText": "Impressum",
     "navigationItems": [
       {
@@ -151,7 +155,6 @@
       }
     ],
     "privacyLinkText": "Datenschutz",
-    "servicesDropdownText": "Unser Leistungsspektrum",
     "termsAndConditionsLinkText": "AGB",
     "toggleNavigationText": "Navigation umschalten"
   }
