@@ -49,7 +49,7 @@ const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
         ref={ref}
         {...rest}
         className={clsxm(
-          'inline-flex items-center justify-center rounded-md font-medium',
+          'inline-flex items-center justify-center rounded-md font-normal',
           'focus:outline-dashed focus:outline-1 focus:outline-offset-4 focus:outline-dark focus-visible:ring focus-visible:ring-primary-500',
           //#region  //*=========== Size ===========
           [
@@ -84,7 +84,7 @@ const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
               isScaling && 'transform hover:scale-95',
             ],
             variant === 'light' && [
-              'bg-white text-gray-700',
+              'bg-white text-dark',
               'hover:bg-gray-100 hover:text-dark',
               'active:bg-white/80 disabled:bg-gray-200',
               isScaling && 'transform hover:scale-95',
