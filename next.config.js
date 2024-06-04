@@ -12,6 +12,7 @@ const nextConfig = {
     dirs: ['src'],
   },
 
+  trailingSlash: true,
   reactStrictMode: true,
   swcMinify: true,
 
