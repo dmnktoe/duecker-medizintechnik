@@ -165,7 +165,7 @@ export const Header = () => {
                 </div>
               </div>
               {/* Desktop navigation list */}
-              <ul className='text-md absolute left-1/2 top-1/2 z-50 hidden -translate-x-1/2 -translate-y-1/2 transform text-lg text-gray-800 xl:flex xl:w-auto xl:space-x-6 2xl:space-x-10'>
+              <ul className='text-md absolute left-1/2 top-1/2 z-50 hidden -translate-x-1/2 -translate-y-1/2 transform text-lg text-gray-800 xl:flex xl:w-auto xl:space-x-6'>
                 {ready &&
                   t('header.navigationItems', { returnObjects: true }).map(
                     (item, index) => <NavItem key={index} {...item} />,
