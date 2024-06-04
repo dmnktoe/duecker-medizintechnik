@@ -38,7 +38,7 @@ const LanguagePicker = ({ className }: Props) => {
         const displayName = nameGenerator.of(lang);
         return (
           <option key={lang} value={lang}>
-            {displayName}
+            {lang.toUpperCase()} - {displayName}
           </option>
         );
       })}

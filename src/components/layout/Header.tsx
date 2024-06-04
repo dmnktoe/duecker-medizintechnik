@@ -17,6 +17,7 @@ import {
 } from 'react-icons/vsc';
 
 import { Container } from '@/components/layout/Container';
+import LanguagePicker from '@/components/templates/LanguagePicker';
 import {
   Collapsible,
   CollapsibleContent,
@@ -133,6 +134,8 @@ export const Header = () => {
                         }).map((item, index) => (
                           <ResponsiveNavItem key={index} {...item} />
                         ))}
+                      <hr className='my-3' />
+                      <LanguagePicker className='relative h-6 cursor-pointer border-0 bg-none p-0 outline-none hover:underline focus:border-0 focus:outline-none focus:ring-0' />
                     </div>
                     <div className='flex flex-col justify-between gap-y-2 px-3 py-6 text-xs font-medium tracking-tight'>
                       <div className='mb-2 grid grid-cols-2 grid-rows-2 items-center text-center text-xs underline'>
@@ -170,15 +173,15 @@ export const Header = () => {
               </ul>
               {/* CTA Button */}
               <div className='ml-auto hidden xl:block'>
-                <div className='flex items-center'>
+                <div className='flex items-center gap-4'>
+                  <LanguagePicker className='relative h-6 cursor-pointer border-0 bg-none p-0 outline-none hover:underline focus:border-0 focus:outline-none focus:ring-0' />
                   <ButtonLink
                     href='/kontakt'
-                    size='lg'
+                    size='base'
                     variant='light'
-                    isScaling
+                    className='bg-gray-100 hover:underline'
                     leftIcon={VscCallOutgoing}
-                    leftIconClassName='h-6 w-6 mr-1'
-                    className='border-[1px] border-dashed border-neutral-300'
+                    leftIconClassName='h-5 w-5 mr-1'
                   >
                     {t('header.ctaButtonText')}
                   </ButtonLink>
