@@ -177,7 +177,7 @@ export const Header = () => {
                   <LanguagePicker className='relative h-6 cursor-pointer border-0 bg-none p-0 outline-none hover:underline focus:border-0 focus:outline-none focus:ring-0' />
                   <ButtonLink
                     href='/kontakt'
-                    size='base'
+                    size='lg'
                     variant='light'
                     className='bg-gray-100 hover:underline'
                     leftIcon={VscCallOutgoing}

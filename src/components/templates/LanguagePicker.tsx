@@ -7,9 +7,10 @@ import * as LOCALES from '../../../next-i18next.config';
 
 type Props = {
   className?: string;
+  showDisplayName?: boolean;
 };
 
-const LanguagePicker = ({ className }: Props) => {
+const LanguagePicker = ({ className, showDisplayName }: Props) => {
   const router = useRouter();
 
   function handleLanguageChange(e: React.ChangeEvent<HTMLSelectElement>) {
@@ -38,7 +39,7 @@ const LanguagePicker = ({ className }: Props) => {
         const displayName = nameGenerator.of(lang);
         return (
           <option key={lang} value={lang}>
-            {lang.toUpperCase()} - {displayName}
+            {lang.toUpperCase()} {showDisplayName && `(${displayName})`}
           </option>
         );
       })}

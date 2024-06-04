@@ -22,8 +22,8 @@ export default function ServicePageTiles() {
     const { t } = useTranslation('services');
     return (
       <>
-        <div className='w-full px-4 md:w-1/2 lg:w-1/3'>
-          <div className='mb-8 bg-gray-100 p-10 md:px-7 xl:px-10'>
+        <div className='flex w-full px-4 md:w-1/2 lg:w-1/3'>
+          <div className='mb-8 flex grow flex-col bg-gray-100 p-10 md:px-7 lg:mb-0 xl:px-10'>
             <div className='mb-8 flex h-12 w-12 items-center justify-center bg-dark p-3 lg:h-16 lg:w-16'>
               {icon}
             </div>

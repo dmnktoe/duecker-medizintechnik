@@ -1,7 +1,8 @@
 import { useTranslation } from 'next-i18next';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
-import { VscArrowRight, VscGlobe } from 'react-icons/vsc';
+import { PiTranslate } from 'react-icons/pi';
+import { VscArrowRight } from 'react-icons/vsc';
 
 import { fetchAPI } from '@/lib/fetch-api';
 
@@ -153,11 +154,14 @@ const FooterCopyright = () => {
         © {new Date().getFullYear()} {company.companyName} • {company.street},{' '}
         {company.city}
       </Body>
-      <div className='flex items-center justify-center bg-gray-100 align-middle focus:outline-dashed focus:outline-1 focus:outline-offset-4 focus:outline-gray-300'>
-        <span className='mx-3 inline-block'>
-          <VscGlobe size={18} />
+      <div className='flex items-center justify-center bg-gray-100 p-3 align-middle focus:outline-dashed focus:outline-0 focus:outline-offset-4 focus:outline-gray-300'>
+        <span className='mr-2 inline-block'>
+          <PiTranslate size={18} />
         </span>
-        <LanguagePicker className='relative border-0 py-2 pl-2 pr-8' />
+        <LanguagePicker
+          showDisplayName
+          className='relative m-0 border-0 bg-none p-0 focus:border-none focus:outline-none focus:ring-0 focus:ring-inset focus:ring-transparent focus:ring-offset-0 focus:ring-offset-transparent'
+        />
       </div>
     </>
   );
