@@ -73,7 +73,7 @@ export const Features = () => {
           <hr className='mb-8' />
           <div className='flex justify-end'>
             <ButtonLink href='/leistungen' variant='dark' size='sm'>
-              Alle Leistungen ansehen
+              {t('content.features.button')}
               <span aria-hidden='true' className='ml-2'>
                 <VscArrowRight />
               </span>
