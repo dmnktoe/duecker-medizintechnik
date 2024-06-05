@@ -7,13 +7,13 @@ import { Title } from '@/components/ui/Typography';
 export default function NotFound() {
   const { t } = useTranslation('notFound');
   return (
-    <section className='relative bg-white/95 bg-[url(/images/404/bentoBlur.svg)] bg-cover bg-center bg-no-repeat py-32 text-white'>
+    <section className='relative py-32'>
       <div>
         <div className='flex flex-col items-center justify-center text-center'>
-          <div className='mb-0 text-7xl leading-none md:text-[15rem]'>404</div>
-          <Title className='text-white'>
-            {t('content.pageNotFound') + '.'}
-          </Title>
+          <div className='mb-0 bg-primary-100 text-7xl leading-none text-primary-400 md:text-[15vw]'>
+            404
+          </div>
+          <Title>{t('content.pageNotFound') + '.'}</Title>
           <ArrowLink
             direction='left'
             underline='hover'
