@@ -13,10 +13,12 @@ export default function ServicePageTiles() {
   const ServiceCard = ({
     icon,
     title,
+    href,
     details,
   }: {
     icon: React.ReactNode;
     title: string;
+    href: string;
     details: string;
   }) => {
     const { t } = useTranslation('services');
@@ -31,7 +33,7 @@ export default function ServicePageTiles() {
               {title}
             </Title>
             <Body>{details}</Body>
-            <ArrowLink href={`/leistungen/${title.toLowerCase()}`}>
+            <ArrowLink href={`/leistungen/${href}`}>
               {t('content.cards.readMore')}
             </ArrowLink>
           </div>
@@ -58,16 +60,19 @@ export default function ServicePageTiles() {
           <ServiceCard
             title={t('content.cards.production.title')}
             details={t('content.cards.production.text')}
+            href={t('content.cards.production.href')}
             icon={<PiChartLineUpThin className='h-10 w-10 text-white' />}
           />
           <ServiceCard
             title={t('content.cards.repair.title')}
             details={t('content.cards.repair.text')}
+            href={t('content.cards.repair.href')}
             icon={<PiWrenchThin className='h-10 w-10 text-white' />}
           />
           <ServiceCard
             title={t('content.cards.distribution.title')}
             details={t('content.cards.distribution.text')}
+            href={t('content.cards.distribution.href')}
             icon={<PiPackageThin className='h-10 w-10 text-white' />}
           />
         </div>
