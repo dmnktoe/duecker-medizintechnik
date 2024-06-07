@@ -4,11 +4,11 @@
 
 import clsx from 'clsx';
 import Image from 'next/image';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslation } from 'next-i18next';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
+import { PiTranslate } from 'react-icons/pi';
 import {
   VscCallOutgoing,
   VscChevronDown,
@@ -78,7 +78,7 @@ export const Header = () => {
 
   return (
     <>
-      <header className='sticky top-0 z-[9000000000] h-navigation-height border-b border-gray-100 bg-white'>
+      <header className='sticky top-0 z-50 h-navigation-height border-b border-gray-100 bg-white'>
         <div>
           <Container>
             <div className='relative flex h-navigation-height items-center'>
@@ -111,7 +111,7 @@ export const Header = () => {
               {/* Absolute positioned mobile menu with blur-mask */}
               <div
                 className={clsx(
-                  'fixed inset-0 top-navigation-height z-[9000000000] flex max-h-full w-full max-w-full flex-row transition-all duration-200 ease-in-out md:justify-end md:bg-gray-500/10 md:backdrop-blur-[25px] xl:hidden',
+                  'fixed inset-0 top-navigation-height z-50 flex max-h-full w-full max-w-full flex-row transition-all duration-200 ease-in-out md:justify-end md:bg-gray-500/10 md:backdrop-blur-[25px] xl:hidden',
                   hamburgerMenuIsOpen
                     ? 'visible opacity-100'
                     : 'invisible opacity-0',
@@ -134,32 +134,15 @@ export const Header = () => {
                         }).map((item, index) => (
                           <ResponsiveNavItem key={index} {...item} />
                         ))}
-                      <hr className='my-3' />
-                      <LanguagePicker className='relative h-6 cursor-pointer border-0 bg-none p-0 outline-none hover:underline focus:border-0 focus:outline-none focus:ring-0' />
-                    </div>
-                    <div className='flex flex-col justify-between gap-y-2 px-3 py-6 text-xs font-medium tracking-tight'>
-                      <div className='mb-2 grid grid-cols-2 grid-rows-2 items-center text-center text-xs underline'>
-                        <Link href='/impressum' className='p-1'>
-                          {t('header.imprintLinkText')}
-                        </Link>
-                        <Link href='/datenschutz' className='p-1'>
-                          {t('header.privacyLinkText')}
-                        </Link>
-                        <Link href='/agb' className='p-1'>
-                          {t('header.termsAndConditionsLinkText')}
-                        </Link>
-                        <Link href='/cookie-richtlinie' className='p-1'>
-                          {t('header.cookieLinkText')}
-                        </Link>
-                      </div>
-                      <ButtonLink
+                      <ResponsiveNavItem
+                        text={t('header.ctaButtonText')}
                         href='/kontakt'
-                        size='base'
-                        variant='light'
-                        className='border-[1px] border-dashed border-neutral-300'
-                      >
-                        {t('header.ctaButtonText')}
-                      </ButtonLink>
+                      />
+                      <hr className='my-3' />
+                      <div className='flex items-center gap-1'>
+                        <PiTranslate size={18} />
+                        <LanguagePicker className='relative h-6 cursor-pointer border-0 bg-none p-0 outline-none hover:underline focus:border-0 focus:outline-none focus:ring-0' />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -297,21 +280,22 @@ const ResponsiveNavItem = ({ href, text, subItems }: NavItemProps) => {
       {subItems ? (
         <Collapsible>
           <CollapsibleTrigger>
-            {text}{' '}
+            <span className='cursor-pointer hover:underline'>{text} </span>
             <VscChevronDown className='relative -top-[1px] inline-block transform text-2xl duration-200 group-hover:rotate-180 group-hover:transform' />
           </CollapsibleTrigger>
           <CollapsibleContent>
             <div className='mt-2 flex flex-col gap-y-2 text-2xl text-gray-700'>
               {subItems.map((item, index) => (
-                <Link href={item.href} key={index}>
+                <UnderlineLink underline='hover' href={item.href} key={index}>
                   <SubdirectoryIcon /> {item.text}
-                </Link>
+                </UnderlineLink>
               ))}
             </div>
           </CollapsibleContent>
         </Collapsible>
       ) : (
-        <Link
+        <UnderlineLink
+          underline='hover'
           href={href as string}
           className={clsx(
             'transition duration-150 ease-in-out hover:text-dark active:text-neutral-100',
@@ -319,7 +303,7 @@ const ResponsiveNavItem = ({ href, text, subItems }: NavItemProps) => {
           )}
         >
           {text}
-        </Link>
+        </UnderlineLink>
       )}
     </>
   );
