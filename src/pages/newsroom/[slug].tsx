@@ -16,12 +16,11 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const result = await fetchAPI('/posts');
 
   const paths = result.data
-    .map(
-      (result: News) =>
-        locales?.map((locale) => ({
-          params: { slug: result.attributes.slug.toString() },
-          locale,
-        })),
+    .map((result: News) =>
+      locales?.map((locale) => ({
+        params: { slug: result.attributes.slug.toString() },
+        locale,
+      })),
     )
     .flat();
   return { paths, fallback: false };
