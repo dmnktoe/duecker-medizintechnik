@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
-import { i18n, Trans, useTranslation } from 'next-i18next';
+import { Trans, useTranslation } from 'next-i18next';
 import React, { useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
@@ -16,7 +16,7 @@ import { isLocal, isProd } from '@/constant/env';
 export default function ContactForm() {
   type FormData = z.infer<typeof formSchema>;
 
-  const { t } = useTranslation('contact');
+  const { t, i18n } = useTranslation('contact');
   const [result, setResult] = useState<string>();
   const [resultColor, setResultColor] = useState<string>();
   const recaptchaRef = useRef<ReCAPTCHA>(null);
@@ -259,17 +259,19 @@ export default function ContactForm() {
               window?.Cookiebot?.consent?.marketing === true && (
                 <ReCAPTCHA
                   sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
-                  size='invisible'
                   ref={recaptchaRef}
-                  hl='en'
+                  hl={i18n.language}
+                  badge='inline'
+                  size='invisible'
                 />
               )}
             {isLocal && (
               <ReCAPTCHA
                 sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
-                size='invisible'
                 ref={recaptchaRef}
-                hl='en'
+                hl={i18n.language}
+                badge='inline'
+                size='invisible'
               />
             )}
           </div>
