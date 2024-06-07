@@ -78,7 +78,7 @@ export const Header = () => {
 
   return (
     <>
-      <header className='sticky top-0 z-50 h-navigation-height border-b border-gray-100 bg-white'>
+      <header className='sticky top-0 z-[9000000000] h-navigation-height border-b border-gray-100 bg-white'>
         <div>
           <Container>
             <div className='relative flex h-navigation-height items-center'>
@@ -111,7 +111,7 @@ export const Header = () => {
               {/* Absolute positioned mobile menu with blur-mask */}
               <div
                 className={clsx(
-                  'fixed inset-0 top-navigation-height z-50 flex max-h-full w-full max-w-full flex-row transition-all duration-200 ease-in-out md:justify-end md:bg-gray-500/10 md:backdrop-blur-[25px] xl:hidden',
+                  'fixed inset-0 top-navigation-height z-[9000000000] flex max-h-full w-full max-w-full flex-row transition-all duration-200 ease-in-out md:justify-end md:bg-gray-500/10 md:backdrop-blur-[25px] xl:hidden',
                   hamburgerMenuIsOpen
                     ? 'visible opacity-100'
                     : 'invisible opacity-0',
