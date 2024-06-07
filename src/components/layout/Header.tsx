@@ -203,7 +203,7 @@ const NavItem = ({ href, text, subItems }: NavItemProps) => {
       {subItems ? (
         <button
           className={clsx(
-            'inline-block transition ease-in-out group-hover:text-dark',
+            'inline-block transition ease-in-out group-hover:text-dark group-hover:underline',
             currentRoute === href && 'underline',
           )}
           aria-haspopup='true'
