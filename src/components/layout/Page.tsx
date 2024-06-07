@@ -11,6 +11,7 @@ import ImageBanner from '@/components/templates/ImageBanner/ImageBanner';
 
 interface PageProps {
   children: React.ReactNode;
+  className?: string;
   date?: Date;
   layout: {
     background?: 'light' | 'dark' | 'primary' | 'gray';
@@ -30,6 +31,7 @@ interface PageProps {
 
 export default function Page({
   children,
+  className,
   date,
   layout = {
     background: 'light',
@@ -74,6 +76,7 @@ export default function Page({
           layout.padding === 'small' && 'pt-8',
           layout.padding === 'default' && 'pt-16 md:pt-24',
           layout.padding === 'large' && 'pt-32',
+          className,
         )}
       >
         {layout.showBreadcrumbs && (

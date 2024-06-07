@@ -15,6 +15,7 @@ const Reparatur = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const flags = useFlags(['repair_slideshow']);
   return (
     <Page
+      className='overflow-hidden'
       layout={{
         background: 'light',
         showBreadcrumbs: true,
