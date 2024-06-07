@@ -36,7 +36,7 @@ const Produktion = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
       title={t('meta.pageTitle')}
     >
       <ProductionIntro />
-      <ProductionTiles />
+      {flags.products_overview.enabled && <ProductionTiles />}
     </Page>
   );
 };

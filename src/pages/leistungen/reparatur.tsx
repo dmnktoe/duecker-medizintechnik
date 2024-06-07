@@ -1,3 +1,4 @@
+import { useFlags } from 'flagsmith/react';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
@@ -11,7 +12,7 @@ import ReparaturImg from '/public/images/repair/duecker-medizintechnik_repair_he
 
 const Reparatur = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { t } = useTranslation('repair');
-
+  const flags = useFlags(['repair_slideshow']);
   return (
     <Page
       layout={{
@@ -28,7 +29,7 @@ const Reparatur = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
       title={t('meta.pageTitle')}
     >
       <RepairIntro />
-      <RepairSlideshow />
+      {flags.repair_slideshow.enabled && <RepairSlideshow />}
     </Page>
   );
 };

@@ -8,10 +8,10 @@ export default function RepairIntro() {
   const { t } = useTranslation('repair');
 
   return (
-    <section className='mb-16 md:mb-24 lg:mb-32'>
+    <section className='mb-16 md:mb-24'>
       <Container>
-        <div className='mb-16 flex flex-row items-start gap-6'>
-          <div className='mb-12 w-full lg:mb-0'>
+        <div className='flex flex-row items-start gap-6'>
+          <div className='w-full lg:mb-0'>
             <div className='text-dark'>
               <Title>{t('content.title')}</Title>
               <Body>{t('content.text1')}</Body>
