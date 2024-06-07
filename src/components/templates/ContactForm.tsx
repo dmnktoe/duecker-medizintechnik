@@ -275,7 +275,7 @@ export default function ContactForm() {
               />
             )}
           </div>
-          <div className='flex flex-col items-center justify-between gap-8'>
+          <div className='flex flex-col items-center justify-between gap-4'>
             <Button
               type='submit'
               disabled={isSubmitting}
