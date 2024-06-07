@@ -1,43 +1,52 @@
+import { createFlagsmithInstance } from 'flagsmith/isomorphic';
+import { FlagsmithProvider } from 'flagsmith/react';
 import { AppProps } from 'next/app';
-import { Figtree, Sorts_Mill_Goudy } from 'next/font/google';
 import { appWithTranslation } from 'next-i18next';
 import NextNProgress from 'nextjs-progressbar';
-import React from 'react';
+import React, { useRef } from 'react';
 
 import '@/styles/globals.css';
 
-const figtree = Figtree({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-sarabun',
-  weight: ['400', '500', '600', '700'],
-});
+import { figtree, sortsMillGoudy } from '@/lib/fonts';
 
-const sortsMillGoudy = Sorts_Mill_Goudy({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-sortsMillGoudy',
-  weight: ['400'],
-});
+import { flagsmithId } from '@/constant/env';
 
-function Duecker({ Component, pageProps }: AppProps) {
+function Duecker({
+  Component,
+  pageProps,
+  flagsmithState,
+}: AppProps & { flagsmithState: never }) {
+  const flagsmithRef = useRef(createFlagsmithInstance());
   return (
     <>
-      <div className={`${figtree.variable} ${sortsMillGoudy.variable}`}>
-        <NextNProgress
-          color='var(--color-primary-500)'
-          startPosition={0.3}
-          stopDelayMs={200}
-          height={3}
-          showOnShallow={true}
-          options={{
-            showSpinner: false,
-          }}
-        />
-        <Component {...pageProps} />
-      </div>
+      <FlagsmithProvider
+        flagsmith={flagsmithRef.current}
+        serverState={flagsmithState}
+      >
+        <div className={`${figtree.variable} ${sortsMillGoudy.variable}`}>
+          <NextNProgress
+            color='var(--color-primary-500)'
+            startPosition={0.3}
+            stopDelayMs={200}
+            height={3}
+            showOnShallow={true}
+            options={{
+              showSpinner: false,
+            }}
+          />
+          <Component {...pageProps} />
+        </div>
+      </FlagsmithProvider>
     </>
   );
 }
+
+Duecker.getInitialProps = async () => {
+  const flagsmithSSR = createFlagsmithInstance();
+  await flagsmithSSR.init({
+    environmentID: flagsmithId ?? '',
+  });
+  return { flagsmithState: flagsmithSSR.getState() };
+};
 
 export default appWithTranslation(Duecker);

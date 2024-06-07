@@ -1,3 +1,4 @@
+import { useFlags } from 'flagsmith/react';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
@@ -12,15 +13,20 @@ import ProduktionImg from '/public/images/production/duecker-medizintechnik_prod
 
 const Produktion = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { t } = useTranslation('production');
-
+  const flags = useFlags(['products_overview']);
+  const topContent = flags.products_overview.enabled ? (
+    <ProductionSubNav />
+  ) : (
+    <></>
+  );
   return (
     <Page
       layout={{
         background: 'light',
         showBreadcrumbs: true,
         showHero: false,
-        padding: 'none',
-        topContent: <ProductionSubNav />,
+        padding: flags.products_overview.enabled ? 'none' : 'default',
+        topContent: topContent,
       }}
       image={ProduktionImg}
       seo={{

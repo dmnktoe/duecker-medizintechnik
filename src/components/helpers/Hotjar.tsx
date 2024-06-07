@@ -5,7 +5,6 @@ export default function Hotjar({
 }) {
   return (
     <>
-      {/* eslint-disable-next-line @next/next/no-sync-scripts */}
       <script
         id='hotjar'
         type='text/plain'

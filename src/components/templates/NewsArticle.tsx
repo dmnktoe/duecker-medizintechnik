@@ -1,3 +1,4 @@
+import { useFlags } from 'flagsmith/react';
 import { marked } from 'marked';
 import Image from 'next/image';
 import React from 'react';
@@ -160,35 +161,40 @@ export const NewsArticle = ({ post }: NewsArticleProps) => {
   };
 
   const ArticleAuthor = () => {
+    const flags = useFlags(['article_author_bio']);
     return (
-      <div className='mx-auto w-full max-w-3xl'>
-        <div className='w-2/3 md:w-1/2'>
-          <Title size='three'>Kontakt</Title>
-          <AspectRatio ratio={16 / 9} className='bg-muted'>
-            <Image
-              src='https://picsum.photos/800'
-              alt='kontakt'
-              fill
-              className='object-cover object-center'
-            />
-          </AspectRatio>
-          <Body margin={false} className='mt-4 font-medium'>
-            {company.ceo}
-          </Body>
-          <Body size='sm' margin={false} color='light'>
-            Executive Vice President Communications & Investor Relations, Dücker
-            Medizintechnik
-          </Body>
-          <UnstyledLink
-            className='hover:underline'
-            href={'mailto:' + company.email}
-          >
-            <Body size='sm' margin={false} color='light'>
-              {company.email}
-            </Body>
-          </UnstyledLink>
-        </div>
-      </div>
+      <>
+        {flags.article_author_bio.enabled ? (
+          <div className='mx-auto w-full max-w-3xl'>
+            <div className='w-2/3 md:w-1/2'>
+              <Title size='three'>Kontakt</Title>
+              <AspectRatio ratio={16 / 9} className='bg-muted'>
+                <Image
+                  src='https://picsum.photos/800'
+                  alt='kontakt'
+                  fill
+                  className='object-cover object-center'
+                />
+              </AspectRatio>
+              <Body margin={false} className='mt-4 font-medium'>
+                {company.ceo}
+              </Body>
+              <Body size='sm' margin={false} color='light'>
+                Executive Vice President Communications & Investor Relations,
+                Dücker Medizintechnik
+              </Body>
+              <UnstyledLink
+                className='hover:underline'
+                href={'mailto:' + company.email}
+              >
+                <Body size='sm' margin={false} color='light'>
+                  {company.email}
+                </Body>
+              </UnstyledLink>
+            </div>
+          </div>
+        ) : null}
+      </>
     );
   };
 
