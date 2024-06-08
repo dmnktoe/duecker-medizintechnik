@@ -154,7 +154,7 @@ const FooterCopyright = () => {
         © {new Date().getFullYear()} {company.companyName} • {company.street},{' '}
         {company.city}
       </Body>
-      <div className='flex items-center justify-center bg-gray-100 p-3 align-middle focus:outline-dashed focus:outline-0 focus:outline-offset-4 focus:outline-gray-300'>
+      <div className='order-first flex items-center justify-center bg-gray-100 p-2 align-middle focus:outline-dashed focus:outline-0 focus:outline-offset-4 focus:outline-gray-300 lg:order-last lg:p-3'>
         <span className='mr-2 inline-block'>
           <PiTranslate size={18} />
         </span>
@@ -180,8 +180,8 @@ export const Footer = () => {
             <FooterPosts />
           </div>
         </div>
-        <div className='mt-16 border-t border-gray-100 pt-16'>
-          <div className='flex flex-row items-center justify-between gap-6 text-left'>
+        <div className='mt-16 border-t border-gray-100 pt-12'>
+          <div className='flex flex-col items-start justify-between gap-4 text-left lg:flex-row lg:items-center lg:gap-8'>
             <FooterCopyright />
           </div>
         </div>

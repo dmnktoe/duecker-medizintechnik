@@ -74,7 +74,7 @@ export default function Page({
           layout.padding === 'none' && 'pt-0',
           layout.padding === 'tiny' && 'pt-4',
           layout.padding === 'small' && 'pt-8',
-          layout.padding === 'default' && 'pt-16 md:pt-24',
+          layout.padding === 'default' && 'pt-8 md:pt-16 lg:pt-24',
           layout.padding === 'large' && 'pt-32',
           className,
         )}
