@@ -269,7 +269,6 @@ export default function ContactForm() {
                 sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
                 ref={recaptchaRef}
                 hl={i18n.language}
-                badge='inline'
                 size='invisible'
               />
             )}
@@ -278,7 +277,6 @@ export default function ContactForm() {
                 sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
                 ref={recaptchaRef}
                 hl={i18n.language}
-                badge='inline'
                 size='invisible'
               />
             )}
