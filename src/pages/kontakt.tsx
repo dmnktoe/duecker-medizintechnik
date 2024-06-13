@@ -2,7 +2,6 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
-import { useEffect } from 'react';
 
 import { Container } from '@/components/layout/Container';
 import Page from '@/components/layout/Page';
@@ -12,18 +11,8 @@ import ContactForm from '@/components/templates/ContactForm';
 import { ContactInfo } from '@/components/templates/ContactInfo';
 import { ContactMap } from '@/components/templates/ContactMap';
 
-import { isProd } from '@/constant/env';
-
 const Kontakt = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { t } = useTranslation('contact');
-
-  useEffect(() => {
-    if (isProd) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      window.Cookiebot.initConsent();
-    }
-  }, []);
 
   return (
     <Page

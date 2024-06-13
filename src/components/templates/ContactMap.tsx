@@ -14,7 +14,7 @@ export const ContactMap = () => {
         <>
           <div className='cookieconsent-optin-marketing flex h-[350px] items-center bg-gray-100 align-middle'>
             <iframe
-              data-cookieblock-src='https://maps.google.de/maps?hl=de&q=Dücker+Medizintechnik%20%20%20%20%20Elfershäuser+Str.+18%20%20%20%20Melsungen&t=ROADMAP&z=10&ie=utf8&iwloc=b&output=embed'
+              data-cookieblock-src='https://maps.google.de/maps?hl=de&q=Dücker+Medizintechnik%20%20%20%20%20Elfershäuser+Str.+18%20%20%20%20Melsungen&t=ROADMAP&z=12&ie=utf8&iwloc=b&output=embed'
               data-cookieconsent='marketing'
               width='100%'
               height='350'
@@ -80,7 +80,7 @@ export const ContactMap = () => {
         </>
       ) : (
         <iframe
-          src='https://maps.google.de/maps?hl=de&q=Dücker+Medizintechnik%20%20%20%20%20Elfershäuser+Str.+18%20%20%20%20Melsungen&t=ROADMAP&z=10&ie=utf8&iwloc=b&output=embed'
+          src='https://maps.google.de/maps?hl=de&q=Dücker+Medizintechnik%20%20%20%20%20Elfershäuser+Str.+18%20%20%20%20Melsungen&t=ROADMAP&z=12&ie=utf8&iwloc=b&output=embed'
           width='100%'
           height='350'
           id='google-maps'

@@ -52,7 +52,7 @@ export default async function ContactApi(
       from: `${fullName} no-reply@${process.env.CONTACT_FORM_SEND_EMAIL_DOMAIN}`,
       replyTo: email,
       to: process.env.CONTACT_FORM_RECEIVE_EMAIL,
-      subject: `Dücker Medizintechnik Kontaktformular von ${fullName}`,
+      subject: 'Neue Anfrage, Dücker Medizintechnik Kontaktformular',
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore-next-line
       template: 'contact',
