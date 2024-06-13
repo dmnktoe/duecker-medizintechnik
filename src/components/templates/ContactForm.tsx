@@ -114,7 +114,9 @@ export default function ContactForm() {
           className='cookieconsent-optout-marketing'
           data-cookieconsent='marketing'
         >
-          {t('content.contactForm.recaptchaCookieNotice')}
+          <div className='rounded-md border border-gray-300 bg-yellow-100 p-2 text-xs'>
+            {t('content.contactForm.recaptchaCookieNotice')}
+          </div>
         </div>
       )}
       <div className='cookieconsent-optin-marketing'>
