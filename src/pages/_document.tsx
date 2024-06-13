@@ -1,12 +1,10 @@
 import { Head, Html, Main, NextScript } from 'next/document';
 
-import CrispChat from '@/components/helpers/CrispChat';
 import GoogleAnalytics from '@/components/helpers/GoogleAnalytics';
 import Hotjar from '@/components/helpers/Hotjar';
 
 import {
   cookieBotId,
-  crispWebsiteId,
   googleAnalyticsId,
   hotjarId,
   isLocal,
@@ -28,7 +26,6 @@ export default function Document() {
         )}
         <GoogleAnalytics GA_MEASUREMENT_ID={googleAnalyticsId} />
         <Hotjar HOTJAR_ID={hotjarId} />
-        <CrispChat CRISP_WEBSITE_ID={crispWebsiteId} />
       </Head>
       <body className={isLocal ? 'debug-screens' : ''}>
         <Main />

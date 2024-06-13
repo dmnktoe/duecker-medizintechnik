@@ -1,5 +1,4 @@
 export const cookieBotId = process.env.NEXT_PUBLIC_COOKIEBOT_ID;
-export const crispWebsiteId = process.env.NEXT_PUBLIC_CRISP_WEBSITE_ID;
 export const flagsmithId = process.env.NEXT_PUBLIC_FLAGSMITH_ID;
 export const googleAnalyticsId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
 export const hotjarId = process.env.NEXT_PUBLIC_HOTJAR_ID;
