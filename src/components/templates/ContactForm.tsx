@@ -23,29 +23,29 @@ export default function ContactForm() {
 
   const formSchema = z.object({
     fullName: z.string().min(1, {
-      message: i18n?.t('contact:content.contactForm.fullName.error.required'),
+      message: 'contact:content.contactForm.fullName.error.required',
     }),
     email: z
       .string()
       .min(1, {
-        message: i18n?.t('contact:content.contactForm.email.error.required'),
+        message: 'contact:content.contactForm.email.error.required',
       })
       .email({
-        message: i18n?.t('contact:content.contactForm.email.error.invalid'),
+        message: 'contact:content.contactForm.email.error.invalid',
       }),
     phone: z.string().min(1, {
-      message: i18n?.t('contact:content.contactForm.phone.error.required'),
+      message: 'contact:content.contactForm.phone.error.required',
     }),
     message: z
       .string()
       .min(10, {
-        message: i18n?.t('contact:content.contactForm.message.error.minLength'),
+        message: 'contact:content.contactForm.message.error.minLength',
       })
       .max(1000, {
-        message: i18n?.t('contact:content.contactForm.message.error.maxLength'),
+        message: 'contact:content.contactForm.message.error.maxLength',
       }),
     terms: z.boolean().refine((val) => val, {
-      message: i18n?.t('contact:content.contactForm.terms.error'),
+      message: 'contact:content.contactForm.terms.error',
     }),
   });
 
@@ -134,7 +134,7 @@ export default function ContactForm() {
             />
             {errors.fullName?.message && (
               <div className='mt-1 text-xs text-red-500'>
-                {errors.fullName?.message}
+                {t(errors.fullName?.message as never)}
               </div>
             )}
           </div>
@@ -160,7 +160,7 @@ export default function ContactForm() {
             />
             {errors.email?.message && (
               <div className='mt-1 text-xs text-red-500'>
-                {errors.email?.message}
+                {t(errors.email?.message as never)}
               </div>
             )}
           </div>
@@ -186,7 +186,7 @@ export default function ContactForm() {
             />
             {errors.phone?.message && (
               <div className='mt-1 text-xs text-red-500'>
-                {errors.phone?.message}
+                {t(errors.phone?.message as never)}
               </div>
             )}
           </div>
@@ -213,7 +213,7 @@ export default function ContactForm() {
               ></textarea>
               {errors.message?.message && (
                 <div className='mt-1 text-xs text-red-500'>
-                  {errors.message?.message}
+                  {t(errors.message?.message as never)}
                 </div>
               )}
             </div>
@@ -248,7 +248,7 @@ export default function ContactForm() {
             </div>
             {errors.terms?.message && (
               <div className='mt-1 text-xs text-red-500'>
-                {errors.terms?.message}
+                {t(errors.terms?.message as never)}
               </div>
             )}
           </div>
