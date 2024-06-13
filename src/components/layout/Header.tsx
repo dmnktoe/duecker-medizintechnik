@@ -1,7 +1,3 @@
-// TODO: User outerClick to close hamburger menu
-// TODO: current page in navigation indicator - with SUB PATH
-// TODO: TypeScript error
-
 import clsx from 'clsx';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -139,6 +135,20 @@ export const Header = () => {
                         href='/kontakt'
                       />
                       <hr className='my-3' />
+                      <UnderlineLink
+                        underline='hover'
+                        className='text-sm md:text-base'
+                        href='/impressum'
+                      >
+                        {t('header.imprintLinkText')}
+                      </UnderlineLink>
+                      <UnderlineLink
+                        underline='hover'
+                        className='text-sm md:text-base'
+                        href='/datenschutz'
+                      >
+                        {t('header.privacyLinkText')}
+                      </UnderlineLink>
                       <div className='flex items-center gap-1'>
                         <PiTranslate size={18} />
                         <LanguagePicker className='relative h-6 cursor-pointer border-0 bg-none p-0 outline-none hover:underline focus:border-0 focus:outline-none focus:ring-0' />
