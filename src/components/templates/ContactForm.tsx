@@ -1,7 +1,9 @@
+'use client';
+
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import { Trans, useTranslation } from 'next-i18next';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -20,6 +22,15 @@ export default function ContactForm() {
   const [result, setResult] = useState<string>();
   const [resultColor, setResultColor] = useState<string>();
   const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const [showRecaptcha, setShowRecaptcha] = useState(false);
+
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    if (isProd && window?.Cookiebot?.consent?.marketing === true) {
+      setShowRecaptcha(true);
+    }
+  }, []);
 
   const formSchema = z.object({
     fullName: z.string().min(1, {
@@ -253,18 +264,15 @@ export default function ContactForm() {
             )}
           </div>
           <div>
-            {typeof window !== 'undefined' &&
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-ignore-next-line
-              window?.Cookiebot?.consent?.marketing === true && (
-                <ReCAPTCHA
-                  sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
-                  ref={recaptchaRef}
-                  hl={i18n.language}
-                  badge='inline'
-                  size='invisible'
-                />
-              )}
+            {showRecaptcha && (
+              <ReCAPTCHA
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
+                ref={recaptchaRef}
+                hl={i18n.language}
+                badge='inline'
+                size='invisible'
+              />
+            )}
             {isLocal && (
               <ReCAPTCHA
                 sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
