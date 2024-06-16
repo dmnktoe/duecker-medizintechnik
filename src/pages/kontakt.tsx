@@ -22,7 +22,7 @@ const Kontakt = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
       if (typeof window !== 'undefined') {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
-        window?.Cookiebot?.init();
+        window?.Cookiebot?.initConsent();
       }
     }
     loadCookiebot();
