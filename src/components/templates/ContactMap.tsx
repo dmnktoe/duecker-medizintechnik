@@ -32,9 +32,7 @@ export const ContactMap = () => {
                 size='sm'
                 className='w-full sm:w-56'
                 onClick={() => {
-                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                  // @ts-ignore
-                  window.Cookiebot.submitCustomConsent(false, false, true);
+                  window?.Cookiebot?.submitCustomConsent(false, false, true);
                 }}
               >
                 {t('content.mapsBanner.accept')}
@@ -44,9 +42,7 @@ export const ContactMap = () => {
                 size='sm'
                 className='w-full sm:w-56'
                 onClick={() => {
-                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                  // @ts-ignore
-                  window.Cookiebot.show();
+                  window?.Cookiebot?.show();
                 }}
               >
                 {t('content.mapsBanner.cookieSettings')}
