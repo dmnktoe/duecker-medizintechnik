@@ -1,7 +1,7 @@
 import qs from 'qs';
 
-import { fetchAPI } from './../fetch-api';
-import { getStrapiURL } from './../helper';
+import { fetchAPI } from '@/lib/fetch-api';
+import { getStrapiURL } from '@/lib/strapi-urls';
 
 // Mocking fetch
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment

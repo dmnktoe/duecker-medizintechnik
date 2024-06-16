@@ -10,8 +10,8 @@ import { AnimatedBadge } from '@/components/ui/Badges/AnimatedBadge';
 import UnstyledLink from '@/components/ui/Links/UnstyledLink';
 import { Body, Title } from '@/components/ui/Typography';
 
-import { useHidePageOverflow } from '@/utils/toggle-page-overflow';
 import { useEscapePress } from '@/utils/use-escape-press';
+import { useHidePageOverflow } from '@/utils/use-toggle-page-overflow';
 
 import { Distribution, Production, Repair } from './StickyScrollCard';
 import { StickyScrollTitle } from './StickyScrollTitle';

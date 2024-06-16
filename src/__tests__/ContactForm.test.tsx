@@ -7,10 +7,11 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 
+import initializeI18n from '@/lib/i18n-testing';
+
 import ContactForm from '@/components/templates/ContactForm';
 
 import form from '@/pages/api/form';
-import initializeI18n from '@/utils/i18n-testing';
 
 const mock = new MockAdapter(axios);
 

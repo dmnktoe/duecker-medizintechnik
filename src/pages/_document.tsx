@@ -19,6 +19,7 @@ export default function Document() {
           id='Cookiebot'
           src='https://consent.cookiebot.eu/uc.js'
           data-cbid={cookieBotId}
+          data-blockingmode='auto'
           type='text/javascript'
           strategy='beforeInteractive'
           async

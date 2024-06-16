@@ -16,7 +16,8 @@ import {
   WhatsappShareButton,
 } from 'react-share';
 
-import { formatDate, getStrapiMedia } from '@/lib/helper';
+import { formatDate } from '@/lib/format-date';
+import { getStrapiMedia } from '@/lib/strapi-urls';
 
 import { Container } from '@/components/layout';
 import { AspectRatio } from '@/components/ui/AspectRatio';

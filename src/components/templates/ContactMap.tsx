@@ -1,25 +1,30 @@
 import { useTranslation } from 'next-i18next';
 import * as React from 'react';
 
+import logger from '@/lib/logger';
+
 import { Container } from '@/components/layout/Container';
 import Button from '@/components/ui/Buttons/Button';
 
+import { useCookiebotConsent } from '@/utils/use-consent';
+
 export const ContactMap = () => {
   const { t } = useTranslation('contact');
+  const hasMarketingConsent = useCookiebotConsent('marketing');
+  logger(hasMarketingConsent, 'hasMarketingConsent');
+
   return (
     <>
-      <div className='cookieconsent-optin-marketing'>
+      {hasMarketingConsent ? (
         <div className='relative flex h-[350px] items-center bg-gray-100 align-middle'>
           <iframe
-            data-cookieblock-src='https://maps.google.de/maps?hl=de&q=Dücker+Medizintechnik%20%20%20%20%20Elfershäuser+Str.+18%20%20%20%20Melsungen&t=ROADMAP&z=12&ie=utf8&iwloc=b&output=embed'
-            data-cookieconsent='marketing'
+            src='https://maps.google.de/maps?hl=de&q=Dücker+Medizintechnik%20%20%20%20%20Elfershäuser+Str.+18%20%20%20%20Melsungen&t=ROADMAP&z=12&ie=utf8&iwloc=b&output=embed'
             width='100%'
             height='350'
             id='google-maps'
           ></iframe>
         </div>
-      </div>
-      <div className='cookieconsent-optout-marketing'>
+      ) : (
         <div className='relative flex h-[350px] items-center bg-gray-100 align-middle'>
           <Container>
             <div className='flex flex-col items-center gap-8 align-middle'>
@@ -54,7 +59,7 @@ export const ContactMap = () => {
             </div>
           </Container>
         </div>
-      </div>
+      )}
     </>
   );
 };

@@ -3,7 +3,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import { Trans, useTranslation } from 'next-i18next';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -13,47 +13,17 @@ import UnderlineLink from '@/components/ui/Links/UnderlineLink';
 import { Body } from '@/components/ui/Typography';
 import { Title } from '@/components/ui/Typography/Title';
 
+import { useCookiebotConsent } from '@/utils/use-consent';
+
 export default function ContactForm() {
   type FormData = z.infer<typeof formSchema>;
 
   const { t, i18n } = useTranslation('contact');
   const [result, setResult] = useState<string>();
   const [resultColor, setResultColor] = useState<string>();
-  const [showRecaptcha, setShowRecaptcha] = useState<boolean>(false);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const handleCookiebotLoad = () => {
-        if (window?.Cookiebot?.consent?.marketing === true) {
-          setShowRecaptcha(true);
-        }
-      };
-
-      const handleCookiebotAccept = () => {
-        if (window?.Cookiebot?.consent?.marketing === true) {
-          setShowRecaptcha(true);
-        }
-      };
-
-      const handleCookiebotDecline = () => {
-        setShowRecaptcha(false);
-      };
-
-      window.addEventListener('CookiebotOnLoad', handleCookiebotLoad);
-      window.addEventListener('CookiebotOnAccept', handleCookiebotAccept);
-      window.addEventListener('CookiebotOnDecline', handleCookiebotDecline);
-
-      return () => {
-        window.removeEventListener('CookiebotOnLoad', handleCookiebotLoad);
-        window.removeEventListener('CookiebotOnAccept', handleCookiebotAccept);
-        window.removeEventListener(
-          'CookiebotOnDecline',
-          handleCookiebotDecline,
-        );
-      };
-    }
-  }, []);
+  const showRecaptcha = useCookiebotConsent('marketing');
 
   const formSchema = z.object({
     fullName: z.string().min(1, {

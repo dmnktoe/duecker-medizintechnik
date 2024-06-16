@@ -1,7 +1,7 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-import * as DEFAULT_LOCALE from './../../next-i18next.config';
+import * as DEFAULT_LOCALE from '../../next-i18next.config';
 
 /**
  * Initializes the i18n instance with the given namespaces.
