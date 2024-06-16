@@ -20,7 +20,7 @@ export default function Document() {
           data-cbid={cookieBotId}
           async
           type='text/javascript'
-        ></script>
+        />
         <GoogleAnalytics GA_MEASUREMENT_ID={googleAnalyticsId} />
         <Hotjar HOTJAR_ID={hotjarId} />
       </Head>
