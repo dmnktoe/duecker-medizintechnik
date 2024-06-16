@@ -20,8 +20,6 @@ const Kontakt = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
   useEffect(() => {
     async function loadCookiebot() {
       if (typeof window !== 'undefined') {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-expect-error
         window?.Cookiebot?.initConsent();
       }
     }
