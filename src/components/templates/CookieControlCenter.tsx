@@ -5,8 +5,6 @@ import * as React from 'react';
 import { Container } from '@/components/layout';
 import { Title } from '@/components/ui/Typography';
 
-import { isProd } from '@/constant/env';
-
 export default function CookieControlCenter() {
   const { t } = useTranslation('cookiePolicy');
 
@@ -28,13 +26,7 @@ export default function CookieControlCenter() {
     <section className='mx-auto max-w-5xl pb-16 lg:pb-24'>
       <Container>
         <Title>{t('content.title')}</Title>
-        {isProd ? (
-          <div id='CookiebotDeclaration' />
-        ) : (
-          <span className='text-red-700'>
-            {t('content.cookieBotAvailability')}
-          </span>
-        )}
+        <div id='CookiebotDeclaration' />
       </Container>
     </section>
   );

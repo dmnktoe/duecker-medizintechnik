@@ -39,6 +39,7 @@
       "recaptchaCookieNotice": "Please note that by using this contact form, you consent to the loading of ReCAPTCHA, a service that transfers data to Google. The contact form will only be displayed if marketing cookies are enabled.",
       "submit": {
         "label": "Send message",
+        "progress": "Sending...",
         "success": "Thank you for your message. We will get back to you as soon as possible."
       },
       "terms": {
