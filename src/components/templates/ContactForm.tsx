@@ -13,22 +13,45 @@ import UnderlineLink from '@/components/ui/Links/UnderlineLink';
 import { Body } from '@/components/ui/Typography';
 import { Title } from '@/components/ui/Typography/Title';
 
-import { isLocal, isProd } from '@/constant/env';
-
 export default function ContactForm() {
   type FormData = z.infer<typeof formSchema>;
 
   const { t, i18n } = useTranslation('contact');
   const [result, setResult] = useState<string>();
   const [resultColor, setResultColor] = useState<string>();
+  const [showRecaptcha, setShowRecaptcha] = useState<boolean>(false);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
-  const [showRecaptcha, setShowRecaptcha] = useState(false);
 
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
-    if (isProd && window?.Cookiebot?.consent?.marketing === true) {
-      setShowRecaptcha(true);
+    if (typeof window !== 'undefined') {
+      const handleCookiebotLoad = () => {
+        if (window?.Cookiebot?.consent?.marketing === true) {
+          setShowRecaptcha(true);
+        }
+      };
+
+      const handleCookiebotAccept = () => {
+        if (window?.Cookiebot?.consent?.marketing === true) {
+          setShowRecaptcha(true);
+        }
+      };
+
+      const handleCookiebotDecline = () => {
+        setShowRecaptcha(false);
+      };
+
+      window.addEventListener('CookiebotOnLoad', handleCookiebotLoad);
+      window.addEventListener('CookiebotOnAccept', handleCookiebotAccept);
+      window.addEventListener('CookiebotOnDecline', handleCookiebotDecline);
+
+      return () => {
+        window.removeEventListener('CookiebotOnLoad', handleCookiebotLoad);
+        window.removeEventListener('CookiebotOnAccept', handleCookiebotAccept);
+        window.removeEventListener(
+          'CookiebotOnDecline',
+          handleCookiebotDecline,
+        );
+      };
     }
   }, []);
 
@@ -109,16 +132,14 @@ export default function ContactForm() {
     <>
       <Title size='three'>{t('content.contactForm.title')}</Title>
       <Body color='light'>{t('content.contactForm.text')}</Body>
-      {isProd && (
-        <div
-          className='cookieconsent-optout-marketing'
-          data-cookieconsent='marketing'
-        >
-          <div className='rounded-md border border-gray-300 bg-yellow-100 p-2 text-xs'>
-            {t('content.contactForm.recaptchaCookieNotice')}
-          </div>
+      <div
+        className='cookieconsent-optout-marketing'
+        data-cookieconsent='marketing'
+      >
+        <div className='bg-yellow-100 p-2 text-xs'>
+          {t('content.contactForm.recaptchaCookieNotice')}
         </div>
-      )}
+      </div>
       <div className='cookieconsent-optin-marketing'>
         <form
           className='w-full space-y-4'
@@ -274,14 +295,6 @@ export default function ContactForm() {
                 size='invisible'
               />
             )}
-            {isLocal && (
-              <ReCAPTCHA
-                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
-                ref={recaptchaRef}
-                hl={i18n.language}
-                size='invisible'
-              />
-            )}
           </div>
           <div className='flex flex-col items-center justify-between gap-4'>
             <Button
@@ -293,7 +306,7 @@ export default function ContactForm() {
               role='button'
             >
               {isSubmitting
-                ? 'Sending...'
+                ? t('content.contactForm.submit.progress')
                 : t('content.contactForm.submit.label')}
             </Button>
 
