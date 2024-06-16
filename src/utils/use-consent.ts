@@ -6,7 +6,11 @@ export const useCookiebotConsent = (consentType: keyof Consent) => {
   const [hasConsent, setHasConsent] = useState<boolean>(false);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (
+      typeof window !== 'undefined' &&
+      window?.Cookiebot &&
+      window?.Cookiebot?.consent
+    ) {
       const handleCookiebotLoad = () => {
         if (window?.Cookiebot?.consent[consentType] === true) {
           setHasConsent(true);
