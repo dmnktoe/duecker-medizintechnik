@@ -8,12 +8,18 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-import Button from '@/components/ui/Buttons/Button';
-import UnderlineLink from '@/components/ui/Links/UnderlineLink';
-import { Body } from '@/components/ui/Typography';
-import { Title } from '@/components/ui/Typography/Title';
+import logger from '@/lib/logger';
 
-import { useCookiebotConsent } from '@/utils/use-consent';
+import {
+  Body,
+  Button,
+  Input,
+  TextArea,
+  Title,
+  UnderlineLink,
+} from '@/components/ui';
+
+import useConsent from '@/utils/useConsent';
 
 export default function ContactForm() {
   type FormData = z.infer<typeof formSchema>;
@@ -23,7 +29,7 @@ export default function ContactForm() {
   const [resultColor, setResultColor] = useState<string>();
   const recaptchaRef = useRef<ReCAPTCHA>(null);
 
-  const showRecaptcha = useCookiebotConsent('marketing');
+  const { consent, loading } = useConsent();
 
   const formSchema = z.object({
     fullName: z.string().min(1, {
@@ -51,6 +57,7 @@ export default function ContactForm() {
     terms: z.boolean().refine((val) => val, {
       message: 'contact:content.contactForm.terms.error',
     }),
+    token: z.string(),
   });
 
   const {
@@ -61,11 +68,11 @@ export default function ContactForm() {
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
   });
+
   const processForm = async (data: FormData) => {
     const token = await recaptchaRef?.current?.executeAsync();
+    logger(token);
     recaptchaRef?.current?.reset();
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore-next-line
     data['token'] = token || '';
     const config = {
       method: 'post',
@@ -92,200 +99,128 @@ export default function ContactForm() {
     }
   };
 
-  const commonClasses =
-    'dark:shadow-sm-light block w-full rounded-md border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm';
-  const errorClasses = errors.phone?.message && 'border-red-500';
-  const focusClasses =
-    'focus:border-primary-500 focus:ring-primary-500 dark:focus:border-primary-500 dark:focus:ring-primary-500';
+  const Form = () => {
+    return (
+      <form
+        className='w-full space-y-4'
+        onSubmit={handleSubmit(processForm)}
+        noValidate
+      >
+        <Input
+          id='fullName'
+          label={t('content.contactForm.fullName.label')}
+          placeholder={t('content.contactForm.fullName.placeholder')}
+          type='text'
+          register={register}
+          error={errors.fullName}
+        />
+        <Input
+          id='email'
+          label={t('content.contactForm.email.label')}
+          placeholder={t('content.contactForm.email.placeholder')}
+          type='email'
+          register={register}
+          error={errors.email}
+        />
+        <Input
+          id='phone'
+          label={t('content.contactForm.phone.label')}
+          placeholder={t('content.contactForm.phone.placeholder')}
+          type='phone'
+          register={register}
+          error={errors.phone}
+        />
+        <TextArea
+          id='message'
+          label={t('content.contactForm.message.label')}
+          placeholder={t('content.contactForm.message.placeholder')}
+          register={register}
+          error={errors.message}
+        />
+        <div className='py-1'>
+          <div className='flex items-center'>
+            <input
+              type='checkbox'
+              id='terms'
+              className='h-4 w-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500'
+              {...register('terms')}
+            />
+            <label htmlFor='terms' className='ml-2 block text-sm text-gray-900'>
+              <Trans
+                i18nKey='content.contactForm.terms.label'
+                t={t}
+                components={{
+                  linkTag: (
+                    <UnderlineLink
+                      target='_blank'
+                      href='/datenschutz'
+                      // eslint-disable-next-line react/no-children-prop
+                      children=''
+                    />
+                  ),
+                }}
+              />
+            </label>
+          </div>
+          {errors.terms?.message && (
+            <div className='mt-1 text-xs text-red-500'>
+              {t(errors.terms?.message as never)}
+            </div>
+          )}
+        </div>
+        <div>
+          <ReCAPTCHA
+            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
+            ref={recaptchaRef}
+            hl={i18n.language}
+            size='invisible'
+          />
+        </div>
+        <div className='flex flex-col items-center justify-between gap-4'>
+          <Button
+            type='submit'
+            disabled={isSubmitting}
+            onClick={handleSubmit(processForm)}
+            isLoading={isSubmitting}
+            className='w-full'
+            role='button'
+          >
+            {isSubmitting
+              ? t('content.contactForm.submit.progress')
+              : t('content.contactForm.submit.label')}
+          </Button>
+
+          {isSubmitSuccessful && (
+            <div className={`text-left text-xs ${resultColor}`}>{result}</div>
+          )}
+        </div>
+      </form>
+    );
+  };
+
+  function RenderForm() {
+    if (loading) {
+      return (
+        <div className='relative flex h-[350px] animate-pulse items-center bg-gray-100 align-middle' />
+      );
+    } else {
+      if (!consent?.marketing) {
+        return (
+          <div className='bg-yellow-100 p-2 text-xs'>
+            {t('content.contactForm.recaptchaCookieNotice')}
+          </div>
+        );
+      } else {
+        return <Form />;
+      }
+    }
+  }
 
   return (
     <>
       <Title size='three'>{t('content.contactForm.title')}</Title>
       <Body color='light'>{t('content.contactForm.text')}</Body>
-      <div
-        className='cookieconsent-optout-marketing'
-        data-cookieconsent='marketing'
-      >
-        <div className='bg-yellow-100 p-2 text-xs'>
-          {t('content.contactForm.recaptchaCookieNotice')}
-        </div>
-      </div>
-      <div className='cookieconsent-optin-marketing'>
-        <form
-          className='w-full space-y-4'
-          onSubmit={handleSubmit(processForm)}
-          noValidate
-        >
-          <div>
-            <label
-              htmlFor='fullName'
-              className='mb-2 block text-sm font-medium text-gray-900'
-            >
-              {errors.fullName?.message ? (
-                <span className='text-red-500'>
-                  {t('content.contactForm.fullName.label')}*
-                </span>
-              ) : (
-                <span>{t('content.contactForm.fullName.label')}*</span>
-              )}
-            </label>
-            <input
-              type='text'
-              id='fullName'
-              className={`${commonClasses} ${errorClasses} ${focusClasses}`}
-              placeholder={t('content.contactForm.fullName.placeholder')}
-              {...register('fullName')}
-            />
-            {errors.fullName?.message && (
-              <div className='mt-1 text-xs text-red-500'>
-                {t(errors.fullName?.message as never)}
-              </div>
-            )}
-          </div>
-          <div>
-            <label
-              htmlFor='email'
-              className='mb-2 block text-sm font-medium text-gray-900'
-            >
-              {errors.email?.message ? (
-                <span className='text-red-500'>
-                  {t('content.contactForm.email.label')}*
-                </span>
-              ) : (
-                <span>{t('content.contactForm.email.label')}*</span>
-              )}
-            </label>
-            <input
-              type='email'
-              id='email'
-              className={`${commonClasses} ${errorClasses} ${focusClasses}`}
-              placeholder={t('content.contactForm.email.placeholder')}
-              {...register('email')}
-            />
-            {errors.email?.message && (
-              <div className='mt-1 text-xs text-red-500'>
-                {t(errors.email?.message as never)}
-              </div>
-            )}
-          </div>
-          <div>
-            <label
-              htmlFor='phone'
-              className='mb-2 block text-sm font-medium text-gray-900'
-            >
-              {errors.phone?.message ? (
-                <span className='text-red-500'>
-                  {t('content.contactForm.phone.label')}*
-                </span>
-              ) : (
-                <span>{t('content.contactForm.phone.label')}*</span>
-              )}
-            </label>
-            <input
-              type='phone'
-              id='phone'
-              className={`${commonClasses} ${errorClasses} ${focusClasses}`}
-              placeholder={t('content.contactForm.phone.placeholder')}
-              {...register('phone')}
-            />
-            {errors.phone?.message && (
-              <div className='mt-1 text-xs text-red-500'>
-                {t(errors.phone?.message as never)}
-              </div>
-            )}
-          </div>
-          <div>
-            <div className='sm:col-span-2'>
-              <label
-                htmlFor='message'
-                className='mb-2 block text-sm font-medium text-gray-900'
-              >
-                {errors.message?.message ? (
-                  <span className='text-red-500'>
-                    {t('content.contactForm.message.label')}*
-                  </span>
-                ) : (
-                  <span>{t('content.contactForm.message.label')}*</span>
-                )}
-              </label>
-              <textarea
-                id='message'
-                rows={4}
-                className={`${commonClasses} ${errorClasses} ${focusClasses}`}
-                placeholder={t('content.contactForm.message.placeholder')}
-                {...register('message')}
-              ></textarea>
-              {errors.message?.message && (
-                <div className='mt-1 text-xs text-red-500'>
-                  {t(errors.message?.message as never)}
-                </div>
-              )}
-            </div>
-          </div>
-          <div className='py-1'>
-            <div className='flex items-center'>
-              <input
-                type='checkbox'
-                id='terms'
-                className='h-4 w-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500'
-                {...register('terms')}
-              />
-              <label
-                htmlFor='terms'
-                className='ml-2 block text-sm text-gray-900'
-              >
-                <Trans
-                  i18nKey='content.contactForm.terms.label'
-                  t={t}
-                  components={{
-                    linkTag: (
-                      <UnderlineLink
-                        target='_blank'
-                        href='/datenschutz'
-                        // eslint-disable-next-line react/no-children-prop
-                        children=''
-                      />
-                    ),
-                  }}
-                />
-              </label>
-            </div>
-            {errors.terms?.message && (
-              <div className='mt-1 text-xs text-red-500'>
-                {t(errors.terms?.message as never)}
-              </div>
-            )}
-          </div>
-          <div>
-            {showRecaptcha && (
-              <ReCAPTCHA
-                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
-                ref={recaptchaRef}
-                hl={i18n.language}
-                size='invisible'
-              />
-            )}
-          </div>
-          <div className='flex flex-col items-center justify-between gap-4'>
-            <Button
-              type='submit'
-              disabled={isSubmitting}
-              onClick={handleSubmit(processForm)}
-              isLoading={isSubmitting}
-              className='w-full'
-              role='button'
-            >
-              {isSubmitting
-                ? t('content.contactForm.submit.progress')
-                : t('content.contactForm.submit.label')}
-            </Button>
-
-            {isSubmitSuccessful && (
-              <div className={`text-left text-xs ${resultColor}`}>{result}</div>
-            )}
-          </div>
-        </form>
-      </div>
+      <RenderForm />
     </>
   );
 }
