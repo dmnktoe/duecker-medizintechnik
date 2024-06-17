@@ -13,6 +13,14 @@ import ContactForm from '@/components/templates/ContactForm';
 
 import form from '@/pages/api/form';
 
+jest.mock('@/utils/useConsent', () => ({
+  __esModule: true,
+  default: () => ({
+    consent: { marketing: true },
+    loading: false,
+  }),
+}));
+
 const mock = new MockAdapter(axios);
 
 jest.mock('react-google-recaptcha', () => {
