@@ -88,8 +88,7 @@ export default function RepairSlideshow() {
                     placeholder='blur'
                     priority
                     alt={t('content.title')}
-                    layout='fill'
-                    objectFit='cover'
+                    className='h-full w-full object-cover'
                   />
                 </AspectRatio>
                 {text}
@@ -101,8 +100,7 @@ export default function RepairSlideshow() {
                     placeholder='blur'
                     priority
                     alt={t('content.title')}
-                    layout='fill'
-                    objectFit='cover'
+                    className='h-full w-full object-cover'
                   />
                 </AspectRatio>
                 {text}
@@ -114,8 +112,7 @@ export default function RepairSlideshow() {
                     placeholder='blur'
                     priority
                     alt={t('content.title')}
-                    layout='fill'
-                    objectFit='cover'
+                    className='h-full w-full object-cover'
                   />
                 </AspectRatio>
                 {text}
@@ -127,8 +124,7 @@ export default function RepairSlideshow() {
                     placeholder='blur'
                     priority
                     alt={t('content.title')}
-                    layout='fill'
-                    objectFit='cover'
+                    className='h-full w-full object-cover'
                   />
                 </AspectRatio>
                 {text}
@@ -140,8 +136,7 @@ export default function RepairSlideshow() {
                     placeholder='blur'
                     priority
                     alt={t('content.title')}
-                    layout='fill'
-                    objectFit='cover'
+                    className='h-full w-full object-cover'
                   />
                 </AspectRatio>
                 {text}
@@ -153,8 +148,7 @@ export default function RepairSlideshow() {
                     placeholder='blur'
                     priority
                     alt={t('content.title')}
-                    layout='fill'
-                    objectFit='cover'
+                    className='h-full w-full object-cover'
                   />
                 </AspectRatio>
                 {text}
