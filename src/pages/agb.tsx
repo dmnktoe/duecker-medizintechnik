@@ -4,7 +4,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 
 import Page from '@/components/layout/Page';
-import AGBText from '@/components/templates/AGBText';
+import AgbText from '@/components/templates/AgbText';
 
 const AllgemeineGeschaeftsbedingungen = (
   _props: InferGetStaticPropsType<typeof getStaticProps>,
@@ -25,7 +25,7 @@ const AllgemeineGeschaeftsbedingungen = (
       }}
       title={t('meta.pageTitle')}
     >
-      <AGBText />
+      <AgbText />
     </Page>
   );
 };
