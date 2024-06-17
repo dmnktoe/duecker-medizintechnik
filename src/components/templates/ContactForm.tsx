@@ -10,6 +10,7 @@ import { Button, Input, TextArea, UnderlineLink } from '@/components/ui';
 
 export default function ContactForm() {
   type FormData = z.infer<typeof formSchema>;
+  type FormDataWithToken = FormData & { token?: string };
 
   const { t, i18n } = useTranslation('contact');
   const [result, setResult] = useState<string>();
@@ -53,11 +54,9 @@ export default function ContactForm() {
     resolver: zodResolver(formSchema),
   });
 
-  const processForm = async (data: FormData) => {
+  const processForm = async (data: FormDataWithToken) => {
     const token = await recaptchaRef?.current?.executeAsync();
     recaptchaRef?.current?.reset();
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore-next-line
     data['token'] = token || '';
     const config = {
       method: 'post',
@@ -70,10 +69,7 @@ export default function ContactForm() {
     try {
       const response = await axios(config);
       if (response.status === 200) {
-        setResult(
-          i18n?.t('contact:content.contactForm.submit.success') ||
-            'Thank you for your message. We will get back to you as soon as possible.',
-        );
+        setResult(i18n?.t('contact:content.contactForm.submit.success'));
         setResultColor('text-green-500');
         reset();
       }
