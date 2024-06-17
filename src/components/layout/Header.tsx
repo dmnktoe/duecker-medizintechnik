@@ -14,11 +14,14 @@ import {
 
 import { Container } from '@/components/layout/Container';
 import LanguagePicker from '@/components/templates/LanguagePicker';
-import { Body, ButtonLink, Title, UnderlineLink } from '@/components/ui';
 import {
+  Body,
+  ButtonLink,
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
+  Title,
+  UnderlineLink,
 } from '@/components/ui';
 import { Logo, SubdirectoryIcon } from '@/components/ui/Icons';
 
