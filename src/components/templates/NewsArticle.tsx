@@ -20,10 +20,7 @@ import { formatDate } from '@/lib/format-date';
 import { getStrapiMedia } from '@/lib/strapi-urls';
 
 import { Container } from '@/components/layout';
-import { AspectRatio } from '@/components/ui/AspectRatio';
-import Badge from '@/components/ui/Badges/Badge';
-import UnstyledLink from '@/components/ui/Links/UnstyledLink';
-import { Body, Title } from '@/components/ui/Typography';
+import { AspectRatio, Badge, Body, Title, UnstyledLink } from '@/components/ui';
 
 import { company } from '@/constant/company';
 

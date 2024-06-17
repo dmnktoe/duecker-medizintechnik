@@ -4,7 +4,7 @@ import { useTranslation } from 'next-i18next';
 import * as React from 'react';
 import { VscArrowRight } from 'react-icons/vsc';
 
-import ButtonLink from '@/components/ui/Links/ButtonLink';
+import { ButtonLink } from '@/components/ui';
 
 import { useFeatureStore } from './store';
 

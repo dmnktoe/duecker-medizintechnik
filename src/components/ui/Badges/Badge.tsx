@@ -9,7 +9,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-const Badge = ({ size, color, variant, className, children }: Props) => {
+export const Badge = ({ size, color, variant, className, children }: Props) => {
   const sizeClasses = {
     sm: 'px-2.5 py-0.5 text-xs',
     md: 'px-3 py-0.5 text-sm',
@@ -43,5 +43,3 @@ const Badge = ({ size, color, variant, className, children }: Props) => {
     </span>
   );
 };
-
-export default Badge;

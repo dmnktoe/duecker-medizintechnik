@@ -7,7 +7,7 @@ import clsxm from '@/lib/clsxm';
 import { Container } from '@/components/layout';
 import Globe from '@/components/templates/Globe';
 import Marquee from '@/components/templates/Marquee';
-import { Body, Title } from '@/components/ui/Typography';
+import { Body, Title } from '@/components/ui';
 
 import bentoGridImg1 from '/public/images/home/bento-grid/bento-grid_keydot.jpg';
 import sterilisationskorb from '/public/images/home/bento-grid/Sterilisationskorb-Neuro-Kanuelen.jpg';

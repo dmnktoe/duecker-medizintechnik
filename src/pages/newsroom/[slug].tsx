@@ -8,7 +8,7 @@ import { fetchAPI } from '@/lib/fetch-api';
 import { Container } from '@/components/layout/Container';
 import Page from '@/components/layout/Page';
 import { NewsArticle } from '@/components/templates/NewsArticle';
-import ArrowLink from '@/components/ui/Links/ArrowLink';
+import { ArrowLink } from '@/components/ui';
 
 import { News } from '@/types/News';
 

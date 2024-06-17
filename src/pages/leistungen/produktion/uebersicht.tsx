@@ -6,7 +6,7 @@ import React from 'react';
 import { Container } from '@/components/layout';
 import Page from '@/components/layout/Page';
 import ProductionSubNav from '@/components/templates/ProductionSubNav';
-import { Title } from '@/components/ui/Typography';
+import { Title } from '@/components/ui';
 
 import ProduktionImg from '/public/images/production/duecker-medizintechnik_production_hero-bg.jpg';
 

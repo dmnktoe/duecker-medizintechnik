@@ -2,7 +2,7 @@ import { useTranslation } from 'next-i18next';
 import React from 'react';
 
 import { Container } from '@/components/layout';
-import { Body, Title } from '@/components/ui/Typography';
+import { Body, Title } from '@/components/ui';
 
 export const DownloadText = () => {
   const { t } = useTranslation('downloads');

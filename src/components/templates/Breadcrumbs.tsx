@@ -4,7 +4,7 @@ import { useTranslation } from 'next-i18next';
 import React from 'react';
 import { VscChevronRight } from 'react-icons/vsc';
 
-import UnderlineLink from '@/components/ui/Links/UnderlineLink';
+import { UnderlineLink } from '@/components/ui';
 
 export default function Breadcrumbs({ className }: { className?: string }) {
   const router = useRouter();

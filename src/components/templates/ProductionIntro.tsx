@@ -4,8 +4,7 @@ import * as React from 'react';
 import { VscCheck } from 'react-icons/vsc';
 
 import { Container } from '@/components/layout';
-import { AspectRatio } from '@/components/ui/AspectRatio';
-import { Body, Title } from '@/components/ui/Typography';
+import { AspectRatio, Body, Title } from '@/components/ui';
 
 export default function ProductionIntro() {
   const { t } = useTranslation('production');

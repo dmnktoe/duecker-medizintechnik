@@ -2,8 +2,7 @@ import * as React from 'react';
 
 import clsxm from '@/lib/clsxm';
 
-import UnderlineLink from '@/components/ui/Links/UnderlineLink';
-import { UnstyledLinkProps } from '@/components/ui/Links/UnstyledLink';
+import { UnderlineLink, UnstyledLinkProps } from '@/components/ui';
 
 type ArrowLinkProps<C extends React.ElementType> = {
   as?: C;
@@ -11,13 +10,13 @@ type ArrowLinkProps<C extends React.ElementType> = {
 } & UnstyledLinkProps &
   React.ComponentProps<C>;
 
-export default function ArrowLink<C extends React.ElementType>({
+export const ArrowLink = <C extends React.ElementType>({
   children,
   className,
   direction = 'right',
   as,
   ...rest
-}: ArrowLinkProps<C>) {
+}: ArrowLinkProps<C>) => {
   const Component = as || UnderlineLink;
 
   return (
@@ -61,4 +60,4 @@ export default function ArrowLink<C extends React.ElementType>({
       </svg>
     </Component>
   );
-}
+};

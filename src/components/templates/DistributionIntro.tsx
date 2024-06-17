@@ -3,8 +3,7 @@ import { useTranslation } from 'next-i18next';
 import * as React from 'react';
 
 import { Container } from '@/components/layout';
-import { AspectRatio } from '@/components/ui/AspectRatio';
-import { Body, Title } from '@/components/ui/Typography';
+import { AspectRatio, Body, Title } from '@/components/ui';
 
 import { Partner, partners } from '@/constant/partners';
 

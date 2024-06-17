@@ -8,7 +8,7 @@ import {
 } from 'react-icons/vsc';
 
 import { Container } from '@/components/layout';
-import { Body, Title } from '@/components/ui/Typography';
+import { Body, Title } from '@/components/ui';
 
 export default function DistributionFeatures() {
   const { t } = useTranslation('distribution');

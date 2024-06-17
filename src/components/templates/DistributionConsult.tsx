@@ -3,9 +3,8 @@ import { useTranslation } from 'next-i18next';
 import * as React from 'react';
 
 import { Container } from '@/components/layout';
-import { AspectRatio } from '@/components/ui/AspectRatio';
+import { AspectRatio, Body, Title } from '@/components/ui';
 import { CheckIcon } from '@/components/ui/Icons';
-import { Body, Title } from '@/components/ui/Typography';
 
 import LabelPrinter from '/public/images/distribution/duecker-medizintechnik_distribution_label-printer.webp';
 

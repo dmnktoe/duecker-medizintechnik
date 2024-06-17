@@ -2,9 +2,7 @@ import { Trans, useTranslation } from 'next-i18next';
 import * as React from 'react';
 
 import { Container } from '@/components/layout';
-import PrimaryLink from '@/components/ui/Links/PrimaryLink';
-import UnderlineLink from '@/components/ui/Links/UnderlineLink';
-import { Body, Title } from '@/components/ui/Typography';
+import { Body, PrimaryLink, Title, UnderlineLink } from '@/components/ui';
 
 import { company } from '@/constant/company';
 

@@ -12,9 +12,8 @@ import 'swiper/css';
 import clsxm from '@/lib/clsxm';
 
 import { Container } from '@/components/layout/Container';
-import { Decorator } from '@/components/ui/Icons/decorator';
-import ButtonLink from '@/components/ui/Links/ButtonLink';
-import { Body, Title } from '@/components/ui/Typography';
+import { Body, ButtonLink, Title } from '@/components/ui';
+import { Decorator } from '@/components/ui/Icons';
 
 import { partners } from '@/constant/partners';
 

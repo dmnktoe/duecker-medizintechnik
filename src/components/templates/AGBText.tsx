@@ -2,7 +2,7 @@ import { useTranslation } from 'next-i18next';
 import * as React from 'react';
 
 import { Container } from '@/components/layout';
-import { Body, Title } from '@/components/ui/Typography';
+import { Body, Title } from '@/components/ui';
 
 export default function AGBText() {
   const { t } = useTranslation('termsAndConditions');

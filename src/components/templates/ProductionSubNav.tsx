@@ -4,7 +4,7 @@ import * as React from 'react';
 import clsxm from '@/lib/clsxm';
 
 import { Container } from '@/components/layout';
-import UnderlineLink from '@/components/ui/Links/UnderlineLink';
+import { UnderlineLink } from '@/components/ui';
 
 export default function ProductionSubNav() {
   const currentRoute = usePathname();

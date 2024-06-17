@@ -3,9 +3,7 @@ import React from 'react';
 import { PiChartLineUpThin, PiPackageThin, PiWrenchThin } from 'react-icons/pi';
 
 import { Container } from '@/components/layout';
-import { AnimatedBadge } from '@/components/ui/Badges/AnimatedBadge';
-import ArrowLink from '@/components/ui/Links/ArrowLink';
-import { Body, Title } from '@/components/ui/Typography';
+import { AnimatedBadge, ArrowLink, Body, Title } from '@/components/ui';
 
 export default function ServicePageTiles() {
   const { t } = useTranslation('services');

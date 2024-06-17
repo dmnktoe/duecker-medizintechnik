@@ -9,10 +9,7 @@ import { VscArrowRight } from 'react-icons/vsc';
 import { Container } from '@/components/layout/Container';
 import Page from '@/components/layout/Page';
 import Marquee from '@/components/templates/Marquee';
-import ButtonLink from '@/components/ui/Links/ButtonLink';
-import UnderlineLink from '@/components/ui/Links/UnderlineLink';
-import { Body } from '@/components/ui/Typography';
-import { Title } from '@/components/ui/Typography/Title';
+import { Body, ButtonLink, Title, UnderlineLink } from '@/components/ui';
 
 import { partners } from '@/constant/partners';
 

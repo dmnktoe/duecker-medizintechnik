@@ -5,10 +5,13 @@ import React, { useEffect } from 'react';
 import { VscArrowRight } from 'react-icons/vsc';
 
 import { Container } from '@/components/layout/Container';
-import { AspectRatio } from '@/components/ui/AspectRatio';
-import { AnimatedBadge } from '@/components/ui/Badges/AnimatedBadge';
-import UnstyledLink from '@/components/ui/Links/UnstyledLink';
-import { Body, Title } from '@/components/ui/Typography';
+import {
+  AnimatedBadge,
+  AspectRatio,
+  Body,
+  Title,
+  UnstyledLink,
+} from '@/components/ui';
 
 import { useEscapePress } from '@/utils/useEscapePress';
 import { useHidePageOverflow } from '@/utils/useTogglePageOverflow';

@@ -8,10 +8,8 @@ import { fetchAPI } from '@/lib/fetch-api';
 
 import { Container } from '@/components/layout/Container';
 import LanguagePicker from '@/components/templates/LanguagePicker';
-import { PrivacyChoiceIcon } from '@/components/ui/Icons/privacy';
-import ButtonLink from '@/components/ui/Links/ButtonLink';
-import UnderlineLink from '@/components/ui/Links/UnderlineLink';
-import { Body, Title } from '@/components/ui/Typography';
+import { Body, ButtonLink, Title, UnderlineLink } from '@/components/ui';
+import { PrivacyChoiceIcon } from '@/components/ui/Icons';
 
 import { company } from '@/constant/company';
 

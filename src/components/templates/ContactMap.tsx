@@ -2,7 +2,7 @@ import { useTranslation } from 'next-i18next';
 import * as React from 'react';
 
 import { Container } from '@/components/layout/Container';
-import Button from '@/components/ui/Buttons/Button';
+import { Button } from '@/components/ui';
 
 import useConsent from '@/utils/useConsent';
 
