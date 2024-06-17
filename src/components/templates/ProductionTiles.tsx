@@ -2,8 +2,7 @@ import { useTranslation } from 'next-i18next';
 import * as React from 'react';
 
 import { Container } from '@/components/layout';
-import UnstyledLink from '@/components/ui/Links/UnstyledLink';
-import { Body, Title } from '@/components/ui/Typography';
+import { Body, Title, UnstyledLink } from '@/components/ui';
 
 export default function ProductionTiles() {
   const { t } = useTranslation('production');

@@ -3,8 +3,7 @@ import * as React from 'react';
 import ScrollSpy from 'react-scrollspy-navigation';
 
 import { Container } from '@/components/layout';
-import UnderlineLink from '@/components/ui/Links/UnderlineLink';
-import { Body, Title } from '@/components/ui/Typography';
+import { Body, Title, UnderlineLink } from '@/components/ui';
 
 import { company } from '@/constant/company';
 

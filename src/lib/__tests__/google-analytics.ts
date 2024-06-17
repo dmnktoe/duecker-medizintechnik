@@ -1,4 +1,4 @@
-import { event, pageview } from './../gtagHelper';
+import { event, pageview } from '../google-analytics';
 
 describe('gtagHelper', () => {
   describe('pageview', () => {

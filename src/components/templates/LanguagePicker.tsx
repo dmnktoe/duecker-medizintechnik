@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import { i18n } from 'next-i18next';
 import * as React from 'react';
+import { useId } from 'react';
 
 import * as LOCALES from '../../../next-i18next.config';
 
@@ -12,6 +13,7 @@ type Props = {
 
 const LanguagePicker = ({ className, showDisplayName }: Props) => {
   const router = useRouter();
+  const id = useId();
 
   function handleLanguageChange(e: React.ChangeEvent<HTMLSelectElement>) {
     const newLocale = e.target.value;
@@ -28,7 +30,7 @@ const LanguagePicker = ({ className, showDisplayName }: Props) => {
     <select
       className={clsx(className, 'bg-transparent text-sm md:text-base')}
       name='languages'
-      id='languages'
+      id={id}
       onChange={handleLanguageChange}
       value={LOCALES.i18n.locales.find((locale) => locale === i18n?.language)}
     >

@@ -8,7 +8,7 @@ type SliderButtonProps = {
   size?: 'sm' | 'md';
 };
 
-const SliderButton = ({
+export const SliderButton = ({
   direction,
   handleClick,
   size = 'sm',
@@ -30,5 +30,3 @@ const SliderButton = ({
     </button>
   );
 };
-
-export default SliderButton;

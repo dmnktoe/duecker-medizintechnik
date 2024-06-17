@@ -15,16 +15,15 @@ import {
 import { Container } from '@/components/layout/Container';
 import LanguagePicker from '@/components/templates/LanguagePicker';
 import {
+  Body,
+  ButtonLink,
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from '@/components/ui/Collapsible';
-import { Logo } from '@/components/ui/Icons/logo';
-import { SubdirectoryIcon } from '@/components/ui/Icons/subdirectory';
-import ButtonLink from '@/components/ui/Links/ButtonLink';
-import UnderlineLink from '@/components/ui/Links/UnderlineLink';
-
-import { Body, Title } from '../ui/Typography';
+  Title,
+  UnderlineLink,
+} from '@/components/ui';
+import { Logo, SubdirectoryIcon } from '@/components/ui/Icons';
 
 import megaMenuBg from '/public/images/header/mega-menu_bg.webp';
 

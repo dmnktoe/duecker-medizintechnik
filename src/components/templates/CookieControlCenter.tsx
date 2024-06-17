@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import * as React from 'react';
 
 import { Container } from '@/components/layout';
-import { Title } from '@/components/ui/Typography';
+import { Title } from '@/components/ui';
 
 export default function CookieControlCenter() {
   const { t } = useTranslation('cookiePolicy');

@@ -7,9 +7,7 @@ import 'swiper/css';
 
 import { Container } from '@/components/layout/Container';
 import NewsCard from '@/components/templates/NewsCard';
-import SliderButton from '@/components/ui/Buttons/SliderButton';
-import UnderlineLink from '@/components/ui/Links/UnderlineLink';
-import { Title } from '@/components/ui/Typography';
+import { SliderButton, Title, UnderlineLink } from '@/components/ui';
 
 import { News } from '@/types/News';
 

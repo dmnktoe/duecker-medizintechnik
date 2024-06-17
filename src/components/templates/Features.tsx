@@ -2,9 +2,8 @@ import { useTranslation } from 'next-i18next';
 import { VscArrowRight } from 'react-icons/vsc';
 
 import { Container } from '@/components/layout/Container';
+import { Body, ButtonLink, Title } from '@/components/ui';
 import { CheckIcon } from '@/components/ui/Icons';
-import ButtonLink from '@/components/ui/Links/ButtonLink';
-import { Body, Title } from '@/components/ui/Typography';
 
 const TextBlocks = () => {
   const { t, ready } = useTranslation('home', { useSuspense: false });

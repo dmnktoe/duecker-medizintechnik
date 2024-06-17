@@ -7,10 +7,19 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 
+import initializeI18n from '@/lib/i18n-testing';
+
 import ContactForm from '@/components/templates/ContactForm';
 
 import form from '@/pages/api/form';
-import initializeI18n from '@/utils/i18n-testing';
+
+jest.mock('@/utils/useConsent', () => ({
+  __esModule: true,
+  default: () => ({
+    consent: { marketing: true },
+    loading: false,
+  }),
+}));
 
 const mock = new MockAdapter(axios);
 
@@ -88,7 +97,7 @@ describe('ContactForm', () => {
     // Create a mock request and response object
     const req: NextApiRequest = {
       body: {
-        fullName: 'John Doe',
+        name: 'John Doe',
         email: 'johndoe@example.com',
         phone: '9876543210',
         message: 'Test Test Test Test',

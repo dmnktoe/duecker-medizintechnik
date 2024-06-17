@@ -3,9 +3,7 @@ import { IconType } from 'react-icons';
 
 import clsxm from '@/lib/clsxm';
 
-import UnstyledLink, {
-  UnstyledLinkProps,
-} from '@/components/ui/Links/UnstyledLink';
+import { UnstyledLink, UnstyledLinkProps } from '@/components/ui';
 
 const ButtonLinkVariant = [
   'primary',
@@ -27,7 +25,7 @@ type ButtonLinkProps = {
   rightIconClassName?: string;
 } & UnstyledLinkProps;
 
-const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
+export const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
   (
     {
       children,
@@ -145,5 +143,3 @@ const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
     );
   },
 );
-
-export default ButtonLink;

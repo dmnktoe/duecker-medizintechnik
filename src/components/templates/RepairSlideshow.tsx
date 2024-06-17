@@ -10,8 +10,7 @@ import 'swiper/css';
 import 'swiper/css/scrollbar';
 
 import { Container } from '@/components/layout';
-import { AspectRatio } from '@/components/ui/AspectRatio';
-import SliderButton from '@/components/ui/Buttons/SliderButton';
+import { AspectRatio, SliderButton } from '@/components/ui';
 
 import repairSliderImg1 from '/public/images/repair/repair-slider_image-1.webp';
 import repairSliderImg2 from '/public/images/repair/repair-slider_image-2.webp';

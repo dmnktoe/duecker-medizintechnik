@@ -1,8 +1,7 @@
 import { useTranslation } from 'next-i18next';
 import * as React from 'react';
 
-import ArrowLink from '@/components/ui/Links/ArrowLink';
-import { Title } from '@/components/ui/Typography';
+import { ArrowLink, Title } from '@/components/ui';
 
 export default function NotFound() {
   const { t } = useTranslation('notFound');

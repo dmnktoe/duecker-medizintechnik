@@ -1,7 +1,7 @@
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { HiArrowRight, HiPlus } from 'react-icons/hi';
 
-import Button from '@/components/ui/Buttons/Button';
+import { Button } from '@/components/ui';
 
 describe('Button', () => {
   afterEach(cleanup); // Add this line

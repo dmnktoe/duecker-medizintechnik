@@ -3,9 +3,7 @@ import { IconType } from 'react-icons';
 
 import clsxm from '@/lib/clsxm';
 
-import UnstyledLink, {
-  UnstyledLinkProps,
-} from '@/components/ui/Links/UnstyledLink';
+import { UnstyledLink, UnstyledLinkProps } from '@/components/ui';
 
 const IconLinkVariant = [
   'primary',

@@ -8,9 +8,10 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '@/components/ui/Accordion';
-import PrimaryLink from '@/components/ui/Links/PrimaryLink';
-import { Body, Title } from '@/components/ui/Typography';
+  Body,
+  PrimaryLink,
+  Title,
+} from '@/components/ui';
 
 import { Download } from '@/types/Download';
 

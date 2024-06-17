@@ -1,9 +1,9 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 
-import { Header } from '@/components/layout/Header';
+import initializeI18n from '@/lib/i18n-testing';
 
-import initializeI18n from '@/utils/i18n-testing';
+import { Header } from '@/components/layout/Header';
 
 describe('Header', () => {
   beforeEach(async () => {

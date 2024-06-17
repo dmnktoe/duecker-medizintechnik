@@ -14,13 +14,6 @@
         "label": "Ihre E-Mail",
         "placeholder": "name@beispiel.de"
       },
-      "fullName": {
-        "error": {
-          "required": "Bitte geben Sie Ihren Vor- und Nachnamen ein."
-        },
-        "label": "Ihr Vor- & Nachname",
-        "placeholder": "Max Mustermann"
-      },
       "message": {
         "error": {
           "maxLength": "Die Nachricht darf maximal 1000 Zeichen lang sein.",
@@ -28,6 +21,13 @@
         },
         "label": "Ihre Nachricht ans uns",
         "placeholder": "Lassen Sie uns wissen, wie wir Ihnen helfen können."
+      },
+      "name": {
+        "error": {
+          "required": "Bitte geben Sie Ihren Vor- und Nachnamen ein."
+        },
+        "label": "Ihr Vor- & Nachname",
+        "placeholder": "Max Mustermann"
       },
       "phone": {
         "error": {
@@ -43,7 +43,9 @@
         "success": "Vielen Dank für Ihre Nachricht. Wir werden uns in Kürze bei Ihnen melden."
       },
       "terms": {
-        "error": "Bitte akzeptieren Sie unsere Datenschutzbestimmungen.",
+        "error": {
+          "required": "Bitte akzeptieren Sie unsere Datenschutzbestimmungen."
+        },
         "label": "Ich habe die <linkTag>Datenschutzerklärung</linkTag> gelesen und akzeptiere diese."
       },
       "text": "Bitte nutzen Sie dieses Formular, um uns Ihre spezifischen Anfragen oder technischen Anliegen mitzuteilen.",

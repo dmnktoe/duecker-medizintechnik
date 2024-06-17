@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export const ContactDecorators = () => {
+export default function ContactDecorators() {
   return (
     <div>
       <span className='absolute -right-10 -top-10 z-[-1]'>
@@ -811,4 +811,4 @@ export const ContactDecorators = () => {
       </span>
     </div>
   );
-};
+}

@@ -1,4 +1,4 @@
-import type { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
@@ -8,7 +8,7 @@ import { fetchAPI } from '@/lib/fetch-api';
 import { Container } from '@/components/layout/Container';
 import Page from '@/components/layout/Page';
 import { NewsList } from '@/components/templates/NewsList';
-import { Body, Title } from '@/components/ui/Typography';
+import { Body, Title } from '@/components/ui';
 
 const Newsroom = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { t } = useTranslation('news');

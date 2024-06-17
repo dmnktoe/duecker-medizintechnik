@@ -2,12 +2,11 @@ import { useTranslation } from 'next-i18next';
 import * as React from 'react';
 import { VscCallOutgoing, VscHome, VscMail } from 'react-icons/vsc';
 
-import UnderlineLink from '@/components/ui/Links/UnderlineLink';
-import { Body, Title } from '@/components/ui/Typography';
+import { Body, Title, UnderlineLink } from '@/components/ui';
 
 import { company } from '@/constant/company';
 
-export const ContactInfo = () => {
+export default function ContactInfo() {
   const { t } = useTranslation('contact');
 
   const IconWrapper = ({ children }: { children: React.ReactNode }) => {
@@ -79,4 +78,4 @@ export const ContactInfo = () => {
       <InfoList />
     </>
   );
-};
+}
