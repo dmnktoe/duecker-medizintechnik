@@ -1,21 +1,23 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 interface InputProps {
+  autocomplete: string;
+  error: any;
   id: string;
   label: string;
   placeholder: string;
-  type: string;
   register: any;
-  error: any;
+  type: string;
 }
 
 export const Input = ({
+  autocomplete,
+  error,
   id,
   label,
   placeholder,
-  type,
   register,
-  error,
+  type,
 }: InputProps) => {
   const commonClasses =
     'dark:shadow-sm-light block w-full rounded-md border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm';
@@ -40,6 +42,7 @@ export const Input = ({
         id={id}
         className={`${commonClasses} ${errorClasses} ${focusClasses}`}
         placeholder={placeholder}
+        autoComplete={autocomplete}
         {...register(id)}
       />
       {error && (

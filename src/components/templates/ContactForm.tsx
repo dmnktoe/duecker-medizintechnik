@@ -80,42 +80,48 @@ export default function ContactForm() {
     }
   };
 
+  const inputFields = [
+    {
+      autocomplete: 'name',
+      error: errors.name,
+      id: 'name',
+      label: t('content.contactForm.name.label'),
+      placeholder: t('content.contactForm.name.placeholder'),
+      type: 'text',
+    },
+    {
+      autocomplete: 'email',
+      error: errors.email,
+      id: 'email',
+      label: t('content.contactForm.email.label'),
+      placeholder: t('content.contactForm.email.placeholder'),
+      type: 'email',
+    },
+    {
+      autocomplete: 'tel',
+      error: errors.phone,
+      id: 'phone',
+      label: t('content.contactForm.phone.label'),
+      placeholder: t('content.contactForm.phone.placeholder'),
+      type: 'tel',
+    },
+  ];
+
   return (
     <form
       className='w-full space-y-4'
       onSubmit={handleSubmit(processForm)}
       noValidate
     >
-      <Input
-        id='name'
-        label={t('content.contactForm.name.label')}
-        placeholder={t('content.contactForm.name.placeholder')}
-        type='text'
-        register={register}
-        error={errors.name}
-      />
-      <Input
-        id='email'
-        label={t('content.contactForm.email.label')}
-        placeholder={t('content.contactForm.email.placeholder')}
-        type='email'
-        register={register}
-        error={errors.email}
-      />
-      <Input
-        id='phone'
-        label={t('content.contactForm.phone.label')}
-        placeholder={t('content.contactForm.phone.placeholder')}
-        type='phone'
-        register={register}
-        error={errors.phone}
-      />
+      {inputFields.map((field) => (
+        <Input {...field} register={register} key={field.id} />
+      ))}
       <TextArea
+        error={errors.message}
         id='message'
         label={t('content.contactForm.message.label')}
         placeholder={t('content.contactForm.message.placeholder')}
         register={register}
-        error={errors.message}
       />
       <div className='py-1'>
         <div className='flex items-center'>
