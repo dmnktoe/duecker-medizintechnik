@@ -1,5 +1,6 @@
 import { renderHook } from '@testing-library/react';
-import { useEscapePress } from 'src/utils/use-escape-press';
+
+import { useEscapePress } from '@/utils/useEscapePress';
 
 describe('useEscapePress', () => {
   it('calls onEscapePress when escape key is pressed', () => {

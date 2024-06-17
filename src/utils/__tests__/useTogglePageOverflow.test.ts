@@ -1,9 +1,10 @@
 import { renderHook } from '@testing-library/react';
+
 import {
   hidePageOverflow,
   showPageOverflow,
   useHidePageOverflow,
-} from 'src/utils/use-toggle-page-overflow';
+} from '@/utils/useTogglePageOverflow';
 
 describe('useHidePageOverflow', () => {
   it('hides page overflow when hide is true', () => {
