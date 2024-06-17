@@ -4,7 +4,7 @@ import hbs from 'nodemailer-express-handlebars';
 import path from 'path';
 
 interface Data {
-  fullName: string;
+  name: string;
   email: string;
   message: string;
   phone: string;
@@ -26,7 +26,7 @@ export default async function ContactApi(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
-  const { fullName, email, phone, message, token }: Data = req.body;
+  const { name, email, phone, message, token }: Data = req.body;
 
   const human = await validateHuman(token);
   if (!human) {
@@ -49,7 +49,7 @@ export default async function ContactApi(
 
   try {
     await transporter.sendMail({
-      from: `${fullName} no-reply@${process.env.CONTACT_FORM_SEND_EMAIL_DOMAIN}`,
+      from: `${name} no-reply@${process.env.CONTACT_FORM_SEND_EMAIL_DOMAIN}`,
       replyTo: email,
       to: process.env.CONTACT_FORM_RECEIVE_EMAIL,
       subject: 'Neue Anfrage, Dücker Medizintechnik Kontaktformular',
@@ -57,7 +57,7 @@ export default async function ContactApi(
       // @ts-ignore-next-line
       template: 'contact',
       context: {
-        fullName: fullName,
+        name: name,
         email: email,
         phone: phone,
         message: message,

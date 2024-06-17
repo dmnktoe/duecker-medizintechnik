@@ -89,7 +89,7 @@ describe('ContactForm', () => {
     // Create a mock request and response object
     const req: NextApiRequest = {
       body: {
-        fullName: 'John Doe',
+        name: 'John Doe',
         email: 'johndoe@example.com',
         phone: '9876543210',
         message: 'Test Test Test Test',

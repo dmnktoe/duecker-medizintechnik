@@ -1,5 +1,3 @@
-'use client';
-
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import { Trans, useTranslation } from 'next-i18next';
@@ -8,18 +6,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-import logger from '@/lib/logger';
-
-import {
-  Body,
-  Button,
-  Input,
-  TextArea,
-  Title,
-  UnderlineLink,
-} from '@/components/ui';
-
-import useConsent from '@/utils/useConsent';
+import { Button, Input, TextArea, UnderlineLink } from '@/components/ui';
 
 export default function ContactForm() {
   type FormData = z.infer<typeof formSchema>;
@@ -29,35 +16,32 @@ export default function ContactForm() {
   const [resultColor, setResultColor] = useState<string>();
   const recaptchaRef = useRef<ReCAPTCHA>(null);
 
-  const { consent, loading } = useConsent();
-
   const formSchema = z.object({
-    fullName: z.string().min(1, {
-      message: 'contact:content.contactForm.fullName.error.required',
+    name: z.string().min(1, {
+      message: i18n?.t('contact:content.contactForm.name.error.required'),
     }),
     email: z
       .string()
       .min(1, {
-        message: 'contact:content.contactForm.email.error.required',
+        message: i18n?.t('contact:content.contactForm.email.error.required'),
       })
       .email({
-        message: 'contact:content.contactForm.email.error.invalid',
+        message: i18n?.t('contact:content.contactForm.email.error.invalid'),
       }),
     phone: z.string().min(1, {
-      message: 'contact:content.contactForm.phone.error.required',
+      message: i18n?.t('contact:content.contactForm.phone.error.required'),
     }),
     message: z
       .string()
       .min(10, {
-        message: 'contact:content.contactForm.message.error.minLength',
+        message: i18n?.t('contact:content.contactForm.message.error.minLength'),
       })
       .max(1000, {
-        message: 'contact:content.contactForm.message.error.maxLength',
+        message: i18n?.t('contact:content.contactForm.message.error.maxLength'),
       }),
     terms: z.boolean().refine((val) => val, {
-      message: 'contact:content.contactForm.terms.error',
+      message: i18n?.t('contact:content.contactForm.terms.error.required'),
     }),
-    token: z.string(),
   });
 
   const {
@@ -71,8 +55,9 @@ export default function ContactForm() {
 
   const processForm = async (data: FormData) => {
     const token = await recaptchaRef?.current?.executeAsync();
-    logger(token);
     recaptchaRef?.current?.reset();
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore-next-line
     data['token'] = token || '';
     const config = {
       method: 'post',
@@ -99,128 +84,100 @@ export default function ContactForm() {
     }
   };
 
-  const Form = () => {
-    return (
-      <form
-        className='w-full space-y-4'
-        onSubmit={handleSubmit(processForm)}
-        noValidate
-      >
-        <Input
-          id='fullName'
-          label={t('content.contactForm.fullName.label')}
-          placeholder={t('content.contactForm.fullName.placeholder')}
-          type='text'
-          register={register}
-          error={errors.fullName}
-        />
-        <Input
-          id='email'
-          label={t('content.contactForm.email.label')}
-          placeholder={t('content.contactForm.email.placeholder')}
-          type='email'
-          register={register}
-          error={errors.email}
-        />
-        <Input
-          id='phone'
-          label={t('content.contactForm.phone.label')}
-          placeholder={t('content.contactForm.phone.placeholder')}
-          type='phone'
-          register={register}
-          error={errors.phone}
-        />
-        <TextArea
-          id='message'
-          label={t('content.contactForm.message.label')}
-          placeholder={t('content.contactForm.message.placeholder')}
-          register={register}
-          error={errors.message}
-        />
-        <div className='py-1'>
-          <div className='flex items-center'>
-            <input
-              type='checkbox'
-              id='terms'
-              className='h-4 w-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500'
-              {...register('terms')}
-            />
-            <label htmlFor='terms' className='ml-2 block text-sm text-gray-900'>
-              <Trans
-                i18nKey='content.contactForm.terms.label'
-                t={t}
-                components={{
-                  linkTag: (
-                    <UnderlineLink
-                      target='_blank'
-                      href='/datenschutz'
-                      // eslint-disable-next-line react/no-children-prop
-                      children=''
-                    />
-                  ),
-                }}
-              />
-            </label>
-          </div>
-          {errors.terms?.message && (
-            <div className='mt-1 text-xs text-red-500'>
-              {t(errors.terms?.message as never)}
-            </div>
-          )}
-        </div>
-        <div>
-          <ReCAPTCHA
-            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
-            ref={recaptchaRef}
-            hl={i18n.language}
-            size='invisible'
-          />
-        </div>
-        <div className='flex flex-col items-center justify-between gap-4'>
-          <Button
-            type='submit'
-            disabled={isSubmitting}
-            onClick={handleSubmit(processForm)}
-            isLoading={isSubmitting}
-            className='w-full'
-            role='button'
-          >
-            {isSubmitting
-              ? t('content.contactForm.submit.progress')
-              : t('content.contactForm.submit.label')}
-          </Button>
-
-          {isSubmitSuccessful && (
-            <div className={`text-left text-xs ${resultColor}`}>{result}</div>
-          )}
-        </div>
-      </form>
-    );
-  };
-
-  function RenderForm() {
-    if (loading) {
-      return (
-        <div className='relative flex h-[350px] animate-pulse items-center bg-gray-100 align-middle' />
-      );
-    } else {
-      if (!consent?.marketing) {
-        return (
-          <div className='bg-yellow-100 p-2 text-xs'>
-            {t('content.contactForm.recaptchaCookieNotice')}
-          </div>
-        );
-      } else {
-        return <Form />;
-      }
-    }
-  }
-
   return (
-    <>
-      <Title size='three'>{t('content.contactForm.title')}</Title>
-      <Body color='light'>{t('content.contactForm.text')}</Body>
-      <RenderForm />
-    </>
+    <form
+      className='w-full space-y-4'
+      onSubmit={handleSubmit(processForm)}
+      noValidate
+    >
+      <Input
+        id='name'
+        label={t('content.contactForm.name.label')}
+        placeholder={t('content.contactForm.name.placeholder')}
+        type='text'
+        register={register}
+        error={errors.name}
+      />
+      <Input
+        id='email'
+        label={t('content.contactForm.email.label')}
+        placeholder={t('content.contactForm.email.placeholder')}
+        type='email'
+        register={register}
+        error={errors.email}
+      />
+      <Input
+        id='phone'
+        label={t('content.contactForm.phone.label')}
+        placeholder={t('content.contactForm.phone.placeholder')}
+        type='phone'
+        register={register}
+        error={errors.phone}
+      />
+      <TextArea
+        id='message'
+        label={t('content.contactForm.message.label')}
+        placeholder={t('content.contactForm.message.placeholder')}
+        register={register}
+        error={errors.message}
+      />
+      <div className='py-1'>
+        <div className='flex items-center'>
+          <input
+            type='checkbox'
+            id='terms'
+            className='h-4 w-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500'
+            {...register('terms')}
+          />
+          <label htmlFor='terms' className='ml-2 block text-sm text-gray-900'>
+            <Trans
+              i18nKey='content.contactForm.terms.label'
+              t={t}
+              components={{
+                linkTag: (
+                  <UnderlineLink
+                    target='_blank'
+                    href='/datenschutz'
+                    // eslint-disable-next-line react/no-children-prop
+                    children=''
+                  />
+                ),
+              }}
+            />
+          </label>
+        </div>
+        {errors.terms?.message && (
+          <div className='mt-1 text-xs text-red-500'>
+            {errors.terms?.message}
+          </div>
+        )}
+      </div>
+      <div>
+        <ReCAPTCHA
+          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
+          ref={recaptchaRef}
+          hl={i18n.language}
+          size='invisible'
+        />
+      </div>
+      <div className='flex flex-col items-center justify-between gap-4'>
+        <Button
+          type='submit'
+          disabled={isSubmitting}
+          onClick={handleSubmit(processForm)}
+          isLoading={isSubmitting}
+          className='w-full'
+          role='button'
+        >
+          {isSubmitting
+            ? t('content.contactForm.submit.progress')
+            : t('content.contactForm.submit.label')}
+        </Button>
+
+        {isSubmitSuccessful && (
+          <div className={`text-left text-xs ${resultColor}`}>{result}</div>
+        )}
+      </div>
+    </form>
   );
 }
