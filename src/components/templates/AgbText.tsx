@@ -7,7 +7,7 @@ import { Body, Title } from '@/components/ui';
 export default function AgbText() {
   const { t } = useTranslation('termsAndConditions');
   return (
-    <section className='mx-auto max-w-6xl pb-16 lg:pb-24'>
+    <section className='mx-auto max-w-5xl pb-16 lg:pb-24'>
       <Container>
         <Title>{t('content.title')}</Title>
         <Body isStrong>

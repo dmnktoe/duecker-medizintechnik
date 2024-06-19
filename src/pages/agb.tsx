@@ -14,7 +14,7 @@ const AllgemeineGeschaeftsbedingungen = (
     <Page
       layout={{
         background: 'light',
-        containerWidth: 'max-w-6xl',
+        containerWidth: 'max-w-5xl',
         showBreadcrumbs: true,
         showHero: false,
         padding: 'default',
