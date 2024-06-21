@@ -9,6 +9,7 @@ import { company } from '@/constant/company';
 
 export default function PrivacyContent() {
   const { t } = useTranslation('privacy');
+
   function TableOfContent() {
     return (
       <div className='sticky top-navigation-height w-full bg-gray-100'>
@@ -81,7 +82,7 @@ export default function PrivacyContent() {
 
   return (
     <>
-      <section>
+      <section className='pb-16 md:pb-24 lg:pb-32'>
         <Container>
           <div className='mb-12'>
             <Title>{t('content.title')}</Title>
@@ -230,8 +231,8 @@ export default function PrivacyContent() {
                   <Title renderAs='h4' size='five'>
                     6. Verarbeitung personenbezogener Daten
                   </Title>
-                  <Body>6.1. Besuch unserer Website</Body>
-                  <Body>6.1.1. Umfang der Datenverarbeitung</Body>
+                  <Body isStrong>6.1. Besuch unserer Website</Body>
+                  <Body isStrong>6.1.1. Umfang der Datenverarbeitung</Body>
                   <Body>
                     Wenn Sie unsere Website besuchen, überträgt Ihr Browser auch
                     technischen Gründen bestimmte Daten an unseren Webserver.
@@ -252,7 +253,7 @@ export default function PrivacyContent() {
                     </li>
                     <li>Browser, Sprache und Version der Browsersoftware</li>
                   </ul>
-                  <Body>6.1.2. Zweck der Datenverarbeitung</Body>
+                  <Body isStrong>6.1.2. Zweck der Datenverarbeitung</Body>
                   <Body>
                     Die Speicherung dieser Daten in Logfiles ist notwendig, um
                     die Funktionsfähigkeit der Website sicherzustellen. Sie
@@ -260,14 +261,14 @@ export default function PrivacyContent() {
                     Sicherstellung der Sicherheit unserer
                     informationstechnischen Systeme.
                   </Body>
-                  <Body>6.1.3. Rechtsgrundlage der Verarbeitung</Body>
+                  <Body isStrong>6.1.3. Rechtsgrundlage der Verarbeitung</Body>
                   <Body>
                     Diese Daten erheben wir auf Grundlage unseres berechtigten
                     Interesses im Sinne des Art. 6 Abs. 1 lit. f) DSGVO, um
                     unsere Website anzeigen zu können und ihre Sicherheit zu
                     gewährleisten.
                   </Body>
-                  <Body>6.1.4. Dauer der Speicherung</Body>
+                  <Body isStrong>6.1.4. Dauer der Speicherung</Body>
                   <Body>
                     Informationen in den Logfiles werden aus Sicherheitsgründen
                     (z.B. zur Aufklärung von Missbrauchs- oder
@@ -277,15 +278,17 @@ export default function PrivacyContent() {
                     endgültigen Klärung des jeweiligen Vorfalls von der Löschung
                     ausgenommen.
                   </Body>
-                  <Body>6.1.5. Widerspruchs- und Beseitigungsmöglichkeit</Body>
+                  <Body isStrong>
+                    6.1.5. Widerspruchs- und Beseitigungsmöglichkeit
+                  </Body>
                   <Body>
                     Die Erfassung der Daten zur Bereitstellung der Website und
                     ihre Speicherung in Logfiles ist für den Betrieb aus
                     technischen Gründen zwingend erforderlich. Es besteht
                     folglich seitens des Nutzers keine Widerspruchsmöglichkeit.
                   </Body>
-                  <Body>6.2. Kontaktformular und E-Mail-Kontakt</Body>
-                  <Body>6.2.1. Umfang der Datenverarbeitung</Body>
+                  <Body isStrong>6.2. Kontaktformular und E-Mail-Kontakt</Body>
+                  <Body isStrong>6.2.1. Umfang der Datenverarbeitung</Body>
                   <Body>
                     Wenn Sie das Kontaktformular auf unserer Website benutzen,
                     werden folgende Daten an uns übermittelt: Ihr Name*, Ihre
@@ -304,7 +307,7 @@ export default function PrivacyContent() {
                     Verarbeitung der Konversation und zur Bearbeitung des
                     Anliegens verwendet.
                   </Body>
-                  <Body>6.2.2. Zweck der Datenverarbeitung</Body>
+                  <Body isStrong>6.2.2. Zweck der Datenverarbeitung</Body>
                   <Body>
                     Die Verarbeitung der personenbezogenen Daten aus der
                     Eingabemaske dient uns zur Bearbeitung der Kontaktaufnahme.
@@ -316,14 +319,14 @@ export default function PrivacyContent() {
                     Kontaktformulars zu verhindern und die Sicherheit unserer
                     informationstechnischen Systeme sicherzustellen.
                   </Body>
-                  <Body>6.2.3. Rechtsgrundlage der Verarbeitung</Body>
+                  <Body isStrong>6.2.3. Rechtsgrundlage der Verarbeitung</Body>
                   <Body>
                     Bei der Kontaktaufnahme mit uns (per Kontaktformular oder
                     E-Mail) werden die Angaben des Nutzers zur Bearbeitung der
                     Kontaktanfrage und deren Abwicklung gem. Art. 6 Abs. 1 lit.
                     b) DSGVO verarbeitet.
                   </Body>
-                  <Body>6.2.4. Dauer der Speicherung</Body>
+                  <Body isStrong>6.2.4. Dauer der Speicherung</Body>
                   <Body>
                     Wir löschen personenbezogene Daten, wenn sie für die
                     Erreichung des Zweckes ihrer Erhebung nicht mehr
@@ -335,7 +338,9 @@ export default function PrivacyContent() {
                     entnehmen lässt, dass der betroffene Sachverhalt oder das
                     Informationsbegehren abschließend geklärt ist.
                   </Body>
-                  <Body>6.2.5. Widerspruchs- und Beseitigungsmöglichkeit</Body>
+                  <Body isStrong>
+                    6.2.5. Widerspruchs- und Beseitigungsmöglichkeit
+                  </Body>
                   <Body>
                     Sie haben jederzeit die Möglichkeit, Ihre Einwilligung zur
                     Verarbeitung der personenbezogenen Daten zu widerrufen.
@@ -352,11 +357,11 @@ export default function PrivacyContent() {
                     . Alle personenbezogenen Daten, die im Zuge der
                     Kontaktaufnahme gespeichert wurden, werden dann gelöscht.
                   </Body>
-                  <Body>
+                  <Body isStrong>
                     6.3. Vertragliche Leistungen für Gesundheitsvorsorge,
                     therapeutische Dienstleistungen und Coaching
                   </Body>
-                  <Body>6.3.1. Umfang der Datenverarbeitung</Body>
+                  <Body isStrong>6.3.1. Umfang der Datenverarbeitung</Body>
                   <Body>
                     Wir verarbeiten die Daten unserer Patienten und
                     Interessenten sowie anderer Auftraggeber oder
@@ -392,7 +397,7 @@ export default function PrivacyContent() {
                     unternehmensbezogenen Daten, speichern wir grundsätzlich
                     dauerhaft.
                   </Body>
-                  <Body>6.3.2. Zweck der Datenverarbeitung</Body>
+                  <Body isStrong>6.3.2. Zweck der Datenverarbeitung</Body>
                   <Body>
                     Sofern für die Vertragserfüllung oder gesetzlich
                     erforderlich, offenbaren oder übermitteln wir die Daten der
@@ -411,13 +416,13 @@ export default function PrivacyContent() {
                     oder im Rahmen einer Einwilligung gem. Art. 6 Abs. 1 lit.
                     a., Art. 7 DSGVO.
                   </Body>
-                  <Body>6.3.3. Rechtsgrundlage der Verarbeitung</Body>
+                  <Body isStrong>6.3.3. Rechtsgrundlage der Verarbeitung</Body>
                   <Body>
                     Diese Daten verarbeiten wir zur Durchführung vertraglicher
                     Dienstleistungen. Rechtsgrundlage hierfür ist Art. 6 Abs. 1
                     lit. b. DSGVO.
                   </Body>
-                  <Body>6.3.4. Dauer der Speicherung</Body>
+                  <Body isStrong>6.3.4. Dauer der Speicherung</Body>
                   <Body>
                     Die bei uns gespeicherten Daten werden gelöscht, sobald sie
                     für ihre Zweckbestimmung nicht mehr erforderlich sind und
@@ -440,8 +445,8 @@ export default function PrivacyContent() {
                     Aufbewahrungspflichten. Es besteht folglich Seitens des
                     Nutzers keine Widerspruchsmöglichkeit.
                   </Body>
-                  <Body>6.4. Bewerbungen</Body>
-                  <Body>6.4.1. Umfang der Datenverarbeitung</Body>
+                  <Body isStrong>6.4. Bewerbungen</Body>
+                  <Body isStrong>6.4.1. Umfang der Datenverarbeitung</Body>
                   <Body>
                     Wenn Sie an einer Mitarbeit in unserem Unternehmen
                     interessiert sind, können Sie sich bei uns online bewerben.
@@ -451,7 +456,7 @@ export default function PrivacyContent() {
                     bewerben, verarbeiten wir die Daten, die Sie uns übermittelt
                     haben, zur Durchführung des Bewerbungsverfahrens.
                   </Body>
-                  <Body>6.4.2. Zweck der Datenverarbeitung</Body>
+                  <Body isStrong>6.4.2. Zweck der Datenverarbeitung</Body>
                   <Body>
                     Wir verarbeiten die Daten, die Sie uns im Zusammenhang mit
                     Ihrer Bewerbung zugesendet haben, um Ihre Eignung für die
@@ -459,7 +464,7 @@ export default function PrivacyContent() {
                     Unternehmen) zu prüfen und das Bewerbungsverfahren
                     durchzuführen.
                   </Body>
-                  <Body>6.4.3. Rechtsgrundlage der Verarbeitung</Body>
+                  <Body isStrong>6.4.3. Rechtsgrundlage der Verarbeitung</Body>
                   <Body>
                     Rechtsgrundlage ist § 26 Abs. 1 BDSG-neu. Danach ist die
                     Verarbeitung der Daten zulässig, die im Zusammenhang mit der
@@ -473,7 +478,7 @@ export default function PrivacyContent() {
                     Interesse besteht dann in der Geltendmachung oder Abwehr von
                     Ansprüchen
                   </Body>
-                  <Body>6.4.4. Empfänger der Datenverarbeitung</Body>
+                  <Body isStrong>6.4.4. Empfänger der Datenverarbeitung</Body>
                   <Body>
                     Ihre Bewerberdaten werden nach Eingang Ihrer Bewerbung von
                     der Personalabteilung gesichtet. Geeignete Bewerbungen
@@ -484,7 +489,7 @@ export default function PrivacyContent() {
                     dies für den ordnungsgemäßen Ablauf unseres
                     Bewerbungsverfahrens benötigen.
                   </Body>
-                  <Body>6.4.5. Dauer der Speicherung</Body>
+                  <Body isStrong>6.4.5. Dauer der Speicherung</Body>
                   <Body>
                     Wenn die Bewerbung zu einem Beschäftigungsverhältnis führt,
                     verarbeiten wir diese Daten für die Durchführung eines
@@ -501,7 +506,9 @@ export default function PrivacyContent() {
                     erteilt, um ggf. bei neuen Stellenangeboten berücksichtigt
                     werden zu können.
                   </Body>
-                  <Body>6.4.6. Widerspruchs- und Beseitigungsmöglichkeit</Body>
+                  <Body isStrong>
+                    6.4.6. Widerspruchs- und Beseitigungsmöglichkeit
+                  </Body>
                   <Body>
                     Die von Ihnen an uns übermittelten Informationen können Sie
                     jederzeit auf Anfrage erneuern oder löschen lassen. Hierfür
@@ -515,8 +522,8 @@ export default function PrivacyContent() {
                     für diese Position angegebenen Informationen bis zum Ablauf
                     der gesetzlichen Klagefristen (insbes. § 15 AGG).
                   </Body>
-                  <Body>6.5. Cookies</Body>
-                  <Body>6.5.1. Umfang der Datenverarbeitung</Body>
+                  <Body isStrong>6.5. Cookies</Body>
+                  <Body isStrong>6.5.1. Umfang der Datenverarbeitung</Body>
                   <Body>
                     Unsere Website verwendet Cookies. Cookies sind kleine
                     Textdateien, die beim Aufruf unserer Webseite auf Ihrem
@@ -540,7 +547,7 @@ export default function PrivacyContent() {
                   <Body>
                     Diese Website nutzt transiente und persistente Cookies.
                   </Body>
-                  <Body>
+                  <Body className='italic underline'>
                     1. Transiente Cookies werden automatisch gelöscht, wenn Sie
                     den Browser schließen. Dazu zählen insbesondere sogenannte
                     Session-Cookies. Diese speichern eine sogenannte Session-ID,
@@ -550,13 +557,13 @@ export default function PrivacyContent() {
                     Die Session-Cookies werden gelöscht, wenn Sie sich ausloggen
                     bzw. den Browser schließen.
                   </Body>
-                  <Body>
+                  <Body className='italic underline'>
                     2. Persistente Cookies werden automatisiert nach einer
                     vorgegebenen Dauer gelöscht, die sich je nach Cookie
                     unterscheiden kann. Sie können die Cookies in den
                     Sicherheitseinstellungen Ihres Browsers jederzeit löschen.
                   </Body>
-                  <Body>6.5.2. Zweck der Datenverarbeitung</Body>
+                  <Body isStrong>6.5.2. Zweck der Datenverarbeitung</Body>
                   <Body>
                     Wir verwenden Cookies um unsere Website attraktiv und
                     nutzerfreundlich zu gestalten, sie zu verbessern und
@@ -569,13 +576,15 @@ export default function PrivacyContent() {
                     dass der Browser auch nach einem Seitenwechsel wiedererkannt
                     wird.
                   </Body>
-                  <Body>6.5.3. Rechtsgrundlage der Datenverarbeitung</Body>
+                  <Body isStrong>
+                    6.5.3. Rechtsgrundlage der Datenverarbeitung
+                  </Body>
                   <Body>
                     Die Rechtsgrundlage für die Verarbeitung personenbezogener
                     Daten unter Verwendung der technisch notwendigen Cookies ist
                     Art. 6 Abs. 1 lit. f DSGVO.
                   </Body>
-                  <Body>6.5.4. Dauer der Speicherung</Body>
+                  <Body isStrong>6.5.4. Dauer der Speicherung</Body>
                   <Body>
                     Session-Cookies werden gelöscht, sobald der Browser
                     geschlossen wird.
@@ -584,7 +593,9 @@ export default function PrivacyContent() {
                     Persistente Cookies werden automatisiert nach einer
                     vorgegebenen Dauer gelöscht.
                   </Body>
-                  <Body>6.5.5. Widerspruchs- und Beseitigungsmöglichkeit</Body>
+                  <Body isStrong>
+                    6.5.5. Widerspruchs- und Beseitigungsmöglichkeit
+                  </Body>
                   <Body>
                     Sie haben als Nutzer die volle Kontrolle über die Verwendung
                     von Cookies. Durch eine Änderung der Einstellungen in Ihrem
@@ -605,8 +616,8 @@ export default function PrivacyContent() {
                     gegebenenfalls nicht sämtliche Funktionen unserer Webseite
                     nutzen können.
                   </Body>
-                  <Body>6.6. Webanalyse</Body>
-                  <Body>6.6.1. Umfang der Datenverarbeitung</Body>
+                  <Body isStrong>6.6. Webanalyse</Body>
+                  <Body isStrong>6.6.1. Umfang der Datenverarbeitung</Body>
                   <Body>
                     Wir verwenden auf unserer Website Google Analytics, einen
                     Webanalysedienst der Google Inc., 1600 Amphitheatre Parkway,
@@ -642,7 +653,7 @@ export default function PrivacyContent() {
                     zertifiziert, das für Daten bei Google in den USA ein
                     angemessenes Datenschutzniveau gewährleistet.
                   </Body>
-                  <Body>6.6.2. Zweck der Datenverarbeitung</Body>
+                  <Body isStrong>6.6.2. Zweck der Datenverarbeitung</Body>
                   <Body>
                     In unserem Auftrag benutzt Google diese Informationen, um
                     die Nutzung unserer Website auszuwerten und um Reports über
@@ -651,13 +662,13 @@ export default function PrivacyContent() {
                     gestalten und die Nutzerfreundlichkeit unserer Website zu
                     erhöhen.
                   </Body>
-                  <Body>6.6.3. Rechtsgrundlage der Verarbeitung</Body>
+                  <Body isStrong>6.6.3. Rechtsgrundlage der Verarbeitung</Body>
                   <Body>
                     In den oben genannten Zwecken liegt unser berechtigtes
                     Interesse an der Datenverarbeitung durch Google Analytics.
                     Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.
                   </Body>
-                  <Body>6.6.4. Dauer der Speicherung</Body>
+                  <Body isStrong>6.6.4. Dauer der Speicherung</Body>
                   <Body>
                     Sitzungen und Kampagnen werden nach Ablauf einer bestimmten
                     Zeitspanne beendet. Standardmäßig werden Sitzungen nach 30
@@ -665,7 +676,9 @@ export default function PrivacyContent() {
                     beendet. Das Zeitlimit für Kampagnen kann maximal zwei Jahre
                     betragen.
                   </Body>
-                  <Body>6.6.5. Widerspruchs- und Beseitigungsmöglichkeit</Body>
+                  <Body isStrong>
+                    6.6.5. Widerspruchs- und Beseitigungsmöglichkeit
+                  </Body>
                   <Body>
                     Die von Ihrem Browser übermittelte IP-Adresse wird nicht mit
                     anderen Daten von Google zusammengeführt. Sie können der
@@ -834,79 +847,6 @@ export default function PrivacyContent() {
                       </UnderlineLink>
                     </li>
                     <li>
-                      Google AdWords zur Platzierung von Anzeigen im
-                      Google-Werbe-Netzwerk (z.B. in Suchergebnissen, in Videos,
-                      auf Webseiten, etc.). Angeboten von: Google Inc., 1600
-                      Amphitheatre Parkway, Mountain View, CA 94043, USA.
-                      Datenschutzerklärung:{' '}
-                      <UnderlineLink href='https://policies.google.com/technologies/ads'>
-                        https://policies.google.com/technologies/ads
-                      </UnderlineLink>
-                      , Hinweise / Widerspruch / Opt-Out-Möglichkeit:{' '}
-                      <UnderlineLink href='https://adssettings.google.com/authenticated'>
-                        https://adssettings.google.com/authenticated
-                      </UnderlineLink>
-                      , Privacy-Shield-Abkommen:{' '}
-                      <UnderlineLink href='https://www.privacyshield.gov/participant?id=a2zt000000001L5AAI&amp;status=Active'>
-                        https://www.privacyshield.gov/participant?id=a2zt000000001L5AAI&amp;status=Active
-                      </UnderlineLink>
-                    </li>
-                    <li>
-                      Google Fonts zur Darstellung der Schriftarten Google
-                      Fonts. Angeboten von: Google Inc., 1600 Amphitheatre
-                      Parkway, Mountain View, CA 94043, USA, ein.
-                      Datenschutzerklärung:{' '}
-                      <UnderlineLink href='https://www.google.com/policies/privacy/'>
-                        https://www.google.com/policies/privacy/
-                      </UnderlineLink>
-                      , Hinweise / Widerspruch / Opt-Out-Möglichkeit:{' '}
-                      <UnderlineLink href='https://adssettings.google.com/authenticated'>
-                        https://adssettings.google.com/authenticated
-                      </UnderlineLink>
-                      , Privacy-Shield-Abkommen:{' '}
-                      <UnderlineLink href='https://www.privacyshield.gov/participant?id=a2zt000000001L5AAI&amp;status=Active'>
-                        https://www.privacyshield.gov/participant?id=a2zt000000001L5AAI&amp;status=Active
-                      </UnderlineLink>
-                      .
-                    </li>
-                    <li>
-                      Adobe Typekit zur Darstellung der Schriftarten Typekit.
-                      Angeboten von: Adobe Systems Software Ireland Limited, 4-6
-                      Riverwalk, Citywest Business Campus, Dublin 24, Ireland.
-                      Datenschutzerklärung:{' '}
-                      <UnderlineLink
-                        href='https://www.adobe.com/de/privacy/policy.html'
-                        className='broken_link'
-                      >
-                        https://www.adobe.com/de/privacy/policy.html
-                      </UnderlineLink>
-                      , Hinweise / Widerspruch / Opt-Out-Möglichkeit:{' '}
-                      <UnderlineLink
-                        href='https://www.adobe.com/de/privacy/opt-out.html'
-                        className='broken_link'
-                      >
-                        https://www.adobe.com/de/privacy/opt-out.html
-                      </UnderlineLink>
-                      , Privacy-Shield-Abkommen:{' '}
-                      <UnderlineLink href='https://www.privacyshield.gov/participant?id=a2zt0000000TNo9AAG&amp;status=Active'>
-                        https://www.privacyshield.gov/participant?id=a2zt0000000TNo9AAG&amp;status=Active
-                      </UnderlineLink>
-                    </li>
-                    <li>
-                      Font Awesome zur Darstellung von schriftbasierten
-                      Symbolen/Icon-Sammlungen. Angeboten von: Fonticons Inc.,
-                      710 Blackhorn Dr, Carl Junction, 64834 Mo, USA.
-                      Datenschutzerklärung:{' '}
-                      <UnderlineLink href='https://fontawesome.com/privacy'>
-                        https://fontawesome.com/privacy
-                      </UnderlineLink>
-                      , Informationen zur Datenerhebung und zum Datenschutz:{' '}
-                      <UnderlineLink href='https://fontawesome.com/tos'>
-                        https://fontawesome.com/tos
-                      </UnderlineLink>
-                      .
-                    </li>
-                    <li>
                       Facebook-Pixels zur Bestimmung von Besuchern unseres
                       Onlineangebotes als Zielgruppe für die Darstellung von
                       Anzeigen (sog. Facebook-Ads). Angeboten von: Facebook
@@ -963,72 +903,6 @@ export default function PrivacyContent() {
                       ,{' '}
                       <UnderlineLink href='https://tools.google.com/dlpage/gaoptout?hl=de'>
                         https://tools.google.com/dlpage/gaoptout?hl=de
-                      </UnderlineLink>
-                      .
-                    </li>
-                    <li>
-                      DISQUS-Kommentarfunktion für eine sichere und
-                      nutzerfreundlichen Kommentarverwaltung. Angeboten von der
-                      DISQUS, Inc., 301 Howard St, Floor 3 San Francisco,
-                      California- 94105, USA. Datenschutzerklärung:{' '}
-                      <UnderlineLink href='https://help.disqus.com/terms-and-policies/disqus-privacy-policy'>
-                        https://help.disqus.com/terms-and-policies/disqus-privacy-policy
-                      </UnderlineLink>
-                      , Hinweise / Widerspruch / Opt-Out-Möglichkeit:{' '}
-                      <UnderlineLink href='https://disqus.com/data-sharing-settings/'>
-                        https://disqus.com/data-sharing-settings
-                      </UnderlineLink>
-                      , Privacy-Shield-Abkommen:{' '}
-                      <UnderlineLink href='https://www.privacyshield.gov/participant?id=a2zt0000000TRkEAAW&amp;status=Active'>
-                        https://www.privacyshield.gov/participant?id=a2zt0000000TRkEAAW&amp;status=Active
-                      </UnderlineLink>
-                      .
-                    </li>
-                    <li>
-                      Akismet zur Unterscheidung von Kommentaren echter Menschen
-                      und Spam-Kommentaren. Angeboten von: Automattic Inc., 60
-                      29th Street #343, San Francisco, CA 94110, USA.
-                      Informationen zur Erhebung und Nutzung der Daten durch
-                      Akismet finden sich in den Datenschutzhinweisen von
-                      Automattic:{' '}
-                      <UnderlineLink href='https://automattic.com/privacy/'>
-                        https://automattic.com/privacy/
-                      </UnderlineLink>
-                      .
-                    </li>
-                    <li>
-                      Gravatar zur Anzeige von Profilbildern eines Nutzers.
-                      Angeboten von Automattic Inc., 60 29th Street #343, San
-                      Francisco, CA 94110, USA. Informationen zur Erhebung und
-                      Nutzung der Daten durch Gravatar finden sich in den
-                      Datenschutzhinweisen von Automattic:{' '}
-                      <UnderlineLink href='https://automattic.com/privacy/'>
-                        https://automattic.com/privacy/
-                      </UnderlineLink>
-                      .
-                    </li>
-                    <li>
-                      Soundcloud zur Wiedergabe von Podcasts. Angeboten von:
-                      SoundCloud Limited, Rheinsberger Str. 76/77, 10115 Berlin,
-                      Deutschland. Informationen zur Erhebung und Nutzung der
-                      Daten durch Soundcloud finden sich in den
-                      Datenschutzhinweisen von Soundcloud:{' '}
-                      <UnderlineLink href='https://soundcloud.com/pages/privacy'>
-                        https://soundcloud.com/pages/privacy
-                      </UnderlineLink>
-                      .
-                    </li>
-                    <li>
-                      Jetpack zur statistischen Auswertung der Besucherzugriffe.
-                      Angeboten von: Automattic Inc., 60 29th Street #343, San
-                      Francisco, CA 94110, USA. Datenschutzerklärung:{' '}
-                      <UnderlineLink href='https://automattic.com/privacy/'>
-                        https://automattic.com/privacy/
-                      </UnderlineLink>
-                      , Hinweise / Widerspruch / Opt-Out-Möglichkeit zu
-                      Jetpack-Cookies:{' '}
-                      <UnderlineLink href='https://jetpack.com/support/cookies/'>
-                        https://jetpack.com/support/cookies/
                       </UnderlineLink>
                       .
                     </li>
@@ -1132,7 +1006,7 @@ export default function PrivacyContent() {
                     Informationen zu Ihren diesbezüglichen Rechten und
                     Einstellungsmöglichkeiten zum Schutze Ihrer Privatsphäre.
                   </Body>
-                  <Body>
+                  <Body isStrong>
                     Adressen der jeweiligen Plug-in-Anbieter und URL mit deren
                     Datenschutzhinweisen:
                   </Body>
@@ -1194,83 +1068,6 @@ export default function PrivacyContent() {
                         https://help.instagram.com/196883487377501
                       </UnderlineLink>
                     </li>
-                    <li>
-                      Xing AG, Gänsemarkt 43, 20354 Hamburg, DE.
-                      Datenschutzerklärung:{' '}
-                      <UnderlineLink href='https://privacy.xing.com/de/datenschutzerklaerung'>
-                        https://privacy.xing.com/de/datenschutzerklaerung
-                      </UnderlineLink>
-                      , Hinweise / Widerspruch / Opt-Out-Möglichkeit:{' '}
-                      <UnderlineLink href='https://nats.xing.com/optout.html?popup=1&amp;locale=de_DE'>
-                        https://nats.xing.com/optout.html?popup=1&amp;locale=de_DE
-                      </UnderlineLink>
-                      , weitere Informationen zur Datenerhebung und zum
-                      Datenschutz:{' '}
-                      <UnderlineLink href='http://www.xing.com/privacy'>
-                        http://www.xing.com/privacy
-                      </UnderlineLink>
-                      .
-                    </li>
-                    <li>
-                      LinkedIn Corporation, 2029 Stierlin Court, Mountain View,
-                      California 94043, USA. Datenschutzerklärung:{' '}
-                      <UnderlineLink href='http://www.linkedin.com/legal/privacy-policy'>
-                        http://www.linkedin.com/legal/privacy-policy
-                      </UnderlineLink>
-                      , Hinweise / Widerspruch / Opt-Out-Möglichkeit:{' '}
-                      <UnderlineLink href='https://www.linkedin.com/help/linkedin/answer/62931/manage-advertising-preferences'>
-                        https://linkedin.com/help/linkedin/answer/62931/manage-advertising-preferences
-                      </UnderlineLink>
-                      , Privacy-Shield-Abkommen:{' '}
-                      <UnderlineLink href='https://www.privacyshield.gov/EU-US-Framework'>
-                        https://www.privacyshield.gov/EU-US-Framework
-                      </UnderlineLink>
-                    </li>
-                    <li>
-                      Pinterest Inc., 635 High Street, Palo Alto, CA, 94301,
-                      USA. Datenschutzerklärung:{' '}
-                      <UnderlineLink href='https://about.pinterest.com/de/privacy-policy'>
-                        https://about.pinterest.com/de/privacy-policy
-                      </UnderlineLink>
-                      , Hinweise / Widerspruch / Opt-Out-Möglichkeit:{' '}
-                      <UnderlineLink
-                        href='https://help.pinterest.com/en/articles/opt-out-picked-you-pins#Web'
-                        className='broken_link'
-                      >
-                        https://help.pinterest.com/en/articles/opt-out-picked-you-pins#Web
-                      </UnderlineLink>
-                    </li>
-                    <li>
-                      Tumblr angeboten von Oath (EMEA) Limited (vormals Yahoo
-                      EMEA Limited) 5-7 Point Square, North Wall Quay, Dublin 1,
-                      Irland. Datenschutzerklärung:{' '}
-                      <UnderlineLink href='https://www.tumblr.com/privacy/de'>
-                        https://www.tumblr.com/privacy/de
-                      </UnderlineLink>
-                      , Hinweise / Widerspruch / Opt-Out-Möglichkeit:{' '}
-                      <UnderlineLink
-                        href='https://tumblr.zendesk.com/hc/de/articles/231707827-Du-und-Tumblr-Ads'
-                        className='broken_link'
-                      >
-                        https://tumblr.zendesk.com/hc/de/articles/231707827-Du-und-Tumblr-Ads
-                      </UnderlineLink>
-                    </li>
-                    <li>
-                      Google+, angeboten durch die Google LLC, 1600 Amphitheatre
-                      Parkway, Mountain View, CA 94043, USA.
-                      Datenschutzerklärung:{' '}
-                      <UnderlineLink href='https://policies.google.com/technologies/ads'>
-                        https://policies.google.com/technologies/ads
-                      </UnderlineLink>
-                      , Hinweise / Widerspruch / Opt-Out-Möglichkeit:{' '}
-                      <UnderlineLink href='https://adssettings.google.com/authenticated'>
-                        https://adssettings.google.com/authenticated
-                      </UnderlineLink>
-                      , Privacy-Shield-Abkommen:{' '}
-                      <UnderlineLink href='https://www.privacyshield.gov/participant?id=a2zt000000001L5AAI&amp;status=Active'>
-                        https://www.privacyshield.gov/participant?id=a2zt000000001L5AAI&amp;status=Active
-                      </UnderlineLink>
-                    </li>
                   </ul>
                   <Body>&nbsp;</Body>
                 </section>
@@ -1322,6 +1119,7 @@ export default function PrivacyContent() {
                     Bitte informieren Sie sich regelmäßig über den Inhalt der
                     Datenschutzerklärung.
                   </Body>
+                  <Body className='text-sm text-gray-400'>Stand März 2024</Body>
                 </section>
               </div>
             </div>
