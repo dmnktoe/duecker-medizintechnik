@@ -14,9 +14,7 @@ export default function AgbText() {
           Sämtlichen Verträgen und Geschäftsvorfällen liegen unsere
           nachstehenden Verkaufs-, Lieferungs- und Zahlungsbedingungen zugrunde.
         </Body>
-        <Body>
-          <strong>I. Allgemeiner Vertragsinhalt</strong>
-        </Body>
+        <Body isStrong>I. Allgemeiner Vertragsinhalt</Body>
         <Body>
           1. Unsere Verkaufs-, Lieferungs- und Zahlungsbedingungen sind für den
           gesamten Geschäftsverkehr mit dem Besteller verbindlich und werden
@@ -35,9 +33,7 @@ export default function AgbText() {
           3. Allgemeine Geschäftsbedingungen des Käufers sind für uns
           unverbindlich, auch dann, wenn wir diesen nicht widersprechen.
         </Body>
-        <Body>
-          <strong>II. Vertragsabschluss und Preise</strong>
-        </Body>
+        <Body isStrong>II. Vertragsabschluss und Preise</Body>
         <Body>
           1. Angebote und Preise gemäß unserer Preisliste sind stets
           freibleibend.
@@ -61,17 +57,13 @@ export default function AgbText() {
           und haben sich die Preise inzwischen erhöht, so werden die zum
           Lieferzeitpunkt gültigen Preise berechnet.
         </Body>
-        <Body>
-          <strong>III. Konstruktions- und Formänderungen</strong>
-        </Body>
+        <Body isStrong>III. Konstruktions- und Formänderungen</Body>
         <Body>
           Konstruktions- und Formänderungen an den angebotenen oder verkauften
           Produkten sind – soweit die Änderung dem jeweiligen Stand der Technik
           entspricht – vorbehalten und ohne vorherigen Hinweis zulässig.
         </Body>
-        <Body>
-          <strong>IV. Zahlungsbedingungen, Verzugszinsen</strong>
-        </Body>
+        <Body isStrong>IV. Zahlungsbedingungen, Verzugszinsen</Body>
         <Body>
           1. Alle Reparaturrechnungen sind sofort fällig, um übrigen gewähren
           wir ein Zahlungsziel von 30 Tagen ab Rechnungsdatum.
@@ -123,9 +115,7 @@ export default function AgbText() {
           (Kleinstmengenaufträge) berechnen wir automatisch eine Pauschale in
           Höhe von 25,00 € zzgl. der gesetzlichen Mehrwertsteuer.
         </Body>
-        <Body>
-          <strong>V. Haftung, Gefahrübergang und Gewährleistung</strong>
-        </Body>
+        <Body isStrong>V. Haftung, Gefahrübergang und Gewährleistung</Body>
         <Body>
           1. Höhere Gewalt, sowie betriebsfremde Einflüsse befreien uns von der
           Verpflichtung zu Lieferung. Schadenersatzansprüche des Kunden bei
@@ -162,9 +152,7 @@ export default function AgbText() {
           uns zum Einlesen, Übertragen, Speichern und Verarbeiten von Daten
           bedienen, haften wir nicht.
         </Body>
-        <Body>
-          <strong>VI. Erfüllungsort und Gerichtsstand</strong>
-        </Body>
+        <Body isStrong>VI. Erfüllungsort und Gerichtsstand</Body>
         <Body>
           1. Erfüllungsort für Lieferung und Zahlung und alle beiderseitigen
           Verpflichtungen aus dem Vertrag ist Melsungen.

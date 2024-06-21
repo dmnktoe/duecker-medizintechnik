@@ -62,9 +62,7 @@ export default function LegalNoticeText() {
             }}
           />
         </Body>
-        <Body>
-          <strong>{t('content.osPlatform.title')}</strong>
-        </Body>
+        <Body isStrong>{t('content.osPlatform.title')}</Body>
         <Body>
           <Trans
             i18nKey='content.osPlatform.text1'
