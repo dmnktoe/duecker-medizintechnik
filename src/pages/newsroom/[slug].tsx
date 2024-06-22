@@ -28,7 +28,7 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
 
 export const getStaticProps: GetStaticProps = async ({ locale, params }) => {
   const posts = await fetchAPI(
-    `/posts?filters[slug][$eq]=${params?.slug}&populate=*`,
+    `/posts?filters[slug][$eq]=${params?.slug}&populate=deep`,
   );
   return {
     props: {

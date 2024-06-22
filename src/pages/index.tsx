@@ -40,7 +40,7 @@ const Startseite = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const posts = await fetchAPI(
-    '/posts?sort=id:desc&populate=*&pagination[pageSize]=8',
+    '/posts?sort=id:desc&populate=deep&pagination[pageSize]=8',
   );
   return {
     props: {
