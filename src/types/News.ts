@@ -1,4 +1,6 @@
-import { Image } from '@/types/Image';
+import { AuthorData } from '@/types/Author';
+import { CategoryData } from '@/types/Category';
+import { ImageData } from '@/types/Image';
 
 export interface News {
   id: number;
@@ -10,11 +12,18 @@ interface NewsAttributes {
   excerpt: string;
   content: string;
   slug: string;
-  category: string;
   createdAt: Date;
   updatedAt: Date;
   publishedAt: Date;
-  image: Image;
+  author: {
+    data: AuthorData;
+  };
+  image: {
+    data: ImageData;
+  };
+  category: {
+    data: CategoryData;
+  };
 }
 
 interface Pagination {

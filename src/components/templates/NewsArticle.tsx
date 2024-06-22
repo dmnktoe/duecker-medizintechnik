@@ -17,12 +17,11 @@ import {
 } from 'react-share';
 
 import { formatDate } from '@/lib/format-date';
+import { getBaseUrl } from '@/lib/get-base-url';
 import { getStrapiMedia } from '@/lib/strapi-urls';
 
 import { Container } from '@/components/layout';
 import { AspectRatio, Badge, Body, Title, UnstyledLink } from '@/components/ui';
-
-import { company } from '@/constant/company';
 
 import { News } from '@/types/News';
 
@@ -48,7 +47,7 @@ export const NewsArticle = ({ post }: NewsArticleProps) => {
     return (
       <div className='flex flex-row items-center gap-x-4'>
         <Badge color='dark' size='md' variant='outline'>
-          {post.attributes.category}
+          {post.attributes.category.data.attributes.name}
         </Badge>
         <span className='text-gray-300'>|</span>
         <span className='font-secondary text-gray-600'>
@@ -76,14 +75,14 @@ export const NewsArticle = ({ post }: NewsArticleProps) => {
 
   const ShareButtons = () => {
     const getPostUrl = () => {
-      return `${company.url}/newsroom/${post.attributes.slug}`;
+      const baseUrl = getBaseUrl();
+      return `${baseUrl}/newsroom/${post.attributes.slug}`;
     };
 
     const shareButtonProps = {
       url: getPostUrl(),
       title: post.attributes.title,
-      className:
-        'mr-2 transition-colors duration-200 ease-in-out text-gray-500 hover:text-dark',
+      className: 'mr-2 transition-colors duration-200 ease-in-out text-dark',
       size: 20,
     };
 
@@ -124,24 +123,22 @@ export const NewsArticle = ({ post }: NewsArticleProps) => {
   const ArticleImage = ({ post }: { post: News }) => {
     return (
       <div className='relative mx-auto w-full max-w-5xl'>
-        {post.attributes.image.data?.attributes.name && (
-          <AspectRatio ratio={16 / 9} className='bg-muted'>
-            <Image
-              src={getStrapiMedia(
-                post.attributes.image.data?.attributes.url ?? '',
-              )}
-              blurDataURL={getStrapiMedia(
-                post.attributes.image.data?.attributes.url ?? '',
-              )}
-              placeholder='blur'
-              alt={post.attributes.title}
-              fill
-              className='object-cover object-center'
-            />
-          </AspectRatio>
-        )}
+        <AspectRatio ratio={16 / 9} className='bg-muted'>
+          <Image
+            src={getStrapiMedia(
+              post.attributes.image.data.attributes.url ?? '',
+            )}
+            blurDataURL={getStrapiMedia(
+              post.attributes.image.data.attributes.url ?? '',
+            )}
+            placeholder='blur'
+            alt={post.attributes.title}
+            fill
+            className='object-cover object-center'
+          />
+        </AspectRatio>
         <div className='mt-3 text-right font-secondary text-sm text-light-gray'>
-          {post.attributes.image.data?.attributes.name}
+          {post.attributes.image.data.attributes.name}
         </div>
       </div>
     );
@@ -158,7 +155,7 @@ export const NewsArticle = ({ post }: NewsArticleProps) => {
     );
   };
 
-  const ArticleAuthor = () => {
+  const ArticleAuthor = ({ post }: { post: News }) => {
     const flags = useFlags(['article_author_bio']);
     return (
       <>
@@ -166,27 +163,37 @@ export const NewsArticle = ({ post }: NewsArticleProps) => {
           <div className='mx-auto w-full max-w-3xl'>
             <div className='w-2/3 md:w-1/2'>
               <Title size='three'>Kontakt</Title>
-              <AspectRatio ratio={16 / 9} className='bg-muted'>
-                <Image
-                  src='https://picsum.photos/800'
-                  alt='kontakt'
-                  fill
-                  className='object-cover object-center'
-                />
-              </AspectRatio>
-              <Body margin={false} className='mt-4 font-medium'>
-                {company.ceo}
+              {post.attributes.author.data.attributes.image.data?.attributes
+                .url ? (
+                <AspectRatio ratio={16 / 9} className='bg-muted'>
+                  <Image
+                    src={getStrapiMedia(
+                      post.attributes.author.data.attributes.image.data
+                        .attributes.url,
+                    )}
+                    blurDataURL={getStrapiMedia(
+                      post.attributes.author.data.attributes.image.data
+                        .attributes.url,
+                    )}
+                    placeholder='blur'
+                    alt={post.attributes.author.data.attributes.name}
+                    fill
+                    className='object-cover object-center'
+                  />
+                </AspectRatio>
+              ) : null}
+              <Body margin={false} className='font-medium'>
+                {post.attributes.author.data.attributes.name}
               </Body>
               <Body size='sm' margin={false} color='light'>
-                Executive Vice President Communications & Investor Relations,
-                Dücker Medizintechnik
+                {post.attributes.author.data.attributes.bio}
               </Body>
               <UnstyledLink
                 className='hover:underline'
-                href={'mailto:' + company.email}
+                href={'mailto:' + post.attributes.author.data.attributes.mail}
               >
                 <Body size='sm' margin={false} color='light'>
-                  {company.email}
+                  {post.attributes.author.data.attributes.mail}
                 </Body>
               </UnstyledLink>
             </div>
@@ -203,7 +210,7 @@ export const NewsArticle = ({ post }: NewsArticleProps) => {
           <ArticleHeader post={post} />
           <ArticleImage post={post} />
           <ArticleContent post={post} />
-          <ArticleAuthor />
+          <ArticleAuthor post={post} />
         </div>
       </Container>
     </article>
