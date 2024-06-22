@@ -1,5 +1,3 @@
-// useConsentState.ts
-
 export interface CookieConsent {
   necessary: boolean;
   preferences: boolean;

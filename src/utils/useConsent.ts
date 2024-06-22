@@ -1,5 +1,3 @@
-// useConsent.ts
-
 import { useEffect, useState } from 'react';
 
 import { CookieConsent, getConsentState } from './useConsentState';
