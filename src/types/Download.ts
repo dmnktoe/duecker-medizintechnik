@@ -1,16 +1,50 @@
-interface File {
+interface FileAttributes {
+  name: string;
+  size: number;
   url: string;
-  title: string;
-  size: string;
-  type: string;
+  mime: string;
 }
 
-interface Item {
-  title: string;
-  files: File[];
+interface File {
+  id: number;
+  attributes: FileAttributes;
+}
+
+interface CategoryAttributes {
+  name: string;
+}
+
+interface Category {
+  id: number;
+  attributes: CategoryAttributes;
+}
+
+interface DocumentAttributes {
+  name: string;
+  files: {
+    data: File[];
+  };
+  category: {
+    data: Category;
+  };
 }
 
 export interface Download {
-  sectionTitle: string;
-  items: Item[];
+  id: number;
+  attributes: DocumentAttributes;
 }
+
+export type CategorizedDownloads = {
+  [categoryName: string]: {
+    sectionTitle: string;
+    items: {
+      title: string;
+      files: {
+        title: string;
+        size: string;
+        url: string;
+        type: string;
+      }[];
+    }[];
+  };
+};

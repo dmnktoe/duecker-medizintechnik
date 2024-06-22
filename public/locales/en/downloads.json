@@ -1,67 +1,14 @@
 {
   "content": {
-    "downloads": [
-      {
-        "items": [
-          {
-            "files": [
-              {
-                "size": "408kb",
-                "title": "Certificate No. 50277-21-00_DE",
-                "type": ".pdf",
-                "url": "https://cms.duecker-medizintechnik.de/uploads/Zertifikat_Nr_50277_21_00_DE_dacd3dcc59.PDF"
-              },
-              {
-                "size": "266kb",
-                "title": "Attachment to 17-05, Rev. 0 _ German",
-                "type": ".pdf",
-                "url": "https://cms.duecker-medizintechnik.de/uploads/Anlage_zu_17_05_Rev_0_Deutsch_7928c2f543.pdf"
-              }
-            ],
-            "title": "EN ISO 13485:2016 + AC:2018 + A11:2021"
-          }
-        ],
-        "sectionTitle": "Certificates"
+    "intro": "Our company attaches great importance to quality, safety and reliability. To ensure this, we meet strict international standards and focus on continuous improvement in all areas of our work. Our commitment to the highest standards is confirmed by the following certificates.",
+    "section": {
+      "one": {
+        "text": "We are proud to be certified according to EN ISO 13485:2016 + AC:2018 + A11:2021. This internationally recognized standard specifies the requirements for a comprehensive quality management system for the manufacture of medical devices. It ensures that we always comply with legal and regulatory requirements and also offer our customers products and services of the highest quality. Our certificate no. 50277-21-00_EN confirms our conformity and our commitment to the continuous improvement of our processes and products.",
+        "title": "EN ISO 13485:2016 + AC:2018 + A11:2021"
       },
-      {
-        "items": [
-          {
-            "files": [
-              {
-                "size": "27kb",
-                "title": "AGB_Dücker_2024 (German)",
-                "type": ".docx",
-                "url": "https://cms.duecker-medizintechnik.de/uploads/AGB_Duecker_neu_79d6111ff4.docx"
-              }
-            ],
-            "title": "Terms and Conditions"
-          },
-          {
-            "files": [
-              {
-                "size": "62kb",
-                "title": "Decontamination certificate",
-                "type": ".doc",
-                "url": "https://cms.duecker-medizintechnik.de/uploads/Infektionsschutz_e4e0f4a17d.doc"
-              }
-            ],
-            "title": "Infection protection agreement"
-          }
-        ],
-        "sectionTitle": "Legal documents"
-      }
-    ],
-    "text": {
-      "intro": "Our company attaches great importance to quality, safety and reliability. To ensure this, we meet strict international standards and focus on continuous improvement in all areas of our work. Our commitment to the highest standards is confirmed by the following certificates.",
-      "section": {
-        "one": {
-          "text": "We are proud to be certified according to EN ISO 13485:2016 + AC:2018 + A11:2021. This internationally recognized standard specifies the requirements for a comprehensive quality management system for the manufacture of medical devices. It ensures that we always comply with legal and regulatory requirements and also offer our customers products and services of the highest quality. Our certificate no. 50277-21-00_EN confirms our conformity and our commitment to the continuous improvement of our processes and products.",
-          "title": "EN ISO 13485:2016 + AC:2018 + A11:2021"
-        },
-        "two": {
-          "text": "Our infection control procedures ensure the highest standards of hygiene and safety for our employees and customers. All products must be thoroughly cleaned, disinfected and, if necessary, sterilized before any repair or refurbishment. This process, an integral part of our quality management, complies with legal requirements and the latest scientific findings. We ask our customers to confirm with each delivery that the products meet these standards. Our commitment to health and safety means that goods that do not meet hygiene standards will be rejected or a separate decontamination charge will be levied.",
-          "title": "Infection protection agreement"
-        }
+      "two": {
+        "text": "Our infection control procedures ensure the highest standards of hygiene and safety for our employees and customers. All products must be thoroughly cleaned, disinfected and, if necessary, sterilized before any repair or refurbishment. This process, an integral part of our quality management, complies with legal requirements and the latest scientific findings. We ask our customers to confirm with each delivery that the products meet these standards. Our commitment to health and safety means that goods that do not meet hygiene standards will be rejected or a separate decontamination charge will be levied.",
+        "title": "Infection protection agreement"
       }
     },
     "textReveal": "We stand for transparency and security at the highest level. Our certified processes guarantee quality and strengthen the trust of our customers and partners.",

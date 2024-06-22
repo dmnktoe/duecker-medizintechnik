@@ -3,6 +3,8 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React from 'react';
 
+import { fetchAPI } from '@/lib/fetch-api';
+
 import Page from '@/components/layout/Page';
 import { DownloadCenter } from '@/components/templates/DownloadCenter';
 import { DownloadText } from '@/components/templates/DownloadText';
@@ -10,8 +12,9 @@ import TextReveal from '@/components/templates/TextReveal';
 
 import DownloadsImg from '/public/images/downloads/duecker-medizintechnik_downloads_hero-bg.webp';
 
-const Downloads = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Downloads = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { t } = useTranslation('downloads');
+  const downloads = props.downloads;
   return (
     <Page
       layout={{
@@ -29,7 +32,7 @@ const Downloads = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
       title={t('meta.pageTitle')}
     >
       <DownloadText />
-      <DownloadCenter />
+      <DownloadCenter downloads={downloads} />
       <div className='relative z-10 flex min-h-[16rem] w-full items-center justify-center bg-gray-100'>
         <TextReveal text={t('content.textReveal')} />
       </div>
@@ -38,12 +41,17 @@ const Downloads = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  const downloads = await fetchAPI(
+    `/downloads?locale=${locale}&sort=id:desc&populate=deep`,
+  );
+
   return {
     props: {
       ...(await serverSideTranslations(locale ?? 'de', [
         'common',
         'downloads',
       ])),
+      downloads: downloads.data,
     },
   };
 };

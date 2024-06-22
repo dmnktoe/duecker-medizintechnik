@@ -12,19 +12,19 @@ export const DownloadText = () => {
         <div className='flex flex-col'>
           <div>
             <Title>{t('content.title')}</Title>
-            <Body>{t('content.text.intro')}</Body>
+            <Body>{t('content.intro')}</Body>
           </div>
           <div>
             <Title renderAs='h3' size='five'>
-              {t('content.text.section.one.title')}
+              {t('content.section.one.title')}
             </Title>
-            <Body>{t('content.text.section.one.text')}</Body>
+            <Body>{t('content.section.one.text')}</Body>
           </div>
           <div>
             <Title renderAs='h3' size='five'>
-              {t('content.text.section.two.title')}
+              {t('content.section.two.title')}
             </Title>
-            <Body margin={false}>{t('content.text.section.two.text')}</Body>
+            <Body margin={false}>{t('content.section.two.text')}</Body>
           </div>
         </div>
       </Container>
