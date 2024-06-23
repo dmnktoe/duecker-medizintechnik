@@ -158,7 +158,7 @@ const FooterCopyright = () => {
         </span>
         <LanguagePicker
           showDisplayName
-          className='relative m-0 border-0 bg-none p-0 focus:border-none focus:outline-none focus:ring-0 focus:ring-inset focus:ring-transparent focus:ring-offset-0 focus:ring-offset-transparent'
+          className='relative m-0 cursor-pointer border-0 bg-none p-0 hover:underline focus:border-none focus:outline-none focus:ring-0 focus:ring-inset focus:ring-transparent focus:ring-offset-0 focus:ring-offset-transparent'
         />
       </div>
     </>
