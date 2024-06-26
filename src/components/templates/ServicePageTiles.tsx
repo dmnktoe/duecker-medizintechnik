@@ -2,6 +2,7 @@ import { useFlags } from 'flagsmith/react';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
 import { PiChartLineUpThin, PiPackageThin, PiWrenchThin } from 'react-icons/pi';
+import { VscArrowRight } from 'react-icons/vsc';
 
 import { Container } from '@/components/layout';
 import {
@@ -65,7 +66,7 @@ export default function ServicePageTiles() {
     };
 
     return (
-      <div className='mb-4 grid grid-cols-6 gap-2'>
+      <div className='grid grid-cols-6 gap-2'>
         <ServiceCard
           title={t('content.cards.production.title')}
           details={t('content.cards.production.text')}
@@ -94,21 +95,24 @@ export default function ServicePageTiles() {
 
     if (flags.products_overview.enabled) {
       return (
-        <div className='flex w-full bg-primary-100 bg-[url(/images/services/blur.svg)] bg-cover bg-center'>
+        <div className='mt-2 flex w-full bg-primary-100 bg-[url(/images/services/blur.svg)] bg-cover bg-center'>
           <div className='relative flex grow flex-col justify-around gap-4 p-4 py-12 md:flex-row md:py-24 lg:flex-row lg:items-center'>
             <div className='lg:w-2/5'>
-              <Title margin={false} size='two' className='text-white'>
-                Unsere Produkte in eigener Herstellung
+              <Title size='three'>
+                Qualitative Präzisions-Produkte aus eigener Herstellung
               </Title>
-              <Body margin={false} className='text-white'>
+              <Body margin={false}>
                 Erkunden Sie unsere Produkte und finden Sie das passende für
-                Ihre Anforderungen.
+                Ihre Anforderungen. Wir bieten eine breite Palette an
+                qualitativen Produkten aus eigener Herstellung.
               </Body>
             </div>
             <ButtonLink
               variant='light'
               href='/produkte'
               className='bg-white/30 text-white'
+              rightIcon={VscArrowRight}
+              rightIconClassName='h-4 w-4'
             >
               Entdecken Sie unsere Produkte
             </ButtonLink>
