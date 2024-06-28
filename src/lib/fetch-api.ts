@@ -13,6 +13,7 @@ export async function fetchAPI(
       next: { revalidate: 60 },
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
       },
       ...options,
     };
