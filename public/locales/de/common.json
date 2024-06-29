@@ -55,10 +55,6 @@
           {
             "href": "/kontakt",
             "title": "Kontakt & Anfrage"
-          },
-          {
-            "href": "/jobs",
-            "title": "Jobs"
           }
         ],
         "title": "Unternehmen"
@@ -75,7 +71,7 @@
           },
           {
             "href": "/leistungen/vertrieb",
-            "title": "Distribution"
+            "title": "Vertrieb"
           }
         ],
         "title": "Leistungen"
