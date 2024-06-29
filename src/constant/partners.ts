@@ -20,7 +20,7 @@ export const partners: Partner[] = [
   {
     name: 'Bissinger',
     image: BissingerIcon,
-    url: 'https://www.bissinger.com/de',
+    url: 'https://www.bissinger.com/de/produkte/bipolare-instrumente-mic/koagulationszange-5mm',
   },
   {
     name: 'Eberle',
@@ -40,7 +40,7 @@ export const partners: Partner[] = [
   {
     name: 'Nouvag',
     image: NouvagIcon,
-    url: 'https://www.nouvag.com/de/',
+    url: 'https://nouvag.com/produkte/set-und-steuereinheiten/highsurg-30/',
   },
   {
     name: 'STERIS',
