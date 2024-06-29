@@ -33,16 +33,6 @@ export default function RepairSlideshow() {
     swiperElRef.current.swiper.slideNext();
   }, []);
 
-  const text = (
-    <>
-      <div className='mt-3 w-3/4 text-xs text-gray-400 lg:w-1/2'>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio
-        incidunt ipsam quam quidem quis saepe. Assumenda atque autem consectetur
-        cum dolore ducimus earum est eveniet ex illum.
-      </div>
-    </>
-  );
-
   return (
     <section className='mb-16 md:mb-24 lg:mb-32'>
       <Container>
@@ -91,7 +81,6 @@ export default function RepairSlideshow() {
                     className='h-full w-full object-cover'
                   />
                 </AspectRatio>
-                {text}
               </SwiperSlide>
               <SwiperSlide>
                 <AspectRatio ratio={16 / 9}>
@@ -103,7 +92,6 @@ export default function RepairSlideshow() {
                     className='h-full w-full object-cover'
                   />
                 </AspectRatio>
-                {text}
               </SwiperSlide>
               <SwiperSlide>
                 <AspectRatio ratio={16 / 9}>
@@ -115,7 +103,6 @@ export default function RepairSlideshow() {
                     className='h-full w-full object-cover'
                   />
                 </AspectRatio>
-                {text}
               </SwiperSlide>
               <SwiperSlide>
                 <AspectRatio ratio={16 / 9}>
@@ -127,7 +114,6 @@ export default function RepairSlideshow() {
                     className='h-full w-full object-cover'
                   />
                 </AspectRatio>
-                {text}
               </SwiperSlide>
               <SwiperSlide>
                 <AspectRatio ratio={16 / 9}>
@@ -139,7 +125,6 @@ export default function RepairSlideshow() {
                     className='h-full w-full object-cover'
                   />
                 </AspectRatio>
-                {text}
               </SwiperSlide>
               <SwiperSlide>
                 <AspectRatio ratio={16 / 9}>
@@ -151,7 +136,6 @@ export default function RepairSlideshow() {
                     className='h-full w-full object-cover'
                   />
                 </AspectRatio>
-                {text}
               </SwiperSlide>
             </div>
           </Swiper>
