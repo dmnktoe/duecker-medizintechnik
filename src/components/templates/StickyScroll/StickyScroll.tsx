@@ -5,13 +5,7 @@ import React, { useEffect } from 'react';
 import { VscArrowRight } from 'react-icons/vsc';
 
 import { Container } from '@/components/layout/Container';
-import {
-  AnimatedBadge,
-  AspectRatio,
-  Body,
-  Title,
-  UnstyledLink,
-} from '@/components/ui';
+import { AspectRatio, Body, Title, UnstyledLink } from '@/components/ui';
 
 import { useEscapePress } from '@/utils/useEscapePress';
 import { useHidePageOverflow } from '@/utils/useTogglePageOverflow';
@@ -162,7 +156,6 @@ export const StickyScroll = () => {
         <section className='block bg-gray-50 py-16 md:py-32 lg:hidden'>
           <Container>
             <div className='mb-8'>
-              <AnimatedBadge text={t('content.stickyScroll.badge')} />
               <Title size='two'>{t('content.stickyScroll.title')}</Title>
               <Body>{t('content.stickyScroll.text')}</Body>
             </div>
