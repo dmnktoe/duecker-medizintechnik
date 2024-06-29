@@ -221,7 +221,7 @@ const HeroPartnersSection = () => {
       <div className='mx-auto mb-8 text-center font-secondary text-xs text-gray-400 lg:w-1/3'>
         {t('content.hero.partners')}
       </div>
-      <div className='mx-auto md:w-10/12 lg:w-8/12'>
+      <div className='mx-auto md:w-10/12 lg:w-[1000px]'>
         <PartnerLogos />
       </div>
     </>
