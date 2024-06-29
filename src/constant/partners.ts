@@ -40,7 +40,7 @@ export const partners: Partner[] = [
   {
     name: 'Nouvag',
     image: NouvagIcon,
-    url: 'https://nouvag.com/produkte/set-und-steuereinheiten/highsurg-30/',
+    url: 'https://nouvag.com/anwendungen/allgemeine-chirurgie/neurochirurgie/#c137',
   },
   {
     name: 'STERIS',
