@@ -5,15 +5,15 @@
       "tiles": {
         "distribution": {
           "description": "With our selected sales partners, we offer you a powerful network of products and services.",
-          "title": "Global distribution chains (EU/USA)"
+          "title": "Distribution"
         },
         "downloads": {
           "description": "Our company attaches great importance to quality, safety and reliability.",
           "title": "Downloads & Certificates"
         },
         "iso8": {
-          "description": "We are certified in accordance with EN ISO 13485:2016 and ensure comprehensive protection.",
-          "title": "ISO8 certification & specification"
+          "description": "We are certified in accordance with EN ISO 13485 and ensure comprehensive protection.",
+          "title": "ISO8 certification"
         },
         "production": {
           "description": "International set packers benefit from our non-sterile bulk deliveries to complete their surgical trays.",
@@ -30,7 +30,7 @@
       "button": "See all services",
       "textBlocks": [
         {
-          "content": "Manufacture of medical instruments and container systems to the highest standards as well as professional repair services for surgical instruments.",
+          "content": "Repair & value retention of medical instruments, compressed air hoses and container systems to the highest standards, as well as professional services for surgical instruments.",
           "title": "Production & Repair"
         },
         {
@@ -58,7 +58,7 @@
       "titleTwo": "Get an overview."
     },
     "hero": {
-      "badge": "Your contact for commercial brokerage of pharmaceutical products, medical and orthopaedic articles and laboratory supplies.",
+      "badge": "Production and distribution of sterile and non-sterile tubing sets and clamp pads made of silicone, distribution of medical products, repair and service of surgical instruments and compressed air hoses.",
       "buttons": {
         "primary": {
           "label": "Services"
@@ -67,7 +67,7 @@
           "label": "Contact Us"
         }
       },
-      "partners": "With our sales partners in Europe and the USA, we are able to distribute our products worldwide:",
+      "partners": "We offer you a powerful network of products and services through our selected sales partners.",
       "text": "Discover our wide range of products and services for repairing and maintaining the value of surgical instruments. Find out how we can help you to ensure optimum care in a medical context.",
       "title": "Your partner for repair and service of surgical instruments, production and distribution of sterile tubing systems and medical devices"
     },
@@ -78,7 +78,6 @@
       "title": "Press releases and news"
     },
     "stickyScroll": {
-      "badge": "Location: North Hesse",
       "distribution": {
         "href": "vertrieb",
         "text": "Trade with medical devices.",

@@ -5,15 +5,15 @@
       "tiles": {
         "distribution": {
           "description": "Mit unseren ausgewählten Vertriebspartnern bieten wir Ihnen ein leistungsstarkes Netzwerk von Produkten und Dienstleistungen.",
-          "title": "Globale Distributionsketten (EU/USA)"
+          "title": "Vertrieb"
         },
         "downloads": {
           "description": "Unser Unternehmen legt größten Wert auf Qualität, Sicherheit und Zuverlässigkeit.",
           "title": "Downloads & Zertifikate"
         },
         "iso8": {
-          "description": "Wir sind zertifiziert nach EN ISO 13485:2016 und sorgen für einen umfassenden Schutz.",
-          "title": "ISO8 Zertifizierung & Spezifikation"
+          "description": "Wir sind zertifiziert nach EN ISO 13485 und sorgen für einen umfassenden Schutz.",
+          "title": "ISO8 Zertifizierung"
         },
         "production": {
           "description": "Internationale Set-Packer profitieren von unseren unsterilen Bulk-Lieferungen zur Vervollständigung ihrer OP-Sets.",
@@ -30,7 +30,7 @@
       "button": "Alle Leistungen ansehen",
       "textBlocks": [
         {
-          "content": "Herstellung von medizinischen Instrumenten und Containersystemen nach höchstem Maßstab sowie professionelle Reparaturdienstleistungen für chirurgische Instrumente.",
+          "content": "Reparatur & Werterhalt von medizinischen Instrumenten, Druckluftschläuchen und Containersystemen nach höchstem Maßstab, sowie professionelle Dienstleistungen für chirurgische Instrumente.",
           "title": "Produktion & Reparatur"
         },
         {
@@ -58,7 +58,7 @@
       "titleTwo": "Verschaffen Sie sich einen Überblick."
     },
     "hero": {
-      "badge": "Ihr Ansprechpartner für Handelsvermittlung von pharmazeutischen Erzeugnissen, medizinischen und orthopädischen Artikeln und Laborbedarf.",
+      "badge": "Herstellung und Vertrieb von sterilen und unsterilen Schlauchsets und Klemmenpolstern aus Silikon, Vertrieb von medizinischen Produkten, Reparatur und Service von chirurgischen Instrumenten und Druckluftschläuchen.",
       "buttons": {
         "primary": {
           "label": "Leistungsspektum"
@@ -67,7 +67,7 @@
           "label": "Kontakt & Anfrage"
         }
       },
-      "partners": "Mit unseren Vertriebspartnern in Europa und den USA sind wir in der Lage, unsere Produkte weltweit zu vertreiben:",
+      "partners": "Durch unsere ausgewählten Vertriebspartner bieten wir Ihnen ein leistungsstarkes Netzwerk von Produkten und Dienstleistungen.",
       "text": "Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für Reparatur und Werterhaltung von chirurgischen Instrumentarium. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
       "title": "Ihr Partner für Reparatur und Service chirurgischer Instrumente, Herstellung und Vertrieb von sterilen Schlauchsystemen & Medizinprodukten"
     },
@@ -78,7 +78,6 @@
       "title": "Pressemitteilungen & Wissenswertes"
     },
     "stickyScroll": {
-      "badge": "Standort: Nordhessen",
       "distribution": {
         "href": "vertrieb",
         "text": "Vertrieb von Medizinprodukten.",
