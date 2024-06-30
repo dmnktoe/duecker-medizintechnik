@@ -18,12 +18,12 @@ export const ISO8 = ({ className }: { className?: string }) => (
         gradientUnits='userSpaceOnUse'
       >
         <stop offset='0' stopColor='#fff'></stop>
-        <stop offset='1' stopColor='#1d1d1b' stopOpacity='0.8'></stop>
+        <stop offset='1' stopColor='#1d1d1b' stopOpacity='1'></stop>
       </linearGradient>
       <filter id='drop-shadow-1' filterUnits='userSpaceOnUse'>
         <feOffset dx='-5.67' dy='5.67'></feOffset>
         <feGaussianBlur result='blur' stdDeviation='5.67'></feGaussianBlur>
-        <feFlood floodColor='#000' floodOpacity='0.5'></feFlood>
+        <feFlood floodColor='#000' floodOpacity='0.9'></feFlood>
         <feComposite in2='blur' operator='in'></feComposite>
         <feComposite in='SourceGraphic'></feComposite>
       </filter>

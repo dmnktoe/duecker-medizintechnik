@@ -9,8 +9,8 @@ import Globe from '@/components/templates/Globe';
 import Marquee from '@/components/templates/Marquee';
 import { Body, Title } from '@/components/ui';
 
-import bentoGridImg1 from '/public/images/home/bento-grid/bento-grid_keydot.jpg';
-import sterilisationskorb from '/public/images/home/bento-grid/Sterilisationskorb-Neuro-Kanuelen.jpg';
+import bentoGridImg2 from '/public/images/home/bento-grid/bento-grid_customer-standards.webp';
+import bentoGridImg1 from '/public/images/home/bento-grid/bento-grid_internal-repair.webp';
 import { ISO8 } from '~/images/home/bento-grid/iso8';
 
 const files = [
@@ -19,16 +19,16 @@ const files = [
     body: '"EN ISO" refers to standards adopted by the European Union (EN) from the International Organization for Standardization (ISO).',
   },
   {
-    name: '13485:2016',
-    body: '13485:2016 is the 2016 version of ISO 13485, a standard for quality management systems specific to the medical devices industry.',
+    name: '13485',
+    body: 'ISO 13485, a standard for quality management systems specific to the medical devices industry.',
   },
   {
-    name: 'AC:2018',
-    body: 'AC:2018 refers to an amendment or corrigendum issued in 2018 for a specific standard, clarifying or correcting its content.',
+    name: 'AC',
+    body: 'AC refers to an amendment or corrigendum for a specific standard, clarifying or correcting its content.',
   },
   {
-    name: 'A11:2021',
-    body: 'A11:2021 is an amendment issued in 2021 for a specific standard, updating or adding to its original content.',
+    name: 'A11',
+    body: 'A11 is an amendment issued in 2021 for a specific standard, updating or adding to its original content.',
   },
   {
     name: 'Infektionsschutz',
@@ -38,9 +38,47 @@ const files = [
 
 const tiles = [
   {
+    name: 'content.bentoGrid.tiles.production.title',
+    description: 'content.bentoGrid.tiles.production.description',
+    className: 'col-span-3 lg:col-span-2',
+    background: (
+      <div className='absolute h-full w-full'>
+        <Image
+          src={bentoGridImg2.src}
+          alt='Keydot'
+          priority
+          className='h-full w-full object-cover'
+          quality={95}
+          width={800}
+          height={800}
+        />
+      </div>
+    ),
+  },
+  {
+    name: 'content.bentoGrid.tiles.repair.title',
+    description: 'content.bentoGrid.tiles.repair.description',
+    className: 'col-span-3 lg:col-span-1',
+    href: '/contact',
+    textIsWhite: true,
+    background: (
+      <div className='absolute right-0 h-full w-full'>
+        <Image
+          src={bentoGridImg1.src}
+          alt='Keydot'
+          priority
+          className='h-full w-full object-cover'
+          quality={90}
+          width={800}
+          height={800}
+        />
+      </div>
+    ),
+  },
+  {
     name: 'content.bentoGrid.tiles.downloads.title',
     description: 'content.bentoGrid.tiles.downloads.description',
-    className: 'col-span-3 lg:col-span-1',
+    className: 'col-span-3 lg:col-span-1 bg-neutral-100',
     href: '/contact',
     background: (
       <Marquee
@@ -70,18 +108,41 @@ const tiles = [
     ),
   },
   {
+    name: 'content.bentoGrid.tiles.iso8.title',
+    description: 'content.bentoGrid.tiles.iso8.description',
+    className: 'col-span-3 lg:col-span-1 bg-primary-100 text-white',
+    background: (
+      <div className='mx-auto flex h-full justify-center text-center'>
+        <ISO8 className='absolute mx-auto block w-72 pt-8 [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)]' />
+      </div>
+    ),
+  },
+  {
+    name: 'content.bentoGrid.tiles.distribution.title',
+    description: 'content.bentoGrid.tiles.distribution.description',
+    href: '/contact',
+    cta: 'Learn more',
+    className:
+      'col-span-3 lg:col-span-1 from-dark to-primary-800 bg-gradient-to-br',
+    textIsWhite: true,
+    background: (
+      <Globe className='top-0 h-[600px] w-[600px] opacity-30 transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] sm:left-40 xl:h-[800px] xl:w-[800px] 2xl:-left-6' />
+    ),
+  },
+  /*  {
     name: 'content.bentoGrid.tiles.repair.title',
     description: 'content.bentoGrid.tiles.repair.description',
     className: 'col-span-3 lg:col-span-1',
     href: '/contact',
+    textIsWhite: true,
     background: (
-      <div className='absolute right-0 h-full w-64'>
+      <div className='absolute right-0 h-full w-full'>
         <Image
-          src={bentoGridImg1.src}
+          src={bentoGridImg4.src}
           alt='Keydot'
           priority
           className='h-full w-full object-cover'
-          quality={65}
+          quality={90}
           width={800}
           height={800}
         />
@@ -91,41 +152,22 @@ const tiles = [
   {
     name: 'content.bentoGrid.tiles.production.title',
     description: 'content.bentoGrid.tiles.production.description',
-    className: 'col-span-3 lg:col-span-1',
+    className: 'col-span-3 lg:col-span-2',
+    textIsWhite: true,
     background: (
       <div className='absolute h-full w-full'>
         <Image
-          src={sterilisationskorb.src}
+          src={bentoGridImg3.src}
           alt='Keydot'
           priority
-          className='relative -right-10 -top-8 block h-full w-full object-cover'
-          quality={65}
+          className='h-full w-full object-cover'
+          quality={95}
           width={800}
           height={800}
         />
       </div>
     ),
-  },
-  {
-    name: 'content.bentoGrid.tiles.iso8.title',
-    description: 'content.bentoGrid.tiles.iso8.description',
-    className: 'col-span-3 lg:col-span-1',
-    background: (
-      <div className='mx-auto flex h-full justify-center text-center'>
-        <ISO8 className='absolute mx-auto block w-96 pt-8 [mask-image:linear-gradient(to_top,transparent_20%,#000_100%)]' />
-      </div>
-    ),
-  },
-  {
-    name: 'content.bentoGrid.tiles.distribution.title',
-    description: 'content.bentoGrid.tiles.distribution.description',
-    href: '/contact',
-    cta: 'Learn more',
-    className: 'col-span-3 lg:col-span-2',
-    background: (
-      <Globe className='top-0 h-[600px] w-[600px] opacity-30 transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_30%,#000_100%)] sm:left-40 xl:h-[800px] xl:w-[800px] 2xl:left-80' />
-    ),
-  },
+  },*/
 ];
 
 const SectionTitle = () => {
@@ -152,7 +194,7 @@ const BentoGrid = ({
   return (
     <div
       className={clsxm(
-        'grid w-full auto-rows-[24rem] grid-cols-3 gap-3',
+        'grid w-full auto-rows-[25rem] grid-cols-3 gap-3',
         className,
       )}
     >
@@ -181,20 +223,25 @@ const BentoCard = ({
       <div
         key={name}
         className={clsxm(
-          'group relative col-span-3 flex flex-col justify-between overflow-hidden grayscale transition-all duration-300 ease-out hover:grayscale-0',
+          'group relative col-span-3 flex flex-col justify-between overflow-hidden rounded-2xl bg-dark transition-all duration-300 ease-out hover:grayscale-0',
           // light styles
           textIsWhite
             ? 'bg-white'
-            : 'border border-solid border-gray-100 bg-white hover:border-primary-300',
+            : 'border border-solid border-gray-200 bg-white hover:border-primary-300',
           className,
         )}
       >
         <div>{background}</div>
-        <div className='pointer-events-none z-10 flex flex-col p-6 transition-all duration-300'>
+        <div
+          className={clsxm(
+            'pointer-events-none z-10 flex flex-col p-6 transition-all duration-300',
+            textIsWhite ? 'bg-dark/40' : 'bg-white/40',
+          )}
+        >
           <Title
             size='four'
             margin={false}
-            className={clsxm(textIsWhite ? 'text-white' : 'text-black', 'mb-1')}
+            className={clsxm(textIsWhite ? 'text-white' : 'text-dark', 'mb-1')}
           >
             {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
             {/* @ts-expect-error */}
@@ -204,7 +251,7 @@ const BentoCard = ({
             margin={false}
             className={clsxm(
               'max-w-lg',
-              textIsWhite ? 'text-white' : 'text-neutral-dark',
+              textIsWhite ? 'text-white' : 'text-dark',
             )}
           >
             {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
@@ -220,7 +267,7 @@ const BentoCard = ({
 
 export const BentoSection = () => {
   return (
-    <section className='py-16 md:py-24 lg:border-t lg:border-dashed lg:border-gray-300 lg:py-32 2xl:px-16'>
+    <section className='py-16 md:py-24 lg:border-t lg:border-dashed lg:border-gray-300 lg:py-32'>
       <Container>
         <SectionTitle />
         <BentoGrid>
