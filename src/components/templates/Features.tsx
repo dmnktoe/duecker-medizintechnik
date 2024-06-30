@@ -55,7 +55,7 @@ export const Features = () => {
   const { t } = useTranslation('home');
   return (
     <>
-      <section className='py-16 md:py-24 lg:py-32 2xl:px-16'>
+      <section className='py-16 md:py-24 lg:py-32'>
         <Container>
           <div className='mb-8'>
             <Title renderAs='h2' className='md:-mb-2' margin={false}>
