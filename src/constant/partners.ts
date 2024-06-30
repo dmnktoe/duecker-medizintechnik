@@ -45,7 +45,7 @@ export const partners: Partner[] = [
   {
     name: 'STERIS',
     image: SterisIcon,
-    url: 'https://www.steris.com/',
+    url: 'https://keysurgical.de/',
   },
   {
     name: 'Tontarra',
