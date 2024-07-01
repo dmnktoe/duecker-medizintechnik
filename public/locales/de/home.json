@@ -12,15 +12,15 @@
           "title": "Downloads & Zertifikate"
         },
         "iso8": {
-          "description": "Wir sind zertifiziert nach EN ISO 13485 und sorgen für einen umfassenden Schutz.",
-          "title": "ISO8 Zertifizierung"
+          "description": "Wir sind zertifiziert nach EN ISO 13485.",
+          "title": "Zertifizierung nach EN ISO 13485"
         },
         "production": {
           "description": "Internationale Set-Packer profitieren von unseren unsterilen Bulk-Lieferungen zur Vervollständigung ihrer OP-Sets.",
           "title": "Standards und kundenorientierte Lösungen"
         },
         "repair": {
-          "description": "Unser Leistungsspektrum umfasst alle chirurgischen Instrumente wie Scheren, Klemmen, Nadelhalter und Behältersysteme.",
+          "description": "Unser Leistungsspektrum umfasst alle chirurgischen Instrumente wie Scheren, Klemmen, Nadelhalter und Containersysteme.",
           "title": "Hausinterne Reparaturdienste"
         }
       },
@@ -30,35 +30,35 @@
       "button": "Alle Leistungen ansehen",
       "textBlocks": [
         {
-          "content": "Reparatur & Werterhalt von medizinischen Instrumenten, Druckluftschläuchen und Containersystemen nach höchstem Maßstab, sowie professionelle Dienstleistungen für chirurgische Instrumente.",
-          "title": "Produktion & Reparatur"
-        },
-        {
-          "content": "Breites Angebot an hochwertigen sterilen Schlauchsystemen für verschiedene medizinische Anwendungen.",
-          "title": "Sterile Schlauchsysteme"
-        },
-        {
-          "content": "Wir bieten ein umfangreiches Sortiment an Medizinprodukten von führenden Herstellern für den Bedarf in Kliniken, Praxen und medizinischen Einrichtungen.",
-          "title": "Vertrieb von Medizinprodukten"
-        },
-        {
-          "content": "Zertifizierter Hersteller von sterilen- und unsterilen Schlauch-Sets, die höchsten Qualitätsstandards entsprechen.",
-          "title": "Zertifizierte Schlauch-Sets"
-        },
-        {
-          "content": "Unser spezialisiertes Team von Chirurgiemechanikern führt professionelle Reparaturen an chirurgischen Instrumenten durch, um deren Funktionalität und Lebensdauer zu erhalten.",
+          "content": "Unser spezialisiertes Team aus Chirurgiemechanikern führt professionelle Reparaturen an chirurgischen Instrumenten verschiedener Fachrichtungen, Containersystemen und Druckluftschläuchen für die Orthopädie nach höchsten Maßstäben durch, um deren Funktionalität und Lebensdauer zu erhalten.",
           "title": "Professioneller Reparaturservice"
         },
         {
-          "content": "Wir bieten umfassende Dienstleistungen für medizinische Einrichtungen, darunter Reparatur, Wartung und Beschaffung von medizinischen Geräten und Zubehör.",
+          "content": "Breites Angebot an hochwertigen sterilen und unsterilen Schlauchsystemen für verschiedene medizinische Anwendungen. Unsterile Schlauchsysteme werden ausschließlich an Set-Packer geliefert um Ihre bestehende Kundensets zu komplettieren.",
+          "title": "Sterile & unsterile Schlauchsysteme"
+        },
+        {
+          "content": "Wir bieten Ihnen ein umfangreiches Sortiment an Medizinprodukten von führenden Herstellern für den Bedarf in Kliniken, Praxen und medizinischen Einrichtungen. Verschaffen Sie sich einen Überblick der Leistungen bei unseren ausgewählten Partnern oder sprechen Sie uns direkt an.",
+          "title": "Vertrieb von Medizinprodukten"
+        },
+        {
+          "content": "Zertifizierter Hersteller von sterilen- und unsterilen Schlauch-Sets, die höchsten Qualitätsstandards entsprechen. Unser hausinterner Reparaturservice ist ebenfalls nach DIN EN ISO 13485 zertifiziert.",
+          "title": "Zertifizierte Qualität"
+        },
+        {
+          "content": "Wir bieten umfassende Dienstleistungen für medizinische Einrichtungen, darunter Reparatur, Wartung und Beschaffung von medizinischen Geräten und Zubehör. Im Bereich der Sterilgut-Logistik und Lagerung bieten wir Ihnen umfangreiche Lösungskonzepte als Basis für einen reibungslosen Sterilgutkreislauf.",
           "title": "Umfassende Dienstleistungen"
+        },
+        {
+          "content": "Seit 1991 steht Dücker Medizintechnik für Qualität und Innovation. Mit über 30 Jahren Erfahrung und einem modernen ISO Klasse 8 Reinraum bieten wir erstklassige medizinische Einweg-Produkte und setzen neue Maßstäbe in der Medizintechnik.",
+          "title": "Langjährige Erfahrung und Innovation"
         }
       ],
       "title": "Unsere Leistungen",
       "titleTwo": "Verschaffen Sie sich einen Überblick."
     },
     "hero": {
-      "badge": "Herstellung und Vertrieb von sterilen und unsterilen Schlauchsets aus Silikon, Vertrieb von medizinischen Produkten, Reparatur und Service von chirurgischen Instrumenten und Druckluftschläuchen.",
+      "badge": "Herstellung und Vertrieb von sterilen und unsterilen Schlauchsets, Vertrieb von medizinischen Produkten, Reparatur und Service von chirurgischen Instrumenten und Druckluftschläuchen.",
       "buttons": {
         "primary": {
           "label": "Leistungsspektum"

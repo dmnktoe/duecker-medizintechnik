@@ -12,8 +12,8 @@
           "title": "Downloads & Certificates"
         },
         "iso8": {
-          "description": "We are certified in accordance with EN ISO 13485 and ensure comprehensive protection.",
-          "title": "ISO8 certification"
+          "description": "We are certified according to EN ISO 13485.",
+          "title": "Certification according to EN ISO 13485"
         },
         "production": {
           "description": "International set packers benefit from our non-sterile bulk deliveries to complete their surgical trays.",
@@ -30,35 +30,35 @@
       "button": "See all services",
       "textBlocks": [
         {
-          "content": "Repair & value retention of medical instruments, compressed air hoses and container systems to the highest standards, as well as professional services for surgical instruments.",
-          "title": "Production & Repair"
-        },
-        {
-          "content": "Wide range of high-quality sterile tubing systems for various medical applications.",
-          "title": "Sterile tube systems"
-        },
-        {
-          "content": "We offer an extensive range of medical products from leading manufacturers for use in clinics, surgeries and medical facilities.",
-          "title": "Distribution of medical devices"
-        },
-        {
-          "content": "Certified manufacturer of sterile and non-sterile tubing sets that meet the highest quality standards.",
-          "title": "Certified hose sets"
-        },
-        {
-          "content": "Our specialized team of surgical mechanics carries out professional repairs on surgical instruments to maintain their functionality and service life.",
+          "content": "Our specialized team of surgical mechanics carries out professional repairs to surgical instruments of various specialties, container systems and compressed air hoses for orthopaedics to the highest standards in order to maintain their functionality and service life.",
           "title": "Professional repair service"
         },
         {
-          "content": "We offer comprehensive services for medical facilities, including repair, maintenance and procurement of medical equipment and accessories.",
+          "content": "Wide range of high-quality sterile and non-sterile tubing systems for various medical applications. Non-sterile tubing systems are supplied exclusively to set packers to complete their existing customer sets.",
+          "title": "Sterile & non-sterile tubing systems"
+        },
+        {
+          "content": "We offer you an extensive range of medical products from leading manufacturers for use in clinics, surgeries and medical facilities. Get an overview of our services from our selected partners or contact us directly.",
+          "title": "Distribution of medical devices"
+        },
+        {
+          "content": "Certified manufacturer of sterile and non-sterile tubing sets that meet the highest quality standards. Our in-house repair service is also certified in accordance with DIN EN ISO 13485.",
+          "title": "Certified hose sets"
+        },
+        {
+          "content": "We offer comprehensive services for medical facilities, including the repair, maintenance and procurement of medical devices and accessories. In the area of sterile supply logistics and storage, we offer you comprehensive solution concepts as the basis for a smooth sterile supply cycle.",
           "title": "Comprehensive services"
+        },
+        {
+          "content": "Dücker Medizintechnik has stood for quality and innovation since 1991. With over 30 years of experience and a modern ISO Class 8 cleanroom, we offer first-class disposable medical products and set new standards in medical technology.",
+          "title": "Many years of experience and innovation"
         }
       ],
       "title": "Our Services",
       "titleTwo": "Get an overview."
     },
     "hero": {
-      "badge": "Production and distribution of sterile and non-sterile tubing sets made of silicone, distribution of medical products, repair and service of surgical instruments and compressed air hoses.",
+      "badge": "Production and distribution of sterile and non-sterile tubing sets, distribution of medical products, repair and service of surgical instruments and compressed air hoses.",
       "buttons": {
         "primary": {
           "label": "Services"
