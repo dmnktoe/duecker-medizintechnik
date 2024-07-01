@@ -4,12 +4,11 @@ import * as React from 'react';
 
 import { Container } from '@/components/layout';
 import { AspectRatio, Body, Title } from '@/components/ui';
-import { CheckIcon } from '@/components/ui/Icons';
 
 import LabelPrinter from '/public/images/distribution/duecker-medizintechnik_distribution_label-printer.webp';
 
 export default function DistributionConsult() {
-  const { t, ready } = useTranslation('distribution', { useSuspense: false });
+  const { t } = useTranslation('distribution', { useSuspense: false });
 
   function ConsultText() {
     return (
@@ -18,20 +17,6 @@ export default function DistributionConsult() {
           {t('content.consultation.title')}
         </Title>
         <Body className='!text-white/60'>{t('content.consultation.text')}</Body>
-        <hr className='my-6 border-white/10 lg:my-12' />
-        <ul className='mb-16 flex flex-col gap-6 md:mb-24 lg:flex-row lg:flex-wrap'>
-          {ready &&
-            t('content.consultation.list', {
-              returnObjects: true,
-            }).map((item, index) => (
-              <li key={index} className='flex items-center'>
-                <CheckIcon className='mr-2 !h-4 !w-4 text-primary-500' />
-                <Body margin={false} className='!text-white/60'>
-                  {item.title}
-                </Body>
-              </li>
-            ))}
-        </ul>
       </>
     );
   }
