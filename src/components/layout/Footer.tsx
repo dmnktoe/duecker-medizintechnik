@@ -1,9 +1,11 @@
+import { useFlags } from 'flagsmith/react';
 import { useTranslation } from 'next-i18next';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { PiTranslate } from 'react-icons/pi';
 import { VscArrowRight } from 'react-icons/vsc';
 
+import clsxm from '@/lib/clsxm';
 import { fetchAPI } from '@/lib/fetch-api';
 
 import { Container } from '@/components/layout/Container';
@@ -146,13 +148,20 @@ const FooterPosts = () => {
 };
 
 const FooterCopyright = () => {
+  const flags = useFlags(['language_picker']);
   return (
     <>
       <Body margin={false}>
         © {new Date().getFullYear()} {company.companyName} • {company.street},{' '}
         {company.city}
       </Body>
-      <div className='order-first flex items-center justify-center bg-gray-100 p-2 align-middle focus:outline-dashed focus:outline-0 focus:outline-offset-4 focus:outline-gray-300 lg:order-last lg:p-3'>
+      <div
+        className={clsxm(
+          'order-first items-center justify-center bg-gray-100 p-2 align-middle lg:order-last lg:p-3',
+          'focus:outline-dashed focus:outline-0 focus:outline-offset-4 focus:outline-gray-300',
+          flags.language_picker.enabled ? 'flex' : 'hidden',
+        )}
+      >
         <span className='mr-2 inline-block'>
           <PiTranslate size={18} />
         </span>

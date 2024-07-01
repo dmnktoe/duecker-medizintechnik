@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { useFlags } from 'flagsmith/react';
 import { useRouter } from 'next/router';
 import { i18n } from 'next-i18next';
 import * as React from 'react';
@@ -15,6 +16,8 @@ const LanguagePicker = ({ className, showDisplayName }: Props) => {
   const router = useRouter();
   const id = useId();
 
+  const flags = useFlags(['language_picker']);
+
   function handleLanguageChange(e: React.ChangeEvent<HTMLSelectElement>) {
     const newLocale = e.target.value;
     const currentPath = router.asPath.includes(router.locale ?? '')
@@ -25,6 +28,8 @@ const LanguagePicker = ({ className, showDisplayName }: Props) => {
 
     router.push(newPath, newPath, { locale: false });
   }
+
+  if (!flags.language_picker.enabled) return null;
 
   return (
     <select
