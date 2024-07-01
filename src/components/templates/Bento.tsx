@@ -111,7 +111,6 @@ const tiles = [
     name: 'content.bentoGrid.tiles.distribution.title',
     description: 'content.bentoGrid.tiles.distribution.description',
     href: '/leistungen/vertrieb',
-    cta: 'Learn more',
     className:
       'col-span-3 lg:col-span-1 from-dark to-primary-800 bg-gradient-to-br',
     textIsWhite: true,
@@ -188,7 +187,7 @@ const BentoCard = ({
         <div>{background}</div>
         <div
           className={clsxm(
-            'pointer-events-none z-10 flex flex-col p-6 transition-all duration-300',
+            'pointer-events-none z-10 flex flex-col p-4 transition-all duration-300',
             textIsWhite ? 'bg-dark/40' : 'bg-white/40',
           )}
         >
