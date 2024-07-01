@@ -7,7 +7,7 @@ import clsxm from '@/lib/clsxm';
 import { Container } from '@/components/layout';
 import Globe from '@/components/templates/Globe';
 import Marquee from '@/components/templates/Marquee';
-import { Body, Title } from '@/components/ui';
+import { Body, Title, UnstyledLink } from '@/components/ui';
 
 import bentoGridImg2 from '/public/images/home/bento-grid/bento-grid_customer-standards.webp';
 import bentoGridImg1 from '/public/images/home/bento-grid/bento-grid_internal-repair.webp';
@@ -15,20 +15,8 @@ import { ISO8 } from '~/images/home/bento-grid/iso8';
 
 const files = [
   {
-    name: 'EN ISO',
-    body: '"EN ISO" refers to standards adopted by the European Union (EN) from the International Organization for Standardization (ISO).',
-  },
-  {
     name: '13485',
     body: 'ISO 13485, a standard for quality management systems specific to the medical devices industry.',
-  },
-  {
-    name: 'AC',
-    body: 'AC refers to an amendment or corrigendum for a specific standard, clarifying or correcting its content.',
-  },
-  {
-    name: 'A11',
-    body: 'A11 is an amendment issued in 2021 for a specific standard, updating or adding to its original content.',
   },
   {
     name: 'Infektionsschutz',
@@ -41,6 +29,7 @@ const tiles = [
     name: 'content.bentoGrid.tiles.production.title',
     description: 'content.bentoGrid.tiles.production.description',
     className: 'col-span-3 lg:col-span-2',
+    href: '/leistungen/produktion',
     background: (
       <div className='absolute h-full w-full'>
         <Image
@@ -59,7 +48,7 @@ const tiles = [
     name: 'content.bentoGrid.tiles.repair.title',
     description: 'content.bentoGrid.tiles.repair.description',
     className: 'col-span-3 lg:col-span-1',
-    href: '/contact',
+    href: '/leistungen/reparatur',
     textIsWhite: true,
     background: (
       <div className='absolute right-0 h-full w-full'>
@@ -79,11 +68,11 @@ const tiles = [
     name: 'content.bentoGrid.tiles.downloads.title',
     description: 'content.bentoGrid.tiles.downloads.description',
     className: 'col-span-3 lg:col-span-1 bg-neutral-100',
-    href: '/contact',
+    href: '/downloads',
     background: (
       <Marquee
         pauseOnHover
-        className='absolute top-10 [--duration:20s] [mask-image:linear-gradient(to_top,transparent_30%,#000_100%)]'
+        className='absolute top-10 [--duration:20s] [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)]'
       >
         {files.map((f, idx) => (
           <figure
@@ -110,6 +99,7 @@ const tiles = [
   {
     name: 'content.bentoGrid.tiles.iso8.title',
     description: 'content.bentoGrid.tiles.iso8.description',
+    href: '/unternehmen',
     className: 'col-span-3 lg:col-span-1 bg-primary-100 text-white',
     background: (
       <div className='mx-auto flex h-full justify-center text-center'>
@@ -120,54 +110,15 @@ const tiles = [
   {
     name: 'content.bentoGrid.tiles.distribution.title',
     description: 'content.bentoGrid.tiles.distribution.description',
-    href: '/contact',
+    href: '/leistungen/vertrieb',
     cta: 'Learn more',
     className:
       'col-span-3 lg:col-span-1 from-dark to-primary-800 bg-gradient-to-br',
     textIsWhite: true,
     background: (
-      <Globe className='top-0 h-[600px] w-[600px] opacity-30 transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] sm:left-40 xl:h-[800px] xl:w-[800px] 2xl:-left-6' />
+      <Globe className='pointer-events-none top-0 h-[600px] w-[600px] opacity-90 transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] sm:left-40 xl:h-[800px] xl:w-[800px] 2xl:-left-6' />
     ),
   },
-  /*  {
-    name: 'content.bentoGrid.tiles.repair.title',
-    description: 'content.bentoGrid.tiles.repair.description',
-    className: 'col-span-3 lg:col-span-1',
-    href: '/contact',
-    textIsWhite: true,
-    background: (
-      <div className='absolute right-0 h-full w-full'>
-        <Image
-          src={bentoGridImg4.src}
-          alt='Keydot'
-          priority
-          className='h-full w-full object-cover'
-          quality={90}
-          width={800}
-          height={800}
-        />
-      </div>
-    ),
-  },
-  {
-    name: 'content.bentoGrid.tiles.production.title',
-    description: 'content.bentoGrid.tiles.production.description',
-    className: 'col-span-3 lg:col-span-2',
-    textIsWhite: true,
-    background: (
-      <div className='absolute h-full w-full'>
-        <Image
-          src={bentoGridImg3.src}
-          alt='Keydot'
-          priority
-          className='h-full w-full object-cover'
-          quality={95}
-          width={800}
-          height={800}
-        />
-      </div>
-    ),
-  },*/
 ];
 
 const SectionTitle = () => {
@@ -209,21 +160,24 @@ const BentoCard = ({
   background,
   description,
   textIsWhite = false,
+  href,
 }: {
   name: string;
   className: string;
   background: ReactNode;
   description: string;
   textIsWhite?: boolean;
+  href: string;
 }) => {
   const { t } = useTranslation('home');
 
   return (
     <>
-      <div
+      <UnstyledLink
+        href={href}
         key={name}
         className={clsxm(
-          'group relative col-span-3 flex flex-col justify-between overflow-hidden rounded-2xl bg-dark transition-all duration-300 ease-out hover:grayscale-0',
+          'group relative col-span-3 flex flex-col justify-between overflow-hidden rounded-lg bg-dark grayscale transition-all duration-300 ease-out hover:grayscale-0',
           // light styles
           textIsWhite
             ? 'bg-white'
@@ -260,7 +214,7 @@ const BentoCard = ({
           </Body>
         </div>
         <div className='pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-dark/[.02]' />
-      </div>
+      </UnstyledLink>
     </>
   );
 };
