@@ -4,31 +4,45 @@
       "text": "Zusätzlich zu unserem breiten Produktsortiment bieten wir umfassende Beratungsdienste an, um die optimale Nutzung unserer Lösungen zu gewährleisten. Unser erfahrenes Team steht Ihnen zur Seite und sorgt dafür, dass Ihre Anforderungen stets erfüllt werden. Ob es um die Modernisierung bestehender Systeme oder die Integration neuer Technologien geht, wir unterstützen Sie dabei, die Effizienz und Leistungsfähigkeit Ihrer Prozesse zu maximieren und dabei Kosten zu minimieren.",
       "title": "Umfassende Beratung und Unterstützung für maximale Effizienz"
     },
-    "features": {
-      "1": {
-        "text": "Ein globales Vertriebsnetzwerk verbindet Sie mit den besten Partnern weltweit. Wir unterstützen Sie dabei, neue Märkte zu erschließen, bieten umfassende Markteintrittsstrategien und sorgen dafür, dass Ihre Produkte international erfolgreich sind. Nutzen Sie unsere Erfahrung und Expertise, um Ihre Reichweite zu maximieren und Ihr Geschäft global auszubauen.",
-        "title": "Globales Vertriebsnetzwerk"
-      },
-      "2": {
-        "text": "Maßgeschneiderte Vertriebskonzepte sind darauf ausgelegt, Ihre Verkaufsziele effizient zu erreichen. Durch innovative Strategien und eine genaue Marktanalyse entwickeln wir Lösungen, die perfekt auf Ihre Bedürfnisse abgestimmt sind. Profitieren Sie von unserer Expertise und steigern Sie Ihren Umsatz nachhaltig.",
-        "title": "Vertriebskonzepte"
-      },
-      "3": {
-        "text": "Unsere Markteintrittsunterstützung bietet Ihnen die erforderliche Expertise und Ressourcen, um erfolgreich in neue Märkte einzutreten. Von der Entwicklung einer maßgeschneiderten Strategie bis hin zur praktischen Umsetzung stehen wir Ihnen zur Seite, um Ihren Erfolg zu gewährleisten. Verlassen Sie sich auf unsere Erfahrung, um Hindernisse zu überwinden und Chancen zu nutzen, wenn Sie in neue Märkte expandieren möchten.",
-        "title": "Markteintrittsunterstützung"
-      },
-      "4": {
-        "text": "Wir unterstützen Sie bei der Navigation durch lokale Registrierungsprozesse, um sicherzustellen, dass Ihre Produkte den regionalen Anforderungen entsprechen. Unser erfahrenes Team kümmert sich um alle notwendigen Schritte und Formalitäten, damit Sie sich auf Ihr Kerngeschäft konzentrieren können. Vertrauen Sie auf unsere Expertise, um eine reibungslose Markteinführung zu gewährleisten.",
-        "title": "Lokale Registrierungsprozesse"
-      },
-      "text": "Mit unserem globalen Vertriebsnetzwerk und maßgeschneiderten Vertriebskonzepten unterstützen wir Sie beim erfolgreichen Markteintritt. Ob in Deutschland oder weltweit, wir begleiten Sie durch lokale Registrierungsprozesse und bieten spezialisierte Verkaufs- und Vertriebstrainings.",
-      "title": "Erfahren Sie wie wir Ihnen im Vertrieb behilflich sind."
-    },
     "intro": {
       "partners": "Mit unseren ausgewählten Vertriebspartnern bieten wir Ihnen ein leistungsstarkes Netzwerk:",
       "text1": "Durch unsere ausgewählten Vertriebspartner bieten wir Ihnen ein leistungsstarkes Netzwerk von Produkten und Dienstleistungen. Von chirurgischem Instrumentarium, HF-Chirurgische Instrumente über Orthopädische Shaver-Systemen, Pumpen und Bildgebenden Systemen bis hin zu Logistik Lösungen, Zubehör für die AEMP und Neurochirurgischen Bohrsystemen bieten wir ein komplettes Gesamtpaket an innovativen Lösungen.",
       "text2": "Unser Unternehmen legt besonderen Wert auf Qualität und Zuverlässigkeit. Daher arbeiten wir ausschließlich mit renommierten Herstellern und spezialisierten Vertriebspartnern zusammen, um sicherzustellen, dass unsere Kunden stets die besten Produkte und Dienstleistungen erhalten. Durch enge Zusammenarbeit und regelmäßigen Austausch mit unseren Partnern können wir schnell auf Marktveränderungen reagieren und innovative Technologien sowie maßgeschneiderte Lösungen anbieten, die den höchsten Standards entsprechen.",
       "title": "Ein ganzes Universum innovativer Lösungen von Medizintechnik bis Logistik im B2B & B2C Bereich"
+    },
+    "optic": {
+      "badge": "Präzision und brillante 4K-Bildqualität",
+      "text": "Die hervorragende Bildqualität ermöglicht eine präzise Diagnose und Therapie. Das Spektrum umfasst Arthroskope von 1,9mm bis 4,0mm in verschiedenen Blickrichtungen. Laparoskope von 5,0mm bis 10,0mm Hysteroskope und Zystoskope gehören zum Standardsortiment.",
+      "title": "Das hochwertige Optiksystem unserer Endoskope liefert gestochen scharfe Bilder von höchster Aussagekraft"
+    },
+    "products": {
+      "bissinger": {
+        "text": "Der Griff mit dem Dreh – Unabhängig von der Position des Chirurgen zum Patienten kann diese neuartige Bipolarzange durch einfaches Verdrehen des Griffs immer in eine ergonomisch optimale Position gebracht werden. Dadurch wird eine frühzeitige Ermüdung vermieden und ein entspannteres, präziseres Operieren ermöglicht.",
+        "title": "ORBITARIS Bipolare Koagulationszange"
+      },
+      "button": "Haben Sie Fragen zu einem unserer Produkte?",
+      "eberle": {
+        "text": "Das Eberle C3 ist ein fortschrittliches Steuergerät, das motorgetriebene Handstücke für die Arthroskopie steuert. Es ist mit einem 5-Zoll-Touchdisplay ausgestattet, das eine automatische Helligkeitsanpassung bietet und Softkeys für Grundfunktionen bereitstellt. Zu den Funktionen gehören eine einstellbare Oszillation und die Wahl zwischen Umdrehungen oder Frequenz im Oszillationsmodus.",
+        "title": "Shaversystem Eberle C3"
+      },
+      "hupfer": {
+        "text": "Bestes Handling und sichere Nutzung in der Ver- und Entsorgung von Sterilgütern: Unsere Transportwagen erfüllen die maximalen Anforderungen.",
+        "title": "Container- und Sterilguttransportwagen"
+      },
+      "medicon": {
+        "text": "Das \"piccolino\" Wirbelsäulen-Spreizersystem eignet sich sowohl für miniaturisierte subperiostale paravertebrale Zugangstechniken, als auch für transmuskuläre. Aufgrund der distal betonten Öffnung des Spekulums ergibt sich trotz der reduzierten Abmessungen keine eingeschränkte Darstellung des operativen Zielgebietes im Vergleich zu konventionellen Techniken.",
+        "title": "Spreizersystem „piccolino“"
+      },
+      "nouvag": {
+        "text": "Das HighSurg 30 Motorensystem ermöglicht dank des Dualmotor-Prinzips eine effiziente Arbeitsweise. Verbinden Sie bis zu zwei Elektronikmotoren und nutzen Sie das gewünschte Handstück für komfortables und präzises Arbeiten.",
+        "title": "HighSurg 30, Highspeed Motorensystem mit Dualmotor-Prinzip für vielfältige Anwendungen"
+      },
+      "text": "Wir vertreiben Produkte von renommierten Herstellern wie Nouvag, Medicon, Hupfer, Eberle, Tontarra und Bissinger. Unser Angebot umfasst eine breite Palette an chirurgischen Instrumenten, medizinischen Geräten, Sterilgutversorgungslösungen und elektrochirurgischen Instrumenten. Mit unserem umfassenden Produktportfolio bieten wir Ihnen maßgeschneiderte Lösungen für Ihre spezifischen Bedürfnisse. Vertrauen Sie auf unsere Expertise und unser Engagement für Qualität und Service.",
+      "title": "Erfahren Sie wie wir Ihnen im Vertrieb behilflich sind.",
+      "tontarra": {
+        "text": "Die CLEAN WAVE Laminektomie Stanzen & Rongeure sind einteilige Modelle, somit ist eine Demontage zu Reinigungszwecken nicht notwendig. Im Vergleich zu mehrteiligen Instrumenten, kann es somit auch nicht zum Verlust von Komponenten während des Reinigungs- und Sterilisations-prozesses kommen. Die wellenförmigen Schaftflächen ermöglichen zudem eine deutliche Reduzierung der Reibung.",
+        "title": "CLEAN WAVE - Stanzen & Rongeure"
+      }
     }
   },
   "meta": {

@@ -7,7 +7,7 @@ import { AspectRatio, Body, Title } from '@/components/ui';
 
 import { Partner, partners } from '@/constant/partners';
 
-import CardboardStorage from '/public/images/distribution/duecker-medizintechnik_distribution_cardboard-storage.jpg';
+import CardboardStorage from '/public/images/distribution/duecker-medizintechnik_distribution_cardboard-storage.webp';
 
 export default function DistributionIntro() {
   const { t } = useTranslation('distribution');
@@ -40,7 +40,7 @@ export default function DistributionIntro() {
       <AspectRatio ratio={4 / 3} className='w-full'>
         <Image
           src={CardboardStorage}
-          alt='Global Distribution Network'
+          alt='Cardboards in our warehouse'
           fill
           className='object-cover object-center'
         />

@@ -17,29 +17,29 @@ export const ProductCard = ({
   url: string;
 }) => {
   return (
-    <div className='flex flex-col items-start justify-around bg-gray-100 p-4'>
-      <div className='grow'>
-        <AspectRatio ratio={4 / 3} className='mb-6'>
+    <div className='flex flex-col items-start justify-around bg-gray-100 p-6'>
+      <div className='flex w-full grow flex-col'>
+        <AspectRatio ratio={4 / 3} className='mb-6 w-full'>
           <Image
             src={image}
             placeholder='blur'
             priority
             alt={title}
             fill
-            className='object-cover object-center'
+            className='w-full object-cover object-center'
           />
         </AspectRatio>
-        <Body margin={false} isStrong>
+        <Body size='sm' margin={false} isStrong className='underline'>
           {manufacturer}
         </Body>
-        <Title size='three'>{title}</Title>
+        <Title size='four'>{title}</Title>
         <Body size='sm'>{description}</Body>
       </div>
       <ButtonLink
         variant='light'
         size='sm'
         href={url}
-        className='mt-2 bg-[#e5465f] text-white transition-colors ease-in-out hover:bg-[#d13f4e] hover:text-white active:bg-[#d13f4e] active:text-white'
+        className='mt-2 hover:bg-white hover:underline'
         rightIcon={VscChevronRight}
       >
         Produkt-Details
