@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { useFlags } from 'flagsmith/react';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useTranslation } from 'next-i18next';
@@ -41,6 +42,7 @@ export interface SubItem {
 
 export const Header = () => {
   const { t, ready } = useTranslation('common', { useSuspense: false });
+  const flags = useFlags(['language_picker']);
   const [hamburgerMenuIsOpen, setHamburgerMenuIsOpen] = useState(false);
 
   useEffect(() => {
@@ -122,7 +124,7 @@ export const Header = () => {
                   )}
                 >
                   <div className='flex flex-grow flex-col items-stretch bg-white text-dark md:m-6 md:rounded-2xl md:shadow-xl'>
-                    <div className='flex flex-1 flex-grow flex-col gap-y-2 p-6 text-3xl font-medium tracking-tight'>
+                    <div className='flex flex-1 flex-grow flex-col gap-y-1 p-6 text-3xl font-medium tracking-tight'>
                       {ready &&
                         t('header.navigationItems', {
                           returnObjects: true,
@@ -134,23 +136,19 @@ export const Header = () => {
                         href='/kontakt'
                       />
                       <hr className='my-3' />
-                      <UnderlineLink
-                        underline='hover'
-                        className='text-sm md:text-base'
-                        href='/impressum'
-                      >
-                        {t('header.imprintLinkText')}
-                      </UnderlineLink>
-                      <UnderlineLink
-                        underline='hover'
-                        className='text-sm md:text-base'
-                        href='/datenschutz'
-                      >
-                        {t('header.privacyLinkText')}
-                      </UnderlineLink>
-                      <div className='flex items-center gap-1'>
-                        <PiTranslate size={18} />
-                        <LanguagePicker className='relative h-6 cursor-pointer border-0 bg-none p-0 outline-none hover:underline focus:border-0 focus:outline-none focus:ring-0' />
+                      <div className='flex flex-col gap-y-1 text-base'>
+                        <UnderlineLink underline='hover' href='/impressum'>
+                          {t('header.imprintLinkText')}
+                        </UnderlineLink>
+                        <UnderlineLink underline='hover' href='/datenschutz'>
+                          {t('header.privacyLinkText')}
+                        </UnderlineLink>
+                        {flags.language_picker.enabled && (
+                          <div className='flex items-center gap-1'>
+                            <PiTranslate size={18} />
+                            <LanguagePicker className='relative h-6 cursor-pointer border-0 bg-none p-0 !text-base hover:underline focus:border-0 focus:outline-none focus:ring-0' />
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
