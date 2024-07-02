@@ -5,8 +5,9 @@ import * as React from 'react';
 
 import Page from '@/components/layout/Page';
 import DistributionConsult from '@/components/templates/DistributionConsult';
-import DistributionFeatures from '@/components/templates/DistributionFeatures';
 import DistributionIntro from '@/components/templates/DistributionIntro';
+import DistributionOptic from '@/components/templates/DistributionOptic';
+import DistributionProducts from '@/components/templates/DistributionProducts';
 
 import VertriebImg from '/public/images/distribution/duecker-medizintechnik_distribution_hero-bg.webp';
 
@@ -29,7 +30,8 @@ const Vertrieb = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
       title={t('meta.pageTitle')}
     >
       <DistributionIntro />
-      <DistributionFeatures />
+      <DistributionOptic />
+      <DistributionProducts />
       <DistributionConsult />
     </Page>
   );

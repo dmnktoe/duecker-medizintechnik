@@ -18,8 +18,7 @@ export default function DistributionIntro() {
         <Title>{t('content.intro.title')}</Title>
         <Body>{t('content.intro.text1')}</Body>
         <Body>{t('content.intro.text2')}</Body>
-        <hr className='my-3 border-dark/10 lg:my-6' />
-        <Body isStrong>{t('content.intro.partners')}</Body>
+        <Body>{t('content.intro.partners')}</Body>
         <div className='lg:max-w-lg'>
           <div className='grid grid-cols-4 items-center gap-x-12 gap-y-6 align-middle'>
             {partners.map((partner: Partner, index) => (
@@ -50,7 +49,7 @@ export default function DistributionIntro() {
   }
 
   return (
-    <section className='mb-16 lg:mb-24'>
+    <section className='mb-16 md:mb-24 lg:mb-32'>
       <Container>
         <div className='flex flex-col items-start md:flex-row md:gap-16 lg:gap-24 2xl:gap-32'>
           <div className='mb-12 w-full md:mb-0 lg:w-2/3 xl:w-1/2'>

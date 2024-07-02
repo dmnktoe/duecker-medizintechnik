@@ -44,7 +44,7 @@ export default function DistributionConsult() {
             </div>
           </div>
           <div className='w-full lg:w-2/3 xl:w-1/2'>
-            <div className='text-white'>
+            <div className='mb-16 text-white md:mb-0'>
               <ConsultText />
             </div>
           </div>
