@@ -46,7 +46,7 @@ const ImageBanner = ({
         src={src}
         sizes={responsiveImageSizes[role]}
         fill
-        quality={60}
+        quality={90}
         priority={priority}
         alt={alt}
         className='object-cover'
