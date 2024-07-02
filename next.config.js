@@ -16,6 +16,10 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
 
+  experimental: {
+    scrollRestoration: true,
+  },
+
   // i18n
   i18n,
 
