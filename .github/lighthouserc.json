@@ -14,7 +14,6 @@
         "http://localhost:3000/kontakt",
         "http://localhost:3000/leistungen",
         "http://localhost:3000/leistungen/produktion",
-        "http://localhost:3000/leistungen/produktion/uebersicht",
         "http://localhost:3000/leistungen/reparatur",
         "http://localhost:3000/leistungen/vertrieb",
         "http://localhost:3000/newsroom",
