@@ -82,17 +82,16 @@ export default function DistributionProducts() {
         <UnderlineLink underline='always' href='/kontakt'>
           {t('content.products.button')}
         </UnderlineLink>
-        <div className='mt-8 hidden bg-gray-100 p-3 xl:block'>
-          <Body>
+        <div className='mt-4 hidden xl:block'>
+          <Body size='sm' color='light'>
             {company.street} <br />
             {company.city}
           </Body>
-          <Body>
+          <Body size='sm' color='light'>
             <UnderlineLink href={`tel:${company.phone}`} underline='hover'>
               {company.phone}
             </UnderlineLink>
             <br />
-
             <UnderlineLink href={'mailto:' + company.email} underline='hover'>
               {company.email}
             </UnderlineLink>
