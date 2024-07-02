@@ -14,7 +14,7 @@ import { Distribution, Production, Repair } from './StickyScrollCard';
 import { StickyScrollTitle } from './StickyScrollTitle';
 import { useFeatureStore } from './store';
 
-import distributionStickyImg from '/public/images/home/sticky-scroll/sticky-scroll_image-distribution.jpg';
+import distributionStickyImg from '/public/images/home/sticky-scroll/sticky-scroll_image-distribution.webp';
 import productionStickyImg from '/public/images/home/sticky-scroll/sticky-scroll_image-production.jpg';
 import repairStickyImg from '/public/images/home/sticky-scroll/sticky-scroll_image-repair.jpg';
 
@@ -178,7 +178,7 @@ export const StickyScroll = () => {
                       alt={feature.id}
                       placeholder='blur'
                       priority
-                      quality={65}
+                      quality={90}
                     />
                   </AspectRatio>
                   <div className='absolute bottom-0 left-0 w-full p-2'>

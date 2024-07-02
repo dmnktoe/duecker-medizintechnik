@@ -37,7 +37,7 @@ const tiles = [
           alt='Keydot'
           priority
           className='h-full w-full object-cover'
-          quality={95}
+          quality={90}
           width={800}
           height={800}
         />
