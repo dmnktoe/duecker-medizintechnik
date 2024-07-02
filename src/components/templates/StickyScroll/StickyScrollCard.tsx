@@ -8,7 +8,7 @@ import { ButtonLink } from '@/components/ui';
 
 import { useFeatureStore } from './store';
 
-import distributionStickyImg from '/public/images/home/sticky-scroll/sticky-scroll_image-distribution.jpg';
+import distributionStickyImg from '/public/images/home/sticky-scroll/sticky-scroll_image-distribution.webp';
 import productionStickyImg from '/public/images/home/sticky-scroll/sticky-scroll_image-production.jpg';
 import repairStickyImg from '/public/images/home/sticky-scroll/sticky-scroll_image-repair.jpg';
 
@@ -68,10 +68,10 @@ export const Production = ({ id }: CardProps) => {
         src={productionStickyImg}
         placeholder='blur'
         priority
-        width={600}
-        height={600}
+        width={1000}
+        height={1000}
         className='relative h-full w-full overflow-hidden'
-        quality={65}
+        quality={90}
       />
       <span />
     </StickyScrollCard>
@@ -86,10 +86,10 @@ export const Repair = ({ id }: CardProps) => {
         src={repairStickyImg}
         placeholder='blur'
         priority
-        width={600}
-        height={600}
+        width={1000}
+        height={1000}
         className='relative h-full w-full overflow-hidden'
-        quality={65}
+        quality={90}
       />
       <span />
     </StickyScrollCard>
@@ -104,10 +104,10 @@ export const Distribution = ({ id }: CardProps) => {
         src={distributionStickyImg}
         placeholder='blur'
         priority
-        width={600}
-        height={600}
+        width={1000}
+        height={1000}
         className='relative h-full w-full overflow-hidden'
-        quality={65}
+        quality={90}
       />
       <span />
     </StickyScrollCard>

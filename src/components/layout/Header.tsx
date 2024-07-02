@@ -226,7 +226,7 @@ const NavItem = ({ href, text, subItems }: NavItemProps) => {
                     width={500}
                     height={500}
                     className='h-full w-full overflow-hidden'
-                    quality={100}
+                    quality={90}
                   />
                 </div>
                 <div className='flex flex-col justify-between'>

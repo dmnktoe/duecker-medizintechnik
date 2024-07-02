@@ -37,7 +37,7 @@ const tiles = [
           alt='Keydot'
           priority
           className='h-full w-full object-cover'
-          quality={95}
+          quality={90}
           width={800}
           height={800}
         />
@@ -220,7 +220,7 @@ const BentoCard = ({
 
 export const BentoSection = () => {
   return (
-    <section className='py-16 md:py-24 lg:border-t lg:border-dashed lg:border-gray-300 lg:py-32'>
+    <section className='py-16 md:py-24 lg:py-32'>
       <Container>
         <SectionTitle />
         <BentoGrid>
