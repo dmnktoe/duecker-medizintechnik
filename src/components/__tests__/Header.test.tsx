@@ -5,6 +5,10 @@ import initializeI18n from '@/lib/i18n-testing';
 
 import { Header } from '@/components/layout/Header';
 
+jest.mock('flagsmith/react', () => ({
+  useFlags: () => ({ language_picker: { enabled: true } }),
+}));
+
 describe('Header', () => {
   beforeEach(async () => {
     await initializeI18n(['common']);

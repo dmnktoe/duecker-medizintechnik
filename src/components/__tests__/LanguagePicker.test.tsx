@@ -11,6 +11,10 @@ jest.mock('next-i18next', () => ({
   i18n: { language: 'de' },
 }));
 
+jest.mock('flagsmith/react', () => ({
+  useFlags: () => ({ language_picker: { enabled: true } }),
+}));
+
 describe('LanguagePicker', () => {
   it('should render correctly and respond to user interaction', () => {
     const mockRouter = {
