@@ -13,13 +13,13 @@ export const ContactMap = () => {
 
   if (loading) {
     return (
-      <div className='relative flex h-[350px] animate-pulse items-center bg-gray-100 align-middle' />
+      <div className='relative flex h-[250px] animate-pulse items-center bg-gray-100 align-middle md:h-[350px]' />
     );
   }
 
   if (!consent?.marketing) {
     return (
-      <div className='relative flex h-[350px] items-center bg-gray-100 align-middle'>
+      <div className='relative flex h-[250px] items-center bg-gray-100 align-middle md:h-[350px]'>
         <Container>
           <div className='flex flex-col items-center gap-8 align-middle'>
             <span
@@ -58,11 +58,11 @@ export const ContactMap = () => {
 
   if (consent?.marketing) {
     return (
-      <div className='relative flex h-[350px] items-center bg-gray-100 align-middle'>
+      <div className='relative flex h-[250px] items-center bg-gray-100 align-middle md:h-[350px]'>
         <iframe
           src='https://maps.google.de/maps?hl=de&q=Dücker+Medizintechnik%20%20%20%20%20Elfershäuser+Str.+18%20%20%20%20Melsungen&t=ROADMAP&z=12&ie=utf8&iwloc=b&output=embed'
           width='100%'
-          height='350'
+          height='100%'
           id='google-maps'
         ></iframe>
       </div>
