@@ -22,23 +22,28 @@ import OpticImage1 from '/public/images/distribution/optic/duecker-medizintechni
 import OpticImage2 from '/public/images/distribution/optic/duecker-medizintechnik_distribution_optic-2.webp';
 import OpticImage3 from '/public/images/distribution/optic/duecker-medizintechnik_distribution_optic-3.webp';
 import OpticImage4 from '/public/images/distribution/optic/duecker-medizintechnik_distribution_optic-4.webp';
+import OpticImage5 from '/public/images/distribution/optic/duecker-medizintechnik_distribution_optic-5.webp';
 
 const slides = [
   {
     img: OpticImage1,
-    desc: 'Optic Image 1',
+    desc: 'Dücker Medizintechnik: Optiksystem',
   },
   {
     img: OpticImage2,
-    desc: 'Optic Image 2',
+    desc: 'Dücker Medizintechnik: Optiksystem',
   },
   {
     img: OpticImage3,
-    desc: 'Optic Image 3',
+    desc: 'Dücker Medizintechnik: Schutzhüllen für das Optiksystem',
   },
   {
     img: OpticImage4,
-    desc: 'Optic Image 4',
+    desc: 'Dücker Medizintechnik: Schutzhüllen für das Optiksystem',
+  },
+  {
+    img: OpticImage5,
+    desc: 'Dücker Medizintechnik: Optiksystem',
   },
 ];
 
@@ -47,7 +52,7 @@ export default function DistributionOptic() {
 
   const PartnerLogos = () => {
     return (
-      <Marquee className='mb-4 text-gray-300 [mask-image:linear-gradient(to_right,transparent_0%,#000_15%,#000_85%,#fff_100%)] xl:mb-12'>
+      <Marquee className='mb-4 text-gray-300 [mask-image:linear-gradient(to_right,transparent_0%,#000_15%,#000_85%,transparent_100%)] xl:mb-12'>
         {partners.map((partner) => (
           <div key={partner.name} className='px-6'>
             <Link href={partner.url} target='_blank'>
@@ -146,9 +151,11 @@ export default function DistributionOptic() {
 
   return (
     <section className='py-16'>
-      <PartnerLogos />
+      <Container>
+        <PartnerLogos />
+      </Container>
       <Container className='text-center'>
-        <div className='mx-auto h-auto max-w-7xl bg-gray-50 bg-[url(/images/distribution/optic/duecker-medizintechnik_distribution_optic-bg.webp)] bg-cover bg-top p-16 xl:h-[30rem]'>
+        <div className='mx-auto h-auto max-w-7xl bg-gray-50 bg-[url(/images/distribution/optic/duecker-medizintechnik_distribution_optic-bg.webp)] bg-cover bg-top p-8 xl:h-[30rem] xl:p-16'>
           <OpticIntro />
         </div>
         <OpticSlider />
