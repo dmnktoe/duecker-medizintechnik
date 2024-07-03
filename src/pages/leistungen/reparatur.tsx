@@ -20,7 +20,7 @@ const Reparatur = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
         background: 'light',
         showBreadcrumbs: true,
         showHero: true,
-        padding: 'default',
+        padding: 'small',
       }}
       image={ReparaturImg}
       seo={{

@@ -20,7 +20,7 @@ const Vertrieb = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
         background: 'light',
         showBreadcrumbs: true,
         showHero: false,
-        padding: 'default',
+        padding: 'small',
       }}
       image={VertriebImg}
       seo={{

@@ -19,7 +19,7 @@ const Produktion = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
         background: 'light',
         showBreadcrumbs: true,
         showHero: false,
-        padding: 'default',
+        padding: 'small',
       }}
       image={ProduktionImg}
       seo={{
