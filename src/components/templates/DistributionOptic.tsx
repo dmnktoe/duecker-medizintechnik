@@ -150,7 +150,7 @@ export default function DistributionOptic() {
   };
 
   return (
-    <section className='py-16'>
+    <section className='py-8 md:py-16'>
       <Container>
         <PartnerLogos />
       </Container>

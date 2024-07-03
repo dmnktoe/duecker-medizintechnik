@@ -37,7 +37,7 @@ export default function DistributionIntro() {
     <>
       <section className='mb-16 md:mb-24 lg:mb-32'>
         <Container>
-          <div className='flex flex-col items-start md:flex-row lg:gap-16'>
+          <div className='flex flex-col items-start lg:flex-row lg:gap-16'>
             <div className='mb-4 w-full md:mb-0 lg:w-2/3 xl:w-1/2'>
               <IntroText />
             </div>
