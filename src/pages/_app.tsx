@@ -28,7 +28,7 @@ function Duecker({
             color='var(--color-primary-500)'
             startPosition={0.3}
             stopDelayMs={200}
-            height={3}
+            height={2}
             showOnShallow={true}
             options={{
               showSpinner: false,

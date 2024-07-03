@@ -11,7 +11,6 @@ import { Body, Title, UnstyledLink } from '@/components/ui';
 
 import bentoGridImg2 from '/public/images/home/bento-grid/bento-grid_customer-standards.webp';
 import bentoGridImg1 from '/public/images/home/bento-grid/bento-grid_internal-repair.webp';
-import { ISO8 } from '~/images/home/bento-grid/iso8';
 
 const files = [
   {
@@ -97,25 +96,14 @@ const tiles = [
     ),
   },
   {
-    name: 'content.bentoGrid.tiles.iso8.title',
-    description: 'content.bentoGrid.tiles.iso8.description',
-    href: '/unternehmen',
-    className: 'col-span-3 lg:col-span-1 bg-primary-100 text-white',
-    background: (
-      <div className='mx-auto flex h-full justify-center text-center'>
-        <ISO8 className='absolute mx-auto block w-72 pt-8 [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)]' />
-      </div>
-    ),
-  },
-  {
     name: 'content.bentoGrid.tiles.distribution.title',
     description: 'content.bentoGrid.tiles.distribution.description',
     href: '/leistungen/vertrieb',
     className:
-      'col-span-3 lg:col-span-1 from-dark to-primary-800 bg-gradient-to-br',
+      'col-span-3 lg:col-span-2 from-dark to-primary-800 bg-gradient-to-br',
     textIsWhite: true,
     background: (
-      <Globe className='pointer-events-none top-0 h-[600px] w-[600px] opacity-90 transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] sm:left-40 xl:h-[800px] xl:w-[800px] 2xl:-left-6' />
+      <Globe className='pointer-events-none top-0 h-[600px] w-[600px] opacity-90 transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] sm:left-40 xl:h-[800px] xl:w-[800px]' />
     ),
   },
 ];
@@ -176,7 +164,7 @@ const BentoCard = ({
         href={href}
         key={name}
         className={clsxm(
-          'group relative col-span-3 flex flex-col justify-between overflow-hidden rounded-lg bg-dark grayscale transition-all duration-300 ease-out hover:grayscale-0',
+          'group relative col-span-3 flex flex-col justify-between overflow-hidden rounded-lg grayscale transition-all duration-300 ease-out hover:grayscale-0',
           // light styles
           textIsWhite
             ? 'bg-white'
