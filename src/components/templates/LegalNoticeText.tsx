@@ -35,12 +35,13 @@ export default function LegalNoticeText() {
           </PrimaryLink>
         </Body>
         <Body>
-          {t('content.provider.taxNumber')}: 02522835460
+          {t('content.provider.taxNumber')}: 032 813 6017 5
           <br />
-          Amtsgericht Kassel HRB 16493
+          Amtsgericht -
         </Body>
         <Body>
-          {t('content.provider.imageSources')}: Patrick Dücker, Unsplash, Pexels
+          {t('content.provider.imageSources')}: Patrick Dücker, Eberle,
+          Tontarra, Nouvag, Medicon, Hupfer, Bissinger, Unsplash, Pexels
         </Body>
         <Body isStrong>{t('content.copyright.title')}</Body>
         <Body>{t('content.copyright.text')}</Body>
