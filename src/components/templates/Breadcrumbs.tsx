@@ -14,7 +14,7 @@ export default function Breadcrumbs({ className }: { className?: string }) {
   const pathSegments = router.pathname.split('/').filter((p) => p);
 
   return (
-    <div className={clsx('mb-6', className)}>
+    <div className={clsx('mb-4', className)}>
       <ul className={clsx('flex')}>
         <li className='flex items-center'>
           <UnderlineLink underline='hover' href='/'>
