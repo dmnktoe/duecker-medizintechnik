@@ -1,7 +1,13 @@
 import Image, { StaticImageData } from 'next/image';
 import { VscChevronRight } from 'react-icons/vsc';
 
-import { AspectRatio, Body, ButtonLink, Title } from '@/components/ui';
+import {
+  AspectRatio,
+  Body,
+  ButtonLink,
+  Title,
+  UnderlineLink,
+} from '@/components/ui';
 
 export const ProductCard = ({
   manufacturer,
@@ -29,11 +35,19 @@ export const ProductCard = ({
             className='w-full object-cover object-center'
           />
         </AspectRatio>
-        <Body size='sm' margin={false} isStrong className='underline'>
-          {manufacturer}
-        </Body>
-        <Title size='four'>{title}</Title>
-        <Body size='sm'>{description}</Body>
+        <div className='mb-8 flex flex-col gap-1'>
+          <Body size='sm' margin={false} isStrong className='underline'>
+            {manufacturer}
+          </Body>
+          <UnderlineLink href={url} underline='hover'>
+            <Title margin={false} size='four'>
+              {title}
+            </Title>
+          </UnderlineLink>
+          <Body margin={false} size='sm'>
+            {description}
+          </Body>
+        </div>
       </div>
       <ButtonLink
         variant='light'
