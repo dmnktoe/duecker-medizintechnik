@@ -37,7 +37,7 @@ export default function LegalNoticeText() {
         <Body>
           {t('content.provider.taxNumber')}: 032 813 6017 5
           <br />
-          Amtsgericht -
+          Amtsgericht Melsungen
         </Body>
         <Body>
           {t('content.provider.imageSources')}: Patrick Dücker, Eberle,
