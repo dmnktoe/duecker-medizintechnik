@@ -291,7 +291,7 @@ const ResponsiveNavItem = ({ href, text, subItems }: NavItemProps) => {
             <VscChevronDown className='relative -top-[1px] inline-block transform text-2xl duration-200 group-hover:rotate-180 group-hover:transform' />
           </CollapsibleTrigger>
           <CollapsibleContent>
-            <div className='mt-2 flex flex-col gap-y-2 text-2xl text-gray-700'>
+            <div className='mt-2 flex flex-col gap-y-1 text-2xl text-gray-700'>
               {subItems.map((item, index) => (
                 <UnderlineLink underline='hover' href={item.href} key={index}>
                   <SubdirectoryIcon /> {item.text}
