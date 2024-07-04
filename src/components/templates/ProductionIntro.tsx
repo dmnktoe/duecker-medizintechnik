@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
 import * as React from 'react';
-import { VscCheck } from 'react-icons/vsc';
 
 import { Container } from '@/components/layout';
 import { AspectRatio, Body, Title } from '@/components/ui';
+import { CheckIcon } from '@/components/ui/Icons';
 
 export default function ProductionIntro() {
   const { t } = useTranslation('production');
@@ -14,20 +14,28 @@ export default function ProductionIntro() {
         <div className='flex flex-col items-start lg:flex-row lg:gap-16'>
           <div className='mb-4 w-full lg:mb-0 lg:w-2/3 xl:w-1/2'>
             <div className='text-dark'>
-              <Title>{t('content.title1')}</Title>
-              <Body>{t('content.text1')}</Body>
-              <ul className='space-y-2'>
+              <Title>{t('content.intro.title')}</Title>
+              <Body>{t('content.intro.text1')}</Body>
+              <Body>{t('content.intro.text2')}</Body>
+              <Title size='four'>{t('content.intro.list.title')}</Title>
+              <ul className='space-y-1'>
                 <li className='flex items-center'>
-                  <VscCheck className='mr-4 h-4 w-4 text-primary-500' />
-                  <Body margin={false}>{t('content.list.items.1.label')}</Body>
+                  <CheckIcon className='mr-2 !h-4 !w-4 text-primary-500' />
+                  <Body margin={false}>
+                    {t('content.intro.list.items.1.label')}
+                  </Body>
                 </li>
                 <li className='flex items-center'>
-                  <VscCheck className='mr-4 h-4 w-4 text-primary-500' />
-                  <Body margin={false}>{t('content.list.items.2.label')}</Body>
+                  <CheckIcon className='mr-2 !h-4 !w-4 text-primary-500' />
+                  <Body margin={false}>
+                    {t('content.intro.list.items.2.label')}
+                  </Body>
                 </li>
                 <li className='flex items-center'>
-                  <VscCheck className='mr-4 h-4 w-4 text-primary-500' />
-                  <Body margin={false}>{t('content.list.items.3.label')}</Body>
+                  <CheckIcon className='mr-2 !h-4 !w-4 text-primary-500' />
+                  <Body margin={false}>
+                    {t('content.intro.list.items.3.label')}
+                  </Body>
                 </li>
               </ul>
             </div>

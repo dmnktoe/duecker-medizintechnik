@@ -19,8 +19,8 @@ export default function ProductionTiles() {
                     href='/produkte'
                   >
                     <div className='flex h-full max-w-sm flex-col justify-between pr-16'>
-                      <Body size='sm'>{t('content.boxes.1.text')}</Body>
-                      <Title size='three'>{t('content.boxes.1.title')}</Title>
+                      <Body size='sm'>{t('content.tiles.1.text')}</Body>
+                      <Title size='three'>{t('content.tiles.1.title')}</Title>
                     </div>
                   </UnstyledLink>
                   <UnstyledLink
@@ -28,8 +28,8 @@ export default function ProductionTiles() {
                     href='/produkte'
                   >
                     <div className='flex h-full max-w-sm flex-col justify-between pr-16'>
-                      <Body size='sm'>{t('content.boxes.2.text')}</Body>
-                      <Title size='three'>{t('content.boxes.2.title')}</Title>
+                      <Body size='sm'>{t('content.tiles.2.text')}</Body>
+                      <Title size='three'>{t('content.tiles.2.title')}</Title>
                     </div>
                   </UnstyledLink>
                 </div>
@@ -40,17 +40,16 @@ export default function ProductionTiles() {
                   href='/produkte'
                 >
                   <div className='flex h-full max-w-sm flex-col items-start justify-between pr-16'>
-                    <Body size='sm'>{t('content.boxes.3.text')}</Body>
-                    <Title size='three'>{t('content.boxes.3.title')}</Title>
+                    <Body size='sm'>{t('content.tiles.3.text')}</Body>
+                    <Title size='three'>{t('content.tiles.3.title')}</Title>
                   </div>
                 </UnstyledLink>
               </div>
             </div>
           </div>
           <div className='w-full md:py-2 lg:w-1/3 lg:px-4 lg:py-32 xl:mb-0 xl:w-1/2'>
-            <Title>{t('content.title2')}</Title>
-            <Body>{t('content.text2')}</Body>
-            <Body margin={false}>{t('content.text3')}</Body>
+            <Title>{t('content.tiles.title')}</Title>
+            <Body>{t('content.tiles.text')}</Body>
           </div>
         </div>
       </Container>
