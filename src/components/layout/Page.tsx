@@ -25,6 +25,7 @@ interface PageProps {
   seo: {
     title: string;
     description: string;
+    hreflangs?: { rel: string; hrefLang: string; href: string }[];
   };
   title: string;
 }
@@ -52,6 +53,7 @@ export default function Page({
         /* This is a SEO-optimized meta.seo.title */
         description={seo.description}
         title={seo.title}
+        hreflangs={seo.hreflangs}
       />
       {image && layout.showHero && (
         <ImageBanner
