@@ -11,7 +11,6 @@ import { fetchAPI } from '@/lib/fetch-api';
 import { Container } from '@/components/layout/Container';
 import LanguagePicker from '@/components/templates/LanguagePicker';
 import { Body, ButtonLink, Title, UnderlineLink } from '@/components/ui';
-import { PrivacyChoiceIcon } from '@/components/ui/Icons';
 
 import { company } from '@/constant/company';
 
@@ -79,11 +78,8 @@ const FooterLinks = () => {
                       className='line-clamp-2'
                       href={item.href}
                     >
-                      <Body margin={false}>
-                        {item.title}{' '}
-                        {item.href === '/cookie-richtlinie' && (
-                          <PrivacyChoiceIcon className='relative -top-0.5 ml-1 inline-block w-5' />
-                        )}
+                      <Body size='sm' margin={false}>
+                        {item.title}
                       </Body>
                     </UnderlineLink>
                   </li>
@@ -113,17 +109,30 @@ const FooterPosts = () => {
 
   if (isLoading)
     return (
-      <div className='h-24 w-full rounded-md'>
-        <div className='flex h-full animate-pulse flex-row space-x-5'>
-          <div className='flex flex-col space-y-2'>
-            <div className='h-3 w-36 rounded-md bg-gray-300'></div>
-            <div className='h-3 w-24 rounded-md bg-gray-300'></div>
+      <>
+        <FooterNavigationHeadline title={t('footer.posts.title')} />
+        <div className='h-24 w-full rounded-md'>
+          <div className='flex h-full animate-pulse flex-row space-x-5'>
+            <div className='flex flex-col space-y-2'>
+              <div className='h-3 w-36 rounded-md bg-gray-300'></div>
+              <div className='h-3 w-24 rounded-md bg-gray-300'></div>
+            </div>
           </div>
         </div>
-      </div>
+      </>
     );
 
-  if (!posts) return <Body>{t('footer.posts.noResults')}</Body>;
+  if (!posts)
+    return (
+      <>
+        <div>
+          <FooterNavigationHeadline title={t('footer.posts.title')} />
+          <Body className='md:mt-8' size='sm'>
+            {t('footer.posts.noResults')}
+          </Body>
+        </div>
+      </>
+    );
 
   return (
     <>
@@ -137,7 +146,9 @@ const FooterPosts = () => {
                 className='line-clamp-2'
                 href={`/newsroom/${post.attributes.slug}`}
               >
-                <Body margin={false}>{post.attributes.title}</Body>
+                <Body size='sm' margin={false}>
+                  {post.attributes.title}
+                </Body>
               </UnderlineLink>
             </li>
           ))}
