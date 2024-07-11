@@ -42,13 +42,13 @@ const Startseite = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ locale, params }) => {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const posts = await fetchAPI(
     '/posts?sort=id:desc&populate=deep&pagination[pageSize]=8',
   );
 
   const locales = i18nextConfig.i18n.locales;
-  const currentPath = params?.slug ? `/${params.slug}` : '/';
+  const currentPath = '/';
 
   const hreflangs = generateHreflangTags(locales, currentPath);
 

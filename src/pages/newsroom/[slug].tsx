@@ -62,7 +62,6 @@ const PostPage = (props: PostPageProps) => {
 
   return (
     <Page
-      date={post.attributes.publishedAt}
       layout={{
         containerWidth: 'max-w-5xl',
         showBreadcrumbs: false,
@@ -72,6 +71,7 @@ const PostPage = (props: PostPageProps) => {
       seo={{
         title: post.attributes.title,
         description: post.attributes.excerpt,
+        date: post.attributes.publishedAt,
       }}
       title={post.attributes.title}
     >
