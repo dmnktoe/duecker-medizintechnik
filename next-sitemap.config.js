@@ -4,6 +4,7 @@
  */
 module.exports = {
   siteUrl: 'https://duecker-medizintechnik.de',
+  generateIndexSitemap: false,
   generateRobotsTxt: true,
   robotsTxtOptions: {
     policies: [{ userAgent: '*', allow: '/' }],
