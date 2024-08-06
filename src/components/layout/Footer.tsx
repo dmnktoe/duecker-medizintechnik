@@ -169,7 +169,7 @@ const FooterCopyright = () => {
           © {new Date().getFullYear()} {company.companyName} • {company.street}
           , {company.city}
         </Body>
-        {packageJson.version && flags.display_version_number && (
+        {packageJson.version && flags.display_version_number.enabled && (
           <Body margin={false} size='xs' color='light'>
             Version: v{packageJson.version}
           </Body>
