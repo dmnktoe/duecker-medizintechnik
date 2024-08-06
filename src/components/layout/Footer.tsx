@@ -14,6 +14,8 @@ import { Body, ButtonLink, Title, UnderlineLink } from '@/components/ui';
 
 import { company } from '@/constant/company';
 
+import packageJson from '../../../package.json';
+
 import { News } from '@/types/News';
 
 type FooterNavigation = {
@@ -159,13 +161,20 @@ const FooterPosts = () => {
 };
 
 const FooterCopyright = () => {
-  const flags = useFlags(['language_picker']);
+  const flags = useFlags(['language_picker', 'display_version_number']);
   return (
     <>
-      <Body margin={false}>
-        © {new Date().getFullYear()} {company.companyName} • {company.street},{' '}
-        {company.city}
-      </Body>
+      <div>
+        <Body margin={false}>
+          © {new Date().getFullYear()} {company.companyName} • {company.street}
+          , {company.city}
+        </Body>
+        {packageJson.version && flags.display_version_number && (
+          <Body margin={false} size='xs' color='light'>
+            Version: v{packageJson.version}
+          </Body>
+        )}
+      </div>
       <div
         className={clsxm(
           'order-first items-center justify-center bg-gray-100 p-2 align-middle lg:order-last lg:p-3',
