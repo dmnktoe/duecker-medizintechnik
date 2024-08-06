@@ -30,6 +30,7 @@
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-aspect-ratio": "^1.0.3",
     "@radix-ui/react-collapsible": "^1.0.3",
+    "@sentry/nextjs": "^8",
     "axios": "^1.6.1",
     "clsx": "^2.0.0",
     "express-handlebars": "^7.0.0",
