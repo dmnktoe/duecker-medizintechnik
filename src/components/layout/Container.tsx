@@ -4,7 +4,7 @@ import * as React from 'react';
 export const Container = ({
   children,
   className,
-  width = 'max-w-[110rem]',
+  width = 'max-w-[100rem]',
 }: {
   children: React.ReactNode;
   className?: string;

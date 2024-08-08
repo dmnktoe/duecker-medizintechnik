@@ -13,6 +13,7 @@ import productionStickyImg from '/public/images/home/sticky-scroll/sticky-scroll
 import repairStickyImg from '/public/images/home/sticky-scroll/sticky-scroll_image-repair.jpg';
 
 type StickyScrollCardProps = {
+  // TODO: remove gradient prop and remove gradient from the component
   gradient: string;
   children: React.ReactNode;
 } & CardProps;
