@@ -3,11 +3,13 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 
+import { getHreflangs } from '@/lib/hreflang';
+
 import Page from '@/components/layout/Page';
 import AgbText from '@/components/templates/AgbText';
 
 const AllgemeineGeschaeftsbedingungen = (
-  _props: InferGetStaticPropsType<typeof getStaticProps>,
+  props: InferGetStaticPropsType<typeof getStaticProps>,
 ) => {
   const { t } = useTranslation('termsAndConditions');
   return (
@@ -22,6 +24,7 @@ const AllgemeineGeschaeftsbedingungen = (
       seo={{
         title: t('meta.seo.title'),
         description: t('meta.seo.description'),
+        hreflangs: props.hreflangs,
       }}
       title={t('meta.pageTitle')}
     >
@@ -31,12 +34,15 @@ const AllgemeineGeschaeftsbedingungen = (
 };
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  const hreflangs = getHreflangs('/agb/');
+
   return {
     props: {
       ...(await serverSideTranslations(locale ?? 'de', [
         'common',
         'termsAndConditions',
       ])),
+      hreflangs,
     },
   };
 };

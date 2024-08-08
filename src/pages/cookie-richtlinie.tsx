@@ -3,11 +3,13 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 
+import { getHreflangs } from '@/lib/hreflang';
+
 import Page from '@/components/layout/Page';
 import CookieControlCenter from '@/components/templates/CookieControlCenter';
 
 const CookieRichtlinie = (
-  _props: InferGetStaticPropsType<typeof getStaticProps>,
+  props: InferGetStaticPropsType<typeof getStaticProps>,
 ) => {
   const { t } = useTranslation('cookiePolicy');
   return (
@@ -22,6 +24,7 @@ const CookieRichtlinie = (
       seo={{
         title: t('meta.seo.title'),
         description: t('meta.seo.description'),
+        hreflangs: props.hreflangs,
       }}
       title={t('meta.pageTitle')}
     >
@@ -31,12 +34,15 @@ const CookieRichtlinie = (
 };
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  const hreflangs = getHreflangs('/cookie-richtlinie/');
+
   return {
     props: {
       ...(await serverSideTranslations(locale ?? 'de', [
         'common',
         'cookiePolicy',
       ])),
+      hreflangs,
     },
   };
 };

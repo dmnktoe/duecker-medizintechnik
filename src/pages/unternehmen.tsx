@@ -3,14 +3,14 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 
+import { getHreflangs } from '@/lib/hreflang';
+
 import Page from '@/components/layout/Page';
 import CompanyView from '@/components/templates/CompanyView';
 
 import companyHero from '/public/images/company/duecker-medizintechnik_company_hero.webp';
 
-const Unternehmen = (
-  _props: InferGetStaticPropsType<typeof getStaticProps>,
-) => {
+const Unternehmen = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { t } = useTranslation('company');
   return (
     <Page
@@ -25,6 +25,7 @@ const Unternehmen = (
       seo={{
         title: t('meta.seo.title'),
         description: t('meta.seo.description'),
+        hreflangs: props.hreflangs,
       }}
       title={t('meta.pageTitle')}
     >
@@ -34,9 +35,12 @@ const Unternehmen = (
 };
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  const hreflangs = getHreflangs('/unternehmen/');
+
   return {
     props: {
       ...(await serverSideTranslations(locale ?? 'de', ['common', 'company'])),
+      hreflangs,
     },
   };
 };

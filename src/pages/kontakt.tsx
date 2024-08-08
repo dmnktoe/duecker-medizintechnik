@@ -3,11 +3,13 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 
+import { getHreflangs } from '@/lib/hreflang';
+
 import Page from '@/components/layout/Page';
 import { ContactMap } from '@/components/templates/ContactMap';
 import ContactView from '@/components/templates/ContactView';
 
-const Kontakt = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Kontakt = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { t } = useTranslation('contact');
 
   return (
@@ -24,6 +26,7 @@ const Kontakt = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
       seo={{
         title: t('meta.seo.title'),
         description: t('meta.seo.description'),
+        hreflangs: props.hreflangs,
       }}
       title={t('meta.pageTitle')}
     >
@@ -33,9 +36,12 @@ const Kontakt = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  const hreflangs = getHreflangs('/kontakt/');
+
   return {
     props: {
       ...(await serverSideTranslations(locale ?? 'de', ['common', 'contact'])),
+      hreflangs,
     },
   };
 };

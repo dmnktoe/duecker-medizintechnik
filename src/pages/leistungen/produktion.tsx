@@ -4,13 +4,15 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 
+import { getHreflangs } from '@/lib/hreflang';
+
 import Page from '@/components/layout/Page';
 import ProductionIntro from '@/components/templates/ProductionIntro';
 import ProductionTiles from '@/components/templates/ProductionTiles';
 
 import ProduktionImg from '/public/images/production/duecker-medizintechnik_production_hero-bg.jpg';
 
-const Produktion = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Produktion = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { t } = useTranslation('production');
   const flags = useFlags(['products_overview']);
   return (
@@ -25,6 +27,7 @@ const Produktion = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
       seo={{
         title: t('meta.seo.title'),
         description: t('meta.seo.description'),
+        hreflangs: props.hreflangs,
       }}
       title={t('meta.pageTitle')}
     >
@@ -34,10 +37,18 @@ const Produktion = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => ({
-  props: {
-    ...(await serverSideTranslations(locale ?? 'de', ['common', 'production'])),
-  },
-});
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  const hreflangs = getHreflangs('/leistungen/produktion/');
+
+  return {
+    props: {
+      ...(await serverSideTranslations(locale ?? 'de', [
+        'common',
+        'production',
+      ])),
+      hreflangs,
+    },
+  };
+};
 
 export default Produktion;

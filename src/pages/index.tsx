@@ -4,6 +4,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 
 import { fetchAPI } from '@/lib/fetch-api';
+import { getHreflangs } from '@/lib/hreflang';
 
 import Page from '@/components/layout/Page';
 import { BentoSection } from '@/components/templates/Bento';
@@ -26,6 +27,7 @@ const Startseite = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
       seo={{
         title: t('meta.seo.title'),
         description: t('meta.seo.description'),
+        hreflangs: props.hreflangs,
       }}
       title={t('meta.pageTitle')}
     >
@@ -42,10 +44,14 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const posts = await fetchAPI(
     '/posts?sort=id:desc&populate=deep&pagination[pageSize]=8',
   );
+
+  const hreflangs = getHreflangs('/');
+
   return {
     props: {
       ...(await serverSideTranslations(locale ?? 'de', ['common', 'home'])),
       posts: posts.data,
+      hreflangs,
     },
   };
 };

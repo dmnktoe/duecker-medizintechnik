@@ -4,6 +4,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React from 'react';
 
 import { fetchAPI } from '@/lib/fetch-api';
+import { getHreflangs } from '@/lib/hreflang';
 
 import { Container } from '@/components/layout/Container';
 import Page from '@/components/layout/Page';
@@ -30,10 +31,14 @@ export const getStaticProps: GetStaticProps = async ({ locale, params }) => {
   const posts = await fetchAPI(
     `/posts?filters[slug][$eq]=${params?.slug}&populate=deep`,
   );
+
+  const hreflangs = getHreflangs('/newsroom/' + params?.slug);
+
   return {
     props: {
       ...(await serverSideTranslations(locale ?? 'de', ['common', 'news'])),
       post: posts.data[0],
+      hreflangs,
     },
   };
 };
@@ -62,7 +67,6 @@ const PostPage = (props: PostPageProps) => {
 
   return (
     <Page
-      date={post.attributes.publishedAt}
       layout={{
         containerWidth: 'max-w-5xl',
         showBreadcrumbs: false,
@@ -72,6 +76,8 @@ const PostPage = (props: PostPageProps) => {
       seo={{
         title: post.attributes.title,
         description: post.attributes.excerpt,
+        date: post.attributes.publishedAt,
+        hreflangs: props.hreflangs,
       }}
       title={post.attributes.title}
     >

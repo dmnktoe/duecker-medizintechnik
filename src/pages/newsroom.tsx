@@ -4,6 +4,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 
 import { fetchAPI } from '@/lib/fetch-api';
+import { getHreflangs } from '@/lib/hreflang';
 
 import { Container } from '@/components/layout/Container';
 import Page from '@/components/layout/Page';
@@ -26,6 +27,7 @@ const Newsroom = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
       seo={{
         title: t('meta.seo.title'),
         description: t('meta.seo.description'),
+        hreflangs: props.hreflangs,
       }}
       title={t('meta.pageTitle')}
     >
@@ -42,10 +44,14 @@ const Newsroom = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const posts = await fetchAPI('/posts?sort=id:desc&populate=deep');
+
+  const hreflangs = getHreflangs('/newsroom/');
+
   return {
     props: {
       ...(await serverSideTranslations(locale ?? 'de', ['common', 'news'])),
       posts: posts.data,
+      hreflangs,
     },
   };
 };

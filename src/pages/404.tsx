@@ -21,6 +21,7 @@ const SeiteNichtGefunden = (
       seo={{
         title: t('meta.seo.title'),
         description: t('meta.seo.description'),
+        hreflangs: [],
       }}
       title={t('meta.pageTitle')}
     >

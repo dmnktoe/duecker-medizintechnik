@@ -3,10 +3,12 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 
+import { getHreflangs } from '@/lib/hreflang';
+
 import Page from '@/components/layout/Page';
 import LegalNoticeText from '@/components/templates/LegalNoticeText';
 
-const Impressum = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Impressum = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { t } = useTranslation('imprint');
   return (
     <Page
@@ -20,6 +22,7 @@ const Impressum = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
       seo={{
         title: t('meta.seo.title'),
         description: t('meta.seo.description'),
+        hreflangs: props.hreflangs,
       }}
       title={t('meta.pageTitle')}
     >
@@ -29,9 +32,12 @@ const Impressum = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  const hreflangs = getHreflangs('/impressum/');
+
   return {
     props: {
       ...(await serverSideTranslations(locale ?? 'de', ['common', 'imprint'])),
+      hreflangs,
     },
   };
 };

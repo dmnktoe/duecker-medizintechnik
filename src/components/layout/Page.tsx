@@ -12,19 +12,20 @@ import ImageBanner from '@/components/templates/ImageBanner/ImageBanner';
 interface PageProps {
   children: React.ReactNode;
   className?: string;
-  date?: Date;
   layout: {
     background?: 'light' | 'dark' | 'primary' | 'gray';
     containerWidth?: string;
+    padding?: 'none' | 'tiny' | 'small' | 'default' | 'large';
     showBreadcrumbs?: boolean;
     showHero?: boolean;
-    padding?: 'none' | 'tiny' | 'small' | 'default' | 'large';
     topContent?: React.ReactNode;
   };
   image?: StaticImageData;
   seo: {
-    title: string;
+    date?: Date;
     description: string;
+    hreflangs: { rel: string; hrefLang: string; href: string }[];
+    title: string;
   };
   title: string;
 }
@@ -32,7 +33,6 @@ interface PageProps {
 export default function Page({
   children,
   className,
-  date,
   layout = {
     background: 'light',
     showBreadcrumbs: true,
@@ -46,12 +46,13 @@ export default function Page({
   return (
     <Layout>
       <Seo
-        date={date ? new Date(date).toISOString() : ''}
+        date={seo.date && new Date(seo.date).toISOString()}
         image={image ? image.src : ''}
         templateTitle={title}
+        hreflangs={seo.hreflangs}
         /* This is a SEO-optimized meta.seo.title */
-        description={seo.description}
         title={seo.title}
+        description={seo.description}
       />
       {image && layout.showHero && (
         <ImageBanner

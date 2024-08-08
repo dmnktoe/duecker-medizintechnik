@@ -4,6 +4,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React from 'react';
 
 import { fetchAPI } from '@/lib/fetch-api';
+import { getHreflangs } from '@/lib/hreflang';
 
 import Page from '@/components/layout/Page';
 import { DownloadCenter } from '@/components/templates/DownloadCenter';
@@ -28,6 +29,7 @@ const Downloads = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
       seo={{
         title: t('meta.seo.title'),
         description: t('meta.seo.description'),
+        hreflangs: props.hreflangs,
       }}
       title={t('meta.pageTitle')}
     >
@@ -45,6 +47,8 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
     `/downloads?locale=${locale}&sort=id:desc&populate=deep`,
   );
 
+  const hreflangs = getHreflangs('/downloads/');
+
   return {
     props: {
       ...(await serverSideTranslations(locale ?? 'de', [
@@ -52,6 +56,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
         'downloads',
       ])),
       downloads: downloads.data,
+      hreflangs,
     },
   };
 };
