@@ -1,3 +1,4 @@
+import { useFlags } from 'flagsmith/react';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { Key } from 'react';
@@ -16,6 +17,8 @@ export const CallToAction = () => {
   function handleCtaButtonClick() {
     router.push('/kontakt').then((r) => r);
   }
+
+  const flags = useFlags(['cta_globe']);
 
   const CallToActionTitle = () => {
     return (
@@ -82,7 +85,9 @@ export const CallToAction = () => {
             <CallToActionBullets />
           </div>
         </Container>
-        <Globe className='-right-48 top-0 z-20 hidden opacity-60 md:block md:max-w-[750px] lg:-right-32 lg:max-w-[800px] 2xl:-right-32 2xl:max-w-[900px]' />
+        {flags.cta_globe.enabled && (
+          <Globe className='-right-48 top-0 z-20 hidden opacity-60 md:block md:max-w-[750px] lg:-right-32 lg:max-w-[800px] 2xl:-right-32 2xl:max-w-[900px]' />
+        )}
       </section>
     </>
   );
