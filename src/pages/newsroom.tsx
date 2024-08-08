@@ -3,12 +3,14 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 
-import { fetchAPI } from '@/lib/fetch-api';
+import { generateHreflangTags } from '@/lib/hreflang';
 
 import { Container } from '@/components/layout/Container';
 import Page from '@/components/layout/Page';
 import { NewsList } from '@/components/templates/NewsList';
 import { Body, Title } from '@/components/ui';
+
+import i18nextConfig from '../../next-i18next.config';
 
 const Newsroom = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { t } = useTranslation('news');
@@ -26,6 +28,7 @@ const Newsroom = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
       seo={{
         title: t('meta.seo.title'),
         description: t('meta.seo.description'),
+        hreflangs: props.hreflangs,
       }}
       title={t('meta.pageTitle')}
     >
@@ -41,11 +44,14 @@ const Newsroom = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const posts = await fetchAPI('/posts?sort=id:desc&populate=deep');
+  const locales = i18nextConfig.i18n.locales;
+  const currentPath = '/newsroom/';
+
+  const hreflangs = generateHreflangTags(locales, currentPath);
   return {
     props: {
       ...(await serverSideTranslations(locale ?? 'de', ['common', 'news'])),
-      posts: posts.data,
+      hreflangs,
     },
   };
 };

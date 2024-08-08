@@ -3,15 +3,19 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 
+import { generateHreflangTags } from '@/lib/hreflang';
+
 import Page from '@/components/layout/Page';
 import DistributionConsult from '@/components/templates/DistributionConsult';
 import DistributionIntro from '@/components/templates/DistributionIntro';
 import DistributionOptic from '@/components/templates/DistributionOptic';
 import DistributionProducts from '@/components/templates/DistributionProducts';
 
+import i18nextConfig from '../../../next-i18next.config';
+
 import VertriebImg from '/public/images/distribution/duecker-medizintechnik_distribution_hero-bg.webp';
 
-const Vertrieb = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Vertrieb = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { t } = useTranslation('distribution', { useSuspense: false });
 
   return (
@@ -26,6 +30,7 @@ const Vertrieb = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
       seo={{
         title: t('meta.seo.title'),
         description: t('meta.seo.description'),
+        hreflangs: props.hreflangs,
       }}
       title={t('meta.pageTitle')}
     >
@@ -37,13 +42,20 @@ const Vertrieb = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => ({
-  props: {
-    ...(await serverSideTranslations(locale ?? 'de', [
-      'common',
-      'distribution',
-    ])),
-  },
-});
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  const locales = i18nextConfig.i18n.locales;
+  const currentPath = '/leistungen/vertrieb/';
+
+  const hreflangs = generateHreflangTags(locales, currentPath);
+  return {
+    props: {
+      ...(await serverSideTranslations(locale ?? 'de', [
+        'common',
+        'distribution',
+      ])),
+      hreflangs,
+    },
+  };
+};
 
 export default Vertrieb;
