@@ -11,7 +11,7 @@ describe('Container', () => {
   it('applies default width class', () => {
     render(<Container>Test Content</Container>);
     const container = screen.getByText('Test Content');
-    expect(container).toHaveClass('max-w-[110rem]');
+    expect(container).toHaveClass('max-w-[100rem]');
   });
 
   it('applies custom width class', () => {
