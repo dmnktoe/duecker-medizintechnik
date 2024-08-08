@@ -125,11 +125,11 @@ export default function DistributionProducts() {
   return (
     <section className='pt-16 md:pt-24 lg:pt-32'>
       <Container>
-        <div className='flex flex-col gap-8 bg-white xl:flex-row xl:gap-32 2xl:gap-48'>
-          <div className='mx-auto xl:max-w-[500px]'>
+        <div className='flex flex-col gap-8 bg-white lg:flex-row xl:gap-32 2xl:gap-48'>
+          <div className='mx-auto w-full lg:w-2/5 xl:max-w-[500px]'>
             <ProductsHelp />
           </div>
-          <div className='mx-auto grid gap-4 md:grid-cols-2'>
+          <div className='mx-auto grid gap-4 md:grid-cols-2 lg:w-3/5'>
             <ProductGrid />
           </div>
         </div>

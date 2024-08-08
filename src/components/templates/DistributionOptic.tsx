@@ -155,7 +155,7 @@ export default function DistributionOptic() {
         <PartnerLogos />
       </Container>
       <Container className='text-center'>
-        <div className='mx-auto h-auto max-w-7xl bg-gray-50 bg-[url(/images/distribution/optic/duecker-medizintechnik_distribution_optic-bg.webp)] bg-cover bg-top p-8 xl:h-[30rem] xl:p-16'>
+        <div className='mx-auto h-auto max-w-7xl bg-gray-50 bg-[url(/images/distribution/optic/duecker-medizintechnik_distribution_optic-bg.webp)] bg-cover bg-top p-8 md:p-12 xl:h-[30rem] xl:p-16'>
           <OpticIntro />
         </div>
         <OpticSlider />
