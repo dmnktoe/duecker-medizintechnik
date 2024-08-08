@@ -4,14 +4,12 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React from 'react';
 
 import { fetchAPI } from '@/lib/fetch-api';
-import { generateHreflangTags } from '@/lib/hreflang';
+import { getHreflangs } from '@/lib/hreflang';
 
 import Page from '@/components/layout/Page';
 import { DownloadCenter } from '@/components/templates/DownloadCenter';
 import { DownloadText } from '@/components/templates/DownloadText';
 import TextReveal from '@/components/templates/TextReveal';
-
-import i18nextConfig from '../../next-i18next.config';
 
 import DownloadsImg from '/public/images/downloads/duecker-medizintechnik_downloads_hero-bg.webp';
 
@@ -49,10 +47,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
     `/downloads?locale=${locale}&sort=id:desc&populate=deep`,
   );
 
-  const locales = i18nextConfig.i18n.locales;
-  const currentPath = '/downloads/';
-
-  const hreflangs = generateHreflangTags(locales, currentPath);
+  const hreflangs = getHreflangs('/downloads/');
 
   return {
     props: {

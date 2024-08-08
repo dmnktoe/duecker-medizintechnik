@@ -4,13 +4,11 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 
-import { generateHreflangTags } from '@/lib/hreflang';
+import { getHreflangs } from '@/lib/hreflang';
 
 import Page from '@/components/layout/Page';
 import RepairIntro from '@/components/templates/RepairIntro';
 import RepairSlideshow from '@/components/templates/RepairSlideshow';
-
-import i18nextConfig from '../../../next-i18next.config';
 
 import ReparaturImg from '/public/images/repair/duecker-medizintechnik_repair_hero-bg.webp';
 
@@ -41,10 +39,8 @@ const Reparatur = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const locales = i18nextConfig.i18n.locales;
-  const currentPath = '/leistungen/reparatur/';
+  const hreflangs = getHreflangs('/leistungen/reparatur/');
 
-  const hreflangs = generateHreflangTags(locales, currentPath);
   return {
     props: {
       ...(await serverSideTranslations(locale ?? 'de', ['common', 'repair'])),

@@ -4,7 +4,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 
 import { fetchAPI } from '@/lib/fetch-api';
-import { generateHreflangTags } from '@/lib/hreflang';
+import { getHreflangs } from '@/lib/hreflang';
 
 import Page from '@/components/layout/Page';
 import { BentoSection } from '@/components/templates/Bento';
@@ -12,8 +12,6 @@ import { Features } from '@/components/templates/Features';
 import { Hero } from '@/components/templates/Hero';
 import { NewsSlider } from '@/components/templates/NewsSlider';
 import { StickyScroll } from '@/components/templates/StickyScroll/StickyScroll';
-
-import i18nextConfig from '../../next-i18next.config';
 
 const Startseite = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { t } = useTranslation('home');
@@ -47,10 +45,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
     '/posts?sort=id:desc&populate=deep&pagination[pageSize]=8',
   );
 
-  const locales = i18nextConfig.i18n.locales;
-  const currentPath = '/';
-
-  const hreflangs = generateHreflangTags(locales, currentPath);
+  const hreflangs = getHreflangs('/');
 
   return {
     props: {

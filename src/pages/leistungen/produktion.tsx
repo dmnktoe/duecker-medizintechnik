@@ -4,13 +4,11 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 
-import { generateHreflangTags } from '@/lib/hreflang';
+import { getHreflangs } from '@/lib/hreflang';
 
 import Page from '@/components/layout/Page';
 import ProductionIntro from '@/components/templates/ProductionIntro';
 import ProductionTiles from '@/components/templates/ProductionTiles';
-
-import i18nextConfig from '../../../next-i18next.config';
 
 import ProduktionImg from '/public/images/production/duecker-medizintechnik_production_hero-bg.jpg';
 
@@ -40,10 +38,8 @@ const Produktion = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const locales = i18nextConfig.i18n.locales;
-  const currentPath = '/leistungen/produktion/';
+  const hreflangs = getHreflangs('/leistungen/produktion/');
 
-  const hreflangs = generateHreflangTags(locales, currentPath);
   return {
     props: {
       ...(await serverSideTranslations(locale ?? 'de', [

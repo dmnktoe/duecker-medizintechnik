@@ -4,14 +4,12 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React from 'react';
 
 import { fetchAPI } from '@/lib/fetch-api';
-import { generateHreflangTags } from '@/lib/hreflang';
+import { getHreflangs } from '@/lib/hreflang';
 
 import { Container } from '@/components/layout/Container';
 import Page from '@/components/layout/Page';
 import { NewsArticle } from '@/components/templates/NewsArticle';
 import { ArrowLink } from '@/components/ui';
-
-import i18nextConfig from '../../../next-i18next.config';
 
 import { News } from '@/types/News';
 
@@ -30,14 +28,12 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ locale, params }) => {
-  const locales = i18nextConfig.i18n.locales;
-  const currentPath = '/newsroom/' + params?.slug;
-
-  const hreflangs = generateHreflangTags(locales, currentPath);
-
   const posts = await fetchAPI(
     `/posts?filters[slug][$eq]=${params?.slug}&populate=deep`,
   );
+
+  const hreflangs = getHreflangs('/newsroom/' + params?.slug);
+
   return {
     props: {
       ...(await serverSideTranslations(locale ?? 'de', ['common', 'news'])),

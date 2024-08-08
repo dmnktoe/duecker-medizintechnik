@@ -3,12 +3,10 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React from 'react';
 
-import { generateHreflangTags } from '@/lib/hreflang';
+import { getHreflangs } from '@/lib/hreflang';
 
 import Page from '@/components/layout/Page';
 import ServicePageTiles from '@/components/templates/ServicePageTiles';
-
-import i18nextConfig from '../../next-i18next.config';
 
 const Leistungen = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { t } = useTranslation('services');
@@ -34,10 +32,8 @@ const Leistungen = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const locales = i18nextConfig.i18n.locales;
-  const currentPath = '/leistungen/';
+  const hreflangs = getHreflangs('/leistungen/');
 
-  const hreflangs = generateHreflangTags(locales, currentPath);
   return {
     props: {
       ...(await serverSideTranslations(locale ?? 'de', ['common', 'services'])),

@@ -3,12 +3,10 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 
-import { generateHreflangTags } from '@/lib/hreflang';
+import { getHreflangs } from '@/lib/hreflang';
 
 import Page from '@/components/layout/Page';
 import AgbText from '@/components/templates/AgbText';
-
-import i18nextConfig from '../../next-i18next.config';
 
 const AllgemeineGeschaeftsbedingungen = (
   props: InferGetStaticPropsType<typeof getStaticProps>,
@@ -36,10 +34,8 @@ const AllgemeineGeschaeftsbedingungen = (
 };
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const locales = i18nextConfig.i18n.locales;
-  const currentPath = '/agb/';
+  const hreflangs = getHreflangs('/agb/');
 
-  const hreflangs = generateHreflangTags(locales, currentPath);
   return {
     props: {
       ...(await serverSideTranslations(locale ?? 'de', [
