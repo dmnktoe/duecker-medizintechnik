@@ -1,3 +1,4 @@
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { createFlagsmithInstance } from 'flagsmith/isomorphic';
 import { FlagsmithProvider } from 'flagsmith/react';
 import { AppProps } from 'next/app';
@@ -37,6 +38,7 @@ function Duecker({
           <Component {...pageProps} />
         </div>
       </FlagsmithProvider>
+      <SpeedInsights />
     </>
   );
 }
