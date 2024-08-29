@@ -15,7 +15,9 @@ const nextConfig = {
   },
 
   trailingSlash: true,
-  reactStrictMode: true,
+  // As a precaution, we disable reactStrictMode
+  // Issue: https://github.com/nolimits4web/swiper/issues/4327
+  reactStrictMode: false,
   swcMinify: true,
 
   experimental: {
