@@ -9,7 +9,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lint:fix": "eslint src --fix && yarn format",
+    "lint:fix": "eslint src --fix && pnpm format",
     "lint:strict": "eslint --max-warnings=0 src",
     "typecheck": "tsc --noEmit --incremental false",
     "test": "jest",
@@ -20,7 +20,7 @@
     "postbuild": "next-sitemap --config next-sitemap.config.js",
     "prepare": "husky install",
     "clean": "rm -rf .next/ coverage/",
-    "clean:nm": "yarn clean && rm -rf node_modules/"
+    "clean:nm": "pnpm clean && rm -rf node_modules/"
   },
   "dependencies": {
     "@datadog/browser-rum": "^5.24.0",
