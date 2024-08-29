@@ -4,8 +4,7 @@ import { fireEvent, render } from '@testing-library/react';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { NextApiRequest, NextApiResponse } from 'next';
-import React from 'react';
-import { act } from 'react-dom/test-utils';
+import React, { act } from 'react';
 
 import initializeI18n from '@/lib/i18n-testing';
 

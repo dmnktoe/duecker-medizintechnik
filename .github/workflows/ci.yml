@@ -42,11 +42,17 @@ jobs:
         with:
           node-version: 18
 
+      - name: 🧊 Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
+
       - name: 📥 Download deps
-        uses: bahmutov/npm-install@v1
+        run: pnpm install
 
       - name: 🔬 Lint
-        run: yarn lint:strict
+        run: pnpm lint:strict
 
   typecheck:
     name: ʦ TypeScript
@@ -60,11 +66,17 @@ jobs:
         with:
           node-version: 18
 
+      - name: 🧊 Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
+
       - name: 📥 Download deps
-        uses: bahmutov/npm-install@v1
+        run: pnpm install
 
       - name: 🔎 Type check
-        run: yarn typecheck
+        run: pnpm typecheck
 
   prettier:
     name: 💅 Prettier
@@ -78,11 +90,17 @@ jobs:
         with:
           node-version: 18
 
+      - name: 🧊 Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
+
       - name: 📥 Download deps
-        uses: bahmutov/npm-install@v1
+        run: pnpm install
 
       - name: 💅 Prettier check
-        run: yarn format:check
+        run: pnpm format:check
 
   test:
     name: 🃏 Test
@@ -96,11 +114,17 @@ jobs:
         with:
           node-version: 18
 
+      - name: 🧊 Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
+
       - name: 📥 Download deps
-        uses: bahmutov/npm-install@v1
+        run: pnpm install
 
       - name: 🃏 Run jest
-        run: yarn test:coverage
+        run: pnpm test:coverage
 
       - name: 📊 Coverage
         uses: codecov/codecov-action@v4
@@ -121,8 +145,14 @@ jobs:
         with:
           node-version: 18
 
+      - name: 🧊 Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
+
       - name: 📥 Download deps
-        uses: bahmutov/npm-install@v1
+        run: pnpm install
 
       - name: 🏗 Build
-        run: yarn build
+        run: pnpm build
