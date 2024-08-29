@@ -4,9 +4,9 @@
 const { i18n } = require('./next-i18next.config');
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-// const withBundleAnalyzer = require('@next/bundle-analyzer')({
-//   enabled: process.env.ANALYZE === 'true',
-// });
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { withSentryConfig } = require('@sentry/nextjs');
@@ -21,6 +21,7 @@ const nextConfig = {
   // Issue: https://github.com/nolimits4web/swiper/issues/4327
   reactStrictMode: false,
   // swcMinify: true,
+
   // experimental: {
   //   scrollRestoration: true,
   //},
@@ -63,7 +64,7 @@ const nextConfig = {
 
 module.exports = nextConfig;
 
-// module.exports = withBundleAnalyzer(module.exports);
+module.exports = withBundleAnalyzer(module.exports);
 
 module.exports = withSentryConfig(module.exports, {
   // For all available options, see:
