@@ -1341,6 +1341,26 @@
   resolved "https://registry.yarnpkg.com/@corex/deepmerge/-/deepmerge-4.0.43.tgz#9bd42559ebb41cc5a7fb7cfeea5f231c20977dca"
   integrity sha512-N8uEMrMPL0cu/bdboEWpQYb/0i2K5Qn8eCsxzOmxSggJbbQte7ljMRoXm917AbntqTGOzdTu+vP3KOOzoC70HQ==
 
+"@datadog/browser-core@5.24.0":
+  version "5.24.0"
+  resolved "https://registry.yarnpkg.com/@datadog/browser-core/-/browser-core-5.24.0.tgz#f79ce063811659003dc169e78785f2707dc68834"
+  integrity sha512-NKKXdFTSOQ2a8Y9Y5rgu6MLghfN3l7Mnera95YYNECh8jqHB2IXb2BRpir0lqOzgkBKGI7SF6kqjNV7nWL1NzQ==
+
+"@datadog/browser-rum-core@5.24.0":
+  version "5.24.0"
+  resolved "https://registry.yarnpkg.com/@datadog/browser-rum-core/-/browser-rum-core-5.24.0.tgz#f7fde885393e726605ff069c4aa668923d520fa5"
+  integrity sha512-fOiuOe48Tfib3wXvkntGcrS7StH5JS9szAMkKEyyaqiFmWfuMV/mOuc9ky0Di0zmC+ao9PEbei1KKpHO19hohQ==
+  dependencies:
+    "@datadog/browser-core" "5.24.0"
+
+"@datadog/browser-rum@^5.24.0":
+  version "5.24.0"
+  resolved "https://registry.yarnpkg.com/@datadog/browser-rum/-/browser-rum-5.24.0.tgz#e5c53e03afeb3bba57cd7b75f83c07d741f6617b"
+  integrity sha512-Aag9gyVVL6p3ATnykJmQ4S3PpTgP0PT5ERA8WnU+SQMs0mfi4C/dC9x3ir0lLRQo/yNJw5R4EapdLojNmV0D5g==
+  dependencies:
+    "@datadog/browser-core" "5.24.0"
+    "@datadog/browser-rum-core" "5.24.0"
+
 "@discoveryjs/json-ext@0.5.7":
   version "0.5.7"
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
