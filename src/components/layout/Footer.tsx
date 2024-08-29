@@ -95,19 +95,24 @@ const FooterLinks = () => {
 };
 
 const FooterPosts = () => {
+  const flags = useFlags(['fetch_footer_posts']);
   const [posts, setPosts] = useState<News[]>();
   const [isLoading, setIsLoading] = useState(true);
   const { t } = useTranslation('common');
 
   useEffect(() => {
-    const fetchData = async () => {
-      const result = await fetchAPI(
-        '/posts?sort=id:desc&populate=*&pagination[pageSize]=4',
-      );
-      setPosts(result.data);
-    };
-    fetchData().then(() => setIsLoading(false));
-  }, []);
+    if (flags.fetch_footer_posts.enabled) {
+      const fetchData = async () => {
+        const result = await fetchAPI(
+          '/posts?sort=id:desc&populate=*&pagination[pageSize]=4',
+        );
+        setPosts(result.data);
+      };
+      fetchData().then(() => setIsLoading(false));
+    } else {
+      setIsLoading(false);
+    }
+  }, [flags.fetch_footer_posts.enabled]);
 
   if (isLoading)
     return (

@@ -9,4 +9,4 @@ export const strapiApiUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL;
 
 export const showLogger = isLocal
   ? true
-  : process.env.NEXT_PUBLIC_SHOW_LOGGER === 'true' ?? false;
+  : (process.env.NEXT_PUBLIC_SHOW_LOGGER === 'true' ?? false);

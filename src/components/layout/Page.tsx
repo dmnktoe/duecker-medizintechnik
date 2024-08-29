@@ -1,3 +1,4 @@
+import { useFlags } from 'flagsmith/react';
 import { StaticImageData } from 'next/image';
 import * as React from 'react';
 
@@ -43,6 +44,7 @@ export default function Page({
   seo,
   title,
 }: PageProps) {
+  const flags = useFlags(['image_banner']);
   return (
     <Layout>
       <Seo
@@ -54,17 +56,19 @@ export default function Page({
         title={seo.title}
         description={seo.description}
       />
-      {image && layout.showHero && (
-        <ImageBanner
-          alt={title}
-          className='flex-1'
-          delay={0}
-          priority={true}
-          role='hero'
-          src={image}
-          staticAnimation
-        />
-      )}
+      {image &&
+        layout.showHero &&
+        (flags.image_banner.enabled ? (
+          <ImageBanner
+            alt={title}
+            className='flex-1'
+            delay={0}
+            priority={true}
+            role='hero'
+            src={image}
+            staticAnimation
+          />
+        ) : null)}
       {layout.topContent}
       <main
         className={clsxm(
