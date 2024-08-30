@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useInView } from 'framer-motion';
 import React, { useEffect, useRef } from 'react';
 
-import { useFeatureStore } from './store';
+import { useFeatureStore } from './StickyScrollStore';
 
 type StickyScrollTitleProps = {
   children: React.ReactNode;

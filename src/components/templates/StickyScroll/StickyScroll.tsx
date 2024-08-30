@@ -1,18 +1,14 @@
-import { stagger, useAnimate } from 'framer-motion';
+import { useAnimate } from 'framer-motion';
 import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { VscArrowRight } from 'react-icons/vsc';
 
 import { Container } from '@/components/layout/Container';
 import { AspectRatio, Body, Title, UnstyledLink } from '@/components/ui';
 
-import { useEscapePress } from '@/utils/useEscapePress';
-import { useHidePageOverflow } from '@/utils/useTogglePageOverflow';
-
 import { Distribution, Production, Repair } from './StickyScrollCard';
 import { StickyScrollTitle } from './StickyScrollTitle';
-import { useFeatureStore } from './store';
 
 import distributionStickyImg from '/public/images/home/sticky-scroll/sticky-scroll_image-distribution.webp';
 import productionStickyImg from '/public/images/home/sticky-scroll/sticky-scroll_image-production.jpg';
@@ -38,65 +34,7 @@ const stickyScroll = [
 
 export const StickyScroll = () => {
   const { t } = useTranslation('home');
-  const [scope, animate] = useAnimate();
-  const fullscreenFeature = useFeatureStore((state) => state.fullscreenFeature);
-  const lastFullscreenFeature = useFeatureStore(
-    (state) => state.lastFullscreenFeature,
-  );
-  const setFullscreenFeature = useFeatureStore(
-    (state) => state.setFullscreenFeature,
-  );
-
-  const onEscapePress = () => {
-    if (fullscreenFeature) setFullscreenFeature(null);
-  };
-
-  useEscapePress(onEscapePress);
-  useHidePageOverflow(!!fullscreenFeature);
-
-  useEffect(() => {
-    if (fullscreenFeature) {
-      animate([
-        [
-          '.feature-title',
-          { opacity: 0, x: '-200px' },
-          { duration: 0.3, delay: stagger(0.05) },
-        ],
-        [
-          `.visual-${lastFullscreenFeature}`,
-          { opacity: 1, scale: 1, pointerEvents: 'auto' },
-          { at: '<' },
-        ],
-        ['.active-card .gradient', { opacity: 0, scale: 0 }, { at: '<' }],
-        ['.active-card .show-me-btn', { opacity: 0 }, { at: '<' }],
-        [
-          '.back-to-site-btn',
-          { opacity: 1, y: '0px' },
-          { at: '<', duration: 0.3 },
-        ],
-      ]);
-    } else {
-      animate([
-        [
-          '.feature-title',
-          { opacity: 1, x: '0px' },
-          { duration: 0.3, delay: stagger(0.05) },
-        ],
-        [
-          `.visual-${lastFullscreenFeature}`,
-          { opacity: 0, scale: 0.75, pointerEvents: 'none' },
-          { at: '<' },
-        ],
-        ['.active-card .gradient', { opacity: 1, scale: 1 }, { at: '<' }],
-        [
-          '.back-to-site-btn',
-          { opacity: 0, y: '300px' },
-          { at: '<', duration: 0.3 },
-        ],
-        ['.active-card .show-me-btn', { opacity: 1 }],
-      ]);
-    }
-  }, [animate, fullscreenFeature, lastFullscreenFeature]);
+  const [scope] = useAnimate();
 
   const DesktopStickyScroll = () => {
     return (
