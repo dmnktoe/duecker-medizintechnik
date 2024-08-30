@@ -10,20 +10,21 @@ import React, { useRef } from 'react';
 import '@/styles/globals.css';
 
 import { figtree, sortsMillGoudy } from '@/lib/fonts';
+import { getVersion } from '@/lib/get-version';
 
-import { flagsmithId } from '@/constant/env';
-
-import packageJson from '../../package.json';
+import {
+  datadogApplicationId,
+  datadogClientToken,
+  flagsmithId,
+} from '@/constant/env';
 
 datadogRum.init({
-  applicationId: '1149f076-a6b4-43b2-a99f-d46ab6e30313',
-  clientToken: 'pubc4cb0020b40dde8b8a8167c857ae62e0',
-  // `site` refers to the Datadog site parameter of your organization
-  // see https://docs.datadoghq.com/getting_started/site/
+  applicationId: datadogApplicationId ?? '',
+  clientToken: datadogClientToken ?? '',
   site: 'datadoghq.eu',
   service: 'duecker-medizintechnik',
   env: process.env.NODE_ENV,
-  version: packageJson.version,
+  version: getVersion(),
   sessionSampleRate: 100,
   sessionReplaySampleRate: 20,
   trackUserInteractions: true,

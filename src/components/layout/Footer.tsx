@@ -7,14 +7,13 @@ import { VscArrowRight } from 'react-icons/vsc';
 
 import clsxm from '@/lib/clsxm';
 import { fetchAPI } from '@/lib/fetch-api';
+import { getVersion } from '@/lib/get-version';
 
 import { Container } from '@/components/layout/Container';
 import LanguagePicker from '@/components/templates/LanguagePicker';
 import { Body, ButtonLink, Title, UnderlineLink } from '@/components/ui';
 
 import { company } from '@/constant/company';
-
-import packageJson from '../../../package.json';
 
 import { News } from '@/types/News';
 
@@ -174,9 +173,9 @@ const FooterCopyright = () => {
           © {new Date().getFullYear()} {company.companyName} • {company.street}
           , {company.city}
         </Body>
-        {packageJson.version && flags.display_version_number.enabled && (
+        {flags.display_version_number.enabled && (
           <Body margin={false} size='xs' color='light'>
-            Version: v{packageJson.version}
+            Version: v{getVersion()}
           </Body>
         )}
       </div>
