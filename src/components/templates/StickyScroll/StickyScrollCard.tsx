@@ -6,15 +6,13 @@ import { VscArrowRight } from 'react-icons/vsc';
 
 import { ButtonLink } from '@/components/ui';
 
-import { useFeatureStore } from './store';
+import { useFeatureStore } from './StickyScrollStore';
 
 import distributionStickyImg from '/public/images/home/sticky-scroll/sticky-scroll_image-distribution.webp';
 import productionStickyImg from '/public/images/home/sticky-scroll/sticky-scroll_image-production.jpg';
 import repairStickyImg from '/public/images/home/sticky-scroll/sticky-scroll_image-repair.jpg';
 
 type StickyScrollCardProps = {
-  // TODO: remove gradient prop and remove gradient from the component
-  gradient: string;
   children: React.ReactNode;
 } & CardProps;
 
@@ -22,11 +20,7 @@ type CardProps = {
   id: string;
 };
 
-const StickyScrollCard = ({
-  gradient,
-  children,
-  id,
-}: StickyScrollCardProps) => {
+const StickyScrollCard = ({ children, id }: StickyScrollCardProps) => {
   const inViewFeature = useFeatureStore((state) => state.inViewFeature);
   const { t } = useTranslation('home');
 
@@ -39,12 +33,7 @@ const StickyScrollCard = ({
           : 'pointer-events-none opacity-0',
       )}
     >
-      <div
-        className={clsx(
-          'gradient absolute inset-0 origin-bottom-left bg-gradient-to-br',
-          gradient,
-        )}
-      />
+      <div className={clsx('absolute inset-0 origin-bottom-left')} />
       {children}
       <ButtonLink
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -63,7 +52,7 @@ const StickyScrollCard = ({
 
 export const Production = ({ id }: CardProps) => {
   return (
-    <StickyScrollCard id={id} gradient='from-[#f7f0ff] to-[#a78afe]'>
+    <StickyScrollCard id={id}>
       <Image
         alt='Produktion'
         src={productionStickyImg}
@@ -81,7 +70,7 @@ export const Production = ({ id }: CardProps) => {
 
 export const Repair = ({ id }: CardProps) => {
   return (
-    <StickyScrollCard id={id} gradient='from-[#f5fbff] to-[#addeff]'>
+    <StickyScrollCard id={id}>
       <Image
         alt='Produktion'
         src={repairStickyImg}
@@ -99,7 +88,7 @@ export const Repair = ({ id }: CardProps) => {
 
 export const Distribution = ({ id }: CardProps) => {
   return (
-    <StickyScrollCard id={id} gradient='from-[#f5fff7] to-[#adf8ff]'>
+    <StickyScrollCard id={id}>
       <Image
         alt='Produktion'
         src={distributionStickyImg}
