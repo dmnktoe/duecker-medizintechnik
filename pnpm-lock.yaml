@@ -63,8 +63,8 @@ dependencies:
     specifier: ^6.9.14
     version: 6.9.14
   nodemailer-express-handlebars:
-    specifier: ^6.1.2
-    version: 6.1.2(express-handlebars@7.1.3)(nodemailer@6.9.14)
+    specifier: ^7.0.0
+    version: 7.0.0(express-handlebars@7.1.3)(nodemailer@6.9.14)
   qs:
     specifier: ^6.13.0
     version: 6.13.0
@@ -9058,11 +9058,11 @@ packages:
     resolution: {integrity: sha512-LN4fydt9TqhZhThkZIVQnF9cwjU3qmUH9h78Mx/K7d3VvfRqqwthLwJEUOEL0QPZ0XQmNN7be5Ggit5+4dq3Bw==}
     engines: {node: '>=0.12.0'}
 
-  /nodemailer-express-handlebars@6.1.2(express-handlebars@7.1.3)(nodemailer@6.9.14):
-    resolution: {integrity: sha512-p5ZKPe8PmiDZquNqi+uDKE1eKXOcqOVPdnmhWELCT1HHoaYXcVwM7wQE1R7wtPPracZRH2hL7mEWiXhVwr5hng==}
-    engines: {node: 14.* || 16.* || >= 18}
+  /nodemailer-express-handlebars@7.0.0(express-handlebars@7.1.3)(nodemailer@6.9.14):
+    resolution: {integrity: sha512-fJ5pj5TaDiXKDShzrOksZDR1iE65W8z40unwM8+wiHT3AhifQsc2/G5uw4DC1LNN4RhqXGkuYuoEkoE+Zk+GHQ==}
+    engines: {node: '>= 20'}
     peerDependencies:
-      express-handlebars: '>= 6.0.0'
+      express-handlebars: '>= 8.0.0'
       nodemailer: '>= 6.0.0'
     dependencies:
       express-handlebars: 7.1.3
