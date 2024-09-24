@@ -31,6 +31,7 @@ datadogRum.init({
   trackResources: true,
   trackLongTasks: true,
   defaultPrivacyLevel: 'mask-user-input',
+  enableExperimentalFeatures: ['feature_flags'],
 });
 
 function Duecker({
@@ -68,6 +69,10 @@ Duecker.getInitialProps = async () => {
   const flagsmithSSR = createFlagsmithInstance();
   await flagsmithSSR.init({
     environmentID: flagsmithId ?? '',
+    datadogRum: {
+      client: datadogRum,
+      trackTraits: true,
+    },
   });
   return { flagsmithState: flagsmithSSR.getState() };
 };
