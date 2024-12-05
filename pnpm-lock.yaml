@@ -39,8 +39,8 @@ dependencies:
     specifier: ^7.1.3
     version: 7.1.3
   flagsmith:
-    specifier: ^4.0.3
-    version: 4.0.3
+    specifier: ^7.0.0
+    version: 7.0.2
   framer-motion:
     specifier: ^11.3.31
     version: 11.3.31(react-dom@18.3.1)(react@18.3.1)
@@ -6705,8 +6705,8 @@ packages:
       unicorn-magic: 0.1.0
     dev: true
 
-  /flagsmith@4.0.3:
-    resolution: {integrity: sha512-F2lI84yCwxP9RZMcqDgpj9cjWfgQ6YQLS1/bXNp4iltZz6K8lr4zECjBbqqZSUBpxpKBOxfPFX6XGdDurAKOuA==}
+  /flagsmith@7.0.2:
+    resolution: {integrity: sha512-URE3j7lGX0WxPgk951xHxclNO+ZQD7EaLP3kF7uHNNNFA0ap4tpB1AKoIjIc3v9yCuUeRIXBvt3ZyE54Ebt8VA==}
     dev: false
 
   /flat-cache@3.2.0:
