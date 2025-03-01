@@ -1,0 +1,13 @@
+{
+  "editor.formatOnSave": true,
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorStyle": "line",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "i18n-ally.localesPaths": ["public/locales"],
+  "tailwind-fold.autoFold": false,
+  "i18n-ally.namespace": true,
+  "i18n-ally.pathMatcher": "{locale}/{namespace}.json",
+  "i18n-ally.sourceLanguage": "de",
+  "i18n-ally.displayLanguage": "de"
+}
