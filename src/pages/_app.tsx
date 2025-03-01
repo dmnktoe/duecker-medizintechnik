@@ -1,5 +1,3 @@
-import { datadogRum } from '@datadog/browser-rum';
-import { SpeedInsights } from '@vercel/speed-insights/next';
 import { createFlagsmithInstance } from 'flagsmith/isomorphic';
 import { FlagsmithProvider } from 'flagsmith/react';
 import { AppProps } from 'next/app';
@@ -10,29 +8,8 @@ import React, { useRef } from 'react';
 import '@/styles/globals.css';
 
 import { figtree, sortsMillGoudy } from '@/lib/fonts';
-import { getVersion } from '@/lib/get-version';
 
-import {
-  datadogApplicationId,
-  datadogClientToken,
-  flagsmithId,
-} from '@/constant/env';
-
-datadogRum.init({
-  applicationId: datadogApplicationId ?? '',
-  clientToken: datadogClientToken ?? '',
-  site: 'datadoghq.eu',
-  service: 'duecker-medizintechnik',
-  env: process.env.NODE_ENV,
-  version: getVersion(),
-  sessionSampleRate: 100,
-  sessionReplaySampleRate: 20,
-  trackUserInteractions: true,
-  trackResources: true,
-  trackLongTasks: true,
-  defaultPrivacyLevel: 'mask-user-input',
-  enableExperimentalFeatures: ['feature_flags'],
-});
+import { flagsmithId } from '@/constant/env';
 
 function Duecker({
   Component,
@@ -60,7 +37,6 @@ function Duecker({
           <Component {...pageProps} />
         </div>
       </FlagsmithProvider>
-      <SpeedInsights />
     </>
   );
 }
@@ -69,10 +45,6 @@ Duecker.getInitialProps = async () => {
   const flagsmithSSR = createFlagsmithInstance();
   await flagsmithSSR.init({
     environmentID: flagsmithId ?? '',
-    datadogRum: {
-      client: datadogRum,
-      trackTraits: true,
-    },
   });
   return { flagsmithState: flagsmithSSR.getState() };
 };
