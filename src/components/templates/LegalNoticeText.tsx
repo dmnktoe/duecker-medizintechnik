@@ -35,7 +35,7 @@ export default function LegalNoticeText() {
           </PrimaryLink>
         </Body>
         <Body>
-          {t('content.provider.taxNumber')}: 032 813 6017 5
+          {t('content.provider.taxNumber')}: 024 813 6118 5
           <br />
           Amtsgericht Melsungen
         </Body>
