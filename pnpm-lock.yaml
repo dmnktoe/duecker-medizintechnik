@@ -208,8 +208,8 @@ importers:
         specifier: ^3.4.17
         version: 3.4.17
       tailwindcss-debug-screens:
-        specifier: ^2.2.1
-        version: 2.2.1(tailwindcss@3.4.17)
+        specifier: ^3.0.0
+        version: 3.0.1(tailwindcss@3.4.17)
       typescript:
         specifier: ^5.8.2
         version: 5.8.2
@@ -6161,10 +6161,10 @@ packages:
   tailwind-merge@2.6.0:
     resolution: {integrity: sha512-P+Vu1qXfzediirmHOC3xKGAYeZtPcV9g76X+xg2FD4tYgR71ewMA35Y3sCz3zhiN/dwefRpJX0yBcgwi1fXNQA==}
 
-  tailwindcss-debug-screens@2.2.1:
-    resolution: {integrity: sha512-EMyA0CYBzqcZJHtVDvBfmYzfx3NxuK4qDyVO5wnzcGOrmJsv25D9xPpWefVTORTvhE6pCh90Z1WYnLUKsg3yMw==}
+  tailwindcss-debug-screens@3.0.1:
+    resolution: {integrity: sha512-ibUaLQGk4AvxnKzGyoLlj1kzBRADcQV65ELENcWxkXJArUCnitR/GZxxDPL9XnW96mzUEuhJqgFI7C43hKm6Vw==}
     peerDependencies:
-      tailwindcss: ^1.0 || ^2.0 || ^3.0.0-alpha.1 || ^3.0
+      tailwindcss: ^4.0
 
   tailwindcss@3.4.17:
     resolution: {integrity: sha512-w33E2aCvSDP0tW9RZuNXadXlkHXqFzSkQew/aIa2i/Sj8fThxwovwlXHSPXTbAHwEIhBFXAedUhP2tueAKP8Og==}
@@ -14372,7 +14372,7 @@ snapshots:
 
   tailwind-merge@2.6.0: {}
 
-  tailwindcss-debug-screens@2.2.1(tailwindcss@3.4.17):
+  tailwindcss-debug-screens@3.0.1(tailwindcss@3.4.17):
     dependencies:
       tailwindcss: 3.4.17
 
