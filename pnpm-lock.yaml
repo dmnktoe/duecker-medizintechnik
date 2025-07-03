@@ -151,8 +151,8 @@ importers:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.5.3)
       axios-mock-adapter:
-        specifier: ^1.22.0
-        version: 1.22.0(axios@1.8.2)
+        specifier: ^2.0.0
+        version: 2.1.0(axios@1.8.2)
       cobe:
         specifier: ^0.6.3
         version: 0.6.3
@@ -2782,8 +2782,8 @@ packages:
     resolution: {integrity: sha512-RE3mdQ7P3FRSe7eqCWoeQ/Z9QXrtniSjp1wUjt5nRC3WIpz5rSCve6o3fsZ2aCpJtrZjSZgjwXAoTO5k4tEI0w==}
     engines: {node: '>=4'}
 
-  axios-mock-adapter@1.22.0:
-    resolution: {integrity: sha512-dmI0KbkyAhntUR05YY96qg2H6gg0XMl2+qTW0xmYg6Up+BFBAJYRLROMXRdDEL06/Wqwa0TJThAYvFtSFdRCZw==}
+  axios-mock-adapter@2.1.0:
+    resolution: {integrity: sha512-AZUe4OjECGCNNssH8SOdtneiQELsqTsat3SQQCWLPjN436/H+L9AjWfV7bF+Zg/YL9cgbhrz5671hoh+Tbn98w==}
     peerDependencies:
       axios: '>= 0.17.0'
 
@@ -9655,7 +9655,7 @@ snapshots:
 
   axe-core@4.10.2: {}
 
-  axios-mock-adapter@1.22.0(axios@1.8.2):
+  axios-mock-adapter@2.1.0(axios@1.8.2):
     dependencies:
       axios: 1.8.2
       fast-deep-equal: 3.1.3
