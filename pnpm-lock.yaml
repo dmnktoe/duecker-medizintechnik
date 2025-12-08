@@ -36,8 +36,8 @@ importers:
         specifier: ^8.0.0
         version: 8.0.3
       flagsmith:
-        specifier: ^4.1.4
-        version: 4.1.4
+        specifier: ^9.0.0
+        version: 9.3.5
       framer-motion:
         specifier: ^12.0.0
         version: 12.23.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -4302,8 +4302,8 @@ packages:
     resolution: {integrity: sha512-YyZM99iHrqLKjmt4LJDj58KI+fYyufRLBSYcqycxf//KpBk9FoewoGX0450m9nB44qrZnovzC2oeP5hUibxc/g==}
     engines: {node: '>=18'}
 
-  flagsmith@4.1.4:
-    resolution: {integrity: sha512-fMJIquyCcKyRKKi0qyym5znHTWZHgwR7bx01nJY/48CeyzWLIKnPwr2Nvuvjoh5oylOC08E0GBQYlQoRHb51Mw==}
+  flagsmith@9.3.5:
+    resolution: {integrity: sha512-CV0cciJTUNTnQvbEIDfzRFPUIp0p1fnKSSsbbeCGAmAx5zwWvZ0T2bhle3n/v6oGenClWy57La09iie7SNovFg==}
 
   flat-cache@3.2.0:
     resolution: {integrity: sha512-CYcENa+FtcUKLmhhqyctpclsq7QF38pKjZHsGNiSQF5r4FtoKDWabFDl3hzaEQMvT1LHEysw5twgLvpYYb4vbw==}
@@ -12953,7 +12953,7 @@ snapshots:
       path-exists: 5.0.0
       unicorn-magic: 0.1.0
 
-  flagsmith@4.1.4: {}
+  flagsmith@9.3.5: {}
 
   flat-cache@3.2.0:
     dependencies:
