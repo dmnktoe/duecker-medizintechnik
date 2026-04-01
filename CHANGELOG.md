@@ -1,5 +1,128 @@
 # Changelog
 
+## [1.2.0](https://github.com/dmnktoe/duecker-medizintechnik/compare/v1.1.0...v1.2.0) (2026-04-01)
+
+
+### :sparkles: Features
+
+* add `hreflang` seo tags ([f563ff2](https://github.com/dmnktoe/duecker-medizintechnik/commit/f563ff2c283e88fb2e25bdc07fe7b4705fec69c8))
+* add datadog monitor ([69f260b](https://github.com/dmnktoe/duecker-medizintechnik/commit/69f260bab9fee226456e31e21fdf5fed721d37ff))
+* add sentry ([9a55e22](https://github.com/dmnktoe/duecker-medizintechnik/commit/9a55e22fa5a3802e312de97c6b78a0ba268bead7)), closes [#266](https://github.com/dmnktoe/duecker-medizintechnik/issues/266)
+* display version number in footer if enabled ([b16bf8b](https://github.com/dmnktoe/duecker-medizintechnik/commit/b16bf8b5b6386fa30f365c024e01e0cee75b9133))
+
+
+### :bug: Bug Fixes
+
+* :art:  hide translate icon in mobile nav when language picker flag is disabled ([e3aa272](https://github.com/dmnktoe/duecker-medizintechnik/commit/e3aa272aee614af192b5897db620b7c6fd5cc8d9))
+* add `pnpm-lock.yaml` to `.prettierignore` ([992e95f](https://github.com/dmnktoe/duecker-medizintechnik/commit/992e95f4593591c939113b8a4c1b85beafd86071))
+* add legal notice text district court ([7b9fb54](https://github.com/dmnktoe/duecker-medizintechnik/commit/7b9fb540e47d80e6f610d10ac86909d400e89c19))
+* container test ui ([b61ca30](https://github.com/dmnktoe/duecker-medizintechnik/commit/b61ca30415d4a7b46934269e6f7410598af1921a))
+* **deps:** update dependency axios to v1.12.0 [security] ([627cb51](https://github.com/dmnktoe/duecker-medizintechnik/commit/627cb51238b54134fa7a4b505dea5bd54c9f31e7))
+* **deps:** update dependency axios to v1.8.2 [security] ([82b51cb](https://github.com/dmnktoe/duecker-medizintechnik/commit/82b51cb078714d8ca683f0351563a42f186060b9))
+* **deps:** update dependency express-handlebars to v8 ([3e5f895](https://github.com/dmnktoe/duecker-medizintechnik/commit/3e5f895c20e8bc3515901add099c9d6eab4f8451))
+* **deps:** update dependency framer-motion to v12 ([eb32800](https://github.com/dmnktoe/duecker-medizintechnik/commit/eb3280066bfff2ca73b94697e6c413f5d7255955))
+* **deps:** update dependency i18next to v25 ([af3bc5a](https://github.com/dmnktoe/duecker-medizintechnik/commit/af3bc5a51d939ed1e61f3d1bb4631a22da9a4287))
+* **deps:** update dependency next to v14.2.10 [security] ([b8fae50](https://github.com/dmnktoe/duecker-medizintechnik/commit/b8fae50c08dc09908ede6a720b48e6c7afbd0347))
+* **deps:** update dependency next to v14.2.30 [security] ([9f178e2](https://github.com/dmnktoe/duecker-medizintechnik/commit/9f178e2653d72c87d2c1db89b8f9b4465bfe414e))
+* **deps:** update dependency next to v14.2.32 [security] ([a29c1c8](https://github.com/dmnktoe/duecker-medizintechnik/commit/a29c1c86f10776343cc042d6956d899133c4a832))
+* **deps:** update dependency next to v15 [security] ([6877622](https://github.com/dmnktoe/duecker-medizintechnik/commit/68776224a14c8009208e683e251c41c6bf125355))
+* **deps:** update dependency nodemailer to v7 [security] ([62f9dbb](https://github.com/dmnktoe/duecker-medizintechnik/commit/62f9dbba1e29ae48c151960007f1bc7d0d5f2eb0))
+* **deps:** update dependency nodemailer to v8 [security] ([afc19bb](https://github.com/dmnktoe/duecker-medizintechnik/commit/afc19bb712492c19f1d5eddc629f4355866ffc1b))
+* **deps:** update dependency swiper to v12 [security] ([a7c98ef](https://github.com/dmnktoe/duecker-medizintechnik/commit/a7c98ef4c88bcaf57a9ea5331da233a61676267d))
+* feature flag version number `enabled` ([64bc4a2](https://github.com/dmnktoe/duecker-medizintechnik/commit/64bc4a2736b1458ce8a171d5f8e4e3caf53c7e4f))
+* font variable naming ([1389f39](https://github.com/dmnktoe/duecker-medizintechnik/commit/1389f392f5808c488b60c8507a2a1a0cae808208))
+* google map size height on mobile ([11e669e](https://github.com/dmnktoe/duecker-medizintechnik/commit/11e669ecf3ecddf826f406f978cb1ade83f5027a))
+* handlebars template locale ([5cc469f](https://github.com/dmnktoe/duecker-medizintechnik/commit/5cc469fbac8bb5c461a6622108423d70e9a2907a))
+* prettier `env.ts` ([a2ababe](https://github.com/dmnktoe/duecker-medizintechnik/commit/a2ababe93679d6aaace0dc97e3eef98659e1f992))
+* prettier handlebars ([7cb4291](https://github.com/dmnktoe/duecker-medizintechnik/commit/7cb4291c5caab34c74e3f4484c017a7b17f09d4f))
+* prettier write email template ([f8ea88c](https://github.com/dmnktoe/duecker-medizintechnik/commit/f8ea88cb00c0087347f27c2ba95ab531e7f989e3))
+* showLogger function ([878e6b4](https://github.com/dmnktoe/duecker-medizintechnik/commit/878e6b4db1e24a594237fe0effe8ffcaf98922ce))
+* ui and padding glitches on distribution products and optic banner ([3209759](https://github.com/dmnktoe/duecker-medizintechnik/commit/3209759f3147502cbe5e5b71e2b4656b6cca0896))
+* yarn lock file ([b6c8ffc](https://github.com/dmnktoe/duecker-medizintechnik/commit/b6c8ffcdb1cd38a563e3921ace140c4211ca57f0))
+
+
+### :racehorse: Performance Improvements
+
+* **ImageBanner:** :wrench:  increase image quality of image banners ([aff7a71](https://github.com/dmnktoe/duecker-medizintechnik/commit/aff7a71ee4b8c60a64253f3b23460eb5e6027f7f))
+
+
+### :broom: Chores
+
+* add datadog and flagsmith integration ([cd264af](https://github.com/dmnktoe/duecker-medizintechnik/commit/cd264af58b4937d64c9301ffdf90bf6956f90925))
+* add hreflang tags to all pages ([4c388f3](https://github.com/dmnktoe/duecker-medizintechnik/commit/4c388f383e9316ae022faf1ed7f47da51180fe5e))
+* create settings.json for vscode ([39117ec](https://github.com/dmnktoe/duecker-medizintechnik/commit/39117ec861fd7fc9aaceff1caa344139af45ea21))
+* **deps:** update actions/checkout action to v5 ([2fe2445](https://github.com/dmnktoe/duecker-medizintechnik/commit/2fe24454b047767de06ebd373908a952c4a710e4))
+* **deps:** update actions/checkout action to v6 ([53060f6](https://github.com/dmnktoe/duecker-medizintechnik/commit/53060f64a706b01454fe82adba084fc5b844f463))
+* **deps:** update actions/setup-node action to v5 ([4294d1b](https://github.com/dmnktoe/duecker-medizintechnik/commit/4294d1b86c4293a0f26f73b2cd00f942d6c0c5cf))
+* **deps:** update codecov/codecov-action action to v5 ([d7cb8c8](https://github.com/dmnktoe/duecker-medizintechnik/commit/d7cb8c8b8e4d3c49a2a20fa475ba98e90e546b5b))
+* **deps:** update commitlint monorepo to v20 ([b1411d2](https://github.com/dmnktoe/duecker-medizintechnik/commit/b1411d2c4eef9482cbf73dc518349e7390ff3f19))
+* **deps:** update dependency @testing-library/react to v16 ([6dc8aac](https://github.com/dmnktoe/duecker-medizintechnik/commit/6dc8aacfcf7d13b7e40e7c474bc9a109c7c1c502))
+* **deps:** update dependency @types/nodemailer to v7 ([3e15c92](https://github.com/dmnktoe/duecker-medizintechnik/commit/3e15c92650e1c1be7791db0e9d39096d3829f2a0))
+* **deps:** update dependency axios to v1.13.5 [security] ([bd459bf](https://github.com/dmnktoe/duecker-medizintechnik/commit/bd459bf087d3f2fae404e7aa860c46b535766a87))
+* **deps:** update dependency axios-mock-adapter to v2 ([5bdb715](https://github.com/dmnktoe/duecker-medizintechnik/commit/5bdb7157011114d6a76686cebaef0cddd74d7857))
+* **deps:** update dependency eslint-config-prettier to v10 ([44d3dbb](https://github.com/dmnktoe/duecker-medizintechnik/commit/44d3dbb4957dc1a23426a6693356fa5444b8e57d))
+* **deps:** update dependency lint-staged to v16 ([07e7bbc](https://github.com/dmnktoe/duecker-medizintechnik/commit/07e7bbc363ac18a111b270188ca7b8443a6d6fa3))
+* **deps:** update dependency next-router-mock to v1 ([19be4df](https://github.com/dmnktoe/duecker-medizintechnik/commit/19be4dffc79b7675c0cbe6c6a97aac7fe22e8bb9))
+* **deps:** update dependency node to v22 ([7cef164](https://github.com/dmnktoe/duecker-medizintechnik/commit/7cef1642b42fbe8f53ea9c9400b1bf8c8853efca))
+* **deps:** update dependency node to v22 ([4c6c45c](https://github.com/dmnktoe/duecker-medizintechnik/commit/4c6c45cfcb7808b8b8456a9dda680c0e74c10ad7))
+* **deps:** update dependency node to v24 ([0761ee4](https://github.com/dmnktoe/duecker-medizintechnik/commit/0761ee4b6491ccb99bce599e8cf36841ff8c08dc))
+* **deps:** update dependency pnpm to v10 ([3471818](https://github.com/dmnktoe/duecker-medizintechnik/commit/3471818ceb004f60ab1f5e551b4ce27c298666d6))
+* **deps:** update dependency prettier-plugin-tailwindcss to ^0.7.0 ([c38af06](https://github.com/dmnktoe/duecker-medizintechnik/commit/c38af062a96226705e58c5b7d248d0de7b54131f))
+* **deps:** update dependency qs to v6.14.1 [security] ([110f497](https://github.com/dmnktoe/duecker-medizintechnik/commit/110f497b1b8236a0982d4bec83121e7fc3b34769))
+* **deps:** update dependency qs to v6.14.2 [security] ([09fba96](https://github.com/dmnktoe/duecker-medizintechnik/commit/09fba967c6a6733bdb99c7856a382ec8a0e60505))
+* **deps:** update dependency react-spring to v10 ([15f8809](https://github.com/dmnktoe/duecker-medizintechnik/commit/15f880993268e3622e98950528bfb35d00fe9762))
+* **deps:** update dependency tailwindcss-debug-screens to v3 ([69e71c0](https://github.com/dmnktoe/duecker-medizintechnik/commit/69e71c075a5ede21c2a9358f1f3a512d17f57567))
+* **deps:** update jest monorepo to v30 ([9fd4b3c](https://github.com/dmnktoe/duecker-medizintechnik/commit/9fd4b3c64447ac34284605df93306308010ae8a2))
+* **deps:** update tkt-actions/add-issue-links action to v1.9.1 ([e7d881a](https://github.com/dmnktoe/duecker-medizintechnik/commit/e7d881a36163d4429a0f67ee31f3a63bc82295b4))
+* disable `reactStrictMode` ([7f473c5](https://github.com/dmnktoe/duecker-medizintechnik/commit/7f473c5a8ac814c50e77617715deb10f5fb2c9be))
+* disable footer posts fetch by flag ([c6f3747](https://github.com/dmnktoe/duecker-medizintechnik/commit/c6f3747cf8a1174f3a9b4fd630a46ca698c21686))
+* disable image banner by feature flag ([4469fbb](https://github.com/dmnktoe/duecker-medizintechnik/commit/4469fbba54caf094de1bc6f9d525506f0ab5767c))
+* enable `withBundleAnalyzer` ([3f1841a](https://github.com/dmnktoe/duecker-medizintechnik/commit/3f1841a73fdf259f007ee629b8e71b42135f5186))
+* enable en locale ([8440513](https://github.com/dmnktoe/duecker-medizintechnik/commit/84405135669197e25fe04cf02aa9324c8ee71b9f))
+* fix legal notice tax number ([242aa5b](https://github.com/dmnktoe/duecker-medizintechnik/commit/242aa5b125175b1f1f89b05fbe0742488afe277f))
+* fix prettier on handlebars template ([e12b394](https://github.com/dmnktoe/duecker-medizintechnik/commit/e12b3941e722057b21fa8b7df31234f4cd2b4c68))
+* generateHreflangTags updates ([1b40723](https://github.com/dmnktoe/duecker-medizintechnik/commit/1b4072382eec195caeff25db51bdf5256da60229))
+* remove `lighthouserc.json` ([4a4ab79](https://github.com/dmnktoe/duecker-medizintechnik/commit/4a4ab799b4a09c74b7dd495c7671789c2e3877d7))
+* simplify hreflang function, fix missing data ([7087d5f](https://github.com/dmnktoe/duecker-medizintechnik/commit/7087d5f22ef01f3fa7574cbff9e244c272aecaa6))
+* switch to pnpm package manager ([e59b3ea](https://github.com/dmnktoe/duecker-medizintechnik/commit/e59b3ead9d6df1e9fa61251a394fa4d4f6e32193))
+* temp disable 'en' locale ([f9d3a32](https://github.com/dmnktoe/duecker-medizintechnik/commit/f9d3a32787670842e9d88c88d4bc3f6cfbc2e792))
+* temp perf fixes ([76e3e82](https://github.com/dmnktoe/duecker-medizintechnik/commit/76e3e828e1780861bcebcee6fe8e0341d1eb5f3d))
+* uninstall `sharp` package ([279cd62](https://github.com/dmnktoe/duecker-medizintechnik/commit/279cd628538d3423e656f0baa027a61fa8ae05c4))
+* update .env.example ([7045344](https://github.com/dmnktoe/duecker-medizintechnik/commit/70453449eab966874043bb24e0e001af3a3b1b81))
+* update all deps minor ([736442d](https://github.com/dmnktoe/duecker-medizintechnik/commit/736442d308d2845ff5a5af9030a11bcf0d62338f))
+* update deps ([d4d453b](https://github.com/dmnktoe/duecker-medizintechnik/commit/d4d453b712f105d1234a07103537efc33d35bff1))
+* update example env ([10a962c](https://github.com/dmnktoe/duecker-medizintechnik/commit/10a962c05e23543fc9947fca1b02627d0e9723c0))
+* update example env ([4a1d42c](https://github.com/dmnktoe/duecker-medizintechnik/commit/4a1d42cc3c2c6abfba052465462fe1f58c685d78))
+* update next.config.js sentry org name ([9e66e5a](https://github.com/dmnktoe/duecker-medizintechnik/commit/9e66e5ad87d49a067a48492f9cfb132e0d98d96a))
+* update provider tax number ([6c783e7](https://github.com/dmnktoe/duecker-medizintechnik/commit/6c783e7e3950168c100ee1b93e0cff8b0a0441ad))
+
+
+### :lipstick: Styles
+
+* add case image in optic slideshow; fix padding ([b226ebd](https://github.com/dmnktoe/duecker-medizintechnik/commit/b226ebdae1a2dfcb9ca0f83362881eecb68cc09e))
+* **Container:** :lipstick:  reduce container width size ([8ce751e](https://github.com/dmnktoe/duecker-medizintechnik/commit/8ce751efce6c65871a6b28d6e86a7ce58a01f991))
+* fix contact page top padding on mobile ([38667ec](https://github.com/dmnktoe/duecker-medizintechnik/commit/38667ec5e55551f49245de77683e972a76240239))
+* fix flex-row DistributionIntro ([3a7963b](https://github.com/dmnktoe/duecker-medizintechnik/commit/3a7963b405ccd069209fcd9b0a51f49002788535))
+* reduce breadcrumbs bottom spacing ([e2d6030](https://github.com/dmnktoe/duecker-medizintechnik/commit/e2d6030c5249c0602d98fe1535e5682f5fbb08b8))
+* reduce mobile nav subitems y-spacing ([a43aa1a](https://github.com/dmnktoe/duecker-medizintechnik/commit/a43aa1a9bcb874a278a655f1fffe20d9eabb44cb))
+* remove ISO8 tile in bento grid ([55d6394](https://github.com/dmnktoe/duecker-medizintechnik/commit/55d6394190c6582f2afce5b4fccfbe3b67fb0e09))
+* update footer link size and fix posts headline ([df762f9](https://github.com/dmnktoe/duecker-medizintechnik/commit/df762f9632348c075b6453205cd11349ffd2e3c7))
+* use 'small' padding on service pages ([6fd5c0c](https://github.com/dmnktoe/duecker-medizintechnik/commit/6fd5c0c0b8512005fcee146295e5921f8d84a47d))
+* use flex and gap for `ProductCard` text spacing ([61a25de](https://github.com/dmnktoe/duecker-medizintechnik/commit/61a25deb3871bd782b664dbf752df5f46d994acb))
+
+
+### :hammer: Refactors
+
+* combine `getVersion` function, hide datadog variables ([fbb23fe](https://github.com/dmnktoe/duecker-medizintechnik/commit/fbb23fe11ca9a3cccb65802040a429df787a4a2a))
+* do not generate indexSitemap ([03bd115](https://github.com/dmnktoe/duecker-medizintechnik/commit/03bd11519f641fce7ca9f08770fcd3c165b35c68))
+* make cta spinning globe dependent on feature flag ([ac0e9d4](https://github.com/dmnktoe/duecker-medizintechnik/commit/ac0e9d4d0b1519bcee1e5fd88c7278e74bc6d59e))
+* remove `lucide` since only one icon was used ([ff96201](https://github.com/dmnktoe/duecker-medizintechnik/commit/ff9620166dcca1d44fddb5d015b86908b1f3856e)), closes [#265](https://github.com/dmnktoe/duecker-medizintechnik/issues/265)
+* remove lighthouse and switch to vercel speed insights ([eaf1474](https://github.com/dmnktoe/duecker-medizintechnik/commit/eaf147429ba3506fbac7c578c9f3cc097330136f)), closes [#250](https://github.com/dmnktoe/duecker-medizintechnik/issues/250)
+* remove resolutions ([a72ffdc](https://github.com/dmnktoe/duecker-medizintechnik/commit/a72ffdcdc6bd46e362c3c943e24821f63c606091))
+* restructure translations on production page ([5c4e034](https://github.com/dmnktoe/duecker-medizintechnik/commit/5c4e0345cf5a47194b57fdd7aa896a468335d320))
+* **StickyScroll:** :fire:  remove legacy sticky scroll fullscreen code ([a71d8c5](https://github.com/dmnktoe/duecker-medizintechnik/commit/a71d8c568d826b5354c0b5cd143cfeef468d6701))
+* upgrade all packages minor ([5fdb798](https://github.com/dmnktoe/duecker-medizintechnik/commit/5fdb798d7d5d0d8f5e8968a390ed96a3aa95c54a))
+
 ## [1.1.0](https://github.com/dmnktoe/duecker-medizintechnik/compare/v1.0.3...v1.1.0) (2024-07-02)
 
 
