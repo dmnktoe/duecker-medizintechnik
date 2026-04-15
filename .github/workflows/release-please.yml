@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: 24.x
           registry-url: 'https://registry.npmjs.org'
-      - uses: google-github-actions/release-please-action@v3
+      - uses: googleapis/release-please-action@v3
         id: release
         with:
           config-file: .github/release-please-config.json
