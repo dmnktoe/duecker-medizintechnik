@@ -14,8 +14,37 @@ import { SliderButton, Title, UnderlineLink } from '@/components/ui';
 import { News } from '@/types/News';
 
 type NewsSliderProps = {
-  posts: News[];
+  posts: News[] | null;
 };
+
+const NewsSliderCarousel = ({
+  posts,
+  swiperElRef,
+}: {
+  posts: News[];
+  swiperElRef: React.RefObject<SwiperRef | null>;
+}) => (
+  <Swiper
+    modules={[Navigation]}
+    navigation
+    spaceBetween={15}
+    ref={swiperElRef}
+    breakpoints={{
+      0: { slidesPerView: 1 },
+      640: { slidesPerView: 2 },
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 },
+    }}
+  >
+    <div className='mb-20 flex'>
+      {posts.map((post: News, index) => (
+        <SwiperSlide key={index}>
+          <NewsCard post={post} orientation='vertical' />
+        </SwiperSlide>
+      ))}
+    </div>
+  </Swiper>
+);
 
 export const NewsSlider = ({ posts }: NewsSliderProps) => {
   const swiperElRef = useRef<SwiperRef>(null);
@@ -31,87 +60,38 @@ export const NewsSlider = ({ posts }: NewsSliderProps) => {
     swiperElRef.current.swiper.slideNext();
   }, []);
 
-  const NewsSliderTitle = () => {
-    return <Title margin={false}>{t('content.newsSlider.title')}</Title>;
-  };
-
-  const NewsSliderControls = () => {
-    return (
-      <div className='flex items-center justify-end gap-2'>
-        <SliderButton direction='prev' handleClick={handlePrev} size='md' />
-        <SliderButton direction='next' handleClick={handleNext} size='md' />
-      </div>
-    );
-  };
-
-  const NewsSliderReadMore = () => {
-    return (
-      <div className='mt-16 text-center'>
-        <UnderlineLink
-          underline='hover'
-          href='/newsroom'
-          className='group inline-flex items-center'
-        >
-          <Title size='five' margin={false} className='mr-2 hover:underline'>
-            {t('content.newsSlider.readMore')}
-          </Title>
-          <span className='relative block -rotate-45 transform transition duration-100 group-hover:rotate-0 group-hover:text-primary-500'>
-            <VscArrowRight size={24} />
-          </span>
-        </UnderlineLink>
-      </div>
-    );
-  };
-
-  const NewsSliderCarousel = () => {
-    return (
-      <Swiper
-        modules={[Navigation]}
-        navigation
-        spaceBetween={15}
-        ref={swiperElRef}
-        breakpoints={{
-          0: {
-            slidesPerView: 1,
-          },
-          640: {
-            slidesPerView: 2,
-          },
-          768: {
-            slidesPerView: 2,
-          },
-          1024: {
-            slidesPerView: 3,
-          },
-        }}
-      >
-        <div className='mb-20 flex'>
-          {posts.map((post: News, index) => (
-            <SwiperSlide key={index}>
-              <NewsCard post={post} orientation='vertical' />
-            </SwiperSlide>
-          ))}
-        </div>
-      </Swiper>
-    );
-  };
+  if (!posts?.length) return null;
 
   return (
-    <>
-      <section className='overflow-hidden bg-gray-50 py-12 md:py-24 lg:py-32'>
-        <Container>
-          <div className='mb-8 flex flex-col items-center justify-between gap-3 md:mb-20 md:flex-row'>
-            <div className='w-full md:w-1/2'>
-              <NewsSliderTitle />
-            </div>
-            <div className='w-full md:w-1/2'>
-              <NewsSliderControls />
+    <section className='overflow-hidden bg-gray-50 py-12 md:py-24 lg:py-32'>
+      <Container>
+        <div className='mb-8 flex flex-col items-center justify-between gap-3 md:mb-20 md:flex-row'>
+          <div className='w-full md:w-1/2'>
+            <Title margin={false}>{t('content.newsSlider.title')}</Title>
+          </div>
+          <div className='w-full md:w-1/2'>
+            <div className='flex items-center justify-end gap-2'>
+              <SliderButton direction='prev' handleClick={handlePrev} size='md' />
+              <SliderButton direction='next' handleClick={handleNext} size='md' />
             </div>
           </div>
-          <NewsSliderCarousel />
-          <NewsSliderReadMore />
-        </Container>
-      </section>
-    </>
+        </div>
+        <NewsSliderCarousel posts={posts} swiperElRef={swiperElRef} />
+        <div className='mt-16 text-center'>
+          <UnderlineLink
+            underline='hover'
+            href='/newsroom'
+            className='group inline-flex items-center'
+          >
+            <Title size='five' margin={false} className='mr-2 hover:underline'>
+              {t('content.newsSlider.readMore')}
+            </Title>
+            <span className='relative block -rotate-45 transform transition duration-100 group-hover:rotate-0 group-hover:text-primary-500'>
+              <VscArrowRight size={24} />
+            </span>
+          </UnderlineLink>
+        </div>
+      </Container>
+    </section>
   );
 };
