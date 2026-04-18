@@ -1,7 +1,7 @@
 import { getLocale, getTranslations } from 'next-intl/server';
 import * as React from 'react';
 
-import Page from '@/components/layout/Page';
+import Layout from '@/components/layout/Layout';
 import NotFound from '@/components/templates/NotFound';
 
 export default async function LocaleNotFound() {
@@ -9,16 +9,10 @@ export default async function LocaleNotFound() {
   const t = await getTranslations({ locale, namespace: 'notFound' });
 
   return (
-    <Page
-      layout={{
-        background: 'light',
-        showBreadcrumbs: false,
-        showHero: false,
-        padding: 'none',
-      }}
-      title={t('meta.pageTitle')}
-    >
-      <NotFound />
-    </Page>
+    <Layout>
+      <main title={t('meta.pageTitle')}>
+        <NotFound />
+      </main>
+    </Layout>
   );
 }
