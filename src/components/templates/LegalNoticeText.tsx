@@ -50,37 +50,26 @@ export default function LegalNoticeText() {
         <Body isStrong>{t('content.privacy.title')}</Body>
         <Body>{t('content.privacy.text1')}</Body>
         <Body>
-          <Trans
-            i18nKey='content.privacy.text2'
-            t={t}
-            components={{
-              linkTag: (
-                <UnderlineLink
-                  target='_blank'
-                  href='/datenschutz'
-                  // eslint-disable-next-line react/no-children-prop
-                  children=''
-                />
-              ),
-            }}
-          />
+          {t.rich('content.privacy.text2', {
+            linkTag: (chunks) => (
+              <UnderlineLink target='_blank' href='/datenschutz'>
+                {chunks}
+              </UnderlineLink>
+            ),
+          })}
         </Body>
         <Body isStrong>{t('content.osPlatform.title')}</Body>
         <Body>
-          <Trans
-            i18nKey='content.osPlatform.text1'
-            t={t}
-            components={{
-              linkTag: (
-                <UnderlineLink
-                  target='_blank'
-                  href='https://ec.europa.eu/consumers/odr/'
-                  // eslint-disable-next-line react/no-children-prop
-                  children=''
-                />
-              ),
-            }}
-          />
+          {t.rich('content.osPlatform.text1', {
+            linkTag: (chunks) => (
+              <UnderlineLink
+                target='_blank'
+                href='https://ec.europa.eu/consumers/odr/'
+              >
+                {chunks}
+              </UnderlineLink>
+            ),
+          })}
         </Body>
         <Body>{t('content.osPlatform.text2')}</Body>
         <Body isStrong>{t('content.teleservicesAct.title')}</Body>

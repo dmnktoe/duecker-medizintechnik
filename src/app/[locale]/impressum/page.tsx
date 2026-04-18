@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import * as React from 'react';
 
 import Page from '@/components/layout/Page';
-import ImprintContent from '@/components/templates/ImprintContent';
+import ImprintContent from '@/components/templates/LegalNoticeText';
 import { getTranslations } from 'next-intl/server';
 import { getAlternates } from '@/lib/hreflang';
 
