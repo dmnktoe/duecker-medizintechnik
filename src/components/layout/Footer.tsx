@@ -8,7 +8,6 @@ import { PiTranslate } from 'react-icons/pi';
 import { VscArrowRight } from 'react-icons/vsc';
 
 import clsxm from '@/lib/clsxm';
-import { fetchAPI } from '@/lib/fetch-api';
 import { getVersion } from '@/lib/get-version';
 
 import { Container } from '@/components/layout/Container';
@@ -110,11 +109,8 @@ const FooterPosts = () => {
     const controller = new AbortController();
     let cancelled = false;
 
-    fetchAPI<{ data: News[] }>(
-      '/posts?sort=id:desc&populate=*&pagination[pageSize]=4',
-      {},
-      { signal: controller.signal },
-    )
+    fetch('/api/posts', { signal: controller.signal })
+      .then((res) => res.json() as Promise<{ data: News[] }>)
       .then((result) => {
         if (!cancelled) {
           setPosts(result.data);
