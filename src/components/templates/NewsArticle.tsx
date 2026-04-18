@@ -1,7 +1,7 @@
 import { useFlags } from 'flagsmith/react';
 import { marked } from 'marked';
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   RiFacebookCircleFill,
   RiMailFill,
@@ -30,8 +30,6 @@ type NewsArticleProps = {
 };
 
 export const NewsArticle = ({ post }: NewsArticleProps) => {
-  const [isCopied, setIsCopied] = React.useState(false);
-
   const ArticleHeader = ({ post }: { post: News }) => {
     return (
       <div className='mx-auto flex w-full max-w-3xl flex-col gap-y-4'>
@@ -74,6 +72,14 @@ export const NewsArticle = ({ post }: NewsArticleProps) => {
   };
 
   const ShareButtons = () => {
+    const [isCopied, setIsCopied] = useState(false);
+
+    useEffect(() => {
+      if (!isCopied) return;
+      const timer = setTimeout(() => setIsCopied(false), 2000);
+      return () => clearTimeout(timer);
+    }, [isCopied]);
+
     const getPostUrl = () => {
       const baseUrl = getBaseUrl();
       return `${baseUrl}/newsroom/${post.attributes.slug}`;
@@ -103,13 +109,8 @@ export const NewsArticle = ({ post }: NewsArticleProps) => {
         <div className='flex flex-row items-center'>
           <button
             onClick={() => {
-              navigator.clipboard
-                .writeText(shareButtonProps.url)
-                .then((r) => r);
+              navigator.clipboard.writeText(shareButtonProps.url);
               setIsCopied(true);
-              setTimeout(() => {
-                setIsCopied(false);
-              }, 2000);
             }}
           >
             <VscLink {...shareButtonProps} />

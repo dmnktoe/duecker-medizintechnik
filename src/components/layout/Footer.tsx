@@ -100,17 +100,29 @@ const FooterPosts = () => {
   const { t } = useTranslation('common');
 
   useEffect(() => {
-    if (flags.fetch_footer_posts.enabled) {
-      const fetchData = async () => {
-        const result = await fetchAPI(
-          '/posts?sort=id:desc&populate=*&pagination[pageSize]=4',
-        );
-        setPosts(result.data);
-      };
-      fetchData().then(() => setIsLoading(false));
-    } else {
+    if (!flags.fetch_footer_posts.enabled) {
       setIsLoading(false);
+      return;
     }
+
+    const controller = new AbortController();
+    let cancelled = false;
+
+    fetchAPI('/posts?sort=id:desc&populate=*&pagination[pageSize]=4')
+      .then((result) => {
+        if (!cancelled) {
+          setPosts(result.data);
+          setIsLoading(false);
+        }
+      })
+      .catch(() => {
+        if (!cancelled) setIsLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+      controller.abort();
+    };
   }, [flags.fetch_footer_posts.enabled]);
 
   if (isLoading)

@@ -51,17 +51,14 @@ export const Header = () => {
   }, [hamburgerMenuIsOpen]);
 
   useEffect(() => {
-    const keyDownHandler = (event: {
-      key: string;
-      preventDefault: () => void;
-    }) => {
+    const closeHamburgerNavigation = () => setHamburgerMenuIsOpen(false);
+
+    const keyDownHandler = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         event.preventDefault();
         closeHamburgerNavigation();
       }
     };
-
-    const closeHamburgerNavigation = () => setHamburgerMenuIsOpen(false);
 
     window.addEventListener('orientationchange', closeHamburgerNavigation);
     window.addEventListener('resize', closeHamburgerNavigation);
@@ -70,6 +67,7 @@ export const Header = () => {
     return () => {
       window.removeEventListener('orientationchange', closeHamburgerNavigation);
       window.removeEventListener('resize', closeHamburgerNavigation);
+      document.removeEventListener('keydown', keyDownHandler);
     };
   }, [setHamburgerMenuIsOpen]);
 

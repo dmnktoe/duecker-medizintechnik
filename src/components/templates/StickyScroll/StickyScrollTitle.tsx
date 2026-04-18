@@ -15,12 +15,14 @@ export const StickyScrollTitle = ({ children, id }: StickyScrollTitleProps) => {
     margin: '-50% 0px -50% 0px',
   });
   const setInViewFeature = useFeatureStore((state) => state.setInViewFeature);
-  const inViewFeature = useFeatureStore((state) => state.inViewFeature);
 
   useEffect(() => {
-    if (isInView) setInViewFeature(id);
-    if (!isInView && inViewFeature === id) setInViewFeature(null);
-  }, [isInView, id, setInViewFeature, inViewFeature]);
+    if (isInView) {
+      setInViewFeature(id);
+    } else if (useFeatureStore.getState().inViewFeature === id) {
+      setInViewFeature(null);
+    }
+  }, [isInView, id, setInViewFeature]);
 
   return (
     <h2
