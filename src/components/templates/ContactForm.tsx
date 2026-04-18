@@ -1,8 +1,8 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import axios from 'axios';
 import type { AxiosError } from 'axios';
+import axios from 'axios';
 import { useLocale, useTranslations } from 'next-intl';
 import React, { useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';

@@ -1,4 +1,9 @@
-import type { FieldError, FieldValues, Path, UseFormRegister } from 'react-hook-form';
+import type {
+  FieldError,
+  FieldValues,
+  Path,
+  UseFormRegister,
+} from 'react-hook-form';
 
 interface CheckboxProps<T extends FieldValues> {
   id: Path<T>;
@@ -25,8 +30,6 @@ export const Checkbox = <T extends FieldValues>({
         {label}
       </label>
     </div>
-    {error && (
-      <div className='mt-1 text-xs text-red-500'>{error.message}</div>
-    )}
+    {error && <div className='mt-1 text-xs text-red-500'>{error.message}</div>}
   </div>
 );

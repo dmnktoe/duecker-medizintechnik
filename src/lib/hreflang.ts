@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 
-import { i18nConfig } from '@/i18n/settings';
 import { getBaseUrl } from '@/lib/get-base-url';
+
+import { i18nConfig } from '@/i18n/settings';
 
 export function getAlternates(
   path: string,

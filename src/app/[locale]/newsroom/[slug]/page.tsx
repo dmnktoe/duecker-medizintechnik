@@ -1,14 +1,17 @@
 import type { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
 import * as React from 'react';
 
+import { fetchAPI } from '@/lib/fetch-api';
+import { getAlternates } from '@/lib/hreflang';
+
+import { Container } from '@/components/layout/Container';
 import Page from '@/components/layout/Page';
 import { NewsArticle } from '@/components/templates/NewsArticle';
 import { ArrowLink } from '@/components/ui';
-import { Container } from '@/components/layout/Container';
-import { getTranslations } from 'next-intl/server';
-import { fetchAPI } from '@/lib/fetch-api';
-import { getAlternates } from '@/lib/hreflang';
+
 import { i18nConfig } from '@/i18n/settings';
+
 import { News } from '@/types/News';
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
@@ -57,7 +60,11 @@ export default async function PostPage({ params }: Props) {
       <section className='py-12'>
         <Container>
           <div className='mx-auto flex max-w-3xl'>
-            <ArrowLink direction='left' href={`/${locale}/newsroom`} className='text-xs'>
+            <ArrowLink
+              direction='left'
+              href={`/${locale}/newsroom`}
+              className='text-xs'
+            >
               {t('content.newsSlug.back')}
             </ArrowLink>
           </div>

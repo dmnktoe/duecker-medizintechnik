@@ -3,6 +3,7 @@ import { getMessages } from 'next-intl/server';
 import * as React from 'react';
 
 import { Providers } from '@/components/providers/Providers';
+
 import { flagsmithId } from '@/constant/env';
 import { i18nConfig } from '@/i18n/settings';
 

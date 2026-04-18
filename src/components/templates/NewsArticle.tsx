@@ -63,7 +63,12 @@ type ShareButtonsProps = {
   copyLinkLabel: string;
 };
 
-const ShareButtons = ({ url, title, copiedLabel, copyLinkLabel }: ShareButtonsProps) => {
+const ShareButtons = ({
+  url,
+  title,
+  copiedLabel,
+  copyLinkLabel,
+}: ShareButtonsProps) => {
   const [isCopied, setIsCopied] = useState(false);
 
   useEffect(() => {

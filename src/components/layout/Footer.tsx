@@ -67,29 +67,26 @@ const FooterLinks = () => {
   const t = useTranslations('common');
   return (
     <>
-      {
-        t.raw('footer.links').map(
-          (navigation: FooterNavigation) => (
-            <div key={navigation.title}>
-              <FooterNavigationHeadline title={navigation.title} />
-              <ul className='space-y-2 md:mt-8 md:space-y-3'>
-                {navigation.items.map((item) => (
-                  <li key={item.title}>
-                    <UnderlineLink
-                      underline='hover'
-                      className='line-clamp-2'
-                      href={item.href}
-                    >
-                      <Body size='sm' margin={false}>
-                        {item.title}
-                      </Body>
-                    </UnderlineLink>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ),
-        )}
+      {t.raw('footer.links').map((navigation: FooterNavigation) => (
+        <div key={navigation.title}>
+          <FooterNavigationHeadline title={navigation.title} />
+          <ul className='space-y-2 md:mt-8 md:space-y-3'>
+            {navigation.items.map((item) => (
+              <li key={item.title}>
+                <UnderlineLink
+                  underline='hover'
+                  className='line-clamp-2'
+                  href={item.href}
+                >
+                  <Body size='sm' margin={false}>
+                    {item.title}
+                  </Body>
+                </UnderlineLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </>
   );
 };

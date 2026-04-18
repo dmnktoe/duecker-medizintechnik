@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
 import * as React from 'react';
 
-import { getTranslations } from 'next-intl/server';
 import { getAlternates } from '@/lib/hreflang';
 
 import { ProduktionContent } from './_content';

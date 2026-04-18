@@ -184,10 +184,7 @@ const BentoCard = ({
       </Title>
       <Body
         margin={false}
-        className={clsxm(
-          'max-w-lg',
-          textIsWhite ? 'text-white' : 'text-dark',
-        )}
+        className={clsxm('max-w-lg', textIsWhite ? 'text-white' : 'text-dark')}
       >
         {description}
       </Body>

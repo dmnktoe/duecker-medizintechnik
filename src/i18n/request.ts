@@ -1,7 +1,7 @@
 import { getRequestConfig } from 'next-intl/server';
 
-import { ALL_NAMESPACES } from './settings';
 import { routing } from './routing';
+import { ALL_NAMESPACES } from './settings';
 
 export default getRequestConfig(async ({ requestLocale }) => {
   let locale = await requestLocale;

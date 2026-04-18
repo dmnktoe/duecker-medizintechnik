@@ -20,8 +20,9 @@ const LanguagePicker = ({ className, showDisplayName }: Props) => {
   const flags = useFlags(['language_picker']);
 
   const segments = pathname.split('/').filter(Boolean);
-  const currentLocale = i18nConfig.locales.find((l) => l === segments[0])
-    ?? i18nConfig.defaultLocale;
+  const currentLocale =
+    i18nConfig.locales.find((l) => l === segments[0]) ??
+    i18nConfig.defaultLocale;
 
   function handleLanguageChange(e: React.ChangeEvent<HTMLSelectElement>) {
     const newLocale = e.target.value;

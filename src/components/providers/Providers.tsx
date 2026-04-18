@@ -13,7 +13,12 @@ type Props = {
   messages: Record<string, unknown>;
 };
 
-export function Providers({ children, flagsmithState, locale, messages }: Props) {
+export function Providers({
+  children,
+  flagsmithState,
+  locale,
+  messages,
+}: Props) {
   const flagsmithRef = useRef(createFlagsmithInstance());
 
   return (
@@ -21,7 +26,11 @@ export function Providers({ children, flagsmithState, locale, messages }: Props)
       flagsmith={flagsmithRef.current}
       serverState={flagsmithState}
     >
-      <NextIntlClientProvider locale={locale} messages={messages} timeZone='Europe/Berlin'>
+      <NextIntlClientProvider
+        locale={locale}
+        messages={messages}
+        timeZone='Europe/Berlin'
+      >
         {children}
       </NextIntlClientProvider>
     </FlagsmithProvider>

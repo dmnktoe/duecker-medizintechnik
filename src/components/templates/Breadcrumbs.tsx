@@ -2,12 +2,13 @@
 
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
-import React from 'react';
 import { useTranslations } from 'next-intl';
+import React from 'react';
 import { VscChevronRight } from 'react-icons/vsc';
 
-import { i18nConfig } from '@/i18n/settings';
 import { UnderlineLink } from '@/components/ui';
+
+import { i18nConfig } from '@/i18n/settings';
 
 export default function Breadcrumbs({ className }: { className?: string }) {
   const pathname = usePathname();

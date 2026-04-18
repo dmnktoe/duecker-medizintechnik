@@ -71,8 +71,16 @@ export const NewsSlider = ({ posts }: NewsSliderProps) => {
           </div>
           <div className='w-full md:w-1/2'>
             <div className='flex items-center justify-end gap-2'>
-              <SliderButton direction='prev' handleClick={handlePrev} size='md' />
-              <SliderButton direction='next' handleClick={handleNext} size='md' />
+              <SliderButton
+                direction='prev'
+                handleClick={handlePrev}
+                size='md'
+              />
+              <SliderButton
+                direction='next'
+                handleClick={handleNext}
+                size='md'
+              />
             </div>
           </div>
         </div>

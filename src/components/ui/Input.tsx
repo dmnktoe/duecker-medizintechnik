@@ -1,4 +1,9 @@
-import type { FieldError, FieldValues, Path, UseFormRegister } from 'react-hook-form';
+import type {
+  FieldError,
+  FieldValues,
+  Path,
+  UseFormRegister,
+} from 'react-hook-form';
 
 interface InputProps<T extends FieldValues> {
   autocomplete: string;
@@ -37,7 +42,7 @@ export const Input = <T extends FieldValues>({
       <input
         type={type}
         id={id}
-        className={`${baseClasses}${error ? ' border-red-500' : ''}`}
+        className={`${baseClasses}${error ? 'border-red-500' : ''}`}
         placeholder={placeholder}
         autoComplete={autocomplete}
         {...register(id)}

@@ -1,4 +1,9 @@
-import type { FieldError, FieldValues, Path, UseFormRegister } from 'react-hook-form';
+import type {
+  FieldError,
+  FieldValues,
+  Path,
+  UseFormRegister,
+} from 'react-hook-form';
 
 interface TextAreaProps<T extends FieldValues> {
   id: Path<T>;
@@ -33,7 +38,7 @@ export const TextArea = <T extends FieldValues>({
       <textarea
         id={id}
         rows={4}
-        className={`${baseClasses}${error ? ' border-red-500' : ''}`}
+        className={`${baseClasses}${error ? 'border-red-500' : ''}`}
         placeholder={placeholder}
         {...register(id)}
       />

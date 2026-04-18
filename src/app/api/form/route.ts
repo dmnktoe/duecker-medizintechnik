@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/nextjs';
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import hbs from 'nodemailer-express-handlebars';
@@ -37,7 +38,10 @@ export async function POST(request: NextRequest) {
   try {
     body = await request.json();
   } catch {
-    return NextResponse.json({ errors: ['Invalid request body'] }, { status: 400 });
+    return NextResponse.json(
+      { errors: ['Invalid request body'] },
+      { status: 400 },
+    );
   }
 
   const { name, email, phone, message, token } = body;
@@ -75,10 +79,7 @@ export async function POST(request: NextRequest) {
     });
     return NextResponse.json({ message: 'success' }, { status: 200 });
   } catch (err) {
-    console.error('Mail send error:', err);
-    return NextResponse.json(
-      { message: 'an error occurred' },
-      { status: 500 },
-    );
+    Sentry.captureException(err);
+    return NextResponse.json({ message: 'an error occurred' }, { status: 500 });
   }
 }

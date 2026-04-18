@@ -1,13 +1,14 @@
 import type { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
 import * as React from 'react';
+
+import { fetchAPI } from '@/lib/fetch-api';
+import { getAlternates } from '@/lib/hreflang';
 
 import Page from '@/components/layout/Page';
 import { DownloadCenter } from '@/components/templates/DownloadCenter';
 import { DownloadText } from '@/components/templates/DownloadText';
 import TextReveal from '@/components/templates/TextReveal';
-import { getTranslations } from 'next-intl/server';
-import { fetchAPI } from '@/lib/fetch-api';
-import { getAlternates } from '@/lib/hreflang';
 
 import DownloadsImg from '/public/images/downloads/duecker-medizintechnik_downloads_hero-bg.webp';
 

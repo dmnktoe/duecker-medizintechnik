@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
 import * as React from 'react';
+
+import { fetchAPI } from '@/lib/fetch-api';
+import { getAlternates } from '@/lib/hreflang';
 
 import Page from '@/components/layout/Page';
 import { NewsList } from '@/components/templates/NewsList';
 import { Body, Title } from '@/components/ui';
-import { getTranslations } from 'next-intl/server';
-import { fetchAPI } from '@/lib/fetch-api';
-import { getAlternates } from '@/lib/hreflang';
 
 type Props = { params: Promise<{ locale: string }> };
 

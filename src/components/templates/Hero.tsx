@@ -124,11 +124,7 @@ const HeroSlider = () => {
   const progressCircle = useRef<SVGSVGElement | null>(null);
   const progressContent = useRef<HTMLSpanElement | null>(null);
 
-  const onAutoplayTimeLeft = (
-    _s: unknown,
-    time: number,
-    progress: number,
-  ) => {
+  const onAutoplayTimeLeft = (_s: unknown, time: number, progress: number) => {
     progressCircle.current?.style.setProperty(
       '--progress',
       (1 - progress).toString(),

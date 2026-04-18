@@ -2,16 +2,12 @@
 
 import { useTranslations } from 'next-intl';
 import * as React from 'react';
-import {
-  PiChartLineUpThin,
-  PiPackageThin,
-  PiWrenchThin,
-} from 'react-icons/pi';
+import { PiChartLineUpThin, PiPackageThin, PiWrenchThin } from 'react-icons/pi';
 
 import { Container } from '@/components/layout/Container';
+import { Body, Title } from '@/components/ui';
 import { AnimatedBadge } from '@/components/ui/Badges/AnimatedBadge';
 import { ArrowLink } from '@/components/ui/Links/ArrowLink';
-import { Body, Title } from '@/components/ui';
 
 type ServiceCardProps = {
   icon: React.ReactNode;

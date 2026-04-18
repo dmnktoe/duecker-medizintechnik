@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
 import * as React from 'react';
+
+import { getAlternates } from '@/lib/hreflang';
 
 import Page from '@/components/layout/Page';
 import CompanyView from '@/components/templates/CompanyView';
-import { getTranslations } from 'next-intl/server';
-import { getAlternates } from '@/lib/hreflang';
 
 import companyHero from '/public/images/company/duecker-medizintechnik_company_hero.webp';
 

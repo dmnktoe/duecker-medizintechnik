@@ -51,24 +51,23 @@ export const CallToAction = () => {
   const CallToActionBullets = () => {
     return (
       <ul className='-m-4 flex flex-wrap'>
-        {
-          t.raw('cta.bullets').map(
-            (
-              bullet: {
-                title: string;
-              },
-              index: Key,
-            ) => (
-              <li key={index} className='p-4'>
-                <div className='flex flex-wrap'>
-                  <CheckIcon color='white' className='mr-3' />
-                  <span className='font-medium tracking-tight text-white'>
-                    {bullet.title}
-                  </span>
-                </div>
-              </li>
-            ),
-          )}
+        {t.raw('cta.bullets').map(
+          (
+            bullet: {
+              title: string;
+            },
+            index: Key,
+          ) => (
+            <li key={index} className='p-4'>
+              <div className='flex flex-wrap'>
+                <CheckIcon color='white' className='mr-3' />
+                <span className='font-medium tracking-tight text-white'>
+                  {bullet.title}
+                </span>
+              </div>
+            </li>
+          ),
+        )}
       </ul>
     );
   };

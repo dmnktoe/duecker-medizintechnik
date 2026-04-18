@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
 import * as React from 'react';
+
+import { getAlternates } from '@/lib/hreflang';
 
 import Page from '@/components/layout/Page';
 import { ContactMap } from '@/components/templates/ContactMap';
 import ContactView from '@/components/templates/ContactView';
-import { getTranslations } from 'next-intl/server';
-import { getAlternates } from '@/lib/hreflang';
 
 type Props = { params: Promise<{ locale: string }> };
 

@@ -1,5 +1,9 @@
 import type { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
 import * as React from 'react';
+
+import { fetchAPI } from '@/lib/fetch-api';
+import { getAlternates } from '@/lib/hreflang';
 
 import Page from '@/components/layout/Page';
 import { BentoSection } from '@/components/templates/Bento';
@@ -7,9 +11,6 @@ import { Features } from '@/components/templates/Features';
 import { Hero } from '@/components/templates/Hero';
 import { NewsSlider } from '@/components/templates/NewsSlider';
 import { StickyScroll } from '@/components/templates/StickyScroll/StickyScroll';
-import { getTranslations } from 'next-intl/server';
-import { fetchAPI } from '@/lib/fetch-api';
-import { getAlternates } from '@/lib/hreflang';
 
 type Props = { params: Promise<{ locale: string }> };
 

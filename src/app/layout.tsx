@@ -4,9 +4,11 @@ import * as React from 'react';
 
 import '@/styles/globals.css';
 
+import { figtree, sortsMillGoudy } from '@/lib/fonts';
+
 import GoogleAnalytics from '@/components/helpers/GoogleAnalytics';
 import Hotjar from '@/components/helpers/Hotjar';
-import { figtree, sortsMillGoudy } from '@/lib/fonts';
+
 import {
   cookieBotId,
   googleAnalyticsId,

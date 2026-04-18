@@ -41,8 +41,8 @@ export default function Marquee({
           <div
             key={i}
             className={clsxm('flex shrink-0 justify-around [gap:var(--gap)]', {
-              'animate-marquee motion-reduce:animate-none flex-row': !vertical,
-              'animate-marquee-vertical motion-reduce:animate-none flex-col':
+              'animate-marquee flex-row motion-reduce:animate-none': !vertical,
+              'animate-marquee-vertical flex-col motion-reduce:animate-none':
                 vertical,
               'group-hover:[animation-play-state:paused]': pauseOnHover,
               '[animation-direction:reverse]': reverse,
