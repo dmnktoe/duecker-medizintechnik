@@ -12,6 +12,8 @@ import { Hero } from '@/components/templates/Hero';
 import { NewsSlider } from '@/components/templates/NewsSlider';
 import { StickyScroll } from '@/components/templates/StickyScroll/StickyScroll';
 
+import { News } from '@/types/News';
+
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -27,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function HomePage({ params }: Props) {
   const { locale } = await params;
   const t = await getTranslations({ locale: locale, namespace: 'home' });
-  const posts = await fetchAPI(
+  const posts = await fetchAPI<{ data: News[] }>(
     '/posts?sort=id:desc&populate=deep&pagination[pageSize]=8',
   );
 

@@ -10,6 +10,8 @@ import { DownloadCenter } from '@/components/templates/DownloadCenter';
 import { DownloadText } from '@/components/templates/DownloadText';
 import TextReveal from '@/components/templates/TextReveal';
 
+import { Download } from '@/types/Download';
+
 import DownloadsImg from '/public/images/downloads/duecker-medizintechnik_downloads_hero-bg.webp';
 
 type Props = { params: Promise<{ locale: string }> };
@@ -27,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function DownloadsPage({ params }: Props) {
   const { locale } = await params;
   const t = await getTranslations({ locale: locale, namespace: 'downloads' });
-  const downloads = await fetchAPI(
+  const downloads = await fetchAPI<{ data: Download[] }>(
     `/downloads?locale=${locale}&sort=id:desc&populate=deep`,
   );
 

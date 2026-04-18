@@ -1,3 +1,7 @@
+jest.mock('@/constant/env', () => ({
+  strapiApiUrl: 'https://cms.duecker-medizintechnik.de',
+}));
+
 import { getStrapiMedia } from '@/lib/strapi-urls';
 
 describe('getStrapiMedia function', () => {

@@ -9,6 +9,8 @@ import Page from '@/components/layout/Page';
 import { NewsList } from '@/components/templates/NewsList';
 import { Body, Title } from '@/components/ui';
 
+import { News } from '@/types/News';
+
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -24,7 +26,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function NewsroomPage({ params }: Props) {
   const { locale } = await params;
   const t = await getTranslations({ locale: locale, namespace: 'news' });
-  const posts = await fetchAPI('/posts?sort=id:desc&populate=deep');
+  const posts = await fetchAPI<{ data: News[] }>(
+    '/posts?sort=id:desc&populate=deep',
+  );
 
   return (
     <Page

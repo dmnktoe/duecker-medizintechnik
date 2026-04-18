@@ -18,8 +18,13 @@ const createIntlWrapper = async (
     }
   }
 
+  const Provider = NextIntlClientProvider as React.ComponentType<{
+    locale: string;
+    messages: Record<string, unknown>;
+    children?: React.ReactNode;
+  }>;
   return ({ children }: { children: React.ReactNode }) =>
-    React.createElement(NextIntlClientProvider, { locale, messages }, children);
+    React.createElement(Provider, { locale, messages }, children);
 };
 
 export default createIntlWrapper;

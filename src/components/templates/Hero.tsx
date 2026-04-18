@@ -58,8 +58,8 @@ const HeroBadge = ({ text }: HeroBadgeProps) => (
 );
 
 type HeroProgressCircleProps = {
-  progressCircle: React.RefObject<SVGSVGElement | null>;
-  progressContent: React.RefObject<HTMLSpanElement | null>;
+  progressCircle: React.RefObject<SVGSVGElement>;
+  progressContent: React.RefObject<HTMLSpanElement>;
 };
 const HeroProgressCircle = ({
   progressCircle,
@@ -121,8 +121,8 @@ const HeroText = () => {
 
 const HeroSlider = () => {
   const t = useTranslations('home');
-  const progressCircle = useRef<SVGSVGElement | null>(null);
-  const progressContent = useRef<HTMLSpanElement | null>(null);
+  const progressCircle = useRef<SVGSVGElement>(null);
+  const progressContent = useRef<HTMLSpanElement>(null);
 
   const onAutoplayTimeLeft = (_s: unknown, time: number, progress: number) => {
     progressCircle.current?.style.setProperty(

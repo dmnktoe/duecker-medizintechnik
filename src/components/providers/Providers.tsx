@@ -2,13 +2,14 @@
 
 import { createFlagsmithInstance } from 'flagsmith/isomorphic';
 import { FlagsmithProvider } from 'flagsmith/react';
+import type { IState } from 'flagsmith/types';
 import { NextIntlClientProvider } from 'next-intl';
 import * as React from 'react';
 import { useRef } from 'react';
 
 type Props = {
   children: React.ReactNode;
-  flagsmithState: object;
+  flagsmithState: IState;
   locale: string;
   messages: Record<string, unknown>;
 };

@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useLocale, useTranslations } from 'next-intl';
 import React, { useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
+import type { Path } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -122,7 +123,12 @@ export default function ContactForm() {
       noValidate
     >
       {inputFields.map((field) => (
-        <Input {...field} register={register} key={field.id} />
+        <Input
+          {...field}
+          id={field.id as Path<FormData>}
+          register={register}
+          key={field.id}
+        />
       ))}
       <TextArea
         error={errors.message}

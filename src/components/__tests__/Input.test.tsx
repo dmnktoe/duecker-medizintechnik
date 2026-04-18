@@ -12,7 +12,6 @@ describe('Input', () => {
         label='Test Label'
         placeholder='Test Placeholder'
         register={mockRegister}
-        error={null}
         type='text'
         autocomplete='off'
       />,
@@ -27,7 +26,6 @@ describe('Input', () => {
         label='Test Label'
         placeholder='Test Placeholder'
         register={mockRegister}
-        error={null}
         type='text'
         autocomplete='off'
       />,
@@ -45,7 +43,7 @@ describe('Input', () => {
         label='Test Label'
         placeholder='Test Placeholder'
         register={mockRegister}
-        error={{ message: errorMessage }}
+        error={{ message: errorMessage, type: 'required' }}
         type='text'
         autocomplete='off'
       />,
@@ -60,7 +58,6 @@ describe('Input', () => {
         label='Test Label'
         placeholder='Test Placeholder'
         register={mockRegister}
-        error={null}
         type='text'
         autocomplete='off'
       />,
@@ -77,7 +74,6 @@ describe('Input', () => {
         label='Test Label'
         placeholder='Test Placeholder'
         register={mockRegister}
-        error={null}
         type='text'
         autocomplete='off'
       />,

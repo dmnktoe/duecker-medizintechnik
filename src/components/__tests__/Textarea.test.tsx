@@ -12,7 +12,6 @@ describe('TextArea', () => {
         label='Test Label'
         placeholder='Test Placeholder'
         register={mockRegister}
-        error={null}
       />,
     );
     expect(screen.getByLabelText(/Test Label\*/i)).toBeInTheDocument();
@@ -25,7 +24,6 @@ describe('TextArea', () => {
         label='Test Label'
         placeholder='Test Placeholder'
         register={mockRegister}
-        error={null}
       />,
     );
     expect(
@@ -41,7 +39,7 @@ describe('TextArea', () => {
         label='Test Label'
         placeholder='Test Placeholder'
         register={mockRegister}
-        error={{ message: errorMessage }}
+        error={{ message: errorMessage, type: 'required' }}
       />,
     );
     expect(screen.getByText(errorMessage)).toBeInTheDocument();
@@ -54,7 +52,6 @@ describe('TextArea', () => {
         label='Test Label'
         placeholder='Test Placeholder'
         register={mockRegister}
-        error={null}
       />,
     );
     expect(
@@ -69,7 +66,6 @@ describe('TextArea', () => {
         label='Test Label'
         placeholder='Test Placeholder'
         register={mockRegister}
-        error={null}
       />,
     );
     expect(mockRegister).toHaveBeenCalledWith('test');

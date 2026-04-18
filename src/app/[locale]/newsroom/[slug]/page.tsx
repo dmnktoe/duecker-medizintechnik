@@ -17,7 +17,7 @@ import { News } from '@/types/News';
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
 export async function generateStaticParams() {
-  const result = await fetchAPI('/posts');
+  const result = await fetchAPI<{ data: News[] }>('/posts');
   return result.data.flatMap((post: News) =>
     i18nConfig.locales.map((locale) => ({
       locale,
@@ -28,7 +28,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
-  const posts = await fetchAPI(
+  const posts = await fetchAPI<{ data: News[] }>(
     `/posts?filters[slug][$eq]=${slug}&populate=deep`,
   );
   const post: News = posts.data[0];
@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function PostPage({ params }: Props) {
   const { locale, slug } = await params;
   const t = await getTranslations({ locale: locale, namespace: 'news' });
-  const posts = await fetchAPI(
+  const posts = await fetchAPI<{ data: News[] }>(
     `/posts?filters[slug][$eq]=${slug}&populate=deep`,
   );
   const post: News = posts.data[0];

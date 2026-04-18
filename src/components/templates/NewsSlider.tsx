@@ -22,7 +22,7 @@ const NewsSliderCarousel = ({
   swiperElRef,
 }: {
   posts: News[];
-  swiperElRef: React.RefObject<SwiperRef | null>;
+  swiperElRef: React.RefObject<SwiperRef>;
 }) => (
   <Swiper
     modules={[Navigation]}
