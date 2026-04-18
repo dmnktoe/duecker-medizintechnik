@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 import * as React from 'react';
 import { useRef } from 'react';
 import { Autoplay } from 'swiper/modules';
@@ -47,7 +47,7 @@ const HeroIntro = () => {
 };
 
 const HeroText = () => {
-  const { t } = useTranslation('home');
+  const t = useTranslations('home');
   return (
     <>
       <Title>
@@ -91,7 +91,7 @@ const HeroSlider = () => {
     }
   };
 
-  const { t } = useTranslation('home');
+  const t = useTranslations('home');
 
   const HeroDecorators = () => {
     const positions = [
@@ -194,7 +194,7 @@ const HeroSlider = () => {
 };
 
 const HeroPartnersSection = () => {
-  const { t } = useTranslation('home');
+  const t = useTranslations('home');
 
   const PartnerLogos = () => {
     return (

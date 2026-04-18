@@ -4,7 +4,7 @@ import * as React from 'react';
 import Page from '@/components/layout/Page';
 import { NewsList } from '@/components/templates/NewsList';
 import { Body, Title } from '@/components/ui';
-import { getTranslation } from '@/i18n/server';
+import { getTranslations } from 'next-intl/server';
 import { fetchAPI } from '@/lib/fetch-api';
 import { getAlternates } from '@/lib/hreflang';
 
@@ -12,7 +12,7 @@ type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const { t } = await getTranslation(locale, 'news');
+  const t = await getTranslations({ locale: locale, namespace: 'news' });
   return {
     title: t('meta.seo.title'),
     description: t('meta.seo.description'),
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function NewsroomPage({ params }: Props) {
   const { locale } = await params;
-  const { t } = await getTranslation(locale, 'news');
+  const t = await getTranslations({ locale: locale, namespace: 'news' });
   const posts = await fetchAPI('/posts?sort=id:desc&populate=deep');
 
   return (

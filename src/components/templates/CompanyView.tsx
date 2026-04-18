@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { Trans, useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 import * as React from 'react';
 import { VscArrowRight } from 'react-icons/vsc';
 
@@ -16,7 +16,7 @@ import companyImg1 from '/public/images/company/duecker-medizintechnik_company_1
 import companyImg2 from '/public/images/company/duecker-medizintechnik_company_2.webp';
 
 export default function CompanyView() {
-  const { t } = useTranslation('company');
+  const t = useTranslations('company');
   return (
     <section className='mx-auto max-w-5xl pb-16 lg:pb-24'>
       <Container>

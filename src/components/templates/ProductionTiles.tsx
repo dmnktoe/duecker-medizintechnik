@@ -1,13 +1,13 @@
 'use client';
 
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 import * as React from 'react';
 
 import { Container } from '@/components/layout';
 import { Body, Title, UnstyledLink } from '@/components/ui';
 
 export default function ProductionTiles() {
-  const { t } = useTranslation('production');
+  const t = useTranslations('production');
   return (
     <section className='pb-16 md:pb-24 lg:pb-32'>
       <Container>

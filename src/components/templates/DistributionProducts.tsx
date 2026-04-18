@@ -1,6 +1,6 @@
 'use client';
 
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 import * as React from 'react';
 
 import { Container } from '@/components/layout';
@@ -70,7 +70,7 @@ const products: Product[] = [
 ];
 
 export default function DistributionProducts() {
-  const { t } = useTranslation('distribution');
+  const t = useTranslations('distribution');
 
   const ProductsHelp = () => {
     return (

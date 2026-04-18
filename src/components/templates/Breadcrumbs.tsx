@@ -3,7 +3,7 @@
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 import { VscChevronRight } from 'react-icons/vsc';
 
 import { i18nConfig } from '@/i18n/settings';
@@ -11,7 +11,7 @@ import { UnderlineLink } from '@/components/ui';
 
 export default function Breadcrumbs({ className }: { className?: string }) {
   const pathname = usePathname();
-  const { t } = useTranslation('common');
+  const t = useTranslations('common');
 
   // Strip locale prefix to get meaningful path segments
   const segments = pathname.split('/').filter(Boolean);

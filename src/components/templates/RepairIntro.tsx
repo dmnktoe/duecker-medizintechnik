@@ -1,13 +1,13 @@
 'use client';
 
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 import * as React from 'react';
 
 import { Container } from '@/components/layout';
 import { Body, Title } from '@/components/ui';
 
 export default function RepairIntro() {
-  const { t } = useTranslation('repair');
+  const t = useTranslations('repair');
 
   return (
     <section className='mb-16 md:mb-24'>

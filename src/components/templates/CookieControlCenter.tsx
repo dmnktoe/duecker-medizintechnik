@@ -1,6 +1,6 @@
 'use client';
 
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 import { useEffect } from 'react';
 import * as React from 'react';
 
@@ -8,7 +8,7 @@ import { Container } from '@/components/layout';
 import { Title } from '@/components/ui';
 
 export default function CookieControlCenter() {
-  const { t } = useTranslation('cookiePolicy');
+  const t = useTranslations('cookiePolicy');
 
   useEffect(() => {
     const cookieBotWrapper = document.getElementById('CookiebotDeclaration');

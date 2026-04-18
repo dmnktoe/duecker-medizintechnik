@@ -1,6 +1,6 @@
 'use client';
 
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 import { VscArrowRight } from 'react-icons/vsc';
 
 import { Container } from '@/components/layout/Container';
@@ -8,15 +8,13 @@ import { Body, ButtonLink, Title } from '@/components/ui';
 import { CheckIcon } from '@/components/ui/Icons';
 
 const TextBlocks = () => {
-  const { t, ready } = useTranslation('home', { useSuspense: false });
+  const t = useTranslations('home');
   return (
     <>
       <Container>
         <div className='grid grid-cols-1 gap-0 md:grid-cols-2 md:gap-8 md:py-8 lg:grid-cols-3 lg:gap-16'>
-          {ready &&
-            t('content.features.textBlocks', {
-              returnObjects: true,
-            }).map((item) => (
+          {
+            t.raw('content.features.textBlocks').map((item) => (
               <TextBlockElement
                 key={item.title}
                 title={item.title}
@@ -54,7 +52,7 @@ const TextBlockElement = ({
 );
 
 export const Features = () => {
-  const { t } = useTranslation('home');
+  const t = useTranslations('home');
   return (
     <>
       <section className='py-16 md:py-24 lg:py-32'>

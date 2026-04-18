@@ -1,6 +1,6 @@
 'use client';
 
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 import * as React from 'react';
 
 import { Container } from '@/components/layout/Container';
@@ -9,7 +9,7 @@ import { Button } from '@/components/ui';
 import useConsent from '@/utils/useConsent';
 
 export const ContactMap = () => {
-  const { t } = useTranslation('contact');
+  const t = useTranslations('contact');
   const { consent, loading, submitCustomConsent, showConsentDialog } =
     useConsent();
 

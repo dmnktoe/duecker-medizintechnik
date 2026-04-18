@@ -2,7 +2,7 @@
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
-import { Trans, useTranslation } from 'react-i18next';
+import { useLocale, useTranslations } from 'next-intl';
 import React, { useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
@@ -14,36 +14,37 @@ export default function ContactForm() {
   type FormData = z.infer<typeof formSchema>;
   type FormDataWithToken = FormData & { token?: string };
 
-  const { t, i18n } = useTranslation('contact');
+  const t = useTranslations('contact');
+  const locale = useLocale();
   const [result, setResult] = useState<string>();
   const [resultColor, setResultColor] = useState<string>();
   const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const formSchema = z.object({
     name: z.string().min(1, {
-      message: i18n?.t('contact:content.contactForm.name.error.required'),
+      message: t('content.contactForm.name.error.required'),
     }),
     email: z
       .string()
       .min(1, {
-        message: i18n?.t('contact:content.contactForm.email.error.required'),
+        message: t('content.contactForm.email.error.required'),
       })
       .email({
-        message: i18n?.t('contact:content.contactForm.email.error.invalid'),
+        message: t('content.contactForm.email.error.invalid'),
       }),
     phone: z.string().min(1, {
-      message: i18n?.t('contact:content.contactForm.phone.error.required'),
+      message: t('content.contactForm.phone.error.required'),
     }),
     message: z
       .string()
       .min(10, {
-        message: i18n?.t('contact:content.contactForm.message.error.minLength'),
+        message: t('content.contactForm.message.error.minLength'),
       })
       .max(1000, {
-        message: i18n?.t('contact:content.contactForm.message.error.maxLength'),
+        message: t('content.contactForm.message.error.maxLength'),
       }),
     terms: z.boolean().refine((val) => val, {
-      message: i18n?.t('contact:content.contactForm.terms.error.required'),
+      message: t('content.contactForm.terms.error.required'),
     }),
   });
 
@@ -71,7 +72,7 @@ export default function ContactForm() {
     try {
       const response = await axios(config);
       if (response.status === 200) {
-        setResult(i18n?.t('contact:content.contactForm.submit.success'));
+        setResult(t('content.contactForm.submit.success'));
         setResultColor('text-green-500');
         reset();
       }
@@ -134,20 +135,13 @@ export default function ContactForm() {
             {...register('terms')}
           />
           <label htmlFor='terms' className='ml-2 block text-sm text-gray-900'>
-            <Trans
-              i18nKey='content.contactForm.terms.label'
-              t={t}
-              components={{
-                linkTag: (
-                  <UnderlineLink
-                    target='_blank'
-                    href='/datenschutz'
-                    // eslint-disable-next-line react/no-children-prop
-                    children=''
-                  />
-                ),
-              }}
-            />
+            {t.rich('content.contactForm.terms.label', {
+              linkTag: (chunks) => (
+                <UnderlineLink target='_blank' href='/datenschutz'>
+                  {chunks}
+                </UnderlineLink>
+              ),
+            })}
           </label>
         </div>
         {errors.terms?.message && (
@@ -160,7 +154,7 @@ export default function ContactForm() {
         <ReCAPTCHA
           sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
           ref={recaptchaRef}
-          hl={i18n.language}
+          hl={locale}
           size='invisible'
         />
       </div>

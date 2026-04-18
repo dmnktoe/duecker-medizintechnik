@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { useFlags } from 'flagsmith/react';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { PiTranslate } from 'react-icons/pi';
@@ -43,7 +43,7 @@ export interface SubItem {
 }
 
 export const Header = () => {
-  const { t, ready } = useTranslation('common', { useSuspense: false });
+  const t = useTranslations('common');
   const flags = useFlags(['language_picker']);
   const [hamburgerMenuIsOpen, setHamburgerMenuIsOpen] = useState(false);
 
@@ -125,10 +125,8 @@ export const Header = () => {
                 >
                   <div className='flex flex-grow flex-col items-stretch bg-white text-dark md:m-6 md:rounded-2xl md:shadow-xl'>
                     <div className='flex flex-1 flex-grow flex-col gap-y-1 p-6 text-3xl font-medium tracking-tight'>
-                      {ready &&
-                        t('header.navigationItems', {
-                          returnObjects: true,
-                        }).map((item, index) => (
+                      {
+                        t.raw('header.navigationItems').map((item, index) => (
                           <ResponsiveNavItem key={index} {...item} />
                         ))}
                       <ResponsiveNavItem
@@ -156,8 +154,8 @@ export const Header = () => {
               </div>
               {/* Desktop navigation list */}
               <ul className='text-md absolute left-1/2 top-1/2 z-50 hidden -translate-x-1/2 -translate-y-1/2 transform text-lg text-gray-800 xl:flex xl:w-auto xl:space-x-6'>
-                {ready &&
-                  t('header.navigationItems', { returnObjects: true }).map(
+                {
+                  t.raw('header.navigationItems').map(
                     (item, index) => <NavItem key={index} {...item} />,
                   )}
               </ul>
@@ -187,7 +185,7 @@ export const Header = () => {
 
 const NavItem = ({ href, text, subItems }: NavItemProps) => {
   const currentRoute = usePathname();
-  const { t } = useTranslation('common', { useSuspense: false });
+  const t = useTranslations('common');
   return (
     <li className='group relative py-2'>
       {subItems ? (

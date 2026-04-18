@@ -3,14 +3,14 @@ import * as React from 'react';
 
 import Page from '@/components/layout/Page';
 import ServicesView from '@/components/templates/ServicesView';
-import { getTranslation } from '@/i18n/server';
+import { getTranslations } from 'next-intl/server';
 import { getAlternates } from '@/lib/hreflang';
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const { t } = await getTranslation(locale, 'services');
+  const t = await getTranslations({ locale: locale, namespace: 'services' });
   return {
     title: t('meta.seo.title'),
     description: t('meta.seo.description'),
@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function LeistungenPage({ params }: Props) {
   const { locale } = await params;
-  const { t } = await getTranslation(locale, 'services');
+  const t = await getTranslations({ locale: locale, namespace: 'services' });
 
   return (
     <Page

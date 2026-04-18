@@ -1,6 +1,6 @@
 'use client';
 
-import { Trans, useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 import * as React from 'react';
 
 import { Container } from '@/components/layout';
@@ -9,7 +9,7 @@ import { Body, PrimaryLink, Title, UnderlineLink } from '@/components/ui';
 import { company } from '@/constant/company';
 
 export default function LegalNoticeText() {
-  const { t } = useTranslation('imprint');
+  const t = useTranslations('imprint');
   return (
     <section className='mx-auto max-w-5xl pb-16 md:pb-24'>
       <Container>

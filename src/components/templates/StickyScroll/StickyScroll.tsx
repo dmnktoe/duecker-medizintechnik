@@ -1,6 +1,6 @@
 import { useAnimate } from 'framer-motion';
 import Image from 'next/image';
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 import { VscArrowRight } from 'react-icons/vsc';
 
@@ -33,7 +33,7 @@ const stickyScroll = [
 ];
 
 export const StickyScroll = () => {
-  const { t } = useTranslation('home');
+  const t = useTranslations('home');
   const [scope] = useAnimate();
 
   const DesktopStickyScroll = () => {

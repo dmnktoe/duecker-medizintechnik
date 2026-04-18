@@ -5,7 +5,7 @@ import Page from '@/components/layout/Page';
 import { NewsArticle } from '@/components/templates/NewsArticle';
 import { ArrowLink } from '@/components/ui';
 import { Container } from '@/components/layout/Container';
-import { getTranslation } from '@/i18n/server';
+import { getTranslations } from 'next-intl/server';
 import { fetchAPI } from '@/lib/fetch-api';
 import { getAlternates } from '@/lib/hreflang';
 import { i18nConfig } from '@/i18n/settings';
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function PostPage({ params }: Props) {
   const { locale, slug } = await params;
-  const { t } = await getTranslation(locale, 'news');
+  const t = await getTranslations({ locale: locale, namespace: 'news' });
   const posts = await fetchAPI(
     `/posts?filters[slug][$eq]=${slug}&populate=deep`,
   );

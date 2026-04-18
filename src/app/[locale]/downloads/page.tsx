@@ -5,7 +5,7 @@ import Page from '@/components/layout/Page';
 import { DownloadCenter } from '@/components/templates/DownloadCenter';
 import { DownloadText } from '@/components/templates/DownloadText';
 import TextReveal from '@/components/templates/TextReveal';
-import { getTranslation } from '@/i18n/server';
+import { getTranslations } from 'next-intl/server';
 import { fetchAPI } from '@/lib/fetch-api';
 import { getAlternates } from '@/lib/hreflang';
 
@@ -15,7 +15,7 @@ type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const { t } = await getTranslation(locale, 'downloads');
+  const t = await getTranslations({ locale: locale, namespace: 'downloads' });
   return {
     title: t('meta.seo.title'),
     description: t('meta.seo.description'),
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function DownloadsPage({ params }: Props) {
   const { locale } = await params;
-  const { t } = await getTranslation(locale, 'downloads');
+  const t = await getTranslations({ locale: locale, namespace: 'downloads' });
   const downloads = await fetchAPI(
     `/downloads?locale=${locale}&sort=id:desc&populate=deep`,
   );

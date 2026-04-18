@@ -1,12 +1,11 @@
 'use client';
 
 import { useFlags } from 'flagsmith/react';
-import { usePathname, useRouter } from 'next/navigation';
-import { useTranslation } from 'react-i18next';
+import { useRouter } from 'next/navigation';
+import { useLocale, useTranslations } from 'next-intl';
 import { Key } from 'react';
 
 import clsxm from '@/lib/clsxm';
-import { i18nConfig } from '@/i18n/settings';
 
 import { Container } from '@/components/layout/Container';
 import Globe from '@/components/templates/Globe';
@@ -14,13 +13,9 @@ import { Button, Title } from '@/components/ui';
 import { CheckIcon } from '@/components/ui/Icons';
 
 export const CallToAction = () => {
-  const { t, ready } = useTranslation('common', { useSuspense: false });
-  const pathname = usePathname();
+  const t = useTranslations('common');
+  const locale = useLocale();
   const router = useRouter();
-
-  const segments = pathname.split('/').filter(Boolean);
-  const locale = i18nConfig.locales.find((l) => l === segments[0])
-    ?? i18nConfig.defaultLocale;
 
   function handleCtaButtonClick() {
     router.push(`/${locale}/kontakt`);
@@ -56,8 +51,8 @@ export const CallToAction = () => {
   const CallToActionBullets = () => {
     return (
       <ul className='-m-4 flex flex-wrap'>
-        {ready &&
-          t('cta.bullets', { returnObjects: true }).map(
+        {
+          t.raw('cta.bullets').map(
             (
               bullet: {
                 title: string;

@@ -1,6 +1,6 @@
 'use client';
 
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 import * as React from 'react';
 
 import { Container } from '@/components/layout';
@@ -14,7 +14,7 @@ import useConsent from '@/utils/useConsent';
 
 export default function ContactView() {
   const { consent, loading } = useConsent();
-  const { t } = useTranslation('contact');
+  const t = useTranslations('contact');
 
   const RenderForm = () => {
     if (loading) {

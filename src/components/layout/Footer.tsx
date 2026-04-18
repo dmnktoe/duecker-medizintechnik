@@ -1,7 +1,7 @@
 'use client';
 
 import { useFlags } from 'flagsmith/react';
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { PiTranslate } from 'react-icons/pi';
@@ -34,7 +34,7 @@ const FooterNavigationHeadline = ({ title }: { title: string }) => (
 );
 
 const FooterContact = () => {
-  const { t } = useTranslation('common', { useSuspense: false });
+  const t = useTranslations('common');
   return (
     <>
       <Title size='one'>{t('footer.contact.intro')}</Title>
@@ -65,11 +65,11 @@ const FooterContact = () => {
 };
 
 const FooterLinks = () => {
-  const { t, ready } = useTranslation('common', { useSuspense: false });
+  const t = useTranslations('common');
   return (
     <>
-      {ready &&
-        t('footer.links', { returnObjects: true }).map(
+      {
+        t.raw('footer.links').map(
           (navigation: FooterNavigation) => (
             <div key={navigation.title}>
               <FooterNavigationHeadline title={navigation.title} />
@@ -99,7 +99,7 @@ const FooterPosts = () => {
   const flags = useFlags(['fetch_footer_posts']);
   const [posts, setPosts] = useState<News[]>();
   const [isLoading, setIsLoading] = useState(true);
-  const { t } = useTranslation('common');
+  const t = useTranslations('common');
 
   useEffect(() => {
     if (!flags.fetch_footer_posts.enabled) {

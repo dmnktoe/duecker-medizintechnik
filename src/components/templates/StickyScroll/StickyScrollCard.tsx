@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import Image from 'next/image';
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 import * as React from 'react';
 import { VscArrowRight } from 'react-icons/vsc';
 
@@ -22,7 +22,7 @@ type CardProps = {
 
 const StickyScrollCard = ({ children, id }: StickyScrollCardProps) => {
   const inViewFeature = useFeatureStore((state) => state.inViewFeature);
-  const { t } = useTranslation('home');
+  const t = useTranslations('home');
 
   return (
     <div

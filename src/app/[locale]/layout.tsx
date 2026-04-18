@@ -1,10 +1,10 @@
 import { createFlagsmithInstance } from 'flagsmith/isomorphic';
+import { getMessages } from 'next-intl/server';
 import * as React from 'react';
 
 import { Providers } from '@/components/providers/Providers';
 import { flagsmithId } from '@/constant/env';
-import { ALL_NAMESPACES, i18nConfig } from '@/i18n/settings';
-import { loadTranslations } from '@/i18n/server';
+import { i18nConfig } from '@/i18n/settings';
 
 export function generateStaticParams() {
   return i18nConfig.locales.map((locale) => ({ locale }));
@@ -23,12 +23,12 @@ export default async function LocaleLayout({
   await flagsmithSSR.init({ environmentID: flagsmithId ?? '' });
   const flagsmithState = flagsmithSSR.getState();
 
-  const translations = await loadTranslations(locale, ALL_NAMESPACES);
+  const messages = await getMessages();
 
   return (
     <Providers
       locale={locale}
-      translations={translations}
+      messages={messages}
       flagsmithState={flagsmithState}
     >
       {children}

@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 import * as React from 'react';
 import { useCallback, useRef } from 'react';
 import { Autoplay, Navigation, Scrollbar } from 'swiper/modules';
@@ -21,7 +21,7 @@ import repairSliderImg6 from '/public/images/repair/repair-slider_image-6.webp';
 
 export default function RepairSlideshow() {
   const swiperElRef = useRef<SwiperRef>(null);
-  const { t } = useTranslation('repair');
+  const t = useTranslations('repair');
 
   const handlePrev = useCallback(() => {
     if (!swiperElRef.current) return;

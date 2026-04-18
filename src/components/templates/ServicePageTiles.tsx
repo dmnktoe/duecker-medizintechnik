@@ -1,7 +1,7 @@
 'use client';
 
 import { useFlags } from 'flagsmith/react';
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 import { PiChartLineUpThin, PiPackageThin, PiWrenchThin } from 'react-icons/pi';
 import { VscArrowRight } from 'react-icons/vsc';
@@ -16,7 +16,7 @@ import {
 } from '@/components/ui';
 
 export default function ServicePageTiles() {
-  const { t } = useTranslation('services');
+  const t = useTranslations('services');
 
   const Headline = () => {
     return (
@@ -46,7 +46,7 @@ export default function ServicePageTiles() {
       href: string;
       details: string;
     }) => {
-      const { t } = useTranslation('services');
+      const t = useTranslations('services');
       return (
         <>
           <div className='col-span-6 flex lg:col-span-2'>

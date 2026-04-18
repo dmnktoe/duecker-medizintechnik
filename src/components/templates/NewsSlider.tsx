@@ -1,6 +1,6 @@
 'use client';
 
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 import { useCallback, useRef } from 'react';
 import { VscArrowRight } from 'react-icons/vsc';
 import { Navigation } from 'swiper/modules';
@@ -19,7 +19,7 @@ type NewsSliderProps = {
 
 export const NewsSlider = ({ posts }: NewsSliderProps) => {
   const swiperElRef = useRef<SwiperRef>(null);
-  const { t } = useTranslation('home');
+  const t = useTranslations('home');
 
   const handlePrev = useCallback(() => {
     if (!swiperElRef.current) return;

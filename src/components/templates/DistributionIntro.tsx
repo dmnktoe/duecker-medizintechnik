@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 import * as React from 'react';
 
 import { Container } from '@/components/layout';
@@ -10,7 +10,7 @@ import { AspectRatio, Body, Title } from '@/components/ui';
 import CardboardStorage from '/public/images/distribution/duecker-medizintechnik_distribution_cardboard-storage.webp';
 
 export default function DistributionIntro() {
-  const { t } = useTranslation('distribution');
+  const t = useTranslations('distribution');
 
   function IntroText() {
     return (

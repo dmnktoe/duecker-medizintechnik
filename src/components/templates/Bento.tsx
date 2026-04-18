@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 import { ReactNode } from 'react';
 
 import clsxm from '@/lib/clsxm';
@@ -111,7 +111,7 @@ const tiles = [
 ];
 
 const SectionTitle = () => {
-  const { t } = useTranslation('home');
+  const t = useTranslations('home');
   return (
     <div className='mb-16 text-center'>
       <Title renderAs='h2' className='md:-mb-2' margin={false}>
@@ -158,7 +158,7 @@ const BentoCard = ({
   textIsWhite?: boolean;
   href: string;
 }) => {
-  const { t } = useTranslation('home');
+  const t = useTranslations('home');
 
   return (
     <>
