@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import * as React from 'react';
 import { useCallback, useRef } from 'react';
-import { Autoplay, Navigation, Scrollbar } from 'swiper/modules';
+import { Autoplay, Scrollbar } from 'swiper/modules';
 import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
@@ -46,8 +46,7 @@ export default function RepairSlideshow() {
             </div>
           </div>
           <Swiper
-            modules={[Navigation, Scrollbar, Autoplay]}
-            navigation
+            modules={[Scrollbar, Autoplay]}
             spaceBetween={5}
             ref={swiperElRef}
             scrollbar={{

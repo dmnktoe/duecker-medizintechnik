@@ -3,7 +3,6 @@
 import { useTranslations } from 'next-intl';
 import { useCallback, useRef } from 'react';
 import { VscArrowRight } from 'react-icons/vsc';
-import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
@@ -25,8 +24,6 @@ const NewsSliderCarousel = ({
   swiperElRef: React.RefObject<SwiperRef>;
 }) => (
   <Swiper
-    modules={[Navigation]}
-    navigation
     spaceBetween={15}
     ref={swiperElRef}
     breakpoints={{
