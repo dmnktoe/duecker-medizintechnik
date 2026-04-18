@@ -1,5 +1,7 @@
+'use client';
+
 import { useFlags } from 'flagsmith/react';
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from 'react-i18next';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { PiTranslate } from 'react-icons/pi';

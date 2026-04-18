@@ -1,3 +1,5 @@
+'use client';
+
 import { useFlags } from 'flagsmith/react';
 import { marked } from 'marked';
 import Image from 'next/image';

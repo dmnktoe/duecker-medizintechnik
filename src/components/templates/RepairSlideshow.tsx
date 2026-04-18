@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from 'react-i18next';
 import * as React from 'react';
 import { useCallback, useRef } from 'react';
 import { Autoplay, Navigation, Scrollbar } from 'swiper/modules';

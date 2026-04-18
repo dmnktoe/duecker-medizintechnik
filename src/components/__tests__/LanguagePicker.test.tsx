@@ -1,14 +1,11 @@
 import { fireEvent, render } from '@testing-library/react';
-import { useRouter } from 'next/router';
+import { usePathname, useRouter } from 'next/navigation';
 
 import LanguagePicker from '@/components/templates/LanguagePicker';
 
-jest.mock('next/router', () => ({
+jest.mock('next/navigation', () => ({
   useRouter: jest.fn(),
-}));
-
-jest.mock('next-i18next', () => ({
-  i18n: { language: 'de' },
+  usePathname: jest.fn(),
 }));
 
 jest.mock('flagsmith/react', () => ({
@@ -17,24 +14,18 @@ jest.mock('flagsmith/react', () => ({
 
 describe('LanguagePicker', () => {
   it('should render correctly and respond to user interaction', () => {
-    const mockRouter = {
-      push: jest.fn(),
-      asPath: '/en',
-      locale: 'en',
-      isReady: true,
-    };
-
-    (useRouter as jest.Mock).mockReturnValue(mockRouter);
+    const mockPush = jest.fn();
+    (useRouter as jest.Mock).mockReturnValue({ push: mockPush });
+    (usePathname as jest.Mock).mockReturnValue('/de/datenschutz');
 
     const { getByRole } = render(<LanguagePicker />);
 
     const select = getByRole('combobox');
     expect(select).toBeInTheDocument();
+    expect((select as HTMLSelectElement).value).toBe('de');
 
     fireEvent.change(select, { target: { value: 'en' } });
 
-    expect(mockRouter.push).toHaveBeenCalledWith('/en', '/en', {
-      locale: false,
-    });
+    expect(mockPush).toHaveBeenCalledWith('/en/datenschutz');
   });
 });

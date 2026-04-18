@@ -1,8 +1,10 @@
+'use client';
+
 import clsx from 'clsx';
 import { useFlags } from 'flagsmith/react';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from 'react-i18next';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { PiTranslate } from 'react-icons/pi';

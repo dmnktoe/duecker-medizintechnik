@@ -1,4 +1,6 @@
-import { useTranslation } from 'next-i18next';
+'use client';
+
+import { useTranslation } from 'react-i18next';
 import * as React from 'react';
 import ScrollSpy from 'react-scrollspy-navigation';
 

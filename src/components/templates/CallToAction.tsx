@@ -1,9 +1,12 @@
+'use client';
+
 import { useFlags } from 'flagsmith/react';
-import { useRouter } from 'next/router';
-import { useTranslation } from 'next-i18next';
+import { usePathname, useRouter } from 'next/navigation';
+import { useTranslation } from 'react-i18next';
 import { Key } from 'react';
 
 import clsxm from '@/lib/clsxm';
+import { i18nConfig } from '@/i18n/settings';
 
 import { Container } from '@/components/layout/Container';
 import Globe from '@/components/templates/Globe';
@@ -12,10 +15,15 @@ import { CheckIcon } from '@/components/ui/Icons';
 
 export const CallToAction = () => {
   const { t, ready } = useTranslation('common', { useSuspense: false });
+  const pathname = usePathname();
   const router = useRouter();
 
+  const segments = pathname.split('/').filter(Boolean);
+  const locale = i18nConfig.locales.find((l) => l === segments[0])
+    ?? i18nConfig.defaultLocale;
+
   function handleCtaButtonClick() {
-    router.push('/kontakt').then((r) => r);
+    router.push(`/${locale}/kontakt`);
   }
 
   const flags = useFlags(['cta_globe']);

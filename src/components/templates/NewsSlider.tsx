@@ -1,4 +1,6 @@
-import { useTranslation } from 'next-i18next';
+'use client';
+
+import { useTranslation } from 'react-i18next';
 import { useCallback, useRef } from 'react';
 import { VscArrowRight } from 'react-icons/vsc';
 import { Navigation } from 'swiper/modules';

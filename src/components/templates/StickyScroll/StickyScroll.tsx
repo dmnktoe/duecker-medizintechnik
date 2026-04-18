@@ -1,6 +1,6 @@
 import { useAnimate } from 'framer-motion';
 import Image from 'next/image';
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from 'react-i18next';
 import React from 'react';
 import { VscArrowRight } from 'react-icons/vsc';
 

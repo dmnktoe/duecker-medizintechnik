@@ -1,4 +1,6 @@
-import { Trans, useTranslation } from 'next-i18next';
+'use client';
+
+import { Trans, useTranslation } from 'react-i18next';
 import * as React from 'react';
 
 import { Container } from '@/components/layout';

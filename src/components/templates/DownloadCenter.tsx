@@ -1,3 +1,5 @@
+'use client';
+
 import React, { Key } from 'react';
 import { VscCloudDownload } from 'react-icons/vsc';
 
