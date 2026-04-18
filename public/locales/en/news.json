@@ -1,7 +1,8 @@
 {
   "content": {
     "newsList": {
-      "readMore": "Read More"
+      "readMore": "Read More",
+      "noResults": "No posts are available at the moment. Please check back soon."
     },
     "newsSlug": {
       "back": "Go back to all posts"

@@ -1,7 +1,8 @@
 {
   "content": {
     "newsList": {
-      "readMore": "Weiterlesen"
+      "readMore": "Weiterlesen",
+      "noResults": "Aktuell sind keine Beiträge verfügbar. Schauen Sie bald wieder vorbei."
     },
     "newsSlug": {
       "back": "Zurück zur Übersicht"

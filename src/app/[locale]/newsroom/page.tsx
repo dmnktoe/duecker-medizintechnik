@@ -40,7 +40,7 @@ export default async function NewsroomPage({ params }: Props) {
         <div className='px-4 md:px-6'>
           <Title>{t('content.title')}</Title>
           <Body>{t('content.text')}</Body>
-          <NewsList posts={posts.data} />
+          <NewsList posts={posts?.data ?? null} />
         </div>
       </section>
     </Page>
