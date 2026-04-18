@@ -53,8 +53,10 @@
     },
     "mapsBanner": {
       "accept": "Marketing-Cookies akzeptieren",
-      "cookieNotice": "Dieser Inhalt wird über Google Maps geladen. <br/> Um diesen Inhalt anzuzeigen, müssen Sie zuerst die Verwendung von Marketing-Cookies akzeptieren.",
-      "cookieSettings": "Cookie-Einstellungen"
+      "cookieSettings": "Cookie-Einstellungen",
+      "cookieNoticeLine1": "Dieser Inhalt wird über Google Maps geladen.",
+      "cookieNoticeLine2": "Um diesen Inhalt anzuzeigen, müssen Sie zuerst die Verwendung von Marketing-Cookies akzeptieren.",
+      "iframeTitle": "Standort auf Google Maps"
     },
     "text": "Unser Team steht bereit, um auf Ihre Fragen einzugehen, detaillierte Informationen zu unseren Diensten für medizinische Anwendungen bereitzustellen oder Sie bei technischen Angelegenheiten zu unterstützen.",
     "title": "Kontakt aufnehmen"

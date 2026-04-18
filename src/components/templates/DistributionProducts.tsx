@@ -103,26 +103,20 @@ export default function DistributionProducts() {
     );
   };
 
-  const ProductGrid = () => {
-    return (
-      <>
-        {products.map((product) => (
-          <ProductCard
-            manufacturer={product.manufacturer}
-            key={product.manufacturer}
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-expect-error
-            title={t(product.title)}
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-expect-error
-            description={t(product.text)}
-            image={product.image}
-            url={product.url}
-          />
-        ))}
-      </>
-    );
-  };
+  const ProductGrid = () => (
+    <>
+      {products.map((product) => (
+        <ProductCard
+          key={product.manufacturer}
+          manufacturer={product.manufacturer}
+          title={t(product.title as Parameters<typeof t>[0])}
+          description={t(product.text as Parameters<typeof t>[0])}
+          image={product.image}
+          url={product.url}
+        />
+      ))}
+    </>
+  );
 
   return (
     <section className='pt-16 md:pt-24 lg:pt-32'>

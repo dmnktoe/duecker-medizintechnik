@@ -53,8 +53,10 @@
     },
     "mapsBanner": {
       "accept": "Accept Marketing-Cookies",
-      "cookieNotice": "This content is loaded from a third party service (Google Maps). <br/> If you activate the content, personal data may be processed and cookies may be set.",
-      "cookieSettings": "Cookie Settings"
+      "cookieSettings": "Cookie Settings",
+      "cookieNoticeLine1": "This content is loaded via Google Maps.",
+      "cookieNoticeLine2": "To display this content, you must first accept the use of marketing cookies.",
+      "iframeTitle": "Location on Google Maps"
     },
     "text": "Our team is ready to answer your questions, provide detailed information about our medical application services or assist you with technical matters.",
     "title": "Contact us"

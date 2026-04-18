@@ -110,7 +110,11 @@ const FooterPosts = () => {
     const controller = new AbortController();
     let cancelled = false;
 
-    fetchAPI('/posts?sort=id:desc&populate=*&pagination[pageSize]=4')
+    fetchAPI<{ data: News[] }>(
+      '/posts?sort=id:desc&populate=*&pagination[pageSize]=4',
+      {},
+      { signal: controller.signal },
+    )
       .then((result) => {
         if (!cancelled) {
           setPosts(result.data);

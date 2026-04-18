@@ -1,16 +1,16 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { FieldError, FieldValues, Path, UseFormRegister } from 'react-hook-form';
 
-interface InputProps {
+interface InputProps<T extends FieldValues> {
   autocomplete: string;
-  error: any;
-  id: string;
+  error?: FieldError;
+  id: Path<T>;
   label: string;
   placeholder: string;
-  register: any;
+  register: UseFormRegister<T>;
   type: string;
 }
 
-export const Input = ({
+export const Input = <T extends FieldValues>({
   autocomplete,
   error,
   id,
@@ -18,12 +18,9 @@ export const Input = ({
   placeholder,
   register,
   type,
-}: InputProps) => {
-  const commonClasses =
-    'dark:shadow-sm-light block w-full rounded-md border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm';
-  const errorClasses = error && 'border-red-500';
-  const focusClasses =
-    'focus:border-primary-500 focus:ring-primary-500 dark:focus:border-primary-500 dark:focus:ring-primary-500';
+}: InputProps<T>) => {
+  const baseClasses =
+    'dark:shadow-sm-light block w-full rounded-md border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:ring-primary-500';
 
   return (
     <div>
@@ -40,7 +37,7 @@ export const Input = ({
       <input
         type={type}
         id={id}
-        className={`${commonClasses} ${errorClasses} ${focusClasses}`}
+        className={`${baseClasses}${error ? ' border-red-500' : ''}`}
         placeholder={placeholder}
         autoComplete={autocomplete}
         {...register(id)}

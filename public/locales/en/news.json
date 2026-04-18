@@ -7,7 +7,11 @@
       "back": "Go back to all posts"
     },
     "text": "Stay informed about the latest developments and company announcements at Dücker Medizintechnik. Visit our press releases regularly to stay informed about everything worth knowing.",
-    "title": "Press releases and news"
+    "title": "Press releases and news",
+    "article": {
+      "copied": "Copied!",
+      "authorContact": "Contact"
+    }
   },
   "meta": {
     "pageTitle": "Newsroom",

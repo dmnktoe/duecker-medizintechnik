@@ -2,6 +2,7 @@
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
+import type { AxiosError } from 'axios';
 import { useLocale, useTranslations } from 'next-intl';
 import React, { useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
@@ -76,9 +77,13 @@ export default function ContactForm() {
         setResultColor('text-green-500');
         reset();
       }
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (err: any) {
-      setResult(err.response.data.message + ': ' + err.response.statusText);
+    } catch (err) {
+      const axiosErr = err as AxiosError<{ message: string }>;
+      setResult(
+        (axiosErr.response?.data?.message ?? 'Fehler') +
+          ': ' +
+          (axiosErr.response?.statusText ?? ''),
+      );
       setResultColor('text-red-500');
     }
   };
@@ -162,10 +167,8 @@ export default function ContactForm() {
         <Button
           type='submit'
           disabled={isSubmitting}
-          onClick={handleSubmit(processForm)}
           isLoading={isSubmitting}
           className='w-full'
-          role='button'
         >
           {isSubmitting
             ? t('content.contactForm.submit.progress')

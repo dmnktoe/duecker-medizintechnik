@@ -2,15 +2,14 @@ import qs from 'qs';
 
 import { getStrapiURL } from '@/lib/strapi-urls';
 
-export async function fetchAPI(
+export async function fetchAPI<T = unknown>(
   path: string,
-  urlParamsObject = {},
-  options = {},
-) {
+  urlParamsObject: Record<string, unknown> = {},
+  options: RequestInit = {},
+): Promise<T> {
   try {
-    // Merge default and user options
-    const mergedOptions = {
-      next: { revalidate: 60 },
+    const mergedOptions: RequestInit = {
+      next: { revalidate: 60 } as RequestInit['next'],
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
@@ -18,18 +17,14 @@ export async function fetchAPI(
       ...options,
     };
 
-    // Build request URL
     const queryString = qs.stringify(urlParamsObject);
-    const requestUrl = `${getStrapiURL(
-      `/api${path}${queryString ? `?${queryString}` : ''}`,
-    )}`;
+    const requestUrl = `${getStrapiURL(`/api${path}${queryString ? `?${queryString}` : ''}`)}`;
 
-    // Trigger API call
     const response = await fetch(requestUrl, mergedOptions);
-    return await response.json();
+    return (await response.json()) as T;
   } catch (error) {
     throw new Error(
-      'Please check if your server is running and you set all the required tokens.',
+      `API fetch failed for ${path}: ${error instanceof Error ? error.message : 'Unknown error'}`,
     );
   }
 }
