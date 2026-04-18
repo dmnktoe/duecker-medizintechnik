@@ -1,3 +1,4 @@
+/* eslint-disable simple-import-sort/imports */
 'use client';
 
 import clsx from 'clsx';
@@ -122,7 +123,7 @@ export const StickyScroll = () => {
     <section className='bg-gray-50 py-16 md:py-24 lg:py-32'>
       <Container>
         {/* Section header */}
-        <div className='mb-10 max-w-2xl lg:mb-14'>
+        <div className='mb-10 max-w-4xl lg:mb-14'>
           <Title renderAs='h2' margin={false}>
             {t('content.stickyScroll.title')}
           </Title>
