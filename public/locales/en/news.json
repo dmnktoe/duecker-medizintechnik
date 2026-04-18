@@ -10,7 +10,8 @@
     "title": "Press releases and news",
     "article": {
       "copied": "Copied!",
-      "authorContact": "Contact"
+      "authorContact": "Contact",
+      "copyLink": "Copy link"
     }
   },
   "meta": {

@@ -1,4 +1,8 @@
 {
+  "errors": {
+    "title": "Something went wrong",
+    "retry": "Try again"
+  },
   "breadcrumbs": {
     "agb": "Terms and Conditions",
     "cookie-richtlinie": "Cookie Policy",

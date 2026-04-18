@@ -22,25 +22,7 @@ import heroSlide2 from '/public/images/home/hero-slider/duecker-slide-2.jpg';
 import heroSlide3 from '/public/images/home/hero-slider/duecker-slide-3.jpg';
 import heroSlide4 from '/public/images/home/hero-slider/duecker-slide-4.jpg';
 
-// Static data at module level — not recreated on re-render
-const HERO_SLIDES = [
-  {
-    image: heroSlide1,
-    alt: 'OP-Lösungen und Sterilisierungen für den B2B-Betrieb',
-  },
-  {
-    image: heroSlide2,
-    alt: 'OP-Lösungen und Sterilisierungen für den B2B-Betrieb',
-  },
-  {
-    image: heroSlide3,
-    alt: 'OP-Lösungen und Sterilisierungen für den B2B-Betrieb',
-  },
-  {
-    image: heroSlide4,
-    alt: 'OP-Lösungen und Sterilisierungen für den B2B-Betrieb',
-  },
-];
+const HERO_SLIDES = [heroSlide1, heroSlide2, heroSlide3, heroSlide4];
 
 const DECORATOR_POSITIONS: [string, string][] = [
   ['-top-2 left-0', 'md:h-12 md:w-12'],
@@ -169,8 +151,8 @@ const HeroSlider = () => {
         {HERO_SLIDES.map((slide, index) => (
           <SwiperSlide key={index}>
             <Image
-              alt={slide.alt}
-              src={slide.image}
+              alt={t('content.hero.slideAlt')}
+              src={slide}
               placeholder='blur'
               priority
               className='relative block h-full w-full overflow-hidden'

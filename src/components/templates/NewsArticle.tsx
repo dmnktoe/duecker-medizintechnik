@@ -60,9 +60,10 @@ type ShareButtonsProps = {
   url: string;
   title: string;
   copiedLabel: string;
+  copyLinkLabel: string;
 };
 
-const ShareButtons = ({ url, title, copiedLabel }: ShareButtonsProps) => {
+const ShareButtons = ({ url, title, copiedLabel, copyLinkLabel }: ShareButtonsProps) => {
   const [isCopied, setIsCopied] = useState(false);
 
   useEffect(() => {
@@ -98,7 +99,7 @@ const ShareButtons = ({ url, title, copiedLabel }: ShareButtonsProps) => {
             navigator.clipboard.writeText(url);
             setIsCopied(true);
           }}
-          aria-label='Link kopieren'
+          aria-label={copyLinkLabel}
         >
           <VscLink size={20} className='mr-2 text-dark' />
         </button>
@@ -111,9 +112,11 @@ const ShareButtons = ({ url, title, copiedLabel }: ShareButtonsProps) => {
 const ArticleHeader = ({
   post,
   copiedLabel,
+  copyLinkLabel,
 }: {
   post: News;
   copiedLabel: string;
+  copyLinkLabel: string;
 }) => {
   const baseUrl = getBaseUrl();
   const postUrl = `${baseUrl}/newsroom/${post.attributes.slug}`;
@@ -127,6 +130,7 @@ const ArticleHeader = ({
         url={postUrl}
         title={post.attributes.title}
         copiedLabel={copiedLabel}
+        copyLinkLabel={copyLinkLabel}
       />
     </div>
   );
@@ -225,6 +229,7 @@ export const NewsArticle = ({ post }: NewsArticleProps) => {
           <ArticleHeader
             post={post}
             copiedLabel={t('content.article.copied')}
+            copyLinkLabel={t('content.article.copyLink')}
           />
           <ArticleImage post={post} />
           <ArticleContent post={post} />
