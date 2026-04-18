@@ -12,6 +12,8 @@ const customJestConfig = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '^~/(.*)$': '<rootDir>/public/$1',
+    '^next-intl$': '<rootDir>/__mocks__/next-intl.js',
+    '^next-intl/(.*)$': '<rootDir>/__mocks__/next-intl.js',
   },
 };
 
@@ -22,7 +24,7 @@ const nextJestConfig = createJestConfig(customJestConfig);
 module.exports = async () => {
   const config = await nextJestConfig();
   config.transformIgnorePatterns = [
-    'node_modules/(?!.*/(next-intl|use-intl)/)',
+    'node_modules/(?!(next-intl|use-intl|\\.pnpm))',
     '^.+\\.module\\.(css|sass|scss)$',
   ];
   return config;

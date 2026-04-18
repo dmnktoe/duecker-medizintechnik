@@ -9,6 +9,17 @@ jest.mock('flagsmith/react', () => ({
   useFlags: () => ({ language_picker: { enabled: true } }),
 }));
 
+jest.mock('next/navigation', () => ({
+  useRouter: () => ({
+    push: jest.fn(),
+    replace: jest.fn(),
+    prefetch: jest.fn(),
+  }),
+  usePathname: () => '/de',
+  useParams: () => ({}),
+  useSearchParams: () => new URLSearchParams(),
+}));
+
 describe('Header', () => {
   let wrapper: React.ComponentType<{ children: React.ReactNode }>;
 
