@@ -1,4 +1,6 @@
-import { useTranslation } from 'next-i18next';
+'use client';
+
+import { useTranslations } from 'next-intl';
 import * as React from 'react';
 
 import { Container } from '@/components/layout';
@@ -10,27 +12,27 @@ import { Body, Title } from '@/components/ui';
 
 import useConsent from '@/utils/useConsent';
 
+type FormContainerProps = {
+  loading: boolean;
+  hasConsent: boolean;
+  notice: string;
+};
+
+const FormContainer = ({ loading, hasConsent, notice }: FormContainerProps) => {
+  if (loading) {
+    return (
+      <div className='relative flex h-[350px] animate-pulse items-center bg-gray-100' />
+    );
+  }
+  if (!hasConsent) {
+    return <div className='bg-yellow-100 p-2 text-xs'>{notice}</div>;
+  }
+  return <ContactForm />;
+};
+
 export default function ContactView() {
   const { consent, loading } = useConsent();
-  const { t } = useTranslation('contact');
-
-  const RenderForm = () => {
-    if (loading) {
-      return (
-        <div className='relative flex h-[350px] animate-pulse items-center bg-gray-100 align-middle' />
-      );
-    } else {
-      if (!consent?.marketing) {
-        return (
-          <div className='bg-yellow-100 p-2 text-xs'>
-            {t('content.contactForm.recaptchaCookieNotice')}
-          </div>
-        );
-      } else {
-        return <ContactForm />;
-      }
-    }
-  };
+  const t = useTranslations('contact');
 
   return (
     <section className='relative z-10 mx-auto max-w-5xl bg-white pb-16 pt-8 md:pt-16 lg:pb-24 lg:pt-24'>
@@ -46,7 +48,11 @@ export default function ContactView() {
             <div className='relative rounded-lg bg-white p-8 shadow-lg sm:p-12'>
               <Title size='three'>{t('content.contactForm.title')}</Title>
               <Body color='light'>{t('content.contactForm.text')}</Body>
-              <RenderForm />
+              <FormContainer
+                loading={loading}
+                hasConsent={!!consent?.marketing}
+                notice={t('content.contactForm.recaptchaCookieNotice')}
+              />
               <ContactDecorators />
             </div>
           </div>

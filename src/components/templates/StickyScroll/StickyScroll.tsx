@@ -1,159 +1,201 @@
-import { useAnimate } from 'framer-motion';
-import Image from 'next/image';
-import { useTranslation } from 'next-i18next';
-import React from 'react';
+/* eslint-disable simple-import-sort/imports */
+'use client';
+
+import clsx from 'clsx';
+import Image, { type StaticImageData } from 'next/image';
+import { useTranslations } from 'next-intl';
+import * as React from 'react';
 import { VscArrowRight } from 'react-icons/vsc';
 
 import { Container } from '@/components/layout/Container';
-import { AspectRatio, Body, Title, UnstyledLink } from '@/components/ui';
+import { Body, Title } from '@/components/ui';
 
-import { Distribution, Production, Repair } from './StickyScrollCard';
-import { StickyScrollTitle } from './StickyScrollTitle';
+import { StickyScrollItem } from './StickyScrollTitle';
+import { useFeatureStore } from './StickyScrollStore';
 
-import distributionStickyImg from '/public/images/home/sticky-scroll/sticky-scroll_image-distribution.webp';
-import productionStickyImg from '/public/images/home/sticky-scroll/sticky-scroll_image-production.jpg';
-import repairStickyImg from '/public/images/home/sticky-scroll/sticky-scroll_image-repair.jpg';
+import distributionImg from '/public/images/home/sticky-scroll/sticky-scroll_image-distribution.webp';
+import productionImg from '/public/images/home/sticky-scroll/sticky-scroll_image-production.jpg';
+import repairImg from '/public/images/home/sticky-scroll/sticky-scroll_image-repair.jpg';
 
-const stickyScroll = [
-  {
-    id: 'production',
-    card: Production,
-    img: productionStickyImg,
-  },
-  {
-    id: 'repair',
-    card: Repair,
-    img: repairStickyImg,
-  },
-  {
-    id: 'distribution',
-    card: Distribution,
-    img: distributionStickyImg,
-  },
-];
+type Feature = {
+  id: string;
+  img: StaticImageData;
+  title: string;
+  text: string;
+  href: string;
+};
 
-export const StickyScroll = () => {
-  const { t } = useTranslation('home');
-  const [scope] = useAnimate();
-
-  const DesktopStickyScroll = () => {
-    return (
-      <>
-        <section className='hidden bg-gray-50 lg:block lg:min-h-[calc(100vh_-_var(--navigation-height))]'>
-          <Container>
-            <div className='pt-16 md:pt-24 lg:pt-32'>
-              <div className='-mx-4 flex flex-wrap'>
-                <div className='w-full px-4'>
-                  <div className='mx-auto max-w-5xl text-center'>
-                    <Title renderAs='h2'>
-                      {t('content.stickyScroll.title')}
-                    </Title>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Container>
-          <Container>
-            <div ref={scope}>
-              <div className='w-full items-start lg:flex lg:gap-x-32'>
-                <div className='bottom-8 right-8 z-40 flex h-64 w-64 items-center md:h-96 md:w-96 lg:sticky lg:top-0 lg:h-[calc(100vh_+_var(--navigation-height))] lg:w-full'>
-                  <div className='relative aspect-square w-full bg-white opacity-0 transition-opacity duration-200 lg:block lg:opacity-100 [&:has(>_.active-card)]:opacity-100 lg:[&:has(>_.active-card)]:bg-transparent'>
-                    {stickyScroll.map((feature) => (
-                      <feature.card id={feature.id} key={feature.id} />
-                    ))}
-                  </div>
-                </div>
-                <div className='w-full py-[15vh] lg:py-[50vh]'>
-                  <ul>
-                    {stickyScroll.map((feature) => (
-                      <li key={feature.id}>
-                        <StickyScrollTitle id={feature.id}>
-                          {t(
-                            ('content.stickyScroll.' +
-                              feature.id +
-                              '.text') as never,
-                          )}
-                        </StickyScrollTitle>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </Container>
-        </section>
-      </>
-    );
-  };
-
-  // TODO: Implement mobile version
-  // eslint-disable-next-line unused-imports/no-unused-vars
-  const MobileStickyScroll = () => {
-    return (
-      <>
-        <section className='block bg-gray-50 py-16 md:py-32 lg:hidden'>
-          <Container>
-            <div className='mb-8'>
-              <Title size='two'>{t('content.stickyScroll.title')}</Title>
-              <Body>{t('content.stickyScroll.text')}</Body>
-            </div>
-            {stickyScroll.map((feature) => (
-              <div
-                key={feature.id}
-                className='relative my-4 block overflow-hidden'
-              >
-                <UnstyledLink
-                  href={
-                    '/leistungen/' +
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-expect-error
-                    t('content.stickyScroll.' + feature.id + '.href')
-                  }
-                >
-                  <AspectRatio ratio={16 / 9}>
-                    <Image
-                      src={feature.img}
-                      alt={feature.id}
-                      placeholder='blur'
-                      priority
-                      quality={90}
-                    />
-                  </AspectRatio>
-                  <div className='absolute bottom-0 left-0 w-full p-2'>
-                    <span className='text-white'>
-                      {t(
-                        ('content.stickyScroll.' +
-                          feature.id +
-                          '.title') as never,
-                      )}{' '}
-                      <VscArrowRight className='relative -top-0.5 inline-block text-white' />
-                    </span>
-                    <Title
-                      renderAs='h3'
-                      size='five'
-                      className='line-clamp-1 font-normal text-white'
-                      margin={false}
-                    >
-                      {t(
-                        ('content.stickyScroll.' +
-                          feature.id +
-                          '.text') as never,
-                      )}
-                    </Title>
-                  </div>
-                </UnstyledLink>
-              </div>
-            ))}
-          </Container>
-        </section>
-      </>
-    );
-  };
+const FeatureImagePanel = ({ features }: { features: Feature[] }) => {
+  const inViewFeature = useFeatureStore((state) => state.inViewFeature);
+  const activeId = inViewFeature ?? features[0].id;
 
   return (
-    <>
-      <DesktopStickyScroll />
-      {/* <MobileStickyScroll /> */}
-    </>
+    <div className='relative overflow-hidden rounded-sm bg-gray-200 shadow-md'>
+      <div className='relative aspect-[4/3]'>
+        {features.map((f, index) => (
+          <div
+            key={f.id}
+            className={clsx(
+              'absolute inset-0 transition-opacity duration-700 ease-in-out',
+              activeId === f.id ? 'opacity-100' : 'opacity-0',
+            )}
+          >
+            <Image
+              src={f.img}
+              alt={f.title}
+              fill
+              className='object-cover object-center'
+              placeholder='blur'
+              priority={index === 0}
+              sizes='(max-width: 1024px) 100vw, 42vw'
+            />
+          </div>
+        ))}
+
+        {/* Gradient overlay with feature info */}
+        <div className='absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent px-6 pb-5 pt-16'>
+          {features.map((f, index) => (
+            <div
+              key={f.id}
+              className={clsx(
+                'transition-all duration-500',
+                activeId === f.id
+                  ? 'translate-y-0 opacity-100'
+                  : 'pointer-events-none absolute translate-y-2 opacity-0',
+              )}
+            >
+              <span className='font-secondary text-xs font-medium uppercase tracking-widest text-white/60'>
+                {String(index + 1).padStart(2, '0')} /{' '}
+                {String(features.length).padStart(2, '0')}
+              </span>
+              <p className='mt-1 text-lg font-medium text-white'>{f.title}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Progress indicator */}
+        <div className='absolute bottom-4 right-5 flex gap-1.5'>
+          {features.map((f) => (
+            <div
+              key={f.id}
+              className={clsx(
+                'h-[3px] rounded-full transition-all duration-500',
+                activeId === f.id ? 'w-6 bg-white' : 'w-2 bg-white/35',
+              )}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export const StickyScroll = () => {
+  const t = useTranslations('home');
+
+  const features: Feature[] = [
+    {
+      id: 'production',
+      img: productionImg,
+      title: t('content.stickyScroll.production.title'),
+      text: t('content.stickyScroll.production.text'),
+      href: `/leistungen/${t('content.stickyScroll.production.href')}`,
+    },
+    {
+      id: 'repair',
+      img: repairImg,
+      title: t('content.stickyScroll.repair.title'),
+      text: t('content.stickyScroll.repair.text'),
+      href: `/leistungen/${t('content.stickyScroll.repair.href')}`,
+    },
+    {
+      id: 'distribution',
+      img: distributionImg,
+      title: t('content.stickyScroll.distribution.title'),
+      text: t('content.stickyScroll.distribution.text'),
+      href: `/leistungen/${t('content.stickyScroll.distribution.href')}`,
+    },
+  ];
+
+  const learnMore = t('content.stickyScroll.learnMore');
+
+  return (
+    <section className='bg-gray-50 py-16 md:py-24 lg:py-32'>
+      <Container>
+        {/* Section header */}
+        <div className='mb-10 max-w-4xl lg:mb-14'>
+          <Title renderAs='h2' margin={false}>
+            {t('content.stickyScroll.title')}
+          </Title>
+          <Body className='mt-4' margin={false} color='light'>
+            {t('content.stickyScroll.text')}
+          </Body>
+        </div>
+
+        {/* Mobile: stacked image cards */}
+        <div className='flex flex-col gap-5 lg:hidden'>
+          {features.map((f, index) => (
+            <a key={f.id} href={f.href} className='group block'>
+              <div className='relative overflow-hidden rounded-sm'>
+                <div className='relative aspect-[16/9]'>
+                  <Image
+                    src={f.img}
+                    alt={f.title}
+                    fill
+                    className='object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]'
+                    placeholder='blur'
+                    priority={index === 0}
+                    sizes='100vw'
+                  />
+                  <div className='absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent' />
+                  <div className='absolute inset-x-0 bottom-0 p-5'>
+                    <span className='font-secondary text-xs font-medium uppercase tracking-widest text-white/55'>
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <h3 className='mt-1 text-xl font-medium text-white'>
+                      {f.title}
+                    </h3>
+                    <p className='mt-1.5 line-clamp-2 text-sm leading-relaxed text-white/80'>
+                      {f.text}
+                    </p>
+                    <div className='mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-white'>
+                      {learnMore}
+                      <VscArrowRight className='transition-transform duration-200 group-hover:translate-x-1' />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        {/* Desktop: sticky scroll — image left, content right */}
+        <div className='hidden lg:grid lg:grid-cols-[5fr_7fr] lg:gap-x-12 xl:gap-x-16'>
+          {/* Left: sticky image panel */}
+          <div>
+            <div className='sticky top-[calc(var(--navigation-height)_+_2rem)]'>
+              <FeatureImagePanel features={features} />
+            </div>
+          </div>
+
+          {/* Right: scrollable feature items */}
+          <div>
+            {features.map((f, index) => (
+              <StickyScrollItem
+                key={f.id}
+                id={f.id}
+                index={index}
+                total={features.length}
+                href={f.href}
+                title={f.title}
+                learnMore={learnMore}
+              >
+                {f.text}
+              </StickyScrollItem>
+            ))}
+          </div>
+        </div>
+      </Container>
+    </section>
   );
 };

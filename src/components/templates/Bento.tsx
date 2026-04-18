@@ -1,5 +1,7 @@
+'use client';
+
 import Image from 'next/image';
-import { useTranslation } from 'next-i18next';
+import { useTranslations } from 'next-intl';
 import { ReactNode } from 'react';
 
 import clsxm from '@/lib/clsxm';
@@ -109,7 +111,7 @@ const tiles = [
 ];
 
 const SectionTitle = () => {
-  const { t } = useTranslation('home');
+  const t = useTranslations('home');
   return (
     <div className='mb-16 text-center'>
       <Title renderAs='h2' className='md:-mb-2' margin={false}>
@@ -155,64 +157,57 @@ const BentoCard = ({
   description: string;
   textIsWhite?: boolean;
   href: string;
-}) => {
-  const { t } = useTranslation('home');
-
-  return (
-    <>
-      <UnstyledLink
-        href={href}
-        key={name}
-        className={clsxm(
-          'group relative col-span-3 flex flex-col justify-between overflow-hidden rounded-lg grayscale transition-all duration-300 ease-out hover:grayscale-0',
-          // light styles
-          textIsWhite
-            ? 'bg-white'
-            : 'border border-solid border-gray-200 bg-white hover:border-primary-300',
-          className,
-        )}
+}) => (
+  <UnstyledLink
+    href={href}
+    className={clsxm(
+      'group relative col-span-3 flex flex-col justify-between overflow-hidden rounded-lg grayscale transition-all duration-300 ease-out hover:grayscale-0',
+      textIsWhite
+        ? 'bg-white'
+        : 'border border-solid border-gray-200 bg-white hover:border-primary-300',
+      className,
+    )}
+  >
+    <div>{background}</div>
+    <div
+      className={clsxm(
+        'pointer-events-none z-10 flex flex-col p-4 transition-all duration-300',
+        textIsWhite ? 'bg-dark/40' : 'bg-white/40',
+      )}
+    >
+      <Title
+        size='four'
+        margin={false}
+        className={clsxm(textIsWhite ? 'text-white' : 'text-dark', 'mb-1')}
       >
-        <div>{background}</div>
-        <div
-          className={clsxm(
-            'pointer-events-none z-10 flex flex-col p-4 transition-all duration-300',
-            textIsWhite ? 'bg-dark/40' : 'bg-white/40',
-          )}
-        >
-          <Title
-            size='four'
-            margin={false}
-            className={clsxm(textIsWhite ? 'text-white' : 'text-dark', 'mb-1')}
-          >
-            {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-            {/* @ts-expect-error */}
-            {t(name)}
-          </Title>
-          <Body
-            margin={false}
-            className={clsxm(
-              'max-w-lg',
-              textIsWhite ? 'text-white' : 'text-dark',
-            )}
-          >
-            {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-            {/* @ts-expect-error */}
-            {t(description)}
-          </Body>
-        </div>
-        <div className='pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-dark/[.02]' />
-      </UnstyledLink>
-    </>
-  );
-};
+        {name}
+      </Title>
+      <Body
+        margin={false}
+        className={clsxm('max-w-lg', textIsWhite ? 'text-white' : 'text-dark')}
+      >
+        {description}
+      </Body>
+    </div>
+    <div className='pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-dark/[.02]' />
+  </UnstyledLink>
+);
 
 export const BentoSection = () => {
+  const t = useTranslations('home');
+
+  const resolvedTiles = tiles.map((tile) => ({
+    ...tile,
+    name: t(tile.name as Parameters<typeof t>[0]),
+    description: t(tile.description as Parameters<typeof t>[0]),
+  }));
+
   return (
     <section className='py-16 md:py-24 lg:py-32'>
       <Container>
         <SectionTitle />
         <BentoGrid>
-          {tiles.map((tile, idx) => (
+          {resolvedTiles.map((tile, idx) => (
             <BentoCard key={idx} {...tile} />
           ))}
         </BentoGrid>

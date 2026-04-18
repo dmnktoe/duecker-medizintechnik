@@ -1,6 +1,8 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
-import { Trans, useTranslation } from 'next-i18next';
+import { useTranslations } from 'next-intl';
 import * as React from 'react';
 import { VscArrowRight } from 'react-icons/vsc';
 
@@ -14,7 +16,7 @@ import companyImg1 from '/public/images/company/duecker-medizintechnik_company_1
 import companyImg2 from '/public/images/company/duecker-medizintechnik_company_2.webp';
 
 export default function CompanyView() {
-  const { t } = useTranslation('company');
+  const t = useTranslations('company');
   return (
     <section className='mx-auto max-w-5xl pb-16 lg:pb-24'>
       <Container>
@@ -25,21 +27,14 @@ export default function CompanyView() {
           <Body>{t('content.companyText.text3')}</Body>
           <Body>{t('content.companyText.text4')}</Body>
           <Body>
-            <Trans
-              i18nKey='content.companyText.text5'
-              t={t}
-              components={{
-                linkTag: (
-                  <UnderlineLink
-                    href='/downloads'
-                    // eslint-disable-next-line react/no-children-prop
-                    children=''
-                  />
-                ),
-                // eslint-disable-next-line react/no-children-prop
-                italicTag: <span className='font-serif italic' children='' />,
-              }}
-            />
+            {t.rich('content.companyText.text5', {
+              linkTag: (chunks) => (
+                <UnderlineLink href='/downloads'>{chunks}</UnderlineLink>
+              ),
+              italicTag: (chunks) => (
+                <span className='font-serif italic'>{chunks}</span>
+              ),
+            })}
           </Body>
           <div className='pt-16'>
             <Marquee className='[mask-image:linear-gradient(to_right,transparent_0%,#000_15%,#000_85%,transparent_100%)]'>
@@ -78,7 +73,7 @@ export default function CompanyView() {
           </div>
           <div className='mt-8 grid grid-cols-2 gap-4'>
             <Image
-              alt='hero'
+              alt={t('content.imageAlt')}
               src={companyImg1}
               placeholder='blur'
               className='w-full'
@@ -87,7 +82,7 @@ export default function CompanyView() {
               loading='lazy'
             />
             <Image
-              alt='hero'
+              alt={t('content.imageAlt')}
               src={companyImg2}
               placeholder='blur'
               className='mt-4 w-full lg:mt-10'

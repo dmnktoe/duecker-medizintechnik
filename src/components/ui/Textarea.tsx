@@ -1,25 +1,27 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import type {
+  FieldError,
+  FieldValues,
+  Path,
+  UseFormRegister,
+} from 'react-hook-form';
 
-interface TextAreaProps {
-  id: string;
+interface TextAreaProps<T extends FieldValues> {
+  id: Path<T>;
   label: string;
   placeholder: string;
-  register: any;
-  error: any;
+  register: UseFormRegister<T>;
+  error?: FieldError;
 }
 
-export const TextArea = ({
+export const TextArea = <T extends FieldValues>({
   id,
   label,
   placeholder,
   register,
   error,
-}: TextAreaProps) => {
-  const commonClasses =
-    'dark:shadow-sm-light block w-full rounded-md border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm';
-  const errorClasses = error && 'border-red-500';
-  const focusClasses =
-    'focus:border-primary-500 focus:ring-primary-500 dark:focus:border-primary-500 dark:focus:ring-primary-500';
+}: TextAreaProps<T>) => {
+  const baseClasses =
+    'dark:shadow-sm-light block w-full rounded-md border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:ring-primary-500';
 
   return (
     <div className='sm:col-span-2'>
@@ -36,10 +38,10 @@ export const TextArea = ({
       <textarea
         id={id}
         rows={4}
-        className={`${commonClasses} ${errorClasses} ${focusClasses}`}
+        className={`${baseClasses}${error ? 'border-red-500' : ''}`}
         placeholder={placeholder}
         {...register(id)}
-      ></textarea>
+      />
       {error && (
         <div className='mt-1 text-xs text-red-500'>{error.message}</div>
       )}

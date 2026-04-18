@@ -1,11 +1,12 @@
+'use client';
+
 import clsx from 'clsx';
 import { useFlags } from 'flagsmith/react';
-import { useRouter } from 'next/router';
-import { i18n } from 'next-i18next';
+import { usePathname, useRouter } from 'next/navigation';
 import * as React from 'react';
 import { useId } from 'react';
 
-import * as LOCALES from '../../../next-i18next.config';
+import { i18nConfig } from '@/i18n/settings';
 
 type Props = {
   className?: string;
@@ -13,20 +14,21 @@ type Props = {
 };
 
 const LanguagePicker = ({ className, showDisplayName }: Props) => {
+  const pathname = usePathname();
   const router = useRouter();
   const id = useId();
-
   const flags = useFlags(['language_picker']);
+
+  const segments = pathname.split('/').filter(Boolean);
+  const currentLocale =
+    i18nConfig.locales.find((l) => l === segments[0]) ??
+    i18nConfig.defaultLocale;
 
   function handleLanguageChange(e: React.ChangeEvent<HTMLSelectElement>) {
     const newLocale = e.target.value;
-    const currentPath = router.asPath.includes(router.locale ?? '')
-      ? router.asPath.replace(`/${router.locale}`, '')
-      : router.asPath;
-    const newPath =
-      newLocale === 'de' ? currentPath : `/${newLocale}${currentPath}`;
-
-    router.push(newPath, newPath, { locale: false });
+    const pathSegments = pathname.split('/');
+    pathSegments[1] = newLocale;
+    router.push(pathSegments.join('/'));
   }
 
   if (!flags.language_picker.enabled) return null;
@@ -37,12 +39,10 @@ const LanguagePicker = ({ className, showDisplayName }: Props) => {
       name='languages'
       id={id}
       onChange={handleLanguageChange}
-      value={LOCALES.i18n.locales.find((locale) => locale === i18n?.language)}
+      value={currentLocale}
     >
-      {LOCALES.i18n.locales.map((lang) => {
-        const nameGenerator = new Intl.DisplayNames(lang, {
-          type: 'language',
-        });
+      {i18nConfig.locales.map((lang) => {
+        const nameGenerator = new Intl.DisplayNames(lang, { type: 'language' });
         const displayName = nameGenerator.of(lang);
         return (
           <option key={lang} value={lang}>

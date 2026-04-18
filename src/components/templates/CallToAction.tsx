@@ -1,6 +1,8 @@
+'use client';
+
 import { useFlags } from 'flagsmith/react';
-import { useRouter } from 'next/router';
-import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/navigation';
+import { useLocale, useTranslations } from 'next-intl';
 import { Key } from 'react';
 
 import clsxm from '@/lib/clsxm';
@@ -11,11 +13,12 @@ import { Button, Title } from '@/components/ui';
 import { CheckIcon } from '@/components/ui/Icons';
 
 export const CallToAction = () => {
-  const { t, ready } = useTranslation('common', { useSuspense: false });
+  const t = useTranslations('common');
+  const locale = useLocale();
   const router = useRouter();
 
   function handleCtaButtonClick() {
-    router.push('/kontakt').then((r) => r);
+    router.push(`/${locale}/kontakt`);
   }
 
   const flags = useFlags(['cta_globe']);
@@ -48,24 +51,23 @@ export const CallToAction = () => {
   const CallToActionBullets = () => {
     return (
       <ul className='-m-4 flex flex-wrap'>
-        {ready &&
-          t('cta.bullets', { returnObjects: true }).map(
-            (
-              bullet: {
-                title: string;
-              },
-              index: Key,
-            ) => (
-              <li key={index} className='p-4'>
-                <div className='flex flex-wrap'>
-                  <CheckIcon color='white' className='mr-3' />
-                  <span className='font-medium tracking-tight text-white'>
-                    {bullet.title}
-                  </span>
-                </div>
-              </li>
-            ),
-          )}
+        {t.raw('cta.bullets').map(
+          (
+            bullet: {
+              title: string;
+            },
+            index: Key,
+          ) => (
+            <li key={index} className='p-4'>
+              <div className='flex flex-wrap'>
+                <CheckIcon color='white' className='mr-3' />
+                <span className='font-medium tracking-tight text-white'>
+                  {bullet.title}
+                </span>
+              </div>
+            </li>
+          ),
+        )}
       </ul>
     );
   };

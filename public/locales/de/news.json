@@ -1,13 +1,19 @@
 {
   "content": {
     "newsList": {
-      "readMore": "Weiterlesen"
+      "readMore": "Weiterlesen",
+      "noResults": "Aktuell sind keine Beiträge verfügbar. Schauen Sie bald wieder vorbei."
     },
     "newsSlug": {
       "back": "Zurück zur Übersicht"
     },
     "text": "Bleiben Sie stets informiert über die neuesten Entwicklungen und Unternehmensankündigungen bei Dücker Medizintechnik. Besuchen Sie regelmäßig unsere Pressemitteilungen, um über alles Wissenswerte informiert zu sein.",
-    "title": "Pressemitteilungen und News"
+    "title": "Pressemitteilungen und News",
+    "article": {
+      "copied": "Kopiert!",
+      "authorContact": "Kontakt",
+      "copyLink": "Link kopieren"
+    }
   },
   "meta": {
     "pageTitle": "Newsroom",

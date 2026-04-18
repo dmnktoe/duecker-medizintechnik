@@ -1,10 +1,11 @@
+'use client';
+
 import { useFlags } from 'flagsmith/react';
 import { StaticImageData } from 'next/image';
 import * as React from 'react';
 
 import clsxm from '@/lib/clsxm';
 
-import Seo from '@/components/helpers/Seo';
 import { Container } from '@/components/layout/index';
 import Layout from '@/components/layout/Layout';
 import Breadcrumbs from '@/components/templates/Breadcrumbs';
@@ -22,12 +23,6 @@ interface PageProps {
     topContent?: React.ReactNode;
   };
   image?: StaticImageData;
-  seo: {
-    date?: Date;
-    description: string;
-    hreflangs: { rel: string; hrefLang: string; href: string }[];
-    title: string;
-  };
   title: string;
 }
 
@@ -41,21 +36,11 @@ export default function Page({
     padding: 'default',
   },
   image,
-  seo,
   title,
 }: PageProps) {
   const flags = useFlags(['image_banner']);
   return (
     <Layout>
-      <Seo
-        date={seo.date && new Date(seo.date).toISOString()}
-        image={image ? image.src : ''}
-        templateTitle={title}
-        hreflangs={seo.hreflangs}
-        /* This is a SEO-optimized meta.seo.title */
-        title={seo.title}
-        description={seo.description}
-      />
       {image &&
         layout.showHero &&
         (flags.image_banner.enabled ? (

@@ -1,5 +1,7 @@
+'use client';
+
 import Image from 'next/image';
-import { useTranslation } from 'next-i18next';
+import { useTranslations } from 'next-intl';
 import * as React from 'react';
 
 import { Container } from '@/components/layout';
@@ -7,7 +9,7 @@ import { AspectRatio, Body, Title } from '@/components/ui';
 import { CheckIcon } from '@/components/ui/Icons';
 
 export default function ProductionIntro() {
-  const { t } = useTranslation('production');
+  const t = useTranslations('production');
   return (
     <section className='pb-16 md:pb-24 lg:pb-32'>
       <Container>

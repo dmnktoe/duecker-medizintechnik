@@ -6,14 +6,7 @@ describe('Checkbox', () => {
   const mockRegister = jest.fn();
 
   it('renders without error', () => {
-    render(
-      <Checkbox
-        id='test'
-        label='Test Label'
-        register={mockRegister}
-        error={null}
-      />,
-    );
+    render(<Checkbox id='test' label='Test Label' register={mockRegister} />);
     expect(screen.getByLabelText(/Test Label/i)).toBeInTheDocument();
   });
 
@@ -24,47 +17,26 @@ describe('Checkbox', () => {
         id='test'
         label='Test Label'
         register={mockRegister}
-        error={{ message: errorMessage }}
+        error={{ message: errorMessage, type: 'required' }}
       />,
     );
     expect(screen.getByText(errorMessage)).toBeInTheDocument();
   });
 
   it('does not display error message when error is not present', () => {
-    render(
-      <Checkbox
-        id='test'
-        label='Test Label'
-        register={mockRegister}
-        error={null}
-      />,
-    );
+    render(<Checkbox id='test' label='Test Label' register={mockRegister} />);
     expect(
       screen.queryByText(/This field is required/i),
     ).not.toBeInTheDocument();
   });
 
   it('calls register function with id', () => {
-    render(
-      <Checkbox
-        id='test'
-        label='Test Label'
-        register={mockRegister}
-        error={null}
-      />,
-    );
+    render(<Checkbox id='test' label='Test Label' register={mockRegister} />);
     expect(mockRegister).toHaveBeenCalledWith('test');
   });
 
   it('changes state when clicked', () => {
-    render(
-      <Checkbox
-        id='test'
-        label='Test Label'
-        register={mockRegister}
-        error={null}
-      />,
-    );
+    render(<Checkbox id='test' label='Test Label' register={mockRegister} />);
     const checkbox = screen.getByLabelText(/Test Label/i);
     expect(checkbox).not.toBeChecked();
     fireEvent.click(checkbox);

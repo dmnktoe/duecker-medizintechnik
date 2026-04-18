@@ -1,11 +1,13 @@
-import { useTranslation } from 'next-i18next';
+'use client';
+
+import { useTranslations } from 'next-intl';
 import React from 'react';
 
 import { Container } from '@/components/layout';
 import { Body, Title } from '@/components/ui';
 
 export const DownloadText = () => {
-  const { t } = useTranslation('downloads');
+  const t = useTranslations('downloads');
   return (
     <section className='mx-auto mb-12 max-w-5xl'>
       <Container>

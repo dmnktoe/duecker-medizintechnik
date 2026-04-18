@@ -1,23 +1,30 @@
+'use client';
+
 import clsx from 'clsx';
-import { useRouter } from 'next/router';
-import { useTranslation } from 'next-i18next';
+import { usePathname } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 import { VscChevronRight } from 'react-icons/vsc';
 
 import { UnderlineLink } from '@/components/ui';
 
-export default function Breadcrumbs({ className }: { className?: string }) {
-  const router = useRouter();
-  const { t } = useTranslation('common');
+import { i18nConfig } from '@/i18n/settings';
 
-  // Split the current path into segments
-  const pathSegments = router.pathname.split('/').filter((p) => p);
+export default function Breadcrumbs({ className }: { className?: string }) {
+  const pathname = usePathname();
+  const t = useTranslations('common');
+
+  // Strip locale prefix to get meaningful path segments
+  const segments = pathname.split('/').filter(Boolean);
+  const hasLocale = i18nConfig.locales.some((l) => l === segments[0]);
+  const locale = hasLocale ? segments[0] : i18nConfig.defaultLocale;
+  const pathSegments = hasLocale ? segments.slice(1) : segments;
 
   return (
     <div className={clsx('mb-4', className)}>
       <ul className={clsx('flex')}>
         <li className='flex items-center'>
-          <UnderlineLink underline='hover' href='/'>
+          <UnderlineLink underline='hover' href={`/${locale}`}>
             {t('breadcrumbs.startseite')}
           </UnderlineLink>
           {pathSegments.length > 0 && (
@@ -25,15 +32,13 @@ export default function Breadcrumbs({ className }: { className?: string }) {
           )}
         </li>
 
-        {/* Generate breadcrumb segments */}
         {pathSegments.map((segment, i) => {
-          // Construct the URL for this breadcrumb segment
-          const breadcrumbUrl = `/${pathSegments.slice(0, i + 1).join('/')}`;
+          const breadcrumbUrl = `/${locale}/${pathSegments.slice(0, i + 1).join('/')}`;
+          const isLast = i === pathSegments.length - 1;
 
           return (
             <React.Fragment key={breadcrumbUrl}>
-              {/* Don't link the current page */}
-              {breadcrumbUrl === router.pathname ? (
+              {isLast ? (
                 <li className='text-primary-500'>
                   {t(('breadcrumbs.' + segment) as never)}
                 </li>
@@ -42,9 +47,7 @@ export default function Breadcrumbs({ className }: { className?: string }) {
                   <UnderlineLink underline='hover' href={breadcrumbUrl}>
                     {t(('breadcrumbs.' + segment) as never)}
                   </UnderlineLink>
-                  {i < pathSegments.length - 1 && (
-                    <VscChevronRight className='mx-1 h-5 w-3 md:h-6 md:w-3 lg:mx-2 lg:h-6 lg:w-4' />
-                  )}
+                  <VscChevronRight className='mx-1 h-5 w-3 md:h-6 md:w-3 lg:mx-2 lg:h-6 lg:w-4' />
                 </li>
               )}
             </React.Fragment>

@@ -1,85 +1,40 @@
 import { getBaseUrl } from '@/lib/get-base-url';
-import { generateHreflangTags, getHreflangs } from '@/lib/hreflang';
-
-import i18nextConfig from '../../../next-i18next.config';
+import { getHreflangs } from '@/lib/hreflang';
 
 jest.mock('@/lib/get-base-url', () => ({
   getBaseUrl: jest.fn(),
 }));
 
-describe('generateHreflangTags', () => {
+describe('getHreflangs', () => {
   beforeEach(() => {
     jest.resetAllMocks();
   });
 
-  it('generates hreflang tags for all locales', () => {
+  it('generates hreflang tags for all configured locales with locale prefix', () => {
     (getBaseUrl as jest.Mock).mockReturnValue('https://example.com');
-    const locales = ['de', 'en', 'fr'];
-    const currentPath = '/datenschutz/';
-    const result = generateHreflangTags(locales, currentPath);
+    const result = getHreflangs('/datenschutz');
 
     expect(result).toEqual([
       {
         rel: 'alternate',
         hrefLang: 'de',
-        href: 'https://example.com/datenschutz/',
+        href: 'https://example.com/de/datenschutz',
       },
       {
         rel: 'alternate',
         hrefLang: 'en',
-        href: 'https://example.com/en/datenschutz/',
-      },
-      {
-        rel: 'alternate',
-        hrefLang: 'fr',
-        href: 'https://example.com/fr/datenschutz/',
+        href: 'https://example.com/en/datenschutz',
       },
     ]);
   });
 
-  it('handles base URL correctly for default locale', () => {
+  it('handles root path correctly', () => {
     (getBaseUrl as jest.Mock).mockReturnValue('https://example.com');
-    const locales = ['de'];
-    const currentPath = '/datenschutz/';
-    const result = generateHreflangTags(locales, currentPath);
+    const result = getHreflangs('/');
 
     expect(result).toEqual([
-      {
-        rel: 'alternate',
-        hrefLang: 'de',
-        href: 'https://example.com/datenschutz/',
-      },
-    ]);
-  });
-
-  it('handles empty locales array', () => {
-    (getBaseUrl as jest.Mock).mockReturnValue('https://example.com');
-    const locales: string[] = [];
-    const currentPath = '/datenschutz/';
-    const result = generateHreflangTags(locales, currentPath);
-
-    expect(result).toEqual([]);
-  });
-});
-
-describe('getHreflangs', () => {
-  it('returns hreflang tags using i18nextConfig locales', () => {
-    (getBaseUrl as jest.Mock).mockReturnValue('https://example.com');
-    i18nextConfig.i18n.locales = ['de', 'en'];
-    const currentPath = '/datenschutz/';
-    const result = getHreflangs(currentPath);
-
-    expect(result).toEqual([
-      {
-        rel: 'alternate',
-        hrefLang: 'de',
-        href: 'https://example.com/datenschutz/',
-      },
-      {
-        rel: 'alternate',
-        hrefLang: 'en',
-        href: 'https://example.com/en/datenschutz/',
-      },
+      { rel: 'alternate', hrefLang: 'de', href: 'https://example.com/de/' },
+      { rel: 'alternate', hrefLang: 'en', href: 'https://example.com/en/' },
     ]);
   });
 });

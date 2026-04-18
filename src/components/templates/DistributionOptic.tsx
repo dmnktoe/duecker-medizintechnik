@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useTranslation } from 'next-i18next';
+import { useTranslations } from 'next-intl';
 import * as React from 'react';
 import { useCallback, useRef } from 'react';
 import { VscArrowLeft, VscArrowRight } from 'react-icons/vsc';
@@ -48,7 +48,7 @@ const slides = [
 ];
 
 export default function DistributionOptic() {
-  const { t } = useTranslation('distribution');
+  const t = useTranslations('distribution');
 
   const PartnerLogos = () => {
     return (

@@ -1,3 +1,5 @@
+'use client';
+
 import Image, { StaticImageData } from 'next/image';
 import { VscChevronRight } from 'react-icons/vsc';
 

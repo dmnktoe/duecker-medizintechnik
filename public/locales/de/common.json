@@ -1,4 +1,8 @@
 {
+  "errors": {
+    "title": "Etwas ist schiefgelaufen",
+    "retry": "Erneut versuchen"
+  },
   "breadcrumbs": {
     "agb": "Allgemeine Geschäftsbedingungen",
     "cookie-richtlinie": "Cookie-Richtlinie",

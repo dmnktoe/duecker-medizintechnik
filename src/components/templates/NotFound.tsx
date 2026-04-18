@@ -1,10 +1,12 @@
-import { useTranslation } from 'next-i18next';
+'use client';
+
+import { useTranslations } from 'next-intl';
 import * as React from 'react';
 
 import { ArrowLink, Title } from '@/components/ui';
 
 export default function NotFound() {
-  const { t } = useTranslation('notFound');
+  const t = useTranslations('notFound');
   return (
     <section className='relative py-32'>
       <div>

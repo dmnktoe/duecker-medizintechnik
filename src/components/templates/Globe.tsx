@@ -43,10 +43,10 @@ export default function Globe({
   className?: string;
   config?: COBEOptions;
 }) {
-  let phi = 0;
-  let width = 0;
+  const phiRef = useRef(0);
+  const widthRef = useRef(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const pointerInteracting = useRef(null);
+  const pointerInteracting = useRef<number | null>(null);
   const pointerInteractionMovement = useRef(0);
   const [{ r }, api] = useSpring(() => ({
     r: 0,
@@ -58,14 +58,14 @@ export default function Globe({
     },
   }));
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const updatePointerInteraction = (value: any) => {
+  const updatePointerInteraction = (value: number | null) => {
     pointerInteracting.current = value;
-    canvasRef.current!.style.cursor = value ? 'grabbing' : 'grab';
+    if (canvasRef.current) {
+      canvasRef.current.style.cursor = value !== null ? 'grabbing' : 'grab';
+    }
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const updateMovement = (clientX: any) => {
+  const updateMovement = (clientX: number) => {
     if (pointerInteracting.current !== null) {
       const delta = clientX - pointerInteracting.current;
       pointerInteractionMovement.current = delta;
@@ -74,23 +74,20 @@ export default function Globe({
   };
 
   const onRender = useCallback(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (state: Record<string, any>) => {
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      if (!pointerInteracting.current) phi += 0.005;
-      state.phi = phi + r.get();
-      state.width = width * 2;
-      state.height = width * 2;
+    (state: Record<string, unknown>) => {
+      if (!pointerInteracting.current) phiRef.current += 0.005;
+      state.phi = phiRef.current + r.get();
+      state.width = widthRef.current * 2;
+      state.height = widthRef.current * 2;
     },
-    [pointerInteracting, phi, r],
+    [r],
   );
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const onResize = () => {
+  const onResize = useCallback(() => {
     if (canvasRef.current) {
-      width = canvasRef.current.offsetWidth;
+      widthRef.current = canvasRef.current.offsetWidth;
     }
-  };
+  }, []);
 
   useEffect(() => {
     window.addEventListener('resize', onResize);
@@ -98,14 +95,23 @@ export default function Globe({
 
     const globe = createGlobe(canvasRef.current!, {
       ...config,
-      width: width * 2,
-      height: width * 2,
+      width: widthRef.current * 2,
+      height: widthRef.current * 2,
       onRender,
     });
 
-    setTimeout(() => (canvasRef.current!.style.opacity = '1'));
-    return () => globe.destroy();
-  }, [config, onRender, onResize, width]);
+    const canvas = canvasRef.current;
+    if (canvas) {
+      requestAnimationFrame(() => {
+        canvas.style.opacity = '1';
+      });
+    }
+
+    return () => {
+      globe.destroy();
+      window.removeEventListener('resize', onResize);
+    };
+  }, [config, onRender, onResize]);
 
   return (
     <div className={clsxm('absolute aspect-[1/1] w-full', className)}>

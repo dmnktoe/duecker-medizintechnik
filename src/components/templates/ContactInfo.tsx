@@ -1,4 +1,6 @@
-import { useTranslation } from 'next-i18next';
+'use client';
+
+import { useTranslations } from 'next-intl';
 import * as React from 'react';
 import { VscCallOutgoing, VscHome, VscMail } from 'react-icons/vsc';
 
@@ -7,7 +9,7 @@ import { Body, Title, UnderlineLink } from '@/components/ui';
 import { company } from '@/constant/company';
 
 export default function ContactInfo() {
-  const { t } = useTranslation('contact');
+  const t = useTranslations('contact');
 
   const IconWrapper = ({ children }: { children: React.ReactNode }) => {
     return (

@@ -54,6 +54,7 @@
       "titleTwo": "Get an overview."
     },
     "hero": {
+      "slideAlt": "OR solutions and sterilizations for B2B operations",
       "badge": "Production and distribution of sterile and non-sterile tubing sets, distribution of medical products, repair and service of surgical instruments and compressed air hoses.",
       "buttons": {
         "primary": {
@@ -90,7 +91,8 @@
         "title": "Reparatur"
       },
       "text": "We offer you a comprehensive range of services for the reprocessing of surgical tools and supplies in a medical context. Find out more about our services and products.",
-      "title": "From production to repair: the entire value chain from a single source."
+      "title": "From production to repair: the entire value chain from a single source.",
+      "learnMore": "Learn more"
     }
   },
   "meta": {

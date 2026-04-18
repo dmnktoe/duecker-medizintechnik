@@ -1,4 +1,6 @@
-import { useTranslation } from 'next-i18next';
+'use client';
+
+import { useTranslations } from 'next-intl';
 import { useEffect } from 'react';
 import * as React from 'react';
 
@@ -6,20 +8,26 @@ import { Container } from '@/components/layout';
 import { Title } from '@/components/ui';
 
 export default function CookieControlCenter() {
-  const { t } = useTranslation('cookiePolicy');
+  const t = useTranslations('cookiePolicy');
 
   useEffect(() => {
     const cookieBotWrapper = document.getElementById('CookiebotDeclaration');
-    if (cookieBotWrapper) {
-      const script = document.createElement('script');
-      script.id = 'CookieDeclaration';
-      script.type = 'text/javascript';
-      script.async = true;
-      script.src =
-        'https://consent.cookiebot.com/3722981a-3eb0-4ff9-9145-777cf50e6875/cd.js';
-
-      cookieBotWrapper.appendChild(script);
+    if (!cookieBotWrapper || document.getElementById('CookieDeclaration')) {
+      return;
     }
+
+    const script = document.createElement('script');
+    script.id = 'CookieDeclaration';
+    script.type = 'text/javascript';
+    script.async = true;
+    script.src =
+      'https://consent.cookiebot.com/3722981a-3eb0-4ff9-9145-777cf50e6875/cd.js';
+
+    cookieBotWrapper.appendChild(script);
+
+    return () => {
+      document.getElementById('CookieDeclaration')?.remove();
+    };
   }, []);
 
   return (

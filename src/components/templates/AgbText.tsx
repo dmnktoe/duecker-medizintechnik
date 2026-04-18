@@ -1,11 +1,13 @@
-import { useTranslation } from 'next-i18next';
+'use client';
+
+import { useTranslations } from 'next-intl';
 import * as React from 'react';
 
 import { Container } from '@/components/layout';
 import { Body, Title } from '@/components/ui';
 
 export default function AgbText() {
-  const { t } = useTranslation('termsAndConditions');
+  const t = useTranslations('termsAndConditions');
   return (
     <section className='mx-auto max-w-5xl pb-16 lg:pb-24'>
       <Container>

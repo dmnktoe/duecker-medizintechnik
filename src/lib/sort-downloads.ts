@@ -2,7 +2,10 @@ import { strapiApiUrl } from '@/constant/env';
 
 import { CategorizedDownloads, Download } from '@/types/Download';
 
-export const sortDownloads = (documents: Download[]): CategorizedDownloads => {
+export const sortDownloads = (
+  documents: Download[] | null | undefined,
+): CategorizedDownloads => {
+  if (!documents?.length) return {};
   return documents.reduce((acc: CategorizedDownloads, document: Download) => {
     const categoryName = document.attributes.category.data.attributes.name;
     const fileData = document.attributes.files.data.map((file) => ({

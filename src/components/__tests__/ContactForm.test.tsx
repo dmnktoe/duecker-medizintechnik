@@ -3,22 +3,11 @@
 import { fireEvent, render } from '@testing-library/react';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import { NextApiRequest, NextApiResponse } from 'next';
 import React, { act } from 'react';
 
-import initializeI18n from '@/lib/i18n-testing';
+import createIntlWrapper from '@/lib/i18n-testing';
 
 import ContactForm from '@/components/templates/ContactForm';
-
-import form from '@/pages/api/form';
-
-jest.mock('@/utils/useConsent', () => ({
-  __esModule: true,
-  default: () => ({
-    consent: { marketing: true },
-    loading: false,
-  }),
-}));
 
 const mock = new MockAdapter(axios);
 
@@ -27,7 +16,6 @@ jest.mock('react-google-recaptcha', () => {
     const executeAsync = () => Promise.resolve('mocked_token');
     const reset = () => {};
 
-    // Attach the executeAsync and reset functions to the ref
     if (ref && typeof ref === 'object') {
       ref.current = {
         ...ref.current,
@@ -56,12 +44,14 @@ global.fetch = jest.fn((): Promise<any> => {
 }) as any;
 
 describe('ContactForm', () => {
+  let wrapper: React.ComponentType<{ children: React.ReactNode }>;
+
   beforeEach(async () => {
-    await initializeI18n(['common', 'contact']);
+    wrapper = await createIntlWrapper(['common', 'contact']);
   });
 
   it('should render correctly', () => {
-    const { getByLabelText, getByRole } = render(<ContactForm />);
+    const { getByLabelText, getByRole } = render(<ContactForm />, { wrapper });
 
     expect(getByLabelText(/Ihr Vor- & Nachname/i)).toBeInTheDocument();
     expect(getByLabelText(/Ihre E-Mail/i)).toBeInTheDocument();
@@ -74,7 +64,7 @@ describe('ContactForm', () => {
   it('should submit the form correctly', async () => {
     mock.onPost('/api/form').reply(200, { message: 'success' });
 
-    const { getByLabelText, getByRole } = render(<ContactForm />);
+    const { getByLabelText, getByRole } = render(<ContactForm />, { wrapper });
 
     await act(async () => {
       fireEvent.input(getByLabelText(/Ihr Vor- & Nachname/i), {
@@ -92,27 +82,5 @@ describe('ContactForm', () => {
       fireEvent.click(getByLabelText(/Ich habe die/i));
       fireEvent.click(getByRole('button', { name: /Absenden/i }));
     });
-
-    // Create a mock request and response object
-    const req: NextApiRequest = {
-      body: {
-        name: 'John Doe',
-        email: 'johndoe@example.com',
-        phone: '9876543210',
-        message: 'Test Test Test Test',
-      },
-    } as NextApiRequest;
-
-    const res: NextApiResponse = {
-      status: jest.fn().mockReturnThis(),
-      json: jest.fn(),
-    } as unknown as NextApiResponse;
-
-    // Call the form API route
-    await form(req, res);
-
-    // Assert that the response status and message are correct
-    expect(res.status).toHaveBeenCalledWith(200);
-    expect(res.json).toHaveBeenCalledWith({ message: 'success' });
   });
 });

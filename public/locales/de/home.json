@@ -54,6 +54,7 @@
       "titleTwo": "Verschaffen Sie sich einen Überblick."
     },
     "hero": {
+      "slideAlt": "OP-Lösungen und Sterilisierungen für den B2B-Betrieb",
       "badge": "Herstellung und Vertrieb von sterilen und unsterilen Schlauchsets, Vertrieb von medizinischen Produkten, Reparatur und Service von chirurgischen Instrumenten und Druckluftschläuchen.",
       "buttons": {
         "primary": {
@@ -90,7 +91,8 @@
         "title": "Reparatur"
       },
       "text": "Wir bieten Ihnen ein umfangreiches Leistungsspektrum für die Aufbereitung von OP-Werkzeugen und die Versorgung im medizinischen Kontext. Erfahren Sie mehr über unsere Dienstleistungen und Produkte.",
-      "title": "Produktion bis zur Reparatur: die gesamte Wertschöpfungskette aus einer Hand."
+      "title": "Produktion bis zur Reparatur: die gesamte Wertschöpfungskette aus einer Hand.",
+      "learnMore": "Mehr erfahren"
     }
   },
   "meta": {

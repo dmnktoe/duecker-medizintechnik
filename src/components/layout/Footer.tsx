@@ -1,12 +1,13 @@
+'use client';
+
 import { useFlags } from 'flagsmith/react';
-import { useTranslation } from 'next-i18next';
+import { useTranslations } from 'next-intl';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { PiTranslate } from 'react-icons/pi';
 import { VscArrowRight } from 'react-icons/vsc';
 
 import clsxm from '@/lib/clsxm';
-import { fetchAPI } from '@/lib/fetch-api';
 import { getVersion } from '@/lib/get-version';
 
 import { Container } from '@/components/layout/Container';
@@ -32,7 +33,7 @@ const FooterNavigationHeadline = ({ title }: { title: string }) => (
 );
 
 const FooterContact = () => {
-  const { t } = useTranslation('common', { useSuspense: false });
+  const t = useTranslations('common');
   return (
     <>
       <Title size='one'>{t('footer.contact.intro')}</Title>
@@ -63,32 +64,29 @@ const FooterContact = () => {
 };
 
 const FooterLinks = () => {
-  const { t, ready } = useTranslation('common', { useSuspense: false });
+  const t = useTranslations('common');
   return (
     <>
-      {ready &&
-        t('footer.links', { returnObjects: true }).map(
-          (navigation: FooterNavigation) => (
-            <div key={navigation.title}>
-              <FooterNavigationHeadline title={navigation.title} />
-              <ul className='space-y-2 md:mt-8 md:space-y-3'>
-                {navigation.items.map((item) => (
-                  <li key={item.title}>
-                    <UnderlineLink
-                      underline='hover'
-                      className='line-clamp-2'
-                      href={item.href}
-                    >
-                      <Body size='sm' margin={false}>
-                        {item.title}
-                      </Body>
-                    </UnderlineLink>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ),
-        )}
+      {t.raw('footer.links').map((navigation: FooterNavigation) => (
+        <div key={navigation.title}>
+          <FooterNavigationHeadline title={navigation.title} />
+          <ul className='space-y-2 md:mt-8 md:space-y-3'>
+            {navigation.items.map((item) => (
+              <li key={item.title}>
+                <UnderlineLink
+                  underline='hover'
+                  className='line-clamp-2'
+                  href={item.href}
+                >
+                  <Body size='sm' margin={false}>
+                    {item.title}
+                  </Body>
+                </UnderlineLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </>
   );
 };
@@ -97,20 +95,33 @@ const FooterPosts = () => {
   const flags = useFlags(['fetch_footer_posts']);
   const [posts, setPosts] = useState<News[]>();
   const [isLoading, setIsLoading] = useState(true);
-  const { t } = useTranslation('common');
+  const t = useTranslations('common');
 
   useEffect(() => {
-    if (flags.fetch_footer_posts.enabled) {
-      const fetchData = async () => {
-        const result = await fetchAPI(
-          '/posts?sort=id:desc&populate=*&pagination[pageSize]=4',
-        );
-        setPosts(result.data);
-      };
-      fetchData().then(() => setIsLoading(false));
-    } else {
+    if (!flags.fetch_footer_posts.enabled) {
       setIsLoading(false);
+      return;
     }
+
+    const controller = new AbortController();
+    let cancelled = false;
+
+    fetch('/api/posts', { signal: controller.signal })
+      .then((res) => res.json() as Promise<{ data: News[] }>)
+      .then((result) => {
+        if (!cancelled) {
+          setPosts(result.data);
+          setIsLoading(false);
+        }
+      })
+      .catch(() => {
+        if (!cancelled) setIsLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+      controller.abort();
+    };
   }, [flags.fetch_footer_posts.enabled]);
 
   if (isLoading)
