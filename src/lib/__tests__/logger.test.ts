@@ -1,3 +1,7 @@
+jest.mock('@/constant/env', () => ({
+  showLogger: true,
+}));
+
 import logger from '@/lib/logger';
 
 describe('logger', () => {
@@ -12,13 +16,11 @@ describe('logger', () => {
   });
 
   it('should log when showLogger is true', () => {
-    process.env.showLogger = 'true';
     logger('Test object', 'Test comment');
     expect(consoleLogSpy).toHaveBeenCalled();
   });
 
   it('should log with correct parameters', () => {
-    process.env.showLogger = 'true';
     logger('Test object', 'Test comment');
     expect(consoleLogSpy).toHaveBeenCalledWith(
       '%c ============== INFO LOG \n',

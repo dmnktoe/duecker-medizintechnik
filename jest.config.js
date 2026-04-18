@@ -23,6 +23,12 @@ const customJestConfig = {
     '^@/(.*)$': '<rootDir>/src/$1',
     '^~/(.*)$': '<rootDir>/public/$1',
   },
+
+  // next-intl and use-intl ship ESM-only — must be transformed
+  transformIgnorePatterns: [
+    'node_modules/(?!(next-intl|use-intl)/)',
+    '^.+\\.module\\.(css|sass|scss)$',
+  ],
 };
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
