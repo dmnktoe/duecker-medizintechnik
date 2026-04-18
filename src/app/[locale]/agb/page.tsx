@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import * as React from 'react';
 
 import Page from '@/components/layout/Page';
-import AgbContent from '@/components/templates/AgbContent';
+import AgbContent from '@/components/templates/AgbText';
 import { getTranslations } from 'next-intl/server';
 import { getAlternates } from '@/lib/hreflang';
 
