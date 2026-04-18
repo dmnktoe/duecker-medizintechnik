@@ -21,7 +21,7 @@ export function Providers({ children, flagsmithState, locale, messages }: Props)
       flagsmith={flagsmithRef.current}
       serverState={flagsmithState}
     >
-      <NextIntlClientProvider locale={locale} messages={messages}>
+      <NextIntlClientProvider locale={locale} messages={messages} timeZone='Europe/Berlin'>
         {children}
       </NextIntlClientProvider>
     </FlagsmithProvider>
