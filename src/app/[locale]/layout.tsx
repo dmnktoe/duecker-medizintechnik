@@ -1,4 +1,5 @@
 import { createFlagsmithInstance } from 'flagsmith/isomorphic';
+import { notFound } from 'next/navigation';
 import { getMessages } from 'next-intl/server';
 import * as React from 'react';
 
@@ -10,6 +11,7 @@ import Hotjar from '@/components/helpers/Hotjar';
 import { Providers } from '@/components/providers/Providers';
 
 import { flagsmithId, googleAnalyticsId, hotjarId } from '@/constant/env';
+import { routing } from '@/i18n/routing';
 import { i18nConfig } from '@/i18n/settings';
 
 export function generateStaticParams() {
@@ -24,6 +26,10 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+
+  if (!(routing.locales as readonly string[]).includes(locale)) {
+    notFound();
+  }
 
   const flagsmithSSR = createFlagsmithInstance();
   await flagsmithSSR.init({ environmentID: flagsmithId ?? '' });
