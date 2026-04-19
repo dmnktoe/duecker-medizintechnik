@@ -12,6 +12,25 @@ export default function Hotjar({
   const { has } = useConsentManager();
   const hasStats = has('measurement');
 
+  React.useEffect(() => {
+    if (hasStats || !HOTJAR_ID) return;
+
+    try {
+      const w = window as unknown as { hj?: { optOut?: () => void } };
+      w.hj?.optOut?.();
+    } catch {
+      /* Hotjar may not expose optOut in all versions */
+    }
+
+    const win = window as unknown as { hj?: unknown; _hjSettings?: unknown };
+    win.hj = undefined;
+    win._hjSettings = undefined;
+
+    document
+      .querySelectorAll('script#hotjar, script[src*="hotjar.com"]')
+      .forEach((el) => el.remove());
+  }, [hasStats, HOTJAR_ID]);
+
   if (!HOTJAR_ID || !hasStats) return null;
 
   return (

@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/nextjs';
 import { ImageResponse } from 'next/og';
 import type { NextRequest } from 'next/server';
 
@@ -12,7 +13,7 @@ export async function GET(request: NextRequest) {
 
   const heroImageUrl = `${origin}/images/home/hero-slider/duecker-slide-1.jpg`;
 
-  return new ImageResponse(
+  const renderOg = (includeHero: boolean) => (
     <div
       style={{
         display: 'flex',
@@ -25,19 +26,23 @@ export async function GET(request: NextRequest) {
       }}
     >
       {/* Hero background image on the right */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={heroImageUrl}
-        alt=''
-        style={{
-          position: 'absolute',
-          right: 0,
-          top: 0,
-          width: '55%',
-          height: '100%',
-          objectFit: 'cover',
-        }}
-      />
+      {includeHero ? (
+        <>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={heroImageUrl}
+            alt=''
+            style={{
+              position: 'absolute',
+              right: 0,
+              top: 0,
+              width: '55%',
+              height: '100%',
+              objectFit: 'cover',
+            }}
+          />
+        </>
+      ) : null}
       {/* Gradient overlay */}
       <div
         style={{
@@ -190,10 +195,18 @@ export async function GET(request: NextRequest) {
       >
         duecker-medizintechnik.de
       </div>
-    </div>,
-    {
-      width: 1200,
-      height: 630,
-    },
+    </div>
   );
+
+  const imageResponseOptions = {
+    width: 1200,
+    height: 630,
+  };
+
+  try {
+    return new ImageResponse(renderOg(true), imageResponseOptions);
+  } catch (err) {
+    Sentry.captureException(err, { tags: { route: 'api/og' } });
+    return new ImageResponse(renderOg(false), imageResponseOptions);
+  }
 }

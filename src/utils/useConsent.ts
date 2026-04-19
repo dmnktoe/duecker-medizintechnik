@@ -17,7 +17,8 @@ interface UseConsentReturn {
 
 const useConsent = (): UseConsentReturn => {
   const [mounted, setMounted] = useState(false);
-  const { has, setConsent, saveConsents, setActiveUI } = useConsentManager();
+  const { has, setSelectedConsent, saveConsents, setActiveUI } =
+    useConsentManager();
 
   useEffect(() => {
     setMounted(true);
@@ -30,8 +31,8 @@ const useConsent = (): UseConsentReturn => {
   const showConsentDialog = () => setActiveUI('dialog');
 
   const submitCustomConsent = (statistics: boolean, marketing: boolean) => {
-    setConsent('measurement', statistics);
-    setConsent('marketing', marketing);
+    setSelectedConsent('measurement', statistics);
+    setSelectedConsent('marketing', marketing);
     saveConsents('custom');
   };
 

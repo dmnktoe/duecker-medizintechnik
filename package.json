@@ -18,7 +18,7 @@
     "format": "prettier -w .",
     "format:check": "prettier -c .",
     "postbuild": "next-sitemap --config next-sitemap.config.js",
-    "prepare": "husky install",
+    "prepare": "pnpm exec husky",
     "clean": "rm -rf .next/ coverage/",
     "clean:nm": "pnpm clean && rm -rf node_modules/"
   },

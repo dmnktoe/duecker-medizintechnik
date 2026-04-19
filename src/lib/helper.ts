@@ -1,5 +1,3 @@
-const SITE_URL = 'https://www.duecker-medizintechnik.de';
-
 type OpenGraphType = {
   siteName: string;
   description: string;
@@ -16,7 +14,15 @@ export function openGraph({
     title,
     description: description.trim(),
   });
-  return `${SITE_URL}/api/og?${params.toString()}`;
+  const query = params.toString();
+  const appBase =
+    typeof process !== 'undefined'
+      ? process.env.NEXT_PUBLIC_APP_URL?.replace(/\/$/, '')
+      : undefined;
+  if (appBase) {
+    return `${appBase}/api/og?${query}`;
+  }
+  return `/api/og?${query}`;
 }
 
 export function getFromLocalStorage(key: string): string | null {

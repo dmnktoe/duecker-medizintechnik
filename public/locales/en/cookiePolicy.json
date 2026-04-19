@@ -62,7 +62,7 @@
       "measurement": [
         {
           "name": "Google Ireland Limited",
-          "service": "Google Analytics 4 (via Google Tag Manager)",
+          "service": "Google Analytics 4",
           "purpose": "Creates statistics about site usage (page views, approximate origin, device type) when you consent.",
           "privacyUrl": "https://policies.google.com/privacy?hl=en"
         },

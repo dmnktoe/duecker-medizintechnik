@@ -53,8 +53,12 @@ export function ConsentCategoryToggles({
   className,
 }: ConsentCategoryTogglesProps) {
   const t = useTranslations('cookiePolicy.consent');
-  const { getDisplayedConsents, selectedConsents, setSelectedConsent } =
-    useConsentManager();
+  const {
+    consents,
+    getDisplayedConsents,
+    selectedConsents,
+    setSelectedConsent,
+  } = useConsentManager();
 
   const [mounted, setMounted] = React.useState(false);
   React.useEffect(() => {
@@ -67,7 +71,7 @@ export function ConsentCategoryToggles({
     <ul className={clsxm('space-y-4', className)} aria-busy={!mounted}>
       {types.map((type: { name: string; disabled?: boolean }) => {
         const name = type.name as ConsentCategoryName;
-        const checked = selectedConsents[name];
+        const checked = selectedConsents[name] ?? consents[name] ?? false;
         const disabled = Boolean(type.disabled);
         const title = categoryTitle(t, name);
 
