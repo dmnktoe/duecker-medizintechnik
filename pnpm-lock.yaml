@@ -45,8 +45,8 @@ importers:
         specifier: ^8.0.7
         version: 8.0.7
       flagsmith:
-        specifier: ^4.1.4
-        version: 4.1.4
+        specifier: ^10.0.0
+        version: 10.0.0
       framer-motion:
         specifier: ^12.38.0
         version: 12.38.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -4393,8 +4393,8 @@ packages:
     resolution: {integrity: sha512-78/PXT1wlLLDgTzDs7sjq9hzz0vXD+zn+7wypEe4fXQxCmdmqfGsEPQxmiCSQI3ajFV91bVSsvNtrJRiW6nGng==}
     engines: {node: '>=10'}
 
-  flagsmith@4.1.4:
-    resolution: {integrity: sha512-fMJIquyCcKyRKKi0qyym5znHTWZHgwR7bx01nJY/48CeyzWLIKnPwr2Nvuvjoh5oylOC08E0GBQYlQoRHb51Mw==}
+  flagsmith@10.0.0:
+    resolution: {integrity: sha512-JEO4V6nO6ic4ahi5uZRVBYKFil9IuRkLWemKZuFv3QVUCxluQfgymwiuPSs4/LqwFqQ+89SuubaawHxUxUPTzg==}
     deprecated: This package has moved to @flagsmith/flagsmith. Please update your dependencies.
 
   flat-cache@3.2.0:
@@ -12580,7 +12580,7 @@ snapshots:
       locate-path: 6.0.0
       path-exists: 4.0.0
 
-  flagsmith@4.1.4: {}
+  flagsmith@10.0.0: {}
 
   flat-cache@3.2.0:
     dependencies:
