@@ -146,8 +146,8 @@ const FooterCopyright = () => {
     <>
       <div>
         <Body margin={false}>
-          © {new Date().getFullYear()} {company.companyName} • {company.street}
-          , {company.city}
+          © {new Date().getFullYear()} {company.companyName} • {company.street},{' '}
+          {company.city}
         </Body>
         {flags.display_version_number.enabled && (
           <Body margin={false} size='xs' color='light'>

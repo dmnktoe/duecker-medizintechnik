@@ -1,3 +1,9 @@
+jest.mock('@c15t/nextjs', () => ({
+  useConsentManager: () => ({
+    has: (category: string) => category === 'measurement',
+  }),
+}));
+
 import { render } from '@testing-library/react';
 
 import GoogleAnalytics from '@/components/helpers/GoogleAnalytics';

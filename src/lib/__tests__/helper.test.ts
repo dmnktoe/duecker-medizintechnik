@@ -11,16 +11,22 @@ describe('Open Graph function should work correctly', () => {
       description: 'Test description',
       siteName: 'Test site name',
     });
-    expect(result).not.toContain('&templateTitle=');
+    expect(result).not.toContain('templateTitle=');
+    expect(new URL(result).searchParams.get('title')).toBe('Test site name');
   });
 
-  it('should return templateTitle when specified', () => {
+  it('should use templateTitle as og title when specified', () => {
     const result = openGraph({
       templateTitle: 'Test Template Title',
       description: 'Test description',
       siteName: 'Test site name',
     });
-    expect(result).toContain('&templateTitle=Test%20Template%20Title');
+    expect(new URL(result).searchParams.get('title')).toBe(
+      'Test Template Title',
+    );
+    expect(new URL(result).searchParams.get('description')).toBe(
+      'Test description',
+    );
   });
 });
 
