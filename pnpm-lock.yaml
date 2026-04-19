@@ -63,8 +63,8 @@ importers:
         specifier: ^8.0.5
         version: 8.0.5
       nodemailer-express-handlebars:
-        specifier: ^6.1.2
-        version: 6.1.2(express-handlebars@8.0.7)(nodemailer@8.0.5)
+        specifier: ^7.0.0
+        version: 7.0.0(express-handlebars@8.0.7)(nodemailer@8.0.5)
       qs:
         specifier: ^6.15.1
         version: 6.15.1
@@ -5746,11 +5746,11 @@ packages:
   node-releases@2.0.37:
     resolution: {integrity: sha512-1h5gKZCF+pO/o3Iqt5Jp7wc9rH3eJJ0+nh/CIoiRwjRxde/hAHyLPXYN4V3CqKAbiZPSeJFSWHmJsbkicta0Eg==}
 
-  nodemailer-express-handlebars@6.1.2:
-    resolution: {integrity: sha512-p5ZKPe8PmiDZquNqi+uDKE1eKXOcqOVPdnmhWELCT1HHoaYXcVwM7wQE1R7wtPPracZRH2hL7mEWiXhVwr5hng==}
-    engines: {node: 14.* || 16.* || >= 18}
+  nodemailer-express-handlebars@7.0.0:
+    resolution: {integrity: sha512-fJ5pj5TaDiXKDShzrOksZDR1iE65W8z40unwM8+wiHT3AhifQsc2/G5uw4DC1LNN4RhqXGkuYuoEkoE+Zk+GHQ==}
+    engines: {node: '>= 20'}
     peerDependencies:
-      express-handlebars: '>= 6.0.0'
+      express-handlebars: '>= 8.0.0'
       nodemailer: '>= 6.0.0'
 
   nodemailer@8.0.5:
@@ -14299,7 +14299,7 @@ snapshots:
 
   node-releases@2.0.37: {}
 
-  nodemailer-express-handlebars@6.1.2(express-handlebars@8.0.7)(nodemailer@8.0.5):
+  nodemailer-express-handlebars@7.0.0(express-handlebars@8.0.7)(nodemailer@8.0.5):
     dependencies:
       express-handlebars: 8.0.7
       nodemailer: 8.0.5
