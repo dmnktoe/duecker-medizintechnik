@@ -12,6 +12,9 @@ const { withSentryConfig } = require('@sentry/nextjs');
 const createNextIntlPlugin = require('next-intl/plugin');
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
+/** Sentry webpack/babel hooks in `next dev` can leave stale vendor-chunk refs after HMR (MODULE_NOT_FOUND in static-paths-worker). Keep them for production builds only. */
+const sentryBuildTime = process.env.NODE_ENV === 'production';
+
 const nextConfig = {
   eslint: {
     dirs: ['src'],
@@ -64,7 +67,13 @@ module.exports = withSentryConfig(module.exports, {
   silent: !process.env.CI,
   widenClientFileUpload: true,
   reactComponentAnnotation: {
-    enabled: true,
+    enabled: sentryBuildTime,
+  },
+  autoInstrumentServerFunctions: sentryBuildTime,
+  autoInstrumentMiddleware: sentryBuildTime,
+  autoInstrumentAppDirectory: sentryBuildTime,
+  sourcemaps: {
+    disable: !sentryBuildTime,
   },
   tunnelRoute: '/monitoring',
   hideSourceMaps: true,
