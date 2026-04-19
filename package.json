@@ -35,7 +35,7 @@
     "clsx": "^2.1.1",
     "cobe": "^0.6.5",
     "express-handlebars": "^8.0.7",
-    "flagsmith": "^4.1.4",
+    "flagsmith": "^10.0.0",
     "framer-motion": "^12.38.0",
     "marked": "^12.0.2",
     "next": "^15.5.15",
