@@ -18,6 +18,8 @@ import { AnimatedBadge, AspectRatio, Body, Title } from '@/components/ui';
 
 import { partners } from '@/constant/partners';
 
+import MicromedLogo from '/public/images/distribution/partners/micromed-logo.png';
+
 import OpticImage1 from '/public/images/distribution/optic/duecker-medizintechnik_distribution_optic-1.webp';
 import OpticImage2 from '/public/images/distribution/optic/duecker-medizintechnik_distribution_optic-2.webp';
 import OpticImage3 from '/public/images/distribution/optic/duecker-medizintechnik_distribution_optic-3.webp';
@@ -63,6 +65,15 @@ export default function DistributionOptic() {
             </Link>
           </div>
         ))}
+        <div className='px-6'>
+          <Link href='https://www.micromed.com/' target='_blank'>
+            <Image
+              src={MicromedLogo}
+              alt='Micromed'
+              className='h-10 w-auto max-w-[128px] object-contain opacity-70 transition-opacity hover:opacity-100'
+            />
+          </Link>
+        </div>
       </Marquee>
     );
   };

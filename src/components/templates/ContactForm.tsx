@@ -1,8 +1,6 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import type { AxiosError } from 'axios';
-import axios from 'axios';
 import { useLocale, useTranslations } from 'next-intl';
 import React, { useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
@@ -63,28 +61,25 @@ export default function ContactForm() {
     const token = await recaptchaRef?.current?.executeAsync();
     recaptchaRef?.current?.reset();
     data['token'] = token || '';
-    const config = {
-      method: 'post',
-      url: '/api/form',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      data: data,
-    };
     try {
-      const response = await axios(config);
-      if (response.status === 200) {
+      const response = await fetch('/api/form', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (response.ok) {
         setResult(t('content.contactForm.submit.success'));
         setResultColor('text-green-500');
         reset();
+      } else {
+        const errorData = await response.json().catch(() => ({}));
+        setResult(
+          (errorData?.message ?? 'Fehler') + ': ' + response.statusText,
+        );
+        setResultColor('text-red-500');
       }
-    } catch (err) {
-      const axiosErr = err as AxiosError<{ message: string }>;
-      setResult(
-        (axiosErr.response?.data?.message ?? 'Fehler') +
-          ': ' +
-          (axiosErr.response?.statusText ?? ''),
-      );
+    } catch {
+      setResult('Fehler beim Senden');
       setResultColor('text-red-500');
     }
   };

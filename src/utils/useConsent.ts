@@ -1,11 +1,22 @@
+'use client';
+
+import { useConsentManager } from '@c15t/nextjs';
 import { useEffect, useState } from 'react';
 
-import { CookieConsent, getConsentState } from './useConsentState';
+export interface ConsentState {
+  necessary: boolean;
+  preferences: boolean;
+  statistics: boolean;
+  marketing: boolean;
+  method: string | null;
+  consented: boolean;
+  declined: boolean;
+  hasResponse: boolean;
+  doNotTrack: boolean;
+}
 
-interface ConsentStatus extends CookieConsent {}
-
-interface UseConsentState {
-  consent: ConsentStatus | null;
+interface UseConsentReturn {
+  consent: ConsentState | null;
   loading: boolean;
   hasConsent: boolean | null;
   showConsentDialog: () => void;
@@ -18,71 +29,46 @@ interface UseConsentState {
   ) => void;
 }
 
-const useConsent = (): UseConsentState => {
-  const [consent, setConsent] = useState<ConsentStatus | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [hasConsent, setHasConsent] = useState<boolean | null>(null);
+const useConsent = (): UseConsentReturn => {
+  const [mounted, setMounted] = useState(false);
+  const { has, hasConsented, setConsent, saveConsents, setActiveUI } =
+    useConsentManager();
 
   useEffect(() => {
-    const handleConsentReady = () => {
-      const consentState = getConsentState();
-      setConsent(consentState);
-      setLoading(false);
-      setHasConsent(consentState !== null);
-    };
-
-    // Check initial consent state
-    handleConsentReady();
-
-    // Listen for Cookiebot events
-    window.addEventListener('CookiebotOnConsentReady', handleConsentReady);
-    window.addEventListener('CookiebotOnLoad', handleConsentReady);
-    window.addEventListener('CookiebotOnAccept', handleConsentReady);
-    window.addEventListener('CookiebotOnDecline', handleConsentReady);
-
-    return () => {
-      window.removeEventListener('CookiebotOnConsentReady', handleConsentReady);
-      window.removeEventListener('CookiebotOnLoad', handleConsentReady);
-      window.removeEventListener('CookiebotOnAccept', handleConsentReady);
-      window.removeEventListener('CookiebotOnDecline', handleConsentReady);
-    };
+    setMounted(true);
   }, []);
 
-  const showConsentDialog = () => {
-    if (typeof window !== 'undefined' && window?.Cookiebot?.show) {
-      window.Cookiebot.show();
-    }
+  const consent: ConsentState = {
+    necessary: has('necessary'),
+    preferences: has('functionality'),
+    statistics: has('measurement'),
+    marketing: has('marketing'),
+    method: null,
+    consented: hasConsented(),
+    declined: !hasConsented() && mounted,
+    hasResponse: hasConsented(),
+    doNotTrack: false,
   };
 
-  const hideConsentDialog = () => {
-    if (typeof window !== 'undefined' && window?.Cookiebot?.hide) {
-      window.Cookiebot.hide();
-    }
-  };
-
-  const renewConsent = () => {
-    if (typeof window !== 'undefined' && window?.Cookiebot?.renew) {
-      window.Cookiebot.renew();
-    }
-  };
+  const showConsentDialog = () => setActiveUI('dialog');
+  const hideConsentDialog = () => setActiveUI('none');
+  const renewConsent = () => setActiveUI('banner');
 
   const submitCustomConsent = (
     preferences: boolean,
     statistics: boolean,
     marketing: boolean,
   ) => {
-    if (
-      typeof window !== 'undefined' &&
-      window?.Cookiebot?.submitCustomConsent
-    ) {
-      window.Cookiebot.submitCustomConsent(preferences, statistics, marketing);
-    }
+    setConsent('functionality', preferences);
+    setConsent('measurement', statistics);
+    setConsent('marketing', marketing);
+    saveConsents('custom');
   };
 
   return {
-    consent,
-    loading,
-    hasConsent,
+    consent: mounted ? consent : null,
+    loading: !mounted,
+    hasConsent: mounted ? hasConsented() : null,
     showConsentDialog,
     hideConsentDialog,
     renewConsent,

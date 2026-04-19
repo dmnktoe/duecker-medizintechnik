@@ -1,29 +1,3 @@
-export interface CookieConsent {
-  necessary: boolean;
-  preferences: boolean;
-  statistics: boolean;
-  marketing: boolean;
-  method: string | null;
-  consented: boolean;
-  declined: boolean;
-  hasResponse: boolean;
-  doNotTrack: boolean;
-}
-
-export const getConsentState = (): CookieConsent | null => {
-  if (typeof window !== 'undefined' && window?.Cookiebot?.consent) {
-    const { consent } = window.Cookiebot;
-    return {
-      necessary: consent.necessary,
-      preferences: consent.preferences,
-      statistics: consent.statistics,
-      marketing: consent.marketing,
-      method: consent.method,
-      consented: consent.consented,
-      declined: consent.declined,
-      hasResponse: consent.hasResponse,
-      doNotTrack: consent.doNotTrack,
-    };
-  }
-  return null;
-};
+// Kept for backwards compatibility — consent state is now managed via c15t.
+// Use the useConsent hook instead.
+export type { ConsentState } from './useConsent';

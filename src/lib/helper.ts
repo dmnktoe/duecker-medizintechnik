@@ -1,28 +1,22 @@
-import { ogBaseUrl } from '@/constant/env';
+const SITE_URL = 'https://www.duecker-medizintechnik.de';
 
 type OpenGraphType = {
   siteName: string;
   description: string;
   templateTitle?: string;
-  logo?: string;
 };
 
 export function openGraph({
   siteName,
   templateTitle,
   description,
-  logo = 'https://cms.duecker-medizintechnik.de/uploads/duecker_medizintechnik_logo_3f4698e41c.png',
 }: OpenGraphType): string {
-  const ogLogo = encodeURIComponent(logo);
-  const ogSiteName = encodeURIComponent(siteName.trim());
-  const ogTemplateTitle = templateTitle
-    ? encodeURIComponent(templateTitle.trim())
-    : undefined;
-  const ogDesc = encodeURIComponent(description.trim());
-
-  return `${ogBaseUrl}/api/general?siteName=${ogSiteName}&description=${ogDesc}&logo=${ogLogo}${
-    ogTemplateTitle ? `&templateTitle=${ogTemplateTitle}` : ''
-  }`;
+  const title = (templateTitle ?? siteName).trim();
+  const params = new URLSearchParams({
+    title,
+    description: description.trim(),
+  });
+  return `${SITE_URL}/api/og?${params.toString()}`;
 }
 
 export function getFromLocalStorage(key: string): string | null {

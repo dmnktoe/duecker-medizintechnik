@@ -1,30 +1,37 @@
+'use client';
+
+import { useConsentManager } from '@c15t/nextjs';
+import Script from 'next/script';
+import * as React from 'react';
+
 export default function GoogleAnalytics({
   GA_MEASUREMENT_ID,
 }: {
   GA_MEASUREMENT_ID: string | undefined;
 }) {
+  const { has } = useConsentManager();
+  const hasStats = has('measurement');
+
+  if (!GA_MEASUREMENT_ID || !hasStats) return null;
+
   return (
     <>
-      {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-      <script
+      <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        type='text/plain'
-        data-cookieconsent='statistics'
+        strategy='afterInteractive'
       />
-      <script
+      <Script
         id='google-analytics'
-        type='text/plain'
-        data-cookieconsent='statistics'
+        strategy='afterInteractive'
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-
             gtag('config', '${GA_MEASUREMENT_ID}', {
-                page_path: window.location.pathname,
+              page_path: window.location.pathname,
             });
-            `,
+          `,
         }}
       />
     </>

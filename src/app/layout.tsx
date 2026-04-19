@@ -1,20 +1,16 @@
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import * as React from 'react';
 
 import '@/styles/globals.css';
+import '@c15t/nextjs/styles.css';
 
 import { figtree, sortsMillGoudy } from '@/lib/fonts';
 
+import { ConsentProvider } from '@/components/helpers/ConsentProvider';
 import GoogleAnalytics from '@/components/helpers/GoogleAnalytics';
 import Hotjar from '@/components/helpers/Hotjar';
 
-import {
-  cookieBotId,
-  googleAnalyticsId,
-  hotjarId,
-  isLocal,
-} from '@/constant/env';
+import { googleAnalyticsId, hotjarId, isLocal } from '@/constant/env';
 
 export const metadata: Metadata = {
   title: {
@@ -36,19 +32,13 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${figtree.variable} ${sortsMillGoudy.variable}`}
     >
-      <head>
-        <Script
-          id='Cookiebot'
-          src='https://consent.cookiebot.eu/uc.js'
-          data-cbid={cookieBotId}
-          type='text/javascript'
-          strategy='beforeInteractive'
-          async
-        />
-        <GoogleAnalytics GA_MEASUREMENT_ID={googleAnalyticsId} />
-        <Hotjar HOTJAR_ID={hotjarId} />
-      </head>
-      <body className={isLocal ? 'debug-screens' : ''}>{children}</body>
+      <body className={isLocal ? 'debug-screens' : ''}>
+        <ConsentProvider>
+          {children}
+          <GoogleAnalytics GA_MEASUREMENT_ID={googleAnalyticsId} />
+          <Hotjar HOTJAR_ID={hotjarId} />
+        </ConsentProvider>
+      </body>
     </html>
   );
 }
