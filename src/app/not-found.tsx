@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 import * as React from 'react';
 
@@ -9,7 +10,7 @@ export default async function RootNotFound() {
       <body>
         <main style={{ padding: '2rem', textAlign: 'center' }}>
           <h1>404 – {t('content.pageNotFound')}</h1>
-          <a href='/de'>{t('content.returnToHome')}</a>
+          <Link href='/de'>{t('content.returnToHome')}</Link>
         </main>
       </body>
     </html>

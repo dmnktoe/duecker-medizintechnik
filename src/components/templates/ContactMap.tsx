@@ -34,7 +34,7 @@ export const ContactMap = () => {
                 variant='primary'
                 size='sm'
                 className='w-full sm:w-56'
-                onClick={() => submitCustomConsent(false, false, true)}
+                onClick={() => submitCustomConsent(false, true)}
               >
                 {t('content.mapsBanner.accept')}
               </Button>

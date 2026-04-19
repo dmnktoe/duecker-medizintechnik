@@ -1,40 +1,41 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useEffect } from 'react';
 import * as React from 'react';
 
+import { ConsentPreferencesSection } from '@/components/helpers/consent/ConsentPreferencesSection';
 import { Container } from '@/components/layout';
-import { Title } from '@/components/ui';
+import { Body, PrimaryLink, Title } from '@/components/ui';
+
+import { CookiePolicyCategorySection } from './CookiePolicyVendorList';
 
 export default function CookieControlCenter() {
   const t = useTranslations('cookiePolicy');
-
-  useEffect(() => {
-    const cookieBotWrapper = document.getElementById('CookiebotDeclaration');
-    if (!cookieBotWrapper || document.getElementById('CookieDeclaration')) {
-      return;
-    }
-
-    const script = document.createElement('script');
-    script.id = 'CookieDeclaration';
-    script.type = 'text/javascript';
-    script.async = true;
-    script.src =
-      'https://consent.cookiebot.com/3722981a-3eb0-4ff9-9145-777cf50e6875/cd.js';
-
-    cookieBotWrapper.appendChild(script);
-
-    return () => {
-      document.getElementById('CookieDeclaration')?.remove();
-    };
-  }, []);
 
   return (
     <section className='mx-auto max-w-5xl pb-16 lg:pb-24'>
       <Container>
         <Title>{t('content.title')}</Title>
-        <div id='CookiebotDeclaration' />
+        <Body className='mt-8'>{t('content.intro')}</Body>
+        <PrimaryLink
+          href='/datenschutz'
+          variant='primary'
+          className='mt-4 inline-block'
+        >
+          {t('content.privacyCta')}
+        </PrimaryLink>
+
+        <CookiePolicyCategorySection category='necessary' />
+        <CookiePolicyCategorySection category='measurement' />
+        <CookiePolicyCategorySection category='marketing' />
+
+        <Title size='four' renderAs='h2' className='!mb-3 mt-16'>
+          {t('content.settingsTitle')}
+        </Title>
+        <Body margin={false} size='sm' className='!mb-8 text-light-gray'>
+          {t('content.settingsIntro')}
+        </Body>
+        <ConsentPreferencesSection />
       </Container>
     </section>
   );

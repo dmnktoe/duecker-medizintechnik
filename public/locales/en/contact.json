@@ -40,7 +40,10 @@
       "submit": {
         "label": "Send message",
         "progress": "Sending...",
-        "success": "Thank you for your message. We will get back to you as soon as possible."
+        "success": "Thank you for your message. We will get back to you as soon as possible.",
+        "error": "Your message could not be sent.",
+        "errorWithDetail": "Your message could not be sent: {detail}",
+        "networkError": "A network error occurred while sending. Please try again later."
       },
       "terms": {
         "error": {

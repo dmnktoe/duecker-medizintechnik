@@ -5,22 +5,33 @@ import {
   openGraph,
 } from '@/lib/helper';
 
+const ogUrlBase = 'https://example.test';
+
 describe('Open Graph function should work correctly', () => {
   it('should not return templateTitle when not specified', () => {
     const result = openGraph({
       description: 'Test description',
       siteName: 'Test site name',
     });
-    expect(result).not.toContain('&templateTitle=');
+    expect(result).not.toContain('templateTitle=');
+    expect(result.startsWith('/api/og?')).toBe(true);
+    expect(new URL(result, ogUrlBase).searchParams.get('title')).toBe(
+      'Test site name',
+    );
   });
 
-  it('should return templateTitle when specified', () => {
+  it('should use templateTitle as og title when specified', () => {
     const result = openGraph({
       templateTitle: 'Test Template Title',
       description: 'Test description',
       siteName: 'Test site name',
     });
-    expect(result).toContain('&templateTitle=Test%20Template%20Title');
+    expect(new URL(result, ogUrlBase).searchParams.get('title')).toBe(
+      'Test Template Title',
+    );
+    expect(new URL(result, ogUrlBase).searchParams.get('description')).toBe(
+      'Test description',
+    );
   });
 });
 

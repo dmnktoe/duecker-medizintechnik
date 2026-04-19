@@ -1,3 +1,9 @@
+jest.mock('@c15t/nextjs', () => ({
+  useConsentManager: () => ({
+    has: (category: string) => category === 'measurement',
+  }),
+}));
+
 import { render } from '@testing-library/react';
 
 import GoogleAnalytics from '@/components/helpers/GoogleAnalytics';
@@ -11,10 +17,12 @@ describe('GoogleAnalytics Component', () => {
 
     const gaScript = scriptElements[0];
     expect(gaScript.src).toBe(
-      'https://www.googletagmanager.com/gtag/js?id=GA_TEST_ID',
+      `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent('GA_TEST_ID')}`,
     );
 
     const inlineScript = scriptElements[1];
-    expect(inlineScript.textContent).toContain("gtag('config', 'GA_TEST_ID',");
+    expect(inlineScript.textContent).toContain(
+      'gtag(\'config\', "GA_TEST_ID",',
+    );
   });
 });

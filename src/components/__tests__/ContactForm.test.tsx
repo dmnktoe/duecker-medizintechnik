@@ -1,15 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { fireEvent, render } from '@testing-library/react';
-import axios from 'axios';
-import MockAdapter from 'axios-mock-adapter';
 import React, { act } from 'react';
 
 import createIntlWrapper from '@/lib/i18n-testing';
 
 import ContactForm from '@/components/templates/ContactForm';
-
-const mock = new MockAdapter(axios);
 
 jest.mock('react-google-recaptcha', () => {
   return React.forwardRef<HTMLDivElement>((_props, ref) => {
@@ -37,17 +33,22 @@ jest.mock('nodemailer', () => ({
   }),
 }));
 
-global.fetch = jest.fn((): Promise<any> => {
-  return Promise.resolve({
-    json: (): Promise<any> => Promise.resolve({ success: true }),
-  });
-}) as any;
+global.fetch = jest.fn(
+  (): Promise<any> =>
+    Promise.resolve({
+      ok: true,
+      status: 200,
+      statusText: 'OK',
+      json: (): Promise<any> => Promise.resolve({ message: 'success' }),
+    }),
+) as any;
 
 describe('ContactForm', () => {
   let wrapper: React.ComponentType<{ children: React.ReactNode }>;
 
   beforeEach(async () => {
     wrapper = await createIntlWrapper(['common', 'contact']);
+    (global.fetch as jest.Mock).mockClear();
   });
 
   it('should render correctly', () => {
@@ -62,7 +63,12 @@ describe('ContactForm', () => {
   });
 
   it('should submit the form correctly', async () => {
-    mock.onPost('/api/form').reply(200, { message: 'success' });
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true,
+      status: 200,
+      statusText: 'OK',
+      json: () => Promise.resolve({ message: 'success' }),
+    });
 
     const { getByLabelText, getByRole } = render(<ContactForm />, { wrapper });
 

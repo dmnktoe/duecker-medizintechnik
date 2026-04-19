@@ -1,13 +1,99 @@
 {
+  "consent": {
+    "banner": {
+      "title": "Cookies und Datenschutz",
+      "description": "Wir verwenden Cookies und ähnliche Technologien für den Betrieb der Seite, Reichweitenmessung und eingebettete Drittanbieter (z. B. Karte, Kontaktformular). Sie können Ihre Auswahl jederzeit anpassen."
+    },
+    "dialog": {
+      "title": "Cookie-Einstellungen",
+      "description": "Wählen Sie die Kategorien, denen Sie zustimmen möchten. Notwendige Technologien sind für den Betrieb der Seite erforderlich."
+    },
+    "acceptAll": "Alle akzeptieren",
+    "rejectAll": "Nur notwendige",
+    "customize": "Einstellungen",
+    "save": "Speichern",
+    "close": "Schließen",
+    "cookiePolicyLink": "Zur Cookie-Richtlinie",
+    "categories": {
+      "necessary": {
+        "title": "Unbedingt erforderlich",
+        "description": "Erforderlich für Grundfunktionen, Sicherheit und die Speicherung Ihrer Einwilligung; können nicht deaktiviert werden."
+      },
+      "measurement": {
+        "title": "Statistik & Nutzungsanalyse",
+        "description": "Hilft uns zu verstehen, wie die Website genutzt wird (z. B. Google Analytics, Hotjar)."
+      },
+      "marketing": {
+        "title": "Marketing & eingebettete Inhalte",
+        "description": "Ermöglicht z. B. die Einbindung von Google Maps und den Spam-Schutz per Google reCAPTCHA beim Kontaktformular."
+      }
+    }
+  },
   "content": {
-    "cookieBotAvailability": "CookieBot ist im Entwicklungsmodus nicht verfügbar.",
-    "title": "Cookie-Richtlinie"
+    "title": "Cookie-Richtlinie",
+    "intro": "Diese Seite beschreibt, welche Cookies und ähnliche Technologien wir einsetzen und welche Anbieter dabei eine Rolle spielen. Rechtsgrundlagen und weitere Hinweise zur Verarbeitung personenbezogener Daten finden Sie in unserer Datenschutzerklärung.",
+    "privacyCta": "Zur Datenschutzerklärung",
+    "settingsTitle": "Ihre Einstellungen",
+    "settingsIntro": "Hier können Sie gespeicherte Einwilligungen für Statistik und Marketing jederzeit ändern und speichern.",
+    "sectionIntro": {
+      "necessary": "Technisch notwendige Funktionen und die Verwaltung Ihrer Einwilligung. Ohne diese Elemente ist eine rechtskonforme Nutzung der Website nicht möglich.",
+      "measurement": "Nur wenn Sie zustimmen: pseudonyme Auswertung zur Verbesserung unseres Webangebots.",
+      "marketing": "Nur wenn Sie zustimmen: Einbindung von Diensten, die Daten an Google u. a. übermitteln (Karte, reCAPTCHA)."
+    },
+    "vendors": {
+      "necessary": [
+        {
+          "name": "Speicherung Ihrer Einwilligung (lokal)",
+          "purpose": "Speicherung und Abruf Ihrer Cookie-Einstellungen im Browser (lokal, z. B. localStorage). Es findet hierbei keine Übermittlung an unsere Server durch diesen Mechanismus statt."
+        },
+        {
+          "name": "c15t",
+          "service": "Consent Management (Open Source)",
+          "purpose": "Technische Bereitstellung des Einwilligungsdialogs und der Speicherlogik im Frontend.",
+          "privacyUrl": "https://c15t.com"
+        },
+        {
+          "name": "Bulletproof Software Inc.",
+          "service": "Flagsmith",
+          "purpose": "Auslieferung von Funktions- und Inhaltsvarianten (Feature Flags) für die Website.",
+          "privacyUrl": "https://www.flagsmith.com/legal/privacy-policy/"
+        }
+      ],
+      "measurement": [
+        {
+          "name": "Google Ireland Limited",
+          "service": "Google Analytics 4",
+          "purpose": "Erstellung von Statistiken zur Nutzung der Website (Seitenaufrufe, ungefähre Herkunft, Gerätetyp), sofern Sie zustimmen.",
+          "privacyUrl": "https://policies.google.com/privacy?hl=de"
+        },
+        {
+          "name": "Hotjar Ltd.",
+          "service": "Hotjar",
+          "purpose": "Analyse von Nutzungsmustern (z. B. anonymisierte Heatmaps/Session-Insights), sofern Sie zustimmen.",
+          "privacyUrl": "https://www.hotjar.com/legal/policies/privacy/"
+        }
+      ],
+      "marketing": [
+        {
+          "name": "Google Ireland Limited",
+          "service": "Google Maps (eingebettete Karte)",
+          "purpose": "Anzeige einer interaktiven Karte auf der Kontaktseite; hierbei können u. a. IP-Adresse und Nutzungsdaten an Google übermittelt werden.",
+          "privacyUrl": "https://policies.google.com/privacy?hl=de"
+        },
+        {
+          "name": "Google Ireland Limited",
+          "service": "Google reCAPTCHA",
+          "purpose": "Schutz des Kontaktformulars vor automatisiertem Missbrauch (Spam); hierbei werden Daten an Google übermittelt.",
+          "privacyUrl": "https://policies.google.com/privacy?hl=de"
+        }
+      ]
+    }
   },
   "meta": {
     "pageTitle": "Cookie-Richtlinie",
     "seo": {
-      "description": "",
-      "title": ""
+      "description": "Übersicht zu Cookies, ähnlichen Technologien und Drittanbietern (Google Analytics, Hotjar, Google Maps, reCAPTCHA, Flagsmith) auf duecker-medizintechnik.de.",
+      "title": "Cookie-Richtlinie"
     }
   }
 }

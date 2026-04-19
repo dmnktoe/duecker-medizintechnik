@@ -1,8 +1,6 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import type { AxiosError } from 'axios';
-import axios from 'axios';
 import { useLocale, useTranslations } from 'next-intl';
 import React, { useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
@@ -11,6 +9,19 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 import { Button, Input, TextArea, UnderlineLink } from '@/components/ui';
+
+function formatApiErrorDetail(errorData: unknown): string | undefined {
+  if (!errorData || typeof errorData !== 'object') return undefined;
+  const body = errorData as { errors?: unknown; message?: unknown };
+  if (Array.isArray(body.errors) && body.errors.length > 0) {
+    const parts = body.errors.filter((e): e is string => typeof e === 'string');
+    if (parts.length > 0) return parts.join(', ');
+  }
+  if (typeof body.message === 'string' && body.message.length > 0) {
+    return body.message;
+  }
+  return undefined;
+}
 
 export default function ContactForm() {
   type FormData = z.infer<typeof formSchema>;
@@ -54,37 +65,39 @@ export default function ContactForm() {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
+    formState: { errors, isSubmitting },
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
   });
 
   const processForm = async (data: FormDataWithToken) => {
+    setResult(undefined);
+    setResultColor(undefined);
     const token = await recaptchaRef?.current?.executeAsync();
     recaptchaRef?.current?.reset();
     data['token'] = token || '';
-    const config = {
-      method: 'post',
-      url: '/api/form',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      data: data,
-    };
     try {
-      const response = await axios(config);
-      if (response.status === 200) {
+      const response = await fetch('/api/form', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (response.ok) {
         setResult(t('content.contactForm.submit.success'));
         setResultColor('text-green-500');
         reset();
+      } else {
+        const errorData = await response.json().catch(() => ({}));
+        const detail = formatApiErrorDetail(errorData);
+        setResult(
+          detail
+            ? t('content.contactForm.submit.errorWithDetail', { detail })
+            : t('content.contactForm.submit.error'),
+        );
+        setResultColor('text-red-500');
       }
-    } catch (err) {
-      const axiosErr = err as AxiosError<{ message: string }>;
-      setResult(
-        (axiosErr.response?.data?.message ?? 'Fehler') +
-          ': ' +
-          (axiosErr.response?.statusText ?? ''),
-      );
+    } catch {
+      setResult(t('content.contactForm.submit.networkError'));
       setResultColor('text-red-500');
     }
   };
@@ -181,8 +194,14 @@ export default function ContactForm() {
             : t('content.contactForm.submit.label')}
         </Button>
 
-        {isSubmitSuccessful && (
-          <div className={`text-left text-xs ${resultColor}`}>{result}</div>
+        {result !== undefined && resultColor !== undefined && (
+          <div
+            className={`text-left text-xs ${resultColor}`}
+            role='status'
+            aria-live='polite'
+          >
+            {result}
+          </div>
         )}
       </div>
     </form>

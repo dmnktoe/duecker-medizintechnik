@@ -20,14 +20,14 @@ Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für Repa
 2. **Install dependencies**
 
    ```bash
-    cd duecker-medizintechnik
-    yarn install
+   cd duecker-medizintechnik
+   pnpm install
    ```
 
 3. **Start the development server**
 
    ```bash
-   yarn dev
+   pnpm dev
    ```
 
 4. **Open the browser and visit the application**

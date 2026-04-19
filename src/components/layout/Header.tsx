@@ -142,12 +142,16 @@ export const Header = () => {
                         <UnderlineLink underline='hover' href='/datenschutz'>
                           {t('header.privacyLinkText')}
                         </UnderlineLink>
-                        {flags.language_picker.enabled && (
-                          <div className='flex items-center gap-1'>
-                            <PiTranslate size={18} />
-                            <LanguagePicker className='relative h-6 cursor-pointer border-0 bg-none p-0 !text-base hover:underline focus:border-0 focus:outline-none focus:ring-0' />
-                          </div>
-                        )}
+                        {/* Always mount LanguagePicker here so useId order matches the desktop instance and Radix IDs stay stable (Flagsmith SSR/client must not change instance count). */}
+                        <div
+                          className={clsx(
+                            'flex items-center gap-1',
+                            !flags.language_picker.enabled && 'hidden',
+                          )}
+                        >
+                          <PiTranslate size={18} />
+                          <LanguagePicker className='relative h-6 cursor-pointer border-0 bg-none p-0 !text-base hover:underline focus:border-0 focus:outline-none focus:ring-0' />
+                        </div>
                       </div>
                     </div>
                   </div>

@@ -1,3 +1,9 @@
+jest.mock('@c15t/nextjs', () => ({
+  useConsentManager: () => ({
+    has: (category: string) => category === 'measurement',
+  }),
+}));
+
 import { render } from '@testing-library/react';
 
 import Hotjar from '@/components/helpers/Hotjar';
@@ -8,6 +14,6 @@ describe('Hotjar Component', () => {
 
     const hotjarScript = document.getElementById('hotjar');
     expect(hotjarScript).not.toBeNull();
-    expect(hotjarScript?.innerHTML).toContain('hjid:HJ_TEST_ID');
+    expect(hotjarScript?.innerHTML).toContain('HJ_TEST_ID');
   });
 });
