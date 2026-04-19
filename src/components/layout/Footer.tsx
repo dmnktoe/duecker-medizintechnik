@@ -3,7 +3,6 @@
 import { useFlags } from 'flagsmith/react';
 import { useTranslations } from 'next-intl';
 import * as React from 'react';
-import { useEffect, useState } from 'react';
 import { PiTranslate } from 'react-icons/pi';
 import { VscArrowRight } from 'react-icons/vsc';
 
@@ -11,6 +10,7 @@ import clsxm from '@/lib/clsxm';
 import { getVersion } from '@/lib/get-version';
 
 import { Container } from '@/components/layout/Container';
+import { useFooterPosts } from '@/components/providers/FooterPostsContext';
 import LanguagePicker from '@/components/templates/LanguagePicker';
 import { Body, ButtonLink, Title, UnderlineLink } from '@/components/ui';
 
@@ -92,86 +92,51 @@ const FooterLinks = () => {
 };
 
 const FooterPosts = () => {
-  const flags = useFlags(['fetch_footer_posts']);
-  const [posts, setPosts] = useState<News[]>();
-  const [isLoading, setIsLoading] = useState(true);
+  const footerPosts = useFooterPosts();
   const t = useTranslations('common');
+  const tNews = useTranslations('news');
 
-  useEffect(() => {
-    if (!flags.fetch_footer_posts.enabled) {
-      setIsLoading(false);
-      return;
-    }
-
-    const controller = new AbortController();
-    let cancelled = false;
-
-    fetch('/api/posts', { signal: controller.signal })
-      .then((res) => res.json() as Promise<{ data: News[] }>)
-      .then((result) => {
-        if (!cancelled) {
-          setPosts(result.data);
-          setIsLoading(false);
-        }
-      })
-      .catch(() => {
-        if (!cancelled) setIsLoading(false);
-      });
-
-    return () => {
-      cancelled = true;
-      controller.abort();
-    };
-  }, [flags.fetch_footer_posts.enabled]);
-
-  if (isLoading)
+  if (footerPosts.kind === 'inactive' || footerPosts.kind === 'error') {
     return (
-      <>
-        <FooterNavigationHeadline title={t('footer.posts.title')} />
-        <div className='h-24 w-full rounded-md'>
-          <div className='flex h-full animate-pulse flex-row space-x-5'>
-            <div className='flex flex-col space-y-2'>
-              <div className='h-3 w-36 rounded-md bg-gray-300'></div>
-              <div className='h-3 w-24 rounded-md bg-gray-300'></div>
-            </div>
-          </div>
-        </div>
-      </>
-    );
-
-  if (!posts)
-    return (
-      <>
-        <div>
-          <FooterNavigationHeadline title={t('footer.posts.title')} />
-          <Body className='md:mt-8' size='sm'>
-            {t('footer.posts.noResults')}
-          </Body>
-        </div>
-      </>
-    );
-
-  return (
-    <>
       <div>
         <FooterNavigationHeadline title={t('footer.posts.title')} />
-        <ul className='space-y-2 md:mt-8 md:space-y-3'>
-          {posts.map((post: News) => (
-            <li key={post.id}>
-              <UnderlineLink
-                underline='hover'
-                className='line-clamp-2'
-                href={`/newsroom/${post.attributes.slug}`}
-              >
-                <Body size='sm' margin={false}>
-                  {post.attributes.title}
-                </Body>
-              </UnderlineLink>
-            </li>
-          ))}
-        </ul>
+        <Body className='md:mt-8' size='sm'>
+          {t('footer.posts.noResults')}
+        </Body>
       </div>
-    </>
+    );
+  }
+
+  if (footerPosts.posts.length === 0) {
+    return (
+      <div>
+        <FooterNavigationHeadline title={t('footer.posts.title')} />
+        <Body className='md:mt-8' size='sm' color='light'>
+          {tNews('content.newsList.noResults')}
+        </Body>
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <FooterNavigationHeadline title={t('footer.posts.title')} />
+      <ul className='space-y-2 md:mt-8 md:space-y-3'>
+        {footerPosts.posts.map((post: News) => (
+          <li key={post.id}>
+            <UnderlineLink
+              underline='hover'
+              className='line-clamp-2'
+              href={`/newsroom/${post.attributes.slug}`}
+            >
+              <Body size='sm' margin={false}>
+                {post.attributes.title}
+              </Body>
+            </UnderlineLink>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 

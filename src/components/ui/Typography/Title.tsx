@@ -6,6 +6,7 @@ type Size = 'one' | 'two' | 'three' | 'four' | 'five';
 interface TitleProps {
   children: React.ReactNode;
   className?: string;
+  id?: string;
   margin?: boolean;
   renderAs?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   size?: Size;
@@ -14,6 +15,7 @@ interface TitleProps {
 export const Title = ({
   children,
   className,
+  id,
   margin = true,
   renderAs = 'h1',
   size = 'one',
@@ -22,6 +24,7 @@ export const Title = ({
 
   return (
     <Component
+      id={id}
       className={clsx(
         'font-medium -tracking-[0.033em] text-dark',
         {

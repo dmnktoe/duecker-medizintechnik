@@ -2,9 +2,14 @@ import { createFlagsmithInstance } from 'flagsmith/isomorphic';
 import { getMessages } from 'next-intl/server';
 import * as React from 'react';
 
+import { loadFooterPosts } from '@/lib/footer-posts';
+
+import { ConsentProvider } from '@/components/helpers/ConsentProvider';
+import GoogleAnalytics from '@/components/helpers/GoogleAnalytics';
+import Hotjar from '@/components/helpers/Hotjar';
 import { Providers } from '@/components/providers/Providers';
 
-import { flagsmithId } from '@/constant/env';
+import { flagsmithId, googleAnalyticsId, hotjarId } from '@/constant/env';
 import { i18nConfig } from '@/i18n/settings';
 
 export function generateStaticParams() {
@@ -24,15 +29,24 @@ export default async function LocaleLayout({
   await flagsmithSSR.init({ environmentID: flagsmithId ?? '' });
   const flagsmithState = flagsmithSSR.getState();
 
+  const footerPosts = await loadFooterPosts(
+    flagsmithSSR.hasFeature('fetch_footer_posts'),
+  );
+
   const messages = await getMessages();
 
   return (
     <Providers
+      footerPosts={footerPosts}
       locale={locale}
       messages={messages}
       flagsmithState={flagsmithState}
     >
-      {children}
+      <ConsentProvider locale={locale}>
+        {children}
+        <GoogleAnalytics GA_MEASUREMENT_ID={googleAnalyticsId} />
+        <Hotjar HOTJAR_ID={hotjarId} />
+      </ConsentProvider>
     </Providers>
   );
 }

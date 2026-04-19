@@ -6,6 +6,8 @@ export * from './Checkbox';
 export * from './Collapsible';
 export * from './Input';
 export * from './Links';
+export * from './RadixCheckbox';
 export * from './Skeleton';
+export * from './Switch';
 export * from './Textarea';
 export * from './Typography';

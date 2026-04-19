@@ -33,13 +33,14 @@ jest.mock('nodemailer', () => ({
   }),
 }));
 
-global.fetch = jest.fn((): Promise<any> =>
-  Promise.resolve({
-    ok: true,
-    status: 200,
-    statusText: 'OK',
-    json: (): Promise<any> => Promise.resolve({ message: 'success' }),
-  }),
+global.fetch = jest.fn(
+  (): Promise<any> =>
+    Promise.resolve({
+      ok: true,
+      status: 200,
+      statusText: 'OK',
+      json: (): Promise<any> => Promise.resolve({ message: 'success' }),
+    }),
 ) as any;
 
 describe('ContactForm', () => {

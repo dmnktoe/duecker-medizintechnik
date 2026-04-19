@@ -1,13 +1,100 @@
 {
+  "consent": {
+    "banner": {
+      "title": "Cookies and privacy",
+      "description": "We use cookies and similar technologies to run the site, measure usage, and load embedded third-party services (e.g. map, contact form). You can change your choices at any time."
+    },
+    "dialog": {
+      "title": "Cookie preferences",
+      "description": "Choose the categories you want to allow. Strictly necessary technologies are required for the site to work."
+    },
+    "acceptAll": "Accept all",
+    "rejectAll": "Necessary only",
+    "customize": "Settings",
+    "save": "Save",
+    "close": "Close",
+    "cookiePolicyLink": "Cookie policy",
+    "categories": {
+      "necessary": {
+        "title": "Strictly necessary",
+        "description": "Required for core functionality, security, and storing your consent; cannot be disabled."
+      },
+      "measurement": {
+        "title": "Statistics & analytics",
+        "description": "Helps us understand how the site is used (e.g. Google Analytics, Hotjar)."
+      },
+      "marketing": {
+        "title": "Marketing & embedded content",
+        "description": "Enables embedded services such as Google Maps and Google reCAPTCHA on the contact form."
+      }
+    }
+  },
   "content": {
     "cookieBotAvailability": "CookieBot is not available in development mode.",
-    "title": "Cookie Policy"
+    "title": "Cookie policy",
+    "intro": "This page explains which cookies and similar technologies we use and which providers are involved. For legal bases and further details on personal data, please see our privacy policy.",
+    "privacyCta": "Open privacy policy",
+    "settingsTitle": "Your preferences",
+    "settingsIntro": "You can change and save your consent for analytics and marketing at any time.",
+    "sectionIntro": {
+      "necessary": "Technically required functions and consent handling. Without these elements we cannot operate the site in a compliant way.",
+      "measurement": "Only if you consent: pseudonymous analytics to improve our website.",
+      "marketing": "Only if you consent: services that transfer data to Google and others (map, reCAPTCHA)."
+    },
+    "vendors": {
+      "necessary": [
+        {
+          "name": "Local storage of your consent",
+          "purpose": "Stores and retrieves your cookie preferences in the browser (e.g. localStorage). This mechanism does not by itself transmit data to our servers."
+        },
+        {
+          "name": "c15t",
+          "service": "Consent management (open source)",
+          "purpose": "Provides the consent UI and client-side storage logic in the browser.",
+          "privacyUrl": "https://c15t.com"
+        },
+        {
+          "name": "Bulletproof Software Inc.",
+          "service": "Flagsmith",
+          "purpose": "Delivers feature flags and content variants for the website.",
+          "privacyUrl": "https://www.flagsmith.com/legal/privacy-policy/"
+        }
+      ],
+      "measurement": [
+        {
+          "name": "Google Ireland Limited",
+          "service": "Google Analytics 4 (via Google Tag Manager)",
+          "purpose": "Creates statistics about site usage (page views, approximate origin, device type) when you consent.",
+          "privacyUrl": "https://policies.google.com/privacy?hl=en"
+        },
+        {
+          "name": "Hotjar Ltd.",
+          "service": "Hotjar",
+          "purpose": "Analyses usage patterns (e.g. anonymised heatmaps / session insights) when you consent.",
+          "privacyUrl": "https://www.hotjar.com/legal/policies/privacy/"
+        }
+      ],
+      "marketing": [
+        {
+          "name": "Google Ireland Limited",
+          "service": "Google Maps (embedded map)",
+          "purpose": "Shows an interactive map on the contact page; this may transfer data such as IP address and usage data to Google.",
+          "privacyUrl": "https://policies.google.com/privacy?hl=en"
+        },
+        {
+          "name": "Google Ireland Limited",
+          "service": "Google reCAPTCHA",
+          "purpose": "Protects the contact form from automated abuse (spam) and transfers data to Google.",
+          "privacyUrl": "https://policies.google.com/privacy?hl=en"
+        }
+      ]
+    }
   },
   "meta": {
-    "pageTitle": "Cookie Policy",
+    "pageTitle": "Cookie policy",
     "seo": {
-      "description": "",
-      "title": ""
+      "description": "Overview of cookies, similar technologies, and third-party providers (Google Analytics, Hotjar, Google Maps, reCAPTCHA, Flagsmith) on duecker-medizintechnik.de.",
+      "title": "Cookie policy"
     }
   }
 }

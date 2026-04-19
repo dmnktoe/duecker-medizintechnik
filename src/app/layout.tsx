@@ -2,15 +2,10 @@ import type { Metadata } from 'next';
 import * as React from 'react';
 
 import '@/styles/globals.css';
-import '@c15t/nextjs/styles.css';
 
 import { figtree, sortsMillGoudy } from '@/lib/fonts';
 
-import { ConsentProvider } from '@/components/helpers/ConsentProvider';
-import GoogleAnalytics from '@/components/helpers/GoogleAnalytics';
-import Hotjar from '@/components/helpers/Hotjar';
-
-import { googleAnalyticsId, hotjarId, isLocal } from '@/constant/env';
+import { isLocal } from '@/constant/env';
 
 export const metadata: Metadata = {
   title: {
@@ -32,13 +27,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${figtree.variable} ${sortsMillGoudy.variable}`}
     >
-      <body className={isLocal ? 'debug-screens' : ''}>
-        <ConsentProvider>
-          {children}
-          <GoogleAnalytics GA_MEASUREMENT_ID={googleAnalyticsId} />
-          <Hotjar HOTJAR_ID={hotjarId} />
-        </ConsentProvider>
-      </body>
+      <body className={isLocal ? 'debug-screens' : ''}>{children}</body>
     </html>
   );
 }

@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 
 export interface ConsentState {
   necessary: boolean;
+  /** @deprecated No longer used; retained for compatibility. Always false. */
   preferences: boolean;
   statistics: boolean;
   marketing: boolean;
@@ -40,7 +41,7 @@ const useConsent = (): UseConsentReturn => {
 
   const consent: ConsentState = {
     necessary: has('necessary'),
-    preferences: has('functionality'),
+    preferences: false,
     statistics: has('measurement'),
     marketing: has('marketing'),
     method: null,
@@ -55,11 +56,10 @@ const useConsent = (): UseConsentReturn => {
   const renewConsent = () => setActiveUI('banner');
 
   const submitCustomConsent = (
-    preferences: boolean,
+    _preferences: boolean,
     statistics: boolean,
     marketing: boolean,
   ) => {
-    setConsent('functionality', preferences);
     setConsent('measurement', statistics);
     setConsent('marketing', marketing);
     saveConsents('custom');
