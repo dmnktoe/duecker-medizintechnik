@@ -30,7 +30,6 @@
     }
   },
   "content": {
-    "cookieBotAvailability": "CookieBot is not available in development mode.",
     "title": "Cookie policy",
     "intro": "This page explains which cookies and similar technologies we use and which providers are involved. For legal bases and further details on personal data, please see our privacy policy.",
     "privacyCta": "Open privacy policy",

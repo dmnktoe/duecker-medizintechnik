@@ -3,63 +3,33 @@
 import { useConsentManager } from '@c15t/nextjs';
 import { useEffect, useState } from 'react';
 
+/** Snapshot of choices relevant to embeds that still read from this hook. */
 export interface ConsentState {
-  necessary: boolean;
-  /** @deprecated No longer used; retained for compatibility. Always false. */
-  preferences: boolean;
-  statistics: boolean;
   marketing: boolean;
-  method: string | null;
-  consented: boolean;
-  declined: boolean;
-  hasResponse: boolean;
-  doNotTrack: boolean;
 }
 
 interface UseConsentReturn {
   consent: ConsentState | null;
   loading: boolean;
-  hasConsent: boolean | null;
   showConsentDialog: () => void;
-  hideConsentDialog: () => void;
-  renewConsent: () => void;
-  submitCustomConsent: (
-    preferences: boolean,
-    statistics: boolean,
-    marketing: boolean,
-  ) => void;
+  submitCustomConsent: (statistics: boolean, marketing: boolean) => void;
 }
 
 const useConsent = (): UseConsentReturn => {
   const [mounted, setMounted] = useState(false);
-  const { has, hasConsented, setConsent, saveConsents, setActiveUI } =
-    useConsentManager();
+  const { has, setConsent, saveConsents, setActiveUI } = useConsentManager();
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
   const consent: ConsentState = {
-    necessary: has('necessary'),
-    preferences: false,
-    statistics: has('measurement'),
     marketing: has('marketing'),
-    method: null,
-    consented: hasConsented(),
-    declined: !hasConsented() && mounted,
-    hasResponse: hasConsented(),
-    doNotTrack: false,
   };
 
   const showConsentDialog = () => setActiveUI('dialog');
-  const hideConsentDialog = () => setActiveUI('none');
-  const renewConsent = () => setActiveUI('banner');
 
-  const submitCustomConsent = (
-    _preferences: boolean,
-    statistics: boolean,
-    marketing: boolean,
-  ) => {
+  const submitCustomConsent = (statistics: boolean, marketing: boolean) => {
     setConsent('measurement', statistics);
     setConsent('marketing', marketing);
     saveConsents('custom');
@@ -68,10 +38,7 @@ const useConsent = (): UseConsentReturn => {
   return {
     consent: mounted ? consent : null,
     loading: !mounted,
-    hasConsent: mounted ? hasConsented() : null,
     showConsentDialog,
-    hideConsentDialog,
-    renewConsent,
     submitCustomConsent,
   };
 };
