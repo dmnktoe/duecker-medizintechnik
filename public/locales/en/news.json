@@ -18,8 +18,9 @@
   "meta": {
     "pageTitle": "Newsroom",
     "seo": {
-      "description": "",
-      "title": "Newsroom: Press releases & interesting facts, Dücker Medizintechnik"
+      "description": "Press releases, company news and medtech insights on surgical instruments, tubing systems and medical solutions from Dücker Medizintechnik.",
+      "title": "Newsroom with press releases and medtech updates",
+      "fallbackArticleTitle": "Article"
     }
   }
 }

@@ -47,7 +47,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={disabled}
         className={clsxm(
           'inline-flex items-center justify-center rounded-md font-normal',
-          'focus:outline-dashed focus:outline-1 focus:outline-offset-4 focus:outline-dark focus-visible:ring focus-visible:ring-primary-500',
+          'focus:outline-dark focus-visible:ring-primary-500 focus:outline-1 focus:outline-offset-4 focus:outline-dashed focus-visible:ring',
           //#region  //*=========== Size ===========
           [
             size === 'sm' && ['px-3 py-2', 'text-xs md:text-sm'],
@@ -66,7 +66,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             ],
             variant === 'outline' && [
               'text-primary-500',
-              'border border-primary-500',
+              'border-primary-500 border',
               'hover:bg-primary-500 hover:text-primary-50 disabled:bg-primary-100',
               isDarkBg &&
                 'hover:bg-gray-900 active:bg-gray-800 disabled:bg-gray-800',
@@ -82,7 +82,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             ],
             variant === 'light' && [
               'bg-white text-gray-700',
-              'hover:bg-gray-100 hover:text-dark',
+              'hover:text-dark hover:bg-gray-100',
               'active:bg-white/80 disabled:bg-gray-200',
               isScaling && 'transform hover:scale-95',
             ],
@@ -103,7 +103,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {isLoading && (
           <div
             className={clsxm(
-              'absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2',
+              'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
               {
                 'text-white': ['primary', 'dark'].includes(variant),
                 'text-black': ['light'].includes(variant),

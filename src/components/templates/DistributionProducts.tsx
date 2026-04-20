@@ -13,13 +13,13 @@ import { company } from '@/constant/company';
 
 import { Product } from '@/types/Product';
 
-import MicromedLogo from '/public/images/distribution/partners/micromed-logo.png';
-import ProductBissinger from '/public/images/distribution/products/distribution_products-bissinger.webp';
-import ProductEberle from '/public/images/distribution/products/distribution_products-eberle.webp';
-import ProductHupfer from '/public/images/distribution/products/distribution_products-hupfer.webp';
-import ProductMedicon from '/public/images/distribution/products/distribution_products-medicon.webp';
-import ProductNouvag from '/public/images/distribution/products/distribution_products-nouvag.webp';
-import ProductTontarra from '/public/images/distribution/products/distribution_products-tontarra.webp';
+import MicromedLogo from '~/images/distribution/partners/micromed-logo.png';
+import ProductBissinger from '~/images/distribution/products/distribution_products-bissinger.webp';
+import ProductEberle from '~/images/distribution/products/distribution_products-eberle.webp';
+import ProductHupfer from '~/images/distribution/products/distribution_products-hupfer.webp';
+import ProductMedicon from '~/images/distribution/products/distribution_products-medicon.webp';
+import ProductNouvag from '~/images/distribution/products/distribution_products-nouvag.webp';
+import ProductTontarra from '~/images/distribution/products/distribution_products-tontarra.webp';
 
 const products: Product[] = [
   {

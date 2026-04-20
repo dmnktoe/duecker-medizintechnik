@@ -51,7 +51,7 @@ export const StickyScrollItem = ({
     >
       <span
         className={clsx(
-          'mb-3 font-secondary text-xs font-medium uppercase tracking-widest transition-colors duration-300',
+          'font-secondary mb-3 text-xs font-medium tracking-widest uppercase transition-colors duration-300',
           isInView ? 'text-primary-500' : 'text-gray-300',
         )}
       >

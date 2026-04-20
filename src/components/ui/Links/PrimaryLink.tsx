@@ -19,7 +19,7 @@ export const PrimaryLink = React.forwardRef<
       {...rest}
       className={clsxm(
         'inline-flex items-center',
-        'focus:outline-dashed focus:outline-1 focus:outline-offset-2 focus-visible:outline-dashed focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-dark',
+        'focus-visible:outline-dark focus:outline-1 focus:outline-offset-2 focus:outline-dashed focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-dashed',
         //#region  //*=========== Variant ===========
         variant === 'primary' && [
           'text-primary-500 hover:text-primary-600 active:text-primary-700',

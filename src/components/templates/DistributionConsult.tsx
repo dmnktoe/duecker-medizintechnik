@@ -7,7 +7,7 @@ import * as React from 'react';
 import { Container } from '@/components/layout';
 import { AspectRatio, Body, Title } from '@/components/ui';
 
-import LabelPrinter from '/public/images/distribution/duecker-medizintechnik_distribution_label-printer.webp';
+import LabelPrinter from '~/images/distribution/duecker-medizintechnik_distribution_label-printer.webp';
 
 export default function DistributionConsult() {
   const t = useTranslations('distribution');

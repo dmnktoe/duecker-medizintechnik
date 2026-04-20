@@ -35,7 +35,7 @@ export const MobileMenuButton = React.forwardRef<
       aria-controls={menuPanelId}
       data-testid={testId}
       className={clsxm(
-        'navbar-burger flex items-center justify-center rounded-full border border-solid border-dark p-3 text-dark transition duration-200 hover:scale-95 hover:bg-black hover:text-white active:scale-75 active:bg-neutral-700',
+        'navbar-burger border-dark text-dark flex items-center justify-center rounded-full border border-solid p-3 transition duration-200 hover:scale-95 hover:bg-black hover:text-white active:scale-75 active:bg-neutral-700',
         className,
       )}
       {...rest}

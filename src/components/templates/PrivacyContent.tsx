@@ -14,7 +14,7 @@ export default function PrivacyContent() {
 
   function TableOfContent() {
     return (
-      <div className='sticky top-navigation-height w-full bg-gray-100'>
+      <div className='top-navigation-height sticky w-full bg-gray-100'>
         <div className='px-4 py-4'>
           <Title renderAs='h4' size='five'>
             {t('content.tableOfContent.title')}

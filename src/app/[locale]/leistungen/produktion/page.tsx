@@ -3,28 +3,27 @@ import { getTranslations } from 'next-intl/server';
 import * as React from 'react';
 
 import { getAlternates } from '@/lib/hreflang';
+import { sitePageMetadata } from '@/lib/site-page-metadata';
+
+import { ProduktionLeistungenView } from '@/components/templates/ProduktionLeistungenView';
 
 import { openGraphImagesForServicesPage } from '@/constants/services-page-hero';
-
-import { ProduktionContent } from './_content';
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale: locale, namespace: 'production' });
-  return {
+  return sitePageMetadata({
     title: t('meta.seo.title'),
     description: t('meta.seo.description'),
     alternates: getAlternates('/leistungen/produktion', locale),
-    openGraph: {
-      images: openGraphImagesForServicesPage('/leistungen/produktion'),
-    },
-  };
+    openGraphImages: openGraphImagesForServicesPage('/leistungen/produktion'),
+  });
 }
 
 export default async function ProduktionPage({ params }: Props) {
   const { locale } = await params;
   const t = await getTranslations({ locale: locale, namespace: 'production' });
-  return <ProduktionContent title={t('meta.pageTitle')} />;
+  return <ProduktionLeistungenView title={t('meta.pageTitle')} />;
 }

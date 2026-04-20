@@ -1,11 +1,11 @@
-import type { Metadata } from 'next';
 import type { StaticImageData } from 'next/image';
 
 import { getBaseUrl } from '@/lib/get-base-url';
+import type { SitePageOgImage } from '@/lib/site-page-metadata';
 
-import VertriebImg from '/public/images/distribution/duecker-medizintechnik_distribution_hero-bg.webp';
-import ProduktionImg from '/public/images/production/duecker-medizintechnik_production_hero-bg.jpg';
-import ReparaturImg from '/public/images/repair/duecker-medizintechnik_repair_hero-bg.webp';
+import VertriebImg from '~/images/distribution/duecker-medizintechnik_distribution_hero-bg.webp';
+import ProduktionImg from '~/images/production/duecker-medizintechnik_production_hero-bg.jpg';
+import ReparaturImg from '~/images/repair/duecker-medizintechnik_repair_hero-bg.webp';
 
 export type ServicesPageHref =
   | '/leistungen/produktion'
@@ -41,7 +41,7 @@ export function isServicesPageHref(href: string): href is ServicesPageHref {
 
 export function openGraphImagesForServicesPage(
   href: ServicesPageHref,
-): NonNullable<Metadata['openGraph']>['images'] {
+): SitePageOgImage[] {
   const base = getBaseUrl().replace(/\/$/, '');
   return [{ url: `${base}${SERVICES_PAGE_HERO[href].ogPath}` }];
 }

@@ -5,6 +5,12 @@
       "tiles": {
         "distribution": {
           "description": "With our selected sales partners, we offer you a powerful network of products and services.",
+          "globeBadges": {
+            "melsungen": "Melsungen · HQ",
+            "logistics": "Global supply routes",
+            "partners": "Partners on site",
+            "quality": "ISO 13485"
+          },
           "title": "Distribution"
         },
         "downloads": {
@@ -99,7 +105,7 @@
     "pageTitle": "Home",
     "seo": {
       "description": "Discover our wide range of products and services for the reprocessing of surgical tools. Find out how we can help you to ensure optimum care in a medical context.",
-      "title": "Dücker Medizintechnik, Repair & service of surgical instruments, production and distribution"
+      "title": "Repair, production and distribution of surgical instruments and medtech solutions"
     }
   }
 }

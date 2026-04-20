@@ -43,7 +43,7 @@ export function CookiePolicyVendorList({
           <Body margin={false} isStrong className='text-dark'>
             {vendor.name}
             {vendor.service ? (
-              <span className='font-normal text-light-gray'>
+              <span className='text-light-gray font-normal'>
                 {' '}
                 — {vendor.service}
               </span>
@@ -56,7 +56,7 @@ export function CookiePolicyVendorList({
             <UnderlineLink
               href={vendor.privacyUrl}
               underline='hover'
-              className='mt-2 inline-block max-w-full break-all text-sm'
+              className='mt-2 inline-block max-w-full text-sm break-all'
             >
               {vendor.privacyUrl}
             </UnderlineLink>
@@ -100,7 +100,7 @@ export function CookiePolicyCategorySection({
       >
         {heading}
       </Title>
-      <Body margin={false} size='sm' className='!mb-0 text-light-gray'>
+      <Body margin={false} size='sm' className='text-light-gray !mb-0'>
         {sectionIntro}
       </Body>
       <CookiePolicyVendorList category={category} />

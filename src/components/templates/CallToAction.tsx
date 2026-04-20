@@ -36,7 +36,7 @@ export const CallToAction = () => {
           className={clsxm(
             'pointer-events-auto mb-32 flex flex-shrink',
             '!bg-white/10 !text-white lg:!px-12 lg:!py-6 lg:!text-xl',
-            'hover:!bg-white/100 hover:!text-dark',
+            'hover:!text-dark hover:!bg-white/100',
           )}
           variant='light'
           isDarkBg
@@ -88,7 +88,7 @@ export const CallToAction = () => {
           </div>
         </Container>
         {flags.cta_globe.enabled && (
-          <Globe className='-right-48 top-0 z-20 hidden opacity-60 md:block md:max-w-[750px] lg:-right-32 lg:max-w-[800px] 2xl:-right-32 2xl:max-w-[900px]' />
+          <Globe className='top-0 -right-48 z-20 hidden opacity-60 md:block md:max-w-[750px] lg:-right-32 lg:max-w-[800px] 2xl:-right-32 2xl:max-w-[900px]' />
         )}
       </section>
     </>

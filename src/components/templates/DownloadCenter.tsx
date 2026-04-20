@@ -41,7 +41,7 @@ const File = ({
   url: string;
   type: string;
 }) => (
-  <div className='w-full border-[1px] border-solid border-gray-100 p-4 text-dark'>
+  <div className='text-dark w-full border border-solid border-gray-200 p-4'>
     <div className='flex flex-row justify-between gap-2'>
       <Body margin={false}>
         <PrimaryLink variant='basic' href={url}>

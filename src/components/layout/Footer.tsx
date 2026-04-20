@@ -158,7 +158,7 @@ const FooterCopyright = () => {
       <div
         className={clsxm(
           'order-first items-center justify-center bg-gray-100 p-2 align-middle lg:order-last lg:p-3',
-          'focus:outline-dashed focus:outline-0 focus:outline-offset-4 focus:outline-gray-300',
+          'focus:outline-0 focus:outline-offset-4 focus:outline-gray-300 focus:outline-dashed',
           flags.language_picker.enabled ? 'flex' : 'hidden',
         )}
       >
@@ -167,7 +167,7 @@ const FooterCopyright = () => {
         </span>
         <LanguagePicker
           showDisplayName
-          className='relative m-0 cursor-pointer border-0 bg-none p-0 hover:underline focus:border-none focus:outline-none focus:ring-0 focus:ring-inset focus:ring-transparent focus:ring-offset-0 focus:ring-offset-transparent'
+          className='relative m-0 cursor-pointer border-0 bg-none p-0 hover:underline focus:border-none focus:ring-0 focus:ring-transparent focus:ring-offset-0 focus:ring-offset-transparent focus:outline-none focus:ring-inset'
         />
       </div>
     </>
@@ -176,7 +176,7 @@ const FooterCopyright = () => {
 
 export const Footer = () => {
   return (
-    <footer className='bg-white py-16 text-dark md:py-24'>
+    <footer className='text-dark bg-white py-16 md:py-24'>
       <Container>
         <div className='grid grid-cols-1 gap-8 lg:grid-cols-12'>
           <div className='lg:col-span-5 lg:max-w-lg'>

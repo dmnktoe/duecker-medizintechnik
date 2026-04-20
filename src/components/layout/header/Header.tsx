@@ -29,12 +29,12 @@ export const Header = () => {
 
   return (
     <>
-      <header className='sticky top-0 z-50 h-navigation-height border-b border-gray-100 bg-white'>
+      <header className='h-navigation-height sticky top-0 z-50 border-b border-gray-100 bg-white'>
         <div>
           <Container>
-            <div className='relative flex h-navigation-height items-center'>
+            <div className='h-navigation-height relative flex items-center'>
               <UnderlineLink href='/' className='inline-block'>
-                <Logo className='w-40 text-dark md:w-48' />
+                <Logo className='text-dark w-40 md:w-48' />
               </UnderlineLink>
 
               <div className='ml-auto flex flex-row gap-3 xl:hidden'>
@@ -56,7 +56,7 @@ export const Header = () => {
 
               <div className='ml-auto hidden xl:block'>
                 <div className='flex items-center gap-4'>
-                  <LanguagePicker className='relative h-6 cursor-pointer border-0 bg-none p-0 outline-none hover:underline focus:border-0 focus:outline-none focus:ring-0' />
+                  <LanguagePicker className='relative h-6 cursor-pointer border-0 bg-none p-0 outline-none hover:underline focus:border-0 focus:ring-0 focus:outline-none' />
                   <ButtonLink
                     href='/kontakt'
                     size='lg'

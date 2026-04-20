@@ -18,8 +18,9 @@
   "meta": {
     "pageTitle": "Newsroom",
     "seo": {
-      "description": "",
-      "title": "Newsroom: Pressemitteilungen & Wissenswertes, Dücker Medizintechnik"
+      "description": "Pressemitteilungen, Unternehmensmeldungen und Fachwissen zu chirurgischen Instrumenten, Schlauchsystemen und Medizintechnik von Dücker Medizintechnik.",
+      "title": "Newsroom mit Pressemitteilungen und Medizintechnik-Updates",
+      "fallbackArticleTitle": "Beitrag"
     }
   }
 }

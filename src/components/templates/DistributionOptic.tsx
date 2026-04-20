@@ -7,8 +7,8 @@ import * as React from 'react';
 import { useCallback, useRef } from 'react';
 import { VscArrowLeft, VscArrowRight } from 'react-icons/vsc';
 import { Autoplay, EffectFade } from 'swiper/modules';
+import type { SwiperRef } from 'swiper/react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { SwiperRef } from 'swiper/swiper-react';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 
@@ -18,11 +18,11 @@ import { AnimatedBadge, AspectRatio, Body, Title } from '@/components/ui';
 
 import { partners } from '@/constant/partners';
 
-import OpticImage1 from '/public/images/distribution/optic/duecker-medizintechnik_distribution_optic-1.webp';
-import OpticImage2 from '/public/images/distribution/optic/duecker-medizintechnik_distribution_optic-2.webp';
-import OpticImage3 from '/public/images/distribution/optic/duecker-medizintechnik_distribution_optic-3.webp';
-import OpticImage4 from '/public/images/distribution/optic/duecker-medizintechnik_distribution_optic-4.webp';
-import OpticImage5 from '/public/images/distribution/optic/duecker-medizintechnik_distribution_optic-5.webp';
+import OpticImage1 from '~/images/distribution/optic/duecker-medizintechnik_distribution_optic-1.webp';
+import OpticImage2 from '~/images/distribution/optic/duecker-medizintechnik_distribution_optic-2.webp';
+import OpticImage3 from '~/images/distribution/optic/duecker-medizintechnik_distribution_optic-3.webp';
+import OpticImage4 from '~/images/distribution/optic/duecker-medizintechnik_distribution_optic-4.webp';
+import OpticImage5 from '~/images/distribution/optic/duecker-medizintechnik_distribution_optic-5.webp';
 
 const slides = [
   {
@@ -52,7 +52,7 @@ export default function DistributionOptic() {
 
   const PartnerLogos = () => {
     return (
-      <Marquee className='mb-4 text-gray-300 [mask-image:linear-gradient(to_right,transparent_0%,#000_15%,#000_85%,transparent_100%)] xl:mb-12'>
+      <Marquee className='text-muted mb-4 [mask-image:linear-gradient(to_right,transparent_0%,#000_15%,#000_85%,transparent_100%)] xl:mb-12'>
         {partners.map((partner) => (
           <div key={partner.name} className='px-6'>
             <Link href={partner.url} target='_blank'>

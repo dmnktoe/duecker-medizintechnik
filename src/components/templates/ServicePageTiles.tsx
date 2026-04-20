@@ -51,7 +51,7 @@ export default function ServicePageTiles() {
         <>
           <div className='col-span-6 flex lg:col-span-2'>
             <div className='flex grow flex-col bg-gray-100 p-6 md:px-7 lg:mb-0 lg:p-10 xl:px-10'>
-              <div className='mb-8 flex h-12 w-12 items-center justify-center bg-dark p-3 lg:h-16 lg:w-16'>
+              <div className='bg-dark mb-8 flex h-12 w-12 items-center justify-center p-3 lg:h-16 lg:w-16'>
                 {icon}
               </div>
               <Title margin={false} size='five'>
@@ -97,7 +97,7 @@ export default function ServicePageTiles() {
 
     if (flags.products_overview.enabled) {
       return (
-        <div className='mt-2 flex w-full bg-primary-100 bg-[url(/images/services/blur.svg)] bg-cover bg-center'>
+        <div className='bg-primary-100 mt-2 flex w-full bg-[url(/images/services/blur.svg)] bg-cover bg-center'>
           <div className='relative flex grow flex-col justify-around gap-4 p-4 py-12 md:flex-row md:py-24 lg:flex-row lg:items-center'>
             <div className='lg:w-2/5'>
               <Title size='three'>

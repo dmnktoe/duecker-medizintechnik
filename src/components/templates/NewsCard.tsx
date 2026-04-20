@@ -36,7 +36,7 @@ const CardImage = ({ post, orientation }: CardProps) => {
           className='object-cover object-center'
         />
       </AspectRatio>
-      <div className='absolute left-0 top-0 h-full w-full group-hover:bg-white group-hover:bg-opacity-10' />
+      <div className='absolute top-0 left-0 h-full w-full group-hover:bg-white/10' />
     </div>
   );
 };
@@ -48,7 +48,7 @@ const CardHeader = ({ post }: { post: News }) => {
         <Badge color='dark' size='sm' variant='ghost' className='mr-3'>
           {post.attributes.category.data.attributes.name}
         </Badge>
-        <span className='inline-block font-secondary text-sm font-medium'>
+        <span className='font-secondary inline-block text-sm font-medium'>
           {formatDate(post.attributes.publishedAt)}
         </span>
       </div>
@@ -77,7 +77,7 @@ const NewsCard = ({ post, orientation }: CardProps) => {
   return (
     <div className='w-full'>
       <UnstyledLink
-        className='group block focus:outline-dashed focus:outline-1 focus:outline-offset-4 focus:outline-dark'
+        className='group focus:outline-dark block focus:outline-1 focus:outline-offset-4 focus:outline-dashed'
         href={'/newsroom/' + post.attributes.slug}
       >
         <div

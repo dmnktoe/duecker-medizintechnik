@@ -22,19 +22,19 @@ export default function ProductionIntro() {
               <Title size='four'>{t('content.intro.list.title')}</Title>
               <ul className='space-y-1'>
                 <li className='flex items-center'>
-                  <CheckIcon className='mr-2 !h-4 !w-4 text-primary-500' />
+                  <CheckIcon className='text-primary-500 mr-2 !h-4 !w-4' />
                   <Body margin={false}>
                     {t('content.intro.list.items.1.label')}
                   </Body>
                 </li>
                 <li className='flex items-center'>
-                  <CheckIcon className='mr-2 !h-4 !w-4 text-primary-500' />
+                  <CheckIcon className='text-primary-500 mr-2 !h-4 !w-4' />
                   <Body margin={false}>
                     {t('content.intro.list.items.2.label')}
                   </Body>
                 </li>
                 <li className='flex items-center'>
-                  <CheckIcon className='mr-2 !h-4 !w-4 text-primary-500' />
+                  <CheckIcon className='text-primary-500 mr-2 !h-4 !w-4' />
                   <Body margin={false}>
                     {t('content.intro.list.items.3.label')}
                   </Body>

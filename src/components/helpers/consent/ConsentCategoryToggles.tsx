@@ -79,8 +79,8 @@ export function ConsentCategoryToggles({
           <li key={name}>
             <div className='flex items-start justify-between gap-4 border-b border-gray-200 pb-4 last:border-0'>
               <div className='min-w-0 flex-1'>
-                <p className='text-sm font-semibold text-dark'>{title}</p>
-                <p className='mt-1 text-sm text-light-gray'>
+                <p className='text-dark text-sm font-semibold'>{title}</p>
+                <p className='text-light-gray mt-1 text-sm'>
                   {categoryDescription(t, name)}
                 </p>
               </div>

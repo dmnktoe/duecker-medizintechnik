@@ -15,8 +15,8 @@ const TextBlockElement = ({
   title: string;
   content: string;
 }) => (
-  <div className='flex flex-col gap-3 border-t-2 border-primary-500 bg-gray-50 p-6 transition-colors duration-200 hover:bg-primary-50/50'>
-    <span className='font-secondary text-xs tracking-widest text-primary-400'>
+  <div className='border-t-primary-500 hover:bg-primary-50/50 flex flex-col gap-3 border-t-2 bg-gray-50 p-6 transition-colors duration-200'>
+    <span className='font-secondary text-primary-400 text-xs tracking-widest'>
       {String(index + 1).padStart(2, '0')}
     </span>
     <Title margin={false} size='five' renderAs='h3'>
@@ -56,7 +56,7 @@ export const Features = () => {
             />
           ))}
         </div>
-        <hr className='my-8' />
+        <hr className='my-8 border-0 border-t border-gray-200' />
         <div className='flex justify-end'>
           <ButtonLink href='/leistungen' variant='dark' size='sm'>
             {t('content.features.button')}

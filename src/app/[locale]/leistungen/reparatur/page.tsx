@@ -3,28 +3,27 @@ import { getTranslations } from 'next-intl/server';
 import * as React from 'react';
 
 import { getAlternates } from '@/lib/hreflang';
+import { sitePageMetadata } from '@/lib/site-page-metadata';
+
+import { ReparaturLeistungenView } from '@/components/templates/ReparaturLeistungenView';
 
 import { openGraphImagesForServicesPage } from '@/constants/services-page-hero';
-
-import { ReparaturContent } from './_content';
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale: locale, namespace: 'repair' });
-  return {
+  return sitePageMetadata({
     title: t('meta.seo.title'),
     description: t('meta.seo.description'),
     alternates: getAlternates('/leistungen/reparatur', locale),
-    openGraph: {
-      images: openGraphImagesForServicesPage('/leistungen/reparatur'),
-    },
-  };
+    openGraphImages: openGraphImagesForServicesPage('/leistungen/reparatur'),
+  });
 }
 
 export default async function ReparaturPage({ params }: Props) {
   const { locale } = await params;
-  const t = await getTranslations({ locale: locale, namespace: 'repair' });
-  return <ReparaturContent title={t('meta.pageTitle')} />;
+  const t = await getTranslations({ locale, namespace: 'repair' });
+  return <ReparaturLeistungenView title={t('meta.pageTitle')} />;
 }

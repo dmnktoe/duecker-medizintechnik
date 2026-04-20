@@ -106,7 +106,7 @@ const ShareButtons = ({
           }}
           aria-label={copyLinkLabel}
         >
-          <VscLink size={20} className='mr-2 text-dark' />
+          <VscLink size={20} className='text-dark mr-2' />
         </button>
         {isCopied && <span className='text-xs'>{copiedLabel}</span>}
       </div>
@@ -155,7 +155,7 @@ const ArticleImage = ({ post }: { post: News }) => (
         className='object-cover object-center'
       />
     </AspectRatio>
-    <div className='mt-3 text-right font-secondary text-sm text-light-gray'>
+    <div className='font-secondary text-light-gray mt-3 text-right text-sm'>
       {post.attributes.image.data.attributes.name}
     </div>
   </div>

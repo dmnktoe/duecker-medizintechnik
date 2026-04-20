@@ -54,7 +54,7 @@ export function ConsentSurfaces() {
               <Title
                 size='four'
                 renderAs='h2'
-                className='!mb-2 mt-0'
+                className='mt-0 !mb-2'
                 margin={false}
               >
                 {t('banner.title')}
@@ -95,7 +95,7 @@ export function ConsentSurfaces() {
 
       {dialog.isVisible ? (
         <div
-          className='fixed inset-0 z-[110] flex items-end justify-center bg-dark/50 p-4 sm:items-center'
+          className='bg-dark/50 fixed inset-0 z-[110] flex items-end justify-center p-4 sm:items-center'
           role='presentation'
           onClick={() => closeUI()}
         >

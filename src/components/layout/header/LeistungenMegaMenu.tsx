@@ -18,7 +18,7 @@ import {
 
 import type { SubItem } from './types';
 
-import megaMenuBg from '/public/images/header/mega-menu_bg.webp';
+import megaMenuBg from '~/images/header/mega-menu_bg.webp';
 
 type LeistungenMegaMenuProps = {
   subItems: SubItem[];
@@ -33,7 +33,7 @@ export const LeistungenMegaMenu = ({ subItems }: LeistungenMegaMenuProps) => {
 
   return (
     <div
-      className='invisible absolute top-1.5 min-w-[900px] translate-y-0 transform opacity-0 transition duration-200 ease-out focus-within:visible focus-within:translate-y-5 focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-5 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-5 group-hover:opacity-100 lg:-left-[400px]'
+      className='invisible absolute top-1.5 min-w-[900px] translate-y-0 transform opacity-0 transition duration-200 ease-out group-focus-within:visible group-focus-within:translate-y-5 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-5 group-hover:opacity-100 focus-within:visible focus-within:translate-y-5 focus-within:opacity-100 lg:-left-[400px]'
       onMouseLeave={() => setPreviewHref(null)}
     >
       <div className='relative top-6 w-full cursor-default bg-white p-4 drop-shadow-2xl'>
@@ -88,7 +88,7 @@ export const LeistungenMegaMenu = ({ subItems }: LeistungenMegaMenuProps) => {
                 <Body
                   size='xs'
                   color='light'
-                  className='uppercase tracking-wide'
+                  className='tracking-wide uppercase'
                   margin={false}
                 >
                   {t('header.dropdown.title')}{' '}
@@ -108,7 +108,7 @@ export const LeistungenMegaMenu = ({ subItems }: LeistungenMegaMenuProps) => {
                           underline='hover'
                           href={item.href}
                           className={clsx(
-                            'text-md -mx-2 block p-2 text-dark',
+                            'text-md text-dark -mx-2 block p-2',
                             currentRoute === item.href && 'underline',
                           )}
                           onMouseEnter={() => {
@@ -165,7 +165,7 @@ export const DesktopNavTrigger = ({
   <button
     type='button'
     className={clsx(
-      'inline-block px-1 py-1 outline-none transition ease-in-out focus-visible:ring-2 focus-visible:ring-dark/30 group-hover:text-dark group-hover:underline',
+      'focus-visible:ring-dark/30 group-hover:text-dark inline-block px-1 py-1 transition ease-in-out outline-none group-hover:underline focus-visible:ring-2',
       isActive && 'underline',
     )}
     aria-haspopup='true'

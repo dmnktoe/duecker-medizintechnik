@@ -26,8 +26,8 @@ const ServiceCard = ({
   details,
   readMore,
 }: ServiceCardProps) => (
-  <div className='group flex flex-col border border-gray-200 bg-white transition-all duration-300 hover:border-primary-300 hover:shadow-md'>
-    <div className='flex items-center justify-between bg-dark p-8 transition-colors duration-300 group-hover:bg-primary-600'>
+  <div className='group hover:border-primary-300 flex flex-col border border-gray-200 bg-white transition-all duration-300 hover:shadow-md'>
+    <div className='bg-dark group-hover:bg-primary-600 flex items-center justify-between p-8 transition-colors duration-300'>
       <div className='text-white opacity-90 transition-opacity duration-300 group-hover:opacity-100'>
         {icon}
       </div>
@@ -74,7 +74,7 @@ export default function ServicesView() {
       <Container>
         <div className='mb-12 text-center'>
           <AnimatedBadge text={t('content.badge')} />
-          <Title renderAs='h1' className='mb-4 mt-4' margin={false}>
+          <Title renderAs='h1' className='mt-4 mb-4' margin={false}>
             {t('content.title')}
           </Title>
           <Body color='light' className='mx-auto max-w-2xl'>

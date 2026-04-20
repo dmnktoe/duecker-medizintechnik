@@ -5,6 +5,12 @@
       "tiles": {
         "distribution": {
           "description": "Mit unseren ausgewählten Vertriebspartnern bieten wir Ihnen ein leistungsstarkes Netzwerk von Produkten und Dienstleistungen.",
+          "globeBadges": {
+            "melsungen": "Melsungen · Zentrale",
+            "logistics": "Lieferwege weltweit",
+            "partners": "Partner vor Ort",
+            "quality": "ISO 13485"
+          },
           "title": "Vertrieb"
         },
         "downloads": {
@@ -99,7 +105,7 @@
     "pageTitle": "Startseite",
     "seo": {
       "description": "Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für die Aufbereitung von OP-Werkzeugen. Erfahren Sie, wie wir Ihnen dabei helfen, eine optimale Versorgung im medizinischen Kontext zu gewährleisten.",
-      "title": "Dücker Medizintechnik, Reparatur & Service chirurgischer Instrumente, Herstellung und Vertrieb"
+      "title": "Reparatur, Produktion und Vertrieb chirurgischer Instrumente und Medizintechnik"
     }
   }
 }

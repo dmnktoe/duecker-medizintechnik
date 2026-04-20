@@ -8,9 +8,13 @@ const createIntlWrapper = async (
   const messages: Record<string, unknown> = {};
 
   for (const ns of namespaces) {
-    const filePath = `public/locales/${locale}/${ns}.json`;
     try {
-      messages[ns] = require(`../../${filePath}`);
+      const mod = (await import(
+        `../../public/locales/${locale}/${ns}.json`
+      )) as {
+        default: Record<string, unknown>;
+      };
+      messages[ns] = mod.default;
     } catch {
       throw new Error(
         `Could not load translations for locale: ${locale}, namespace: ${ns}`,
