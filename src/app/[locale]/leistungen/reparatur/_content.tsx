@@ -7,7 +7,7 @@ import Page from '@/components/layout/Page';
 import RepairIntro from '@/components/templates/RepairIntro';
 import RepairSlideshow from '@/components/templates/RepairSlideshow';
 
-import ReparaturImg from '/public/images/repair/duecker-medizintechnik_repair_hero-bg.webp';
+import { SERVICES_PAGE_HERO } from '@/constants/services-page-hero';
 
 export function ReparaturContent({ title }: { title: string }) {
   const flags = useFlags(['repair_slideshow']);
@@ -20,7 +20,7 @@ export function ReparaturContent({ title }: { title: string }) {
         showHero: true,
         padding: 'small',
       }}
-      image={ReparaturImg}
+      image={SERVICES_PAGE_HERO['/leistungen/reparatur'].image}
       title={title}
     >
       <RepairIntro />
