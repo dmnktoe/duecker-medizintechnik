@@ -15,7 +15,7 @@ export default function Breadcrumbs({ className }: { className?: string }) {
   const t = useTranslations('common');
 
   // Strip locale prefix to get meaningful path segments
-  const segments = pathname.split('/').filter(Boolean);
+  const segments = (pathname ?? '').split('/').filter(Boolean);
   const hasLocale = i18nConfig.locales.some((l) => l === segments[0]);
   const locale = hasLocale ? segments[0] : i18nConfig.defaultLocale;
   const pathSegments = hasLocale ? segments.slice(1) : segments;
