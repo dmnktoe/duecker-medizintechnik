@@ -36,14 +36,17 @@ export const LeistungenMegaMenu = ({ subItems }: LeistungenMegaMenuProps) => {
       className='invisible absolute top-1.5 min-w-[900px] translate-y-0 transform opacity-0 transition duration-200 ease-out focus-within:visible focus-within:translate-y-5 focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-5 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-5 group-hover:opacity-100 lg:-left-[400px]'
       onMouseLeave={() => setPreviewHref(null)}
     >
-      <div className='relative top-6 w-full cursor-default rounded-lg bg-white p-4 shadow-2xl ring-1 ring-black/5'>
+      <div className='relative top-6 w-full cursor-default bg-white p-4 drop-shadow-2xl'>
         <div
           className='absolute top-0 z-0 h-10 w-10 translate-x-0 rotate-45 transform rounded-sm bg-white transition-transform duration-500 ease-in-out group-focus-within:translate-x-[26rem] group-hover:translate-x-[26rem]'
           aria-hidden
         />
         <div className='relative z-10'>
           <div className='grid grid-cols-2 gap-6'>
-            <div className='relative aspect-square w-full max-w-[500px] overflow-hidden rounded-md bg-gray-50'>
+            <div
+              className='relative aspect-square w-full max-w-[500px] overflow-hidden bg-gray-50'
+              onMouseEnter={() => setPreviewHref(null)}
+            >
               <div
                 className={clsx(
                   'absolute inset-0 transition-opacity duration-500 ease-out',
@@ -91,7 +94,10 @@ export const LeistungenMegaMenu = ({ subItems }: LeistungenMegaMenuProps) => {
                   {t('header.dropdown.title')}{' '}
                   <VscChevronRight className='relative -top-[1px] inline-block' />
                 </Body>
-                <ul className='mt-3 space-y-0.5'>
+                <ul
+                  className='mt-3 space-y-0.5'
+                  onMouseLeave={() => setPreviewHref(null)}
+                >
                   {subItems.map((item, index) => {
                     const serviceKey = isServicesPageHref(item.href)
                       ? item.href
@@ -102,9 +108,8 @@ export const LeistungenMegaMenu = ({ subItems }: LeistungenMegaMenuProps) => {
                           underline='hover'
                           href={item.href}
                           className={clsx(
-                            'block rounded-md px-2 py-2.5 text-base text-dark transition-colors duration-150 hover:bg-gray-50',
-                            currentRoute === item.href &&
-                              'bg-gray-50 underline',
+                            'text-md -mx-2 block p-2 text-dark',
+                            currentRoute === item.href && 'underline',
                           )}
                           onMouseEnter={() => {
                             if (serviceKey) setPreviewHref(serviceKey);
@@ -135,7 +140,7 @@ export const LeistungenMegaMenu = ({ subItems }: LeistungenMegaMenuProps) => {
                   })}
                 </ul>
               </div>
-              <div>
+              <div onMouseEnter={() => setPreviewHref(null)}>
                 <UnderlineLink underline='hover' href='/leistungen'>
                   <Title size='five' margin={false}>
                     {t('header.dropdown.bottomLinkName')}
@@ -160,12 +165,12 @@ export const DesktopNavTrigger = ({
   <button
     type='button'
     className={clsx(
-      'inline-flex items-center gap-1 rounded-md px-1 py-1 outline-none transition ease-in-out focus-visible:ring-2 focus-visible:ring-dark/30 group-hover:text-dark group-hover:underline',
+      'inline-block px-1 py-1 outline-none transition ease-in-out focus-visible:ring-2 focus-visible:ring-dark/30 group-hover:text-dark group-hover:underline',
       isActive && 'underline',
     )}
     aria-haspopup='true'
   >
-    {text}
+    {text}{' '}
     <VscChevronDown className='relative -top-[1px] inline-block transform duration-200 group-focus-within:rotate-180 group-hover:rotate-180' />
   </button>
 );
