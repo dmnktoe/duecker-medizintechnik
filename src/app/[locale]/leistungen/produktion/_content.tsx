@@ -7,7 +7,7 @@ import Page from '@/components/layout/Page';
 import ProductionIntro from '@/components/templates/ProductionIntro';
 import ProductionTiles from '@/components/templates/ProductionTiles';
 
-import ProduktionImg from '/public/images/production/duecker-medizintechnik_production_hero-bg.jpg';
+import { SERVICES_PAGE_HERO } from '@/constants/services-page-hero';
 
 export function ProduktionContent({ title }: { title: string }) {
   const flags = useFlags(['products_overview']);
@@ -19,7 +19,7 @@ export function ProduktionContent({ title }: { title: string }) {
         showHero: false,
         padding: 'small',
       }}
-      image={ProduktionImg}
+      image={SERVICES_PAGE_HERO['/leistungen/produktion'].image}
       title={title}
     >
       <ProductionIntro />

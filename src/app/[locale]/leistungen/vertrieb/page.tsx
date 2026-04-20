@@ -10,7 +10,10 @@ import DistributionIntro from '@/components/templates/DistributionIntro';
 import DistributionOptic from '@/components/templates/DistributionOptic';
 import DistributionProducts from '@/components/templates/DistributionProducts';
 
-import VertriebImg from '/public/images/distribution/duecker-medizintechnik_distribution_hero-bg.webp';
+import {
+  openGraphImagesForServicesPage,
+  SERVICES_PAGE_HERO,
+} from '@/constants/services-page-hero';
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -24,6 +27,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: t('meta.seo.title'),
     description: t('meta.seo.description'),
     alternates: getAlternates('/leistungen/vertrieb', locale),
+    openGraph: {
+      images: openGraphImagesForServicesPage('/leistungen/vertrieb'),
+    },
   };
 }
 
@@ -42,7 +48,7 @@ export default async function VertriebPage({ params }: Props) {
         showHero: false,
         padding: 'small',
       }}
-      image={VertriebImg}
+      image={SERVICES_PAGE_HERO['/leistungen/vertrieb'].image}
       title={t('meta.pageTitle')}
     >
       <DistributionIntro />

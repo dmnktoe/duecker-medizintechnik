@@ -4,6 +4,8 @@ import * as React from 'react';
 
 import { getAlternates } from '@/lib/hreflang';
 
+import { openGraphImagesForServicesPage } from '@/constants/services-page-hero';
+
 import { ProduktionContent } from './_content';
 
 type Props = { params: Promise<{ locale: string }> };
@@ -15,6 +17,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: t('meta.seo.title'),
     description: t('meta.seo.description'),
     alternates: getAlternates('/leistungen/produktion', locale),
+    openGraph: {
+      images: openGraphImagesForServicesPage('/leistungen/produktion'),
+    },
   };
 }
 

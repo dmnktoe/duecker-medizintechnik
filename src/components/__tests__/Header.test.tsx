@@ -50,4 +50,24 @@ describe('Header', () => {
     fireEvent.keyDown(document, { key: 'Escape', code: 'Escape' });
     expect(menu).toHaveClass('translate-x-2 opacity-0');
   });
+
+  it('closes hamburger menu on outer mousedown (backdrop)', () => {
+    const button = screen.getByTestId('navigationButton');
+    fireEvent.click(button);
+    const menu = screen.getByTestId('navigationMenu');
+    expect(menu).toHaveClass('translate-x-0 opacity-100');
+
+    fireEvent.mouseDown(screen.getByTestId('mobile-navigation-overlay'));
+    expect(menu).toHaveClass('translate-x-2 opacity-0');
+  });
+
+  it('closes mobile menu when a navigation link is activated', () => {
+    const button = screen.getByTestId('navigationButton');
+    fireEvent.click(button);
+    const menu = screen.getByTestId('navigationMenu');
+    expect(menu).toHaveClass('translate-x-0 opacity-100');
+
+    fireEvent.click(screen.getByText('Impressum'));
+    expect(menu).toHaveClass('translate-x-2 opacity-0');
+  });
 });
