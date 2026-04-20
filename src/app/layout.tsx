@@ -8,12 +8,10 @@ import { figtree, sortsMillGoudy } from '@/lib/fonts';
 import { isLocal } from '@/constant/env';
 
 export const metadata: Metadata = {
-  title: {
-    default: 'Dücker Medizintechnik',
-    template: '%s | Dücker Medizintechnik',
-  },
+  title:
+    'Dücker Medizintechnik — Chirurgische Instrumente, Schlauchsysteme, Medizinprodukte',
   description:
-    'Dücker Medizintechnik ist Ihr Partner für OP-Lösungen und Sterilisierungen.',
+    'Dücker Medizintechnik: Reparatur und Service chirurgischer Instrumente, Herstellung und Vertrieb steriler Schlauchsysteme sowie Medizinprodukte für Kliniken und die Industrie.',
   metadataBase: new URL('https://www.duecker-medizintechnik.de'),
 };
 

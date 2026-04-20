@@ -11,7 +11,7 @@ export default function NotFound() {
     <section className='relative py-32'>
       <div>
         <div className='flex flex-col items-center justify-center text-center'>
-          <div className='mb-0 bg-primary-100 text-7xl leading-none text-primary-400 md:text-[15vw]'>
+          <div className='bg-primary-100 text-primary-400 mb-0 text-7xl leading-none md:text-[15vw]'>
             404
           </div>
           <Title>{t('content.pageNotFound') + '.'}</Title>

@@ -22,7 +22,7 @@ export const UnderlineLink = React.forwardRef<
       ref={ref}
       {...rest}
       className={clsxm(
-        'focus:outline-dashed focus:outline-1 focus:outline-offset-2 focus-visible:outline-dashed focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-dark',
+        'focus-visible:outline-dark focus:outline-1 focus:outline-offset-2 focus:outline-dashed focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-dashed',
         underlineClasses[underline],
         className,
       )}

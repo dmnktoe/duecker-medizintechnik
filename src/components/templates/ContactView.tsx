@@ -35,7 +35,7 @@ export default function ContactView() {
   const t = useTranslations('contact');
 
   return (
-    <section className='relative z-10 mx-auto max-w-5xl bg-white pb-16 pt-8 md:pt-16 lg:pb-24 lg:pt-24'>
+    <section className='relative z-10 mx-auto max-w-5xl bg-white pt-8 pb-16 md:pt-16 lg:pt-24 lg:pb-24'>
       <Container>
         <div className='flex flex-wrap lg:justify-between'>
           <div className='w-full lg:w-6/12'>

@@ -12,12 +12,12 @@ import 'swiper/css/scrollbar';
 import { Container } from '@/components/layout';
 import { AspectRatio, SliderButton } from '@/components/ui';
 
-import repairSliderImg1 from '/public/images/repair/repair-slider_image-1.webp';
-import repairSliderImg2 from '/public/images/repair/repair-slider_image-2.webp';
-import repairSliderImg3 from '/public/images/repair/repair-slider_image-3.webp';
-import repairSliderImg4 from '/public/images/repair/repair-slider_image-4.webp';
-import repairSliderImg5 from '/public/images/repair/repair-slider_image-5.webp';
-import repairSliderImg6 from '/public/images/repair/repair-slider_image-6.webp';
+import repairSliderImg1 from '~/images/repair/repair-slider_image-1.webp';
+import repairSliderImg2 from '~/images/repair/repair-slider_image-2.webp';
+import repairSliderImg3 from '~/images/repair/repair-slider_image-3.webp';
+import repairSliderImg4 from '~/images/repair/repair-slider_image-4.webp';
+import repairSliderImg5 from '~/images/repair/repair-slider_image-5.webp';
+import repairSliderImg6 from '~/images/repair/repair-slider_image-6.webp';
 
 export default function RepairSlideshow() {
   const swiperElRef = useRef<SwiperRef>(null);

@@ -155,7 +155,7 @@ export default function ContactForm() {
           <input
             type='checkbox'
             id='terms'
-            className='h-4 w-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500'
+            className='text-primary-600 focus:ring-primary-500 h-4 w-4 rounded border-gray-300'
             {...register('terms')}
           />
           <label htmlFor='terms' className='ml-2 block text-sm text-gray-900'>

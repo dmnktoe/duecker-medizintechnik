@@ -29,10 +29,10 @@ export default function CookieControlCenter() {
         <CookiePolicyCategorySection category='measurement' />
         <CookiePolicyCategorySection category='marketing' />
 
-        <Title size='four' renderAs='h2' className='!mb-3 mt-16'>
+        <Title size='four' renderAs='h2' className='mt-16 !mb-3'>
           {t('content.settingsTitle')}
         </Title>
-        <Body margin={false} size='sm' className='!mb-8 text-light-gray'>
+        <Body margin={false} size='sm' className='text-light-gray !mb-8'>
           {t('content.settingsIntro')}
         </Body>
         <ConsentPreferencesSection />

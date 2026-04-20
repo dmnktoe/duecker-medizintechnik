@@ -12,8 +12,8 @@ import { Body, ButtonLink, Title, UnderlineLink } from '@/components/ui';
 
 import { partners } from '@/constant/partners';
 
-import companyImg1 from '/public/images/company/duecker-medizintechnik_company_1.webp';
-import companyImg2 from '/public/images/company/duecker-medizintechnik_company_2.webp';
+import companyImg1 from '~/images/company/duecker-medizintechnik_company_1.webp';
+import companyImg2 from '~/images/company/duecker-medizintechnik_company_2.webp';
 
 export default function CompanyView() {
   const t = useTranslations('company');

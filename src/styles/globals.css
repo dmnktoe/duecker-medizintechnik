@@ -1,6 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@config '../../tailwind.config.ts';
+@plugin '@tailwindcss/forms';
+@plugin 'tailwindcss-debug-screens';
 
 :root {
   /* #region  /**=========== Primary Color =========== */
@@ -39,7 +40,7 @@
   }
 
   body {
-    @apply bg-white font-primary text-dark;
+    @apply font-primary text-dark overflow-x-clip bg-white;
   }
 
   /* #region  /**=========== Typography =========== */
@@ -50,7 +51,7 @@
 
   h1,
   .h1 {
-    @apply font-primary text-3xl font-medium leading-6 md:text-5xl;
+    @apply font-primary text-3xl leading-tight font-medium md:text-5xl md:leading-tight;
   }
 
   h2,
@@ -75,16 +76,25 @@
 
   .hero .swiper {
     overflow: hidden !important;
+    height: 100%;
+  }
+
+  .hero .swiper-wrapper {
+    height: 100%;
+  }
+
+  .hero .swiper-slide {
+    height: 100%;
   }
 
   .swiper.swiper-initialized .swiper-scrollbar.swiper-scrollbar-horizontal {
-    @apply absolute left-0 top-[-80px] z-50 h-[2px] w-full rounded-none bg-gray-200;
+    @apply absolute top-[-80px] left-0 z-50 h-[2px] w-full rounded-none bg-gray-200;
   }
 
   .swiper.swiper-initialized
     .swiper-scrollbar.swiper-scrollbar-horizontal
     .swiper-scrollbar-drag {
-    @apply rounded-none bg-dark;
+    @apply bg-dark rounded-none;
   }
 
   .autoplay-progress {
@@ -155,7 +165,7 @@
   }
 
   .news__content a {
-    @apply underline hover:text-primary-500;
+    @apply hover:text-primary-500 underline;
   }
 
   .layout {

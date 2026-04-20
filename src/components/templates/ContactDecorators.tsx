@@ -3,7 +3,7 @@ import * as React from 'react';
 export default function ContactDecorators() {
   return (
     <div>
-      <span className='absolute -right-10 -top-10 z-[-1]'>
+      <span className='absolute -top-10 -right-10 z-[-1]'>
         <svg
           width='100'
           height='100'
@@ -19,7 +19,7 @@ export default function ContactDecorators() {
           />
         </svg>
       </span>
-      <span className='absolute -right-10 top-[90px] z-[-1]'>
+      <span className='absolute top-[90px] -right-10 z-[-1]'>
         <svg
           width='34'
           height='134'

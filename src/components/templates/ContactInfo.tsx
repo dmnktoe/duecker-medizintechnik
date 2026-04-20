@@ -13,7 +13,7 @@ export default function ContactInfo() {
 
   const IconWrapper = ({ children }: { children: React.ReactNode }) => {
     return (
-      <div className='mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden bg-primary-500 bg-opacity-5 text-primary-500 sm:h-[70px] sm:max-w-[70px]'>
+      <div className='bg-primary-500/10 text-primary-500 mr-6 flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-sm sm:h-[70px] sm:w-[70px]'>
         {children}
       </div>
     );

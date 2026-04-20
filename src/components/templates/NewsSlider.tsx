@@ -21,7 +21,7 @@ const NewsSliderCarousel = ({
   swiperElRef,
 }: {
   posts: News[];
-  swiperElRef: React.RefObject<SwiperRef>;
+  swiperElRef: React.RefObject<SwiperRef | null>;
 }) => (
   <Swiper
     spaceBetween={15}
@@ -91,7 +91,7 @@ export const NewsSlider = ({ posts }: NewsSliderProps) => {
             <Title size='five' margin={false} className='mr-2 hover:underline'>
               {t('content.newsSlider.readMore')}
             </Title>
-            <span className='relative block -rotate-45 transform transition duration-100 group-hover:rotate-0 group-hover:text-primary-500'>
+            <span className='group-hover:text-primary-500 relative block -rotate-45 transform transition duration-100 group-hover:rotate-0'>
               <VscArrowRight size={24} />
             </span>
           </UnderlineLink>

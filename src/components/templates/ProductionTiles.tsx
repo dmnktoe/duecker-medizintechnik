@@ -17,7 +17,7 @@ export default function ProductionTiles() {
               <div className='mb-4 w-full md:mb-0 md:w-1/2'>
                 <div className='flex h-full flex-col'>
                   <UnstyledLink
-                    className='relative mb-4 block h-full bg-primary-50 px-8 pb-5 pt-8 transition duration-200 hover:bg-primary-100'
+                    className='bg-primary-50 hover:bg-primary-100 relative mb-4 block h-full px-8 pt-8 pb-5 transition duration-200'
                     href='/produkte'
                   >
                     <div className='flex h-full max-w-sm flex-col justify-between pr-16'>
@@ -26,7 +26,7 @@ export default function ProductionTiles() {
                     </div>
                   </UnstyledLink>
                   <UnstyledLink
-                    className='relative block h-full bg-purple-50 px-8 pb-5 pt-8 transition duration-200 hover:bg-purple-100'
+                    className='relative block h-full bg-purple-50 px-8 pt-8 pb-5 transition duration-200 hover:bg-purple-100'
                     href='/produkte'
                   >
                     <div className='flex h-full max-w-sm flex-col justify-between pr-16'>
@@ -38,7 +38,7 @@ export default function ProductionTiles() {
               </div>
               <div className='w-full md:w-1/2 md:pl-4'>
                 <UnstyledLink
-                  className='relative block h-full bg-gray-50 px-8 pb-5 pt-8 transition duration-200 hover:bg-gray-100'
+                  className='relative block h-full bg-gray-50 px-8 pt-8 pb-5 transition duration-200 hover:bg-gray-100'
                   href='/produkte'
                 >
                   <div className='flex h-full max-w-sm flex-col items-start justify-between pr-16'>

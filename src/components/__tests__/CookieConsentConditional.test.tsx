@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 jest.mock('cobe', () => ({
   __esModule: true,
   default: jest.fn(),
@@ -23,7 +21,6 @@ jest.mock('next/script', () => ({
       return <script id={id} src={src} {...rest} />;
     }
     return (
-      /* eslint-disable-next-line @next/next/no-sync-scripts -- test double for next/script */
       <script
         id={id}
         dangerouslySetInnerHTML={dangerouslySetInnerHTML}

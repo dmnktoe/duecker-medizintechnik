@@ -9,7 +9,7 @@ import ProductionTiles from '@/components/templates/ProductionTiles';
 
 import { SERVICES_PAGE_HERO } from '@/constants/services-page-hero';
 
-export function ProduktionContent({ title }: { title: string }) {
+export function ProduktionLeistungenView({ title }: { title: string }) {
   const flags = useFlags(['products_overview']);
   return (
     <Page

@@ -9,7 +9,7 @@ import RepairSlideshow from '@/components/templates/RepairSlideshow';
 
 import { SERVICES_PAGE_HERO } from '@/constants/services-page-hero';
 
-export function ReparaturContent({ title }: { title: string }) {
+export function ReparaturLeistungenView({ title }: { title: string }) {
   const flags = useFlags(['repair_slideshow']);
   return (
     <Page

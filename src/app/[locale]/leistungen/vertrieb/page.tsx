@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import * as React from 'react';
 
 import { getAlternates } from '@/lib/hreflang';
+import { sitePageMetadata } from '@/lib/site-page-metadata';
 
 import Page from '@/components/layout/Page';
 import DistributionConsult from '@/components/templates/DistributionConsult';
@@ -23,14 +24,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     locale: locale,
     namespace: 'distribution',
   });
-  return {
+  return sitePageMetadata({
     title: t('meta.seo.title'),
     description: t('meta.seo.description'),
     alternates: getAlternates('/leistungen/vertrieb', locale),
-    openGraph: {
-      images: openGraphImagesForServicesPage('/leistungen/vertrieb'),
-    },
-  };
+    openGraphImages: openGraphImagesForServicesPage('/leistungen/vertrieb'),
+  });
 }
 
 export default async function VertriebPage({ params }: Props) {

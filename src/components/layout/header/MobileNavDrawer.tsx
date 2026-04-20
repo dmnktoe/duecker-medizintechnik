@@ -26,7 +26,7 @@ type MobileNavDrawerProps = {
   isOpen: boolean;
   items: NavItemProps[];
   onNavigate: () => void;
-  panelRef: React.RefObject<HTMLDivElement>;
+  panelRef: React.RefObject<HTMLDivElement | null>;
 };
 
 const MobileNavItem = ({
@@ -63,7 +63,7 @@ const MobileNavItem = ({
         underline='hover'
         href={item.href as string}
         className={clsx(
-          'transition duration-150 ease-in-out hover:text-dark active:text-neutral-100',
+          'hover:text-dark transition duration-150 ease-in-out active:text-neutral-100',
         )}
         onClick={onNavigate}
       >
@@ -86,7 +86,7 @@ export const MobileNavDrawer = ({
     <div
       data-testid='mobile-navigation-overlay'
       className={clsx(
-        'fixed inset-0 top-navigation-height z-50 flex max-h-full w-full max-w-full flex-row transition-all duration-200 ease-in-out md:justify-end md:bg-gray-500/10 md:backdrop-blur-[25px] xl:hidden',
+        'top-navigation-height fixed inset-0 z-50 flex max-h-full w-full max-w-full flex-row transition-all duration-200 ease-in-out md:justify-end md:bg-gray-500/10 md:backdrop-blur-[25px] xl:hidden',
         isOpen
           ? 'pointer-events-auto visible opacity-100'
           : 'pointer-events-none invisible opacity-0',
@@ -97,11 +97,11 @@ export const MobileNavDrawer = ({
         ref={panelRef}
         data-testid='navigationMenu'
         className={clsx(
-          'm-0 flex h-[calc(100vh_-_var(--navigation-height))] w-full animate-fadeInRight overflow-hidden transition-all duration-200 ease-in-out md:w-96',
+          'animate-fadeInRight m-0 flex h-[calc(100vh_-_var(--navigation-height))] w-full overflow-hidden transition-all duration-200 ease-in-out md:w-96',
           isOpen ? 'translate-x-0 opacity-100' : 'translate-x-2 opacity-0',
         )}
       >
-        <div className='flex flex-grow flex-col items-stretch bg-white text-dark md:m-6 md:rounded-2xl md:shadow-xl'>
+        <div className='text-dark flex flex-grow flex-col items-stretch bg-white md:m-6 md:rounded-2xl md:shadow-xl'>
           <div className='flex flex-1 flex-grow flex-col gap-y-1 p-6 text-3xl font-medium tracking-tight'>
             {items.map((item, index) => (
               <MobileNavItem key={index} item={item} onNavigate={onNavigate} />
@@ -136,7 +136,7 @@ export const MobileNavDrawer = ({
                 )}
               >
                 <PiTranslate size={18} />
-                <LanguagePicker className='relative h-6 cursor-pointer border-0 bg-none p-0 !text-base hover:underline focus:border-0 focus:outline-none focus:ring-0' />
+                <LanguagePicker className='relative h-6 cursor-pointer border-0 bg-none p-0 !text-base hover:underline focus:border-0 focus:ring-0 focus:outline-none' />
               </div>
             </div>
           </div>

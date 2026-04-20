@@ -13,9 +13,9 @@ import { Body, Title } from '@/components/ui';
 import { StickyScrollItem } from './StickyScrollTitle';
 import { useFeatureStore } from './StickyScrollStore';
 
-import distributionImg from '/public/images/home/sticky-scroll/sticky-scroll_image-distribution.webp';
-import productionImg from '/public/images/home/sticky-scroll/sticky-scroll_image-production.jpg';
-import repairImg from '/public/images/home/sticky-scroll/sticky-scroll_image-repair.jpg';
+import distributionImg from '~/images/home/sticky-scroll/sticky-scroll_image-distribution.webp';
+import productionImg from '~/images/home/sticky-scroll/sticky-scroll_image-production.jpg';
+import repairImg from '~/images/home/sticky-scroll/sticky-scroll_image-repair.jpg';
 
 type Feature = {
   id: string;
@@ -53,7 +53,7 @@ const FeatureImagePanel = ({ features }: { features: Feature[] }) => {
         ))}
 
         {/* Gradient overlay with feature info */}
-        <div className='absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent px-6 pb-5 pt-16'>
+        <div className='absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent px-6 pt-16 pb-5'>
           {features.map((f, index) => (
             <div
               key={f.id}
@@ -64,7 +64,7 @@ const FeatureImagePanel = ({ features }: { features: Feature[] }) => {
                   : 'pointer-events-none absolute translate-y-2 opacity-0',
               )}
             >
-              <span className='font-secondary text-xs font-medium uppercase tracking-widest text-white/60'>
+              <span className='font-secondary text-xs font-medium tracking-widest text-white/60 uppercase'>
                 {String(index + 1).padStart(2, '0')} /{' '}
                 {String(features.length).padStart(2, '0')}
               </span>
@@ -74,7 +74,7 @@ const FeatureImagePanel = ({ features }: { features: Feature[] }) => {
         </div>
 
         {/* Progress indicator */}
-        <div className='absolute bottom-4 right-5 flex gap-1.5'>
+        <div className='absolute right-5 bottom-4 flex gap-1.5'>
           {features.map((f) => (
             <div
               key={f.id}
@@ -149,7 +149,7 @@ export const StickyScroll = () => {
                   />
                   <div className='absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent' />
                   <div className='absolute inset-x-0 bottom-0 p-5'>
-                    <span className='font-secondary text-xs font-medium uppercase tracking-widest text-white/55'>
+                    <span className='font-secondary text-xs font-medium tracking-widest text-white/55 uppercase'>
                       {String(index + 1).padStart(2, '0')}
                     </span>
                     <h3 className='mt-1 text-xl font-medium text-white'>

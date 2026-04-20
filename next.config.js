@@ -16,10 +16,6 @@ const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 const sentryBuildTime = process.env.NODE_ENV === 'production';
 
 const nextConfig = {
-  eslint: {
-    dirs: ['src'],
-  },
-
   trailingSlash: true,
   reactStrictMode: false,
 

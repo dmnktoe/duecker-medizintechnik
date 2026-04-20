@@ -23,7 +23,7 @@ export const Checkbox = <T extends FieldValues>({
       <input
         type='checkbox'
         id={id}
-        className='h-4 w-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500'
+        className='text-primary-600 focus:ring-primary-500 h-4 w-4 rounded border-gray-300'
         {...register(id)}
       />
       <label htmlFor={id} className='ml-2 block text-sm text-gray-900'>

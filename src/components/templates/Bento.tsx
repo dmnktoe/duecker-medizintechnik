@@ -2,17 +2,82 @@
 
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { ReactNode } from 'react';
+import { ReactNode, useLayoutEffect, useMemo, useState } from 'react';
 
 import clsxm from '@/lib/clsxm';
 
 import { Container } from '@/components/layout';
-import Globe from '@/components/templates/Globe';
+import { DISTRIBUTION_GLOBE_CONFIG } from '@/components/templates/distributionGlobeConfig';
+import Globe, { type GlobeAnchorLabel } from '@/components/templates/Globe';
 import Marquee from '@/components/templates/Marquee';
 import { Body, Title, UnstyledLink } from '@/components/ui';
 
-import bentoGridImg2 from '/public/images/home/bento-grid/bento-grid_customer-standards.webp';
-import bentoGridImg1 from '/public/images/home/bento-grid/bento-grid_internal-repair.webp';
+import bentoGridImg2 from '~/images/home/bento-grid/bento-grid_customer-standards.webp';
+import bentoGridImg1 from '~/images/home/bento-grid/bento-grid_internal-repair.webp';
+
+const GLOBE_CORNER_BADGE_KEYS = ['logistics', 'partners', 'quality'] as const;
+
+function DistributionBentoGlobe({ className }: { className?: string }) {
+  const t = useTranslations('home');
+  const [cssAnchorsSupported, setCssAnchorsSupported] = useState<
+    boolean | null
+  >(null);
+
+  useLayoutEffect(() => {
+    setCssAnchorsSupported(
+      typeof CSS !== 'undefined' &&
+        typeof CSS.supports === 'function' &&
+        CSS.supports('position-anchor', '--cobe'),
+    );
+  }, []);
+
+  const anchorLabels = useMemo<GlobeAnchorLabel[]>(
+    () => [
+      {
+        markerId: 'melsungen',
+        children: t(
+          'content.bentoGrid.tiles.distribution.globeBadges.melsungen' as Parameters<
+            typeof t
+          >[0],
+        ),
+      },
+    ],
+    [t],
+  );
+
+  const cornerBadgeKeys = useMemo(() => {
+    if (cssAnchorsSupported !== false) return [...GLOBE_CORNER_BADGE_KEYS];
+    return ['melsungen', ...GLOBE_CORNER_BADGE_KEYS] as const;
+  }, [cssAnchorsSupported]);
+
+  return (
+    <div className='absolute inset-0 h-full w-full'>
+      <Globe
+        className={className}
+        config={DISTRIBUTION_GLOBE_CONFIG}
+        anchorLabels={cssAnchorsSupported === false ? undefined : anchorLabels}
+      />
+      <div className='pointer-events-none absolute top-3 right-3 z-20 flex max-w-[min(100%,15rem)] flex-col items-end gap-1.5 sm:top-5 sm:right-5 sm:gap-2'>
+        {cornerBadgeKeys.map((key) => (
+          <span
+            key={key}
+            className={clsxm(
+              'border-primary-300/30 bg-primary-950/35 text-primary-50 inline-flex max-w-full rounded-full border px-2.5 py-1 text-[10px] leading-tight font-medium shadow-sm backdrop-blur-md sm:px-3 sm:text-xs',
+              key === 'melsungen' &&
+                'border-white/35 bg-white/15 font-semibold ring-1 ring-white/45',
+            )}
+          >
+            {t(
+              `content.bentoGrid.tiles.distribution.globeBadges.${key}` as Parameters<
+                typeof t
+              >[0],
+            )}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 const files = [
   {
@@ -73,7 +138,7 @@ const tiles = [
     background: (
       <Marquee
         pauseOnHover
-        className='absolute top-10 [--duration:20s] [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)]'
+        className='absolute top-10 [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] [--duration:20s]'
       >
         {files.map((f, idx) => (
           <figure
@@ -105,7 +170,7 @@ const tiles = [
       'col-span-3 lg:col-span-2 from-dark to-primary-800 bg-gradient-to-br',
     textIsWhite: true,
     background: (
-      <Globe className='pointer-events-none top-0 h-[600px] w-[600px] opacity-90 transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] sm:left-40 xl:h-[800px] xl:w-[800px]' />
+      <DistributionBentoGlobe className='pointer-events-none top-0 h-[600px] w-[600px] [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] opacity-90 transition-all duration-300 ease-out sm:left-40 xl:h-[800px] xl:w-[800px]' />
     ),
   },
 ];
@@ -164,7 +229,7 @@ const BentoCard = ({
       'group relative col-span-3 flex flex-col justify-between overflow-hidden rounded-lg grayscale transition-all duration-300 ease-out hover:grayscale-0',
       textIsWhite
         ? 'bg-white'
-        : 'border border-solid border-gray-200 bg-white hover:border-primary-300',
+        : 'hover:border-primary-300 border border-solid border-gray-200 bg-white',
       className,
     )}
   >
@@ -189,7 +254,7 @@ const BentoCard = ({
         {description}
       </Body>
     </div>
-    <div className='pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-dark/[.02]' />
+    <div className='group-hover:bg-dark/[.02] pointer-events-none absolute inset-0 transform-gpu transition-all duration-300' />
   </UnstyledLink>
 );
 

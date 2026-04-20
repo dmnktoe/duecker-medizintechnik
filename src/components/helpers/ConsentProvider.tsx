@@ -24,7 +24,6 @@ function buildConsentOptions(locale: string): ConsentManagerProviderOptions {
 
   return {
     mode: 'offline',
-    debug: isLocal,
     noStyle: true,
     consentCategories: ['necessary', 'measurement', 'marketing'],
     store: {

@@ -9,7 +9,6 @@ import {
 describe('Collapsible', () => {
   it('renders without error', () => {
     render(
-      // eslint-disable-next-line react/jsx-no-undef
       <Collapsible>
         <CollapsibleTrigger>Trigger</CollapsibleTrigger>
         <CollapsibleContent>Content</CollapsibleContent>

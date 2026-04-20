@@ -4,6 +4,8 @@ import * as React from 'react';
 
 import { fetchAPI } from '@/lib/fetch-api';
 import { getAlternates } from '@/lib/hreflang';
+import { sitePageMetadata } from '@/lib/site-page-metadata';
+import { getStrapiMedia } from '@/lib/strapi-urls';
 
 import { Container } from '@/components/layout/Container';
 import Page from '@/components/layout/Page';
@@ -28,15 +30,29 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
+  const t = await getTranslations({ locale, namespace: 'news' });
   const posts = await fetchAPI<{ data: News[] }>(
     `/posts?filters[slug][$eq]=${slug}&populate=deep`,
   );
-  const post: News = posts.data[0];
-  return {
-    title: post?.attributes.title,
-    description: post?.attributes.excerpt,
+  const post = posts.data[0];
+  if (!post) {
+    return sitePageMetadata({
+      title: t('meta.seo.fallbackArticleTitle'),
+      description: t('meta.seo.description'),
+      alternates: getAlternates(`/newsroom/${slug}`, locale),
+    });
+  }
+  const coverUrl = post.attributes.image?.data?.attributes?.url;
+  const openGraphImages = coverUrl
+    ? [{ url: getStrapiMedia(coverUrl) }]
+    : undefined;
+
+  return sitePageMetadata({
+    title: post.attributes.title,
+    description: post.attributes.excerpt,
     alternates: getAlternates(`/newsroom/${slug}`, locale),
-  };
+    openGraphImages,
+  });
 }
 
 export default async function PostPage({ params }: Props) {
@@ -50,7 +66,7 @@ export default async function PostPage({ params }: Props) {
   return (
     <Page
       layout={{
-        containerWidth: 'max-w-5xl',
+        background: 'light',
         showBreadcrumbs: false,
         showHero: false,
         padding: 'none',

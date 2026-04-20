@@ -14,10 +14,9 @@ describe('Open Graph function should work correctly', () => {
       siteName: 'Test site name',
     });
     expect(result).not.toContain('templateTitle=');
-    expect(result.startsWith('/api/og?')).toBe(true);
-    expect(new URL(result, ogUrlBase).searchParams.get('title')).toBe(
-      'Test site name',
-    );
+    const url = new URL(result, ogUrlBase);
+    expect(url.pathname.replace(/\/$/, '')).toBe('/api/og');
+    expect(url.searchParams.get('title')).toBe('Test site name');
   });
 
   it('should use templateTitle as og title when specified', () => {
