@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import '@/styles/globals.css';
 
-import { figtree, sortsMillGoudy } from '@/lib/fonts';
+import { sortsMillGoudy } from '@/lib/fonts';
 
 import { isLocal } from '@/constant/env';
 
@@ -21,10 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      suppressHydrationWarning
-      className={`${figtree.variable} ${sortsMillGoudy.variable}`}
-    >
+    <html suppressHydrationWarning className={sortsMillGoudy.variable}>
       <body className={isLocal ? 'debug-screens' : ''}>{children}</body>
     </html>
   );

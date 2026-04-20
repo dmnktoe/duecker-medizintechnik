@@ -52,7 +52,7 @@ export default function DistributionOptic() {
 
   const PartnerLogos = () => {
     return (
-      <Marquee className='mb-4 [mask-image:linear-gradient(to_right,transparent_0%,#000_15%,#000_85%,transparent_100%)] text-gray-300 xl:mb-12'>
+      <Marquee className='text-muted mb-4 [mask-image:linear-gradient(to_right,transparent_0%,#000_15%,#000_85%,transparent_100%)] xl:mb-12'>
         {partners.map((partner) => (
           <div key={partner.name} className='px-6'>
             <Link href={partner.url} target='_blank'>

@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { getLocale, getTranslations } from 'next-intl/server';
 import * as React from 'react';
 
-import { getAlternates } from '@/lib/hreflang';
 import { sitePageMetadata } from '@/lib/site-page-metadata';
 
 import Layout from '@/components/layout/Layout';
@@ -14,7 +13,6 @@ export async function generateMetadata(): Promise<Metadata> {
   return sitePageMetadata({
     title: t('meta.seo.title'),
     description: t('meta.seo.description'),
-    alternates: getAlternates('/', locale),
   });
 }
 

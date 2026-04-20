@@ -142,7 +142,7 @@ export default function Globe({
 
     let frame = 0;
     const tick = () => {
-      if (!pointerInteracting.current) {
+      if (pointerInteracting.current == null) {
         phiRef.current += 0.005;
       }
       globe.update({

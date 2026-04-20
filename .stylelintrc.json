@@ -1,0 +1,23 @@
+{
+  "rules": {
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "config",
+          "plugin",
+          "tailwind",
+          "apply",
+          "variants",
+          "responsive",
+          "screen",
+          "import",
+          "theme",
+          "utility",
+          "source",
+          "layer"
+        ]
+      }
+    ]
+  }
+}

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
-import * as React from 'react';
+import { cache } from 'react';
 
 import { fetchAPI } from '@/lib/fetch-api';
 import { getAlternates } from '@/lib/hreflang';
@@ -18,6 +19,15 @@ import { News } from '@/types/News';
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
+const getNewsPostBySlug = cache(
+  async (slug: string): Promise<News | undefined> => {
+    const posts = await fetchAPI<{ data: News[] }>(
+      `/posts?filters[slug][$eq]=${slug}&populate=deep`,
+    );
+    return posts.data[0];
+  },
+);
+
 export async function generateStaticParams() {
   const result = await fetchAPI<{ data: News[] }>('/posts');
   return result.data.flatMap((post: News) =>
@@ -30,17 +40,9 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
-  const t = await getTranslations({ locale, namespace: 'news' });
-  const posts = await fetchAPI<{ data: News[] }>(
-    `/posts?filters[slug][$eq]=${slug}&populate=deep`,
-  );
-  const post = posts.data[0];
+  const post = await getNewsPostBySlug(slug);
   if (!post) {
-    return sitePageMetadata({
-      title: t('meta.seo.fallbackArticleTitle'),
-      description: t('meta.seo.description'),
-      alternates: getAlternates(`/newsroom/${slug}`, locale),
-    });
+    notFound();
   }
   const coverUrl = post.attributes.image?.data?.attributes?.url;
   const openGraphImages = coverUrl
@@ -58,10 +60,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function PostPage({ params }: Props) {
   const { locale, slug } = await params;
   const t = await getTranslations({ locale: locale, namespace: 'news' });
-  const posts = await fetchAPI<{ data: News[] }>(
-    `/posts?filters[slug][$eq]=${slug}&populate=deep`,
-  );
-  const post: News = posts.data[0];
+  const post = await getNewsPostBySlug(slug);
+  if (!post) {
+    notFound();
+  }
 
   return (
     <Page

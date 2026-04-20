@@ -6,7 +6,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        primary: ['var(--font-figtree)', ...defaultTheme.fontFamily.sans],
+        primary: [...defaultTheme.fontFamily.sans],
         secondary: [
           'var(--font-sortsMillGoudy)',
           ...defaultTheme.fontFamily.serif,
@@ -30,6 +30,7 @@ export default {
         dark: '#071626',
         'light-gray': '#666',
         transparent: 'transparent',
+        muted: 'rgb(var(--tw-color-muted) / <alpha-value>)',
       },
       spacing: {
         'navigation-height': 'var(--navigation-height)',

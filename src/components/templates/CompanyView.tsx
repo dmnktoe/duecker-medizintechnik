@@ -43,7 +43,7 @@ export default function CompanyView() {
                   <Link
                     href={partner.url}
                     target='_blank'
-                    className='text-gray-300'
+                    className='text-muted'
                   >
                     <partner.image
                       key={partner.name}

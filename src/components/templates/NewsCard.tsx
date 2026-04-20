@@ -36,7 +36,7 @@ const CardImage = ({ post, orientation }: CardProps) => {
           className='object-cover object-center'
         />
       </AspectRatio>
-      <div className='group-hover:bg-opacity-10 absolute top-0 left-0 h-full w-full group-hover:bg-white' />
+      <div className='absolute top-0 left-0 h-full w-full group-hover:bg-white/10' />
     </div>
   );
 };

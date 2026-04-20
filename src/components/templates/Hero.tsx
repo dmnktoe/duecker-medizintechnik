@@ -74,7 +74,7 @@ const HeroProgressCircle = ({
 );
 
 const PartnerLogos = () => (
-  <div className='flex flex-wrap gap-8 text-gray-300'>
+  <div className='text-muted flex flex-wrap gap-8'>
     {partners.map((partner) => (
       <div
         key={partner.name}

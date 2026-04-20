@@ -28,6 +28,10 @@
   --color-primary-900: rgb(var(--tw-color-primary-900)); /* #134e4a */
   --color-primary-950: rgb(var(--tw-color-primary-950)); /* #042f2e */
   /* #endregion  /**======== Primary Color =========== */
+
+  /* Muted UI: partner logos (currentColor), subtle borders (accordion, etc.) */
+  --tw-color-muted: 209 213 219; /* gray-300 */
+  --color-muted: rgb(var(--tw-color-muted));
 }
 
 @layer base {

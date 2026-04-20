@@ -31,7 +31,7 @@ function ogImageUrlString(image: SitePageOgImage): string {
 export function sitePageMetadata(input: {
   title: string;
   description: string;
-  alternates: NonNullable<Metadata['alternates']>;
+  alternates?: NonNullable<Metadata['alternates']>;
   openGraphImages?: SitePageOgImage[];
 }): Metadata {
   const { title, description, alternates, openGraphImages } = input;
@@ -47,7 +47,7 @@ export function sitePageMetadata(input: {
   return {
     title: { absolute: title },
     description: desc,
-    alternates,
+    ...(alternates ? { alternates } : {}),
     openGraph: {
       title,
       description: desc,

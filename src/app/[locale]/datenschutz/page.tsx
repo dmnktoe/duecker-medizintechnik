@@ -28,7 +28,6 @@ export default async function DatenschutzPage({ params }: Props) {
     <Page
       layout={{
         background: 'light',
-        containerWidth: 'max-w-5xl',
         showBreadcrumbs: true,
         showHero: false,
         padding: 'default',
