@@ -11,6 +11,12 @@ importers:
       '@c15t/nextjs':
         specifier: ^2.0.0
         version: 2.0.0(@types/react@19.2.14)(next@16.2.4(@babel/core@7.28.0)(@opentelemetry/api@1.9.1)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)(use-sync-external-store@1.6.0(react@19.2.5))
+      '@directus/sdk':
+        specifier: ^21.2.2
+        version: 21.2.2
+      '@directus/visual-editing':
+        specifier: ^2.0.0
+        version: 2.0.0
       '@hookform/resolvers':
         specifier: ^5.0.0
         version: 5.2.2(react-hook-form@7.72.1(react@19.2.5))
@@ -1374,6 +1380,14 @@ packages:
     resolution: {integrity: sha512-Vd/9EVDiu6PPJt9yAh6roZP6El1xHrdvIVGjyBsHR0RYwNHgL7FJPyIIW4fANJNG6FtyZfvlRPpFI4ZM/lubvw==}
     engines: {node: '>=18'}
 
+  '@directus/sdk@21.2.2':
+    resolution: {integrity: sha512-T8UhDG+GY534AqvLpRmycLYZmIYIaUYzu25X3WeUjWuxCvqAiKqXbYUrTRb0A5Mw93vUeVuyqabzvLbBY9AXxQ==}
+    engines: {node: '>=22'}
+
+  '@directus/visual-editing@2.0.0':
+    resolution: {integrity: sha512-cPcMEPiFVdVO6KeC3OcuZPRoiYHxeATBJSflbewhcwGuG0Qze6ybKL+WWtCgV+mS4DCFbPd/7+ctQPu/JL60RQ==}
+    engines: {node: '>=22.12.0'}
+
   '@discoveryjs/json-ext@0.5.7':
     resolution: {integrity: sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==}
     engines: {node: '>=10.0.0'}
@@ -2404,6 +2418,9 @@ packages:
     peerDependenciesMeta:
       '@types/react':
         optional: true
+
+  '@reach/observe-rect@1.2.0':
+    resolution: {integrity: sha512-Ba7HmkFgfQxZqqaeIWWkNK0rEhpxVQHIoVyW1YDSkGsGIXzcaW4deC8B0pZrNSSyLTdIk7y+5olKt5+g0GmFIQ==}
 
   '@react-native/assets-registry@0.78.0':
     resolution: {integrity: sha512-PPHlTRuP9litTYkbFNkwveQFto3I94QRWPBBARU0cH/4ks4EkfCfb/Pdb3AHgtJi58QthSHKFvKTQnAWyHPs7w==}
@@ -9270,6 +9287,12 @@ snapshots:
 
   '@csstools/css-tokenizer@3.0.4': {}
 
+  '@directus/sdk@21.2.2': {}
+
+  '@directus/visual-editing@2.0.0':
+    dependencies:
+      '@reach/observe-rect': 1.2.0
+
   '@discoveryjs/json-ext@0.5.7': {}
 
   '@emnapi/core@1.4.3':
@@ -10359,6 +10382,8 @@ snapshots:
       react: 19.2.5
     optionalDependencies:
       '@types/react': 19.2.14
+
+  '@reach/observe-rect@1.2.0': {}
 
   '@react-native/assets-registry@0.78.0': {}
 

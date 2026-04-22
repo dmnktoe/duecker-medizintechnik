@@ -46,5 +46,20 @@ Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für Repa
 - [ESLint](https://eslint.org/) - Find and fix problems in your JavaScript code
 - [Prettier](https://prettier.io/) - Opinionated Code Formatter
 - [Husky](https://typicode.github.io/husky/) - Git hooks made easy
-- [Strapi](https://strapi.io/) - The leading open-source headless CMS
+- [Directus](https://directus.io/) - Open-source headless CMS used as the backend (Posts + Download Center)
 - [next-i18next](https://next.i18next.com/) - The easiest way to translate your Next.js apps
+
+## CMS (Directus)
+
+The site reads its content from a Directus instance (e.g. `https://admin.duecker-medizintechnik.de`).
+
+### Required environment variables
+
+```
+NEXT_PUBLIC_DIRECTUS_URL=https://admin.duecker-medizintechnik.de
+DIRECTUS_API_TOKEN=<static-token-of-a-read-only-service-user>
+DIRECTUS_PREVIEW_SECRET=<long-random-string-shared-with-directus>
+```
+
+See [`docs/directus-setup.md`](./docs/directus-setup.md) for the collections,
+fields and Live Preview / Visual Editor setup that the frontend expects.
