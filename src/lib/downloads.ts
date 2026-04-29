@@ -1,7 +1,8 @@
-import { readFiles, readItems } from '@directus/sdk';
+import { readItems } from '@directus/sdk';
 import { draftMode } from 'next/headers';
 
 import { directus } from '@/lib/directus';
+import { resolveDownloadFiles } from '@/lib/directus/download-file-refs';
 import { logDirectusError } from '@/lib/directus-logging';
 import { getDirectusAssetUrl } from '@/lib/directus-urls';
 
@@ -17,20 +18,7 @@ const DOWNLOAD_FIELDS = [
   'status',
   'name',
   { category: ['id', 'name', 'slug'] },
-  {
-    files: [
-      'id',
-      {
-        directus_files_id: [
-          'id',
-          'title',
-          'filename_download',
-          'type',
-          'filesize',
-        ],
-      },
-    ],
-  },
+  { files: ['*'] },
 ];
 
 function formatBytes(size: number | string | null | undefined): string {
@@ -83,59 +71,6 @@ function mapJunctionToFile(
   };
 }
 
-async function expandDownloadFiles(
-  items: DirectusDownload[],
-): Promise<DirectusDownload[]> {
-  const ids = new Set<string>();
-  for (const doc of items) {
-    for (const row of doc.files ?? []) {
-      const ref = row.directus_files_id;
-      if (
-        ref !== null &&
-        ref !== undefined &&
-        (typeof ref === 'string' || typeof ref === 'number')
-      ) {
-        ids.add(String(ref));
-      }
-    }
-  }
-  if (!ids.size) return items;
-
-  const fileRows = (await directus.request(
-    readFiles({
-      filter: { id: { _in: [...ids] as never } },
-      fields: [
-        'id',
-        'title',
-        'filename_disk',
-        'filename_download',
-        'type',
-        'filesize',
-      ] as never,
-      limit: -1,
-    }),
-  )) as unknown as DirectusFile[];
-
-  const byId = new Map(fileRows.map((f) => [f.id, f]));
-
-  return items.map((doc) => ({
-    ...doc,
-    files: (doc.files ?? []).map((row) => {
-      const ref = row.directus_files_id;
-      const key =
-        ref !== null &&
-        ref !== undefined &&
-        (typeof ref === 'string' || typeof ref === 'number')
-          ? String(ref)
-          : null;
-      if (key && byId.has(key)) {
-        return { ...row, directus_files_id: byId.get(key)! };
-      }
-      return row;
-    }),
-  }));
-}
-
 export function mapDownload(download: DirectusDownload): Download {
   const category =
     download.category && typeof download.category === 'object'
@@ -147,7 +82,7 @@ export function mapDownload(download: DirectusDownload): Download {
       : null;
 
   const files: DownloadFile[] = (download.files ?? [])
-    .map(mapJunctionToFile)
+    .map((row) => mapJunctionToFile(row as unknown as DownloadFileJunction))
     .filter((f): f is DownloadFile => f !== null);
 
   return {
@@ -169,7 +104,7 @@ async function isDraftEnabled(): Promise<boolean> {
 export async function listDownloads(): Promise<Download[]> {
   const draft = await isDraftEnabled();
   try {
-    const items = (await directus.request(
+    const rows = (await directus.request(
       readItems('downloads', {
         fields: DOWNLOAD_FIELDS as never,
         sort: ['-id'],
@@ -179,8 +114,9 @@ export async function listDownloads(): Promise<Download[]> {
         },
       }),
     )) as unknown as DirectusDownload[];
-    const hydrated = await expandDownloadFiles(items);
-    return hydrated.map(mapDownload);
+
+    const hydrated = await resolveDownloadFiles(rows);
+    return (hydrated as DirectusDownload[]).map(mapDownload);
   } catch (error) {
     logDirectusError('listDownloads', error, { draft });
     return [];
