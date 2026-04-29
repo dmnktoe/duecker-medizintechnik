@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import * as React from 'react';
 import { VscCallOutgoing, VscHome, VscMail } from 'react-icons/vsc';
 
+import OpeningHours from '@/components/templates/OpeningHours';
 import { Body, Title, UnderlineLink } from '@/components/ui';
 
 import { company } from '@/constant/company';
@@ -69,6 +70,7 @@ export default function ContactInfo() {
             </div>
           </div>
         </div>
+        <OpeningHours variant='full' />
       </>
     );
   };

@@ -12,6 +12,7 @@ import { getVersion } from '@/lib/get-version';
 import { Container } from '@/components/layout/Container';
 import { useFooterPosts } from '@/components/providers/FooterPostsContext';
 import LanguagePicker from '@/components/templates/LanguagePicker';
+import OpeningHours from '@/components/templates/OpeningHours';
 import { Body, ButtonLink, Title, UnderlineLink } from '@/components/ui';
 
 import { company } from '@/constant/company';
@@ -56,6 +57,7 @@ const FooterContact = () => {
           </UnderlineLink>
         </Body>
       </div>
+      <OpeningHours variant='compact' />
       <ButtonLink href='/kontakt' variant='primary' size='sm' className='mt-8'>
         {t('footer.contact.button')} <VscArrowRight className='ml-2' />
       </ButtonLink>
