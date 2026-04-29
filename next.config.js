@@ -22,6 +22,29 @@ const nextConfig = {
   images: {
     qualities: [65, 90],
     remotePatterns: [
+      ...(() => {
+        try {
+          const raw = process.env.NEXT_PUBLIC_APP_URL ?? '';
+          if (!raw) return [];
+          const u = new URL(raw.includes('://') ? raw : `https://${raw}`);
+          return [
+            {
+              protocol: u.protocol.replace(':', ''),
+              hostname: u.hostname,
+              ...(u.port ? { port: u.port } : {}),
+              pathname: '/api/cms/assets/**',
+            },
+          ];
+        } catch {
+          return [];
+        }
+      })(),
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        pathname: '/api/cms/assets/**',
+        port: '3000',
+      },
       // Directus media host – derived from NEXT_PUBLIC_DIRECTUS_URL so we
       // don't need to hard-code the hostname in here.
       ...(() => {

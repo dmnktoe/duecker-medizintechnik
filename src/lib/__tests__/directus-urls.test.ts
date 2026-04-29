@@ -2,6 +2,10 @@ jest.mock('@/constant/env', () => ({
   directusUrl: 'https://cms.duecker-medizintechnik.de',
 }));
 
+jest.mock('@/lib/get-base-url', () => ({
+  getBaseUrl: () => 'http://localhost:3000',
+}));
+
 import { getDirectusAssetUrl, getDirectusURL } from '@/lib/directus-urls';
 
 describe('getDirectusURL', () => {
@@ -23,28 +27,30 @@ describe('getDirectusAssetUrl', () => {
     expect(getDirectusAssetUrl(url)).toBe(url);
   });
 
-  it('returns a same-origin proxy path for Directus asset paths', () => {
+  it('returns absolute app proxy URLs for CMS assets', () => {
     expect(getDirectusAssetUrl('/assets/abc.jpg')).toBe(
-      '/api/cms/assets/abc.jpg',
+      'http://localhost:3000/api/cms/assets/abc.jpg',
     );
   });
 
-  it('builds a proxy path from a bare file id', () => {
-    expect(getDirectusAssetUrl('abc-123')).toBe('/api/cms/assets/abc-123');
+  it('builds proxy URLs from bare file id', () => {
+    expect(getDirectusAssetUrl('abc-123')).toBe(
+      'http://localhost:3000/api/cms/assets/abc-123',
+    );
   });
 
-  it('builds a proxy path from a Directus file object', () => {
+  it('maps file id objects to proxied URLs', () => {
     expect(getDirectusAssetUrl({ id: 'abc-123' })).toBe(
-      '/api/cms/assets/abc-123',
+      'http://localhost:3000/api/cms/assets/abc-123',
     );
   });
 
-  it('proxies when file object has a relative asset url', () => {
+  it('proxies nested asset paths under /assets/', () => {
     expect(
       getDirectusAssetUrl({
         id: 'abc-123',
         url: '/assets/abc-123/thumb',
       }),
-    ).toBe('/api/cms/assets/abc-123/thumb');
+    ).toBe('http://localhost:3000/api/cms/assets/abc-123/thumb');
   });
 });

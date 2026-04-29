@@ -1,8 +1,14 @@
+import { getBaseUrl } from '@/lib/get-base-url';
+
 import { directusUrl } from '@/constant/env';
 
 export function getDirectusURL(path = '') {
   const base = (directusUrl ?? '').replace(/\/+$/, '');
   return `${base}${path}`;
+}
+
+function appOrigin(): string {
+  return getBaseUrl().replace(/\/+$/, '');
 }
 
 function cmsAssetOrigin(): string | null {
@@ -26,6 +32,11 @@ function resolveFileRefString(ref: string): string {
   return getDirectusURL(`/assets/${ref}`);
 }
 
+function proxiedAbsoluteAssetUrl(tail: string, search: string): string {
+  const path = tail.replace(/^\/+|\/+$/g, '');
+  return `${appOrigin()}/api/cms/assets/${path}${search}`;
+}
+
 function withAssetProxyIfDirectusHosted(resolved: string): string {
   const cms = cmsAssetOrigin();
   if (!cms) return resolved;
@@ -40,7 +51,7 @@ function withAssetProxyIfDirectusHosted(resolved: string): string {
     const tail = assetUrl.pathname.slice(prefix.length).replace(/^\/+/, '');
     if (!tail) return resolved;
 
-    return `/api/cms/assets/${tail}${assetUrl.search}`;
+    return proxiedAbsoluteAssetUrl(tail, assetUrl.search);
   } catch {
     return resolved;
   }
