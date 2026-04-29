@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function NewsroomPage({ params }: Props) {
   const { locale } = await params;
   const t = await getTranslations({ locale: locale, namespace: 'news' });
-  const posts = await listPosts().catch(() => []);
+  const posts = await listPosts();
 
   return (
     <Page

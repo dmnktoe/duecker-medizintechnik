@@ -3,6 +3,7 @@ import { draftMode } from 'next/headers';
 import { cache } from 'react';
 
 import { directus } from '@/lib/directus';
+import { logDirectusError } from '@/lib/directus-logging';
 import { getDirectusAssetUrl } from '@/lib/directus-urls';
 
 import type {
@@ -114,31 +115,41 @@ export async function listPosts({
   sort = ['-date_published', '-id'],
 }: ListPostsOptions = {}): Promise<News[]> {
   const draft = await isDraftEnabled();
-  const items = (await directus.request(
-    readItems('posts', {
-      fields: POST_FIELDS as never,
-      sort: sort as never,
-      limit,
-      filter: draft ? undefined : { status: { _eq: 'published' } },
-    }),
-  )) as unknown as DirectusPost[];
-  return items.map(mapPost);
+  try {
+    const items = (await directus.request(
+      readItems('posts', {
+        fields: POST_FIELDS as never,
+        sort: sort as never,
+        limit,
+        filter: draft ? undefined : { status: { _eq: 'published' } },
+      }),
+    )) as unknown as DirectusPost[];
+    return items.map(mapPost);
+  } catch (error) {
+    logDirectusError('listPosts', error, { limit, draft });
+    return [];
+  }
 }
 
 export const getPostBySlug = cache(
   async (slug: string): Promise<News | null> => {
     const draft = await isDraftEnabled();
-    const items = (await directus.request(
-      readItems('posts', {
-        fields: POST_FIELDS as never,
-        limit: 1,
-        filter: {
-          slug: { _eq: slug },
-          ...(draft ? {} : { status: { _eq: 'published' } }),
-        },
-      }),
-    )) as unknown as DirectusPost[];
-    return items[0] ? mapPost(items[0]) : null;
+    try {
+      const items = (await directus.request(
+        readItems('posts', {
+          fields: POST_FIELDS as never,
+          limit: 1,
+          filter: {
+            slug: { _eq: slug },
+            ...(draft ? {} : { status: { _eq: 'published' } }),
+          },
+        }),
+      )) as unknown as DirectusPost[];
+      return items[0] ? mapPost(items[0]) : null;
+    } catch (error) {
+      logDirectusError('getPostBySlug', error, { slug, draft });
+      return null;
+    }
   },
 );
 
@@ -150,18 +161,24 @@ export async function getPostById(id: number | string): Promise<News | null> {
       }),
     )) as unknown as DirectusPost;
     return item ? mapPost(item) : null;
-  } catch {
+  } catch (error) {
+    logDirectusError('getPostById', error, { id });
     return null;
   }
 }
 
 export async function listPostSlugs(): Promise<string[]> {
-  const items = (await directus.request(
-    readItems('posts', {
-      fields: ['slug'],
-      filter: { status: { _eq: 'published' } },
-      limit: -1,
-    }),
-  )) as unknown as Pick<DirectusPost, 'slug'>[];
-  return items.map((p) => p.slug).filter(Boolean);
+  try {
+    const items = (await directus.request(
+      readItems('posts', {
+        fields: ['slug'],
+        filter: { status: { _eq: 'published' } },
+        limit: -1,
+      }),
+    )) as unknown as Pick<DirectusPost, 'slug'>[];
+    return items.map((p) => p.slug).filter(Boolean);
+  } catch (error) {
+    logDirectusError('listPostSlugs', error, {});
+    return [];
+  }
 }

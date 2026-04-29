@@ -2,6 +2,7 @@ import { readItems } from '@directus/sdk';
 import { draftMode } from 'next/headers';
 
 import { directus } from '@/lib/directus';
+import { logDirectusError } from '@/lib/directus-logging';
 import { getDirectusAssetUrl } from '@/lib/directus-urls';
 
 import type {
@@ -98,16 +99,21 @@ async function isDraftEnabled(): Promise<boolean> {
 
 export async function listDownloads(locale?: string): Promise<Download[]> {
   const draft = await isDraftEnabled();
-  const items = (await directus.request(
-    readItems('downloads', {
-      fields: DOWNLOAD_FIELDS as never,
-      sort: ['-id'],
-      limit: -1,
-      filter: {
-        ...(draft ? {} : { status: { _eq: 'published' } }),
-        ...(locale ? { locale: { _eq: locale } } : {}),
-      },
-    }),
-  )) as unknown as DirectusDownload[];
-  return items.map(mapDownload);
+  try {
+    const items = (await directus.request(
+      readItems('downloads', {
+        fields: DOWNLOAD_FIELDS as never,
+        sort: ['-id'],
+        limit: -1,
+        filter: {
+          ...(draft ? {} : { status: { _eq: 'published' } }),
+          ...(locale ? { locale: { _eq: locale } } : {}),
+        },
+      }),
+    )) as unknown as DirectusDownload[];
+    return items.map(mapDownload);
+  } catch (error) {
+    logDirectusError('listDownloads', error, { locale, draft });
+    return [];
+  }
 }

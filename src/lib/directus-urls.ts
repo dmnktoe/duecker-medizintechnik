@@ -1,7 +1,12 @@
 import { directusUrl } from '@/constant/env';
 
+/**
+ * Returns the configured Directus base URL with any trailing slash stripped,
+ * optionally followed by `path` (which should start with `/`).
+ */
 export function getDirectusURL(path = '') {
-  return `${directusUrl}${path}`;
+  const base = (directusUrl ?? '').replace(/\/+$/, '');
+  return `${base}${path}`;
 }
 
 /**
@@ -27,7 +32,7 @@ export function getDirectusAssetUrl(
       return getDirectusAssetUrl(fileOrUrl.url);
     }
     if (fileOrUrl.id) {
-      return `${getDirectusURL()}/assets/${fileOrUrl.id}`;
+      return getDirectusURL(`/assets/${fileOrUrl.id}`);
     }
     return '';
   }
@@ -37,9 +42,9 @@ export function getDirectusAssetUrl(
   }
 
   if (fileOrUrl.startsWith('/')) {
-    return `${getDirectusURL()}${fileOrUrl}`;
+    return getDirectusURL(fileOrUrl);
   }
 
   // Treat as a bare file id.
-  return `${getDirectusURL()}/assets/${fileOrUrl}`;
+  return getDirectusURL(`/assets/${fileOrUrl}`);
 }

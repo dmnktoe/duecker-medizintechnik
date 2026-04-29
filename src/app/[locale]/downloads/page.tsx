@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function DownloadsPage({ params }: Props) {
   const { locale } = await params;
   const t = await getTranslations({ locale: locale, namespace: 'downloads' });
-  const downloads = await listDownloads(locale).catch(() => []);
+  const downloads = await listDownloads(locale);
 
   return (
     <Page

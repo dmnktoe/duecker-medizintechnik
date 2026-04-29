@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function HomePage({ params }: Props) {
   const { locale } = await params;
   const t = await getTranslations({ locale: locale, namespace: 'home' });
-  const posts = await listPosts({ limit: 8 }).catch(() => []);
+  const posts = await listPosts({ limit: 8 });
 
   return (
     <Page
