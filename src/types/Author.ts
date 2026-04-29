@@ -1,18 +1,12 @@
-import { ImageData } from '@/types/Image';
+import type { DirectusImage } from '@/types/Image';
 
-type AuthorAttributes = {
+export type Author = {
+  id: number | string;
   name: string;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-  bio?: string;
-  mail?: string;
-  image: {
-    data: ImageData | undefined;
-  };
+  bio?: string | null;
+  mail?: string | null;
+  image?: DirectusImage | null;
 };
 
-export type AuthorData = {
-  id: number;
-  attributes: AuthorAttributes;
-};
+/** @deprecated kept for backwards compatibility; use `Author`. */
+export type AuthorData = Author;

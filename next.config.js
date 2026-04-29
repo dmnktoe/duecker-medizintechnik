@@ -22,6 +22,23 @@ const nextConfig = {
   images: {
     qualities: [65, 90],
     remotePatterns: [
+      // Directus media host – derived from NEXT_PUBLIC_DIRECTUS_URL so we
+      // don't need to hard-code the hostname in here.
+      ...(() => {
+        try {
+          if (!process.env.NEXT_PUBLIC_DIRECTUS_URL) return [];
+          const u = new URL(process.env.NEXT_PUBLIC_DIRECTUS_URL);
+          return [
+            { protocol: u.protocol.replace(':', ''), hostname: u.hostname },
+          ];
+        } catch {
+          return [];
+        }
+      })(),
+      {
+        protocol: 'https',
+        hostname: 'admin.duecker-medizintechnik.de',
+      },
       {
         protocol: 'https',
         hostname: 'cms.duecker-medizintechnik.de',

@@ -1,42 +1,22 @@
-type ImageFormats = {
-  large: ImageFormat;
-  small: ImageFormat;
-  medium: ImageFormat;
-  thumbnail: ImageFormat;
-};
-
-type ImageFormat = {
-  ext: string;
+/**
+ * Public-facing image shape (Directus file metadata projected into something
+ * that templates can consume directly).
+ */
+export type DirectusImage = {
+  /** Directus file id (UUID). */
+  id: string;
+  /** Public asset URL. May be empty if the file is missing. */
   url: string;
-  hash: string;
-  mime: string;
-  name: string;
-  path: string | null;
-  size: number;
-  width: number;
-  height: number;
+  /** Alternative text / accessible name. */
+  alt: string;
+  /** Width in pixels (if known). */
+  width?: number | null;
+  /** Height in pixels (if known). */
+  height?: number | null;
 };
 
-type ImageAttributes = {
-  name: string;
-  alternativeText: string | null;
-  caption: string | null;
-  width: number;
-  height: number;
-  formats: ImageFormats;
-  hash: string;
-  ext: string;
-  mime: string;
-  size: number;
-  url: string;
-  previewUrl: string | null;
-  provider: string;
-  provider_metadata: string | null;
-  createdAt: string;
-  updatedAt: string;
-};
-
-export type ImageData = {
-  id: number;
-  attributes: ImageAttributes;
-};
+/**
+ * Backwards-compatible alias used in legacy components. Prefer the named
+ * `DirectusImage` export for new code.
+ */
+export type ImageData = DirectusImage;

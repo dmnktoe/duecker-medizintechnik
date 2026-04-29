@@ -1,4 +1,5 @@
 import { createFlagsmithInstance } from 'flagsmith/isomorphic';
+import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
 import { getMessages } from 'next-intl/server';
 import * as React from 'react';
@@ -9,6 +10,7 @@ import { ConsentProvider } from '@/components/helpers/ConsentProvider';
 import GoogleAnalytics from '@/components/helpers/GoogleAnalytics';
 import Hotjar from '@/components/helpers/Hotjar';
 import { Providers } from '@/components/providers/Providers';
+import { VisualEditorMount } from '@/components/providers/VisualEditorMount';
 
 import { flagsmithId, googleAnalyticsId, hotjarId } from '@/constant/env';
 import { routing } from '@/i18n/routing';
@@ -40,6 +42,7 @@ export default async function LocaleLayout({
   );
 
   const messages = await getMessages();
+  const { isEnabled: isDraft } = await draftMode();
 
   return (
     <Providers
@@ -52,6 +55,7 @@ export default async function LocaleLayout({
         {children}
         <GoogleAnalytics GA_MEASUREMENT_ID={googleAnalyticsId} />
         <Hotjar HOTJAR_ID={hotjarId} />
+        <VisualEditorMount enabled={isDraft} />
       </ConsentProvider>
     </Providers>
   );

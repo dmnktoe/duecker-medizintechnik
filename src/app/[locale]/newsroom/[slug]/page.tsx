@@ -1,12 +1,11 @@
 import type { Metadata } from 'next';
+import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
-import { cache } from 'react';
 
-import { fetchAPI } from '@/lib/fetch-api';
 import { getAlternates } from '@/lib/hreflang';
+import { getPostBySlug, listPostSlugs } from '@/lib/posts';
 import { sitePageMetadata } from '@/lib/site-page-metadata';
-import { getStrapiMedia } from '@/lib/strapi-urls';
 
 import { Container } from '@/components/layout/Container';
 import Page from '@/components/layout/Page';
@@ -15,43 +14,32 @@ import { ArrowLink } from '@/components/ui';
 
 import { i18nConfig } from '@/i18n/settings';
 
-import { News } from '@/types/News';
-
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
-const getNewsPostBySlug = cache(
-  async (slug: string): Promise<News | undefined> => {
-    const posts = await fetchAPI<{ data: News[] }>(
-      `/posts?filters[slug][$eq]=${slug}&populate=deep`,
-    );
-    return posts.data[0];
-  },
-);
-
 export async function generateStaticParams() {
-  const result = await fetchAPI<{ data: News[] }>('/posts');
-  return result.data.flatMap((post: News) =>
-    i18nConfig.locales.map((locale) => ({
-      locale,
-      slug: post.attributes.slug.toString(),
-    })),
-  );
+  try {
+    const slugs = await listPostSlugs();
+    return slugs.flatMap((slug) =>
+      i18nConfig.locales.map((locale) => ({ locale, slug })),
+    );
+  } catch {
+    return [];
+  }
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
-  const post = await getNewsPostBySlug(slug);
+  const post = await getPostBySlug(slug);
   if (!post) {
     notFound();
   }
-  const coverUrl = post.attributes.image?.data?.attributes?.url;
-  const openGraphImages = coverUrl
-    ? [{ url: getStrapiMedia(coverUrl) }]
+  const openGraphImages = post.image?.url
+    ? [{ url: post.image.url }]
     : undefined;
 
   return sitePageMetadata({
-    title: post.attributes.title,
-    description: post.attributes.excerpt,
+    title: post.title,
+    description: post.excerpt,
     alternates: getAlternates(`/newsroom/${slug}`, locale),
     openGraphImages,
   });
@@ -60,7 +48,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function PostPage({ params }: Props) {
   const { locale, slug } = await params;
   const t = await getTranslations({ locale: locale, namespace: 'news' });
-  const post = await getNewsPostBySlug(slug);
+  const { isEnabled: isDraft } = await draftMode();
+  const post = await getPostBySlug(slug);
   if (!post) {
     notFound();
   }
@@ -73,11 +62,11 @@ export default async function PostPage({ params }: Props) {
         showHero: false,
         padding: 'none',
       }}
-      title={post.attributes.title}
+      title={post.title}
     >
       <section className='py-12'>
         <Container>
-          <div className='mx-auto flex max-w-3xl'>
+          <div className='mx-auto flex max-w-3xl items-center justify-between gap-4'>
             <ArrowLink
               direction='left'
               href={`/${locale}/newsroom`}
@@ -85,6 +74,14 @@ export default async function PostPage({ params }: Props) {
             >
               {t('content.newsSlug.back')}
             </ArrowLink>
+            {isDraft ? (
+              <a
+                href={`/api/draft/disable?redirect=/${locale}/newsroom/${slug}`}
+                className='text-primary-500 rounded-full border border-current px-3 py-1 text-xs tracking-wider uppercase'
+              >
+                Draft Mode aktiv – verlassen
+              </a>
+            ) : null}
           </div>
         </Container>
       </section>

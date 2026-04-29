@@ -6,7 +6,10 @@ export const googleAnalyticsId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
 export const hotjarId = process.env.NEXT_PUBLIC_HOTJAR_ID;
 export const isLocal = process.env.NODE_ENV === 'development';
 export const isProd = process.env.NODE_ENV === 'production';
-export const strapiApiUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL;
+
+export const directusUrl = process.env.NEXT_PUBLIC_DIRECTUS_URL ?? '';
+export const directusApiToken = process.env.DIRECTUS_API_TOKEN ?? '';
+export const directusPreviewSecret = process.env.DIRECTUS_PREVIEW_SECRET ?? '';
 
 export const showLogger = isLocal
   ? true

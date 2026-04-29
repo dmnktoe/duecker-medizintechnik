@@ -24,6 +24,8 @@
   },
   "dependencies": {
     "@c15t/nextjs": "^2.0.0",
+    "@directus/sdk": "^21.2.2",
+    "@directus/visual-editing": "^2.0.0",
     "@hookform/resolvers": "^5.0.0",
     "@next/bundle-analyzer": "^16.2.4",
     "@radix-ui/react-accordion": "^1.2.12",
