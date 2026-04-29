@@ -21,7 +21,11 @@ function ogApiUrl(title: string, description: string): string {
 
 function ogImageUrlString(image: SitePageOgImage): string {
   const u = image.url;
-  return typeof u === 'string' ? u : u.toString();
+  const s = typeof u === 'string' ? u : u.toString();
+  if (s.startsWith('/')) {
+    return `${getBaseUrl().replace(/\/$/, '')}${s}`;
+  }
+  return s;
 }
 
 /**

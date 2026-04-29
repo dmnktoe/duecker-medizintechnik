@@ -1,9 +1,12 @@
-import { readItem, readItems } from '@directus/sdk';
+import { readFiles, readItem, readItems } from '@directus/sdk';
 import { draftMode } from 'next/headers';
 import { cache } from 'react';
 
 import { directus } from '@/lib/directus';
-import { logDirectusError } from '@/lib/directus-logging';
+import {
+  formatDirectusClientError,
+  logDirectusError,
+} from '@/lib/directus-logging';
 import { getDirectusAssetUrl } from '@/lib/directus-urls';
 
 import type {
@@ -15,7 +18,7 @@ import type {
 import type { DirectusImage } from '@/types/Image';
 import type { News } from '@/types/News';
 
-const POST_FIELDS = [
+const POST_ROW_FIELDS = [
   'id',
   'status',
   'date_created',
@@ -25,18 +28,134 @@ const POST_FIELDS = [
   'slug',
   'excerpt',
   'content',
-  { image: ['id', 'title', 'description', 'width', 'height'] },
-  { category: ['id', 'name', 'slug'] },
-  {
-    author: [
-      'id',
-      'name',
-      'bio',
-      'mail',
-      { image: ['id', 'title', 'description', 'width', 'height'] },
-    ],
-  },
-];
+  'image',
+  'category',
+  'author',
+].join(',');
+
+const FILE_FIELDS = [
+  'id',
+  'title',
+  'description',
+  'width',
+  'height',
+  'filename_download',
+].join(',');
+
+async function hydratePostsFromRows(
+  rows: DirectusPost[],
+): Promise<DirectusPost[]> {
+  if (rows.length === 0) return rows;
+
+  const categoryIds = [
+    ...new Set(
+      rows
+        .map((r) => r.category)
+        .filter((c): c is string | number => c != null && typeof c !== 'object')
+        .map(String),
+    ),
+  ];
+  const authorIds = [
+    ...new Set(
+      rows
+        .map((r) => r.author)
+        .filter((a): a is string | number => a != null && typeof a !== 'object')
+        .map(String),
+    ),
+  ];
+
+  const [categories, authors] = await Promise.all([
+    categoryIds.length
+      ? ((await directus.request(
+          readItems('categories', {
+            filter: { id: { _in: categoryIds as never } },
+            fields: ['id', 'name', 'slug'] as never,
+            limit: -1,
+          }),
+        )) as unknown as DirectusCategory[])
+      : [],
+    authorIds.length
+      ? ((await directus.request(
+          readItems('authors', {
+            filter: { id: { _in: authorIds as never } },
+            fields: ['id', 'name', 'bio', 'mail', 'image'] as never,
+            limit: -1,
+          }),
+        )) as unknown as DirectusAuthor[])
+      : [],
+  ]);
+
+  const catById = new Map(categories.map((c) => [String(c.id), c]));
+
+  const fileIds = new Set<string>();
+  for (const r of rows) {
+    if (typeof r.image === 'string' && r.image) fileIds.add(r.image);
+  }
+  for (const a of authors) {
+    if (typeof a.image === 'string' && a.image) fileIds.add(a.image);
+  }
+
+  const filesById = new Map<string, DirectusFile>();
+  if (fileIds.size > 0) {
+    const ids = Array.from(fileIds) as never;
+    const files = (await directus.request(
+      readFiles({
+        filter: { id: { _in: ids } },
+        fields: FILE_FIELDS as never,
+        limit: -1,
+      }),
+    )) as unknown as DirectusFile[];
+    for (const f of files) filesById.set(f.id, f);
+  }
+
+  const authorsHydrated: DirectusAuthor[] = authors.map((a) => ({
+    ...a,
+    image:
+      typeof a.image === 'string' && filesById.has(a.image)
+        ? filesById.get(a.image)!
+        : a.image,
+  }));
+  const authById = new Map(authorsHydrated.map((a) => [String(a.id), a]));
+
+  return rows.map((r) => {
+    const cid =
+      r.category != null && typeof r.category !== 'object'
+        ? String(r.category)
+        : null;
+    const aid =
+      r.author != null && typeof r.author !== 'object'
+        ? String(r.author)
+        : null;
+    const category =
+      cid && catById.has(cid)
+        ? (catById.get(cid) as DirectusCategory)
+        : r.category;
+    const author =
+      aid && authById.has(aid)
+        ? (authById.get(aid) as DirectusAuthor)
+        : r.author;
+    const image =
+      typeof r.image === 'string' && filesById.has(r.image)
+        ? filesById.get(r.image)!
+        : r.image;
+    return { ...r, category, author, image } as DirectusPost;
+  });
+}
+
+async function readPostsList(query: {
+  filter?: object;
+  sort?: string[];
+  limit?: number;
+}): Promise<DirectusPost[]> {
+  const rows = (await directus.request(
+    readItems('posts', {
+      ...query,
+      fields: POST_ROW_FIELDS as never,
+      sort: query.sort as never,
+    }),
+  )) as unknown as DirectusPost[];
+  return hydratePostsFromRows(rows);
+}
 
 function mapImage(file?: DirectusFile | string | null): DirectusImage | null {
   if (!file) return null;
@@ -105,28 +224,57 @@ async function isDraftEnabled(): Promise<boolean> {
   }
 }
 
-type ListPostsOptions = {
+type ListPostsQuery = {
   limit?: number;
   sort?: string[];
+  includeAllStatuses?: boolean;
 };
 
-export async function listPosts({
-  limit,
-  sort = ['-date_published', '-id'],
-}: ListPostsOptions = {}): Promise<News[]> {
+export type ListPostsOutcome =
+  | { ok: true; posts: News[] }
+  | {
+      ok: false;
+      posts: [];
+      error: ReturnType<typeof formatDirectusClientError>;
+    };
+
+function postsStatusFilter(
+  draft: boolean,
+  includeAllStatuses: boolean | undefined,
+) {
+  if (draft || includeAllStatuses) return undefined;
+  return { status: { _eq: 'published' as const } };
+}
+
+export async function listPosts(
+  options: ListPostsQuery & { withOutcome: true },
+): Promise<ListPostsOutcome>;
+export async function listPosts(options?: ListPostsQuery): Promise<News[]>;
+export async function listPosts(
+  options: ListPostsQuery & { withOutcome?: boolean } = {},
+): Promise<News[] | ListPostsOutcome> {
+  const {
+    withOutcome,
+    limit,
+    sort = ['-date_published', '-id'],
+    includeAllStatuses,
+  } = options;
   const draft = await isDraftEnabled();
+  const filter = postsStatusFilter(draft, includeAllStatuses);
   try {
-    const items = (await directus.request(
-      readItems('posts', {
-        fields: POST_FIELDS as never,
-        sort: sort as never,
-        limit,
-        filter: draft ? undefined : { status: { _eq: 'published' } },
-      }),
-    )) as unknown as DirectusPost[];
-    return items.map(mapPost);
+    const items = await readPostsList({ filter, sort, limit });
+    const posts = items.map(mapPost);
+    if (withOutcome) return { ok: true, posts };
+    return posts;
   } catch (error) {
-    logDirectusError('listPosts', error, { limit, draft });
+    logDirectusError('listPosts', error, {
+      limit,
+      draft,
+      includeAllStatuses,
+    });
+    if (withOutcome) {
+      return { ok: false, posts: [], error: formatDirectusClientError(error) };
+    }
     return [];
   }
 }
@@ -134,17 +282,19 @@ export async function listPosts({
 export const getPostBySlug = cache(
   async (slug: string): Promise<News | null> => {
     const draft = await isDraftEnabled();
+    const filter = {
+      slug: { _eq: slug },
+      ...(draft ? {} : { status: { _eq: 'published' as const } }),
+    };
     try {
-      const items = (await directus.request(
+      const rows = (await directus.request(
         readItems('posts', {
-          fields: POST_FIELDS as never,
+          fields: POST_ROW_FIELDS as never,
           limit: 1,
-          filter: {
-            slug: { _eq: slug },
-            ...(draft ? {} : { status: { _eq: 'published' } }),
-          },
+          filter,
         }),
       )) as unknown as DirectusPost[];
+      const items = await hydratePostsFromRows(rows);
       return items[0] ? mapPost(items[0]) : null;
     } catch (error) {
       logDirectusError('getPostBySlug', error, { slug, draft });
@@ -155,11 +305,12 @@ export const getPostBySlug = cache(
 
 export async function getPostById(id: number | string): Promise<News | null> {
   try {
-    const item = (await directus.request(
+    const row = (await directus.request(
       readItem('posts', id as string, {
-        fields: POST_FIELDS as never,
+        fields: POST_ROW_FIELDS as never,
       }),
     )) as unknown as DirectusPost;
+    const [item] = await hydratePostsFromRows([row]);
     return item ? mapPost(item) : null;
   } catch (error) {
     logDirectusError('getPostById', error, { id });
@@ -171,7 +322,7 @@ export async function listPostSlugs(): Promise<string[]> {
   try {
     const items = (await directus.request(
       readItems('posts', {
-        fields: ['slug'],
+        fields: ['id', 'slug'] as never,
         filter: { status: { _eq: 'published' } },
         limit: -1,
       }),
