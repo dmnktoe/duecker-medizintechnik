@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import * as React from 'react';
-import { VscCallOutgoing, VscHome, VscMail } from 'react-icons/vsc';
+import { VscCallOutgoing, VscHome, VscMail, VscWatch } from 'react-icons/vsc';
 
 import OpeningHours from '@/components/templates/OpeningHours';
 import { Body, Title, UnderlineLink } from '@/components/ui';
@@ -70,7 +70,14 @@ export default function ContactInfo() {
             </div>
           </div>
         </div>
-        <OpeningHours variant='full' />
+        <div className='mt-2 flex w-full max-w-md items-start'>
+          <IconWrapper>
+            <VscWatch className='h-6 w-6' />
+          </IconWrapper>
+          <div className='w-full min-w-0 flex-1'>
+            <OpeningHours variant='full' sharedIconCol />
+          </div>
+        </div>
       </>
     );
   };

@@ -110,6 +110,7 @@
   },
   "openingHours": {
     "title": "Opening Hours",
+    "todayLabel": "Today",
     "nowOpen": "Open now",
     "nowClosed": "Closed",
     "closed": "Closed",
