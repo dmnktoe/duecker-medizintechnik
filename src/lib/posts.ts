@@ -1,4 +1,4 @@
-import { formatFields, readItem, readItems } from '@directus/sdk';
+import { formatFields, readFiles, readItem, readItems } from '@directus/sdk';
 import { draftMode } from 'next/headers';
 import { cache } from 'react';
 
@@ -43,6 +43,181 @@ const POST_FIELD_TREES = [
 ] as const;
 
 const POST_FIELDS = formatFields([...POST_FIELD_TREES]).join(',');
+
+/** Flat M2O keys only — works around Directus builds that wrongly SELECT `posts.collection`. */
+const POST_FIELDS_SHALLOW = [
+  'id',
+  'status',
+  'date_created',
+  'date_updated',
+  'date_published',
+  'title',
+  'slug',
+  'excerpt',
+  'content',
+  'image',
+  'category',
+  'author',
+].join(',');
+
+const FILE_FIELDS = [
+  'id',
+  'title',
+  'description',
+  'width',
+  'height',
+  'filename_download',
+].join(',');
+
+function isPhantomPostsCollectionColumnError(error: unknown): boolean {
+  const msg = formatDirectusClientError(error).message;
+  return /column\s+posts\.collection\s+does\s+not\s+exist|posts\."collection"\s+does\s+not\s+exist/i.test(
+    msg,
+  );
+}
+
+async function hydratePostsFromShallowRows(
+  rows: DirectusPost[],
+): Promise<DirectusPost[]> {
+  if (rows.length === 0) return rows;
+
+  const categoryIds = [
+    ...new Set(
+      rows
+        .map((r) => r.category)
+        .filter((c): c is string | number => c != null && typeof c !== 'object')
+        .map(String),
+    ),
+  ];
+  const authorIds = [
+    ...new Set(
+      rows
+        .map((r) => r.author)
+        .filter((a): a is string | number => a != null && typeof a !== 'object')
+        .map(String),
+    ),
+  ];
+
+  const [categories, authors] = await Promise.all([
+    categoryIds.length
+      ? ((await directus.request(
+          readItems('categories', {
+            filter: { id: { _in: categoryIds as never } },
+            fields: ['id', 'name', 'slug'] as never,
+            limit: -1,
+          }),
+        )) as unknown as DirectusCategory[])
+      : [],
+    authorIds.length
+      ? ((await directus.request(
+          readItems('authors', {
+            filter: { id: { _in: authorIds as never } },
+            fields: ['id', 'name', 'bio', 'mail', 'image'] as never,
+            limit: -1,
+          }),
+        )) as unknown as DirectusAuthor[])
+      : [],
+  ]);
+
+  const catById = new Map(categories.map((c) => [String(c.id), c]));
+
+  const fileIds = new Set<string>();
+  for (const r of rows) {
+    if (typeof r.image === 'string' && r.image) fileIds.add(r.image);
+  }
+  for (const a of authors) {
+    if (typeof a.image === 'string' && a.image) fileIds.add(a.image);
+  }
+
+  const filesById = new Map<string, DirectusFile>();
+  if (fileIds.size > 0) {
+    const ids = Array.from(fileIds) as never;
+    const files = (await directus.request(
+      readFiles({
+        filter: { id: { _in: ids } },
+        fields: FILE_FIELDS as never,
+        limit: -1,
+      }),
+    )) as unknown as DirectusFile[];
+    for (const f of files) filesById.set(f.id, f);
+  }
+
+  const authorsHydrated: DirectusAuthor[] = authors.map((a) => ({
+    ...a,
+    image:
+      typeof a.image === 'string' && filesById.has(a.image)
+        ? filesById.get(a.image)!
+        : a.image,
+  }));
+  const authHydratedById = new Map(
+    authorsHydrated.map((a) => [String(a.id), a]),
+  );
+
+  return rows.map((r) => {
+    const cid =
+      r.category != null && typeof r.category !== 'object'
+        ? String(r.category)
+        : null;
+    const aid =
+      r.author != null && typeof r.author !== 'object'
+        ? String(r.author)
+        : null;
+    const category =
+      cid && catById.has(cid)
+        ? (catById.get(cid) as DirectusCategory)
+        : r.category;
+    const author =
+      aid && authHydratedById.has(aid)
+        ? (authHydratedById.get(aid) as DirectusAuthor)
+        : r.author;
+    const image =
+      typeof r.image === 'string' && filesById.has(r.image)
+        ? filesById.get(r.image)!
+        : r.image;
+    return { ...r, category, author, image } as DirectusPost;
+  });
+}
+
+async function readPostsItemsNested(query: {
+  filter?: object;
+  sort?: string[];
+  limit?: number;
+}): Promise<DirectusPost[]> {
+  return (await directus.request(
+    readItems('posts', {
+      ...query,
+      fields: POST_FIELDS as never,
+      sort: query.sort as never,
+    }),
+  )) as unknown as DirectusPost[];
+}
+
+async function readPostsItemsWithFallback(
+  query: {
+    filter?: object;
+    sort?: string[];
+    limit?: number;
+  },
+  source: string,
+): Promise<DirectusPost[]> {
+  try {
+    return await readPostsItemsNested(query);
+  } catch (error) {
+    if (!isPhantomPostsCollectionColumnError(error)) throw error;
+    // eslint-disable-next-line no-console
+    console.warn(
+      `[directus][${source}] nested post fields failed (phantom posts.collection); retrying with shallow fields + batched relations.`,
+    );
+    const shallow = (await directus.request(
+      readItems('posts', {
+        ...query,
+        fields: POST_FIELDS_SHALLOW as never,
+        sort: query.sort as never,
+      }),
+    )) as unknown as DirectusPost[];
+    return hydratePostsFromShallowRows(shallow);
+  }
+}
 
 function mapImage(file?: DirectusFile | string | null): DirectusImage | null {
   if (!file) return null;
@@ -157,15 +332,12 @@ export async function listPosts(
     includeAllStatuses,
   } = options;
   const draft = await isDraftEnabled();
+  const filter = postsStatusFilter(draft, includeAllStatuses);
   try {
-    const items = (await directus.request(
-      readItems('posts', {
-        fields: POST_FIELDS as never,
-        sort: sort as never,
-        limit,
-        filter: postsStatusFilter(draft, includeAllStatuses),
-      }),
-    )) as unknown as DirectusPost[];
+    const items = await readPostsItemsWithFallback(
+      { filter, sort, limit },
+      'listPosts',
+    );
     const posts = items.map(mapPost);
     if (withOutcome) return { ok: true, posts };
     return posts;
@@ -185,17 +357,35 @@ export async function listPosts(
 export const getPostBySlug = cache(
   async (slug: string): Promise<News | null> => {
     const draft = await isDraftEnabled();
+    const filter = {
+      slug: { _eq: slug },
+      ...(draft ? {} : { status: { _eq: 'published' as const } }),
+    };
     try {
-      const items = (await directus.request(
-        readItems('posts', {
-          fields: POST_FIELDS as never,
-          limit: 1,
-          filter: {
-            slug: { _eq: slug },
-            ...(draft ? {} : { status: { _eq: 'published' } }),
-          },
-        }),
-      )) as unknown as DirectusPost[];
+      let items: DirectusPost[];
+      try {
+        items = (await directus.request(
+          readItems('posts', {
+            fields: POST_FIELDS as never,
+            limit: 1,
+            filter,
+          }),
+        )) as unknown as DirectusPost[];
+      } catch (error) {
+        if (!isPhantomPostsCollectionColumnError(error)) throw error;
+        // eslint-disable-next-line no-console
+        console.warn(
+          '[directus][getPostBySlug] nested post fields failed (phantom posts.collection); retrying shallow + hydrate.',
+        );
+        const shallow = (await directus.request(
+          readItems('posts', {
+            fields: POST_FIELDS_SHALLOW as never,
+            limit: 1,
+            filter,
+          }),
+        )) as unknown as DirectusPost[];
+        items = await hydratePostsFromShallowRows(shallow);
+      }
       return items[0] ? mapPost(items[0]) : null;
     } catch (error) {
       logDirectusError('getPostBySlug', error, { slug, draft });
@@ -206,11 +396,27 @@ export const getPostBySlug = cache(
 
 export async function getPostById(id: number | string): Promise<News | null> {
   try {
-    const item = (await directus.request(
-      readItem('posts', id as string, {
-        fields: POST_FIELDS as never,
-      }),
-    )) as unknown as DirectusPost;
+    let item: DirectusPost;
+    try {
+      item = (await directus.request(
+        readItem('posts', id as string, {
+          fields: POST_FIELDS as never,
+        }),
+      )) as unknown as DirectusPost;
+    } catch (error) {
+      if (!isPhantomPostsCollectionColumnError(error)) throw error;
+      // eslint-disable-next-line no-console
+      console.warn(
+        '[directus][getPostById] nested post fields failed (phantom posts.collection); retrying shallow + hydrate.',
+      );
+      const shallow = (await directus.request(
+        readItem('posts', id as string, {
+          fields: POST_FIELDS_SHALLOW as never,
+        }),
+      )) as unknown as DirectusPost;
+      const [hydrated] = await hydratePostsFromShallowRows([shallow]);
+      item = hydrated;
+    }
     return item ? mapPost(item) : null;
   } catch (error) {
     logDirectusError('getPostById', error, { id });
@@ -220,13 +426,25 @@ export async function getPostById(id: number | string): Promise<News | null> {
 
 export async function listPostSlugs(): Promise<string[]> {
   try {
-    const items = (await directus.request(
-      readItems('posts', {
-        fields: 'slug' as never,
-        filter: { status: { _eq: 'published' } },
-        limit: -1,
-      }),
-    )) as unknown as Pick<DirectusPost, 'slug'>[];
+    let items: Pick<DirectusPost, 'slug'>[];
+    try {
+      items = (await directus.request(
+        readItems('posts', {
+          fields: 'slug' as never,
+          filter: { status: { _eq: 'published' } },
+          limit: -1,
+        }),
+      )) as unknown as Pick<DirectusPost, 'slug'>[];
+    } catch (error) {
+      if (!isPhantomPostsCollectionColumnError(error)) throw error;
+      items = (await directus.request(
+        readItems('posts', {
+          fields: ['id', 'slug'] as never,
+          filter: { status: { _eq: 'published' } },
+          limit: -1,
+        }),
+      )) as unknown as Pick<DirectusPost, 'slug'>[];
+    }
     return items.map((p) => p.slug).filter(Boolean);
   } catch (error) {
     logDirectusError('listPostSlugs', error, {});
