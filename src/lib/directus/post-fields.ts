@@ -1,6 +1,6 @@
-/** `posts`: only scalar FK columns — nested `fields` can produce invalid SQL on some Directus versions. */
+import { formatFields } from '@directus/sdk';
 
-export const postRowFieldList = [
+export const postReadFieldTrees = [
   'id',
   'status',
   'date_created',
@@ -10,22 +10,19 @@ export const postRowFieldList = [
   'slug',
   'excerpt',
   'content',
-  'image',
-  'category',
-  'author',
+  { image: ['id', 'title', 'description', 'width', 'height'] },
+  { category: ['id', 'name', 'slug'] },
+  {
+    author: [
+      'id',
+      'name',
+      'bio',
+      'mail',
+      { image: ['id', 'title', 'description', 'width', 'height'] },
+    ],
+  },
 ] as const;
 
-export const postRowsFieldsComma = [...postRowFieldList].join(',');
-
-export const categoryListFields = ['id', 'name', 'slug'] as const;
-
-export const authorListFields = ['id', 'name', 'bio', 'mail', 'image'] as const;
-
-export const fileAssetFields = [
-  'id',
-  'title',
-  'description',
-  'width',
-  'height',
-  'filename_download',
-] as const;
+export const postReadFieldsComma = formatFields([...postReadFieldTrees]).join(
+  ',',
+);
