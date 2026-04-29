@@ -1,8 +1,10 @@
-import { formatFields, readItem, readItems } from '@directus/sdk';
+import { readItem, readItems } from '@directus/sdk';
 import { draftMode } from 'next/headers';
 import { cache } from 'react';
 
 import { directus } from '@/lib/directus';
+import { hydratePostFkRows } from '@/lib/directus/hydrate-post-rows';
+import { postRowsFieldsComma } from '@/lib/directus/post-fields';
 import {
   formatDirectusClientError,
   logDirectusError,
@@ -17,31 +19,6 @@ import type {
 } from '@/types/Directus';
 import type { DirectusImage } from '@/types/Image';
 import type { News } from '@/types/News';
-
-const POST_FIELD_TREES = [
-  'id',
-  'status',
-  'date_created',
-  'date_updated',
-  'date_published',
-  'title',
-  'slug',
-  'excerpt',
-  'content',
-  { image: ['id', 'title', 'description', 'width', 'height'] },
-  { category: ['id', 'name', 'slug'] },
-  {
-    author: [
-      'id',
-      'name',
-      'bio',
-      'mail',
-      { image: ['id', 'title', 'description', 'width', 'height'] },
-    ],
-  },
-] as const;
-
-const POST_FIELDS = formatFields([...POST_FIELD_TREES]).join(',');
 
 function mapImage(file?: DirectusFile | string | null): DirectusImage | null {
   if (!file) return null;
@@ -132,6 +109,21 @@ function postsStatusFilter(
   return { status: { _eq: 'published' as const } };
 }
 
+async function loadPostsRows(query: {
+  filter?: object;
+  sort?: string[];
+  limit?: number;
+}): Promise<DirectusPost[]> {
+  const rows = (await directus.request(
+    readItems('posts', {
+      ...query,
+      fields: postRowsFieldsComma as never,
+      sort: query.sort as never,
+    }),
+  )) as unknown as DirectusPost[];
+  return hydratePostFkRows(rows);
+}
+
 export async function listPosts(
   options: ListPostsQuery & { withOutcome: true },
 ): Promise<ListPostsOutcome>;
@@ -148,14 +140,7 @@ export async function listPosts(
   const draft = await isDraftEnabled();
   const filter = postsStatusFilter(draft, includeAllStatuses);
   try {
-    const items = (await directus.request(
-      readItems('posts', {
-        fields: POST_FIELDS as never,
-        sort: sort as never,
-        limit,
-        filter,
-      }),
-    )) as unknown as DirectusPost[];
+    const items = await loadPostsRows({ filter, sort, limit });
     const posts = items.map(mapPost);
     if (withOutcome) return { ok: true, posts };
     return posts;
@@ -175,17 +160,19 @@ export async function listPosts(
 export const getPostBySlug = cache(
   async (slug: string): Promise<News | null> => {
     const draft = await isDraftEnabled();
+    const filter = {
+      slug: { _eq: slug },
+      ...(draft ? {} : { status: { _eq: 'published' as const } }),
+    };
     try {
-      const items = (await directus.request(
+      const rows = (await directus.request(
         readItems('posts', {
-          fields: POST_FIELDS as never,
+          fields: postRowsFieldsComma as never,
           limit: 1,
-          filter: {
-            slug: { _eq: slug },
-            ...(draft ? {} : { status: { _eq: 'published' } }),
-          },
+          filter,
         }),
       )) as unknown as DirectusPost[];
+      const items = await hydratePostFkRows(rows);
       return items[0] ? mapPost(items[0]) : null;
     } catch (error) {
       logDirectusError('getPostBySlug', error, { slug, draft });
@@ -196,11 +183,12 @@ export const getPostBySlug = cache(
 
 export async function getPostById(id: number | string): Promise<News | null> {
   try {
-    const item = (await directus.request(
+    const row = (await directus.request(
       readItem('posts', id as string, {
-        fields: POST_FIELDS as never,
+        fields: postRowsFieldsComma as never,
       }),
     )) as unknown as DirectusPost;
+    const [item] = await hydratePostFkRows([row]);
     return item ? mapPost(item) : null;
   } catch (error) {
     logDirectusError('getPostById', error, { id });
@@ -212,7 +200,7 @@ export async function listPostSlugs(): Promise<string[]> {
   try {
     const items = (await directus.request(
       readItems('posts', {
-        fields: 'slug' as never,
+        fields: ['id', 'slug'] as never,
         filter: { status: { _eq: 'published' } },
         limit: -1,
       }),
