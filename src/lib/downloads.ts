@@ -1,4 +1,4 @@
-import { readItems } from '@directus/sdk';
+import { readFiles, readItems } from '@directus/sdk';
 import { draftMode } from 'next/headers';
 
 import { directus } from '@/lib/directus';
@@ -44,15 +44,32 @@ function formatBytes(size: number | string | null | undefined): string {
 
 function mimeToExtension(mime: string | null | undefined): string {
   if (!mime) return '';
-  if (mime.includes('/')) return mime.split('/')[1];
-  return mime;
+  const subtype = mime.split('/')[1] ?? mime;
+  if (subtype.includes('+')) return subtype.split('+')[0];
+  const lower = subtype.toLowerCase();
+  if (lower === 'jpeg') return 'jpg';
+  return lower;
+}
+
+function extensionFromFilename(name: string | null | undefined): string {
+  if (!name?.includes('.')) return '';
+  const part = name.split('.').pop() ?? '';
+  return /^[a-z0-9]+$/i.test(part) ? part.toLowerCase() : '';
+}
+
+function fileExtension(file: DirectusFile): string {
+  const fromMime = mimeToExtension(file.type ?? '');
+  if (fromMime) return fromMime;
+  return extensionFromFilename(
+    file.filename_download ?? file.filename_disk ?? undefined,
+  );
 }
 
 function mapJunctionToFile(
   junction: DownloadFileJunction,
 ): DownloadFile | null {
   const file = junction.directus_files_id;
-  if (!file || typeof file === 'string') return null;
+  if (!file || typeof file !== 'object') return null;
   const directusFile = file as DirectusFile;
   return {
     id: directusFile.id,
@@ -62,8 +79,61 @@ function mapJunctionToFile(
       'Unbenannte Datei',
     size: formatBytes(directusFile.filesize),
     url: getDirectusAssetUrl(directusFile),
-    type: mimeToExtension(directusFile.type ?? '').toLowerCase(),
+    type: fileExtension(directusFile),
   };
+}
+
+async function expandDownloadFiles(
+  items: DirectusDownload[],
+): Promise<DirectusDownload[]> {
+  const ids = new Set<string>();
+  for (const doc of items) {
+    for (const row of doc.files ?? []) {
+      const ref = row.directus_files_id;
+      if (
+        ref !== null &&
+        ref !== undefined &&
+        (typeof ref === 'string' || typeof ref === 'number')
+      ) {
+        ids.add(String(ref));
+      }
+    }
+  }
+  if (!ids.size) return items;
+
+  const fileRows = (await directus.request(
+    readFiles({
+      filter: { id: { _in: [...ids] as never } },
+      fields: [
+        'id',
+        'title',
+        'filename_disk',
+        'filename_download',
+        'type',
+        'filesize',
+      ] as never,
+      limit: -1,
+    }),
+  )) as unknown as DirectusFile[];
+
+  const byId = new Map(fileRows.map((f) => [f.id, f]));
+
+  return items.map((doc) => ({
+    ...doc,
+    files: (doc.files ?? []).map((row) => {
+      const ref = row.directus_files_id;
+      const key =
+        ref !== null &&
+        ref !== undefined &&
+        (typeof ref === 'string' || typeof ref === 'number')
+          ? String(ref)
+          : null;
+      if (key && byId.has(key)) {
+        return { ...row, directus_files_id: byId.get(key)! };
+      }
+      return row;
+    }),
+  }));
 }
 
 export function mapDownload(download: DirectusDownload): Download {
@@ -109,7 +179,8 @@ export async function listDownloads(): Promise<Download[]> {
         },
       }),
     )) as unknown as DirectusDownload[];
-    return items.map(mapDownload);
+    const hydrated = await expandDownloadFiles(items);
+    return hydrated.map(mapDownload);
   } catch (error) {
     logDirectusError('listDownloads', error, { draft });
     return [];

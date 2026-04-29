@@ -98,9 +98,8 @@ Ein Eintrag pro „Produkt“/„Bündel“ – kann mehrere Dateien enthalten.
 > **Hinweis zu M2M-Files:** Beim Anlegen wählst du in Directus Studio für das
 > Feld `files` den Interface-Typ „Files“ – Directus generiert dann die
 > Junction-Collection automatisch. Das Frontend liest die Dateien über
-> `files[].directus_files_id`.
-
-## 3. Berechtigungen
+> Junction-Zeilen mit nur der Datei-UUID werden serverseitig per `readFiles`
+> nachgeladen, damit Titel, Größe und Link zuverlässig angezeigt werden.
 
 Lege eine Policy an (z.B. „Public Read“) mit folgenden Read-Rechten:
 
