@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-import { listPostsDetailed } from '@/lib/posts';
+import { listPosts } from '@/lib/posts';
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
@@ -8,9 +8,10 @@ export async function GET(request: NextRequest) {
     searchParams.get('all') === '1' || searchParams.get('all') === 'true';
 
   try {
-    const outcome = await listPostsDetailed({
+    const outcome = await listPosts({
       limit: 4,
       includeAllStatuses: includeAll,
+      withOutcome: true,
     });
 
     if (!outcome.ok) {

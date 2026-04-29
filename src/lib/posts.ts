@@ -111,7 +111,7 @@ async function isDraftEnabled(): Promise<boolean> {
   }
 }
 
-type ListPostsOptions = {
+type ListPostsQuery = {
   limit?: number;
   sort?: string[];
   /**
@@ -139,14 +139,23 @@ function postsStatusFilter(
 }
 
 /**
- * Same data as {@link listPosts}, but surfaces Directus failures instead of
- * only logging them (useful for diagnostics routes).
+ * Loads news posts from Directus. By default returns only published items
+ * (unless draft mode is on). Pass `{ withOutcome: true }` when you need error
+ * detail instead of an empty array on failure (e.g. `/api/posts`).
  */
-export async function listPostsDetailed({
-  limit,
-  sort = ['-date_published', '-id'],
-  includeAllStatuses,
-}: ListPostsOptions = {}): Promise<ListPostsOutcome> {
+export async function listPosts(
+  options: ListPostsQuery & { withOutcome: true },
+): Promise<ListPostsOutcome>;
+export async function listPosts(options?: ListPostsQuery): Promise<News[]>;
+export async function listPosts(
+  options: ListPostsQuery & { withOutcome?: boolean } = {},
+): Promise<News[] | ListPostsOutcome> {
+  const {
+    withOutcome,
+    limit,
+    sort = ['-date_published', '-id'],
+    includeAllStatuses,
+  } = options;
   const draft = await isDraftEnabled();
   try {
     const items = (await directus.request(
@@ -157,22 +166,20 @@ export async function listPostsDetailed({
         filter: postsStatusFilter(draft, includeAllStatuses),
       }),
     )) as unknown as DirectusPost[];
-    return { ok: true, posts: items.map(mapPost) };
+    const posts = items.map(mapPost);
+    if (withOutcome) return { ok: true, posts };
+    return posts;
   } catch (error) {
     logDirectusError('listPosts', error, {
       limit,
       draft,
       includeAllStatuses,
     });
-    return { ok: false, posts: [], error: formatDirectusClientError(error) };
+    if (withOutcome) {
+      return { ok: false, posts: [], error: formatDirectusClientError(error) };
+    }
+    return [];
   }
-}
-
-export async function listPosts(
-  options: ListPostsOptions = {},
-): Promise<News[]> {
-  const outcome = await listPostsDetailed(options);
-  return outcome.ok ? outcome.posts : [];
 }
 
 export const getPostBySlug = cache(

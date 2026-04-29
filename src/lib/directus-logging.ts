@@ -60,6 +60,15 @@ export function logDirectusError(
     if (code === 'INVALID_QUERY' || code === 'INVALID_PAYLOAD') {
       return 'The request was rejected by Directus – usually because a field name in the `fields` array does not exist on the collection. Cross-check the names with Directus Studio.';
     }
+    if (
+      status === 500 &&
+      /column .* does not exist|relation .* does not exist/i.test(message)
+    ) {
+      return 'Directus returned HTTP 500 from the database (e.g. unknown column). The instance was reached; fix the collection schema or the requested fields — this is not a CORS/connectivity issue.';
+    }
+    if (status !== undefined && status >= 500) {
+      return 'Directus returned a server error (HTTP 5xx). Check Directus and database logs on the CMS host.';
+    }
     if (!directusUrl) {
       return 'NEXT_PUBLIC_DIRECTUS_URL is not configured.';
     }
