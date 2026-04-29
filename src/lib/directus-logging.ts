@@ -13,6 +13,28 @@ type DirectusErrorShape = {
   status?: number;
 };
 
+export type DirectusClientErrorSummary = {
+  message: string;
+  status?: number;
+  code?: string;
+};
+
+/**
+ * Compact error shape for JSON responses (e.g. dev-only API hints).
+ */
+export function formatDirectusClientError(
+  error: unknown,
+): DirectusClientErrorSummary {
+  const e = error as DirectusErrorShape;
+  const status = e?.response?.status ?? e?.status;
+  const directusErrors = e?.errors;
+  const message =
+    directusErrors?.[0]?.message ??
+    (error instanceof Error ? error.message : String(error));
+  const code = directusErrors?.[0]?.extensions?.code;
+  return { message, status, code };
+}
+
 /**
  * Pretty-prints a Directus SDK error so it actually shows up in server logs
  * with enough context to debug 401/403/404/CORS issues. We call this from
@@ -23,14 +45,7 @@ export function logDirectusError(
   error: unknown,
   context: Record<string, unknown> = {},
 ): void {
-  const e = error as DirectusErrorShape;
-
-  const status = e?.response?.status ?? e?.status;
-  const directusErrors = e?.errors;
-  const message =
-    directusErrors?.[0]?.message ??
-    (error instanceof Error ? error.message : String(error));
-  const code = directusErrors?.[0]?.extensions?.code;
+  const { message, status, code } = formatDirectusClientError(error);
 
   const hint = (() => {
     if (status === 401) {

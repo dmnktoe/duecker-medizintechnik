@@ -3,7 +3,10 @@ import { draftMode } from 'next/headers';
 import { cache } from 'react';
 
 import { directus } from '@/lib/directus';
-import { logDirectusError } from '@/lib/directus-logging';
+import {
+  formatDirectusClientError,
+  logDirectusError,
+} from '@/lib/directus-logging';
 import { getDirectusAssetUrl } from '@/lib/directus-urls';
 
 import type {
@@ -111,12 +114,39 @@ async function isDraftEnabled(): Promise<boolean> {
 type ListPostsOptions = {
   limit?: number;
   sort?: string[];
+  /**
+   * When true, do not restrict to `status = published` (still respects draft
+   * mode: with draft enabled, the filter is already off). Use for local
+   * debugging when items are still draft.
+   */
+  includeAllStatuses?: boolean;
 };
 
-export async function listPosts({
+export type ListPostsOutcome =
+  | { ok: true; posts: News[] }
+  | {
+      ok: false;
+      posts: [];
+      error: ReturnType<typeof formatDirectusClientError>;
+    };
+
+function postsStatusFilter(
+  draft: boolean,
+  includeAllStatuses: boolean | undefined,
+) {
+  if (draft || includeAllStatuses) return undefined;
+  return { status: { _eq: 'published' as const } };
+}
+
+/**
+ * Same data as {@link listPosts}, but surfaces Directus failures instead of
+ * only logging them (useful for diagnostics routes).
+ */
+export async function listPostsDetailed({
   limit,
   sort = ['-date_published', '-id'],
-}: ListPostsOptions = {}): Promise<News[]> {
+  includeAllStatuses,
+}: ListPostsOptions = {}): Promise<ListPostsOutcome> {
   const draft = await isDraftEnabled();
   try {
     const items = (await directus.request(
@@ -124,14 +154,25 @@ export async function listPosts({
         fields: POST_FIELDS as never,
         sort: sort as never,
         limit,
-        filter: draft ? undefined : { status: { _eq: 'published' } },
+        filter: postsStatusFilter(draft, includeAllStatuses),
       }),
     )) as unknown as DirectusPost[];
-    return items.map(mapPost);
+    return { ok: true, posts: items.map(mapPost) };
   } catch (error) {
-    logDirectusError('listPosts', error, { limit, draft });
-    return [];
+    logDirectusError('listPosts', error, {
+      limit,
+      draft,
+      includeAllStatuses,
+    });
+    return { ok: false, posts: [], error: formatDirectusClientError(error) };
   }
+}
+
+export async function listPosts(
+  options: ListPostsOptions = {},
+): Promise<News[]> {
+  const outcome = await listPostsDetailed(options);
+  return outcome.ok ? outcome.posts : [];
 }
 
 export const getPostBySlug = cache(
