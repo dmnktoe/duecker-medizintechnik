@@ -15,32 +15,13 @@ export async function GET(request: NextRequest) {
     });
 
     if (!outcome.ok) {
-      const body: Record<string, unknown> = {
-        data: [],
-        error: outcome.error,
-      };
-      if (process.env.NODE_ENV === 'development') {
-        body._debug = {
-          hint: 'Directus request failed; see server console for full log.',
-          includeAllStatuses: includeAll,
-        };
-      }
-      return NextResponse.json(body, { status: 502 });
+      return NextResponse.json(
+        { data: [], error: outcome.error },
+        { status: 502 },
+      );
     }
 
-    const body: Record<string, unknown> = { data: outcome.posts };
-    if (process.env.NODE_ENV === 'development') {
-      body._debug = {
-        count: outcome.posts.length,
-        includeAllStatuses: includeAll,
-        ...(outcome.posts.length === 0 && !includeAll
-          ? {
-              tip: 'No rows returned with status=published. Use ?all=1 to include drafts, or open /api/cms/diagnostics.',
-            }
-          : {}),
-      };
-    }
-    return NextResponse.json(body);
+    return NextResponse.json({ data: outcome.posts });
   } catch {
     return NextResponse.json({ data: null }, { status: 502 });
   }

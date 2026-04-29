@@ -19,9 +19,6 @@ export type DirectusClientErrorSummary = {
   code?: string;
 };
 
-/**
- * Compact error shape for JSON responses (e.g. dev-only API hints).
- */
 export function formatDirectusClientError(
   error: unknown,
 ): DirectusClientErrorSummary {
@@ -35,11 +32,6 @@ export function formatDirectusClientError(
   return { message, status, code };
 }
 
-/**
- * Pretty-prints a Directus SDK error so it actually shows up in server logs
- * with enough context to debug 401/403/404/CORS issues. We call this from
- * each loader instead of swallowing errors silently.
- */
 export function logDirectusError(
   source: string,
   error: unknown,
