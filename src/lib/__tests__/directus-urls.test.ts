@@ -23,19 +23,19 @@ describe('getDirectusAssetUrl', () => {
     expect(getDirectusAssetUrl(url)).toBe(url);
   });
 
-  it('maps CMS-hosted /assets URLs to local proxy paths (for next/image)', () => {
+  it('maps CMS-hosted /assets URLs to trailing-slash proxy paths', () => {
     expect(getDirectusAssetUrl('/assets/abc.jpg')).toBe(
-      '/api/cms/assets/abc.jpg',
+      '/api/cms/assets/abc.jpg/',
     );
   });
 
   it('maps bare file id via CMS assets to proxy paths', () => {
-    expect(getDirectusAssetUrl('abc-123')).toBe('/api/cms/assets/abc-123');
+    expect(getDirectusAssetUrl('abc-123')).toBe('/api/cms/assets/abc-123/');
   });
 
   it('maps file id objects to proxy paths', () => {
     expect(getDirectusAssetUrl({ id: 'abc-123' })).toBe(
-      '/api/cms/assets/abc-123',
+      '/api/cms/assets/abc-123/',
     );
   });
 
@@ -45,6 +45,6 @@ describe('getDirectusAssetUrl', () => {
         id: 'abc-123',
         url: '/assets/abc-123/thumb',
       }),
-    ).toBe('/api/cms/assets/abc-123/thumb');
+    ).toBe('/api/cms/assets/abc-123/thumb/');
   });
 });

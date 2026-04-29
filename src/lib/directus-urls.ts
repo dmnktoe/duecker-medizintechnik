@@ -28,7 +28,7 @@ function resolveFileRefString(ref: string): string {
 
 function proxiedPath(tail: string, search: string): string {
   const path = tail.replace(/^\/+|\/+$/g, '');
-  return `/api/cms/assets/${path}${search}`;
+  return `/api/cms/assets/${path}/` + search;
 }
 
 function withAssetProxyIfDirectusHosted(resolved: string): string {

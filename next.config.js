@@ -21,7 +21,10 @@ const nextConfig = {
 
   images: {
     qualities: [65, 90],
-    localPatterns: [{ pathname: '/api/cms/assets/**' }],
+    localPatterns: [
+      { pathname: '/api/cms/assets/**' },
+      { pathname: '/api/cms/assets/**/' },
+    ],
     remotePatterns: [
       // Directus media host – derived from NEXT_PUBLIC_DIRECTUS_URL so we
       // don't need to hard-code the hostname in here.
