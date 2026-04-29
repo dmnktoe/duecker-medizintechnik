@@ -88,12 +88,12 @@ Gruppen im Download-Center.
 
 Ein Eintrag pro „Produkt“/„Bündel“ – kann mehrere Dateien enthalten.
 
-| Feld       | Typ                                                  | Notizen                                                                  |
-| ---------- | ---------------------------------------------------- | ------------------------------------------------------------------------ |
-| `name`     | String                                               | Anzeigename in der Akkordeon-Zeile                                       |
-| `category` | M2O → `download_categories`                          |                                                                          |
-| `files`    | M2M zu `directus_files` (Junction `downloads_files`) | Junction-Spalten heißen automatisch `downloads_id` & `directus_files_id` |
-| `locale`   | String                                               | Optional. Wenn gesetzt, filtert das Frontend pro Sprache (`de`/`en`).    |
+| Feld       | Typ                                                  | Notizen                                                                                      |
+| ---------- | ---------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `name`     | String                                               | Anzeigename in der Akkordeon-Zeile                                                           |
+| `category` | M2O → `download_categories`                          |                                                                                              |
+| `files`    | M2M zu `directus_files` (Junction `downloads_files`) | Junction-Spalten heißen automatisch `downloads_id` & `directus_files_id`                     |
+| `locale`   | String                                               | Optional in Directus; **the frontend does not filter by locale** — one global list per site. |
 
 > **Hinweis zu M2M-Files:** Beim Anlegen wählst du in Directus Studio für das
 > Feld `files` den Interface-Typ „Files“ – Directus generiert dann die

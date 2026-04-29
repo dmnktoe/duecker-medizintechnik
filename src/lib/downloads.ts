@@ -16,7 +16,6 @@ const DOWNLOAD_FIELDS = [
   'id',
   'status',
   'name',
-  'locale',
   { category: ['id', 'name', 'slug'] },
   {
     files: [
@@ -97,7 +96,7 @@ async function isDraftEnabled(): Promise<boolean> {
   }
 }
 
-export async function listDownloads(locale?: string): Promise<Download[]> {
+export async function listDownloads(): Promise<Download[]> {
   const draft = await isDraftEnabled();
   try {
     const items = (await directus.request(
@@ -107,13 +106,12 @@ export async function listDownloads(locale?: string): Promise<Download[]> {
         limit: -1,
         filter: {
           ...(draft ? {} : { status: { _eq: 'published' } }),
-          ...(locale ? { locale: { _eq: locale } } : {}),
         },
       }),
     )) as unknown as DirectusDownload[];
     return items.map(mapDownload);
   } catch (error) {
-    logDirectusError('listDownloads', error, { locale, draft });
+    logDirectusError('listDownloads', error, { draft });
     return [];
   }
 }
