@@ -1,4 +1,4 @@
-import { readItem, readItems } from '@directus/sdk';
+import { formatFields, readItem, readItems } from '@directus/sdk';
 import { draftMode } from 'next/headers';
 import { cache } from 'react';
 
@@ -15,7 +15,8 @@ import type {
 import type { DirectusImage } from '@/types/Image';
 import type { News } from '@/types/News';
 
-const POST_FIELDS = [
+/** Nested field trees → single `fields=` string (avoids invalid top-level columns). */
+const POST_FIELD_TREES = [
   'id',
   'status',
   'date_created',
@@ -36,7 +37,9 @@ const POST_FIELDS = [
       { image: ['id', 'title', 'description', 'width', 'height'] },
     ],
   },
-];
+] as const;
+
+const POST_FIELDS = formatFields([...POST_FIELD_TREES]).join(',');
 
 function mapImage(file?: DirectusFile | string | null): DirectusImage | null {
   if (!file) return null;
@@ -171,7 +174,7 @@ export async function listPostSlugs(): Promise<string[]> {
   try {
     const items = (await directus.request(
       readItems('posts', {
-        fields: ['slug'],
+        fields: 'slug' as never,
         filter: { status: { _eq: 'published' } },
         limit: -1,
       }),
