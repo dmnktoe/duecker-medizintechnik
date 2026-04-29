@@ -108,6 +108,34 @@
       "title": "Pressemitteilungen"
     }
   },
+  "openingHours": {
+    "title": "Öffnungszeiten",
+    "nowOpen": "Jetzt geöffnet",
+    "nowClosed": "Geschlossen",
+    "closed": "Geschlossen",
+    "holiday": "Heute Feiertag – Geschlossen",
+    "days": {
+      "monday": "Montag",
+      "tuesday": "Dienstag",
+      "wednesday": "Mittwoch",
+      "thursday": "Donnerstag",
+      "friday": "Freitag",
+      "saturday": "Samstag",
+      "sunday": "Sonntag"
+    },
+    "holidays": {
+      "newYear": "Neujahr",
+      "laborDay": "Tag der Arbeit",
+      "germanUnity": "Tag der Deutschen Einheit",
+      "christmas1": "1. Weihnachtsfeiertag",
+      "christmas2": "2. Weihnachtsfeiertag",
+      "goodFriday": "Karfreitag",
+      "easterMonday": "Ostermontag",
+      "ascension": "Christi Himmelfahrt",
+      "whitMonday": "Pfingstmontag",
+      "corpusChristi": "Fronleichnam"
+    }
+  },
   "header": {
     "change-locale": "Sprache wechseln (en-US)",
     "cookieLinkText": "Cookies (GDPR)",

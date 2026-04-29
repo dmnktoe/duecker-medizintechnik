@@ -108,6 +108,34 @@
       "title": "Recent News"
     }
   },
+  "openingHours": {
+    "title": "Opening Hours",
+    "nowOpen": "Open now",
+    "nowClosed": "Closed",
+    "closed": "Closed",
+    "holiday": "Public Holiday – Closed",
+    "days": {
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday"
+    },
+    "holidays": {
+      "newYear": "New Year's Day",
+      "laborDay": "Labour Day",
+      "germanUnity": "German Unity Day",
+      "christmas1": "Christmas Day",
+      "christmas2": "St. Stephen's Day",
+      "goodFriday": "Good Friday",
+      "easterMonday": "Easter Monday",
+      "ascension": "Ascension Day",
+      "whitMonday": "Whit Monday",
+      "corpusChristi": "Corpus Christi"
+    }
+  },
   "header": {
     "change-locale": "Change Language (de-DE)",
     "cookieLinkText": "Cookie Settings",
