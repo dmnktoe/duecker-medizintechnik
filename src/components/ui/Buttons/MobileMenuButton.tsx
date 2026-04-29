@@ -32,10 +32,10 @@ export const MobileMenuButton = React.forwardRef<
       ref={ref}
       type='button'
       aria-expanded={isOpen}
-      aria-controls={menuPanelId}
+      aria-controls={isOpen ? menuPanelId : undefined}
       data-testid={testId}
       className={clsxm(
-        'navbar-burger border-dark text-dark flex items-center justify-center rounded-full border border-solid p-3 transition duration-200 hover:scale-95 hover:bg-black hover:text-white active:scale-75 active:bg-neutral-700',
+        'border-dark text-dark flex items-center justify-center rounded-full border border-solid p-3 transition duration-200 outline-none select-none hover:scale-95 hover:bg-black hover:text-white active:scale-95 active:bg-neutral-800 focus-visible:ring-2 focus-visible:ring-primary-500/30',
         className,
       )}
       {...rest}

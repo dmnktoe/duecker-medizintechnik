@@ -11,12 +11,24 @@ import { i18nConfig } from '@/i18n/settings';
 type Props = {
   className?: string;
   showDisplayName?: boolean;
+  /** If set, used instead of an auto-generated id (for <label htmlFor> pairing). */
+  id?: string;
+  name?: string;
+  /** Accessible name for the select. */
+  ariaLabel?: string;
 };
 
-const LanguagePicker = ({ className, showDisplayName }: Props) => {
+const LanguagePicker = ({
+  className,
+  showDisplayName,
+  id: idProp,
+  name = 'languages',
+  ariaLabel,
+}: Props) => {
   const pathname = usePathname();
   const router = useRouter();
-  const id = useId();
+  const autoId = useId();
+  const id = idProp ?? autoId;
   const flags = useFlags(['language_picker']);
 
   const segments = pathname.split('/').filter(Boolean);
@@ -36,8 +48,9 @@ const LanguagePicker = ({ className, showDisplayName }: Props) => {
   return (
     <select
       className={clsx(className, 'bg-transparent text-sm md:text-base')}
-      name='languages'
+      name={name}
       id={id}
+      aria-label={ariaLabel}
       onChange={handleLanguageChange}
       value={currentLocale}
     >
