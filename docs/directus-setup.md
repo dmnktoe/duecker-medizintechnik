@@ -23,12 +23,19 @@ Directus anlegen musst, damit das Frontend ohne Anpassungen funktioniert.
   CORS_ORIGIN: 'https://duecker-medizintechnik.de,https://www.duecker-medizintechnik.de,http://localhost:3000'
   ```
 
-- Damit Directus den Visual Editor in das Frontend per `<iframe>` einbetten
-  darf:
+- **Live Preview & Visual Editor** laden deine Frontend-URLs in einem
+  `<iframe>`. Diese Ursprünge müssen in der **Directus**-CSP unter **`frame-src`**
+  stehen (Umgebungsvariablen, nicht im Next.js-Projekt).
+
+  Produktion + lokale Entwicklung:
 
   ```yaml
-  CONTENT_SECURITY_POLICY_DIRECTIVES__FRAME_SRC: "'self' http://localhost:3000 https://duecker-medizintechnik.de https://www.duecker-medizintechnik.de"
+  CONTENT_SECURITY_POLICY_DIRECTIVES__FRAME_SRC: "'self' http://localhost:3000 http://127.0.0.1:3000 https://duecker-medizintechnik.de https://www.duecker-medizintechnik.de"
   ```
+
+  Nach Änderungen die Directus-Instanz **neu starten**, sonst gilt die alte CSP
+  weiter. Fehler wie „does not appear in the **frame-src** directive“ kommen vom
+  **Directus-Host**, wenn z. B. `http://localhost:3000` hier fehlt.
 
 ## 2. Collections
 
@@ -113,15 +120,24 @@ Drafts, damit Live Preview funktioniert.
 In Directus Studio:
 
 1. Settings → Data Model → **`posts`** → „Preview URL“.
-2. Eintragen:
+2. Eintragen (Produktion; lokal denselben Aufbau mit deiner Basis-URL):
 
    ```
    https://duecker-medizintechnik.de/api/draft?secret=$SECRET&type=posts&id=ID&locale=de
    ```
 
+   Lokal z. B.:
+
+   ```
+   http://localhost:3000/api/draft?secret=$SECRET&type=posts&id=ID&locale=de
+   ```
+
    - `$SECRET` ist der Wert aus `DIRECTUS_PREVIEW_SECRET`.
    - `ID` ist Pflicht-Platzhalter, den Directus mit der Item-ID befüllt.
    - `locale` optional (Default `de`).
+
+   **Hinweis:** Die Preview-URL muss unter den in **`frame-src`** erlaubten
+   Ursprüngen liegen (siehe oben); sonst blockiert die Browser-CSP das iframe.
 
 3. Im Item-Editor oben „Enable Preview“ einschalten.
 
