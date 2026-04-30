@@ -24,7 +24,13 @@ Directus anlegen musst, damit das Frontend ohne Anpassungen funktioniert.
 
 - **Live Preview & Visual Editor** laden deine Frontend-URLs in einem
   `<iframe>`. Diese Ursprünge müssen in der **Directus**-CSP unter **`frame-src`**
-  stehen (Umgebungsvariablen, nicht im Next.js-Projekt).
+  stehen (Umgebungsvariablen auf dem **Directus-Server**, nicht im Next.js-Projekt).
+
+  Wenn **`frame-src` nicht gesetzt** ist, verwenden Browser **`child-src` als
+  Fallback**. Directus setzt standardmäßig z. B. `child-src 'self' blob:` –
+  dann erscheint in der Konsole genau der Fehler: *Framing 'https://…' violates
+  … child-src 'self' blob:*. Abhilfe: **`frame-src`** wie unten setzen und
+  Directus neu starten.
 
   Produktion + lokale Entwicklung:
 
@@ -206,6 +212,32 @@ Häufigste Ursachen, in der Reihenfolge wie sie geprüft werden sollten:
 4. **CORS.** Wenn Directus selbst gehostet wird, müssen `CORS_ENABLED=true`
    und `CORS_ORIGIN` so gesetzt sein, dass die Frontend-Domain zugelassen
    ist.
+
+### Live Preview / Visual Editor: CSP blockiert das iframe
+
+**Symptom:** In der Browser-Konsole (im Directus-Admin, nicht auf der
+öffentlichen Site) Meldungen wie:
+
+- *Framing 'https://duecker-medizintechnik.de/…' violates … **child-src**
+  'self' blob:* … **frame-src** was not explicitly set, so **child-src** is used
+  as a fallback.*
+
+**Ursache:** Die Preview-URL / Visual-Editor-URL zeigt auf eure
+Next.js-Domain, aber die **CSP des Directus-Backends** erlaubt dieses Origin im
+iframe noch nicht.
+
+**Lösung:** Auf dem Directus-Host
+`CONTENT_SECURITY_POLICY_DIRECTIVES__FRAME_SRC` setzen (siehe Abschnitt 1),
+Directus **neu starten**, dann Preview / Visual Editor erneut öffnen.
+
+**Hinweis zu *chrome-error://chromewebdata***: Wenn das iframe wegen CSP
+blockiert wird, kann Chrome eine Fehlerseite im Frame laden; Meldungen über
+*Domains, protocols and ports must match* sind dann Folge des blockierten
+Loads, nicht zwingend ein separates Problem auf der Website.
+
+**Hinweis zu *message channel closed* / Extension-Errors:** Oft stammen
+asynchrone Listener-Fehler von **Browser-Extensions** oder vom abgebrochenen
+iframe; zuerst CSP beheben und testweise ohne Extensions prüfen.
 
 ### Server-Logs
 
