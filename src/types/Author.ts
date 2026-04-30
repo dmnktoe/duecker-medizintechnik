@@ -7,6 +7,3 @@ export type Author = {
   mail?: string | null;
   image?: DirectusImage | null;
 };
-
-/** @deprecated kept for backwards compatibility; use `Author`. */
-export type AuthorData = Author;

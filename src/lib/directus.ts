@@ -21,11 +21,9 @@ assertDirectusEnv();
 const baseUrl = (directusUrl ?? '').replace(/\/+$/, '');
 
 /**
- * Server-side Directus client (uses the static admin/service token).
- * Use this from server components, route handlers, generateMetadata etc.
- *
- * `next: { revalidate: 60 }` – matches the previous Strapi caching policy
- * and keeps revalidation centralised on the server.
+ * Server-side Directus client (static service token).
+ * Use this from server components, route handlers, and `generateMetadata`.
+ * REST requests use `next: { revalidate: 60 }` for ISR-style caching.
  */
 export const directus = createDirectus<DirectusSchema>(baseUrl)
   .with(staticToken(directusApiToken))

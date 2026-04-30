@@ -14,9 +14,3 @@ export type DirectusImage = {
   /** Height in pixels (if known). */
   height?: number | null;
 };
-
-/**
- * Backwards-compatible alias used in legacy components. Prefer the named
- * `DirectusImage` export for new code.
- */
-export type ImageData = DirectusImage;

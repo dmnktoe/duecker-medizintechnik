@@ -16,7 +16,7 @@ const FILE_FIELDS = [
   'filesize',
 ] as const;
 
-/** UUID from a junction row (legacy `files` many-to-many). */
+/** Resolves a file id from a junction or nested row. */
 function fileIdFromNestedRow(row: Record<string, unknown>): string | null {
   const a = row.directus_files_id;
   if (typeof a === 'string' || typeof a === 'number') return String(a);
@@ -27,7 +27,7 @@ function fileIdFromNestedRow(row: Record<string, unknown>): string | null {
   return null;
 }
 
-/** File ids nested under deprecated `downloads.files[]`. */
+/** Collects file ids from `downloads.files[]` junction rows. */
 export function collectNestedFileIds(
   rows: Record<string, unknown>[] | null | undefined,
 ): string[] {
@@ -40,7 +40,7 @@ export function collectNestedFileIds(
   return out;
 }
 
-/** Legacy junction: many files per download. */
+/** Resolves `downloads_files` → file id lists per download id. */
 export async function fileIdsPerDownloadViaJunction(
   downloadIds: (string | number)[],
 ): Promise<Map<string, string[]>> {
@@ -120,7 +120,9 @@ async function loadDirectusFilesByIds(
 }
 
 /**
- * Hydrate singular `downloads.file` when API returns UUID only + merge legacy junction `files`.
+ * Hydrates `file` and `files` on download rows: loads full file records
+ * when the API only returns a UUID, and builds junction row shapes when
+ * the explicit `files` array is empty.
  */
 export async function resolveDownloadFiles(
   rows: unknown[],

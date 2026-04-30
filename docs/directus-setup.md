@@ -3,9 +3,8 @@
 Diese Datei beschreibt die Collections, Felder und Einstellungen, die du in
 Directus anlegen musst, damit das Frontend ohne Anpassungen funktioniert.
 
-> Die Migration ersetzt die bisherige Strapi-Anbindung 1:1 (Posts + Download
-> Center). Slug-/Routen-Struktur (`/newsroom/<slug>`, `/downloads`) bleibt
-> unverändert.
+> Content model: **Posts** (Newsroom) und **Downloads** (Download Center mit
+> Kategorien). Routen: `/newsroom/<slug>`, `/downloads`.
 
 ## 1. Voraussetzungen
 
@@ -164,18 +163,13 @@ im Draft-Mode (also im Preview-iFrame) gerendert wird – siehe
 über `data-directus`-Attribute markiert (siehe `setVisualEditorAttr` in
 `src/lib/directus-visual-editor.ts`).
 
-## 6. Schritt-für-Schritt-Migration der bestehenden Daten
+## 6. Inhalte anlegen
 
-Empfehlung, da Inhalte überschaubar sind:
-
-1. Posts in Directus neu anlegen (Title, Slug, Excerpt, Content kopieren).
+1. Posts in Directus anlegen (Title, Slug, Excerpt, Content).
 2. Header-Bild hochladen → in `posts.image` referenzieren.
 3. Kategorien und Autoren anlegen, in den Posts verknüpfen.
 4. Download-Kategorien & Downloads inkl. Dateien anlegen.
 5. Locale auf den jeweiligen Items setzen (`de` / `en`).
-
-Nach dem Import kann die Strapi-Instanz abgeschaltet werden – das Frontend
-ruft sie nicht mehr auf.
 
 ## 7. Troubleshooting / Diagnose
 

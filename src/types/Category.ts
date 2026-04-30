@@ -7,6 +7,3 @@ export type Category = {
   name: string;
   slug: string;
 };
-
-/** @deprecated kept for backwards compatibility; use `Category`. */
-export type CategoryData = Category;

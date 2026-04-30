@@ -7,11 +7,7 @@ export type FooterPostsServerValue =
   | { kind: 'error' }
   | { kind: 'ready'; posts: News[] };
 
-/**
- * Loads footer "recent posts" on the server. Mirrors the previous Strapi
- * variant (`/posts?sort=id:desc&populate=*&pagination[pageSize]=4`) but uses
- * the new Directus client.
- */
+/** Loads recent posts for the footer when the feature flag is enabled. */
 export async function loadFooterPosts(
   fetchFooterPostsEnabled: boolean,
 ): Promise<FooterPostsServerValue> {
