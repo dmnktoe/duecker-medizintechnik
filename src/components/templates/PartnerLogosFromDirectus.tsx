@@ -11,14 +11,46 @@ import Marquee from '@/components/templates/Marquee';
 import type { PartnerLogoItem } from '@/types/PartnerLogo';
 
 const GRID_IMG_CLASS =
-  'hover:opacity-90 h-6 w-20 object-contain transition-all ease-in-out md:h-10 md:w-32';
+  'hover:text-dark inline-block h-6 w-20 shrink-0 transition-colors ease-in-out md:h-10 md:w-32';
 
-const MARQUEE_IMG_CLASS = 'h-6 w-20 md:h-10 md:w-32';
+const MARQUEE_IMG_CLASS =
+  'inline-block h-6 w-20 shrink-0 transition-colors ease-in-out md:h-10 md:w-32';
 
 const PARTNER_VISUAL_FIELDS = ['logo', 'link_url', 'name'] as const;
 
 function isSvgMime(mime: string | null): boolean {
   return (mime ?? '').toLowerCase().includes('svg');
+}
+
+/**
+ * External SVG in `<img>` cannot use CSS `color` (currentColor stays black). Tint
+ * via mask + bg-current so parent `text-*` / `hover:text-*` apply.
+ */
+function PartnerSvgLogo({
+  logoUrl,
+  alt,
+  className,
+}: {
+  logoUrl: string;
+  alt: string;
+  className?: string;
+}) {
+  const mask = `url(${JSON.stringify(logoUrl)})`;
+  return (
+    <span
+      role='img'
+      aria-label={alt}
+      className={clsxm(
+        'inline-block bg-current [mask-size:contain] [mask-repeat:no-repeat] [mask-position:center]',
+        '[-webkit-mask-size:contain] [-webkit-mask-repeat:no-repeat] [-webkit-mask-position:center]',
+        className,
+      )}
+      style={{
+        maskImage: mask,
+        WebkitMaskImage: mask,
+      }}
+    />
+  );
 }
 
 function LogoAsset({
@@ -30,8 +62,11 @@ function LogoAsset({
 }) {
   if (isSvgMime(item.mimeType)) {
     return (
-      // eslint-disable-next-line @next/next/no-img-element -- SVG from Directus
-      <img src={item.logoUrl} alt={item.alt} className={clsxm(className, 'object-contain')} />
+      <PartnerSvgLogo
+        logoUrl={item.logoUrl}
+        alt={item.alt}
+        className={className}
+      />
     );
   }
   return (
@@ -40,7 +75,7 @@ function LogoAsset({
       alt={item.alt}
       width={160}
       height={64}
-      className={clsxm(className, 'object-contain')}
+      className={clsxm(className, 'object-contain hover:opacity-90')}
       unoptimized
     />
   );
@@ -79,11 +114,18 @@ export function PartnerLogosFromDirectus({
             data-directus={editorAttr(item)}
           >
             {item.linkUrl ? (
-              <Link href={item.linkUrl} target='_blank' rel='noreferrer'>
+              <Link
+                href={item.linkUrl}
+                target='_blank'
+                rel='noreferrer'
+                className='text-muted hover:text-dark'
+              >
                 <LogoAsset item={item} className={GRID_IMG_CLASS} />
               </Link>
             ) : (
-              <LogoAsset item={item} className={GRID_IMG_CLASS} />
+              <span className='text-muted inline-block hover:text-dark'>
+                <LogoAsset item={item} className={GRID_IMG_CLASS} />
+              </span>
             )}
           </div>
         ))}
@@ -105,12 +147,12 @@ export function PartnerLogosFromDirectus({
               href={item.linkUrl}
               target='_blank'
               rel='noreferrer'
-              className='text-muted'
+              className='text-muted hover:text-dark'
             >
               <LogoAsset item={item} className={MARQUEE_IMG_CLASS} />
             </Link>
           ) : (
-            <span className='text-muted inline-block'>
+            <span className='text-muted inline-block hover:text-dark'>
               <LogoAsset item={item} className={MARQUEE_IMG_CLASS} />
             </span>
           )}
