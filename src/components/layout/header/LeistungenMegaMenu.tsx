@@ -48,7 +48,7 @@ export const LeistungenMegaMenu = ({ subItems }: LeistungenMegaMenuProps) => {
         <div className='relative z-10'>
           <div className='grid grid-cols-2 gap-6'>
             <div
-              className='group/megaimg relative aspect-square w-full max-w-[500px] overflow-hidden bg-gray-50'
+              className='relative aspect-square w-full max-w-[500px] overflow-hidden bg-gray-50'
               onMouseEnter={() => setPreviewHref(null)}
             >
               <div
@@ -63,7 +63,7 @@ export const LeistungenMegaMenu = ({ subItems }: LeistungenMegaMenuProps) => {
                   placeholder='blur'
                   fill
                   sizes='(min-width: 1280px) 500px, 50vw'
-                  className='object-cover transition-transform duration-500 ease-out group-hover/megaimg:scale-[1.04]'
+                  className='object-cover'
                   quality={90}
                 />
               </div>
@@ -81,7 +81,7 @@ export const LeistungenMegaMenu = ({ subItems }: LeistungenMegaMenuProps) => {
                     src={SERVICES_PAGE_HERO[href].image}
                     fill
                     sizes='(min-width: 1280px) 500px, 50vw'
-                    className='object-cover transition-transform duration-500 ease-out group-hover/megaimg:scale-[1.04]'
+                    className='object-cover'
                     quality={90}
                   />
                 </div>
