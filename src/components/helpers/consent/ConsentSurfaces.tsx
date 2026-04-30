@@ -20,6 +20,16 @@ export function ConsentSurfaces() {
     closeUI,
   } = useHeadlessConsentUI();
 
+  // The c15t hook reads consent state from localStorage during the first client
+  // render, so the banner can flip from "hidden" (server) to "visible" (client).
+  // That shift would otherwise replace the first DOM child of the page (e.g.
+  // the MobileNavDrawer overlay) and surface as a hydration mismatch in React.
+  // We mount the surfaces only after the client has hydrated.
+  const [hasMounted, setHasMounted] = React.useState(false);
+  React.useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
   const panelRef = React.useRef<HTMLDivElement>(null);
   useFocusTrap(dialog.isVisible, panelRef);
 
@@ -40,6 +50,8 @@ export function ConsentSurfaces() {
     document.addEventListener('keydown', onKey);
     return () => document.removeEventListener('keydown', onKey);
   }, [dialog.isVisible, closeUI]);
+
+  if (!hasMounted) return null;
 
   return (
     <>

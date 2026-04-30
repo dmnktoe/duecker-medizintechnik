@@ -2,16 +2,14 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import * as React from 'react';
 
-import { fetchAPI } from '@/lib/fetch-api';
 import { getAlternates } from '@/lib/hreflang';
+import { listPosts } from '@/lib/posts';
 import { sitePageMetadata } from '@/lib/site-page-metadata';
 
 import { Container } from '@/components/layout';
 import Page from '@/components/layout/Page';
 import { NewsList } from '@/components/templates/NewsList';
 import { Body, Title } from '@/components/ui';
-
-import { News } from '@/types/News';
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -28,9 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function NewsroomPage({ params }: Props) {
   const { locale } = await params;
   const t = await getTranslations({ locale: locale, namespace: 'news' });
-  const posts = await fetchAPI<{ data: News[] }>(
-    '/posts?sort=id:desc&populate=deep',
-  );
+  const posts = await listPosts();
 
   return (
     <Page
@@ -47,7 +43,7 @@ export default async function NewsroomPage({ params }: Props) {
         <Container>
           <Title>{t('content.title')}</Title>
           <Body>{t('content.text')}</Body>
-          <NewsList posts={posts?.data ?? null} />
+          <NewsList posts={posts} />
         </Container>
       </section>
     </Page>
