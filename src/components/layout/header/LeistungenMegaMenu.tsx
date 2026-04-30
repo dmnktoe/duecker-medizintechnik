@@ -33,16 +33,24 @@ export const LeistungenMegaMenu = ({ subItems }: LeistungenMegaMenuProps) => {
 
   return (
     <div
-      className='invisible absolute top-1.5 isolate min-w-[900px] translate-y-0 transform opacity-0 transition duration-200 ease-out group-focus-within:visible group-focus-within:translate-y-5 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-5 group-hover:opacity-100 focus-within:visible focus-within:translate-y-5 focus-within:opacity-100 lg:-left-[400px]'
-      onMouseLeave={() => setPreviewHref(null)}
+      className='invisible pointer-events-none absolute top-full left-0 z-30 flex w-max min-w-0 max-w-[min(900px,calc(100vw-2.5rem))] translate-y-0 flex-col items-stretch opacity-0 transition duration-200 ease-out will-change-transform group-focus-within:visible group-focus-within:translate-y-1 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-1 group-hover:opacity-100 focus-within:visible focus-within:translate-y-1 focus-within:opacity-100 md:min-w-[900px] lg:-left-[400px]'
     >
       {/*
-        Use box-shadow instead of filter drop-shadow: in Safari, filter on a large layer
-        can make adjacent header text look blurred during compositing.
+        Outer column is pointer-events-none. Only a narrow “bridge” + the white panel
+        re-enable events so the cursor can reach a sibling nav item without a huge
+        transparent hover target above the rest of the bar. Diamond: ring + top/left
+        border so the arrow edge is visible.
       */}
-      <div className='relative top-6 w-full cursor-default bg-white p-4 shadow-2xl ring-1 ring-gray-200/50'>
+      <div
+        className='pointer-events-auto h-1.5 w-full min-w-0 max-w-full shrink-0'
+        aria-hidden
+      />
+      <div
+        className='bg-white pointer-events-auto relative w-full min-w-0 max-w-full cursor-default p-4 shadow-2xl ring-1 ring-inset ring-gray-200/50'
+        onMouseLeave={() => setPreviewHref(null)}
+      >
         <div
-          className='absolute top-0 z-0 h-10 w-10 translate-x-0 rotate-45 transform rounded-sm bg-white transition-transform duration-500 ease-in-out group-focus-within:translate-x-[26rem] group-hover:translate-x-[26rem]'
+          className='absolute -top-2.5 z-0 h-9 w-9 translate-x-0 rotate-45 rounded-[3px] border-t border-l border-gray-200/80 bg-white shadow-sm ring-1 ring-gray-200/50 transition-transform duration-500 ease-in-out will-change-transform group-focus-within:translate-x-[26rem] group-hover:translate-x-[26rem]'
           aria-hidden
         />
         <div className='relative z-10'>
