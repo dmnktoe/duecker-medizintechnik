@@ -1,19 +1,38 @@
 import { getBaseUrl } from '@/lib/get-base-url';
 
+const originalEnv = { ...process.env };
+
 describe('getBaseUrl', () => {
+  afterEach(() => {
+    jest.restoreAllMocks();
+    for (const key of Object.keys(process.env)) {
+      if (!(key in originalEnv)) {
+        delete process.env[key as keyof NodeJS.ProcessEnv];
+      }
+    }
+    Object.assign(process.env, originalEnv);
+  });
+
   it('returns NEXT_PUBLIC_APP_URL if defined', () => {
     process.env.NEXT_PUBLIC_APP_URL = 'https://example.com';
     expect(getBaseUrl()).toBe('https://example.com');
-    delete process.env.NEXT_PUBLIC_APP_URL;
   });
 
-  it('returns NEXT_PUBLIC_VERCEL_URL if NEXT_PUBLIC_APP_URL is not defined', () => {
-    process.env.NEXT_PUBLIC_VERCEL_URL = 'example.vercel.app';
-    expect(getBaseUrl()).toBe('https://example.vercel.app');
-    delete process.env.NEXT_PUBLIC_VERCEL_URL;
-  });
-
-  it('returns localhost URL if neither NEXT_PUBLIC_APP_URL nor NEXT_PUBLIC_VERCEL_URL are defined', () => {
+  it('returns localhost URL in development when env URL is not defined', () => {
+    jest.replaceProperty(process, 'env', {
+      ...process.env,
+      NODE_ENV: 'development',
+      NEXT_PUBLIC_APP_URL: undefined,
+    });
     expect(getBaseUrl()).toBe('http://localhost:3000');
+  });
+
+  it('returns production site URL when in production and env URL is not defined', () => {
+    jest.replaceProperty(process, 'env', {
+      ...process.env,
+      NODE_ENV: 'production',
+      NEXT_PUBLIC_APP_URL: undefined,
+    });
+    expect(getBaseUrl()).toBe('https://duecker-medizintechnik.de');
   });
 });

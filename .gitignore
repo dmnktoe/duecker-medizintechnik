@@ -35,10 +35,5 @@ npm-debug.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# next-sitemap
-robots.txt
-sitemap.xml
-sitemap-*.xml
-
 # webstorm project files
 .idea
