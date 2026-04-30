@@ -145,7 +145,7 @@ export const StickyScroll = () => {
                     className='object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]'
                     placeholder='blur'
                     priority={index === 0}
-                    sizes='100vw'
+                    sizes='(max-width: 767px) calc(100vw - 2rem), calc(100vw - 4rem)'
                   />
                   <div className='absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent' />
                   <div className='absolute inset-x-0 bottom-0 p-5'>

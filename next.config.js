@@ -47,10 +47,6 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'cms.duecker-medizintechnik.de',
-      },
-      {
-        protocol: 'https',
         hostname: 'picsum.photos',
       },
     ],
