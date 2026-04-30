@@ -50,7 +50,9 @@ export type DistributionOpticProps = {
   partnerLogos: PartnerLogoItem[];
 };
 
-export default function DistributionOptic({ partnerLogos }: DistributionOpticProps) {
+export default function DistributionOptic({
+  partnerLogos,
+}: DistributionOpticProps) {
   const t = useTranslations('distribution');
 
   const PartnerLogos = () =>

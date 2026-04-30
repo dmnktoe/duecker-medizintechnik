@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import * as React from 'react';
 import { useRef } from 'react';
@@ -12,10 +11,9 @@ import 'swiper/css';
 import clsxm from '@/lib/clsxm';
 
 import { Container } from '@/components/layout/Container';
+import { PartnerLogosFromDirectus } from '@/components/templates/PartnerLogosFromDirectus';
 import { Body, ButtonLink, Title } from '@/components/ui';
 import { Decorator } from '@/components/ui/Icons';
-
-import { PartnerLogosFromDirectus } from '@/components/templates/PartnerLogosFromDirectus';
 
 import type { PartnerLogoItem } from '@/types/PartnerLogo';
 

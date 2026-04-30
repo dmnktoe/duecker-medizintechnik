@@ -18,13 +18,7 @@ const PARTNER_LOGO_FIELDS = [
   'name',
   'link_url',
   {
-    logo: [
-      'id',
-      'title',
-      'filename_download',
-      'type',
-      'filename_disk',
-    ],
+    logo: ['id', 'title', 'filename_download', 'type', 'filename_disk'],
   },
 ] as const;
 

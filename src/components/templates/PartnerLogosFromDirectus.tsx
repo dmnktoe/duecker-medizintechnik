@@ -41,8 +41,8 @@ function PartnerSvgLogo({
       role='img'
       aria-label={alt}
       className={clsxm(
-        'inline-block bg-current [mask-size:contain] [mask-repeat:no-repeat] [mask-position:center]',
-        '[-webkit-mask-size:contain] [-webkit-mask-repeat:no-repeat] [-webkit-mask-position:center]',
+        'inline-block bg-current [mask-size:contain] [mask-position:center] [mask-repeat:no-repeat]',
+        '[-webkit-mask-position:center] [-webkit-mask-repeat:no-repeat] [-webkit-mask-size:contain]',
         className,
       )}
       style={{
@@ -123,7 +123,7 @@ export function PartnerLogosFromDirectus({
                 <LogoAsset item={item} className={GRID_IMG_CLASS} />
               </Link>
             ) : (
-              <span className='text-muted inline-block hover:text-dark'>
+              <span className='text-muted hover:text-dark inline-block'>
                 <LogoAsset item={item} className={GRID_IMG_CLASS} />
               </span>
             )}
@@ -141,7 +141,11 @@ export function PartnerLogosFromDirectus({
       }
     >
       {items.map((item) => (
-        <div key={item.id} className='px-6 lg:px-12' data-directus={editorAttr(item)}>
+        <div
+          key={item.id}
+          className='px-6 lg:px-12'
+          data-directus={editorAttr(item)}
+        >
           {item.linkUrl ? (
             <Link
               href={item.linkUrl}
@@ -152,7 +156,7 @@ export function PartnerLogosFromDirectus({
               <LogoAsset item={item} className={MARQUEE_IMG_CLASS} />
             </Link>
           ) : (
-            <span className='text-muted inline-block hover:text-dark'>
+            <span className='text-muted hover:text-dark inline-block'>
               <LogoAsset item={item} className={MARQUEE_IMG_CLASS} />
             </span>
           )}
