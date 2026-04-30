@@ -16,7 +16,7 @@ export function ProduktionLeistungenView({ title }: { title: string }) {
       layout={{
         background: 'light',
         showBreadcrumbs: true,
-        showHero: false,
+        showHero: true,
         padding: 'small',
       }}
       image={SERVICES_PAGE_HERO['/leistungen/produktion'].image}

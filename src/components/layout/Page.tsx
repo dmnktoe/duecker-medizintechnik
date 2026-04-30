@@ -39,11 +39,14 @@ export default function Page({
   title,
 }: PageProps) {
   const flags = useFlags(['image_banner']);
+  const imageBannerOn = flags.image_banner.enabled;
+  const overlapHero = Boolean(image && layout.showHero && imageBannerOn);
+
   return (
     <Layout>
       {image &&
         layout.showHero &&
-        (flags.image_banner.enabled ? (
+        (imageBannerOn ? (
           <ImageBanner
             alt={title}
             className='flex-1'
@@ -57,6 +60,7 @@ export default function Page({
       {layout.topContent}
       <main
         className={clsxm(
+          overlapHero && '-mt-12 relative z-10 rounded-t-2xl md:-mt-16',
           layout.background === 'light' && 'bg-white',
           layout.background === 'dark' && 'bg-black',
           layout.background === 'primary' && 'bg-primary-500',
