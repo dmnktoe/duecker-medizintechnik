@@ -4,8 +4,8 @@ Diese Datei beschreibt die Collections, Felder und Einstellungen, die du in
 Directus anlegen musst, damit das Frontend ohne Anpassungen funktioniert.
 
 > Content model: **Posts** (Newsroom), **Downloads** (Download Center mit
-> Kategorien) und **Home** (Partner-Logos im Hero). Routen: `/newsroom/<slug>`,
-> `/downloads`, Startseite `/`.
+> Kategorien) und **Partner-Logos** (Logo-Zeile unter dem Home-Hero + Marquee auf
+> `/unternehmen`). Routen: `/newsroom/<slug>`, `/downloads`, `/`, `/unternehmen`.
 
 ## 1. Voraussetzungen
 
@@ -106,18 +106,16 @@ Ein Eintrag pro „Produkt“/„Bündel“ – kann mehrere Dateien enthalten.
 
 ### `home_partner_logos`
 
-Eine gemeinsame Liste für den **Bild-Slider im Hero** und die **Logo-Zeile direkt darunter** auf der Startseite. Wenn die Collection leer ist oder Directus nicht erreichbar ist, nutzt die Seite weiterhin die eingebauten Fallback-Bilder bzw. die statische Partner-Liste aus dem Code.
+Eine gemeinsame Liste für die **Logo-Zeile direkt unter dem Hero** auf der Startseite (`/`) und den **Partner-Marquee** auf der Seite **Unternehmen** (`/unternehmen`). Der **Bild-Slider im Hero** bleibt unverändert (statische Bilder im Repo).
 
-| Feld                 | Typ        | Notizen                                                                                                                                 |
-| -------------------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`               | String     | Optional; wird als **Alt-Text** genutzt (sonst Datei-Titel / Dateiname).                                                                 |
-| `logo`               | File (M2O) | Pflicht für sichtbare Einträge; **SVG** und Raster (JPG/PNG/WebP) sind erlaubt.                                                         |
-| `link_url`           | String     | Optional; externe Partner-URL. Leer = Logo ohne Link (Logo-Zeile); im Slider wird das Logo trotzdem angezeigt.                          |
-| `use_in_slider`      | Boolean    | Optional; Standard **true** wenn leer. **false** = nicht im Hero-Swiper.                                                                |
-| `use_in_logo_strip`  | Boolean    | Optional; Standard **true** wenn leer. **false** = nicht in der Logo-Zeile unter dem Hero.                                              |
-| `sort`               | Integer    | Optional; aufsteigend sortiert (`sort`, dann `id`).                                                                                     |
+Wenn die Collection leer ist oder Directus nicht erreichbar ist, nutzen beide Stellen weiterhin die statische Partner-Liste aus dem Code.
 
-**Hinweis:** Dieselbe Datei kann in zwei Einträgen vorkommen (einer nur Slider, einer nur Logo-Zeile), oder ein Eintrag mit beiden Flags **true** steuert beide Bereiche.
+| Feld        | Typ        | Notizen                                                                 |
+| ----------- | ---------- | ----------------------------------------------------------------------- |
+| `name`      | String     | Optional; wird als **Alt-Text** genutzt (sonst Datei-Titel / Dateiname). |
+| `logo`      | File (M2O) | Pflicht für sichtbare Einträge; **SVG** und Raster (JPG/PNG/WebP) sind erlaubt. |
+| `link_url`  | String     | Optional; externe Partner-URL. Leer = Logo ohne Link.                   |
+| `sort`      | Integer    | Optional; aufsteigend sortiert (`sort`, dann `id`).                     |
 
 Lege eine Policy an (z.B. „Public Read“) mit folgenden Read-Rechten:
 

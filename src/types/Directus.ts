@@ -113,8 +113,7 @@ export type Download = {
 /* -------------------- Collection: home_partner_logos ---------------- */
 
 /**
- * Partner logos for the home hero slider and the logo strip below it.
- * One item can appear in both areas (default) or only one via flags.
+ * Partner logos: home page logo strip under the hero + company page marquee.
  */
 export type HomePartnerLogo = {
   id: number | string;
@@ -124,10 +123,6 @@ export type HomePartnerLogo = {
   name?: string | null;
   /** External partner URL; empty = logo without link. */
   link_url?: string | null;
-  /** When true (default in mapper if null), include in the hero Swiper. */
-  use_in_slider?: boolean | null;
-  /** When true (default in mapper if null), include in the logo row under the hero. */
-  use_in_logo_strip?: boolean | null;
   logo?: DirectusFile | string | null;
 };
 
@@ -139,5 +134,6 @@ export type DirectusSchema = {
   categories: Category[];
   downloads: Download[];
   download_categories: DownloadCategory[];
+  /** Shared list: logo row under home hero + partner marquee on `/unternehmen`. */
   home_partner_logos: HomePartnerLogo[];
 };

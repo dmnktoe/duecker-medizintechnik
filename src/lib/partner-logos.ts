@@ -6,19 +6,17 @@ import { logDirectusError } from '@/lib/directus-logging';
 import { getDirectusAssetUrl } from '@/lib/directus-urls';
 
 import type { DirectusFile, HomePartnerLogo } from '@/types/Directus';
-import type { HomePartnerLogoItem } from '@/types/HomePartnerLogo';
+import type { PartnerLogoItem } from '@/types/PartnerLogo';
 
 const FILE_UUID_RE =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
-const HOME_PARTNER_LOGO_FIELDS = [
+const PARTNER_LOGO_FIELDS = [
   'id',
   'status',
   'sort',
   'name',
   'link_url',
-  'use_in_slider',
-  'use_in_logo_strip',
   {
     logo: [
       'id',
@@ -30,12 +28,7 @@ const HOME_PARTNER_LOGO_FIELDS = [
   },
 ] as const;
 
-function normalizeBool(v: boolean | null | undefined, defaultTrue: boolean) {
-  if (v === null || v === undefined) return defaultTrue;
-  return v;
-}
-
-function mapRow(row: HomePartnerLogo): HomePartnerLogoItem | null {
+function mapRow(row: HomePartnerLogo): PartnerLogoItem | null {
   const file = row.logo;
   const directusFile =
     file && typeof file === 'object' ? (file as DirectusFile) : null;
@@ -61,8 +54,6 @@ function mapRow(row: HomePartnerLogo): HomePartnerLogoItem | null {
     logoUrl,
     alt,
     linkUrl: link ? link : null,
-    useInSlider: normalizeBool(row.use_in_slider, true),
-    useInLogoStrip: normalizeBool(row.use_in_logo_strip, true),
     mimeType,
   };
 }
@@ -76,15 +67,15 @@ async function isDraftEnabled(): Promise<boolean> {
 }
 
 /**
- * Loads home hero partner logos from Directus (`home_partner_logos`).
- * Same rows can power the hero slider and the logo strip via per-item flags.
+ * Partner logos from Directus (`home_partner_logos`): home logo strip under the
+ * hero and the partner marquee on `/unternehmen`.
  */
-export async function listHomePartnerLogos(): Promise<HomePartnerLogoItem[]> {
+export async function listPartnerLogos(): Promise<PartnerLogoItem[]> {
   const draft = await isDraftEnabled();
   try {
     const rows = (await directus.request(
       readItems('home_partner_logos', {
-        fields: HOME_PARTNER_LOGO_FIELDS as never,
+        fields: PARTNER_LOGO_FIELDS as never,
         sort: ['sort', 'id'],
         limit: -1,
         filter: {
@@ -95,9 +86,9 @@ export async function listHomePartnerLogos(): Promise<HomePartnerLogoItem[]> {
 
     return rows
       .map(mapRow)
-      .filter((item): item is HomePartnerLogoItem => item !== null);
+      .filter((item): item is PartnerLogoItem => item !== null);
   } catch (error) {
-    logDirectusError('listHomePartnerLogos', error, { draft });
+    logDirectusError('listPartnerLogos', error, { draft });
     return [];
   }
 }

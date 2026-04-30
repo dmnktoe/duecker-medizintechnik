@@ -8,14 +8,20 @@ import { VscArrowRight } from 'react-icons/vsc';
 
 import { Container } from '@/components/layout';
 import Marquee from '@/components/templates/Marquee';
+import { PartnerLogosFromDirectus } from '@/components/templates/PartnerLogosFromDirectus';
 import { Body, ButtonLink, Title, UnderlineLink } from '@/components/ui';
 
 import { partners } from '@/constant/partners';
+import type { PartnerLogoItem } from '@/types/PartnerLogo';
 
 import companyImg1 from '~/images/company/duecker-medizintechnik_company_1.webp';
 import companyImg2 from '~/images/company/duecker-medizintechnik_company_2.webp';
 
-export default function CompanyView() {
+export type CompanyViewProps = {
+  partnerLogos?: PartnerLogoItem[];
+};
+
+export default function CompanyView({ partnerLogos = [] }: CompanyViewProps) {
   const t = useTranslations('company');
   return (
     <section className='mx-auto max-w-5xl pb-16 lg:pb-24'>
@@ -37,22 +43,30 @@ export default function CompanyView() {
             })}
           </Body>
           <div className='pt-16'>
-            <Marquee className='[mask-image:linear-gradient(to_right,transparent_0%,#000_15%,#000_85%,transparent_100%)]'>
-              {partners.map((partner) => (
-                <div key={partner.name} className='px-6 lg:px-12'>
-                  <Link
-                    href={partner.url}
-                    target='_blank'
-                    className='text-muted'
-                  >
-                    <partner.image
-                      key={partner.name}
-                      className='h-6 w-20 md:h-10 md:w-32'
-                    />
-                  </Link>
-                </div>
-              ))}
-            </Marquee>
+            {partnerLogos.length > 0 ? (
+              <PartnerLogosFromDirectus
+                items={partnerLogos}
+                layout='marquee'
+                marqueeClassName='[mask-image:linear-gradient(to_right,transparent_0%,#000_15%,#000_85%,transparent_100%)]'
+              />
+            ) : (
+              <Marquee className='[mask-image:linear-gradient(to_right,transparent_0%,#000_15%,#000_85%,transparent_100%)]'>
+                {partners.map((partner) => (
+                  <div key={partner.name} className='px-6 lg:px-12'>
+                    <Link
+                      href={partner.url}
+                      target='_blank'
+                      className='text-muted'
+                    >
+                      <partner.image
+                        key={partner.name}
+                        className='h-6 w-20 md:h-10 md:w-32'
+                      />
+                    </Link>
+                  </div>
+                ))}
+              </Marquee>
+            )}
           </div>
         </div>
         <div className='mx-auto max-w-5xl items-center gap-16 py-8 lg:grid lg:grid-cols-2 lg:pb-16'>
