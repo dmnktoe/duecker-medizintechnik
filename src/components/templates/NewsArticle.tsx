@@ -4,7 +4,7 @@ import { useFlags } from 'flagsmith/react';
 import { marked } from 'marked';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import {
   RiFacebookCircleFill,
   RiMailFill,
@@ -31,6 +31,48 @@ import { News } from '@/types/News';
 type NewsArticleProps = {
   post: News;
 };
+
+function looksLikeHtml(input: string): boolean {
+  // Heuristic: treat as HTML if it contains at least one tag.
+  // This avoids running HTML through `marked()` (which is intended for Markdown).
+  return /<\/?[a-z][\s\S]*>/i.test(input);
+}
+
+function sanitizeHtmlUnsafeButBetterThanNothing(html: string): string {
+  // We can't rely on external deps in all runtimes here, so keep a conservative,
+  // dependency-free sanitizer. This is primarily to strip obvious XSS vectors.
+  //
+  // If you later add user-generated content, replace this with DOMPurify (or
+  // sanitize-html) in a server/client compatible way.
+  let out = html;
+
+  // Remove dangerous elements entirely.
+  out = out.replace(
+    /<(script|style|iframe|object|embed|link|meta)\b[\s\S]*?>[\s\S]*?<\/\1\s*>/gi,
+    '',
+  );
+  out = out.replace(/<(script|style|iframe|object|embed|link|meta)\b[\s\S]*?>/gi, '');
+
+  // Remove inline event handlers and a few high-risk attributes.
+  out = out.replace(/\son\w+\s*=\s*(".*?"|'.*?'|[^\s>]+)/gi, '');
+  out = out.replace(/\s(srcdoc)\s*=\s*(".*?"|'.*?'|[^\s>]+)/gi, '');
+
+  // Neutralize javascript: URLs in href/src.
+  out = out.replace(
+    /\s(href|src)\s*=\s*(["'])\s*javascript:[\s\S]*?\2/gi,
+    ' $1=$2#$2',
+  );
+
+  return out;
+}
+
+function renderPostContent(content: string): string {
+  const raw = content ?? '';
+  if (!raw) return '';
+
+  const html = looksLikeHtml(raw) ? raw : (marked(raw) as string);
+  return sanitizeHtmlUnsafeButBetterThanNothing(html);
+}
 
 const ArticleMeta = ({ post }: { post: News }) => (
   <div className='flex flex-row items-center gap-x-4'>
@@ -211,20 +253,23 @@ const ArticleImage = ({ post }: { post: News }) => {
 };
 
 const ArticleContent = ({ post }: { post: News }) => (
-  <div
-    className='news__content mx-auto w-full max-w-3xl'
-    data-directus={setVisualEditorAttr({
-      collection: 'posts',
-      item: post.id,
-      fields: 'content',
-      mode: 'modal',
-    })}
-    // Content is sourced from a controlled Directus CMS – not user-facing input.
-    // If user-generated content is added in future, sanitize with DOMPurify.
-    dangerouslySetInnerHTML={{
-      __html: marked(post.content ?? '') as string,
-    }}
-  />
+  // `post.content` comes from Directus and may be either Markdown (legacy) or
+  // WYSIWYG HTML. We render both, but avoid passing HTML through `marked()`.
+  (() => {
+    const html = useMemo(() => renderPostContent(post.content ?? ''), [post.content]);
+    return (
+      <div
+        className='news__content mx-auto w-full max-w-3xl'
+        data-directus={setVisualEditorAttr({
+          collection: 'posts',
+          item: post.id,
+          fields: 'content',
+          mode: 'modal',
+        })}
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
+    );
+  })()
 );
 
 const ArticleAuthor = ({
