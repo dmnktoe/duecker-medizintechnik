@@ -2,6 +2,7 @@ import { readItems } from '@directus/sdk';
 import { draftMode } from 'next/headers';
 
 import { directus } from '@/lib/directus';
+import { resolveDownloadFiles } from '@/lib/directus/download-file-refs';
 import { logDirectusError } from '@/lib/directus-logging';
 import { getDirectusAssetUrl } from '@/lib/directus-urls';
 
@@ -12,26 +13,24 @@ import type {
 } from '@/types/Directus';
 import type { Download, DownloadFile } from '@/types/Download';
 
+const FILE_UUID_RE =
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
 const DOWNLOAD_FIELDS = [
   'id',
   'status',
   'name',
-  'locale',
-  { category: ['id', 'name', 'slug'] },
   {
-    files: [
+    file: [
       'id',
-      {
-        directus_files_id: [
-          'id',
-          'title',
-          'filename_download',
-          'type',
-          'filesize',
-        ],
-      },
+      'title',
+      'filename_disk',
+      'filename_download',
+      'type',
+      'filesize',
     ],
   },
+  { category: ['id', 'name', 'slug'] },
 ];
 
 function formatBytes(size: number | string | null | undefined): string {
@@ -45,25 +44,48 @@ function formatBytes(size: number | string | null | undefined): string {
 
 function mimeToExtension(mime: string | null | undefined): string {
   if (!mime) return '';
-  if (mime.includes('/')) return mime.split('/')[1];
-  return mime;
+  const subtype = mime.split('/')[1] ?? mime;
+  if (subtype.includes('+')) return subtype.split('+')[0];
+  const lower = subtype.toLowerCase();
+  if (lower === 'jpeg') return 'jpg';
+  return lower;
 }
 
-function mapJunctionToFile(
-  junction: DownloadFileJunction,
-): DownloadFile | null {
-  const file = junction.directus_files_id;
-  if (!file || typeof file === 'string') return null;
-  const directusFile = file as DirectusFile;
+function extensionFromFilename(name: string | null | undefined): string {
+  if (!name?.includes('.')) return '';
+  const part = name.split('.').pop() ?? '';
+  return /^[a-z0-9]+$/i.test(part) ? part.toLowerCase() : '';
+}
+
+function fileExtension(file: DirectusFile): string {
+  const fromMime = mimeToExtension(file.type ?? '');
+  if (fromMime) return fromMime;
+  return extensionFromFilename(
+    file.filename_download ?? file.filename_disk ?? undefined,
+  );
+}
+
+function rowToFrontendFile(df: DirectusFile): DownloadFile {
   return {
-    id: directusFile.id,
-    title:
-      directusFile.title ??
-      directusFile.filename_download ??
-      'Unbenannte Datei',
-    size: formatBytes(directusFile.filesize),
-    url: getDirectusAssetUrl(directusFile),
-    type: mimeToExtension(directusFile.type ?? '').toLowerCase(),
+    id: df.id,
+    title: df.title ?? df.filename_download ?? 'Unbenannte Datei',
+    size: formatBytes(df.filesize),
+    url: getDirectusAssetUrl(df),
+    type: fileExtension(df),
+  };
+}
+
+/**
+ * Directus linked `file` as bare UUID — metadata unreadable (permissions) still
+ * needs a downloadable row (asset proxy resolves by id).
+ */
+function rowToFrontendFileFromBareId(fileId: string): DownloadFile {
+  return {
+    id: fileId,
+    title: 'Download',
+    size: '',
+    url: getDirectusAssetUrl({ id: fileId }),
+    type: '',
   };
 }
 
@@ -77,9 +99,28 @@ export function mapDownload(download: DirectusDownload): Download {
         }
       : null;
 
-  const files: DownloadFile[] = (download.files ?? [])
-    .map(mapJunctionToFile)
-    .filter((f): f is DownloadFile => f !== null);
+  let files: DownloadFile[] = [];
+
+  const fileRef = download.file;
+  if (fileRef && typeof fileRef === 'object') {
+    files = [rowToFrontendFile(fileRef as DirectusFile)];
+  } else if (typeof fileRef === 'string' && FILE_UUID_RE.test(fileRef)) {
+    files = [rowToFrontendFileFromBareId(fileRef)];
+  } else if (download.files?.length) {
+    files = (download.files as DownloadFileJunction[])
+      .map((row) => {
+        const ref = row.directus_files_id;
+        if (typeof ref === 'object' && ref !== null) {
+          return rowToFrontendFile(ref as DirectusFile);
+        }
+        const sid =
+          typeof ref === 'string' || typeof ref === 'number' ? String(ref) : '';
+        return sid && FILE_UUID_RE.test(sid)
+          ? rowToFrontendFileFromBareId(sid)
+          : null;
+      })
+      .filter((f): f is DownloadFile => f !== null);
+  }
 
   return {
     id: download.id,
@@ -97,23 +138,24 @@ async function isDraftEnabled(): Promise<boolean> {
   }
 }
 
-export async function listDownloads(locale?: string): Promise<Download[]> {
+export async function listDownloads(): Promise<Download[]> {
   const draft = await isDraftEnabled();
   try {
-    const items = (await directus.request(
+    const rows = (await directus.request(
       readItems('downloads', {
         fields: DOWNLOAD_FIELDS as never,
         sort: ['-id'],
         limit: -1,
         filter: {
           ...(draft ? {} : { status: { _eq: 'published' } }),
-          ...(locale ? { locale: { _eq: locale } } : {}),
         },
       }),
     )) as unknown as DirectusDownload[];
-    return items.map(mapDownload);
+
+    const hydrated = await resolveDownloadFiles(rows as unknown[]);
+    return (hydrated as DirectusDownload[]).map(mapDownload);
   } catch (error) {
-    logDirectusError('listDownloads', error, { locale, draft });
+    logDirectusError('listDownloads', error, { draft });
     return [];
   }
 }

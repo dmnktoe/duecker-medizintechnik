@@ -23,30 +23,28 @@ describe('getDirectusAssetUrl', () => {
     expect(getDirectusAssetUrl(url)).toBe(url);
   });
 
-  it('prepends the Directus URL to relative paths', () => {
+  it('maps CMS-hosted /assets URLs to trailing-slash proxy paths', () => {
     expect(getDirectusAssetUrl('/assets/abc.jpg')).toBe(
-      'https://cms.duecker-medizintechnik.de/assets/abc.jpg',
+      '/api/cms/assets/abc.jpg/',
     );
   });
 
-  it('builds an asset URL from a bare file id', () => {
-    expect(getDirectusAssetUrl('abc-123')).toBe(
-      'https://cms.duecker-medizintechnik.de/assets/abc-123',
-    );
+  it('maps bare file id via CMS assets to proxy paths', () => {
+    expect(getDirectusAssetUrl('abc-123')).toBe('/api/cms/assets/abc-123/');
   });
 
-  it('builds an asset URL from a Directus file object', () => {
+  it('maps file id objects to proxy paths', () => {
     expect(getDirectusAssetUrl({ id: 'abc-123' })).toBe(
-      'https://cms.duecker-medizintechnik.de/assets/abc-123',
+      '/api/cms/assets/abc-123/',
     );
   });
 
-  it('uses the file url when present', () => {
+  it('maps nested /assets paths to proxy routes', () => {
     expect(
       getDirectusAssetUrl({
         id: 'abc-123',
         url: '/assets/abc-123/thumb',
       }),
-    ).toBe('https://cms.duecker-medizintechnik.de/assets/abc-123/thumb');
+    ).toBe('/api/cms/assets/abc-123/thumb/');
   });
 });

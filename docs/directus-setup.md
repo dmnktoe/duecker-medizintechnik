@@ -23,12 +23,19 @@ Directus anlegen musst, damit das Frontend ohne Anpassungen funktioniert.
   CORS_ORIGIN: 'https://duecker-medizintechnik.de,https://www.duecker-medizintechnik.de,http://localhost:3000'
   ```
 
-- Damit Directus den Visual Editor in das Frontend per `<iframe>` einbetten
-  darf:
+- **Live Preview & Visual Editor** laden deine Frontend-URLs in einem
+  `<iframe>`. Diese Ursprünge müssen in der **Directus**-CSP unter **`frame-src`**
+  stehen (Umgebungsvariablen, nicht im Next.js-Projekt).
+
+  Produktion + lokale Entwicklung:
 
   ```yaml
-  CONTENT_SECURITY_POLICY_DIRECTIVES__FRAME_SRC: "'self' http://localhost:3000 https://duecker-medizintechnik.de https://www.duecker-medizintechnik.de"
+  CONTENT_SECURITY_POLICY_DIRECTIVES__FRAME_SRC: "'self' http://localhost:3000 http://127.0.0.1:3000 https://duecker-medizintechnik.de https://www.duecker-medizintechnik.de"
   ```
+
+  Nach Änderungen die Directus-Instanz **neu starten**, sonst gilt die alte CSP
+  weiter. Fehler wie „does not appear in the **frame-src** directive“ kommen vom
+  **Directus-Host**, wenn z. B. `http://localhost:3000` hier fehlt.
 
 ## 2. Collections
 
@@ -81,19 +88,21 @@ Gruppen im Download-Center.
 
 Ein Eintrag pro „Produkt“/„Bündel“ – kann mehrere Dateien enthalten.
 
-| Feld       | Typ                                                  | Notizen                                                                  |
-| ---------- | ---------------------------------------------------- | ------------------------------------------------------------------------ |
-| `name`     | String                                               | Anzeigename in der Akkordeon-Zeile                                       |
-| `category` | M2O → `download_categories`                          |                                                                          |
-| `files`    | M2M zu `directus_files` (Junction `downloads_files`) | Junction-Spalten heißen automatisch `downloads_id` & `directus_files_id` |
-| `locale`   | String                                               | Optional. Wenn gesetzt, filtert das Frontend pro Sprache (`de`/`en`).    |
+| Feld       | Typ                                                  | Notizen                                                                                      |
+| ---------- | ---------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `name`     | String                                               | Anzeigename in der Akkordeon-Zeile                                                           |
+| `category` | M2O → `download_categories`                          |                                                                                              |
+| `files`    | M2M zu `directus_files` (Junction `downloads_files`) | Junction-Spalten heißen automatisch `downloads_id` & `directus_files_id`                     |
+| `locale`   | String                                               | Optional in Directus; **the frontend does not filter by locale** — one global list per site. |
 
 > **Hinweis zu M2M-Files:** Beim Anlegen wählst du in Directus Studio für das
 > Feld `files` den Interface-Typ „Files“ – Directus generiert dann die
 > Junction-Collection automatisch. Das Frontend liest die Dateien über
-> `files[].directus_files_id`.
-
-## 3. Berechtigungen
+> **Junction-Hinweis:** Standard ist `downloads_files` mit `downloads_id` und
+> `directus_files_id`. Wenn ihr die Collection umbenannt habt: in
+> `src/lib/directus/download-file-refs.ts` die Konstante
+> `DOWNLOADS_FILES_JUNCTION` anpassen — sonst holt das Frontend Dateien weiter
+> nur über verschachtelte `files`, falls Directus dort nichts zurückgibt.
 
 Lege eine Policy an (z.B. „Public Read“) mit folgenden Read-Rechten:
 
@@ -113,15 +122,24 @@ Drafts, damit Live Preview funktioniert.
 In Directus Studio:
 
 1. Settings → Data Model → **`posts`** → „Preview URL“.
-2. Eintragen:
+2. Eintragen (Produktion; lokal denselben Aufbau mit deiner Basis-URL):
 
    ```
    https://duecker-medizintechnik.de/api/draft?secret=$SECRET&type=posts&id=ID&locale=de
    ```
 
+   Lokal z. B.:
+
+   ```
+   http://localhost:3000/api/draft?secret=$SECRET&type=posts&id=ID&locale=de
+   ```
+
    - `$SECRET` ist der Wert aus `DIRECTUS_PREVIEW_SECRET`.
    - `ID` ist Pflicht-Platzhalter, den Directus mit der Item-ID befüllt.
    - `locale` optional (Default `de`).
+
+   **Hinweis:** Die Preview-URL muss unter den in **`frame-src`** erlaubten
+   Ursprüngen liegen (siehe oben); sonst blockiert die Browser-CSP das iframe.
 
 3. Im Item-Editor oben „Enable Preview“ einschalten.
 
