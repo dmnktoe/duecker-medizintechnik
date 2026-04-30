@@ -5,7 +5,7 @@ import { directus } from '@/lib/directus';
 import { logDirectusError } from '@/lib/directus-logging';
 import { getDirectusAssetUrl } from '@/lib/directus-urls';
 
-import type { DirectusFile, HomePartnerLogo } from '@/types/Directus';
+import type { DirectusFile, PartnersItem } from '@/types/Directus';
 import type { PartnerLogoItem } from '@/types/PartnerLogo';
 
 const FILE_UUID_RE =
@@ -28,7 +28,7 @@ const PARTNER_LOGO_FIELDS = [
   },
 ] as const;
 
-function mapRow(row: HomePartnerLogo): PartnerLogoItem | null {
+function mapRow(row: PartnersItem): PartnerLogoItem | null {
   const file = row.logo;
   const directusFile =
     file && typeof file === 'object' ? (file as DirectusFile) : null;
@@ -67,14 +67,14 @@ async function isDraftEnabled(): Promise<boolean> {
 }
 
 /**
- * Partner logos from Directus (`home_partner_logos`): home logo strip under the
+ * Partner logos from Directus collection `partners`: home logo strip under the
  * hero and the partner marquee on `/unternehmen`.
  */
 export async function listPartnerLogos(): Promise<PartnerLogoItem[]> {
   const draft = await isDraftEnabled();
   try {
     const rows = (await directus.request(
-      readItems('home_partner_logos', {
+      readItems('partners', {
         fields: PARTNER_LOGO_FIELDS as never,
         sort: ['sort', 'id'],
         limit: -1,
@@ -82,7 +82,7 @@ export async function listPartnerLogos(): Promise<PartnerLogoItem[]> {
           ...(draft ? {} : { status: { _eq: 'published' } }),
         },
       }),
-    )) as unknown as HomePartnerLogo[];
+    )) as unknown as PartnersItem[];
 
     return rows
       .map(mapRow)

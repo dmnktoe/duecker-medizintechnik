@@ -1,5 +1,5 @@
 /**
- * Partner logos from Directus (`home_partner_logos`): home logo strip + company marquee.
+ * Partner logos from Directus (`partners`): home logo strip + company marquee.
  */
 export type PartnerLogoItem = {
   id: string;

@@ -104,7 +104,7 @@ Ein Eintrag pro „Produkt“/„Bündel“ – kann mehrere Dateien enthalten.
 > `DOWNLOADS_FILES_JUNCTION` anpassen — sonst holt das Frontend Dateien weiter
 > nur über verschachtelte `files`, falls Directus dort nichts zurückgibt.
 
-### `home_partner_logos`
+### `partners`
 
 Eine gemeinsame Liste für die **Logo-Zeile direkt unter dem Hero** auf der Startseite (`/`) und den **Partner-Marquee** auf der Seite **Unternehmen** (`/unternehmen`). Der **Bild-Slider im Hero** bleibt unverändert (statische Bilder im Repo).
 
@@ -123,7 +123,7 @@ Lege eine Policy an (z.B. „Public Read“) mit folgenden Read-Rechten:
   wenn du Drafts mit Live Preview ausliefern willst – das Frontend filtert
   sowieso entsprechend).
 - `categories`, `authors`, `downloads`, `download_categories`,
-  `home_partner_logos`: `status = published`.
+  `partners`: `status = published`.
 - `directus_files`: `read` für alle in Posts/Downloads referenzierten Files
   (am einfachsten: Public Read auf `directus_files` mit Filter
   `folder != null` o.ä.).

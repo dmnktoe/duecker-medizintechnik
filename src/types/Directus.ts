@@ -110,12 +110,12 @@ export type Download = {
   locale?: string | null;
 };
 
-/* -------------------- Collection: home_partner_logos ---------------- */
+/* --------------------------- Collection: partners --------------------- */
 
 /**
  * Partner logos: home page logo strip under the hero + company page marquee.
  */
-export type HomePartnerLogo = {
+export type PartnersItem = {
   id: number | string;
   status: Status;
   sort?: number | null;
@@ -134,6 +134,6 @@ export type DirectusSchema = {
   categories: Category[];
   downloads: Download[];
   download_categories: DownloadCategory[];
-  /** Shared list: logo row under home hero + partner marquee on `/unternehmen`. */
-  home_partner_logos: HomePartnerLogo[];
+  /** Logo row under home hero + partner marquee on `/unternehmen`. */
+  partners: PartnersItem[];
 };
