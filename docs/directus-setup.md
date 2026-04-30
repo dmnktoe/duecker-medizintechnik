@@ -24,13 +24,22 @@ Directus anlegen musst, damit das Frontend ohne Anpassungen funktioniert.
 
 - **Live Preview & Visual Editor** laden deine Frontend-URLs in einem
   `<iframe>`. Diese Ursprünge müssen in der **Directus**-CSP unter **`frame-src`**
-  stehen (Umgebungsvariablen, nicht im Next.js-Projekt).
+  stehen (Umgebungsvariablen auf dem **Directus-Server**, nicht im Next.js-Projekt).
+
+  Wenn **`frame-src` nicht gesetzt** ist, nutzen Browser **`child-src` als
+  Fallback** (Directus setzt u. a. `child-src 'self' blob:`). Dann erscheint in
+  der Konsole z. B. *Framing 'https://…' violates … **child-src** 'self' blob:*.
 
   Produktion + lokale Entwicklung:
 
   ```yaml
-  CONTENT_SECURITY_POLICY_DIRECTIVES__FRAME_SRC: "'self' http://localhost:3000 http://127.0.0.1:3000 https://duecker-medizintechnik.de https://www.duecker-medizintechnik.de"
+  CONTENT_SECURITY_POLICY_DIRECTIVES__FRAME_SRC: "'self' http://localhost:3000 https://localhost:3000 http://127.0.0.1:3000 https://127.0.0.1:3000 https://duecker-medizintechnik.de https://www.duecker-medizintechnik.de"
   ```
+
+  **Wichtig:** CSP vergleicht **Schema, Host und Port** getrennt. Wenn Next.js
+  lokal mit **`https://localhost:3000`** läuft (z. B. `next dev --experimental-https`),
+  reicht `http://localhost:3000` in `frame-src` **nicht** — der Browser meldet
+  dann z. B. *Framing 'https://localhost:3000/' violates … frame-src …*.
 
   Nach Änderungen die Directus-Instanz **neu starten**, sonst gilt die alte CSP
   weiter. Fehler wie „does not appear in the **frame-src** directive“ kommen vom
@@ -206,6 +215,44 @@ Häufigste Ursachen, in der Reihenfolge wie sie geprüft werden sollten:
 4. **CORS.** Wenn Directus selbst gehostet wird, müssen `CORS_ENABLED=true`
    und `CORS_ORIGIN` so gesetzt sein, dass die Frontend-Domain zugelassen
    ist.
+
+### Live Preview / Visual Editor: CSP blockiert das iframe
+
+**Symptom:** Im Directus-Admin in der Konsole z. B. *Framing 'https://…'
+violates … **frame-src** …* oder *… **child-src** 'self' blob:* (wenn `frame-src`
+fehlt und der Browser auf `child-src` zurückfällt).
+
+**Ursache:** Die URL im iframe (Preview-Redirect oder Visual-Editor-Basis-URL)
+hat ein **anderes Origin** (Schema/Host/Port) als in
+`CONTENT_SECURITY_POLICY_DIRECTIVES__FRAME_SRC` erlaubt — z. B. Preview zeigt auf
+`https://duecker-medizintechnik.de`, aber `frame-src` listet nur `localhost`, oder
+umgekehrt **nur** `http://localhost:3000`, während Next lokal mit
+**`https://localhost:3000`** läuft (dann exakt `https://localhost:3000` in
+`frame-src` ergänzen, siehe Abschnitt 1).
+
+**Hinweis:** Die **Preview-URL** in den Collection-Einstellungen (z. B.
+`/api/draft?…`) bestimmt nur den **ersten** Request; nach dem Redirect zeigt das
+iframe die **Ziel-URL** (z. B. `/de/newsroom/…`). Für CSP zählt jedes Origin, das
+tatsächlich im Frame geladen wird.
+
+**Lösung:** `frame-src` in Directus anpassen, Directus **neu starten**.
+
+### Rich-Text (WYSIWYG): `de-DE.js` — *Unexpected token `<`*
+
+**Symptom:** *Uncaught SyntaxError: Unexpected token `<`* für `de-DE.js`
+(TinyMCE-Locale), Stack erwähnt `input-rich-text-html`.
+
+**Bedeutung:** Es wurde **JavaScript** erwartet, die Antwort ist aber **HTML**
+(erste Zeichen `<` — oft Login-Seite, SPA-Index oder Fehlerseite).
+
+**Typische Ursachen:** Reverse-Proxy (Traefik/Coolify) leitet Anfragen nach
+Directus-**Admin-Assets** nicht an Directus weiter; oder **`PUBLIC_URL`** /
+Pfad passt nicht zur erreichbaren Admin-URL.
+
+**Vorgehen:** Network-Tab → fehlgeschlagene `de-DE.js`-Anfrage → **Status** und
+**Response** prüfen. Bei HTML: Routing/Proxy so setzen, dass alle Directus-Studio-
+Pfade (mindestens `/admin` und die genutzten Asset-Pfade) beim Directus-Container
+ankommen.
 
 ### Server-Logs
 
