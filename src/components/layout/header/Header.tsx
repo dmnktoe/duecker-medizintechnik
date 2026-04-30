@@ -73,7 +73,7 @@ export const Header = () => {
                 </div>
 
                 <div className='hidden min-w-0 items-center gap-2.5 sm:gap-3 lg:gap-4 xl:flex'>
-                  <div className='w-[5.5rem] shrink-0 sm:w-24'>
+                  <div className='min-w-0 shrink-0 text-right'>
                     <label
                       htmlFor='header-locale'
                       className='text-light-gray block text-right text-[0.7rem] font-medium tracking-wide'
@@ -83,9 +83,8 @@ export const Header = () => {
                     <LanguagePicker
                       id='header-locale'
                       name='header-languages'
-                      variant='field'
                       ariaLabel={t('header.change-locale')}
-                      className='mt-0.5 min-w-0 sm:min-w-[4.5rem]'
+                      className='mt-0.5'
                     />
                   </div>
                   <ButtonLink
