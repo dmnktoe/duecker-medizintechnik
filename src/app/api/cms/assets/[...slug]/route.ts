@@ -10,7 +10,8 @@ export async function GET(
   context: { params: Promise<{ slug: string[] }> },
 ) {
   const { slug } = await context.params;
-  if (!slug?.length || !FILE_ID_RE.test(slug[0])) {
+  const segments = (slug ?? []).filter((s) => s.length > 0);
+  if (!segments.length || !FILE_ID_RE.test(segments[0])) {
     return new NextResponse('Bad Request', { status: 400 });
   }
 
@@ -19,7 +20,7 @@ export async function GET(
     return new NextResponse('Service Unavailable', { status: 503 });
   }
 
-  const assetPath = slug.join('/');
+  const assetPath = segments.join('/');
   const upstream = new URL(`/assets/${assetPath}`, `${base}/`);
   upstream.search = request.nextUrl.search;
 
