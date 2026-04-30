@@ -213,27 +213,6 @@ Häufigste Ursachen, in der Reihenfolge wie sie geprüft werden sollten:
    und `CORS_ORIGIN` so gesetzt sein, dass die Frontend-Domain zugelassen
    ist.
 
-### Diagnose-Endpoint
-
-Während Directus läuft, kannst du den eingebauten Diagnose-Endpoint
-aufrufen:
-
-```bash
-# Lokal:
-curl http://localhost:3000/api/cms/diagnostics | jq
-
-# Production (geschützt mit DIRECTUS_PREVIEW_SECRET):
-curl 'https://<dein-host>/api/cms/diagnostics?secret=<DIRECTUS_PREVIEW_SECRET>' | jq
-```
-
-Der Output zeigt:
-
-- ob die Env-Variablen gesetzt sind (Token-Wert wird **nicht** geleakt),
-- ob die Directus-Instanz erreichbar ist (`/server/ping`),
-- ob jede Collection Daten zurückgibt – und sonst die HTTP-Status-Codes
-  und Directus-Fehlermeldungen, also genau die Info, die du brauchst um
-  Permissions zu fixen.
-
 ### Server-Logs
 
 Jeder fehlgeschlagene Directus-Request wird im Server-Log so geloggt:
