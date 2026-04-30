@@ -26,7 +26,6 @@ const nextConfig = {
       { pathname: '/api/cms/assets/**/' },
       // Static files under /public (e.g. /images/...) when using <Image src="/images/...">
       { pathname: '/images/**' },
-      { pathname: '/images/**/' },
     ],
     remotePatterns: [
       // Directus media host – derived from NEXT_PUBLIC_DIRECTUS_URL so we
