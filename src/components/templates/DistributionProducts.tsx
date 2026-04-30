@@ -1,7 +1,5 @@
 'use client';
 
-import Image from 'next/image';
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import * as React from 'react';
 
@@ -13,7 +11,6 @@ import { company } from '@/constant/company';
 
 import { Product } from '@/types/Product';
 
-import MicromedLogo from '~/images/distribution/partners/micromed-logo.png';
 import ProductBissinger from '~/images/distribution/products/distribution_products-bissinger.webp';
 import ProductEberle from '~/images/distribution/products/distribution_products-eberle.webp';
 import ProductHupfer from '~/images/distribution/products/distribution_products-hupfer.webp';
@@ -87,23 +84,6 @@ export default function DistributionProducts() {
         <UnderlineLink underline='always' href='/kontakt'>
           {t('content.products.button')}
         </UnderlineLink>
-        <div className='mt-8'>
-          <Link
-            href='https://www.micromed.com/'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='inline-block'
-          >
-            <Image
-              src={MicromedLogo}
-              alt={t('content.products.micromed.logoAlt')}
-              className='h-12 w-auto max-w-[200px] object-contain opacity-90 transition-opacity hover:opacity-100'
-            />
-          </Link>
-          <Body margin={false} size='sm' color='light' className='mt-4'>
-            {t('content.products.micromed.intro')}
-          </Body>
-        </div>
         <div className='mt-8'>
           <Body size='sm' color='light'>
             {company.street} <br />
