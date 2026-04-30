@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     'Dücker Medizintechnik — Chirurgische Instrumente, Schlauchsysteme, Medizinprodukte',
   description:
     'Dücker Medizintechnik: Reparatur und Service chirurgischer Instrumente, Herstellung und Vertrieb steriler Schlauchsysteme sowie Medizinprodukte für Kliniken und die Industrie.',
-  metadataBase: new URL('https://www.duecker-medizintechnik.de'),
+  metadataBase: new URL('https://duecker-medizintechnik.de'),
 };
 
 export default function RootLayout({
