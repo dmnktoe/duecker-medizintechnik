@@ -22,6 +22,17 @@ const PARTNER_LOGO_FIELDS = [
   },
 ] as const;
 
+function safeHttpLinkUrl(trimmed: string | undefined): string | null {
+  if (!trimmed) return null;
+  try {
+    const url = new URL(trimmed);
+    if (url.protocol !== 'http:' && url.protocol !== 'https:') return null;
+    return trimmed;
+  } catch {
+    return null;
+  }
+}
+
 function mapRow(row: PartnersItem): PartnerLogoItem | null {
   const file = row.logo;
   const directusFile =
@@ -48,7 +59,7 @@ function mapRow(row: PartnersItem): PartnerLogoItem | null {
     id: String(row.id),
     logoUrl,
     alt,
-    linkUrl: link ? link : null,
+    linkUrl: safeHttpLinkUrl(link),
     mimeType,
   };
 }
