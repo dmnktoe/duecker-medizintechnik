@@ -24,13 +24,35 @@ Directus anlegen musst, damit das Frontend ohne Anpassungen funktioniert.
 
 - **Live Preview & Visual Editor** laden deine Frontend-URLs in einem
   `<iframe>`. Diese Ursprünge müssen in der **Directus**-CSP unter **`frame-src`**
-  stehen (Umgebungsvariablen, nicht im Next.js-Projekt).
+  stehen (Umgebungsvariablen auf dem **Directus-Server**, nicht im Next.js-Projekt).
+
+  Wenn **`frame-src` nicht gesetzt** ist, nutzen Browser **`child-src` als
+  Fallback** (Directus setzt u. a. `child-src 'self' blob:`). Dann erscheint in
+  der Konsole z. B. *Framing 'https://…' violates … **child-src** 'self' blob:*.
 
   Produktion + lokale Entwicklung:
 
   ```yaml
-  CONTENT_SECURITY_POLICY_DIRECTIVES__FRAME_SRC: "'self' http://localhost:3000 http://127.0.0.1:3000 https://duecker-medizintechnik.de https://www.duecker-medizintechnik.de"
+  CONTENT_SECURITY_POLICY_DIRECTIVES__FRAME_SRC: "'self' http://localhost:3000 https://localhost:3000 http://127.0.0.1:3000 https://127.0.0.1:3000 https://duecker-medizintechnik.de https://www.duecker-medizintechnik.de"
   ```
+
+  **Coolify / Escaping:** Wenn die Konsole meldet, dass **`'\\'self\\''` ungültig**
+  ist und ignoriert wird, enthält die Variable fälschlich **Backslashes** vor den
+  Quotes (z. B. `\'self\'` statt `'self'`). In Coolify den Wert **ohne**
+  Backslashes eintragen. In der **Developer View** nicht doppelt escapen.
+  Optional **„Is Literal?“** aktivieren, falls Quotes sonst falsch interpretiert
+  werden.
+
+  **Ohne `self`:** Alternativ die **Directus-Admin-URL** explizit listen (statt
+  `'self'`), dann sind keine einfachen Quotes um `self` nötig:
+
+  ```yaml
+  CONTENT_SECURITY_POLICY_DIRECTIVES__FRAME_SRC: "https://admin.duecker-medizintechnik.de http://localhost:3000 https://localhost:3000 http://127.0.0.1:3000 https://127.0.0.1:3000 https://duecker-medizintechnik.de https://www.duecker-medizintechnik.de"
+  ```
+
+  **HTTPS auf localhost:** CSP unterscheidet `http://localhost:3000` und
+  `https://localhost:3000`. Wenn Next lokal mit HTTPS läuft, müssen beide
+  (oder nur das genutzte Schema) in `frame-src` stehen.
 
   Nach Änderungen die Directus-Instanz **neu starten**, sonst gilt die alte CSP
   weiter. Fehler wie „does not appear in the **frame-src** directive“ kommen vom
@@ -206,6 +228,20 @@ Häufigste Ursachen, in der Reihenfolge wie sie geprüft werden sollten:
 4. **CORS.** Wenn Directus selbst gehostet wird, müssen `CORS_ENABLED=true`
    und `CORS_ORIGIN` so gesetzt sein, dass die Frontend-Domain zugelassen
    ist.
+
+### CSP: Backslashes bei `self` in `frame-src`
+
+**Symptom:** *The source list for … **frame-src** contains an invalid source:
+**'\\'self\\''**. It will be ignored.* (Chrome formuliert das so, wenn im Header
+wörtlich Backslashes vor den Anführungszeichen stehen.)
+
+**Ursache:** In der Umgebungsvariable steht `\'self\'` (mit Backslash) statt
+das CSP-Schlüsselwort **`'self'`** (nur Apostrophe, kein Backslash). Häufig durch
+**doppeltes Escaping** in `.env`, Docker oder Coolify.
+
+**Lösung:** Wert in Coolify korrigieren (keine `\` vor den Apostrophs), oder
+`frame-src` **ohne** `self` setzen und stattdessen **`https://admin.<eure-domain>`**
+explizit eintragen (siehe Abschnitt 1).
 
 ### Server-Logs
 
