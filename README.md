@@ -57,9 +57,12 @@ The site reads its content from a Directus instance (e.g. `https://admin.duecker
 
 ```
 NEXT_PUBLIC_DIRECTUS_URL=https://admin.duecker-medizintechnik.de
+NEXT_PUBLIC_APP_URL=https://duecker-medizintechnik.de
 DIRECTUS_API_TOKEN=<static-token-of-a-read-only-service-user>
 DIRECTUS_PREVIEW_SECRET=<long-random-string-shared-with-directus>
 ```
+
+`NEXT_PUBLIC_APP_URL` should be the public site origin (no trailing slash). It keeps `/api/draft` redirects correct behind Coolify or other reverse proxies.
 
 See [`docs/directus-setup.md`](./docs/directus-setup.md) for the collections,
 fields and Live Preview / Visual Editor setup that the frontend expects.
