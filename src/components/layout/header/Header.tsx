@@ -16,8 +16,6 @@ import { DesktopNav } from './DesktopNav';
 import { MOBILE_NAV_PANEL_ID, MobileNavDrawer } from './MobileNavDrawer';
 import type { NavItemProps } from './types';
 
-const PRIMARY_NAV_ID = 'site-primary-nav';
-
 export const Header = () => {
   const t = useTranslations('common');
   const navigationItems = t.raw('header.navigationItems') as NavItemProps[];
@@ -31,87 +29,56 @@ export const Header = () => {
 
   return (
     <>
-      <header
-        className='border-b border-gray-100/80 bg-white/95 shadow-[0_1px_0_rgba(7,22,38,0.04)] backdrop-blur supports-[backdrop-filter]:bg-white/80'
-      >
+      <header className='h-navigation-height sticky top-0 z-50 border-b border-gray-100 bg-white'>
         <a
           href='#main'
-          className='bg-primary-600/95 text-white focus:ring-primary-500 absolute top-0 left-1/2 z-[100] -translate-x-1/2 -translate-y-full rounded-b px-4 py-2 text-sm font-medium shadow transition focus:translate-y-0 focus:ring-2'
+          className='bg-primary-600 text-primary-50 focus:ring-primary-500 absolute top-0 left-1/2 z-[100] -translate-x-1/2 -translate-y-full rounded-b px-4 py-2 text-sm font-medium shadow transition focus:translate-y-0 focus:ring-2'
         >
           {t('skipToContent')}
         </a>
-        <div className='h-navigation-height'>
+        <div>
           <Container>
-            <div className='relative flex h-full min-h-0 w-full min-w-0 items-center justify-between gap-2 md:gap-3'>
-              <div className='shrink-0 pr-1'>
-                <UnderlineLink
-                  href='/'
-                  className='text-dark group inline-block rounded-sm p-0.5 outline-none ring-offset-2 focus-visible:ring-2 focus-visible:ring-primary-500/30'
-                >
-                  <span className='sr-only'>{t('header.navigationLabel')}</span>
-                  <Logo
-                    className='text-dark w-36 drop-shadow-sm transition group-hover:opacity-95 sm:w-40 md:w-48'
-                    aria-hidden
-                  />
-                </UnderlineLink>
-              </div>
+            <div className='h-navigation-height relative flex min-w-0 items-center'>
+              <UnderlineLink href='/' className='inline-block shrink-0'>
+                <Logo className='text-dark w-40 md:w-48' />
+              </UnderlineLink>
 
-              <DesktopNav
-                id={PRIMARY_NAV_ID}
-                items={navigationItems}
-                aria-label={t('header.navigationLabel')}
-              />
-
-              <div
-                className='ml-auto flex shrink-0 items-center'
-                data-nav-actions
-              >
-                <div className='mr-1 hidden min-[400px]:block sm:mr-2 md:block md:pr-0 xl:pr-1'>
-                  <ButtonLink
-                    href='/kontakt'
-                    size='md'
-                    variant='ghost'
-                    className='font-medium'
-                  >
+              <div className='ml-auto flex min-w-0 flex-shrink-0 flex-row gap-2 md:gap-3 xl:hidden'>
+                <div className='ml-auto hidden md:block'>
+                  <ButtonLink href='/kontakt' variant='ghost'>
                     {t('header.ctaButtonText')}
                   </ButtonLink>
                 </div>
-                <div className='hidden min-w-0 items-center gap-1 xl:flex xl:gap-3 2xl:gap-4'>
-                  <div className='min-w-0'>
-                    <label
-                      htmlFor='header-locale'
-                      className='text-light-gray/90 block text-right text-xs font-medium tracking-wide'
-                    >
-                      {t('header.languageLabel')}
-                    </label>
+                <MobileMenuButton
+                  ref={menuButtonRef}
+                  isOpen={isOpen}
+                  label={t('header.toggleNavigationText')}
+                  menuPanelId={MOBILE_NAV_PANEL_ID}
+                  onClick={() => toggle()}
+                />
+              </div>
+
+              <DesktopNav items={navigationItems} />
+
+              <div className='ml-auto hidden min-w-0 flex-shrink-0 xl:block'>
+                <div className='flex min-w-0 items-center justify-end gap-3 lg:gap-4'>
+                  <div className='min-w-0 text-right text-xs'>
+                    <span className='text-light-gray block'>{t('header.languageLabel')}</span>
                     <LanguagePicker
-                      id='header-locale'
-                      name='header-languages'
                       ariaLabel={t('header.change-locale')}
-                      className='relative mt-0.5 w-full min-w-[7rem] cursor-pointer rounded-md border border-gray-200/80 bg-white px-2.5 py-1.5 text-left text-sm shadow-sm outline-none transition hover:border-primary-500/20 focus:ring-2 focus:ring-primary-500/25'
+                      className='relative mt-0.5 h-7 w-full min-w-0 max-w-full cursor-pointer rounded border border-gray-200 bg-white py-0.5 pl-1 pr-6 text-sm sm:min-w-[6.5rem]'
                     />
                   </div>
                   <ButtonLink
                     href='/kontakt'
                     size='lg'
                     variant='light'
-                    className='bg-primary-50 hover:bg-primary-100/80 inline-flex min-h-[2.75rem] shrink-0 border border-primary-200/30 shadow-sm transition'
+                    className='shrink-0 bg-gray-100 hover:underline'
                     leftIcon={VscCallOutgoing}
-                    leftIconClassName='h-5 w-5'
+                    leftIconClassName='h-5 w-5 mr-1'
                   >
                     {t('header.ctaButtonText')}
                   </ButtonLink>
-                </div>
-
-                <div className='shrink-0 pl-0.5 xl:pl-1'>
-                  <MobileMenuButton
-                    ref={menuButtonRef}
-                    isOpen={isOpen}
-                    label={t('header.toggleNavigationText')}
-                    menuPanelId={MOBILE_NAV_PANEL_ID}
-                    onClick={() => toggle()}
-                    className='xl:hidden'
-                  />
                 </div>
               </div>
             </div>
@@ -124,9 +91,6 @@ export const Header = () => {
         items={navigationItems}
         onNavigate={close}
         panelRef={menuPanelRef}
-        returnFocusRef={menuButtonRef}
-        titleId={`${MOBILE_NAV_PANEL_ID}-title`}
-        descriptionId={`${MOBILE_NAV_PANEL_ID}-desc`}
       />
     </>
   );
