@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import * as React from 'react';
 import { useRef } from 'react';
@@ -12,10 +11,11 @@ import 'swiper/css';
 import clsxm from '@/lib/clsxm';
 
 import { Container } from '@/components/layout/Container';
+import { PartnerLogosFromDirectus } from '@/components/templates/PartnerLogosFromDirectus';
 import { Body, ButtonLink, Title } from '@/components/ui';
 import { Decorator } from '@/components/ui/Icons';
 
-import { partners } from '@/constant/partners';
+import type { PartnerLogoItem } from '@/types/PartnerLogo';
 
 import heroSlide1 from '~/images/home/hero-slider/duecker-slide-1.jpg';
 import heroSlide2 from '~/images/home/hero-slider/duecker-slide-2.jpg';
@@ -70,21 +70,6 @@ const HeroProgressCircle = ({
       <circle cx='24' cy='24' r='20' />
     </svg>
     <span ref={progressContent} />
-  </div>
-);
-
-const PartnerLogos = () => (
-  <div className='text-muted flex flex-wrap gap-8'>
-    {partners.map((partner) => (
-      <div
-        key={partner.name}
-        className='flex flex-grow items-center justify-center px-6'
-      >
-        <Link href={partner.url} target='_blank'>
-          <partner.image className='hover:text-dark h-6 w-20 transition-all ease-in-out md:h-10 md:w-32' />
-        </Link>
-      </div>
-    ))}
   </div>
 );
 
@@ -171,15 +156,21 @@ const HeroSlider = () => {
   );
 };
 
-const HeroPartnersSection = () => {
+type HeroPartnersSectionProps = {
+  partnerLogos: PartnerLogoItem[];
+};
+
+const HeroPartnersSection = ({ partnerLogos }: HeroPartnersSectionProps) => {
   const t = useTranslations('home');
+  if (partnerLogos.length === 0) return null;
+
   return (
     <>
       <div className='font-secondary mx-auto mb-8 text-center text-xs text-gray-400 lg:w-1/3'>
         {t('content.hero.partners')}
       </div>
       <div className='mx-auto md:w-10/12 lg:w-[1000px]'>
-        <PartnerLogos />
+        <PartnerLogosFromDirectus items={partnerLogos} layout='grid' />
       </div>
     </>
   );
@@ -196,11 +187,15 @@ const HeroIntro = () => (
   </div>
 );
 
-export const Hero = () => (
+export type HeroProps = {
+  partnerLogos: PartnerLogoItem[];
+};
+
+export const Hero = ({ partnerLogos }: HeroProps) => (
   <section className='hero pt-4 pb-16 md:pt-12 md:pb-24 lg:pb-32'>
     <Container>
       <HeroIntro />
-      <HeroPartnersSection />
+      <HeroPartnersSection partnerLogos={partnerLogos} />
     </Container>
   </section>
 );

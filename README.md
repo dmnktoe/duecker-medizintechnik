@@ -64,5 +64,4 @@ DIRECTUS_PREVIEW_SECRET=<long-random-string-shared-with-directus>
 
 `NEXT_PUBLIC_APP_URL` should be the public site origin (no trailing slash). It keeps `/api/draft` redirects correct behind Coolify or other reverse proxies.
 
-See [`docs/directus-setup.md`](./docs/directus-setup.md) for the collections,
-fields and Live Preview / Visual Editor setup that the frontend expects.
+Configure the Directus collections and preview URL in the CMS; match field names to `src/types/Directus.ts`.

@@ -110,6 +110,22 @@ export type Download = {
   locale?: string | null;
 };
 
+/* --------------------------- Collection: partners --------------------- */
+
+/**
+ * Partner logos: home page logo strip under the hero + company page marquee.
+ */
+export type PartnersItem = {
+  id: number | string;
+  status: Status;
+  sort?: number | null;
+  /** Display / accessibility label; falls back to file title. */
+  name?: string | null;
+  /** External partner URL; empty = logo without link. */
+  link_url?: string | null;
+  logo?: DirectusFile | string | null;
+};
+
 /* ----------------------- Top-level Directus schema ------------------ */
 
 export type DirectusSchema = {
@@ -118,4 +134,6 @@ export type DirectusSchema = {
   categories: Category[];
   downloads: Download[];
   download_categories: DownloadCategory[];
+  /** Logo row under home hero + partner marquee on `/unternehmen`. */
+  partners: PartnersItem[];
 };

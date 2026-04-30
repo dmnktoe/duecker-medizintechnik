@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import * as React from 'react';
 import { useCallback, useRef } from 'react';
@@ -13,10 +12,10 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 
 import { Container } from '@/components/layout';
-import Marquee from '@/components/templates/Marquee';
+import { PartnerLogosFromDirectus } from '@/components/templates/PartnerLogosFromDirectus';
 import { AnimatedBadge, AspectRatio, Body, Title } from '@/components/ui';
 
-import { partners } from '@/constant/partners';
+import type { PartnerLogoItem } from '@/types/PartnerLogo';
 
 import OpticImage1 from '~/images/distribution/optic/duecker-medizintechnik_distribution_optic-1.webp';
 import OpticImage2 from '~/images/distribution/optic/duecker-medizintechnik_distribution_optic-2.webp';
@@ -47,25 +46,23 @@ const slides = [
   },
 ];
 
-export default function DistributionOptic() {
+export type DistributionOpticProps = {
+  partnerLogos: PartnerLogoItem[];
+};
+
+export default function DistributionOptic({
+  partnerLogos,
+}: DistributionOpticProps) {
   const t = useTranslations('distribution');
 
-  const PartnerLogos = () => {
-    return (
-      <Marquee className='text-muted mb-4 [mask-image:linear-gradient(to_right,transparent_0%,#000_15%,#000_85%,transparent_100%)] xl:mb-12'>
-        {partners.map((partner) => (
-          <div key={partner.name} className='px-6'>
-            <Link href={partner.url} target='_blank'>
-              <partner.image
-                key={partner.name}
-                className='h-10 w-24 md:h-10 md:w-32'
-              />
-            </Link>
-          </div>
-        ))}
-      </Marquee>
-    );
-  };
+  const PartnerLogos = () =>
+    partnerLogos.length > 0 ? (
+      <PartnerLogosFromDirectus
+        items={partnerLogos}
+        layout='marquee'
+        marqueeClassName='text-muted mb-4 [mask-image:linear-gradient(to_right,transparent_0%,#000_15%,#000_85%,transparent_100%)] xl:mb-12'
+      />
+    ) : null;
 
   const OpticIntro = () => {
     return (

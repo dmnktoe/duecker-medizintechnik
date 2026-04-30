@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import * as React from 'react';
 
 import { getAlternates } from '@/lib/hreflang';
+import { listPartnerLogos } from '@/lib/partner-logos';
 import { listPosts } from '@/lib/posts';
 import { sitePageMetadata } from '@/lib/site-page-metadata';
 
@@ -29,6 +30,7 @@ export default async function HomePage({ params }: Props) {
   const { locale } = await params;
   const t = await getTranslations({ locale: locale, namespace: 'home' });
   const posts = await listPosts({ limit: 8 });
+  const partnerLogos = await listPartnerLogos();
 
   return (
     <Page
@@ -40,7 +42,7 @@ export default async function HomePage({ params }: Props) {
       }}
       title={t('meta.pageTitle')}
     >
-      <Hero />
+      <Hero partnerLogos={partnerLogos} />
       <Features />
       <StickyScroll />
       <BentoSection />

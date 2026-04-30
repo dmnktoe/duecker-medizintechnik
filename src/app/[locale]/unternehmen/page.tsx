@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import * as React from 'react';
 
 import { getAlternates } from '@/lib/hreflang';
+import { listPartnerLogos } from '@/lib/partner-logos';
 import { sitePageMetadata } from '@/lib/site-page-metadata';
 
 import Page from '@/components/layout/Page';
@@ -25,6 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function UnternehmenPage({ params }: Props) {
   const { locale } = await params;
   const t = await getTranslations({ locale: locale, namespace: 'company' });
+  const partnerLogos = await listPartnerLogos();
 
   return (
     <Page
@@ -38,7 +40,7 @@ export default async function UnternehmenPage({ params }: Props) {
       image={companyHero}
       title={t('meta.pageTitle')}
     >
-      <CompanyView />
+      <CompanyView partnerLogos={partnerLogos} />
     </Page>
   );
 }
