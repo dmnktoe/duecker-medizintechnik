@@ -146,6 +146,12 @@ Auf der Frontend-Seite öffnet `app/api/draft/route.ts` daraufhin den
 Draft-Mode (`draftMode().enable()`) und leitet auf die normale
 Newsroom-Detailseite weiter, die das Item mit Status `draft` ausliefert.
 
+**Hinter Reverse-Proxys (Coolify):** Setzt **`NEXT_PUBLIC_APP_URL`** auf die
+öffentliche Origin (z. B. `https://duecker-medizintechnik.de`), damit der
+Redirect nach `/api/draft` nicht versehentlich auf die **interne** Host-URL
+(z. B. `https://localhost:3000`) zeigt. Fehlt die Variable, nutzt die Route
+`X-Forwarded-Host` / `X-Forwarded-Proto`, sofern der Proxy sie setzt.
+
 Ausstieg aus Draft Mode (z.B. für Tester):
 `https://duecker-medizintechnik.de/api/draft/disable?redirect=/de/newsroom`.
 
@@ -206,6 +212,22 @@ Häufigste Ursachen, in der Reihenfolge wie sie geprüft werden sollten:
 4. **CORS.** Wenn Directus selbst gehostet wird, müssen `CORS_ENABLED=true`
    und `CORS_ORIGIN` so gesetzt sein, dass die Frontend-Domain zugelassen
    ist.
+
+### Live Preview landet auf `https://localhost:3000`
+
+**Symptom:** Preview-iframe oder manueller Aufruf von
+`/api/draft?secret=…&type=posts&id=…` leitet auf **`https://localhost:3000/…`**
+weiter, obwohl die Preview-URL mit der Produktionsdomain beginnt.
+
+**Ursache:** Der Redirect in `app/api/draft/route.ts` baut die Ziel-URL aus der
+Request-Origin. Steht Next hinter einem Proxy, kann `request.url` die **interne**
+Origin sein (Coolify → Container auf `localhost:3000`).
+
+**Lösung:** **`NEXT_PUBLIC_APP_URL`** auf die öffentliche Site setzen (siehe
+Abschnitt 4), oder sicherstellen, dass der Proxy **`X-Forwarded-Host`** /
+**`X-Forwarded-Proto`** an Next durchreicht. Seit dem Fix in diesem Repo wird
+die öffentliche Origin bevorzugt; ein gesetztes `NEXT_PUBLIC_APP_URL` bleibt die
+zuverlässigste Variante.
 
 ### Server-Logs
 

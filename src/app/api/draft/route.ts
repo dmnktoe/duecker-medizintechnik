@@ -1,6 +1,7 @@
 import { draftMode } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 
+import { getRedirectOriginFromRequest } from '@/lib/get-base-url';
 import { getPostById } from '@/lib/posts';
 
 import { directusPreviewSecret } from '@/constant/env';
@@ -53,5 +54,6 @@ export async function GET(request: NextRequest) {
   const draft = await draftMode();
   draft.enable();
 
-  return NextResponse.redirect(new URL(target, request.url));
+  const origin = getRedirectOriginFromRequest(request);
+  return NextResponse.redirect(new URL(target, origin));
 }
