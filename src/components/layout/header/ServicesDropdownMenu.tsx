@@ -220,7 +220,7 @@ export const ServicesDropdownMenu = ({
   );
 
   return (
-    <li className='relative z-20 py-1'>
+    <li className='relative z-20 py-2'>
       <DropdownMenu
         open={open}
         onOpenChange={handleOpenChange}
@@ -230,9 +230,11 @@ export const ServicesDropdownMenu = ({
           <button
             type='button'
             className={clsx(
-              'text-dark/90 data-[state=open]:text-dark focus-visible:ring-primary-500/30 inline-flex items-center gap-1 rounded-sm px-1.5 py-1.5 text-base font-medium transition ease-in-out outline-none data-[state=open]:underline',
-              'hover:text-dark hover:underline focus-visible:ring-2 focus-visible:ring-offset-2',
-              (isActive || open) && 'text-dark underline decoration-gray-300 underline-offset-4',
+              'inline-flex items-center gap-1 bg-transparent px-1 py-1 transition ease-in-out outline-none',
+              'text-gray-800 hover:text-dark hover:underline',
+              // Keep focus ring subtle (no offset) to avoid Safari halo/shadow artifacts
+              'focus-visible:ring-2 focus-visible:ring-primary-500/30 shadow-none',
+              (isActive || open) && 'text-dark underline',
             )}
             aria-haspopup='menu'
             aria-expanded={open}
@@ -243,7 +245,7 @@ export const ServicesDropdownMenu = ({
             <span>{label}</span>
             <VscChevronDown
               className={clsx(
-                'text-dark/50 size-4 shrink-0 transition duration-200',
+                'text-dark/50 relative -top-px size-4 shrink-0 transition duration-200',
                 open && 'rotate-180',
               )}
               aria-hidden
