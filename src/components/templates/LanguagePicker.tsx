@@ -5,8 +5,11 @@ import { useFlags } from 'flagsmith/react';
 import { usePathname, useRouter } from 'next/navigation';
 import * as React from 'react';
 import { useId } from 'react';
+import { VscChevronDown } from 'react-icons/vsc';
 
 import { i18nConfig } from '@/i18n/settings';
+
+type Variant = 'default' | 'field';
 
 type Props = {
   className?: string;
@@ -16,6 +19,8 @@ type Props = {
   name?: string;
   /** Accessible name for the select. */
   ariaLabel?: string;
+  /** "field" = bordered control (header bar); "default" = text link style. */
+  variant?: Variant;
 };
 
 const LanguagePicker = ({
@@ -24,6 +29,7 @@ const LanguagePicker = ({
   id: idProp,
   name = 'languages',
   ariaLabel,
+  variant = 'default',
 }: Props) => {
   const pathname = usePathname();
   const router = useRouter();
@@ -45,9 +51,24 @@ const LanguagePicker = ({
 
   if (!flags.language_picker.enabled) return null;
 
-  return (
+  const selectClassName = clsx(
+    'text-dark w-full min-w-0 max-w-full cursor-pointer outline-none',
+    variant === 'default' &&
+      'text-sm transition md:text-base rounded-sm bg-transparent hover:underline focus-visible:ring-2 focus-visible:ring-primary-500/30 focus-visible:ring-offset-2',
+    variant === 'field' && [
+      'appearance-none text-sm font-medium',
+      'h-8 pl-2.5 pr-8',
+      'rounded-md border border-gray-200/90 bg-white',
+      'text-left shadow-sm',
+      'hover:border-primary-500/30 hover:bg-gray-50/80',
+      'focus:border-primary-500/50 focus:ring-2 focus:ring-primary-500/20',
+    ],
+    className,
+  );
+
+  const select = (
     <select
-      className={clsx(className, 'bg-transparent text-sm md:text-base')}
+      className={selectClassName}
       name={name}
       id={id}
       aria-label={ariaLabel}
@@ -65,6 +86,22 @@ const LanguagePicker = ({
       })}
     </select>
   );
+
+  if (variant === 'field') {
+    return (
+      <div className='inline-flex w-full min-w-0 max-w-full'>
+        <div className='relative w-full'>
+          {select}
+          <VscChevronDown
+            className='text-light-gray/80 pointer-events-none absolute top-1/2 right-2.5 h-3.5 w-3.5 -translate-y-1/2'
+            aria-hidden
+          />
+        </div>
+      </div>
+    );
+  }
+
+  return select;
 };
 
 export default LanguagePicker;

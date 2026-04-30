@@ -39,22 +39,24 @@ export const Header = () => {
         <div>
           <Container>
             {/*
-              Mobile: flex — logo and actions. Desktop (xl+): 1fr auto 1fr grid so the nav
-              is mathematically centered in the full header width (not between logo/CTA).
+              xl+: absolute-center the nav in the full content width (true viewport-center
+              for the bar) without transform on the list — avoids Safari subpixel blur.
             */}
-            <div className='h-navigation-height flex min-w-0 items-center justify-between gap-2 md:gap-3 xl:grid xl:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] xl:items-center xl:gap-4 xl:justify-items-stretch'>
+            <div className='h-navigation-height relative flex min-w-0 items-center justify-between gap-2 md:gap-3'>
               <UnderlineLink
                 href='/'
-                className='inline-block w-max shrink-0 justify-self-start xl:min-w-0'
+                className='inline-block w-max shrink-0 xl:relative xl:z-20'
               >
                 <Logo className='text-dark w-40 md:w-48' />
               </UnderlineLink>
 
-              <div className='hidden min-w-0 justify-center xl:flex xl:justify-center'>
-                <DesktopNav items={navigationItems} />
+              <div className='pointer-events-none absolute inset-x-0 top-0 z-10 hidden h-full items-center justify-center xl:flex'>
+                <div className='pointer-events-auto flex max-w-full justify-center px-2'>
+                  <DesktopNav items={navigationItems} />
+                </div>
               </div>
 
-              <div className='ml-auto flex min-w-0 shrink-0 items-center justify-end gap-2 self-center md:gap-3 xl:ml-0 xl:min-w-0 xl:justify-self-end'>
+              <div className='relative z-20 ml-auto flex min-w-0 shrink-0 items-center justify-end gap-2 md:gap-3'>
                 <div className='flex items-center gap-2 md:gap-3 xl:hidden'>
                   <div className='ml-auto hidden md:block'>
                     <ButtonLink href='/kontakt' variant='ghost'>
@@ -70,12 +72,20 @@ export const Header = () => {
                   />
                 </div>
 
-                <div className='hidden min-w-0 items-center gap-3 lg:gap-4 xl:flex'>
-                  <div className='min-w-0 text-right text-xs'>
-                    <span className='text-light-gray block'>{t('header.languageLabel')}</span>
+                <div className='hidden min-w-0 items-center gap-2.5 sm:gap-3 lg:gap-4 xl:flex'>
+                  <div className='w-[5.5rem] shrink-0 sm:w-24'>
+                    <label
+                      htmlFor='header-locale'
+                      className='text-light-gray block text-right text-[0.7rem] font-medium tracking-wide'
+                    >
+                      {t('header.languageLabel')}
+                    </label>
                     <LanguagePicker
+                      id='header-locale'
+                      name='header-languages'
+                      variant='field'
                       ariaLabel={t('header.change-locale')}
-                      className='relative mt-0.5 h-7 w-full min-w-0 max-w-full cursor-pointer rounded border border-gray-200 bg-white py-0.5 pl-1 pr-6 text-sm sm:min-w-[6.5rem]'
+                      className='mt-0.5 min-w-0 sm:min-w-[4.5rem]'
                     />
                   </div>
                   <ButtonLink
