@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import * as React from 'react';
 
 import { getAlternates } from '@/lib/hreflang';
+import { listPartnerLogos } from '@/lib/partner-logos';
 import { sitePageMetadata } from '@/lib/site-page-metadata';
 
 import Page from '@/components/layout/Page';
@@ -38,6 +39,7 @@ export default async function VertriebPage({ params }: Props) {
     locale: locale,
     namespace: 'distribution',
   });
+  const partnerLogos = await listPartnerLogos();
 
   return (
     <Page
@@ -51,7 +53,7 @@ export default async function VertriebPage({ params }: Props) {
       title={t('meta.pageTitle')}
     >
       <DistributionIntro />
-      <DistributionOptic />
+      <DistributionOptic partnerLogos={partnerLogos} />
       <DistributionProducts />
       <DistributionConsult />
     </Page>

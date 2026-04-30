@@ -17,7 +17,6 @@ import { Decorator } from '@/components/ui/Icons';
 
 import { PartnerLogosFromDirectus } from '@/components/templates/PartnerLogosFromDirectus';
 
-import { partners } from '@/constant/partners';
 import type { PartnerLogoItem } from '@/types/PartnerLogo';
 
 import heroSlide1 from '~/images/home/hero-slider/duecker-slide-1.jpg';
@@ -73,21 +72,6 @@ const HeroProgressCircle = ({
       <circle cx='24' cy='24' r='20' />
     </svg>
     <span ref={progressContent} />
-  </div>
-);
-
-const PartnerLogosStatic = () => (
-  <div className='text-muted flex flex-wrap gap-8'>
-    {partners.map((partner) => (
-      <div
-        key={partner.name}
-        className='flex flex-grow items-center justify-center px-6'
-      >
-        <Link href={partner.url} target='_blank'>
-          <partner.image className='hover:text-dark h-6 w-20 transition-all ease-in-out md:h-10 md:w-32' />
-        </Link>
-      </div>
-    ))}
   </div>
 );
 
@@ -180,17 +164,15 @@ type HeroPartnersSectionProps = {
 
 const HeroPartnersSection = ({ partnerLogos }: HeroPartnersSectionProps) => {
   const t = useTranslations('home');
+  if (partnerLogos.length === 0) return null;
+
   return (
     <>
       <div className='font-secondary mx-auto mb-8 text-center text-xs text-gray-400 lg:w-1/3'>
         {t('content.hero.partners')}
       </div>
       <div className='mx-auto md:w-10/12 lg:w-[1000px]'>
-        {partnerLogos.length > 0 ? (
-          <PartnerLogosFromDirectus items={partnerLogos} layout='grid' />
-        ) : (
-          <PartnerLogosStatic />
-        )}
+        <PartnerLogosFromDirectus items={partnerLogos} layout='grid' />
       </div>
     </>
   );
@@ -208,10 +190,10 @@ const HeroIntro = () => (
 );
 
 export type HeroProps = {
-  partnerLogos?: PartnerLogoItem[];
+  partnerLogos: PartnerLogoItem[];
 };
 
-export const Hero = ({ partnerLogos = [] }: HeroProps) => (
+export const Hero = ({ partnerLogos }: HeroProps) => (
   <section className='hero pt-4 pb-16 md:pt-12 md:pb-24 lg:pb-32'>
     <Container>
       <HeroIntro />

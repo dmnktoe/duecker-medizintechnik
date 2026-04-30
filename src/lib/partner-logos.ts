@@ -50,6 +50,7 @@ function mapRow(row: PartnersItem): PartnerLogoItem | null {
 
   const link = row.link_url?.trim();
   return {
+    directusItemId: row.id,
     id: String(row.id),
     logoUrl,
     alt,

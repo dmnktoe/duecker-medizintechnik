@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import clsxm from '@/lib/clsxm';
+import { setVisualEditorAttr } from '@/lib/directus-visual-editor';
 
 import Marquee from '@/components/templates/Marquee';
 
@@ -13,6 +14,8 @@ const GRID_IMG_CLASS =
   'hover:opacity-90 h-6 w-20 object-contain transition-all ease-in-out md:h-10 md:w-32';
 
 const MARQUEE_IMG_CLASS = 'h-6 w-20 md:h-10 md:w-32';
+
+const PARTNER_VISUAL_FIELDS = ['logo', 'link_url', 'name'] as const;
 
 function isSvgMime(mime: string | null): boolean {
   return (mime ?? '').toLowerCase().includes('svg');
@@ -51,14 +54,21 @@ type PartnerLogosFromDirectusProps = {
 };
 
 /**
- * Renders the same Directus-driven partner logos in either the home hero logo
- * row (flex grid) or the company page marquee layout.
+ * Renders partner logos from Directus (`partners`) with Visual Editor markers.
  */
 export function PartnerLogosFromDirectus({
   items,
   layout,
   marqueeClassName,
 }: PartnerLogosFromDirectusProps) {
+  const editorAttr = (item: PartnerLogoItem) =>
+    setVisualEditorAttr({
+      collection: 'partners',
+      item: item.directusItemId,
+      fields: [...PARTNER_VISUAL_FIELDS],
+      mode: 'modal',
+    });
+
   if (layout === 'grid') {
     return (
       <div className='text-muted flex flex-wrap gap-8'>
@@ -66,6 +76,7 @@ export function PartnerLogosFromDirectus({
           <div
             key={item.id}
             className='flex flex-grow items-center justify-center px-6'
+            data-directus={editorAttr(item)}
           >
             {item.linkUrl ? (
               <Link href={item.linkUrl} target='_blank' rel='noreferrer'>
@@ -88,7 +99,7 @@ export function PartnerLogosFromDirectus({
       }
     >
       {items.map((item) => (
-        <div key={item.id} className='px-6 lg:px-12'>
+        <div key={item.id} className='px-6 lg:px-12' data-directus={editorAttr(item)}>
           {item.linkUrl ? (
             <Link
               href={item.linkUrl}
