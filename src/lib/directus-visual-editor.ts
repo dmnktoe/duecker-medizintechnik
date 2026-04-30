@@ -5,8 +5,8 @@
  *  - keep `setAttr` available for SSR templates without pulling the runtime
  *    code into server bundles.
  *
- * `setAttr` is a pure helper (it just builds a JSON string) so we re-export
- * it for both server and client components.
+ * `setVisualEditorAttr` is a pure string builder so it can run on the server
+ * without importing the client-only Visual Editor runtime.
  */
 
 import { directusUrl } from '@/constant/env';
@@ -21,22 +21,26 @@ export type VisualEditorAttr = {
 };
 
 /**
- * Builds the value for a `data-directus` attribute. We use a pure JSON
- * implementation so it can run on the server without importing the
- * client-only Visual Editor runtime.
+ * Builds the value for a `data-directus` attribute.
+ *
+ * `@directus/visual-editing` parses this with `editAttrToObject`, which only
+ * understands semicolon-separated `key:value` pairs (see `setAttr` /
+ * `objectToEditAttr` in that package). JSON strings are not parsed, so the
+ * parent Directus UI never receives a valid edit config and falls back to
+ * legacy `[data-field="…"]` lookups that never match.
  */
 export function setVisualEditorAttr(attr: VisualEditorAttr): string {
-  const payload: Record<string, unknown> = {
-    collection: attr.collection,
-    item: attr.item,
-  };
+  const segments: string[] = [];
+  segments.push(`collection:${attr.collection}`);
+  segments.push(`item:${String(attr.item)}`);
   if (attr.fields !== undefined) {
-    payload.fields = Array.isArray(attr.fields) ? attr.fields : [attr.fields];
+    const fields = Array.isArray(attr.fields) ? attr.fields : [attr.fields];
+    segments.push(`fields:${fields.join(',')}`);
   }
   if (attr.mode) {
-    payload.mode = attr.mode;
+    segments.push(`mode:${attr.mode}`);
   }
-  return JSON.stringify(payload);
+  return segments.join(';');
 }
 
 let isApplied = false;
