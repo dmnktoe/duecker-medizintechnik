@@ -33,10 +33,14 @@ export const LeistungenMegaMenu = ({ subItems }: LeistungenMegaMenuProps) => {
 
   return (
     <div
-      className='invisible absolute top-1.5 min-w-[900px] translate-y-0 transform opacity-0 transition duration-200 ease-out group-focus-within:visible group-focus-within:translate-y-5 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-5 group-hover:opacity-100 focus-within:visible focus-within:translate-y-5 focus-within:opacity-100 lg:-left-[400px]'
+      className='invisible absolute top-1.5 isolate min-w-[900px] translate-y-0 transform opacity-0 transition duration-200 ease-out group-focus-within:visible group-focus-within:translate-y-5 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-5 group-hover:opacity-100 focus-within:visible focus-within:translate-y-5 focus-within:opacity-100 lg:-left-[400px]'
       onMouseLeave={() => setPreviewHref(null)}
     >
-      <div className='relative top-6 w-full cursor-default bg-white p-4 drop-shadow-2xl'>
+      {/*
+        Use box-shadow instead of filter drop-shadow: in Safari, filter on a large layer
+        can make adjacent header text look blurred during compositing.
+      */}
+      <div className='relative top-6 w-full cursor-default bg-white p-4 shadow-2xl ring-1 ring-gray-200/50'>
         <div
           className='absolute top-0 z-0 h-10 w-10 translate-x-0 rotate-45 transform rounded-sm bg-white transition-transform duration-500 ease-in-out group-focus-within:translate-x-[26rem] group-hover:translate-x-[26rem]'
           aria-hidden

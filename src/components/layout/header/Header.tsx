@@ -38,30 +38,36 @@ export const Header = () => {
         </a>
         <div>
           <Container>
-            <div className='h-navigation-height relative flex min-w-0 items-center'>
+            {/*
+              Flexbox centering for the desktop nav (avoids -translate-1/2 on the nav, which
+              in Safari can blur or shift sibling text when a mega-menu layer repaints).
+            */}
+            <div className='h-navigation-height flex min-w-0 items-center gap-2 md:gap-3'>
               <UnderlineLink href='/' className='inline-block shrink-0'>
                 <Logo className='text-dark w-40 md:w-48' />
               </UnderlineLink>
 
-              <div className='ml-auto flex min-w-0 flex-shrink-0 flex-row gap-2 md:gap-3 xl:hidden'>
-                <div className='ml-auto hidden md:block'>
-                  <ButtonLink href='/kontakt' variant='ghost'>
-                    {t('header.ctaButtonText')}
-                  </ButtonLink>
-                </div>
-                <MobileMenuButton
-                  ref={menuButtonRef}
-                  isOpen={isOpen}
-                  label={t('header.toggleNavigationText')}
-                  menuPanelId={MOBILE_NAV_PANEL_ID}
-                  onClick={() => toggle()}
-                />
+              <div className='hidden min-w-0 flex-1 justify-center xl:flex'>
+                <DesktopNav items={navigationItems} />
               </div>
 
-              <DesktopNav items={navigationItems} />
+              <div className='ml-auto flex min-w-0 flex-shrink-0 items-center justify-end gap-2 md:gap-3'>
+                <div className='flex items-center gap-2 md:gap-3 xl:hidden'>
+                  <div className='ml-auto hidden md:block'>
+                    <ButtonLink href='/kontakt' variant='ghost'>
+                      {t('header.ctaButtonText')}
+                    </ButtonLink>
+                  </div>
+                  <MobileMenuButton
+                    ref={menuButtonRef}
+                    isOpen={isOpen}
+                    label={t('header.toggleNavigationText')}
+                    menuPanelId={MOBILE_NAV_PANEL_ID}
+                    onClick={() => toggle()}
+                  />
+                </div>
 
-              <div className='ml-auto hidden min-w-0 flex-shrink-0 xl:block'>
-                <div className='flex min-w-0 items-center justify-end gap-3 lg:gap-4'>
+                <div className='hidden min-w-0 items-center gap-3 lg:gap-4 xl:flex'>
                   <div className='min-w-0 text-right text-xs'>
                     <span className='text-light-gray block'>{t('header.languageLabel')}</span>
                     <LanguagePicker
