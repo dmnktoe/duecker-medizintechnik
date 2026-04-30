@@ -4,6 +4,7 @@ export * from './Badges';
 export * from './Buttons';
 export * from './Checkbox';
 export * from './Collapsible';
+export * from './dropdown-menu';
 export * from './Input';
 export * from './Links';
 export * from './RadixCheckbox';
