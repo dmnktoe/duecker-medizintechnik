@@ -180,7 +180,7 @@ export async function resolveDownloadFiles(
         return { ...(row as object), directus_files_id: byId.get(fid)! };
       }
       return row as Record<string, unknown>;
-    }) as typeof d.files;
+    });
 
     return { ...d, ...patch };
   });

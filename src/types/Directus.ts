@@ -97,6 +97,11 @@ export type Download = {
   name: string;
   category?: DownloadCategory | number | string | null;
   /**
+   * Single file (M2O to `directus_files`). Some Directus projects use this
+   * instead of a many-to-many on `files`.
+   */
+  file?: DirectusFile | string | number | null;
+  /**
    * Many-to-many relation to `directus_files`. In Directus this is exposed as
    * an array of junction rows. `directus_files_id` is the actual file.
    */

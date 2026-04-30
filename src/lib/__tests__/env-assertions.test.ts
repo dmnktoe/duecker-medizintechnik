@@ -1,3 +1,8 @@
+/** `process.env.NODE_ENV` is read-only in @types/node; assign via a narrow cast. */
+function setNodeEnv(value: string | undefined) {
+  (process.env as { NODE_ENV?: string }).NODE_ENV = value;
+}
+
 describe('assertDirectusEnv', () => {
   const originalEnv = process.env;
 
@@ -11,7 +16,7 @@ describe('assertDirectusEnv', () => {
   });
 
   it('throws during a production build when NEXT_PUBLIC_DIRECTUS_URL is missing', async () => {
-    process.env.NODE_ENV = 'production';
+    setNodeEnv('production');
     process.env.NEXT_PHASE = 'phase-production-build';
     delete process.env.NEXT_PUBLIC_DIRECTUS_URL;
     delete process.env.DIRECTUS_API_TOKEN;
@@ -25,7 +30,7 @@ describe('assertDirectusEnv', () => {
   });
 
   it('does not throw during a production build when all required vars are set', async () => {
-    process.env.NODE_ENV = 'production';
+    setNodeEnv('production');
     process.env.NEXT_PHASE = 'phase-production-build';
     process.env.NEXT_PUBLIC_DIRECTUS_URL = 'https://example.com';
     process.env.DIRECTUS_API_TOKEN = 'token';
@@ -38,7 +43,7 @@ describe('assertDirectusEnv', () => {
   });
 
   it('only warns (does not throw) in development', async () => {
-    process.env.NODE_ENV = 'development';
+    setNodeEnv('development');
     delete process.env.NEXT_PHASE;
     delete process.env.NEXT_PUBLIC_DIRECTUS_URL;
     delete process.env.DIRECTUS_API_TOKEN;
@@ -53,7 +58,7 @@ describe('assertDirectusEnv', () => {
   });
 
   it('is a no-op when running tests', async () => {
-    process.env.NODE_ENV = 'test';
+    setNodeEnv('test');
     delete process.env.NEXT_PUBLIC_DIRECTUS_URL;
     delete process.env.DIRECTUS_API_TOKEN;
 
