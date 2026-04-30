@@ -1,30 +1,32 @@
-import { strapiApiUrl } from '@/constant/env';
+import type { CategorizedDownloads, Download } from '@/types/Download';
 
-import { CategorizedDownloads, Download } from '@/types/Download';
+const UNCATEGORIZED_KEY = '__uncategorized';
+const UNCATEGORIZED_LABEL = 'Sonstige';
 
 export const sortDownloads = (
   documents: Download[] | null | undefined,
 ): CategorizedDownloads => {
   if (!documents?.length) return {};
-  return documents.reduce((acc: CategorizedDownloads, document: Download) => {
-    const categoryName = document.attributes.category.data.attributes.name;
-    const fileData = document.attributes.files.data.map((file) => ({
-      title: file.attributes.name,
-      size: `${file.attributes.size} KB`,
-      url: `${strapiApiUrl}${file.attributes.url}`,
-      type: file.attributes.mime.split('/')[1],
-    }));
 
-    if (!acc[categoryName]) {
-      acc[categoryName] = {
+  return documents.reduce((acc: CategorizedDownloads, document: Download) => {
+    const categoryName = document.category?.name ?? UNCATEGORIZED_LABEL;
+    const key = document.category?.name ?? UNCATEGORIZED_KEY;
+
+    if (!acc[key]) {
+      acc[key] = {
         sectionTitle: categoryName,
         items: [],
       };
     }
 
-    acc[categoryName].items.push({
-      title: document.attributes.name,
-      files: fileData,
+    acc[key].items.push({
+      title: document.name,
+      files: document.files.map((file) => ({
+        title: file.title,
+        size: file.size,
+        url: file.url,
+        type: file.type,
+      })),
     });
 
     return acc;

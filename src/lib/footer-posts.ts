@@ -1,4 +1,4 @@
-import { fetchAPI } from '@/lib/fetch-api';
+import { listPosts } from '@/lib/posts';
 
 import type { News } from '@/types/News';
 
@@ -7,9 +7,7 @@ export type FooterPostsServerValue =
   | { kind: 'error' }
   | { kind: 'ready'; posts: News[] };
 
-/**
- * Loads footer “recent posts” on the server (same flag + query as the former /api/posts flow).
- */
+/** Loads recent posts for the footer when the feature flag is enabled. */
 export async function loadFooterPosts(
   fetchFooterPostsEnabled: boolean,
 ): Promise<FooterPostsServerValue> {
@@ -18,10 +16,8 @@ export async function loadFooterPosts(
   }
 
   try {
-    const result = await fetchAPI<{ data: News[] | null }>(
-      '/posts?sort=id:desc&populate=*&pagination[pageSize]=4',
-    );
-    return { kind: 'ready', posts: result.data ?? [] };
+    const posts = await listPosts({ limit: 4 });
+    return { kind: 'ready', posts };
   } catch {
     return { kind: 'error' };
   }

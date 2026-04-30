@@ -19,9 +19,9 @@ import {
   WhatsappShareButton,
 } from 'react-share';
 
+import { setVisualEditorAttr } from '@/lib/directus-visual-editor';
 import { formatDate } from '@/lib/format-date';
 import { getBaseUrl } from '@/lib/get-base-url';
-import { getStrapiMedia } from '@/lib/strapi-urls';
 
 import { Container } from '@/components/layout';
 import { AspectRatio, Badge, Body, Title, UnstyledLink } from '@/components/ui';
@@ -34,26 +34,63 @@ type NewsArticleProps = {
 
 const ArticleMeta = ({ post }: { post: News }) => (
   <div className='flex flex-row items-center gap-x-4'>
-    <Badge color='dark' size='md' variant='outline'>
-      {post.attributes.category.data.attributes.name}
-    </Badge>
+    {post.category?.name ? (
+      <span
+        data-directus={setVisualEditorAttr({
+          collection: 'posts',
+          item: post.id,
+          fields: 'category',
+          mode: 'popover',
+        })}
+      >
+        <Badge color='dark' size='md' variant='outline'>
+          {post.category.name}
+        </Badge>
+      </span>
+    ) : null}
     <span className='text-gray-300'>|</span>
-    <span className='font-secondary text-gray-600'>
-      {formatDate(post.attributes.publishedAt)}
+    <span
+      className='font-secondary text-gray-600'
+      data-directus={setVisualEditorAttr({
+        collection: 'posts',
+        item: post.id,
+        fields: 'date_published',
+        mode: 'popover',
+      })}
+    >
+      {formatDate(post.date_published)}
     </span>
   </div>
 );
 
 const ArticleTitle = ({ post }: { post: News }) => (
-  <Title margin={false} className='text-dark'>
-    {post.attributes.title}
-  </Title>
+  <span
+    data-directus={setVisualEditorAttr({
+      collection: 'posts',
+      item: post.id,
+      fields: 'title',
+      mode: 'popover',
+    })}
+  >
+    <Title margin={false} className='text-dark'>
+      {post.title}
+    </Title>
+  </span>
 );
 
 const ArticleExcerpt = ({ post }: { post: News }) => (
-  <Body size='lg' margin={false} className='font-medium'>
-    {post.attributes.excerpt}
-  </Body>
+  <span
+    data-directus={setVisualEditorAttr({
+      collection: 'posts',
+      item: post.id,
+      fields: 'excerpt',
+      mode: 'modal',
+    })}
+  >
+    <Body size='lg' margin={false} className='font-medium'>
+      {post.excerpt}
+    </Body>
+  </span>
 );
 
 type ShareButtonsProps = {
@@ -124,7 +161,7 @@ const ArticleHeader = ({
   copyLinkLabel: string;
 }) => {
   const baseUrl = getBaseUrl();
-  const postUrl = `${baseUrl}/newsroom/${post.attributes.slug}`;
+  const postUrl = `${baseUrl}/newsroom/${post.slug}`;
 
   return (
     <div className='mx-auto flex w-full max-w-3xl flex-col gap-y-4'>
@@ -133,7 +170,7 @@ const ArticleHeader = ({
       <ArticleExcerpt post={post} />
       <ShareButtons
         url={postUrl}
-        title={post.attributes.title}
+        title={post.title}
         copiedLabel={copiedLabel}
         copyLinkLabel={copyLinkLabel}
       />
@@ -141,33 +178,51 @@ const ArticleHeader = ({
   );
 };
 
-const ArticleImage = ({ post }: { post: News }) => (
-  <div className='relative mx-auto w-full max-w-5xl'>
-    <AspectRatio ratio={16 / 9} className='bg-muted'>
-      <Image
-        src={getStrapiMedia(post.attributes.image.data.attributes.url ?? '')}
-        blurDataURL={getStrapiMedia(
-          post.attributes.image.data.attributes.url ?? '',
-        )}
-        placeholder='blur'
-        alt={post.attributes.title}
-        fill
-        className='object-cover object-center'
-      />
-    </AspectRatio>
-    <div className='font-secondary text-light-gray mt-3 text-right text-sm'>
-      {post.attributes.image.data.attributes.name}
+const ArticleImage = ({ post }: { post: News }) => {
+  const url = post.image?.url ?? '';
+  if (!url) return null;
+  return (
+    <div
+      className='relative mx-auto w-full max-w-5xl'
+      data-directus={setVisualEditorAttr({
+        collection: 'posts',
+        item: post.id,
+        fields: 'image',
+        mode: 'modal',
+      })}
+    >
+      <AspectRatio ratio={16 / 9} className='bg-muted'>
+        <Image
+          src={url}
+          blurDataURL={url}
+          placeholder='blur'
+          alt={post.image?.alt ?? post.title}
+          fill
+          className='object-cover object-center'
+        />
+      </AspectRatio>
+      {post.image?.alt ? (
+        <div className='font-secondary text-light-gray mt-3 text-right text-sm'>
+          {post.image.alt}
+        </div>
+      ) : null}
     </div>
-  </div>
-);
+  );
+};
 
 const ArticleContent = ({ post }: { post: News }) => (
   <div
     className='news__content mx-auto w-full max-w-3xl'
-    // Content is sourced from a controlled Strapi CMS — not user-facing input.
+    data-directus={setVisualEditorAttr({
+      collection: 'posts',
+      item: post.id,
+      fields: 'content',
+      mode: 'modal',
+    })}
+    // Content is sourced from a controlled Directus CMS – not user-facing input.
     // If user-generated content is added in future, sanitize with DOMPurify.
     dangerouslySetInnerHTML={{
-      __html: marked(post.attributes.content) as string,
+      __html: marked(post.content ?? '') as string,
     }}
   />
 );
@@ -182,43 +237,44 @@ const ArticleAuthor = ({
   const flags = useFlags(['article_author_bio']);
 
   if (!flags.article_author_bio.enabled) return null;
+  if (!post.author) return null;
+
+  const author = post.author;
 
   return (
     <div className='mx-auto w-full max-w-3xl'>
       <div className='w-2/3 md:w-1/2'>
         <Title size='three'>{contactLabel}</Title>
-        {post.attributes.author.data.attributes.image.data?.attributes.url ? (
+        {author.image?.url ? (
           <AspectRatio ratio={16 / 9} className='bg-muted'>
             <Image
-              src={getStrapiMedia(
-                post.attributes.author.data.attributes.image.data.attributes
-                  .url,
-              )}
-              blurDataURL={getStrapiMedia(
-                post.attributes.author.data.attributes.image.data.attributes
-                  .url,
-              )}
+              src={author.image.url}
+              blurDataURL={author.image.url}
               placeholder='blur'
-              alt={post.attributes.author.data.attributes.name}
+              alt={author.image.alt || author.name}
               fill
               className='object-cover object-center'
             />
           </AspectRatio>
         ) : null}
         <Body margin={false} className='font-medium'>
-          {post.attributes.author.data.attributes.name}
+          {author.name}
         </Body>
-        <Body size='sm' margin={false} color='light'>
-          {post.attributes.author.data.attributes.bio}
-        </Body>
-        <UnstyledLink
-          className='hover:underline'
-          href={'mailto:' + post.attributes.author.data.attributes.mail}
-        >
+        {author.bio ? (
           <Body size='sm' margin={false} color='light'>
-            {post.attributes.author.data.attributes.mail}
+            {author.bio}
           </Body>
-        </UnstyledLink>
+        ) : null}
+        {author.mail ? (
+          <UnstyledLink
+            className='hover:underline'
+            href={'mailto:' + author.mail}
+          >
+            <Body size='sm' margin={false} color='light'>
+              {author.mail}
+            </Body>
+          </UnstyledLink>
+        ) : null}
       </div>
     </div>
   );
@@ -228,7 +284,13 @@ export const NewsArticle = ({ post }: NewsArticleProps) => {
   const t = useTranslations('news');
 
   return (
-    <article className='pb-16 md:pb-24'>
+    <article
+      className='pb-16 md:pb-24'
+      data-directus={setVisualEditorAttr({
+        collection: 'posts',
+        item: post.id,
+      })}
+    >
       <Container>
         <div className='flex flex-col gap-y-8 md:gap-y-12'>
           <ArticleHeader

@@ -2,15 +2,13 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import * as React from 'react';
 
-import { fetchAPI } from '@/lib/fetch-api';
+import { listDownloads } from '@/lib/downloads';
 import { getAlternates } from '@/lib/hreflang';
 import { sitePageMetadata } from '@/lib/site-page-metadata';
 
 import Page from '@/components/layout/Page';
 import { DownloadCenter } from '@/components/templates/DownloadCenter';
 import { DownloadText } from '@/components/templates/DownloadText';
-
-import { Download } from '@/types/Download';
 
 import DownloadsImg from '~/images/downloads/duecker-medizintechnik_downloads_hero-bg.webp';
 
@@ -29,9 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function DownloadsPage({ params }: Props) {
   const { locale } = await params;
   const t = await getTranslations({ locale: locale, namespace: 'downloads' });
-  const downloads = await fetchAPI<{ data: Download[] }>(
-    `/downloads?locale=${locale}&sort=id:desc&populate=deep`,
-  );
+  const downloads = await listDownloads();
 
   return (
     <Page
@@ -46,7 +42,7 @@ export default async function DownloadsPage({ params }: Props) {
       title={t('meta.pageTitle')}
     >
       <DownloadText />
-      <DownloadCenter downloads={downloads.data} />
+      <DownloadCenter downloads={downloads} />
     </Page>
   );
 }

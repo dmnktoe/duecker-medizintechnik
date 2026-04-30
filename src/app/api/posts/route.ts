@@ -1,15 +1,27 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
-import { fetchAPI } from '@/lib/fetch-api';
+import { listPosts } from '@/lib/posts';
 
-import { News } from '@/types/News';
+export async function GET(request: NextRequest) {
+  const { searchParams } = new URL(request.url);
+  const includeAll =
+    searchParams.get('all') === '1' || searchParams.get('all') === 'true';
 
-export async function GET() {
   try {
-    const result = await fetchAPI<{ data: News[] }>(
-      '/posts?sort=id:desc&populate=*&pagination[pageSize]=4',
-    );
-    return NextResponse.json(result);
+    const outcome = await listPosts({
+      limit: 4,
+      includeAllStatuses: includeAll,
+      withOutcome: true,
+    });
+
+    if (!outcome.ok) {
+      return NextResponse.json(
+        { data: [], error: outcome.error },
+        { status: 502 },
+      );
+    }
+
+    return NextResponse.json({ data: outcome.posts });
   } catch {
     return NextResponse.json({ data: null }, { status: 502 });
   }

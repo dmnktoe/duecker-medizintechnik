@@ -55,7 +55,7 @@ const File = ({
           margin={false}
           className='whitespace-nowrap'
         >
-          {size}, {type.toUpperCase()}
+          {[size, type ? type.toUpperCase() : null].filter(Boolean).join(', ')}
         </Body>
         <PrimaryLink className='text-base' href={url}>
           <VscCloudDownload className='h-6 w-6' />
