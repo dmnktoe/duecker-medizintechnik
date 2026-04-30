@@ -10,6 +10,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const pathnames = await getSitemapPathnames();
   return pathnames.map((path) => ({
     url: new URL(path, `${base}/`).toString(),
-    lastModified: new Date(),
   }));
 }
