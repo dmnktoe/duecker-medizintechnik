@@ -33,26 +33,21 @@ export const LeistungenMegaMenu = ({ subItems }: LeistungenMegaMenuProps) => {
 
   return (
     <div
-      className='invisible pointer-events-none absolute top-full left-0 z-30 flex w-max min-w-0 max-w-[min(900px,calc(100vw-2.5rem))] translate-y-0 flex-col items-stretch opacity-0 transition duration-200 ease-out will-change-transform group-focus-within:visible group-focus-within:translate-y-1 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-1 group-hover:opacity-100 focus-within:visible focus-within:translate-y-1 focus-within:opacity-100 md:min-w-[900px] lg:-left-[400px]'
+      className='invisible pointer-events-none absolute top-full left-1/2 z-30 flex w-[min(900px,calc(100vw-2.5rem))] min-w-0 -translate-x-1/2 flex-col items-stretch translate-y-0 opacity-0 transition duration-200 ease-out group-focus-within:visible group-focus-within:translate-y-1.5 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-1.5 group-hover:opacity-100 focus-within:visible focus-within:translate-y-1.5 focus-within:opacity-100'
     >
       {/*
-        Outer column is pointer-events-none. Only a narrow “bridge” + the white panel
-        re-enable events so the cursor can reach a sibling nav item without a huge
-        transparent hover target above the rest of the bar. Diamond: ring + top/left
-        border so the arrow edge is visible.
+        pointer-events-none on the wide box: no invisible 900px wall blocking sibling links.
+        Thin bridge + card are pointer-events-auto. No decorative “diamond” arrow (it
+        never aligned well and looked broken over the hero).
       */}
       <div
         className='pointer-events-auto h-1.5 w-full min-w-0 max-w-full shrink-0'
         aria-hidden
       />
       <div
-        className='bg-white pointer-events-auto relative w-full min-w-0 max-w-full cursor-default p-4 shadow-2xl ring-1 ring-inset ring-gray-200/50'
+        className='bg-white pointer-events-auto relative w-full min-w-0 max-w-full cursor-default overflow-hidden rounded-lg border border-gray-200/90 p-4 shadow-[0_20px_50px_-12px_rgba(7,22,38,0.15)]'
         onMouseLeave={() => setPreviewHref(null)}
       >
-        <div
-          className='absolute -top-2.5 z-0 h-9 w-9 translate-x-0 rotate-45 rounded-[3px] border-t border-l border-gray-200/80 bg-white shadow-sm ring-1 ring-gray-200/50 transition-transform duration-500 ease-in-out will-change-transform group-focus-within:translate-x-[26rem] group-hover:translate-x-[26rem]'
-          aria-hidden
-        />
         <div className='relative z-10'>
           <div className='grid grid-cols-2 gap-6'>
             <div
@@ -177,12 +172,16 @@ export const DesktopNavTrigger = ({
   <button
     type='button'
     className={clsx(
-      'focus-visible:ring-dark/30 group-hover:text-dark inline-block px-1 py-1 transition ease-in-out outline-none group-hover:underline focus-visible:ring-2',
-      isActive && 'underline',
+      'text-dark/90 group-hover:text-dark focus-visible:ring-primary-500/30 inline-flex items-center gap-1 rounded-sm px-1.5 py-1.5 text-base font-medium transition ease-in-out outline-none',
+      'group-hover:underline focus-visible:ring-2 focus-visible:ring-offset-2',
+      isActive && 'text-dark underline decoration-gray-300 underline-offset-4',
     )}
     aria-haspopup='true'
   >
-    {text}{' '}
-    <VscChevronDown className='relative -top-[1px] inline-block transform duration-200 group-focus-within:rotate-180 group-hover:rotate-180' />
+    <span>{text}</span>
+    <VscChevronDown
+      className='text-dark/50 size-4 shrink-0 transition duration-200 group-focus-within:rotate-180 group-hover:rotate-180'
+      aria-hidden
+    />
   </button>
 );
