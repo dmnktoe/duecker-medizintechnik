@@ -32,7 +32,7 @@ export const Header = () => {
       <header className='h-navigation-height sticky top-0 z-50 border-b border-gray-100 bg-white'>
         <a
           href='#main'
-          className='bg-primary-600 text-primary-50 focus:ring-primary-500 absolute top-0 left-1/2 z-[100] -translate-x-1/2 -translate-y-full rounded-b px-4 py-2 text-sm font-medium shadow transition focus:translate-y-0 focus:ring-2'
+          className='bg-primary-600 text-primary-50 focus:ring-primary-500 absolute top-0 left-1/2 z-[100] -translate-x-1/2 -translate-y-full rounded-b px-4 py-2 text-sm font-medium transition focus:translate-y-0 focus:ring-2'
         >
           {t('skipToContent')}
         </a>
