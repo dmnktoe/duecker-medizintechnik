@@ -1,10 +1,10 @@
-import { readFiles, readItems } from '@directus/sdk';
+import { readFile, readFiles, readItems } from '@directus/sdk';
 
 import { directus } from '@/lib/directus';
 
 import type { DirectusFile } from '@/types/Directus';
 
-/** Standard Directus junction: `downloads` M2M `directus_files`. */
+/** Fallback if junction name differs — override via env later if needed */
 export const DOWNLOADS_FILES_JUNCTION = 'downloads_files' as const;
 
 const FILE_FIELDS = [
@@ -16,7 +16,7 @@ const FILE_FIELDS = [
   'filesize',
 ] as const;
 
-/** Collect file UUID(s) from a nested junction row (`directus_files_id` alias may vary). */
+/** UUID from a junction row (legacy `files` many-to-many). */
 function fileIdFromNestedRow(row: Record<string, unknown>): string | null {
   const a = row.directus_files_id;
   if (typeof a === 'string' || typeof a === 'number') return String(a);
@@ -27,7 +27,7 @@ function fileIdFromNestedRow(row: Record<string, unknown>): string | null {
   return null;
 }
 
-/** File ids already present on nested `downloads.files` from readItems depth. */
+/** File ids nested under deprecated `downloads.files[]`. */
 export function collectNestedFileIds(
   rows: Record<string, unknown>[] | null | undefined,
 ): string[] {
@@ -40,9 +40,7 @@ export function collectNestedFileIds(
   return out;
 }
 
-/**
- * When `downloads.files` is missing or stores only stubs, resolve via junction table.
- */
+/** Legacy junction: many files per download. */
 export async function fileIdsPerDownloadViaJunction(
   downloadIds: (string | number)[],
 ): Promise<Map<string, string[]>> {
@@ -75,84 +73,115 @@ export async function fileIdsPerDownloadViaJunction(
       map.set(k, list);
     }
   } catch {
-    // Wrong junction name — caller uses nested path only.
+    // Junction missing or renamed
   }
   return map;
 }
 
-/** Batch-load `directus_files` rows by primary key. */
-export async function loadDirectusFilesByIds(
+/**
+ * Loads file metadata by id. Uses `readFiles` when possible; if some ids are missing
+ * (batch permission quirks, empty filter result), falls back to per-id `readFile`.
+ */
+async function loadDirectusFilesByIds(
   ids: Set<string>,
 ): Promise<Map<string, DirectusFile>> {
-  if (!ids.size) return new Map();
-  const rows = (await directus.request(
-    readFiles({
-      filter: { id: { _in: [...ids] as never } },
-      fields: [...FILE_FIELDS] as never,
-      limit: -1,
+  const unique = [...ids].filter(Boolean);
+  if (!unique.length) return new Map();
+  const map = new Map<string, DirectusFile>();
+
+  try {
+    const rows = (await directus.request(
+      readFiles({
+        filter: { id: { _in: unique as never } },
+        fields: [...FILE_FIELDS] as never,
+        limit: -1,
+      }),
+    )) as unknown as DirectusFile[];
+    for (const f of rows) map.set(f.id, f);
+  } catch {
+    // Continue with per-file fetch
+  }
+
+  const missing = unique.filter((id) => !map.has(id));
+  await Promise.all(
+    missing.map(async (id) => {
+      try {
+        const row = (await directus.request(
+          readFile(id, { fields: [...FILE_FIELDS] as never }),
+        )) as unknown as DirectusFile;
+        if (row?.id) map.set(row.id, row);
+      } catch {
+        /* token may lack read_files for this id */
+      }
     }),
-  )) as unknown as DirectusFile[];
-  return new Map(rows.map((f) => [f.id, f]));
+  );
+
+  return map;
 }
 
 /**
- * Normalize each download row so `files[].directus_files_id` is resolved to a file object when possible.
+ * Hydrate singular `downloads.file` when API returns UUID only + merge legacy junction `files`.
  */
 export async function resolveDownloadFiles(
-  downloads: Array<{
+  rows: unknown[],
+): Promise<unknown[]> {
+  const downloads = rows as Array<{
     id: string | number;
+    file?: DirectusFile | string | number | null;
     files?: Array<Record<string, unknown>> | null;
-  }>,
-): Promise<
-  Array<{
-    id: string | number;
-    files?: Array<Record<string, unknown>> | null;
-  }>
-> {
-  const dlIds = downloads.map((d) => d.id);
+  }>;
 
-  const allFileIds = new Set<string>();
+  const idsAll = new Set<string>();
+
   for (const d of downloads) {
-    collectNestedFileIds(d.files).forEach((id) => allFileIds.add(id));
+    const f = d.file;
+    if (typeof f === 'string' || (typeof f === 'number' && !Number.isNaN(f))) {
+      idsAll.add(String(f));
+    }
+    collectNestedFileIds(d.files).forEach((id) => idsAll.add(id));
   }
 
-  const junctionMap = await fileIdsPerDownloadViaJunction(dlIds);
+  const junctionMap = await fileIdsPerDownloadViaJunction(
+    downloads.map((d) => d.id),
+  );
   for (const d of downloads) {
     const k = String(d.id);
-    if (!collectNestedFileIds(d.files).length && junctionMap.has(k)) {
-      junctionMap.get(k)?.forEach((id) => allFileIds.add(id));
+    if (!collectNestedFileIds(d.files ?? []).length && junctionMap.has(k)) {
+      junctionMap.get(k)?.forEach((id) => idsAll.add(id));
     }
   }
 
-  const fileById = await loadDirectusFilesByIds(allFileIds);
+  const byId = await loadDirectusFilesByIds(idsAll);
 
-  return downloads.map(
-    (
-      d,
-    ): {
-      id: string | number;
-      files?: Array<Record<string, unknown>> | null;
-    } => {
-      const k = String(d.id);
-      let rows = [...(d.files ?? [])];
+  return downloads.map((d): unknown => {
+    const k = String(d.id);
+    const patch: {
+      file?: DirectusFile;
+      files?: Array<Record<string, unknown>>;
+    } = {};
 
-      if (!collectNestedFileIds(rows).length && junctionMap.has(k)) {
-        rows = junctionMap.get(k)!.map((fid, i) => ({
-          id: `junction-${k}-${i}`,
-          downloads_id: d.id,
-          directus_files_id: fileById.get(fid)?.id ?? fid,
-        }));
+    if (typeof d.file === 'string' || typeof d.file === 'number') {
+      const fk = String(d.file);
+      if (byId.has(fk)) patch.file = byId.get(fk)!;
+    }
+
+    let fileRows = [...(d.files ?? [])];
+    if (!collectNestedFileIds(fileRows).length && junctionMap.has(k)) {
+      fileRows = junctionMap.get(k)!.map((fid, i) => ({
+        id: `junction-${k}-${i}`,
+        downloads_id: d.id,
+        directus_files_id: byId.get(fid)?.id ?? fid,
+      }));
+    }
+
+    patch.files = fileRows.map((row): Record<string, unknown> => {
+      const fid = fileIdFromNestedRow(row as Record<string, unknown>);
+      if (fid && byId.has(fid)) {
+        return { ...(row as object), directus_files_id: byId.get(fid)! };
       }
+      return row as Record<string, unknown>;
+    }) as typeof d.files;
 
-      rows = rows.map((row): Record<string, unknown> => {
-        const fid = fileIdFromNestedRow(row as Record<string, unknown>);
-        if (fid && fileById.has(fid)) {
-          return { ...row, directus_files_id: fileById.get(fid)! };
-        }
-        return row as Record<string, unknown>;
-      });
-
-      return { ...d, files: rows };
-    },
-  );
+    return { ...d, ...patch };
+  });
 }

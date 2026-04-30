@@ -13,12 +13,24 @@ import type {
 } from '@/types/Directus';
 import type { Download, DownloadFile } from '@/types/Download';
 
+const FILE_UUID_RE =
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
 const DOWNLOAD_FIELDS = [
   'id',
   'status',
   'name',
+  {
+    file: [
+      'id',
+      'title',
+      'filename_disk',
+      'filename_download',
+      'type',
+      'filesize',
+    ],
+  },
   { category: ['id', 'name', 'slug'] },
-  { files: ['*'] },
 ];
 
 function formatBytes(size: number | string | null | undefined): string {
@@ -53,21 +65,27 @@ function fileExtension(file: DirectusFile): string {
   );
 }
 
-function mapJunctionToFile(
-  junction: DownloadFileJunction,
-): DownloadFile | null {
-  const file = junction.directus_files_id;
-  if (!file || typeof file !== 'object') return null;
-  const directusFile = file as DirectusFile;
+function rowToFrontendFile(df: DirectusFile): DownloadFile {
   return {
-    id: directusFile.id,
-    title:
-      directusFile.title ??
-      directusFile.filename_download ??
-      'Unbenannte Datei',
-    size: formatBytes(directusFile.filesize),
-    url: getDirectusAssetUrl(directusFile),
-    type: fileExtension(directusFile),
+    id: df.id,
+    title: df.title ?? df.filename_download ?? 'Unbenannte Datei',
+    size: formatBytes(df.filesize),
+    url: getDirectusAssetUrl(df),
+    type: fileExtension(df),
+  };
+}
+
+/**
+ * Directus linked `file` as bare UUID — metadata unreadable (permissions) still
+ * needs a downloadable row (asset proxy resolves by id).
+ */
+function rowToFrontendFileFromBareId(fileId: string): DownloadFile {
+  return {
+    id: fileId,
+    title: 'Download',
+    size: '',
+    url: getDirectusAssetUrl({ id: fileId }),
+    type: '',
   };
 }
 
@@ -81,9 +99,28 @@ export function mapDownload(download: DirectusDownload): Download {
         }
       : null;
 
-  const files: DownloadFile[] = (download.files ?? [])
-    .map((row) => mapJunctionToFile(row as unknown as DownloadFileJunction))
-    .filter((f): f is DownloadFile => f !== null);
+  let files: DownloadFile[] = [];
+
+  const fileRef = download.file;
+  if (fileRef && typeof fileRef === 'object') {
+    files = [rowToFrontendFile(fileRef as DirectusFile)];
+  } else if (typeof fileRef === 'string' && FILE_UUID_RE.test(fileRef)) {
+    files = [rowToFrontendFileFromBareId(fileRef)];
+  } else if (download.files?.length) {
+    files = (download.files as DownloadFileJunction[])
+      .map((row) => {
+        const ref = row.directus_files_id;
+        if (typeof ref === 'object' && ref !== null) {
+          return rowToFrontendFile(ref as DirectusFile);
+        }
+        const sid =
+          typeof ref === 'string' || typeof ref === 'number' ? String(ref) : '';
+        return sid && FILE_UUID_RE.test(sid)
+          ? rowToFrontendFileFromBareId(sid)
+          : null;
+      })
+      .filter((f): f is DownloadFile => f !== null);
+  }
 
   return {
     id: download.id,
@@ -115,7 +152,7 @@ export async function listDownloads(): Promise<Download[]> {
       }),
     )) as unknown as DirectusDownload[];
 
-    const hydrated = await resolveDownloadFiles(rows);
+    const hydrated = await resolveDownloadFiles(rows as unknown[]);
     return (hydrated as DirectusDownload[]).map(mapDownload);
   } catch (error) {
     logDirectusError('listDownloads', error, { draft });
