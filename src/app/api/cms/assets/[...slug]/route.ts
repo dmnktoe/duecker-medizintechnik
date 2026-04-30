@@ -5,6 +5,36 @@ import { directusApiToken, directusUrl } from '@/constant/env';
 const FILE_ID_RE =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
+const MAX_SEGMENT_DECODE_PASSES = 8;
+
+/**
+ * Resolves percent-encoding enough to catch "%2e%2e" / "%252e" style traversal.
+ * Returns null if decoding is invalid or the segment is "." / ".." after resolution.
+ */
+function isRejectedPathSegment(segment: string): boolean {
+  let current = segment;
+  for (let i = 0; i < MAX_SEGMENT_DECODE_PASSES; i++) {
+    if (current === '.' || current === '..') return true;
+    try {
+      const next = decodeURIComponent(current.replace(/\+/g, ' '));
+      if (next === current) break;
+      current = next;
+    } catch {
+      return true;
+    }
+  }
+  return current === '.' || current === '..';
+}
+
+function assertSafeProxySegments(segments: string[]): NextResponse | null {
+  for (const seg of segments) {
+    if (isRejectedPathSegment(seg)) {
+      return new NextResponse('Bad Request', { status: 400 });
+    }
+  }
+  return null;
+}
+
 export async function GET(
   request: NextRequest,
   context: { params: Promise<{ slug: string[] }> },
@@ -14,6 +44,9 @@ export async function GET(
   if (!segments.length || !FILE_ID_RE.test(segments[0])) {
     return new NextResponse('Bad Request', { status: 400 });
   }
+
+  const unsafeSegmentsResponse = assertSafeProxySegments(segments);
+  if (unsafeSegmentsResponse) return unsafeSegmentsResponse;
 
   const base = (directusUrl ?? '').replace(/\/+$/, '');
   if (!base || !directusApiToken) {
