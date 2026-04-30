@@ -46,8 +46,9 @@ const LanguagePicker = ({
   return (
     <select
       className={clsx(
-        'text-dark cursor-pointer bg-transparent text-sm font-medium',
-        'w-auto min-w-0 max-w-none border-0 p-0',
+        'language-picker-select',
+        'text-dark cursor-pointer text-sm font-medium',
+        'w-auto min-w-0 max-w-none border-0 bg-transparent p-0',
         'shadow-none ring-0 outline-none',
         'decoration-inherit',
         'transition hover:underline',
