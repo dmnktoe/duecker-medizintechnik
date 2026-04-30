@@ -16,7 +16,6 @@ export default defineConfig([
     'public/**',
     'next-env.d.ts',
     '*.config.js',
-    'next-sitemap.config.js',
   ]),
   ...nextCoreWebVitals,
   ...nextTypescript,
