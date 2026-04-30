@@ -36,8 +36,7 @@ export function getRedirectOriginFromRequest(request: NextRequest): string {
     ?.trim();
 
   if (xfHost) {
-    const proto =
-      xfProto === 'http' || xfProto === 'https' ? xfProto : 'https';
+    const proto = xfProto === 'http' || xfProto === 'https' ? xfProto : 'https';
     try {
       return new URL(`${proto}://${xfHost}`).origin;
     } catch {
