@@ -3,8 +3,9 @@
 Diese Datei beschreibt die Collections, Felder und Einstellungen, die du in
 Directus anlegen musst, damit das Frontend ohne Anpassungen funktioniert.
 
-> Content model: **Posts** (Newsroom) und **Downloads** (Download Center mit
-> Kategorien). Routen: `/newsroom/<slug>`, `/downloads`.
+> Content model: **Posts** (Newsroom), **Downloads** (Download Center mit
+> Kategorien) und **Home** (Partner-Logos im Hero). Routen: `/newsroom/<slug>`,
+> `/downloads`, Startseite `/`.
 
 ## 1. Voraussetzungen
 
@@ -103,12 +104,28 @@ Ein Eintrag pro „Produkt“/„Bündel“ – kann mehrere Dateien enthalten.
 > `DOWNLOADS_FILES_JUNCTION` anpassen — sonst holt das Frontend Dateien weiter
 > nur über verschachtelte `files`, falls Directus dort nichts zurückgibt.
 
+### `home_partner_logos`
+
+Eine gemeinsame Liste für den **Bild-Slider im Hero** und die **Logo-Zeile direkt darunter** auf der Startseite. Wenn die Collection leer ist oder Directus nicht erreichbar ist, nutzt die Seite weiterhin die eingebauten Fallback-Bilder bzw. die statische Partner-Liste aus dem Code.
+
+| Feld                 | Typ        | Notizen                                                                                                                                 |
+| -------------------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`               | String     | Optional; wird als **Alt-Text** genutzt (sonst Datei-Titel / Dateiname).                                                                 |
+| `logo`               | File (M2O) | Pflicht für sichtbare Einträge; **SVG** und Raster (JPG/PNG/WebP) sind erlaubt.                                                         |
+| `link_url`           | String     | Optional; externe Partner-URL. Leer = Logo ohne Link (Logo-Zeile); im Slider wird das Logo trotzdem angezeigt.                          |
+| `use_in_slider`      | Boolean    | Optional; Standard **true** wenn leer. **false** = nicht im Hero-Swiper.                                                                |
+| `use_in_logo_strip`  | Boolean    | Optional; Standard **true** wenn leer. **false** = nicht in der Logo-Zeile unter dem Hero.                                              |
+| `sort`               | Integer    | Optional; aufsteigend sortiert (`sort`, dann `id`).                                                                                     |
+
+**Hinweis:** Dieselbe Datei kann in zwei Einträgen vorkommen (einer nur Slider, einer nur Logo-Zeile), oder ein Eintrag mit beiden Flags **true** steuert beide Bereiche.
+
 Lege eine Policy an (z.B. „Public Read“) mit folgenden Read-Rechten:
 
 - `posts`: nur `status = published` (oder `status in [published, draft]`,
   wenn du Drafts mit Live Preview ausliefern willst – das Frontend filtert
   sowieso entsprechend).
-- `categories`, `authors`, `downloads`, `download_categories`: `status = published`.
+- `categories`, `authors`, `downloads`, `download_categories`,
+  `home_partner_logos`: `status = published`.
 - `directus_files`: `read` für alle in Posts/Downloads referenzierten Files
   (am einfachsten: Public Read auf `directus_files` mit Filter
   `folder != null` o.ä.).
