@@ -39,19 +39,22 @@ export const Header = () => {
         <div>
           <Container>
             {/*
-              Flexbox centering for the desktop nav (avoids -translate-1/2 on the nav, which
-              in Safari can blur or shift sibling text when a mega-menu layer repaints).
+              Mobile: flex — logo and actions. Desktop (xl+): 1fr auto 1fr grid so the nav
+              is mathematically centered in the full header width (not between logo/CTA).
             */}
-            <div className='h-navigation-height flex min-w-0 items-center gap-2 md:gap-3'>
-              <UnderlineLink href='/' className='inline-block shrink-0'>
+            <div className='h-navigation-height flex min-w-0 items-center justify-between gap-2 md:gap-3 xl:grid xl:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] xl:items-center xl:gap-4 xl:justify-items-stretch'>
+              <UnderlineLink
+                href='/'
+                className='inline-block w-max shrink-0 justify-self-start xl:min-w-0'
+              >
                 <Logo className='text-dark w-40 md:w-48' />
               </UnderlineLink>
 
-              <div className='hidden min-w-0 flex-1 justify-center xl:flex'>
+              <div className='hidden min-w-0 justify-center xl:flex xl:justify-center'>
                 <DesktopNav items={navigationItems} />
               </div>
 
-              <div className='ml-auto flex min-w-0 flex-shrink-0 items-center justify-end gap-2 md:gap-3'>
+              <div className='ml-auto flex min-w-0 shrink-0 items-center justify-end gap-2 self-center md:gap-3 xl:ml-0 xl:min-w-0 xl:justify-self-end'>
                 <div className='flex items-center gap-2 md:gap-3 xl:hidden'>
                   <div className='ml-auto hidden md:block'>
                     <ButtonLink href='/kontakt' variant='ghost'>
