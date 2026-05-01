@@ -58,7 +58,7 @@ export const Header = () => {
 
               <div className='relative z-20 ml-auto flex min-w-0 shrink-0 items-center justify-end gap-2 md:gap-3'>
                 <div className='flex items-center gap-2 md:gap-3 xl:hidden'>
-                  <div className='ml-auto block'>
+                  <div className='ml-auto hidden md:block'>
                     <ButtonLink href='/kontakt' variant='ghost'>
                       {t('header.ctaButtonText')}
                     </ButtonLink>
