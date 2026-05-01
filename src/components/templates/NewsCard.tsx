@@ -122,7 +122,7 @@ const NewsCard = ({ post, orientation }: CardProps) => {
             'flex',
             orientation === 'vertical'
               ? 'flex-col'
-              : 'flex-col md:flex-row md:items-center md:justify-center md:gap-x-16 md:align-middle',
+              : 'md:items-top flex-col md:flex-row md:justify-center md:gap-x-16 md:align-middle',
           )}
         >
           <CardImage post={post} orientation={orientation} />
