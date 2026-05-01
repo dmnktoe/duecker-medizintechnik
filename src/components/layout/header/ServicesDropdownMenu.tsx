@@ -51,7 +51,7 @@ function ServicesMegaContent({
 
   return (
     <div
-      className='relative w-full min-w-0 max-w-full cursor-default overflow-hidden p-4'
+      className='relative w-full max-w-full min-w-0 cursor-default overflow-hidden p-4'
       onMouseLeave={() => setPreviewHref(null)}
     >
       <div className='grid grid-cols-2 gap-6'>
@@ -111,7 +111,9 @@ function ServicesMegaContent({
               onMouseLeave={() => setPreviewHref(null)}
             >
               {subItems.map((item, index) => {
-                const serviceKey = isServicesPageHref(item.href) ? item.href : null;
+                const serviceKey = isServicesPageHref(item.href)
+                  ? item.href
+                  : null;
                 return (
                   <li key={index}>
                     <UnderlineLink
@@ -221,19 +223,15 @@ export const ServicesDropdownMenu = ({
 
   return (
     <li className='relative z-20 py-2'>
-      <DropdownMenu
-        open={open}
-        onOpenChange={handleOpenChange}
-        modal={false}
-      >
+      <DropdownMenu open={open} onOpenChange={handleOpenChange} modal={false}>
         <DropdownMenuTrigger asChild>
           <button
             type='button'
             className={clsx(
               'inline-flex items-center gap-1 bg-transparent px-1 py-1 transition ease-in-out outline-none',
-              'text-gray-800 hover:text-dark hover:underline',
+              'hover:text-dark text-gray-800 hover:underline',
               // Keep focus ring subtle (no offset) to avoid Safari halo/shadow artifacts
-              'focus-visible:ring-2 focus-visible:ring-primary-500/30 shadow-none',
+              'focus-visible:ring-primary-500/30 shadow-none focus-visible:ring-2',
               (isActive || open) && 'text-dark underline',
             )}
             aria-haspopup='menu'
@@ -268,7 +266,7 @@ export const ServicesDropdownMenu = ({
           className='bg-transparent p-0 shadow-none'
         >
           <div
-            className='border-gray-200/90 relative z-0 w-[min(900px,calc(100vw-2.5rem))] min-w-0 rounded-b-md border bg-white'
+            className='relative z-0 w-[min(900px,calc(100vw-2.5rem))] min-w-0 rounded-b-md border border-gray-200/90 bg-white'
             onPointerDown={(e) => e.stopPropagation()}
           >
             {/*
@@ -276,7 +274,7 @@ export const ServicesDropdownMenu = ({
               lower half; top edges share the same 1px border, no drop shadows.
             */}
             <div
-              className='-translate-x-1/2 -translate-y-1/2 absolute top-0 z-10 h-2.5 w-2.5 rotate-45 border-l border-t border-gray-200/90 bg-white'
+              className='absolute top-0 z-10 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rotate-45 border-t border-l border-gray-200/90 bg-white'
               style={{ left: '50%' }}
               aria-hidden
             />

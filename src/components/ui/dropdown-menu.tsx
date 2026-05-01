@@ -23,13 +23,14 @@ const DropdownMenuSubTrigger = React.forwardRef<
     ref={ref}
     className={clsxm(
       'data-[state=open]:bg-accent data-[state=open]:text-accent-foreground',
-      'flex select-none items-center',
+      'flex items-center select-none',
       className,
     )}
     {...props}
   />
 ));
-DropdownMenuSubTrigger.displayName = DropdownMenuPrimitive.SubTrigger.displayName;
+DropdownMenuSubTrigger.displayName =
+  DropdownMenuPrimitive.SubTrigger.displayName;
 
 const DropdownMenuSubContent = React.forwardRef<
   React.ComponentRef<typeof DropdownMenuPrimitive.SubContent>,
@@ -42,36 +43,56 @@ const DropdownMenuSubContent = React.forwardRef<
     {...props}
   />
 ));
-DropdownMenuSubContent.displayName = DropdownMenuPrimitive.SubContent.displayName;
+DropdownMenuSubContent.displayName =
+  DropdownMenuPrimitive.SubContent.displayName;
 
 const DropdownMenuContent = React.forwardRef<
   React.ComponentRef<typeof DropdownMenuPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content> & {
     withPortal?: boolean;
   }
->(({ className, withPortal = true, sideOffset = 4, align = 'center', ...props }, ref) => {
-  const content = (
-    <DropdownMenuPrimitive.Content
-      ref={ref}
-      sideOffset={sideOffset}
-      align={align}
-      onCloseAutoFocus={(e) => e.preventDefault()}
-      className={clsxm('z-[60] p-0 shadow-none [filter:none] outline-none', className)}
-      {...props}
-    />
-  );
-  if (!withPortal) {
-    return content;
-  }
-  return <DropdownMenuPrimitive.Portal>{content}</DropdownMenuPrimitive.Portal>;
-});
+>(
+  (
+    {
+      className,
+      withPortal = true,
+      sideOffset = 4,
+      align = 'center',
+      ...props
+    },
+    ref,
+  ) => {
+    const content = (
+      <DropdownMenuPrimitive.Content
+        ref={ref}
+        sideOffset={sideOffset}
+        align={align}
+        onCloseAutoFocus={(e) => e.preventDefault()}
+        className={clsxm(
+          'z-[60] p-0 shadow-none [filter:none] outline-none',
+          className,
+        )}
+        {...props}
+      />
+    );
+    if (!withPortal) {
+      return content;
+    }
+    return (
+      <DropdownMenuPrimitive.Portal>{content}</DropdownMenuPrimitive.Portal>
+    );
+  },
+);
 DropdownMenuContent.displayName = DropdownMenuPrimitive.Content.displayName;
 
 const DropdownMenuItem = DropdownMenuPrimitive.Item;
 const DropdownMenuLabel = DropdownMenuPrimitive.Label;
 const DropdownMenuSeparator = DropdownMenuPrimitive.Separator;
 
-const DropdownMenuShortcut = ({ className, ...props }: React.ComponentPropsWithRef<'span'>) => {
+const DropdownMenuShortcut = ({
+  className,
+  ...props
+}: React.ComponentPropsWithRef<'span'>) => {
   return (
     <span
       className={clsxm('ml-auto text-xs tracking-widest opacity-60', className)}

@@ -17,7 +17,7 @@ export const DesktopNav = ({ items }: DesktopNavProps) => {
   const currentRoute = usePathname();
 
   return (
-    <ul className='text-md z-50 flex w-auto min-w-0 max-w-full items-center text-lg text-gray-800 xl:space-x-6'>
+    <ul className='text-md z-50 flex w-auto max-w-full min-w-0 items-center text-lg text-gray-800 xl:space-x-6'>
       {items.map((item, index) =>
         item.subItems ? (
           <ServicesDropdownMenu

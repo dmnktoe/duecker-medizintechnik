@@ -48,11 +48,11 @@ const LanguagePicker = ({
       className={clsx(
         'language-picker-select',
         'text-dark cursor-pointer text-sm font-medium',
-        'w-auto min-w-0 max-w-none border-0 bg-transparent p-0',
+        'w-auto max-w-none min-w-0 border-0 bg-transparent p-0',
         'shadow-none ring-0 outline-none',
         'decoration-inherit',
         'transition hover:underline',
-        'focus-visible:ring-2 focus-visible:ring-primary-500/30 focus-visible:ring-offset-2',
+        'focus-visible:ring-primary-500/30 focus-visible:ring-2 focus-visible:ring-offset-2',
         'md:text-base',
         className,
       )}
