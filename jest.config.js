@@ -12,8 +12,8 @@ const customJestConfig = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '^~/(.*)$': '<rootDir>/public/$1',
-    '^next-intl$': '<rootDir>/__mocks__/next-intl.js',
-    '^next-intl/(.*)$': '<rootDir>/__mocks__/next-intl.js',
+    '^next-intl$': '<rootDir>/src/__mocks__/next-intl.js',
+    '^next-intl/(.*)$': '<rootDir>/src/__mocks__/next-intl.js',
   },
 };
 
