@@ -99,10 +99,16 @@ export default async function NewsroomPage({ params, searchParams }: Props) {
             </div>
             <aside className='lg:col-span-4'>
               {categories.length ? (
-                <div className='rounded-md border border-gray-100 bg-white p-5'>
-                  <Body isStrong margin={false} className='mb-4'>
-                    {t('content.categories.title')}
-                  </Body>
+                <div className='rounded-md bg-white p-5'>
+                  <div className='mb-4'>
+                    <Body isStrong margin={false}>
+                      {t('content.categories.title')}
+                    </Body>
+                    <div className='mt-2 space-y-1'>
+                      <div className='h-0.5 w-16 bg-gray-200' />
+                      <div className='h-0.5 w-10 bg-gray-200' />
+                    </div>
+                  </div>
                   <ul className='space-y-2'>
                     {categories.map((cat) => {
                       const isActive = cat.slug === selectedCategorySlug;
