@@ -62,4 +62,14 @@ async function getTranslations() {
   return makeT({});
 }
 
-export { getTranslations, NextIntlClientProvider, useLocale, useTranslations };
+async function getMessages() {
+  return {};
+}
+
+export {
+  NextIntlClientProvider,
+  getMessages,
+  getTranslations,
+  useLocale,
+  useTranslations,
+};
