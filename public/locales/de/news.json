@@ -1,5 +1,10 @@
 {
   "content": {
+    "categories": {
+      "title": "Kategorien",
+      "filterLabel": "Filter",
+      "clearFilter": "Filter entfernen"
+    },
     "newsList": {
       "readMore": "Weiterlesen",
       "noResults": "Aktuell sind keine Beiträge verfügbar. Schauen Sie bald wieder vorbei."
