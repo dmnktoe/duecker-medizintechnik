@@ -221,6 +221,12 @@ export const ServicesDropdownMenu = ({
     [],
   );
 
+  React.useEffect(() => {
+    clearTimers();
+    setOpen(false);
+    setPreviewHref(null);
+  }, [currentRoute, clearTimers]);
+
   return (
     <li className='relative z-20 py-2'>
       <DropdownMenu open={open} onOpenChange={handleOpenChange} modal={false}>
