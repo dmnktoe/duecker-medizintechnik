@@ -64,6 +64,8 @@ export default async function NewsroomPage({ params, searchParams }: Props) {
     <Page
       layout={{
         background: 'light',
+        // Keep breadcrumbs at 5xl (Page uses this value),
+        // but allow the page content to be wider.
         containerWidth: 'max-w-5xl',
         showBreadcrumbs: true,
         showHero: false,
@@ -71,12 +73,12 @@ export default async function NewsroomPage({ params, searchParams }: Props) {
       }}
       title={t('meta.pageTitle')}
     >
-      <section className='mx-auto max-w-5xl pb-16 md:pb-24'>
-        <Container>
+      <section className='pb-16 md:pb-24'>
+        <Container width='max-w-7xl'>
           <Title>{t('content.title')}</Title>
           <Body>{t('content.text')}</Body>
           <div className='mt-10 grid grid-cols-1 gap-10 lg:grid-cols-12'>
-            <div className='lg:col-span-8'>
+            <div className='lg:col-span-9'>
               {selectedCategorySlug ? (
                 <div className='mb-6'>
                   <Body size='sm' margin={false} color='light'>
@@ -97,7 +99,7 @@ export default async function NewsroomPage({ params, searchParams }: Props) {
               ) : null}
               <NewsList posts={filteredPosts} />
             </div>
-            <aside className='lg:col-span-4'>
+            <aside className='lg:col-span-3'>
               {categories.length ? (
                 <div className='rounded-md bg-white p-5'>
                   <div className='mb-4'>
