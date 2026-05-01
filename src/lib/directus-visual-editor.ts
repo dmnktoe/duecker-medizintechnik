@@ -9,7 +9,7 @@
  * without importing the client-only Visual Editor runtime.
  */
 
-import { directusUrl } from '@/constant/env';
+import { directusUrl } from '@/constants/env';
 
 type Mode = 'drawer' | 'modal' | 'popover';
 

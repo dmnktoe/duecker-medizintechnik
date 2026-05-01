@@ -1,4 +1,4 @@
-jest.mock('@/constant/env', () => ({
+jest.mock('@/constants/env', () => ({
   showLogger: true,
 }));
 

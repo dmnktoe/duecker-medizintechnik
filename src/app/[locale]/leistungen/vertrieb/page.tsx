@@ -6,7 +6,7 @@ import { getAlternates } from '@/lib/hreflang';
 import { listPartnerLogos } from '@/lib/partner-logos';
 import { sitePageMetadata } from '@/lib/site-page-metadata';
 
-import Page from '@/components/layout/Page';
+import { Page } from '@/components/layout';
 import DistributionConsult from '@/components/templates/DistributionConsult';
 import DistributionIntro from '@/components/templates/DistributionIntro';
 import DistributionOptic from '@/components/templates/DistributionOptic';

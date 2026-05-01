@@ -6,7 +6,7 @@ import { getAlternates } from '@/lib/hreflang';
 import { listPartnerLogos } from '@/lib/partner-logos';
 import { sitePageMetadata } from '@/lib/site-page-metadata';
 
-import Page from '@/components/layout/Page';
+import { Page } from '@/components/layout';
 import CompanyView from '@/components/templates/CompanyView';
 
 import companyHero from '~/images/company/duecker-medizintechnik_company_hero.webp';

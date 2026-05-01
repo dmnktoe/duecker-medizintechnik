@@ -5,7 +5,7 @@ import * as React from 'react';
 import { getAlternates } from '@/lib/hreflang';
 import { sitePageMetadata } from '@/lib/site-page-metadata';
 
-import Page from '@/components/layout/Page';
+import { Page } from '@/components/layout';
 import { ContactMap } from '@/components/templates/ContactMap';
 import ContactView from '@/components/templates/ContactView';
 

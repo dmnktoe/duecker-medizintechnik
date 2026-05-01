@@ -7,7 +7,7 @@ import { listPartnerLogos } from '@/lib/partner-logos';
 import { listPosts } from '@/lib/posts';
 import { sitePageMetadata } from '@/lib/site-page-metadata';
 
-import Page from '@/components/layout/Page';
+import { Page } from '@/components/layout';
 import { BentoSection } from '@/components/templates/Bento';
 import { Features } from '@/components/templates/Features';
 import { Hero } from '@/components/templates/Hero';

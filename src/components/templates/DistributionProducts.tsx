@@ -7,7 +7,7 @@ import { Container } from '@/components/layout';
 import { ProductCard } from '@/components/templates/ProductCard';
 import { Body, Title, UnderlineLink } from '@/components/ui';
 
-import { company } from '@/constant/company';
+import { company } from '@/constants/company';
 
 import { Product } from '@/types/Product';
 

@@ -2,10 +2,12 @@
 
 import * as React from 'react';
 
-import { Footer, Header } from '@/components/layout';
 import { CallToAction } from '@/components/templates/CallToAction';
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+import { Footer } from './Footer';
+import { Header } from './Header';
+
+export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       {/*
@@ -18,3 +20,5 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     </>
   );
 }
+
+export default Layout;

@@ -4,7 +4,7 @@ import * as React from 'react';
 
 import { sitePageMetadata } from '@/lib/site-page-metadata';
 
-import Layout from '@/components/layout/Layout';
+import { Layout } from '@/components/layout';
 import NotFound from '@/components/templates/NotFound';
 
 export async function generateMetadata(): Promise<Metadata> {

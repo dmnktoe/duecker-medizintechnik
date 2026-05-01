@@ -7,7 +7,7 @@ import {
 
 import { assertDirectusEnv } from '@/lib/env-assertions';
 
-import { directusApiToken, directusUrl } from '@/constant/env';
+import { directusApiToken, directusUrl } from '@/constants/env';
 
 import type { DirectusSchema } from '@/types/Directus';
 

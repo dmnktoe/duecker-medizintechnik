@@ -6,8 +6,8 @@ import * as React from 'react';
 
 import { UnderlineLink } from '@/components/ui';
 
+import type { NavItemProps } from './header.types';
 import { ServicesDropdownMenu } from './ServicesDropdownMenu';
-import type { NavItemProps } from './types';
 
 type DesktopNavProps = {
   items: NavItemProps[];

@@ -6,7 +6,7 @@ import * as React from 'react';
 import { Container } from '@/components/layout';
 import { Body, PrimaryLink, Title, UnderlineLink } from '@/components/ui';
 
-import { company } from '@/constant/company';
+import { company } from '@/constants/company';
 
 export default function LegalNoticeText() {
   const t = useTranslations('imprint');

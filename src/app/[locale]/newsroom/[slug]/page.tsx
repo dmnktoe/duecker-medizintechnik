@@ -7,8 +7,8 @@ import { getAlternates } from '@/lib/hreflang';
 import { getPostBySlug, listPostSlugs } from '@/lib/posts';
 import { sitePageMetadata } from '@/lib/site-page-metadata';
 
+import { Page } from '@/components/layout';
 import { Container } from '@/components/layout/Container';
-import Page from '@/components/layout/Page';
 import { NewsArticle } from '@/components/templates/NewsArticle';
 import { ArrowLink } from '@/components/ui';
 

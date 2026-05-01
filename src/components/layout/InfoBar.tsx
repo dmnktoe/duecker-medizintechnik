@@ -11,7 +11,7 @@ import {
 import { Container } from '@/components/layout/Container';
 import LanguagePicker from '@/components/templates/LanguagePicker';
 
-import { company } from '@/constant/company';
+import { company } from '@/constants/company';
 
 export const InfoBar = () => {
   return (

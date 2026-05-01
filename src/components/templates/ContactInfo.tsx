@@ -6,7 +6,7 @@ import { VscCallOutgoing, VscHome, VscMail } from 'react-icons/vsc';
 
 import { Body, Title, UnderlineLink } from '@/components/ui';
 
-import { company } from '@/constant/company';
+import { company } from '@/constants/company';
 
 export default function ContactInfo() {
   const t = useTranslations('contact');

@@ -21,7 +21,7 @@ import {
   type ServicesPageHref,
 } from '@/constants/services-page-hero';
 
-import type { SubItem } from './types';
+import type { SubItem } from './header.types';
 
 import megaMenuBg from '~/images/header/mega-menu_bg.webp';
 

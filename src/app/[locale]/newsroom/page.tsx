@@ -7,7 +7,7 @@ import { listPosts } from '@/lib/posts';
 import { sitePageMetadata } from '@/lib/site-page-metadata';
 
 import { Container } from '@/components/layout';
-import Page from '@/components/layout/Page';
+import { Page } from '@/components/layout';
 import { NewsList } from '@/components/templates/NewsList';
 import { Body, Title } from '@/components/ui';
 

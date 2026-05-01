@@ -7,7 +7,7 @@ import ScrollSpy from 'react-scrollspy-navigation';
 import { Container } from '@/components/layout';
 import { Body, Title, UnderlineLink } from '@/components/ui';
 
-import { company } from '@/constant/company';
+import { company } from '@/constants/company';
 
 export default function PrivacyContent() {
   const t = useTranslations('privacy');

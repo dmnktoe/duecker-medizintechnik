@@ -5,7 +5,7 @@ import * as Sentry from '@sentry/nextjs';
 import type { ComponentProps } from 'react';
 import * as React from 'react';
 
-import { isLocal } from '@/constant/env';
+import { isLocal } from '@/constants/env';
 
 import { ConsentSurfaces } from './consent/ConsentSurfaces';
 
