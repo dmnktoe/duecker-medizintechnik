@@ -66,7 +66,7 @@ export default async function NewsroomPage({ params, searchParams }: Props) {
         background: 'light',
         // Keep breadcrumbs at 5xl (Page uses this value),
         // but allow the page content to be wider.
-        containerWidth: 'max-w-5xl',
+        containerWidth: 'max-w-7xl',
         showBreadcrumbs: true,
         showHero: false,
         padding: 'default',
@@ -76,7 +76,7 @@ export default async function NewsroomPage({ params, searchParams }: Props) {
       <section className='pb-16 md:pb-24'>
         <Container width='max-w-7xl'>
           <Title>{t('content.title')}</Title>
-          <Body>{t('content.text')}</Body>
+          <Body className='max-w-3xl'>{t('content.text')}</Body>
           <div className='mt-10 grid grid-cols-1 gap-10 lg:grid-cols-12'>
             <div className='lg:col-span-9'>
               {selectedCategorySlug ? (
@@ -106,10 +106,7 @@ export default async function NewsroomPage({ params, searchParams }: Props) {
                     <Body isStrong margin={false}>
                       {t('content.categories.title')}
                     </Body>
-                    <div className='mt-2 space-y-1'>
-                      <div className='h-0.5 w-16 bg-gray-200' />
-                      <div className='h-0.5 w-10 bg-gray-200' />
-                    </div>
+                    <div className='bg-dark mt-1 h-0.5 w-full' />
                   </div>
                   <ul className='space-y-2'>
                     {categories.map((cat) => {
