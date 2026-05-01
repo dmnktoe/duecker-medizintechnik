@@ -24,7 +24,7 @@ const nextJestConfig = createJestConfig(customJestConfig);
 module.exports = async () => {
   const config = await nextJestConfig();
   config.transformIgnorePatterns = [
-    'node_modules/(?!(next-intl|use-intl|\\.pnpm))',
+    'node_modules/(?!(next-intl|use-intl|cobe|\\.pnpm))',
     '^.+\\.module\\.(css|sass|scss)$',
   ];
   return config;

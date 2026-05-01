@@ -1,8 +1,8 @@
 export * from './Container';
 export * from './Footer';
-export * from './InfoBar';
-export * from './Header';
 export type { NavItemProps, SubItem } from './header.types';
+export * from './Header';
+export * from './InfoBar';
 
 export { Layout } from './Layout';
 export { Page } from './Page';

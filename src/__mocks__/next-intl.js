@@ -1,7 +1,4 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-'use strict';
-
-const React = require('react');
+import * as React from 'react';
 
 const IntlContext = React.createContext({ locale: 'de', messages: {} });
 
@@ -65,9 +62,4 @@ async function getTranslations() {
   return makeT({});
 }
 
-module.exports = {
-  NextIntlClientProvider,
-  useTranslations,
-  useLocale,
-  getTranslations,
-};
+export { NextIntlClientProvider, getTranslations, useLocale, useTranslations };
