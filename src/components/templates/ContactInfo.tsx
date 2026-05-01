@@ -1,15 +1,17 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import * as React from 'react';
 import { VscCallOutgoing, VscHome, VscMail } from 'react-icons/vsc';
 
+import { OpeningHoursWidget } from '@/components/templates/OpeningHoursWidget';
 import { Body, Title, UnderlineLink } from '@/components/ui';
 
 import { company } from '@/constants/company';
 
 export default function ContactInfo() {
   const t = useTranslations('contact');
+  const locale = useLocale();
 
   const IconWrapper = ({ children }: { children: React.ReactNode }) => {
     return (
@@ -78,6 +80,12 @@ export default function ContactInfo() {
       <Title>{t('content.title')}</Title>
       <Body className='mb-12'>{t('content.text')}</Body>
       <InfoList />
+      <div className='mt-10 max-w-[370px]'>
+        <OpeningHoursWidget
+          locale={locale === 'en' ? 'en' : 'de'}
+          variant='weeklyOverview'
+        />
+      </div>
     </>
   );
 }

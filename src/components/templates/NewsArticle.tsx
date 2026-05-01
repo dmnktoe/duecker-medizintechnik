@@ -43,9 +43,14 @@ const ArticleMeta = ({ post }: { post: News }) => (
           mode: 'popover',
         })}
       >
-        <Badge color='dark' size='md' variant='outline'>
-          {post.category.name}
-        </Badge>
+        <UnstyledLink
+          href={`/newsroom?category=${encodeURIComponent(post.category.slug)}`}
+          className='inline-flex hover:opacity-80'
+        >
+          <Badge color='dark' size='md' variant='outline'>
+            {post.category.name}
+          </Badge>
+        </UnstyledLink>
       </span>
     ) : null}
     <span className='text-gray-300'>|</span>

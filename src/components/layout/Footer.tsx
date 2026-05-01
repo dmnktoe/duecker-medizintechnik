@@ -1,7 +1,7 @@
 'use client';
 
 import { useFlags } from 'flagsmith/react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import * as React from 'react';
 import { PiTranslate } from 'react-icons/pi';
 import { VscArrowRight } from 'react-icons/vsc';
@@ -12,6 +12,7 @@ import { getVersion } from '@/lib/get-version';
 import { Container } from '@/components/layout/Container';
 import { useFooterPosts } from '@/components/providers/FooterPostsContext';
 import LanguagePicker from '@/components/templates/LanguagePicker';
+import { OpeningHoursWidget } from '@/components/templates/OpeningHoursWidget';
 import { Body, ButtonLink, Title, UnderlineLink } from '@/components/ui';
 
 import { company } from '@/constants/company';
@@ -34,6 +35,7 @@ const FooterNavigationHeadline = ({ title }: { title: string }) => (
 
 const FooterContact = () => {
   const t = useTranslations('common');
+  const locale = useLocale();
   return (
     <>
       <Title size='one'>{t('footer.contact.intro')}</Title>
@@ -56,6 +58,10 @@ const FooterContact = () => {
           </UnderlineLink>
         </Body>
       </div>
+      <OpeningHoursWidget
+        locale={locale === 'en' ? 'en' : 'de'}
+        variant='nowOpen'
+      />
       <ButtonLink href='/kontakt' variant='primary' size='sm' className='mt-8'>
         {t('footer.contact.button')} <VscArrowRight className='ml-2' />
       </ButtonLink>
