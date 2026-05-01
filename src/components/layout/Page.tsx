@@ -56,6 +56,7 @@ export default function Page({
         ) : null)}
       {layout.topContent}
       <main
+        id='main'
         className={clsxm(
           layout.background === 'light' && 'bg-white',
           layout.background === 'dark' && 'bg-black',

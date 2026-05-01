@@ -6,7 +6,7 @@ import * as React from 'react';
 
 import { UnderlineLink } from '@/components/ui';
 
-import { DesktopNavTrigger, LeistungenMegaMenu } from './LeistungenMegaMenu';
+import { ServicesDropdownMenu } from './ServicesDropdownMenu';
 import type { NavItemProps } from './types';
 
 type DesktopNavProps = {
@@ -17,18 +17,17 @@ export const DesktopNav = ({ items }: DesktopNavProps) => {
   const currentRoute = usePathname();
 
   return (
-    <ul className='text-md absolute top-1/2 left-1/2 z-50 hidden -translate-x-1/2 -translate-y-1/2 transform text-lg text-gray-800 xl:flex xl:w-auto xl:items-center xl:space-x-6'>
-      {items.map((item, index) => (
-        <li key={index} className='group relative py-2'>
-          {item.subItems ? (
-            <>
-              <DesktopNavTrigger
-                text={item.text}
-                isActive={item.subItems.some((s) => s.href === currentRoute)}
-              />
-              <LeistungenMegaMenu subItems={item.subItems} />
-            </>
-          ) : (
+    <ul className='text-md z-50 flex w-auto max-w-full min-w-0 items-center text-lg text-gray-800 xl:space-x-6'>
+      {items.map((item, index) =>
+        item.subItems ? (
+          <ServicesDropdownMenu
+            key={index}
+            subItems={item.subItems}
+            label={item.text}
+            isActive={item.subItems.some((s) => s.href === currentRoute)}
+          />
+        ) : (
+          <li key={item.href ?? index} className='py-2'>
             <UnderlineLink
               underline='hover'
               href={item.href as string}
@@ -39,9 +38,9 @@ export const DesktopNav = ({ items }: DesktopNavProps) => {
             >
               {item.text}
             </UnderlineLink>
-          )}
-        </li>
-      ))}
+          </li>
+        ),
+      )}
     </ul>
   );
 };
