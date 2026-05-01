@@ -13,8 +13,8 @@ import { Logo } from '@/components/ui/Icons';
 import { useMobileMenu } from '@/utils/useMobileMenu';
 
 import { DesktopNav } from './DesktopNav';
-import { MOBILE_NAV_PANEL_ID, MobileNavDrawer } from './MobileNavDrawer';
 import type { NavItemProps } from './header.types';
+import { MOBILE_NAV_PANEL_ID, MobileNavDrawer } from './MobileNavDrawer';
 
 export const Header = () => {
   const t = useTranslations('common');

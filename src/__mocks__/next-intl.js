@@ -62,4 +62,4 @@ async function getTranslations() {
   return makeT({});
 }
 
-export { NextIntlClientProvider, getTranslations, useLocale, useTranslations };
+export { getTranslations, NextIntlClientProvider, useLocale, useTranslations };
