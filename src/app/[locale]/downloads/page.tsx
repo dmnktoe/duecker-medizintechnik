@@ -6,7 +6,7 @@ import { listDownloads } from '@/lib/downloads';
 import { getAlternates } from '@/lib/hreflang';
 import { sitePageMetadata } from '@/lib/site-page-metadata';
 
-import Page from '@/components/layout/Page';
+import { Page } from '@/components/layout';
 import { DownloadCenter } from '@/components/templates/DownloadCenter';
 import { DownloadText } from '@/components/templates/DownloadText';
 

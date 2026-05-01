@@ -3,7 +3,7 @@
 import { useFlags } from 'flagsmith/react';
 import * as React from 'react';
 
-import Page from '@/components/layout/Page';
+import { Page } from '@/components/layout';
 import RepairIntro from '@/components/templates/RepairIntro';
 import RepairSlideshow from '@/components/templates/RepairSlideshow';
 

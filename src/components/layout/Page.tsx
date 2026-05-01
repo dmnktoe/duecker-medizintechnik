@@ -6,12 +6,12 @@ import * as React from 'react';
 
 import clsxm from '@/lib/clsxm';
 
-import { Container } from '@/components/layout/index';
-import Layout from '@/components/layout/Layout';
+import { Container } from '@/components/layout/Container';
+import { Layout } from '@/components/layout/Layout';
 import Breadcrumbs from '@/components/templates/Breadcrumbs';
 import ImageBanner from '@/components/templates/ImageBanner/ImageBanner';
 
-interface PageProps {
+export interface PageProps {
   children: React.ReactNode;
   className?: string;
   layout: {
@@ -26,7 +26,7 @@ interface PageProps {
   title: string;
 }
 
-export default function Page({
+export function Page({
   children,
   className,
   layout = {
@@ -82,3 +82,5 @@ export default function Page({
     </Layout>
   );
 }
+
+export default Page;

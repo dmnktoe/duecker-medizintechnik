@@ -5,7 +5,7 @@ import * as React from 'react';
 import { getAlternates } from '@/lib/hreflang';
 import { sitePageMetadata } from '@/lib/site-page-metadata';
 
-import Page from '@/components/layout/Page';
+import { Page } from '@/components/layout';
 import ImprintContent from '@/components/templates/LegalNoticeText';
 
 type Props = { params: Promise<{ locale: string }> };

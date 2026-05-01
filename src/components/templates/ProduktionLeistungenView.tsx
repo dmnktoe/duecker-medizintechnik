@@ -3,7 +3,7 @@
 import { useFlags } from 'flagsmith/react';
 import * as React from 'react';
 
-import Page from '@/components/layout/Page';
+import { Page } from '@/components/layout';
 import ProductionIntro from '@/components/templates/ProductionIntro';
 import ProductionTiles from '@/components/templates/ProductionTiles';
 
