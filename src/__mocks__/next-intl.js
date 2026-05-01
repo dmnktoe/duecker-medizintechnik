@@ -67,9 +67,9 @@ async function getMessages() {
 }
 
 export {
-  NextIntlClientProvider,
   getMessages,
   getTranslations,
+  NextIntlClientProvider,
   useLocale,
   useTranslations,
 };
