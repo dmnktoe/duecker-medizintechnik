@@ -16,7 +16,7 @@ import {
 } from '@/components/ui';
 import { SubdirectoryIcon } from '@/components/ui/Icons';
 
-import type { NavItemProps } from './types';
+import type { NavItemProps } from './header.types';
 
 const MOBILE_NAV_PANEL_ID = 'mobile-navigation-menu';
 

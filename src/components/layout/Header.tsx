@@ -14,7 +14,7 @@ import { useMobileMenu } from '@/utils/useMobileMenu';
 
 import { DesktopNav } from './DesktopNav';
 import { MOBILE_NAV_PANEL_ID, MobileNavDrawer } from './MobileNavDrawer';
-import type { NavItemProps } from './types';
+import type { NavItemProps } from './header.types';
 
 export const Header = () => {
   const t = useTranslations('common');
