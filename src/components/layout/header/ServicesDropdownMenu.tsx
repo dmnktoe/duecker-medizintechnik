@@ -207,8 +207,8 @@ export const ServicesDropdownMenu = ({
   }, [clearTimers]);
 
   const handleOpenChange = (next: boolean) => {
+    setOpen(next);
     if (!next) {
-      setOpen(false);
       setPreviewHref(null);
     }
   };
@@ -254,6 +254,7 @@ export const ServicesDropdownMenu = ({
         <DropdownMenuContent
           id={contentId}
           withPortal
+          preventCloseAutoFocus
           side='bottom'
           align='center'
           sideOffset={0}

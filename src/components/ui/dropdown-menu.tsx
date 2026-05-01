@@ -50,12 +50,14 @@ const DropdownMenuContent = React.forwardRef<
   React.ComponentRef<typeof DropdownMenuPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content> & {
     withPortal?: boolean;
+    preventCloseAutoFocus?: boolean;
   }
 >(
   (
     {
       className,
       withPortal = true,
+      preventCloseAutoFocus = false,
       sideOffset = 4,
       align = 'center',
       ...props
@@ -67,7 +69,9 @@ const DropdownMenuContent = React.forwardRef<
         ref={ref}
         sideOffset={sideOffset}
         align={align}
-        onCloseAutoFocus={(e) => e.preventDefault()}
+        {...(preventCloseAutoFocus && {
+          onCloseAutoFocus: (e) => e.preventDefault(),
+        })}
         className={clsxm(
           'z-[60] p-0 shadow-none [filter:none] outline-none',
           className,
