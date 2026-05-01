@@ -1,4 +1,4 @@
-import { directusUrl } from '@/constant/env';
+import { directusUrl } from '@/constants/env';
 
 export function getDirectusURL(path = '') {
   const base = (directusUrl ?? '').replace(/\/+$/, '');

@@ -14,7 +14,7 @@ import { useFooterPosts } from '@/components/providers/FooterPostsContext';
 import LanguagePicker from '@/components/templates/LanguagePicker';
 import { Body, ButtonLink, Title, UnderlineLink } from '@/components/ui';
 
-import { company } from '@/constant/company';
+import { company } from '@/constants/company';
 
 import { News } from '@/types/News';
 

@@ -1,4 +1,4 @@
-import { directusUrl } from '@/constant/env';
+import { directusUrl } from '@/constants/env';
 
 type DirectusErrorShape = {
   errors?: Array<{

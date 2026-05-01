@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getRedirectOriginFromRequest } from '@/lib/get-base-url';
 import { getPostById } from '@/lib/posts';
 
-import { directusPreviewSecret } from '@/constant/env';
+import { directusPreviewSecret } from '@/constants/env';
 
 /**
  * Live Preview entry point.

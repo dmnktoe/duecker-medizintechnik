@@ -5,7 +5,7 @@ import '@/styles/globals.css';
 
 import { sortsMillGoudy } from '@/lib/fonts';
 
-import { isLocal } from '@/constant/env';
+import { isLocal } from '@/constants/env';
 
 export const metadata: Metadata = {
   title:

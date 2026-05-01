@@ -3,7 +3,7 @@ import React from 'react';
 
 import createIntlWrapper from '@/lib/i18n-testing';
 
-import { Header } from '@/components/layout/Header';
+import { Header } from '@/components/layout';
 
 jest.mock('flagsmith/react', () => ({
   useFlags: () => ({ language_picker: { enabled: true } }),

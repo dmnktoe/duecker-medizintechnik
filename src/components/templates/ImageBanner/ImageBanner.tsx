@@ -5,7 +5,7 @@ import Image, { StaticImageData } from 'next/image';
 import {
   ImageBannerRole,
   responsiveImageSizes,
-} from '@/constant/responsive-image-sizes';
+} from '@/constants/responsive-image-sizes';
 
 import { imgBannerVariants } from './variants';
 

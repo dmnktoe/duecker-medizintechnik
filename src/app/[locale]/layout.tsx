@@ -12,7 +12,7 @@ import Hotjar from '@/components/helpers/Hotjar';
 import { Providers } from '@/components/providers/Providers';
 import { VisualEditorMount } from '@/components/providers/VisualEditorMount';
 
-import { flagsmithId, googleAnalyticsId, hotjarId } from '@/constant/env';
+import { flagsmithId, googleAnalyticsId, hotjarId } from '@/constants/env';
 import { routing } from '@/i18n/routing';
 import { i18nConfig } from '@/i18n/settings';
 
