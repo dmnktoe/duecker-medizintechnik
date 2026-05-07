@@ -1,5 +1,6 @@
 'use client';
 
+import { useFlags } from 'flagsmith/react';
 import { useTranslations } from 'next-intl';
 import * as React from 'react';
 import { VscCallOutgoing } from 'react-icons/vsc';
@@ -19,6 +20,7 @@ import { MOBILE_NAV_PANEL_ID, MobileNavDrawer } from './MobileNavDrawer';
 export const Header = () => {
   const t = useTranslations('common');
   const navigationItems = t.raw('header.navigationItems') as NavItemProps[];
+  const flags = useFlags(['language_picker']);
 
   const menuPanelRef = React.useRef<HTMLDivElement | null>(null);
   const menuButtonRef = React.useRef<HTMLButtonElement | null>(null);
@@ -32,7 +34,7 @@ export const Header = () => {
       <header className='h-navigation-height sticky top-0 z-50 border-b border-gray-100 bg-white'>
         <a
           href='#main'
-          className='bg-primary-600 text-primary-50 focus:ring-primary-500 absolute top-0 left-1/2 z-[100] -translate-x-1/2 -translate-y-full rounded-b px-4 py-2 text-sm font-medium transition focus:translate-y-0 focus:ring-2'
+          className='bg-primary-600 text-primary-50 focus:ring-primary-500 absolute top-0 left-1/2 z-100 -translate-x-1/2 -translate-y-full rounded-b px-4 py-2 text-sm font-medium transition focus:translate-y-0 focus:ring-2'
         >
           {t('skipToContent')}
         </a>
@@ -73,20 +75,22 @@ export const Header = () => {
                 </div>
 
                 <div className='hidden min-w-0 items-center gap-2.5 sm:gap-3 lg:gap-4 xl:flex'>
-                  <div className='min-w-0 shrink-0 text-right'>
-                    <label
-                      htmlFor='header-locale'
-                      className='text-light-gray block text-right text-[0.7rem] font-medium tracking-wide'
-                    >
-                      {t('header.languageLabel')}
-                    </label>
-                    <LanguagePicker
-                      id='header-locale'
-                      name='header-languages'
-                      ariaLabel={t('header.change-locale')}
-                      className='mt-0.5'
-                    />
-                  </div>
+                  {flags.language_picker.enabled && (
+                    <div className='min-w-0 shrink-0 text-right'>
+                      <label
+                        htmlFor='header-locale'
+                        className='text-light-gray block text-right text-[0.7rem] font-medium tracking-wide'
+                      >
+                        {t('header.languageLabel')}
+                      </label>
+                      <LanguagePicker
+                        id='header-locale'
+                        name='header-languages'
+                        ariaLabel={t('header.change-locale')}
+                        className='mt-0.5'
+                      />
+                    </div>
+                  )}
                   <ButtonLink
                     href='/kontakt'
                     size='lg'
