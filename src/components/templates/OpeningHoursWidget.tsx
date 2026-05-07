@@ -45,7 +45,7 @@ export function OpeningHoursWidget({ locale, variant, className }: Props) {
 
   if (variant === 'nowOpen') {
     return (
-      <div className={clsxm('mt-6 rounded-md bg-gray-100 p-3', className)}>
+      <div className={clsxm('mt-6 bg-gray-100 p-3', className)}>
         <div className='flex items-start justify-between gap-3'>
           <div>
             <Title size='five' margin={false}>

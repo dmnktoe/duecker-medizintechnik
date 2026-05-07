@@ -46,7 +46,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         type='button'
         disabled={disabled}
         className={clsxm(
-          'inline-flex items-center justify-center rounded-md font-normal',
+          'inline-flex items-center justify-center font-normal',
           'focus:outline-dark focus-visible:ring-primary-500 focus:outline-1 focus:outline-offset-4 focus:outline-dashed focus-visible:ring',
           //#region  //*=========== Size ===========
           [

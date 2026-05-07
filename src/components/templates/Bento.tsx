@@ -226,7 +226,7 @@ const BentoCard = ({
   <UnstyledLink
     href={href}
     className={clsxm(
-      'group relative col-span-3 flex flex-col justify-between overflow-hidden rounded-lg grayscale transition-all duration-300 ease-out hover:grayscale-0',
+      'group relative col-span-3 flex flex-col justify-between overflow-hidden grayscale transition-all duration-300 ease-out hover:grayscale-0',
       textIsWhite
         ? 'bg-white'
         : 'hover:border-primary-300 border border-solid border-gray-200 bg-white',

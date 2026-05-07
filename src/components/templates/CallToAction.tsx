@@ -36,7 +36,7 @@ export const CallToAction = () => {
           className={clsxm(
             'pointer-events-auto mb-32 flex flex-shrink',
             '!bg-white/10 !text-white lg:!px-12 lg:!py-6 lg:!text-xl',
-            'hover:!text-dark hover:!bg-white/100',
+            'hover:!text-dark hover:cursor-pointer hover:!bg-white/100',
           )}
           variant='light'
           isDarkBg
