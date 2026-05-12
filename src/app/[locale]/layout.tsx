@@ -1,9 +1,12 @@
-import { createFlagsmithInstance } from 'flagsmith/isomorphic';
 import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
 import { getMessages } from 'next-intl/server';
 import * as React from 'react';
 
+import {
+  getFlagsmithServerState,
+  hasServerFeature,
+} from '@/lib/flagsmith-server';
 import { loadFooterPosts } from '@/lib/footer-posts';
 
 import { ConsentProvider } from '@/components/helpers/ConsentProvider';
@@ -12,7 +15,7 @@ import Hotjar from '@/components/helpers/Hotjar';
 import { Providers } from '@/components/providers/Providers';
 import { VisualEditorMount } from '@/components/providers/VisualEditorMount';
 
-import { flagsmithId, googleAnalyticsId, hotjarId } from '@/constants/env';
+import { googleAnalyticsId, hotjarId } from '@/constants/env';
 import { routing } from '@/i18n/routing';
 import { i18nConfig } from '@/i18n/settings';
 
@@ -33,13 +36,12 @@ export default async function LocaleLayout({
     notFound();
   }
 
-  const flagsmithSSR = createFlagsmithInstance();
-  await flagsmithSSR.init({ environmentID: flagsmithId ?? '' });
-  const flagsmithState = flagsmithSSR.getState();
+  const [flagsmithState, fetchFooterPostsEnabled] = await Promise.all([
+    getFlagsmithServerState(),
+    hasServerFeature('fetch_footer_posts'),
+  ]);
 
-  const footerPosts = await loadFooterPosts(
-    flagsmithSSR.hasFeature('fetch_footer_posts'),
-  );
+  const footerPosts = await loadFooterPosts(fetchFooterPostsEnabled);
 
   const messages = await getMessages();
   const { isEnabled: isDraft } = await draftMode();
