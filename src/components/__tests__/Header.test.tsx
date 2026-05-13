@@ -5,7 +5,7 @@ import createIntlWrapper from '@/lib/i18n-testing';
 
 import { Header } from '@/components/layout';
 
-jest.mock('flagsmith/react', () => ({
+jest.mock('@flagsmith/flagsmith/react', () => ({
   useFlags: () => ({ language_picker: { enabled: true } }),
 }));
 

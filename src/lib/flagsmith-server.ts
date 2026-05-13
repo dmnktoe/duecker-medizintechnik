@@ -1,11 +1,11 @@
-import { createFlagsmithInstance } from 'flagsmith/isomorphic';
-import type { IState } from 'flagsmith/types';
+import { createFlagsmithInstance } from '@flagsmith/flagsmith/isomorphic';
+import type { IState } from '@flagsmith/flagsmith/types';
 import { unstable_cache } from 'next/cache';
 import { cache } from 'react';
 
 import { flagsmithId } from '@/constants/env';
 
-const FLAGSMITH_REVALIDATE_SECONDS = 60;
+const FLAGSMITH_REVALIDATE_SECONDS = 300;
 
 const fetchFlagsmithState = unstable_cache(
   async (): Promise<IState> => {

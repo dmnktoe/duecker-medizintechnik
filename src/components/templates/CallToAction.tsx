@@ -1,6 +1,6 @@
 'use client';
 
-import { useFlags } from 'flagsmith/react';
+import { useFlags } from '@flagsmith/flagsmith/react';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { Key } from 'react';

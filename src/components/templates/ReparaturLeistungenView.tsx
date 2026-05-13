@@ -1,6 +1,6 @@
 'use client';
 
-import { useFlags } from 'flagsmith/react';
+import { useFlags } from '@flagsmith/flagsmith/react';
 import * as React from 'react';
 
 import { Page } from '@/components/layout';
