@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import { useFlags } from 'flagsmith/react';
+import { useFlags } from '@flagsmith/flagsmith/react';
 import { useTranslations } from 'next-intl';
 import * as React from 'react';
 import { PiTranslate } from 'react-icons/pi';

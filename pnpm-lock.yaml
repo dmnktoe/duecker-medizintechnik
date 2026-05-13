@@ -17,6 +17,9 @@ importers:
       '@directus/visual-editing':
         specifier: ^2.0.0
         version: 2.0.0
+      '@flagsmith/flagsmith':
+        specifier: ^12.0.1
+        version: 12.0.1
       '@hookform/resolvers':
         specifier: ^5.0.0
         version: 5.2.2(react-hook-form@7.72.1(react@19.2.6))
@@ -53,9 +56,6 @@ importers:
       express-handlebars:
         specifier: ^9.0.0
         version: 9.0.1
-      flagsmith:
-        specifier: ^10.0.0
-        version: 10.0.0
       framer-motion:
         specifier: ^12.38.0
         version: 12.38.0(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
@@ -1441,6 +1441,9 @@ packages:
     resolution: {integrity: sha512-3TASCATfw+ctICSb4ymrv7iCm0qJ0N9CarB+CZ7zIJ7KqNbwI5JjyDL1/sxoC0ccTO1Zyd1iQ+oqncPg5FJXaA==}
     peerDependencies:
       '@opentelemetry/api': ^1.9.0
+
+  '@flagsmith/flagsmith@12.0.1':
+    resolution: {integrity: sha512-umrkh+zBUU5slA7nWnx4ktRuv2IomjD0iMzkB28pWJKv312VfENLTAABhrN9DHk/ZgAM2RzqQ5mbSHjQusQ2IA==}
 
   '@floating-ui/core@1.7.5':
     resolution: {integrity: sha512-1Ih4WTWyw0+lKyFMcBHGbb5U5FtuHJuujoyyr5zTaWS5EYMeT6Jb2AuDeftsCsEuchO+mM2ij5+q9crhydzLhQ==}
@@ -4802,10 +4805,6 @@ packages:
   find-up@5.0.0:
     resolution: {integrity: sha512-78/PXT1wlLLDgTzDs7sjq9hzz0vXD+zn+7wypEe4fXQxCmdmqfGsEPQxmiCSQI3ajFV91bVSsvNtrJRiW6nGng==}
     engines: {node: '>=10'}
-
-  flagsmith@10.0.0:
-    resolution: {integrity: sha512-JEO4V6nO6ic4ahi5uZRVBYKFil9IuRkLWemKZuFv3QVUCxluQfgymwiuPSs4/LqwFqQ+89SuubaawHxUxUPTzg==}
-    deprecated: This package has moved to @flagsmith/flagsmith. Please update your dependencies.
 
   flat-cache@4.0.1:
     resolution: {integrity: sha512-f7ccFPK3SXFHpx15UIGyRJ/FJQctuKZ0zVuN3frBo4HnK3cay9VEW0R6yPYFHC0AgqhukPzKjq22t5DmAyqGyw==}
@@ -9599,6 +9598,8 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  '@flagsmith/flagsmith@12.0.1': {}
+
   '@floating-ui/core@1.7.5':
     dependencies:
       '@floating-ui/utils': 0.2.11
@@ -13359,8 +13360,6 @@ snapshots:
     dependencies:
       locate-path: 6.0.0
       path-exists: 4.0.0
-
-  flagsmith@10.0.0: {}
 
   flat-cache@4.0.1:
     dependencies:

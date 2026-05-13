@@ -8,7 +8,7 @@ jest.mock('next/navigation', () => ({
   usePathname: jest.fn(),
 }));
 
-jest.mock('flagsmith/react', () => ({
+jest.mock('@flagsmith/flagsmith/react', () => ({
   useFlags: () => ({ language_picker: { enabled: true } }),
 }));
 

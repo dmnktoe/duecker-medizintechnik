@@ -1,6 +1,6 @@
 'use client';
 
-import { useFlags } from 'flagsmith/react';
+import { useFlags } from '@flagsmith/flagsmith/react';
 import { useTranslations } from 'next-intl';
 import React from 'react';
 import { PiChartLineUpThin, PiPackageThin, PiWrenchThin } from 'react-icons/pi';

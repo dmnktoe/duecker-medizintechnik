@@ -1,6 +1,6 @@
 'use client';
 
-import { useFlags } from 'flagsmith/react';
+import { useFlags } from '@flagsmith/flagsmith/react';
 import { useTranslations } from 'next-intl';
 import * as React from 'react';
 import { VscCallOutgoing } from 'react-icons/vsc';

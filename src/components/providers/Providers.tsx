@@ -1,8 +1,8 @@
 'use client';
 
-import { createFlagsmithInstance } from 'flagsmith/isomorphic';
-import { FlagsmithProvider } from 'flagsmith/react';
-import type { IState } from 'flagsmith/types';
+import { createFlagsmithInstance } from '@flagsmith/flagsmith/isomorphic';
+import { FlagsmithProvider } from '@flagsmith/flagsmith/react';
+import type { IState } from '@flagsmith/flagsmith/types';
 import { NextIntlClientProvider } from 'next-intl';
 import * as React from 'react';
 import { useRef } from 'react';
