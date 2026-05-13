@@ -1,7 +1,7 @@
 'use client';
 
-import clsx from 'clsx';
 import { useFlags } from '@flagsmith/flagsmith/react';
+import clsx from 'clsx';
 import { usePathname, useRouter } from 'next/navigation';
 import * as React from 'react';
 import { useId } from 'react';
