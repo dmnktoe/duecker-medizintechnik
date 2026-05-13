@@ -1,6 +1,6 @@
 'use client';
 
-import { useFlags } from 'flagsmith/react';
+import { useFlags } from '@flagsmith/flagsmith/react';
 import { marked } from 'marked';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
