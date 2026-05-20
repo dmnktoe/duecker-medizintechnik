@@ -88,10 +88,6 @@ function ServicesMegaContent({
                 alt=''
                 src={SERVICES_PAGE_HERO[href].image}
                 fill
-                // Source images are wide and get cropped to a square via
-                // object-cover, so only the central H×H slice is visible.
-                // Request a size that keeps the visible square sharp on
-                // retina displays even after cropping a 3.25:1 source.
                 sizes='(min-width: 1280px) 1600px, 100vw'
                 className='object-cover'
                 quality={90}
