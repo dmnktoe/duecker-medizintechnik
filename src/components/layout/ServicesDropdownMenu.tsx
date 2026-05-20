@@ -88,7 +88,7 @@ function ServicesMegaContent({
                 alt=''
                 src={SERVICES_PAGE_HERO[href].image}
                 fill
-                sizes='(min-width: 1280px) 500px, 50vw'
+                sizes='(min-width: 1280px) 1600px, 100vw'
                 className='object-cover'
                 quality={90}
               />
