@@ -3,6 +3,8 @@ export const datadogApplicationId =
 export const datadogClientToken = process.env.NEXT_PUBLIC_DATADOG_CLIENT_TOKEN;
 export const googleAnalyticsId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
 export const hotjarId = process.env.NEXT_PUBLIC_HOTJAR_ID;
+export const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
+export const umamiSrc = process.env.NEXT_PUBLIC_UMAMI_SRC;
 export const isLocal = process.env.NODE_ENV === 'development';
 export const isProd = process.env.NODE_ENV === 'production';
 
