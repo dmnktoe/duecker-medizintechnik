@@ -1,10 +1,11 @@
 'use client';
 
-import { useFlags } from '@flagsmith/flagsmith/react';
 import clsx from 'clsx';
 import { usePathname, useRouter } from 'next/navigation';
 import * as React from 'react';
 import { useId } from 'react';
+
+import { isFeatureEnabled } from '@/lib/features';
 
 import { i18nConfig } from '@/i18n/settings';
 
@@ -27,7 +28,6 @@ const LanguagePicker = ({
   const router = useRouter();
   const autoId = useId();
   const id = idProp ?? autoId;
-  const flags = useFlags(['language_picker']);
 
   const segments = pathname.split('/').filter(Boolean);
   const currentLocale =
@@ -41,7 +41,7 @@ const LanguagePicker = ({
     router.push(pathSegments.join('/'));
   }
 
-  if (!flags.language_picker.enabled) return null;
+  if (!isFeatureEnabled('language_picker')) return null;
 
   return (
     <select

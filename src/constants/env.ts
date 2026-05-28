@@ -1,7 +1,6 @@
 export const datadogApplicationId =
   process.env.NEXT_PUBLIC_DATADOG_APPLICATION_ID;
 export const datadogClientToken = process.env.NEXT_PUBLIC_DATADOG_CLIENT_TOKEN;
-export const flagsmithId = process.env.NEXT_PUBLIC_FLAGSMITH_ID;
 export const googleAnalyticsId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
 export const hotjarId = process.env.NEXT_PUBLIC_HOTJAR_ID;
 export const isLocal = process.env.NODE_ENV === 'development';

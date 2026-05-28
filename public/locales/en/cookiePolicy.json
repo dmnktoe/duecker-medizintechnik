@@ -51,12 +51,6 @@
           "service": "Consent management (open source)",
           "purpose": "Provides the consent UI and client-side storage logic in the browser.",
           "privacyUrl": "https://c15t.com"
-        },
-        {
-          "name": "Bulletproof Software Inc.",
-          "service": "Flagsmith",
-          "purpose": "Delivers feature flags and content variants for the website.",
-          "privacyUrl": "https://www.flagsmith.com/legal/privacy-policy/"
         }
       ],
       "measurement": [
@@ -92,7 +86,7 @@
   "meta": {
     "pageTitle": "Cookie policy",
     "seo": {
-      "description": "Overview of cookies, similar technologies, and third-party providers (Google Analytics, Hotjar, Google Maps, reCAPTCHA, Flagsmith) on duecker-medizintechnik.de.",
+      "description": "Overview of cookies, similar technologies, and third-party providers (Google Analytics, Hotjar, Google Maps, reCAPTCHA) on duecker-medizintechnik.de.",
       "title": "Cookie policy"
     }
   }

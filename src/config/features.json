@@ -1,0 +1,10 @@
+{
+  "language_picker": false,
+  "products_overview": false,
+  "article_author_bio": true,
+  "repair_slideshow": true,
+  "cta_globe": false,
+  "image_banner": true,
+  "display_version_number": true,
+  "fetch_footer_posts": true
+}

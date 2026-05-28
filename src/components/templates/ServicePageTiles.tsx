@@ -1,10 +1,11 @@
 'use client';
 
-import { useFlags } from '@flagsmith/flagsmith/react';
 import { useTranslations } from 'next-intl';
 import React from 'react';
 import { PiChartLineUpThin, PiPackageThin, PiWrenchThin } from 'react-icons/pi';
 import { VscArrowRight } from 'react-icons/vsc';
+
+import { isFeatureEnabled } from '@/lib/features';
 
 import { Container } from '@/components/layout';
 import {
@@ -92,36 +93,33 @@ export default function ServicePageTiles() {
   };
 
   const ProductsBanner = () => {
-    const flags = useFlags(['products_overview']);
-    if (!flags.products_overview.enabled) return null;
+    if (!isFeatureEnabled('products_overview')) return null;
 
-    if (flags.products_overview.enabled) {
-      return (
-        <div className='bg-primary-100 mt-2 flex w-full bg-[url(/images/services/blur.svg)] bg-cover bg-center'>
-          <div className='relative flex grow flex-col justify-around gap-4 p-4 py-12 md:flex-row md:py-24 lg:flex-row lg:items-center'>
-            <div className='lg:w-2/5'>
-              <Title size='three'>
-                Qualitative Präzisions-Produkte aus eigener Herstellung
-              </Title>
-              <Body margin={false}>
-                Erkunden Sie unsere Produkte und finden Sie das passende für
-                Ihre Anforderungen. Wir bieten eine breite Palette an
-                qualitativen Produkten aus eigener Herstellung.
-              </Body>
-            </div>
-            <ButtonLink
-              variant='light'
-              href='/produkte'
-              className='bg-white/30 text-white'
-              rightIcon={VscArrowRight}
-              rightIconClassName='h-4 w-4'
-            >
-              Entdecken Sie unsere Produkte
-            </ButtonLink>
+    return (
+      <div className='bg-primary-100 mt-2 flex w-full bg-[url(/images/services/blur.svg)] bg-cover bg-center'>
+        <div className='relative flex grow flex-col justify-around gap-4 p-4 py-12 md:flex-row md:py-24 lg:flex-row lg:items-center'>
+          <div className='lg:w-2/5'>
+            <Title size='three'>
+              Qualitative Präzisions-Produkte aus eigener Herstellung
+            </Title>
+            <Body margin={false}>
+              Erkunden Sie unsere Produkte und finden Sie das passende für Ihre
+              Anforderungen. Wir bieten eine breite Palette an qualitativen
+              Produkten aus eigener Herstellung.
+            </Body>
           </div>
+          <ButtonLink
+            variant='light'
+            href='/produkte'
+            className='bg-white/30 text-white'
+            rightIcon={VscArrowRight}
+            rightIconClassName='h-4 w-4'
+          >
+            Entdecken Sie unsere Produkte
+          </ButtonLink>
         </div>
-      );
-    }
+      </div>
+    );
   };
 
   return (

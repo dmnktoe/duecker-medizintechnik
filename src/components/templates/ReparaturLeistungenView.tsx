@@ -1,7 +1,8 @@
 'use client';
 
-import { useFlags } from '@flagsmith/flagsmith/react';
 import * as React from 'react';
+
+import { isFeatureEnabled } from '@/lib/features';
 
 import { Page } from '@/components/layout';
 import RepairIntro from '@/components/templates/RepairIntro';
@@ -10,7 +11,6 @@ import RepairSlideshow from '@/components/templates/RepairSlideshow';
 import { SERVICES_PAGE_HERO } from '@/constants/services-page-hero';
 
 export function ReparaturLeistungenView({ title }: { title: string }) {
-  const flags = useFlags(['repair_slideshow']);
   return (
     <Page
       className='overflow-hidden'
@@ -24,7 +24,7 @@ export function ReparaturLeistungenView({ title }: { title: string }) {
       title={title}
     >
       <RepairIntro />
-      {flags.repair_slideshow.enabled && <RepairSlideshow />}
+      {isFeatureEnabled('repair_slideshow') && <RepairSlideshow />}
     </Page>
   );
 }
