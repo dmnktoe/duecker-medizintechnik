@@ -14,6 +14,17 @@ export default function Umami({
   const { has } = useConsentManager();
   const hasStats = has('measurement');
 
+  React.useEffect(() => {
+    if (hasStats || !UMAMI_WEBSITE_ID || !UMAMI_SRC) return;
+
+    const win = window as unknown as { umami?: unknown };
+    win.umami = undefined;
+
+    document
+      .querySelectorAll('script#umami, script[data-website-id]')
+      .forEach((el) => el.remove());
+  }, [hasStats, UMAMI_WEBSITE_ID, UMAMI_SRC]);
+
   if (!UMAMI_WEBSITE_ID || !UMAMI_SRC || !hasStats) return null;
 
   return (
