@@ -65,6 +65,12 @@
           "service": "Hotjar",
           "purpose": "Analyses usage patterns (e.g. anonymised heatmaps / session insights) when you consent.",
           "privacyUrl": "https://www.hotjar.com/legal/policies/privacy/"
+        },
+        {
+          "name": "Dücker Medizintechnik (self-hosted)",
+          "service": "Umami Analytics",
+          "purpose": "Privacy-friendly, cookieless audience measurement (page views, approximate origin, device type). Data is processed on infrastructure we operate ourselves and is not shared with third parties.",
+          "privacyUrl": "https://umami.is/docs/faq"
         }
       ],
       "marketing": [
@@ -86,7 +92,7 @@
   "meta": {
     "pageTitle": "Cookie policy",
     "seo": {
-      "description": "Overview of cookies, similar technologies, and third-party providers (Google Analytics, Hotjar, Google Maps, reCAPTCHA) on duecker-medizintechnik.de.",
+      "description": "Overview of cookies, similar technologies, and third-party providers (Google Analytics, Hotjar, Umami, Google Maps, reCAPTCHA) on duecker-medizintechnik.de.",
       "title": "Cookie policy"
     }
   }

@@ -9,10 +9,16 @@ import { loadFooterPosts } from '@/lib/footer-posts';
 import { ConsentProvider } from '@/components/helpers/ConsentProvider';
 import GoogleAnalytics from '@/components/helpers/GoogleAnalytics';
 import Hotjar from '@/components/helpers/Hotjar';
+import Umami from '@/components/helpers/Umami';
 import { Providers } from '@/components/providers/Providers';
 import { VisualEditorMount } from '@/components/providers/VisualEditorMount';
 
-import { googleAnalyticsId, hotjarId } from '@/constants/env';
+import {
+  googleAnalyticsId,
+  hotjarId,
+  umamiSrc,
+  umamiWebsiteId,
+} from '@/constants/env';
 import { routing } from '@/i18n/routing';
 import { i18nConfig } from '@/i18n/settings';
 
@@ -46,6 +52,7 @@ export default async function LocaleLayout({
         {children}
         <GoogleAnalytics GA_MEASUREMENT_ID={googleAnalyticsId} />
         <Hotjar HOTJAR_ID={hotjarId} />
+        <Umami UMAMI_WEBSITE_ID={umamiWebsiteId} UMAMI_SRC={umamiSrc} />
         <VisualEditorMount enabled={isDraft} />
       </ConsentProvider>
     </Providers>
