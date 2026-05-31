@@ -25,8 +25,8 @@ import heroSlide4 from '~/images/home/hero-slider/duecker-slide-4.jpg';
 const HERO_SLIDES = [heroSlide1, heroSlide2, heroSlide3, heroSlide4];
 
 const DECORATOR_POSITIONS: [string, string][] = [
-  ['-top-2 left-0', 'md:h-12 md:w-12'],
-  ['-top-2 left-6', 'md:left-12 md:h-12 md:w-12 bg-white/30'],
+  ['top-2 left-0', 'md:h-12 md:w-12'],
+  ['top-2 left-6', 'md:left-12 md:h-12 md:w-12 bg-white/30'],
   ['left-0 top-4', 'md:top-10 md:h-12 md:w-12 bg-white/30'],
   ['bottom-2 right-0', 'md:h-12 md:w-12'],
   ['bottom-2 right-6', 'md:right-12 md:h-12 md:w-12 bg-white/30'],
@@ -121,7 +121,7 @@ const HeroSlider = () => {
 
   return (
     <div className='relative -top-2 z-20 w-full max-w-full'>
-      <div className='relative aspect-[4/5] w-full max-w-full overflow-hidden lg:aspect-[5/6]'>
+      <div className='relative aspect-[4/5] w-full max-w-full overflow-hidden'>
         <Swiper
           className='h-full w-full'
           modules={[Autoplay]}
