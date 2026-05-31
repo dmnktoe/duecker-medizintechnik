@@ -39,7 +39,7 @@ const HeroDecorators = () => (
     {DECORATOR_POSITIONS.map((pos, index) => (
       <div
         key={index}
-        className={`absolute z-30 h-6 w-6 bg-white ${pos[0]} ${pos[1]}`}
+        className={clsxm('absolute z-30 h-6 w-6 bg-white', pos[0], pos[1])}
       />
     ))}
   </>
@@ -121,7 +121,7 @@ const HeroSlider = () => {
 
   return (
     <div className='relative -top-2 z-20 w-full max-w-full'>
-      <div className='relative aspect-[4/5] w-full max-w-full overflow-hidden'>
+      <div className='relative aspect-[4/5] w-full max-w-full overflow-hidden lg:aspect-[5/6]'>
         <Swiper
           className='h-full w-full'
           modules={[Autoplay]}
