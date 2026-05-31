@@ -8,8 +8,8 @@ jest.mock('next/navigation', () => ({
   usePathname: jest.fn(),
 }));
 
-jest.mock('@flagsmith/flagsmith/react', () => ({
-  useFlags: () => ({ language_picker: { enabled: true } }),
+jest.mock('@/lib/features', () => ({
+  isFeatureEnabled: () => true,
 }));
 
 describe('LanguagePicker', () => {

@@ -1,10 +1,10 @@
 'use client';
 
-import { useFlags } from '@flagsmith/flagsmith/react';
 import { StaticImageData } from 'next/image';
 import * as React from 'react';
 
 import clsxm from '@/lib/clsxm';
+import { isFeatureEnabled } from '@/lib/features';
 
 import { Container } from '@/components/layout/Container';
 import { Layout } from '@/components/layout/Layout';
@@ -38,12 +38,11 @@ export function Page({
   image,
   title,
 }: PageProps) {
-  const flags = useFlags(['image_banner']);
   return (
     <Layout>
       {image &&
         layout.showHero &&
-        (flags.image_banner.enabled ? (
+        (isFeatureEnabled('image_banner') ? (
           <ImageBanner
             alt={title}
             className='flex-1'

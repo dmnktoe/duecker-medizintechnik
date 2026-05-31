@@ -3,10 +3,7 @@ import { notFound } from 'next/navigation';
 import { getMessages } from 'next-intl/server';
 import * as React from 'react';
 
-import {
-  getFlagsmithServerState,
-  hasServerFeature,
-} from '@/lib/flagsmith-server';
+import { isFeatureEnabled } from '@/lib/features';
 import { loadFooterPosts } from '@/lib/footer-posts';
 
 import { ConsentProvider } from '@/components/helpers/ConsentProvider';
@@ -36,23 +33,15 @@ export default async function LocaleLayout({
     notFound();
   }
 
-  const [flagsmithState, fetchFooterPostsEnabled] = await Promise.all([
-    getFlagsmithServerState(),
-    hasServerFeature('fetch_footer_posts'),
-  ]);
-
-  const footerPosts = await loadFooterPosts(fetchFooterPostsEnabled);
+  const footerPosts = await loadFooterPosts(
+    isFeatureEnabled('fetch_footer_posts'),
+  );
 
   const messages = await getMessages();
   const { isEnabled: isDraft } = await draftMode();
 
   return (
-    <Providers
-      footerPosts={footerPosts}
-      locale={locale}
-      messages={messages}
-      flagsmithState={flagsmithState}
-    >
+    <Providers footerPosts={footerPosts} locale={locale} messages={messages}>
       <ConsentProvider locale={locale}>
         {children}
         <GoogleAnalytics GA_MEASUREMENT_ID={googleAnalyticsId} />

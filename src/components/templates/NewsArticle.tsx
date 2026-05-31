@@ -1,6 +1,5 @@
 'use client';
 
-import { useFlags } from '@flagsmith/flagsmith/react';
 import { marked } from 'marked';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
@@ -20,6 +19,7 @@ import {
 } from 'react-share';
 
 import { setVisualEditorAttr } from '@/lib/directus-visual-editor';
+import { isFeatureEnabled } from '@/lib/features';
 import { formatDate } from '@/lib/format-date';
 import { getBaseUrl } from '@/lib/get-base-url';
 
@@ -239,9 +239,7 @@ const ArticleAuthor = ({
   post: News;
   contactLabel: string;
 }) => {
-  const flags = useFlags(['article_author_bio']);
-
-  if (!flags.article_author_bio.enabled) return null;
+  if (!isFeatureEnabled('article_author_bio')) return null;
   if (!post.author) return null;
 
   const author = post.author;

@@ -1,11 +1,12 @@
 'use client';
 
-import { useFlags } from '@flagsmith/flagsmith/react';
 import clsx from 'clsx';
 import { useTranslations } from 'next-intl';
 import * as React from 'react';
 import { PiTranslate } from 'react-icons/pi';
 import { VscChevronDown } from 'react-icons/vsc';
+
+import { isFeatureEnabled } from '@/lib/features';
 
 import LanguagePicker from '@/components/templates/LanguagePicker';
 import { UnderlineLink } from '@/components/ui';
@@ -80,7 +81,6 @@ export const MobileNavDrawer = ({
   panelRef,
 }: MobileNavDrawerProps) => {
   const t = useTranslations('common');
-  const flags = useFlags(['language_picker']);
 
   return (
     <div
@@ -132,7 +132,7 @@ export const MobileNavDrawer = ({
               <div
                 className={clsx(
                   'flex items-center gap-1',
-                  !flags.language_picker.enabled && 'hidden',
+                  !isFeatureEnabled('language_picker') && 'hidden',
                 )}
               >
                 <PiTranslate size={18} />

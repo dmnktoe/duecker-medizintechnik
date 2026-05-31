@@ -1,9 +1,10 @@
 'use client';
 
-import { useFlags } from '@flagsmith/flagsmith/react';
 import { useTranslations } from 'next-intl';
 import * as React from 'react';
 import { VscCallOutgoing } from 'react-icons/vsc';
+
+import { isFeatureEnabled } from '@/lib/features';
 
 import { Container } from '@/components/layout/Container';
 import LanguagePicker from '@/components/templates/LanguagePicker';
@@ -20,7 +21,6 @@ import { MOBILE_NAV_PANEL_ID, MobileNavDrawer } from './MobileNavDrawer';
 export const Header = () => {
   const t = useTranslations('common');
   const navigationItems = t.raw('header.navigationItems') as NavItemProps[];
-  const flags = useFlags(['language_picker']);
 
   const menuPanelRef = React.useRef<HTMLDivElement | null>(null);
   const menuButtonRef = React.useRef<HTMLButtonElement | null>(null);
@@ -75,7 +75,7 @@ export const Header = () => {
                 </div>
 
                 <div className='hidden min-w-0 items-center gap-2.5 sm:gap-3 lg:gap-4 xl:flex'>
-                  {flags.language_picker.enabled && (
+                  {isFeatureEnabled('language_picker') && (
                     <div className='min-w-0 shrink-0 text-right'>
                       <label
                         htmlFor='header-locale'

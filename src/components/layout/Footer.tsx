@@ -1,12 +1,12 @@
 'use client';
 
-import { useFlags } from '@flagsmith/flagsmith/react';
 import { useLocale, useTranslations } from 'next-intl';
 import * as React from 'react';
 import { PiTranslate } from 'react-icons/pi';
 import { VscArrowRight } from 'react-icons/vsc';
 
 import clsxm from '@/lib/clsxm';
+import { isFeatureEnabled } from '@/lib/features';
 import { getVersion } from '@/lib/get-version';
 
 import { Container } from '@/components/layout/Container';
@@ -147,7 +147,6 @@ const FooterPosts = () => {
 };
 
 const FooterCopyright = () => {
-  const flags = useFlags(['language_picker', 'display_version_number']);
   return (
     <>
       <div>
@@ -155,7 +154,7 @@ const FooterCopyright = () => {
           © {new Date().getFullYear()} {company.companyName} • {company.street},{' '}
           {company.city}
         </Body>
-        {flags.display_version_number.enabled && (
+        {isFeatureEnabled('display_version_number') && (
           <Body margin={false} size='xs' color='light'>
             Version: v{getVersion()}
           </Body>
@@ -165,7 +164,7 @@ const FooterCopyright = () => {
         className={clsxm(
           'order-first items-center justify-center bg-gray-100 p-2 align-middle lg:order-last lg:p-3',
           'focus:outline-0 focus:outline-offset-4 focus:outline-gray-300 focus:outline-dashed',
-          flags.language_picker.enabled ? 'flex' : 'hidden',
+          isFeatureEnabled('language_picker') ? 'flex' : 'hidden',
         )}
       >
         <span className='mr-2 inline-block'>

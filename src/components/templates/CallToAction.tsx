@@ -1,11 +1,11 @@
 'use client';
 
-import { useFlags } from '@flagsmith/flagsmith/react';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { Key } from 'react';
 
 import clsxm from '@/lib/clsxm';
+import { isFeatureEnabled } from '@/lib/features';
 
 import { Container } from '@/components/layout/Container';
 import Globe from '@/components/templates/Globe';
@@ -20,8 +20,6 @@ export const CallToAction = () => {
   function handleCtaButtonClick() {
     router.push(`/${locale}/kontakt`);
   }
-
-  const flags = useFlags(['cta_globe']);
 
   const CallToActionTitle = () => {
     return (
@@ -87,7 +85,7 @@ export const CallToAction = () => {
             <CallToActionBullets />
           </div>
         </Container>
-        {flags.cta_globe.enabled && (
+        {isFeatureEnabled('cta_globe') && (
           <Globe className='top-0 -right-48 z-20 hidden opacity-60 md:block md:max-w-[750px] lg:-right-32 lg:max-w-[800px] 2xl:-right-32 2xl:max-w-[900px]' />
         )}
       </section>

@@ -5,8 +5,8 @@ import createIntlWrapper from '@/lib/i18n-testing';
 
 import { Header } from '@/components/layout';
 
-jest.mock('@flagsmith/flagsmith/react', () => ({
-  useFlags: () => ({ language_picker: { enabled: true } }),
+jest.mock('@/lib/features', () => ({
+  isFeatureEnabled: () => true,
 }));
 
 jest.mock('next/navigation', () => ({

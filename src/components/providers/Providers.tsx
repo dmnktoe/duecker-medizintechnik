@@ -1,11 +1,7 @@
 'use client';
 
-import { createFlagsmithInstance } from '@flagsmith/flagsmith/isomorphic';
-import { FlagsmithProvider } from '@flagsmith/flagsmith/react';
-import type { IState } from '@flagsmith/flagsmith/types';
 import { NextIntlClientProvider } from 'next-intl';
 import * as React from 'react';
-import { useRef } from 'react';
 
 import type { FooterPostsServerValue } from '@/lib/footer-posts';
 
@@ -13,35 +9,21 @@ import { FooterPostsProvider } from './FooterPostsContext';
 
 type Props = {
   children: React.ReactNode;
-  flagsmithState: IState;
   footerPosts: FooterPostsServerValue;
   locale: string;
   messages: Record<string, unknown>;
 };
 
-export function Providers({
-  children,
-  flagsmithState,
-  footerPosts,
-  locale,
-  messages,
-}: Props) {
-  const flagsmithRef = useRef(createFlagsmithInstance());
-
+export function Providers({ children, footerPosts, locale, messages }: Props) {
   return (
-    <FlagsmithProvider
-      flagsmith={flagsmithRef.current}
-      serverState={flagsmithState}
-    >
-      <FooterPostsProvider value={footerPosts}>
-        <NextIntlClientProvider
-          locale={locale}
-          messages={messages}
-          timeZone='Europe/Berlin'
-        >
-          {children}
-        </NextIntlClientProvider>
-      </FooterPostsProvider>
-    </FlagsmithProvider>
+    <FooterPostsProvider value={footerPosts}>
+      <NextIntlClientProvider
+        locale={locale}
+        messages={messages}
+        timeZone='Europe/Berlin'
+      >
+        {children}
+      </NextIntlClientProvider>
+    </FooterPostsProvider>
   );
 }
