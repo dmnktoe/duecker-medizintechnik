@@ -25,12 +25,12 @@ import heroSlide4 from '~/images/home/hero-slider/duecker-slide-4.jpg';
 const HERO_SLIDES = [heroSlide1, heroSlide2, heroSlide3, heroSlide4];
 
 const DECORATOR_POSITIONS: [string, string][] = [
-  ['-top-2 left-0', 'md:h-12 md:w-12'],
-  ['-top-2 left-6', 'md:left-12 md:h-12 md:w-12 bg-white/30'],
-  ['left-0 top-4', 'md:top-10 md:h-12 md:w-12 bg-white/30'],
-  ['bottom-2 right-0', 'md:h-12 md:w-12'],
-  ['bottom-2 right-6', 'md:right-12 md:h-12 md:w-12 bg-white/30'],
-  ['bottom-8 right-0', 'md:bottom-14 md:h-12 md:w-12 bg-white/30'],
+  ['top-0 left-0', 'md:h-12 md:w-12'],
+  ['top-0 left-6', 'md:left-12 md:h-12 md:w-12 bg-white/30'],
+  ['left-0 top-6', 'md:top-12 md:h-12 md:w-12 bg-white/30'],
+  ['bottom-0 right-0', 'md:h-12 md:w-12'],
+  ['bottom-0 right-6', 'md:right-12 md:h-12 md:w-12 bg-white/30'],
+  ['bottom-6 right-0', 'md:bottom-12 md:h-12 md:w-12 bg-white/30'],
 ];
 
 // Module-level components — stable identity across renders
@@ -39,7 +39,7 @@ const HeroDecorators = () => (
     {DECORATOR_POSITIONS.map((pos, index) => (
       <div
         key={index}
-        className={`absolute z-30 h-6 w-6 bg-white ${pos[0]} ${pos[1]}`}
+        className={clsxm('absolute z-30 h-6 w-6 bg-white', pos[0], pos[1])}
       />
     ))}
   </>
