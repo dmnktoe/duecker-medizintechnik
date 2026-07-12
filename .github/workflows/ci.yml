@@ -36,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Checkout repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: ⎔ Setup node
         uses: actions/setup-node@v6
@@ -60,7 +60,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Checkout repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: ⎔ Setup node
         uses: actions/setup-node@v6
@@ -84,7 +84,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Checkout repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: ⎔ Setup node
         uses: actions/setup-node@v6
@@ -108,7 +108,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Checkout repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: ⎔ Setup node
         uses: actions/setup-node@v6
@@ -139,7 +139,7 @@ jobs:
     needs: [lint, typecheck, prettier, test]
     steps:
       - name: ⬇️ Checkout repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: ⎔ Setup node
         uses: actions/setup-node@v6
