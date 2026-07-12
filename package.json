@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@c15t/nextjs": "^2.0.0",
-    "@directus/sdk": "^21.2.2",
+    "@directus/sdk": "^23.0.0",
     "@directus/visual-editing": "^2.0.0",
     "@hookform/resolvers": "^5.0.0",
     "@next/bundle-analyzer": "^16.2.4",
