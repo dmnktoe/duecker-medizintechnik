@@ -49,20 +49,10 @@ Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für Repa
 - [Directus](https://directus.io/) - Open-source headless CMS used as the backend (Posts + Download Center)
 - [next-i18next](https://next.i18next.com/) - The easiest way to translate your Next.js apps
 
-### TypeScript setup
-
-TypeScript 7 ships the native (Go) compiler and drops the JavaScript compiler API
-until 7.1, so tools that load `typescript` programmatically (Next.js' build-time
-type check, typescript-eslint) cannot run on it yet. The project therefore
-installs both packages:
-
-- `typescript-native` (alias for `typescript@7`) provides the `tsc` binary used by
-  `pnpm typecheck`.
-- `typescript` (alias for `@typescript/typescript6`) provides the compiler API for
-  Next.js and ESLint. Its own binary is exposed as `tsc6`.
-
-Once TypeScript 7.1 restores the API and the tooling supports it, drop
-`typescript-native` and point `typescript` back at `typescript@7`.
+> **TypeScript:** `pnpm typecheck` runs TypeScript 7 via `typescript-native`. The
+> `typescript` entry is aliased to `@typescript/typescript6` because TypeScript 7
+> ships no compiler API before 7.1, and Next.js and ESLint need one. Drop the alias
+> once 7.1 lands.
 
 ## CMS (Directus)
 
