@@ -52,7 +52,7 @@ Entdecken Sie unser breites Spektrum an Produkten und Dienstleistungen für Repa
 > **TypeScript:** `pnpm typecheck` runs TypeScript 7 via `typescript-native`. The
 > `typescript` entry is aliased to `@typescript/typescript6` because TypeScript 7
 > ships no compiler API before 7.1, and Next.js and ESLint need one. Drop the alias
-> once 7.1 lands.
+> once both of them support the 7.x API — the 7.1 release alone is not enough.
 
 ## CMS (Directus)
 
