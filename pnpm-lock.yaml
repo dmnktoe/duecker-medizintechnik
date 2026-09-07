@@ -66,11 +66,11 @@ importers:
         specifier: ^4.9.1
         version: 4.9.2(next@16.2.11(@babel/core@7.28.0(supports-color@8.1.1))(@opentelemetry/api@1.9.1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react@19.2.8)(typescript@6.0.3)
       nodemailer:
-        specifier: ^9.0.0
-        version: 9.0.1
+        specifier: ^10.0.0
+        version: 10.0.0
       nodemailer-express-handlebars:
         specifier: ^7.0.0
-        version: 7.0.0(express-handlebars@9.0.1)(nodemailer@9.0.1)
+        version: 7.0.0(express-handlebars@9.0.1)(nodemailer@10.0.0)
       qs:
         specifier: ^6.15.1
         version: 6.15.2
@@ -5961,9 +5961,9 @@ packages:
       express-handlebars: '>= 8.0.0'
       nodemailer: '>= 6.0.0'
 
-  nodemailer@9.0.1:
-    resolution: {integrity: sha512-Gwv8SQewT616ZM/URn0H54b8PWo/Wum7md3EW2aWy1lO27+WZCX+Xyak3J+NlmHUjDh5ME+uesJUDRbR3Ye8Bw==}
-    engines: {node: '>=6.0.0'}
+  nodemailer@10.0.0:
+    resolution: {integrity: sha512-wdv+hXBg0iIPIOf108FaZyTxqjQpCvQeAJt9pHHTooPy/y3vQtI9eiImM9AIVKR3e/0FeMA1oueNfBjFJcaK+Q==}
+    engines: {node: '>=20.0.0'}
 
   normalize-path@3.0.0:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
@@ -14603,7 +14603,7 @@ snapshots:
       '@babel/types': 7.29.7
       flow-enums-runtime: 0.0.6
       invariant: 2.2.4
-      metro-symbolicate: 0.81.5(supports-color@8.1.1)
+      metro-symbolicate: 0.81.5
       nullthrows: 1.1.1
       ob1: 0.81.5
       source-map: 0.5.7
@@ -14611,7 +14611,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  metro-symbolicate@0.81.5(supports-color@8.1.1):
+  metro-symbolicate@0.81.5:
     dependencies:
       flow-enums-runtime: 0.0.6
       invariant: 2.2.4
@@ -14619,8 +14619,6 @@ snapshots:
       nullthrows: 1.1.1
       source-map: 0.5.7
       vlq: 1.0.1
-    transitivePeerDependencies:
-      - supports-color
 
   metro-transform-plugins@0.81.5(supports-color@8.1.1):
     dependencies:
@@ -14685,7 +14683,7 @@ snapshots:
       metro-resolver: 0.81.5
       metro-runtime: 0.81.5
       metro-source-map: 0.81.5(supports-color@8.1.1)
-      metro-symbolicate: 0.81.5(supports-color@8.1.1)
+      metro-symbolicate: 0.81.5
       metro-transform-plugins: 0.81.5(supports-color@8.1.1)
       metro-transform-worker: 0.81.5(supports-color@8.1.1)
       mime-types: 2.1.35
@@ -14849,12 +14847,12 @@ snapshots:
 
   node-releases@2.0.48: {}
 
-  nodemailer-express-handlebars@7.0.0(express-handlebars@9.0.1)(nodemailer@9.0.1):
+  nodemailer-express-handlebars@7.0.0(express-handlebars@9.0.1)(nodemailer@10.0.0):
     dependencies:
       express-handlebars: 9.0.1
-      nodemailer: 9.0.1
+      nodemailer: 10.0.0
 
-  nodemailer@9.0.1: {}
+  nodemailer@10.0.0: {}
 
   normalize-path@3.0.0: {}
 
