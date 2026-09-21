@@ -67,10 +67,10 @@ importers:
         version: 4.9.2(next@16.2.11(@babel/core@7.28.0(supports-color@8.1.1))(@opentelemetry/api@1.9.1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react@19.2.8)(typescript@6.0.3)
       nodemailer:
         specifier: ^9.0.0
-        version: 9.0.1
+        version: 9.1.1
       nodemailer-express-handlebars:
         specifier: ^7.0.0
-        version: 7.0.0(express-handlebars@9.0.1)(nodemailer@9.0.1)
+        version: 7.0.0(express-handlebars@9.0.1)(nodemailer@9.1.1)
       qs:
         specifier: ^6.15.1
         version: 6.16.0
@@ -5935,8 +5935,8 @@ packages:
       express-handlebars: '>= 8.0.0'
       nodemailer: '>= 6.0.0'
 
-  nodemailer@9.0.1:
-    resolution: {integrity: sha512-Gwv8SQewT616ZM/URn0H54b8PWo/Wum7md3EW2aWy1lO27+WZCX+Xyak3J+NlmHUjDh5ME+uesJUDRbR3Ye8Bw==}
+  nodemailer@9.1.1:
+    resolution: {integrity: sha512-izw9mVKFix6YSnC9eLgV6g1opl9DUlRio9ZNcq+Wu9Ujn2UwF+8Nl0B8nz22kEC+CTZCvinkxwJ0DeFbb6NwcQ==}
     engines: {node: '>=6.0.0'}
 
   normalize-path@3.0.0:
@@ -14792,12 +14792,12 @@ snapshots:
 
   node-releases@2.0.48: {}
 
-  nodemailer-express-handlebars@7.0.0(express-handlebars@9.0.1)(nodemailer@9.0.1):
+  nodemailer-express-handlebars@7.0.0(express-handlebars@9.0.1)(nodemailer@9.1.1):
     dependencies:
       express-handlebars: 9.0.1
-      nodemailer: 9.0.1
+      nodemailer: 9.1.1
 
-  nodemailer@9.0.1: {}
+  nodemailer@9.1.1: {}
 
   normalize-path@3.0.0: {}
 
