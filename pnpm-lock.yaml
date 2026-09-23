@@ -12,8 +12,8 @@ importers:
         specifier: ^2.0.0
         version: 2.0.0(@types/react@19.2.14)(next@16.3.3(@babel/core@7.28.0(supports-color@8.1.1))(@opentelemetry/api@1.9.1)(@types/node@22.13.8)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(typescript@6.0.3)(use-sync-external-store@1.6.0(react@19.3.0))
       '@directus/sdk':
-        specifier: ^25.0.0
-        version: 25.0.1
+        specifier: ^26.0.0
+        version: 26.0.0
       '@directus/visual-editing':
         specifier: ^2.0.0
         version: 2.0.0
@@ -1254,8 +1254,8 @@ packages:
     resolution: {integrity: sha512-Vd/9EVDiu6PPJt9yAh6roZP6El1xHrdvIVGjyBsHR0RYwNHgL7FJPyIIW4fANJNG6FtyZfvlRPpFI4ZM/lubvw==}
     engines: {node: '>=18'}
 
-  '@directus/sdk@25.0.1':
-    resolution: {integrity: sha512-7YatQh8aKDN6iIPyXmbUc3HW/jdKveiwFP+oFSKs0/W/IKX+ZpnwsN1NQLI6PpcmU2/rLuYK8knQaQr5F0gKNw==}
+  '@directus/sdk@26.0.0':
+    resolution: {integrity: sha512-t6G900Rx43bTPPFtSrIX0EE6awIeJSoLbictRAVC0P/Eh4Nmud9lLfFodMAikFWe5IbocJ33Y3eio+hLZMqLTA==}
     engines: {node: '>=22'}
 
   '@directus/visual-editing@2.0.0':
@@ -9392,7 +9392,7 @@ snapshots:
 
   '@csstools/css-tokenizer@3.0.4': {}
 
-  '@directus/sdk@25.0.1': {}
+  '@directus/sdk@26.0.0': {}
 
   '@directus/visual-editing@2.0.0':
     dependencies:
