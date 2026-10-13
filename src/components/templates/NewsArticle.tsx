@@ -14,8 +14,8 @@ import { VscLink } from 'react-icons/vsc';
 import {
   EmailShareButton,
   FacebookShareButton,
-  TwitterShareButton,
   WhatsappShareButton,
+  XShareButton,
 } from 'react-share';
 
 import { setVisualEditorAttr } from '@/lib/directus-visual-editor';
@@ -128,9 +128,9 @@ const ShareButtons = ({
 
   return (
     <div className='mt-3 flex flex-row items-center'>
-      <TwitterShareButton {...shareProps}>
+      <XShareButton {...shareProps}>
         <RiTwitterXFill />
-      </TwitterShareButton>
+      </XShareButton>
       <FacebookShareButton {...shareProps}>
         <RiFacebookCircleFill />
       </FacebookShareButton>

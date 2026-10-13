@@ -65,7 +65,12 @@ export async function POST(request: NextRequest) {
     tls: { rejectUnauthorized: false },
   });
 
-  transporter.use('compile', hbs(handlebarOptions));
+  // nodemailer ships its own types since v10, while the hbs plugin types still
+  // reference the legacy @types/nodemailer Mail class.
+  transporter.use(
+    'compile',
+    hbs(handlebarOptions) as unknown as Parameters<typeof transporter.use>[1],
+  );
 
   try {
     await transporter.sendMail({

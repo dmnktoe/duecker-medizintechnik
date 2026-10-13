@@ -1,6 +1,6 @@
 'use client';
 
-import { useConsentManager } from '@c15t/nextjs';
+import { useConsentDraft } from '@c15t/nextjs';
 import { useTranslations } from 'next-intl';
 import * as React from 'react';
 
@@ -53,26 +53,19 @@ export function ConsentCategoryToggles({
   className,
 }: ConsentCategoryTogglesProps) {
   const t = useTranslations('cookiePolicy.consent');
-  const {
-    consents,
-    getDisplayedConsents,
-    selectedConsents,
-    setSelectedConsent,
-  } = useConsentManager();
+  const draft = useConsentDraft();
 
   const [mounted, setMounted] = React.useState(false);
   React.useEffect(() => {
     setMounted(true);
   }, []);
 
-  const types = getDisplayedConsents();
-
   return (
     <ul className={clsxm('space-y-4', className)} aria-busy={!mounted}>
-      {types.map((type: { name: string; disabled?: boolean }) => {
-        const name = type.name as ConsentCategoryName;
-        const checked = selectedConsents[name] ?? consents[name] ?? false;
-        const disabled = Boolean(type.disabled);
+      {draft.displayedCategories.map((category) => {
+        const name = category as ConsentCategoryName;
+        const checked = draft.values[name] ?? false;
+        const disabled = name === 'necessary';
         const title = categoryTitle(t, name);
 
         return (
@@ -106,7 +99,7 @@ export function ConsentCategoryToggles({
               ) : (
                 <Switch
                   checked={checked}
-                  onCheckedChange={(value) => setSelectedConsent(name, value)}
+                  onCheckedChange={(value) => draft.set(name, value)}
                   aria-label={title}
                 />
               )}

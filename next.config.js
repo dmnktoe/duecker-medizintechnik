@@ -6,7 +6,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { withSentryConfig } = require('@sentry/nextjs');
+const { withSentryConfig } = require('@sentry/nextjs/config');
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const createNextIntlPlugin = require('next-intl/plugin');
@@ -84,14 +84,17 @@ module.exports = withSentryConfig(module.exports, {
   reactComponentAnnotation: {
     enabled: sentryBuildTime,
   },
-  autoInstrumentServerFunctions: sentryBuildTime,
-  autoInstrumentMiddleware: sentryBuildTime,
-  autoInstrumentAppDirectory: sentryBuildTime,
   sourcemaps: {
     disable: !sentryBuildTime,
   },
   tunnelRoute: '/monitoring',
-  hideSourceMaps: true,
-  disableLogger: true,
-  automaticVercelMonitors: true,
+  webpack: {
+    autoInstrumentServerFunctions: sentryBuildTime,
+    autoInstrumentMiddleware: sentryBuildTime,
+    autoInstrumentAppDirectory: sentryBuildTime,
+    automaticVercelMonitors: true,
+    treeshake: {
+      removeDebugLogging: true,
+    },
+  },
 });

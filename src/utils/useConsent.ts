@@ -1,6 +1,10 @@
 'use client';
 
-import { useConsentManager } from '@c15t/nextjs';
+import {
+  useConsent as useC15tConsent,
+  useSaveConsents,
+  useSetActiveUI,
+} from '@c15t/nextjs';
 import { useEffect, useState } from 'react';
 
 /** Snapshot of choices relevant to embeds that still read from this hook. */
@@ -17,23 +21,22 @@ interface UseConsentReturn {
 
 const useConsent = (): UseConsentReturn => {
   const [mounted, setMounted] = useState(false);
-  const { has, setSelectedConsent, saveConsents, setActiveUI } =
-    useConsentManager();
+  const hasMarketing = useC15tConsent('marketing');
+  const saveConsents = useSaveConsents();
+  const setActiveUI = useSetActiveUI();
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
   const consent: ConsentState = {
-    marketing: has('marketing'),
+    marketing: hasMarketing,
   };
 
   const showConsentDialog = () => setActiveUI('dialog');
 
   const submitCustomConsent = (statistics: boolean, marketing: boolean) => {
-    setSelectedConsent('measurement', statistics);
-    setSelectedConsent('marketing', marketing);
-    saveConsents('custom');
+    void saveConsents({ measurement: statistics, marketing });
   };
 
   return {
