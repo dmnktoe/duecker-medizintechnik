@@ -7,17 +7,10 @@ import { NextRequest } from 'next/server';
 import { POST } from '../route';
 
 const sendMail = jest.fn();
-const use = jest.fn();
-
-jest.mock('nodemailer-express-handlebars', () => ({
-  __esModule: true,
-  default: jest.fn(() => jest.fn()),
-}));
 
 jest.mock('nodemailer', () => ({
   createTransport: jest.fn(() => ({
     sendMail,
-    use,
   })),
 }));
 
@@ -123,15 +116,10 @@ describe('POST /api/form', () => {
         replyTo: 'jane@example.com',
         to: 'inbox@example.com',
         subject: 'Neue Anfrage, Dücker Medizintechnik Kontaktformular',
-        template: 'contact',
-        context: {
-          name: 'Jane Doe',
-          email: 'jane@example.com',
-          phone: '+49 1',
-          message: 'Hello world!',
-        },
+        html: expect.stringContaining('Jane Doe'),
       }),
     );
+    expect(sendMail.mock.calls[0][0].html).toContain('Hello world!');
   });
 
   it('returns 500 when sendMail throws', async () => {

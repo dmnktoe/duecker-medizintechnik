@@ -1,6 +1,6 @@
 'use client';
 
-import { useConsentDraft } from '@c15t/nextjs';
+import { useConsentDraft } from 'c15t/next';
 import { useTranslations } from 'next-intl';
 import * as React from 'react';
 
@@ -9,6 +9,8 @@ import clsxm from '@/lib/clsxm';
 import { RadixCheckbox } from '@/components/ui/RadixCheckbox';
 import Skeleton from '@/components/ui/Skeleton';
 import { Switch } from '@/components/ui/Switch';
+
+import { useHydrated } from '@/utils/useHydrated';
 
 /** Consent categories enabled for this site (see ConsentProvider). */
 type ConsentCategoryName = 'necessary' | 'measurement' | 'marketing';
@@ -55,13 +57,10 @@ export function ConsentCategoryToggles({
   const t = useTranslations('cookiePolicy.consent');
   const draft = useConsentDraft();
 
-  const [mounted, setMounted] = React.useState(false);
-  React.useEffect(() => {
-    setMounted(true);
-  }, []);
+  const hydrated = useHydrated();
 
   return (
-    <ul className={clsxm('space-y-4', className)} aria-busy={!mounted}>
+    <ul className={clsxm('space-y-4', className)} aria-busy={!hydrated}>
       {draft.displayedCategories.map((category) => {
         const name = category as ConsentCategoryName;
         const checked = draft.values[name] ?? false;
@@ -77,7 +76,7 @@ export function ConsentCategoryToggles({
                   {categoryDescription(t, name)}
                 </p>
               </div>
-              {!mounted ? (
+              {!hydrated ? (
                 disabled ? (
                   <Skeleton
                     className='mt-0.5 h-4 w-4 shrink-0 rounded border border-gray-200'

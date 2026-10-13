@@ -1,4 +1,4 @@
-jest.mock('@c15t/nextjs', () => ({
+jest.mock('c15t/next', () => ({
   useConsent: (category: string) => category === 'measurement',
 }));
 

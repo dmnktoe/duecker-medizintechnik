@@ -1,25 +1,28 @@
 'use client';
 
+import { useConsent, useSaveConsents, useSetActiveUI } from 'c15t/next';
 import { useTranslations } from 'next-intl';
 import * as React from 'react';
 
 import { Container } from '@/components/layout/Container';
 import { Button } from '@/components/ui';
 
-import useConsent from '@/utils/useConsent';
+import { useHydrated } from '@/utils/useHydrated';
 
 export const ContactMap = () => {
   const t = useTranslations('contact');
-  const { consent, loading, submitCustomConsent, showConsentDialog } =
-    useConsent();
+  const hydrated = useHydrated();
+  const hasMarketing = useConsent('marketing');
+  const saveConsents = useSaveConsents();
+  const setActiveUI = useSetActiveUI();
 
-  if (loading) {
+  if (!hydrated) {
     return (
       <div className='relative flex h-[250px] animate-pulse items-center bg-gray-100 align-middle md:h-[350px]' />
     );
   }
 
-  if (!consent?.marketing) {
+  if (!hasMarketing) {
     return (
       <div className='relative flex h-[250px] items-center bg-gray-100 align-middle md:h-[350px]'>
         <Container>
@@ -34,7 +37,7 @@ export const ContactMap = () => {
                 variant='primary'
                 size='sm'
                 className='w-full sm:w-56'
-                onClick={() => submitCustomConsent(false, true)}
+                onClick={() => void saveConsents({ marketing: true })}
               >
                 {t('content.mapsBanner.accept')}
               </Button>
@@ -42,7 +45,7 @@ export const ContactMap = () => {
                 variant='outline'
                 size='sm'
                 className='w-full sm:w-56'
-                onClick={() => showConsentDialog()}
+                onClick={() => setActiveUI('dialog')}
               >
                 {t('content.mapsBanner.cookieSettings')}
               </Button>

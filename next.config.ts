@@ -1,21 +1,18 @@
-/** @type {import('next').NextConfig} */
+import createBundleAnalyzer from '@next/bundle-analyzer';
+import { withSentryConfig } from '@sentry/nextjs/config';
+import type { NextConfig } from 'next';
+import createNextIntlPlugin from 'next-intl/plugin';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
+const withBundleAnalyzer = createBundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 });
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const { withSentryConfig } = require('@sentry/nextjs/config');
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const createNextIntlPlugin = require('next-intl/plugin');
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
 /** Sentry webpack/babel hooks in `next dev` can leave stale vendor-chunk refs after HMR (MODULE_NOT_FOUND in static-paths-worker). Keep them for production builds only. */
 const sentryBuildTime = process.env.NODE_ENV === 'production';
 
-const nextConfig = {
+const nextConfig: NextConfig = {
   trailingSlash: true,
   reactStrictMode: false,
 
@@ -35,7 +32,10 @@ const nextConfig = {
           if (!process.env.NEXT_PUBLIC_DIRECTUS_URL) return [];
           const u = new URL(process.env.NEXT_PUBLIC_DIRECTUS_URL);
           return [
-            { protocol: u.protocol.replace(':', ''), hostname: u.hostname },
+            {
+              protocol: u.protocol.replace(':', '') as 'http' | 'https',
+              hostname: u.hostname,
+            },
           ];
         } catch {
           return [];
@@ -72,11 +72,7 @@ const nextConfig = {
   },
 };
 
-module.exports = withNextIntl(nextConfig);
-
-module.exports = withBundleAnalyzer(module.exports);
-
-module.exports = withSentryConfig(module.exports, {
+export default withSentryConfig(withBundleAnalyzer(withNextIntl(nextConfig)), {
   org: 'yl33ly',
   project: 'duecker-medizintechnik',
   silent: !process.env.CI,

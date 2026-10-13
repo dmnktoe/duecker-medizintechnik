@@ -1,5 +1,6 @@
 'use client';
 
+import { useConsent } from 'c15t/next';
 import { useTranslations } from 'next-intl';
 import * as React from 'react';
 
@@ -10,7 +11,7 @@ import ContactForm from '@/components/templates/ContactForm';
 import ContactInfo from '@/components/templates/ContactInfo';
 import { Body, Title } from '@/components/ui';
 
-import useConsent from '@/utils/useConsent';
+import { useHydrated } from '@/utils/useHydrated';
 
 type FormContainerProps = {
   loading: boolean;
@@ -31,7 +32,8 @@ const FormContainer = ({ loading, hasConsent, notice }: FormContainerProps) => {
 };
 
 export default function ContactView() {
-  const { consent, loading } = useConsent();
+  const hydrated = useHydrated();
+  const hasMarketing = useConsent('marketing');
   const t = useTranslations('contact');
 
   return (
@@ -49,8 +51,8 @@ export default function ContactView() {
               <Title size='three'>{t('content.contactForm.title')}</Title>
               <Body color='light'>{t('content.contactForm.text')}</Body>
               <FormContainer
-                loading={loading}
-                hasConsent={!!consent?.marketing}
+                loading={!hydrated}
+                hasConsent={hasMarketing}
                 notice={t('content.contactForm.recaptchaCookieNotice')}
               />
               <ContactDecorators />

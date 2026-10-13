@@ -1,8 +1,9 @@
 import * as Sentry from '@sentry/nextjs';
+import Handlebars from 'handlebars';
 import { NextRequest, NextResponse } from 'next/server';
+import { readFile } from 'node:fs/promises';
+import path from 'node:path';
 import nodemailer from 'nodemailer';
-import hbs from 'nodemailer-express-handlebars';
-import path from 'path';
 
 interface FormData {
   name: string;
@@ -12,16 +13,20 @@ interface FormData {
   token: string;
 }
 
-const handlebarOptions = {
-  viewEngine: {
-    extName: '.handlebars',
-    partialsDir: path.resolve('./src/email/'),
-    layoutsDir: path.resolve('./src/email/'),
-    defaultLayout: 'contact',
-  },
-  viewPath: path.resolve('./src/email/'),
-  extName: '.handlebars',
-};
+const CONTACT_TEMPLATE_PATH = path.resolve('./src/email/contact.handlebars');
+
+type ContactEmailContext = Omit<FormData, 'token'>;
+
+let contactTemplate:
+  | Handlebars.TemplateDelegate<ContactEmailContext>
+  | undefined;
+
+async function renderContactEmail(context: ContactEmailContext) {
+  contactTemplate ??= Handlebars.compile(
+    await readFile(CONTACT_TEMPLATE_PATH, 'utf8'),
+  );
+  return contactTemplate(context);
+}
 
 async function validateHuman(token: string): Promise<boolean> {
   const secret = process.env.RECAPTCHA_SECRET_KEY;
@@ -65,22 +70,13 @@ export async function POST(request: NextRequest) {
     tls: { rejectUnauthorized: false },
   });
 
-  // nodemailer ships its own types since v10, while the hbs plugin types still
-  // reference the legacy @types/nodemailer Mail class.
-  transporter.use(
-    'compile',
-    hbs(handlebarOptions) as unknown as Parameters<typeof transporter.use>[1],
-  );
-
   try {
     await transporter.sendMail({
       from: `${name} no-reply@${process.env.CONTACT_FORM_SEND_EMAIL_DOMAIN}`,
       replyTo: email,
       to: process.env.CONTACT_FORM_RECEIVE_EMAIL,
       subject: 'Neue Anfrage, Dücker Medizintechnik Kontaktformular',
-      // @ts-expect-error nodemailer-express-handlebars extends the options
-      template: 'contact',
-      context: { name, email, phone, message },
+      html: await renderContactEmail({ name, email, phone, message }),
     });
     return NextResponse.json({ message: 'success' }, { status: 200 });
   } catch (err) {

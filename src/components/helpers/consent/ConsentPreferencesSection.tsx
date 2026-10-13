@@ -1,6 +1,6 @@
 'use client';
 
-import { ConsentDraftProvider, useConsentDraft } from '@c15t/nextjs';
+import { ConsentDraftProvider, useConsentDraft } from 'c15t/next';
 import { useTranslations } from 'next-intl';
 import * as React from 'react';
 

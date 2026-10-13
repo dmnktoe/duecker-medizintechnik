@@ -1,11 +1,13 @@
 'use client';
 
-import { ConsentDraftProvider } from '@c15t/nextjs';
-import { useFocusTrap, useHeadlessConsentUI } from '@c15t/nextjs/headless';
+import { ConsentDraftProvider } from 'c15t/next';
+import { useFocusTrap, useHeadlessConsentUI } from 'c15t/next/headless';
 import { useTranslations } from 'next-intl';
 import * as React from 'react';
 
 import { Body, Button, PrimaryLink, Title } from '@/components/ui';
+
+import { useHydrated } from '@/utils/useHydrated';
 
 import { ConsentCategoryToggles } from './ConsentCategoryToggles';
 
@@ -39,15 +41,9 @@ export function ConsentSurfaces() {
     closeUI,
   } = useHeadlessConsentUI();
 
-  // The c15t hook reads consent state from localStorage during the first client
-  // render, so the banner can flip from "hidden" (server) to "visible" (client).
-  // That shift would otherwise replace the first DOM child of the page (e.g.
-  // the MobileNavDrawer overlay) and surface as a hydration mismatch in React.
-  // We mount the surfaces only after the client has hydrated.
-  const [hasMounted, setHasMounted] = React.useState(false);
-  React.useEffect(() => {
-    setHasMounted(true);
-  }, []);
+  // Consent state lives in browser storage, so the surfaces render only after
+  // hydration to keep server and client markup identical.
+  const hydrated = useHydrated();
 
   const panelRef = React.useRef<HTMLDivElement>(null);
   useFocusTrap(dialog.isVisible, panelRef);
@@ -70,7 +66,7 @@ export function ConsentSurfaces() {
     return () => document.removeEventListener('keydown', onKey);
   }, [dialog.isVisible, closeUI]);
 
-  if (!hasMounted) return null;
+  if (!hydrated) return null;
 
   return (
     <>

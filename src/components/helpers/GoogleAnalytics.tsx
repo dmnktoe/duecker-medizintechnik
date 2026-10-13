@@ -1,6 +1,6 @@
 'use client';
 
-import { useConsent } from '@c15t/nextjs';
+import { useConsent } from 'c15t/next';
 import Script from 'next/script';
 import * as React from 'react';
 

@@ -48,7 +48,7 @@ const mockHas = jest.fn((category: string) => {
 const mockSaveConsents = jest.fn();
 const mockSetActiveUI = jest.fn();
 
-jest.mock('@c15t/nextjs', () => ({
+jest.mock('c15t/next', () => ({
   useConsent: (category: string) => mockHas(category),
   useSaveConsents: () => mockSaveConsents,
   useSetActiveUI: () => mockSetActiveUI,
@@ -206,10 +206,7 @@ describe('Cookie / consent conditional renders', () => {
         );
       });
 
-      expect(mockSaveConsents).toHaveBeenCalledWith({
-        measurement: false,
-        marketing: true,
-      });
+      expect(mockSaveConsents).toHaveBeenCalledWith({ marketing: true });
     });
 
     it('cookie settings opens consent dialog', async () => {
