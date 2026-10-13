@@ -45,24 +45,13 @@ const mockHas = jest.fn((category: string) => {
   return false;
 });
 
-const mockSetSelectedConsent = jest.fn();
 const mockSaveConsents = jest.fn();
 const mockSetActiveUI = jest.fn();
 
 jest.mock('@c15t/nextjs', () => ({
-  useConsentManager: () => ({
-    has: mockHas,
-    setSelectedConsent: mockSetSelectedConsent,
-    saveConsents: mockSaveConsents,
-    setActiveUI: mockSetActiveUI,
-    consents: { necessary: true, measurement: false, marketing: false },
-    getDisplayedConsents: () => [
-      { name: 'necessary', disabled: true },
-      { name: 'measurement', disabled: false },
-      { name: 'marketing', disabled: false },
-    ],
-    selectedConsents: {},
-  }),
+  useConsent: (category: string) => mockHas(category),
+  useSaveConsents: () => mockSaveConsents,
+  useSetActiveUI: () => mockSetActiveUI,
 }));
 
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
@@ -217,9 +206,10 @@ describe('Cookie / consent conditional renders', () => {
         );
       });
 
-      expect(mockSetSelectedConsent).toHaveBeenCalledWith('measurement', false);
-      expect(mockSetSelectedConsent).toHaveBeenCalledWith('marketing', true);
-      expect(mockSaveConsents).toHaveBeenCalledWith('custom');
+      expect(mockSaveConsents).toHaveBeenCalledWith({
+        measurement: false,
+        marketing: true,
+      });
     });
 
     it('cookie settings opens consent dialog', async () => {

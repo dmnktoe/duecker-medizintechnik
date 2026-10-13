@@ -1,6 +1,6 @@
 'use client';
 
-import { useConsentManager } from '@c15t/nextjs';
+import { useConsent } from '@c15t/nextjs';
 import Script from 'next/script';
 import * as React from 'react';
 
@@ -9,8 +9,7 @@ export default function GoogleAnalytics({
 }: {
   GA_MEASUREMENT_ID: string | undefined;
 }) {
-  const { has } = useConsentManager();
-  const hasStats = has('measurement');
+  const hasStats = useConsent('measurement');
 
   if (!GA_MEASUREMENT_ID || !hasStats) return null;
 

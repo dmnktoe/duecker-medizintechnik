@@ -1,6 +1,6 @@
 'use client';
 
-import { useConsentManager } from '@c15t/nextjs';
+import { useConsent } from '@c15t/nextjs';
 import Script from 'next/script';
 import * as React from 'react';
 
@@ -9,8 +9,7 @@ export default function Hotjar({
 }: {
   HOTJAR_ID: string | undefined;
 }) {
-  const { has } = useConsentManager();
-  const hasStats = has('measurement');
+  const hasStats = useConsent('measurement');
 
   React.useEffect(() => {
     if (hasStats || !HOTJAR_ID) return;

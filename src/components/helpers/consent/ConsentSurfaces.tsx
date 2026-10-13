@@ -1,12 +1,32 @@
 'use client';
 
-import { useFocusTrap, useHeadlessConsentUI } from '@c15t/nextjs';
+import { ConsentDraftProvider } from '@c15t/nextjs';
+import { useFocusTrap, useHeadlessConsentUI } from '@c15t/nextjs/headless';
 import { useTranslations } from 'next-intl';
 import * as React from 'react';
 
 import { Body, Button, PrimaryLink, Title } from '@/components/ui';
 
 import { ConsentCategoryToggles } from './ConsentCategoryToggles';
+
+/**
+ * Must render inside the dialog's ConsentDraftProvider so the save picks up
+ * the choices staged by ConsentCategoryToggles.
+ */
+function SaveCustomPreferencesButton() {
+  const t = useTranslations('cookiePolicy.consent');
+  const { saveCustomPreferences } = useHeadlessConsentUI();
+
+  return (
+    <Button
+      variant='primary'
+      size='sm'
+      onClick={() => void saveCustomPreferences()}
+    >
+      {t('save')}
+    </Button>
+  );
+}
 
 export function ConsentSurfaces() {
   const t = useTranslations('cookiePolicy.consent');
@@ -15,7 +35,6 @@ export function ConsentSurfaces() {
     dialog,
     performBannerAction,
     performDialogAction,
-    saveCustomPreferences,
     openDialog,
     closeUI,
   } = useHeadlessConsentUI();
@@ -125,33 +144,29 @@ export function ConsentSurfaces() {
             <Body margin={false} size='sm' className='!mb-4'>
               {t('dialog.description')}
             </Body>
-            <ConsentCategoryToggles className='!mb-6' />
-            <div className='flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:justify-end'>
-              <Button variant='ghost' size='sm' onClick={() => closeUI()}>
-                {t('close')}
-              </Button>
-              <Button
-                variant='outline'
-                size='sm'
-                onClick={() => void performDialogAction('reject')}
-              >
-                {t('rejectAll')}
-              </Button>
-              <Button
-                variant='outline'
-                size='sm'
-                onClick={() => void performDialogAction('accept')}
-              >
-                {t('acceptAll')}
-              </Button>
-              <Button
-                variant='primary'
-                size='sm'
-                onClick={() => void saveCustomPreferences()}
-              >
-                {t('save')}
-              </Button>
-            </div>
+            <ConsentDraftProvider>
+              <ConsentCategoryToggles className='!mb-6' />
+              <div className='flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:justify-end'>
+                <Button variant='ghost' size='sm' onClick={() => closeUI()}>
+                  {t('close')}
+                </Button>
+                <Button
+                  variant='outline'
+                  size='sm'
+                  onClick={() => void performDialogAction('reject')}
+                >
+                  {t('rejectAll')}
+                </Button>
+                <Button
+                  variant='outline'
+                  size='sm'
+                  onClick={() => void performDialogAction('accept')}
+                >
+                  {t('acceptAll')}
+                </Button>
+                <SaveCustomPreferencesButton />
+              </div>
+            </ConsentDraftProvider>
           </div>
         </div>
       ) : null}

@@ -1,17 +1,16 @@
 'use client';
 
-import { ConsentManagerProvider } from '@c15t/nextjs';
+import {
+  ConsentProvider as C15tConsentProvider,
+  type ConsentProviderOptions,
+} from '@c15t/nextjs';
+import { offline } from '@c15t/react';
 import * as Sentry from '@sentry/nextjs';
-import type { ComponentProps } from 'react';
 import * as React from 'react';
 
 import { isLocal } from '@/constants/env';
 
 import { ConsentSurfaces } from './consent/ConsentSurfaces';
-
-type ConsentManagerProviderOptions = ComponentProps<
-  typeof ConsentManagerProvider
->['options'];
 
 type ConsentProviderProps = {
   children: React.ReactNode;
@@ -19,18 +18,16 @@ type ConsentProviderProps = {
   locale: string;
 };
 
-function buildConsentOptions(locale: string): ConsentManagerProviderOptions {
+function buildConsentOptions(locale: string): ConsentProviderOptions {
   const language = locale === 'en' ? 'en' : 'de';
 
   return {
-    mode: 'offline',
+    mode: offline(),
     noStyle: true,
     consentCategories: ['necessary', 'measurement', 'marketing'],
-    store: {
-      overrides: {
-        country: 'DE',
-        language,
-      },
+    overrides: {
+      country: 'DE',
+      language,
     },
     callbacks: {
       onError: ({ error }: { error: string }) => {
@@ -44,9 +41,9 @@ export function ConsentProvider({ children, locale }: ConsentProviderProps) {
   const options = React.useMemo(() => buildConsentOptions(locale), [locale]);
 
   return (
-    <ConsentManagerProvider options={options}>
+    <C15tConsentProvider options={options}>
       <ConsentSurfaces />
       {children}
-    </ConsentManagerProvider>
+    </C15tConsentProvider>
   );
 }

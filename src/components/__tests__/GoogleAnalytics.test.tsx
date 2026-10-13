@@ -1,7 +1,5 @@
 jest.mock('@c15t/nextjs', () => ({
-  useConsentManager: () => ({
-    has: (category: string) => category === 'measurement',
-  }),
+  useConsent: (category: string) => category === 'measurement',
 }));
 
 import { render } from '@testing-library/react';

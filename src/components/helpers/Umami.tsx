@@ -1,6 +1,6 @@
 'use client';
 
-import { useConsentManager } from '@c15t/nextjs';
+import { useConsent } from '@c15t/nextjs';
 import Script from 'next/script';
 import * as React from 'react';
 
@@ -11,8 +11,7 @@ export default function Umami({
   UMAMI_WEBSITE_ID: string | undefined;
   UMAMI_SRC: string | undefined;
 }) {
-  const { has } = useConsentManager();
-  const hasStats = has('measurement');
+  const hasStats = useConsent('measurement');
 
   React.useEffect(() => {
     if (hasStats || !UMAMI_WEBSITE_ID || !UMAMI_SRC) return;
