@@ -26,7 +26,7 @@
     "@c15t/react": "^3.0.0",
     "@directus/sdk": "^27.0.0",
     "@directus/visual-editing": "^2.0.0",
-    "@hookform/resolvers": "^5.0.0",
+    "@hookform/resolvers": "^6.0.0",
     "@next/bundle-analyzer": "^16.2.4",
     "@radix-ui/react-accordion": "^1.2.12",
     "@radix-ui/react-aspect-ratio": "^1.1.8",
