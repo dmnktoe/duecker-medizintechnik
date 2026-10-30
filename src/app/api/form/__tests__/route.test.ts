@@ -173,7 +173,6 @@ describe('POST /api/form', () => {
       headers: { 'Auto-Submitted': 'auto-replied' },
     });
     expect(receipt.subject).toContain(body.reference);
-    // The receipt must never echo the free-text message.
     expect(receipt.text).not.toContain('Please repair our scissors.');
     expect(receipt.html).not.toContain('Please repair our scissors.');
   });

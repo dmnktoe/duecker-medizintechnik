@@ -7,7 +7,6 @@ import { getContactConfig } from '@/lib/contact/config';
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
-/** Hands out a fresh ALTCHA proof-of-work challenge for the contact form. */
 export async function GET() {
   try {
     const { altchaSecret } = getContactConfig();

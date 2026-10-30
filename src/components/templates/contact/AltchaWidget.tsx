@@ -5,9 +5,7 @@ import type {} from 'altcha/types/react';
 import * as React from 'react';
 
 export interface AltchaHandle {
-  /** Returns a solved payload, solving the challenge first if needed. */
   getPayload: () => Promise<string | null>;
-  /** Discards the used solution so the next submit gets a fresh one. */
   reset: () => void;
 }
 
@@ -17,10 +15,6 @@ interface AltchaWidgetProps {
   ref?: React.Ref<AltchaHandle>;
 }
 
-/**
- * Wraps the ALTCHA web component. It starts solving as soon as the visitor
- * focuses the form, so the proof of work is usually done before they submit.
- */
 export function AltchaWidget({
   challengeUrl,
   language,
@@ -32,7 +26,6 @@ export function AltchaWidget({
 
   React.useEffect(() => {
     let cancelled = false;
-    // The widget touches `window`, so it is only loaded in the browser.
     Promise.all([
       import('altcha'),
       import('altcha/i18n/de'),

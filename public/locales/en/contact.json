@@ -7,7 +7,7 @@
     },
     "contactForm": {
       "title": "Write us a message",
-      "text": "Tell us briefly how we can help – we usually reply within 1–2 business days.",
+      "text": "Tell us briefly how we can help. We usually reply within 1–2 business days.",
       "optional": "optional",
       "name": {
         "label": "Full name",
@@ -65,14 +65,13 @@
         }
       },
       "privacyNotice": "We only use your details to handle your enquiry. Learn more in our <linkTag>privacy policy</linkTag>.",
-      "spamProtection": "Spam protection without cookies or Google: your browser solves a small puzzle in the background.",
       "honeypot": "Please leave this field empty",
       "submit": {
         "label": "Send message",
         "progress": "Sending …"
       },
       "success": {
-        "title": "Thank you – your message has arrived!",
+        "title": "Thank you, your message has arrived.",
         "text": "We have sent a confirmation to {email}. We usually reply within 1–2 business days.",
         "reference": "Your reference number",
         "spamHint": "No confirmation? Please also check your spam folder.",

@@ -1,13 +1,5 @@
 import { z } from 'zod';
 
-/**
- * Shared contact form rules. The browser and the API route validate against
- * the same schema, so the two can never drift apart.
- *
- * Error messages are i18n keys (relative to `contact.content.contactForm`),
- * which the client translates and the server returns as-is.
- */
-
 export const CONTACT_TOPICS = [
   'repair',
   'products',
@@ -27,8 +19,6 @@ export const LIMITS = {
   message: { min: 10, max: 5000 },
 } as const;
 
-// Links in the name or company field are a strong spam signal, and both
-// fields are echoed in the confirmation mail, so we refuse them outright.
 const NO_LINKS = /^(?![\s\S]*(?:https?:\/\/|www\.|<|>))[\s\S]*$/i;
 const PHONE = /^[+()\d\s./-]*$/;
 
@@ -58,18 +48,14 @@ export const contactFieldsSchema = z.object({
 export type ContactFields = z.infer<typeof contactFieldsSchema>;
 export type ContactFieldName = keyof ContactFields;
 
-/** What the browser posts to `/api/form/`. */
 export const contactRequestSchema = contactFieldsSchema.extend({
   locale: z.enum(CONTACT_LOCALES).catch('de'),
-  /** ALTCHA proof-of-work payload (base64 JSON). */
   altcha: z.string().min(1).max(10_000),
-  /** Honeypot: real people never see or fill this field. */
   website: z.string().max(500).optional().default(''),
 });
 
 export type ContactRequest = z.infer<typeof contactRequestSchema>;
 
-/** Machine-readable error codes returned by the API. */
 export type ContactErrorCode =
   | 'invalid_request'
   | 'validation_failed'

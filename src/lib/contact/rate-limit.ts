@@ -1,8 +1,3 @@
-/**
- * Small in-memory sliding-window rate limiter. It is per server instance,
- * which is enough to stop one client from flooding the inbox; the proof of
- * work makes distributed abuse expensive on top of that.
- */
 export function createRateLimiter({
   limit,
   windowMs,

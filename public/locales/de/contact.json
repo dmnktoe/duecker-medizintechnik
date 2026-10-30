@@ -7,7 +7,7 @@
     },
     "contactForm": {
       "title": "Schreiben Sie uns",
-      "text": "Schildern Sie uns kurz Ihr Anliegen – wir melden uns in der Regel innerhalb von 1–2 Werktagen.",
+      "text": "Schildern Sie uns kurz Ihr Anliegen. Wir melden uns in der Regel innerhalb von 1–2 Werktagen.",
       "optional": "optional",
       "name": {
         "label": "Vor- und Nachname",
@@ -65,14 +65,13 @@
         }
       },
       "privacyNotice": "Ihre Angaben verwenden wir ausschließlich zur Bearbeitung Ihrer Anfrage. Mehr dazu in unserer <linkTag>Datenschutzerklärung</linkTag>.",
-      "spamProtection": "Spam-Schutz ohne Cookies und ohne Google: Ihr Browser löst im Hintergrund eine kleine Rechenaufgabe.",
       "honeypot": "Dieses Feld bitte leer lassen",
       "submit": {
         "label": "Nachricht senden",
         "progress": "Wird gesendet …"
       },
       "success": {
-        "title": "Vielen Dank – Ihre Nachricht ist angekommen!",
+        "title": "Vielen Dank, Ihre Nachricht ist angekommen.",
         "text": "Eine Bestätigung haben wir an {email} geschickt. Wir melden uns in der Regel innerhalb von 1–2 Werktagen bei Ihnen.",
         "reference": "Ihre Referenznummer",
         "spamHint": "Keine Bestätigung erhalten? Bitte schauen Sie auch im Spam-Ordner nach.",

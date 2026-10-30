@@ -156,12 +156,7 @@ export default function ContactForm() {
   const onSubmit = async (fields: ContactFields) => {
     setSubmitError(null);
 
-    let altcha: string | null = null;
-    try {
-      altcha = (await altchaRef.current?.getPayload()) ?? null;
-    } catch {
-      altcha = null;
-    }
+    const altcha = await altchaRef.current?.getPayload().catch(() => null);
     if (!altcha) {
       setSubmitError('captcha_failed');
       altchaRef.current?.reset();
@@ -185,7 +180,6 @@ export default function ContactForm() {
       return;
     }
 
-    // Every solution is single-use, success or not.
     altchaRef.current?.reset();
 
     const data = (await response
@@ -381,7 +375,6 @@ export default function ContactForm() {
         />
       </FieldShell>
 
-      {/* Honeypot: hidden from people and screen readers, filled by bots. */}
       <div
         aria-hidden='true'
         className='pointer-events-none absolute -left-[10000px] h-px w-px overflow-hidden opacity-0'
@@ -398,14 +391,11 @@ export default function ContactForm() {
         />
       </div>
 
-      <div>
-        <AltchaWidget
-          ref={altchaRef}
-          challengeUrl={CHALLENGE_URL}
-          language={locale}
-        />
-        <p className='mt-1.5 text-xs text-gray-500'>{tf('spamProtection')}</p>
-      </div>
+      <AltchaWidget
+        ref={altchaRef}
+        challengeUrl={CHALLENGE_URL}
+        language={locale}
+      />
 
       <p className='text-xs text-gray-600'>
         {t.rich('content.contactForm.privacyNotice', {

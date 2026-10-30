@@ -8,26 +8,11 @@ export interface ContactConfig {
     password: string;
     rejectUnauthorized: boolean;
   };
-  /** Mailbox that receives new enquiries. */
   inbox: string;
-  /** Address the website sends from (must be allowed by SPF/DKIM). */
   from: string;
-  /** Secret used to sign ALTCHA challenges. */
   altchaSecret: string;
 }
 
-export class ContactConfigError extends Error {
-  constructor(missing: string[]) {
-    super(`Contact form is missing env vars: ${missing.join(', ')}`);
-    this.name = 'ContactConfigError';
-  }
-}
-
-/**
- * Reads and checks all contact form settings. Throws a ContactConfigError
- * naming every missing variable, so a broken deploy shows up in Sentry
- * instead of silently dropping enquiries.
- */
 export function getContactConfig(
   env: NodeJS.ProcessEnv = process.env,
 ): ContactConfig {
@@ -44,7 +29,9 @@ export function getContactConfig(
   }
   const port = Number(env.SMTP_PORT);
   if (env.SMTP_PORT && !Number.isInteger(port)) missing.push('SMTP_PORT');
-  if (missing.length > 0) throw new ContactConfigError(missing);
+  if (missing.length > 0) {
+    throw new Error(`Contact form is missing env vars: ${missing.join(', ')}`);
+  }
 
   return {
     smtp: {
@@ -58,8 +45,6 @@ export function getContactConfig(
     from:
       env.CONTACT_FORM_FROM_EMAIL ||
       `no-reply@${env.CONTACT_FORM_SEND_EMAIL_DOMAIN}`,
-    // A dedicated secret is preferred. Without one we derive a stable key from
-    // the SMTP password, which is server-only and always set when mail works.
     altchaSecret:
       env.ALTCHA_HMAC_SECRET ||
       createHmac('sha256', env.SMTP_PASSWORD!)

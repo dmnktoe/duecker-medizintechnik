@@ -10,7 +10,6 @@ type Address = { name: string; address: string };
 export interface OutgoingMail extends RenderedEmail {
   to: Address | string;
   replyTo: Address | string;
-  /** Marks automatic replies so mail servers don't answer them in a loop. */
   autoReply?: boolean;
 }
 
@@ -19,7 +18,6 @@ export function createMailer(config: ContactConfig) {
   const transporter = nodemailer.createTransport({
     host: smtp.host,
     port: smtp.port,
-    // 465 = implicit TLS; anything else must upgrade via STARTTLS.
     secure: smtp.port === 465,
     requireTLS: smtp.port !== 465,
     auth: { user: smtp.user, pass: smtp.password },
@@ -33,8 +31,6 @@ export function createMailer(config: ContactConfig) {
     name: `${company.companyName} Website`,
     address: config.from,
   };
-  // Bounces go to the real SMTP mailbox, where someone can see them,
-  // instead of the unattended no-reply address.
   const bounceTo = smtp.user.includes('@') ? smtp.user : config.from;
 
   return {

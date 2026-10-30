@@ -62,7 +62,6 @@ function row(label: string, value: string) {
 </tr>`;
 }
 
-/** Notification for the Dücker team. Always German. */
 export function renderInternalEmail(
   fields: ContactFields,
   meta: { reference: string; locale: ContactLocale; receivedAt: Date },
@@ -74,7 +73,7 @@ export function renderInternalEmail(
     timeStyle: 'short',
   });
   const dash = '–';
-  const subject = `Kontaktanfrage: ${topic} – ${fields.name} [${meta.reference}]`;
+  const subject = `Kontaktanfrage ${topic}: ${fields.name} [${meta.reference}]`;
 
   const html = layout(
     'de',
@@ -89,8 +88,7 @@ export function renderInternalEmail(
   ${row('Telefon', fields.phone ? `<a href="tel:${escapeHtml(fields.phone.replace(/[^\d+]/g, ''))}" style="color:${company.primaryHex};">${escapeHtml(fields.phone)}</a>` : dash)}
 </table>
 <h2 style="margin:24px 0 8px;font-size:16px;">Nachricht</h2>
-<div style="padding:14px 16px;background:#f4f6f8;border-radius:6px;white-space:normal;">${multiline(fields.message)}</div>
-<p style="margin:24px 0 0;font-size:13px;color:#5b6675;">Einfach auf diese E-Mail antworten – die Antwort geht direkt an ${escapeHtml(fields.name)}. Der Absender hat eine automatische Eingangsbestätigung erhalten.</p>`,
+<div style="padding:14px 16px;background:#f4f6f8;border-radius:6px;white-space:normal;">${multiline(fields.message)}</div>`,
   );
 
   const text = [
@@ -105,8 +103,6 @@ export function renderInternalEmail(
     '',
     'Nachricht:',
     fields.message,
-    '',
-    `Einfach auf diese E-Mail antworten – die Antwort geht direkt an ${fields.name}.`,
   ].join('\n');
 
   return { subject, html, text };
@@ -146,11 +142,6 @@ const CONFIRMATION_COPY = {
   },
 } as const;
 
-/**
- * Automatic receipt for the visitor. It deliberately does not repeat the
- * message text, so the form can't be abused to send arbitrary content to
- * third-party addresses.
- */
 export function renderConfirmationEmail(
   fields: Pick<ContactFields, 'name' | 'topic'>,
   meta: { reference: string; locale: ContactLocale },
