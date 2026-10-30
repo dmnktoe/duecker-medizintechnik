@@ -10,28 +10,7 @@ import ContactForm from '@/components/templates/ContactForm';
 import ContactInfo from '@/components/templates/ContactInfo';
 import { Body, Title } from '@/components/ui';
 
-import useConsent from '@/utils/useConsent';
-
-type FormContainerProps = {
-  loading: boolean;
-  hasConsent: boolean;
-  notice: string;
-};
-
-const FormContainer = ({ loading, hasConsent, notice }: FormContainerProps) => {
-  if (loading) {
-    return (
-      <div className='relative flex h-[350px] animate-pulse items-center bg-gray-100' />
-    );
-  }
-  if (!hasConsent) {
-    return <div className='bg-yellow-100 p-2 text-xs'>{notice}</div>;
-  }
-  return <ContactForm />;
-};
-
 export default function ContactView() {
-  const { consent, loading } = useConsent();
   const t = useTranslations('contact');
 
   return (
@@ -45,14 +24,10 @@ export default function ContactView() {
             </div>
           </div>
           <div className='w-full lg:w-5/12'>
-            <div className='relative rounded-lg bg-white p-8 shadow-lg sm:p-12'>
+            <div className='relative rounded-lg bg-white p-6 shadow-lg sm:p-12'>
               <Title size='three'>{t('content.contactForm.title')}</Title>
               <Body color='light'>{t('content.contactForm.text')}</Body>
-              <FormContainer
-                loading={loading}
-                hasConsent={!!consent?.marketing}
-                notice={t('content.contactForm.recaptchaCookieNotice')}
-              />
+              <ContactForm />
               <ContactDecorators />
             </div>
           </div>

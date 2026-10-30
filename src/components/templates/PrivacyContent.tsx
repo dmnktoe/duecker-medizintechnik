@@ -294,8 +294,24 @@ export default function PrivacyContent() {
                   <Body>
                     Wenn Sie das Kontaktformular auf unserer Website benutzen,
                     werden folgende Daten an uns übermittelt: Ihr Name*, Ihre
-                    E-Mailadresse*, Betreff*, Thema, Ihre Nachricht. Die mit *
-                    gekennzeichneten Felder sind Pflichtfelder.
+                    E-Mail-Adresse*, Thema*, Ihre Nachricht* sowie optional
+                    Firma/Einrichtung und Telefonnummer. Die mit *
+                    gekennzeichneten Felder sind Pflichtfelder. Ihre Anfrage
+                    wird per E-Mail an uns weitergeleitet; an die angegebene
+                    E-Mail-Adresse senden wir eine automatische
+                    Eingangsbestätigung mit einer Referenznummer.
+                  </Body>
+                  <Body>
+                    Zum Schutz vor Spam setzen wir den selbst gehosteten Dienst
+                    ALTCHA ein. Dabei löst Ihr Browser eine kleine Rechenaufgabe
+                    (Proof of Work), die ausschließlich von unserem Server
+                    bereitgestellt und geprüft wird. Es werden keine Cookies
+                    gesetzt und keine Daten an Dritte übermittelt. Zur Abwehr
+                    von Missbrauch wird Ihre IP-Adresse kurzzeitig (maximal 15
+                    Minuten) im Arbeitsspeicher unseres Servers vorgehalten und
+                    nicht dauerhaft gespeichert. Rechtsgrundlage ist unser
+                    berechtigtes Interesse an einem funktionsfähigen und
+                    sicheren Kontaktformular (Art. 6 Abs. 1 lit. f DSGVO).
                   </Body>
                   <Body>
                     Alternativ ist eine Kontaktaufnahme über von uns – je nach
@@ -905,24 +921,6 @@ export default function PrivacyContent() {
                       ,{' '}
                       <UnderlineLink href='https://tools.google.com/dlpage/gaoptout?hl=de'>
                         https://tools.google.com/dlpage/gaoptout?hl=de
-                      </UnderlineLink>
-                      .
-                    </li>
-                    <li>
-                      ReCaptcha zur Erkennung von Bots, z.B. bei Eingaben in
-                      Onlineformularen. Angeboten von Google Inc. 1600
-                      Amphitheatre Parkway, Mountain View, CA 94043, USA, ein.
-                      Datenschutzerklärung:{' '}
-                      <UnderlineLink href='https://www.google.com/policies/privacy/'>
-                        https://www.google.com/policies/privacy/
-                      </UnderlineLink>
-                      , Hinweise / Widerspruch / Opt-Out-Möglichkeit:{' '}
-                      <UnderlineLink href='https://adssettings.google.com/authenticated'>
-                        https://adssettings.google.com/authenticated
-                      </UnderlineLink>
-                      , Privacy-Shield-Abkommen:{' '}
-                      <UnderlineLink href='https://www.privacyshield.gov/participant?id=a2zt000000001L5AAI&amp;status=Active'>
-                        https://www.privacyshield.gov/participant?id=a2zt000000001L5AAI&amp;status=Active
                       </UnderlineLink>
                       .
                     </li>

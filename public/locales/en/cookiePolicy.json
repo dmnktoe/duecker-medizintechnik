@@ -25,7 +25,7 @@
       },
       "marketing": {
         "title": "Marketing & embedded content",
-        "description": "Enables embedded services such as Google Maps and Google reCAPTCHA on the contact form."
+        "description": "Enables embedded services such as Google Maps."
       }
     }
   },
@@ -38,7 +38,7 @@
     "sectionIntro": {
       "necessary": "Technically required functions and consent handling. Without these elements we cannot operate the site in a compliant way.",
       "measurement": "Only if you consent: pseudonymous analytics to improve our website.",
-      "marketing": "Only if you consent: services that transfer data to Google and others (map, reCAPTCHA)."
+      "marketing": "Only if you consent: services that transfer data to Google and others (e.g. map)."
     },
     "vendors": {
       "necessary": [
@@ -79,12 +79,6 @@
           "service": "Google Maps (embedded map)",
           "purpose": "Shows an interactive map on the contact page; this may transfer data such as IP address and usage data to Google.",
           "privacyUrl": "https://policies.google.com/privacy?hl=en"
-        },
-        {
-          "name": "Google Ireland Limited",
-          "service": "Google reCAPTCHA",
-          "purpose": "Protects the contact form from automated abuse (spam) and transfers data to Google.",
-          "privacyUrl": "https://policies.google.com/privacy?hl=en"
         }
       ]
     }
@@ -92,7 +86,7 @@
   "meta": {
     "pageTitle": "Cookie policy",
     "seo": {
-      "description": "Overview of cookies, similar technologies, and third-party providers (Google Analytics, Hotjar, Umami, Google Maps, reCAPTCHA) on duecker-medizintechnik.de.",
+      "description": "Overview of cookies, similar technologies, and third-party providers (Google Analytics, Hotjar, Umami, Google Maps) on duecker-medizintechnik.de.",
       "title": "Cookie policy"
     }
   }

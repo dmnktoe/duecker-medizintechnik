@@ -25,7 +25,7 @@
       },
       "marketing": {
         "title": "Marketing & eingebettete Inhalte",
-        "description": "Ermöglicht z. B. die Einbindung von Google Maps und den Spam-Schutz per Google reCAPTCHA beim Kontaktformular."
+        "description": "Ermöglicht z. B. die Einbindung von Google Maps."
       }
     }
   },
@@ -38,7 +38,7 @@
     "sectionIntro": {
       "necessary": "Technisch notwendige Funktionen und die Verwaltung Ihrer Einwilligung. Ohne diese Elemente ist eine rechtskonforme Nutzung der Website nicht möglich.",
       "measurement": "Nur wenn Sie zustimmen: pseudonyme Auswertung zur Verbesserung unseres Webangebots.",
-      "marketing": "Nur wenn Sie zustimmen: Einbindung von Diensten, die Daten an Google u. a. übermitteln (Karte, reCAPTCHA)."
+      "marketing": "Nur wenn Sie zustimmen: Einbindung von Diensten, die Daten an Google u. a. übermitteln (z. B. Karte)."
     },
     "vendors": {
       "necessary": [
@@ -79,12 +79,6 @@
           "service": "Google Maps (eingebettete Karte)",
           "purpose": "Anzeige einer interaktiven Karte auf der Kontaktseite; hierbei können u. a. IP-Adresse und Nutzungsdaten an Google übermittelt werden.",
           "privacyUrl": "https://policies.google.com/privacy?hl=de"
-        },
-        {
-          "name": "Google Ireland Limited",
-          "service": "Google reCAPTCHA",
-          "purpose": "Schutz des Kontaktformulars vor automatisiertem Missbrauch (Spam); hierbei werden Daten an Google übermittelt.",
-          "privacyUrl": "https://policies.google.com/privacy?hl=de"
         }
       ]
     }
@@ -92,7 +86,7 @@
   "meta": {
     "pageTitle": "Cookie-Richtlinie",
     "seo": {
-      "description": "Übersicht zu Cookies, ähnlichen Technologien und Drittanbietern (Google Analytics, Hotjar, Umami, Google Maps, reCAPTCHA) auf duecker-medizintechnik.de.",
+      "description": "Übersicht zu Cookies, ähnlichen Technologien und Drittanbietern (Google Analytics, Hotjar, Umami, Google Maps) auf duecker-medizintechnik.de.",
       "title": "Cookie-Richtlinie"
     }
   }

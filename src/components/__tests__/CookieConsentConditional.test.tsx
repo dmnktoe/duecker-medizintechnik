@@ -30,6 +30,10 @@ jest.mock('next/script', () => ({
   },
 }));
 
+jest.mock('@/components/templates/contact/AltchaWidget', () => ({
+  AltchaWidget: () => null,
+}));
+
 jest.mock('next/navigation', () => ({
   usePathname: () => '/de/kontakt',
 }));
@@ -136,31 +140,24 @@ describe('Cookie / consent conditional renders', () => {
     });
   });
 
-  describe('ContactView (marketing-gated contact form)', () => {
+  describe('ContactView (contact form needs no consent)', () => {
     let wrapper: React.ComponentType<{ children: React.ReactNode }>;
 
     beforeEach(async () => {
       wrapper = await createIntlWrapper(['common', 'contact']);
     });
 
-    it('shows reCAPTCHA cookie notice when marketing consent is off', async () => {
-      consentFlags.marketing = false;
-      render(<ContactView />, { wrapper });
+    it.each([false, true])(
+      'renders the contact form when marketing consent is %s',
+      async (marketing) => {
+        consentFlags.marketing = marketing;
+        render(<ContactView />, { wrapper });
 
-      expect(
-        await screen.findByText(/Marketing-Cookies aktiviert sind/i),
-      ).toBeInTheDocument();
-      expect(screen.queryByLabelText(/Ihr Vor- & Nachname/i)).toBeNull();
-    });
-
-    it('renders ContactForm when marketing consent is granted', async () => {
-      consentFlags.marketing = true;
-      render(<ContactView />, { wrapper });
-
-      expect(
-        await screen.findByLabelText(/Ihr Vor- & Nachname/i),
-      ).toBeInTheDocument();
-    });
+        expect(
+          await screen.findByLabelText(/Vor- und Nachname/i),
+        ).toBeInTheDocument();
+      },
+    );
   });
 
   describe('ContactMap (marketing-gated iframe)', () => {
