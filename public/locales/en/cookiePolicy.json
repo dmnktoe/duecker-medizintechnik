@@ -2,7 +2,7 @@
   "consent": {
     "banner": {
       "title": "Cookies and privacy",
-      "description": "We use cookies and similar technologies to run the site, measure usage, and load embedded third-party services (e.g. map, contact form). You can change your choices at any time."
+      "description": "We use cookies and similar technologies to run the site, measure usage, and load embedded third-party services (e.g. map). You can change your choices at any time."
     },
     "dialog": {
       "title": "Cookie preferences",
