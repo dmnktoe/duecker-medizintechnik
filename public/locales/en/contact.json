@@ -65,7 +65,6 @@
         }
       },
       "privacyNotice": "We only use your details to handle your enquiry. Learn more in our <linkTag>privacy policy</linkTag>.",
-      "honeypot": "Please leave this field empty",
       "submit": {
         "label": "Send message",
         "progress": "Sending …"

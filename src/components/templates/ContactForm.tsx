@@ -25,7 +25,7 @@ import {
   type AltchaHandle,
   AltchaWidget,
 } from '@/components/templates/contact/AltchaWidget';
-import { Button, UnderlineLink } from '@/components/ui';
+import { Body, Button, Title, UnderlineLink } from '@/components/ui';
 
 import { company } from '@/constants/company';
 
@@ -101,7 +101,6 @@ export default function ContactForm() {
   const locale = useLocale();
 
   const altchaRef = React.useRef<AltchaHandle>(null);
-  const honeypotRef = React.useRef<HTMLInputElement>(null);
   const successRef = React.useRef<HTMLDivElement>(null);
   const errorRef = React.useRef<HTMLDivElement>(null);
 
@@ -172,7 +171,6 @@ export default function ContactForm() {
           ...fields,
           locale,
           altcha,
-          website: honeypotRef.current?.value ?? '',
         }),
       });
     } catch {
@@ -210,27 +208,32 @@ export default function ContactForm() {
         ref={successRef}
         tabIndex={-1}
         role='status'
-        className='mt-6 rounded-lg border border-green-200 bg-green-50 p-6 outline-none'
+        className='mt-6 outline-none'
       >
-        <div className='mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-green-500 text-white'>
-          <VscCheck className='h-6 w-6' aria-hidden='true' />
+        <div className='bg-primary-500/10 text-primary-500 mb-5 flex h-[60px] w-[60px] items-center justify-center'>
+          <VscCheck className='h-7 w-7' aria-hidden='true' />
         </div>
-        <h3 className='mb-2 text-lg font-semibold text-gray-900'>
+        <Title size='four' renderAs='h3'>
           {tf('success.title')}
-        </h3>
-        <p className='mb-4 text-sm text-gray-700'>
+        </Title>
+        <Body color='light'>
           {tf('success.text', { email: success.email })}
-        </p>
-        <p className='mb-4 text-sm text-gray-700'>
-          {tf('success.reference')}:{' '}
-          <strong className='font-mono tracking-wide'>
+        </Body>
+        <div className='border-primary-500 bg-primary-500/5 mb-4 border-l-4 px-4 py-3'>
+          <Body size='xs' color='light' margin={false}>
+            {tf('success.reference')}
+          </Body>
+          <p className='text-dark font-mono text-lg tracking-wider'>
             {success.reference}
-          </strong>
-        </p>
-        <p className='mb-5 text-xs text-gray-500'>{tf('success.spamHint')}</p>
+          </p>
+        </div>
+        <Body size='xs' color='light' className='mb-6'>
+          {tf('success.spamHint')}
+        </Body>
         <Button
           type='button'
           variant='outline'
+          className='w-full'
           onClick={() => setSuccess(null)}
         >
           {tf('success.again')}
@@ -374,22 +377,6 @@ export default function ContactForm() {
           {...register('message')}
         />
       </FieldShell>
-
-      <div
-        aria-hidden='true'
-        className='pointer-events-none absolute -left-[10000px] h-px w-px overflow-hidden opacity-0'
-      >
-        <label htmlFor='contact-website-hp'>{tf('honeypot')}</label>
-        <input
-          ref={honeypotRef}
-          id='contact-website-hp'
-          name='contact-website-hp'
-          type='text'
-          tabIndex={-1}
-          autoComplete='off'
-          defaultValue=''
-        />
-      </div>
 
       <AltchaWidget
         ref={altchaRef}

@@ -112,7 +112,6 @@ describe('ContactForm', () => {
       message: 'Test Test Test Test',
       locale: 'de',
       altcha: 'altcha-payload',
-      website: '',
     });
 
     expect(
