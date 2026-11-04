@@ -6,53 +6,88 @@
       "phone": "Phone"
     },
     "contactForm": {
-      "email": {
-        "error": {
-          "invalid": "Please enter a valid e-mail address.",
-          "required": "Please enter your e-mail address."
-        },
-        "label": "Your e-mail address",
-        "placeholder": "name@example.com"
-      },
-      "message": {
-        "error": {
-          "maxLength": "The message must not be longer than 1000 characters.",
-          "minLength": "The message must be at least 10 characters long."
-        },
-        "label": "Your message",
-        "placeholder": "Let us know how we can help you."
-      },
+      "title": "Write us a message",
+      "text": "Tell us briefly how we can help. We usually reply within 1–2 business days.",
+      "optional": "optional",
       "name": {
-        "error": {
-          "required": "Please enter your full name."
-        },
         "label": "Full name",
-        "placeholder": "John Doe"
+        "placeholder": "Jane Doe",
+        "error": {
+          "required": "Please enter your name.",
+          "maxLength": "Your name must not be longer than 100 characters.",
+          "invalid": "Please enter your name only (no links)."
+        }
+      },
+      "company": {
+        "label": "Company / institution",
+        "placeholder": "e.g. City Hospital",
+        "error": {
+          "maxLength": "Please use at most 120 characters.",
+          "invalid": "Please do not include links."
+        }
+      },
+      "email": {
+        "label": "E-mail address",
+        "placeholder": "name@example.com",
+        "error": {
+          "required": "Please enter your e-mail address.",
+          "invalid": "Please enter a valid e-mail address, e.g. name@example.com."
+        }
       },
       "phone": {
+        "label": "Phone",
+        "placeholder": "+49 5661 12345",
+        "hint": "For quick questions.",
         "error": {
-          "required": "Please enter your phone number."
-        },
-        "label": "Your phone number",
-        "placeholder": "+XX 123 4567890"
+          "invalid": "Please enter a valid phone number (digits, +, spaces)."
+        }
       },
-      "recaptchaCookieNotice": "Please note that by using this contact form, you consent to the loading of ReCAPTCHA, a service that transfers data to Google. The contact form will only be displayed if marketing cookies are enabled.",
+      "topic": {
+        "label": "What is it about?",
+        "placeholder": "Please select",
+        "options": {
+          "repair": "Repair & service",
+          "products": "Products & distribution",
+          "manufacturing": "Manufacturing & tubing systems",
+          "other": "Other"
+        },
+        "error": {
+          "required": "Please choose a topic."
+        }
+      },
+      "message": {
+        "label": "Your message",
+        "placeholder": "How can we help? For repairs, please include the instrument, manufacturer and quantity.",
+        "counter": "{count} / {max} characters",
+        "error": {
+          "minLength": "Please write at least 10 characters.",
+          "maxLength": "The message must not be longer than 5,000 characters."
+        }
+      },
+      "privacyNotice": "We only use your details to handle your enquiry. Learn more in our <linkTag>privacy policy</linkTag>.",
+      "honeypot": "Please leave this field empty",
       "submit": {
         "label": "Send message",
-        "progress": "Sending...",
-        "success": "Thank you for your message. We will get back to you as soon as possible.",
-        "error": "Your message could not be sent.",
-        "errorWithDetail": "Your message could not be sent: {detail}",
-        "networkError": "A network error occurred while sending. Please try again later."
+        "progress": "Sending …"
       },
-      "terms": {
-        "error": {
-          "required": "Please accept our privacy policy."
-        },
-        "label": "I accept the <linkTag>privacy policy</linkTag>."
+      "success": {
+        "title": "Thank you, your message has arrived.",
+        "text": "We have sent a confirmation to {email}. We usually reply within 1–2 business days.",
+        "reference": "Your reference number",
+        "spamHint": "No confirmation? Please also check your spam folder.",
+        "again": "Send another message"
       },
-      "text": "We are looking forward to your message and will get back to you as soon as possible.",
-      "title": "Write us a message"
+      "error": {
+        "title": "Your message was not sent",
+        "validation_failed": "Please check the highlighted fields.",
+        "captcha_failed": "The automatic spam check failed. Please submit the form again.",
+        "rate_limited": "Too many messages were sent in a short time. Please try again in a few minutes.",
+        "send_failed": "Your message could not be delivered right now. Please try again shortly.",
+        "not_configured": "The form is currently unavailable.",
+        "invalid_request": "The request could not be processed. Please reload the page.",
+        "network": "Could not reach the server. Please check your connection and try again.",
+        "fallback": "Your input has been kept. You can also reach us directly:"
+      }
     },
     "mapsBanner": {
       "accept": "Accept Marketing-Cookies",
