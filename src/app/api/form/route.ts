@@ -57,7 +57,7 @@ export async function POST(request: NextRequest) {
     }
     return json({ ok: false, error: 'validation_failed', fields }, 422);
   }
-  const { altcha, website, locale, ...fields } = parsed.data;
+  const { altcha, locale, ...fields } = parsed.data;
 
   let config;
   try {
@@ -78,10 +78,6 @@ export async function POST(request: NextRequest) {
   }
 
   const reference = createReference();
-
-  if (website.trim() !== '') {
-    return json({ ok: true, reference });
-  }
 
   const mailer = createMailer(config);
 

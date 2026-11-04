@@ -65,7 +65,6 @@
         }
       },
       "privacyNotice": "Ihre Angaben verwenden wir ausschließlich zur Bearbeitung Ihrer Anfrage. Mehr dazu in unserer <linkTag>Datenschutzerklärung</linkTag>.",
-      "honeypot": "Dieses Feld bitte leer lassen",
       "submit": {
         "label": "Nachricht senden",
         "progress": "Wird gesendet …"

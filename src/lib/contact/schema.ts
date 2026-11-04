@@ -51,7 +51,6 @@ export type ContactFieldName = keyof ContactFields;
 export const contactRequestSchema = contactFieldsSchema.extend({
   locale: z.enum(CONTACT_LOCALES).catch('de'),
   altcha: z.string().min(1).max(10_000),
-  website: z.string().max(500).optional().default(''),
 });
 
 export type ContactRequest = z.infer<typeof contactRequestSchema>;

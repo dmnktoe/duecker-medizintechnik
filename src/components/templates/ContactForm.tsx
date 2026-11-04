@@ -101,7 +101,6 @@ export default function ContactForm() {
   const locale = useLocale();
 
   const altchaRef = React.useRef<AltchaHandle>(null);
-  const honeypotRef = React.useRef<HTMLInputElement>(null);
   const successRef = React.useRef<HTMLDivElement>(null);
   const errorRef = React.useRef<HTMLDivElement>(null);
 
@@ -172,7 +171,6 @@ export default function ContactForm() {
           ...fields,
           locale,
           altcha,
-          website: honeypotRef.current?.value ?? '',
         }),
       });
     } catch {
@@ -374,22 +372,6 @@ export default function ContactForm() {
           {...register('message')}
         />
       </FieldShell>
-
-      <div
-        aria-hidden='true'
-        className='pointer-events-none absolute -left-[10000px] h-px w-px overflow-hidden opacity-0'
-      >
-        <label htmlFor='contact-website-hp'>{tf('honeypot')}</label>
-        <input
-          ref={honeypotRef}
-          id='contact-website-hp'
-          name='contact-website-hp'
-          type='text'
-          tabIndex={-1}
-          autoComplete='off'
-          defaultValue=''
-        />
-      </div>
 
       <AltchaWidget
         ref={altchaRef}

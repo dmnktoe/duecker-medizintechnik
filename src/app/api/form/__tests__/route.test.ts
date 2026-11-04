@@ -36,7 +36,6 @@ const validBody = {
   message: 'Please repair our scissors.',
   locale: 'de',
   altcha: 'payload',
-  website: '',
 };
 
 let ipCounter = 0;
@@ -125,13 +124,12 @@ describe('POST /api/form', () => {
     expect(sendMail).not.toHaveBeenCalled();
   });
 
-  it('pretends success for bots that fill the honeypot', async () => {
+  it('ignores unknown fields such as the old honeypot', async () => {
     const res = await POST(
-      makeRequest({ ...validBody, website: 'http://spam.example' }),
+      makeRequest({ ...validBody, website: 'https://example.org' }),
     );
     expect(res.status).toBe(200);
-    expect((await res.json()).ok).toBe(true);
-    expect(sendMail).not.toHaveBeenCalled();
+    expect(sendMail).toHaveBeenCalledTimes(2);
   });
 
   it('sends the enquiry to the team and a receipt to the visitor', async () => {
