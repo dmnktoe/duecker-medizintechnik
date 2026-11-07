@@ -9,7 +9,6 @@ export interface ContactConfig {
     rejectUnauthorized: boolean;
   };
   inbox: string;
-  /** Hidden copies of every enquiry (e.g. a private address). */
   bcc: string[];
   from: string;
   altchaSecret: string;
