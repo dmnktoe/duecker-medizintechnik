@@ -9,6 +9,7 @@ export interface ContactConfig {
     rejectUnauthorized: boolean;
   };
   inbox: string;
+  bcc: string[];
   from: string;
   altchaSecret: string;
 }
@@ -42,6 +43,10 @@ export function getContactConfig(
       rejectUnauthorized: env.SMTP_TLS_REJECT_UNAUTHORIZED !== 'false',
     },
     inbox: env.CONTACT_FORM_RECEIVE_EMAIL!,
+    bcc: (env.CONTACT_FORM_BCC_EMAIL ?? '')
+      .split(',')
+      .map((address) => address.trim())
+      .filter(Boolean),
     from:
       env.CONTACT_FORM_FROM_EMAIL ||
       `no-reply@${env.CONTACT_FORM_SEND_EMAIL_DOMAIN}`,

@@ -10,6 +10,7 @@ type Address = { name: string; address: string };
 export interface OutgoingMail extends RenderedEmail {
   to: Address | string;
   replyTo: Address | string;
+  bcc?: string[];
   autoReply?: boolean;
 }
 
@@ -36,14 +37,16 @@ export function createMailer(config: ContactConfig) {
   return {
     async send(mail: OutgoingMail) {
       const to = typeof mail.to === 'string' ? mail.to : mail.to.address;
+      const bcc = mail.bcc?.length ? mail.bcc : undefined;
       return transporter.sendMail({
         from,
         to: mail.to,
+        bcc,
         replyTo: mail.replyTo,
         subject: mail.subject,
         html: mail.html,
         text: mail.text,
-        envelope: { from: bounceTo, to },
+        envelope: { from: bounceTo, to: bcc ? [to, ...bcc] : to },
         headers: mail.autoReply
           ? {
               'Auto-Submitted': 'auto-replied',
