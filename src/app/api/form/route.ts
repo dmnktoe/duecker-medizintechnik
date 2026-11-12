@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 import { verifyContactChallenge } from '@/lib/contact/altcha';
 import { getContactConfig } from '@/lib/contact/config';
+import { checkEmailDomain } from '@/lib/contact/email-domain';
 import {
   renderConfirmationEmail,
   renderInternalEmail,
@@ -75,6 +76,26 @@ export async function POST(request: NextRequest) {
       extra: { reason: captcha.reason },
     });
     return json({ ok: false, error: 'captcha_failed' }, 403);
+  }
+
+  const domain = await checkEmailDomain(fields.email, {
+    knownGood: config.inbox,
+  });
+  if (domain === 'unknown') {
+    Sentry.captureMessage('Contact form: e-mail domain check unavailable', {
+      level: 'warning',
+      tags: { feature: 'contact-form', step: 'check-domain' },
+    });
+  }
+  if (domain === 'invalid') {
+    return json(
+      {
+        ok: false,
+        error: 'validation_failed',
+        fields: { email: 'email.error.domain' },
+      },
+      422,
+    );
   }
 
   const reference = createReference();
