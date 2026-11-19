@@ -84,6 +84,7 @@ export async function POST(request: NextRequest) {
   try {
     await mailer.send({
       to: config.inbox,
+      bcc: config.bcc,
       replyTo: { name: fields.name, address: fields.email },
       ...renderInternalEmail(fields, {
         reference,

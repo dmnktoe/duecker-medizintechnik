@@ -175,6 +175,20 @@ describe('POST /api/form', () => {
     expect(receipt.html).not.toContain('Please repair our scissors.');
   });
 
+  it('sends a hidden copy of the enquiry when a BCC address is set', async () => {
+    process.env.CONTACT_FORM_BCC_EMAIL = 'me@private.test, other@private.test';
+    await POST(makeRequest(validBody));
+    const [internal, receipt] = sendMail.mock.calls.map(([mail]) => mail);
+    expect(internal).toMatchObject({
+      to: 'inbox@example.com',
+      bcc: ['me@private.test', 'other@private.test'],
+      envelope: {
+        to: ['inbox@example.com', 'me@private.test', 'other@private.test'],
+      },
+    });
+    expect(receipt.bcc).toBeUndefined();
+  });
+
   it('escapes HTML in the team notification', async () => {
     await POST(
       makeRequest({ ...validBody, message: '<script>alert(1)</script> hi' }),
