@@ -27,6 +27,11 @@ jest.mock('@/lib/contact/altcha', () => ({
     verifyContactChallenge(...args),
 }));
 
+const checkEmailDomain = jest.fn();
+jest.mock('@/lib/contact/email-domain', () => ({
+  checkEmailDomain: (...args: unknown[]) => checkEmailDomain(...args),
+}));
+
 const validBody = {
   name: 'Jane Doe',
   company: 'Klinikum Test',
@@ -59,6 +64,7 @@ describe('POST /api/form', () => {
     jest.clearAllMocks();
     sendMail.mockResolvedValue({ messageId: 'x' });
     verifyContactChallenge.mockResolvedValue({ ok: true });
+    checkEmailDomain.mockResolvedValue('ok');
     process.env = {
       ...originalEnv,
       SMTP_PORT: '465',
@@ -122,6 +128,34 @@ describe('POST /api/form', () => {
     });
     expect(captureMessage).toHaveBeenCalled();
     expect(sendMail).not.toHaveBeenCalled();
+  });
+
+  it('rejects an e-mail domain that cannot receive mail', async () => {
+    checkEmailDomain.mockResolvedValueOnce('invalid');
+    const res = await POST(
+      makeRequest({ ...validBody, email: 'jane@ss-fastner.com' }),
+    );
+    expect(res.status).toBe(422);
+    await expect(res.json()).resolves.toEqual({
+      ok: false,
+      error: 'validation_failed',
+      fields: { email: 'email.error.domain' },
+    });
+    expect(checkEmailDomain).toHaveBeenCalledWith('jane@ss-fastner.com', {
+      knownGood: 'inbox@example.com',
+    });
+    expect(sendMail).not.toHaveBeenCalled();
+  });
+
+  it('still sends when the e-mail domain cannot be checked', async () => {
+    checkEmailDomain.mockResolvedValueOnce('unknown');
+    const res = await POST(makeRequest(validBody));
+    expect(res.status).toBe(200);
+    expect(sendMail).toHaveBeenCalledTimes(2);
+    expect(captureMessage).toHaveBeenCalledWith(
+      'Contact form: e-mail domain check unavailable',
+      expect.objectContaining({ level: 'warning' }),
+    );
   });
 
   it('ignores unknown fields such as the old honeypot', async () => {

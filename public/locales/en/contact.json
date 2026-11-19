@@ -31,7 +31,8 @@
         "placeholder": "name@example.com",
         "error": {
           "required": "Please enter your e-mail address.",
-          "invalid": "Please enter a valid e-mail address, e.g. name@example.com."
+          "invalid": "Please enter a valid e-mail address, e.g. name@example.com.",
+          "domain": "This domain cannot receive e-mail. Please check the spelling of your address."
         }
       },
       "phone": {
